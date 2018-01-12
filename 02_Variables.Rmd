@@ -1,0 +1,511 @@
+# Variables, values and types {#variables}
+
+Before we can talk about what *variables* are, you will meet
+the most fundamental component of a program: *values*.
+
+```{python}
+print 2 + 2
+print 20 / 4
+```
+
+```{python}
+print("Hello, World!")
+```
+
+
+
+Values are classified into different classes, or *data types*:
+`4` is an *integer* and `"Hello, World"` is a
+*string*, so-called because it is a string of individual letters.
+If you ever wonder what type a value has, your Python interpreter
+can tell you. 
+
+```{python}
+type(4)
+int
+```
+
+```{python}
+type("Hello, World!")
+str
+```
+
+You will learn more about basic data types in Section 2.3 [Data types].
+Apart from manipulating values, programs usually require that information
+is stored in some way for later retrieval or manipulation. This is
+where *variables* come in handy. Variables are storage units
+in a computer's memory. A variable can store any kind of value. Unlike
+simple input and output values, you need a way to access variables
+and hence, you give them a name. You can think of a variable's name
+as a unique identification address in the computer's memory. By using this address, that is, by calling the variable's name, your computer knows which value you want to retrieve. The command by which a value is stored in a variable
+is called an *assignment statement*. It is common to say "a
+value is assigned to a variable''.
+
+```{python}
+myNumber = 4
+myString = "This is a string"
+print myNumber
+print myString
+```
+
+
+The order in which the variable and the to-be assigned value are placed
+around the equal sign is not arbitrary. Variables always have to be
+on the left side and values on the right side. Everything else will
+produce a syntax error. However, the right side can be a complex expression, which is not obviously a value at first sight. The single equal sign, as in `a = 4` is exclusivey reserved for assignment statements. If you read a program out loud, practice saying 
+
+> a is assigned the value 4
+
+A double equal expression, as in `a == 4` is used for comparing two values, as in "Does the value of 'a' equal 4?" That is completely different to an assignment and will be covered in Section 2.3 [Data types] and in more detail, in Chapter \@ref(conditionals).
+
+
+
+
+In fact, what happens during an assignment is that the value is stored at a certain position in the computers memory and is given a name, such that it can easily be retrieved back. Imagine this being a bit like GPS positions (example) compared to conventional addresses (street and house number).
+
+
+Programmers have much freedom in naming the variables, but some strict rules exist, as well as conventions.
+There are rules for naming variables. Some of them are good practice
+and others will throw syntax errors if not adhered to. In the beginning, you may think
+of good practice guidelines as superfluous, but you
+will learn to value them once you start making more complex programs.
+
+Heeding them pays off!
+
+1. Programmers give meaningful names to variables in order to make their
+code more readable for others and themselves. Without meaningful names,
+they would get lost when they tried to read their code again.
+
+1. The first character of a variable must be a letter of the alphabet,
+either uppercase or lowercase ASCII or Unicode, or an underscore.
+
+1. The rest of a variable name may consist of letters (uppercase or lowercase
+ASCII or Unicode characters), underscores, or digits (0-9).
+
+1. Variable names are case-sensitive. This means that the variables `myString`
+and `mystring` are not treated as the same variable by your
+computer.
+
+1. You may still get sytnax errors despite adhering to all rules named
+above. Chances are high that you tried to use one of Python's *keywords*
+as a variable name. Python uses a number of keywords to recognize
+the structure of a program, such as `if` and `for`. Your Python interpreter 
+can tell you the complete list of keywords known
+to your Python version:
+
+```{python}
+import keyword
+keyword.kwlist
+```
+
+
+## Stroop task variables
+
+Let's have a look at how variables are used in the interactive Stroop software.
+```{python, eval=F}
+# a list for gathering the response times
+RT = []
+
+# remember when stimulus was presented
+time_when_presented = time()
+
+# remember when the user has reacted
+time_when_reacted = time()
+
+# calculate the response time
+this_reaction_time = time_when_reacted - time_when_presented
+RT.append(this_reaction_time)
+```
+
+In the first line, an empty *list* is assigned to the variable `RT` for saving reaction times during the Stroop experiment. You will learn more about *lists* in Chapter \@ref(lists). For now it suffices to know that lists are yet another data type, capable of containing values of multiple data types at the same time! You may reckon that they are the ultimate structure for storing data. The variables `time_when_presented` and `time_when_reacted` respectively store the point in time (using the *method* `time`) upon a certain event, the first upon presentation of the Stroop stimulus and the second upon the subject's reaction to the stimulus. The reaction time of the subject is calculated by *subtracting* one stored point in time from the other and saved in the variable `this_reaction_time`. Finally, the reaction of the current trial (as the Stroop experiment involves several trials) is *appended* to `RT`, meaning that `this_reaction_time` is saved in `RT` before the program proceeds to the next trial. The above example obviously reduces the mechanics of the Stroop software to the highlighted variable assignments, meaning that the code lacks the actual dynamics of the program. Don't worry about that for now, you will learn about the program's dynamics soon enough.
+
+## How Variables Are Used
+
+More formally, variables are an essential component of any program.
+As such, their applications are numerous. This section provides but
+a glimpse into the vast and creative application possiblities of variables.
+Do not worry, you will soon get a hang of it once you start doing
+some real programming yourself. One common way of using variables
+is storing the output of *functions*:
+
+```{python}
+import random
+number = random.randint(0,10)
+print number
+
+```
+
+You will learn in detail about functions in Chapter \@ref(functions). For now it
+suffices to know that the function `random.randint(0,10)` randomly
+picks an integer between 0 and 10, and *returns* the chosen
+integer. Whatever number is picked by the function is stored in the
+variable `number` and can easily be retrieved and used for other
+purposes elsewhere. If this piece of information does not satisfy
+you, simply type `help(random)` after importing `random`
+and your interpreter will give you a more detailed description of
+the *class* `random`.
+
+Variables are mutable, meaning that their value can be changed after
+an initial assignment. This is very useful for structuring a program:
+
+```{python, eval=F}
+# determining the maximum number of trials
+nTrials = 3
+# setting the counting variable to 0
+n = 0
+# adding 1 to n as long as n does not exceed nTrials
+while(n < nTrials):
+    # do something
+    n = n + 1
+```
+
+
+This
+comes in handy if you want to repeat a part of your program until
+a certain condition is fulfilled. For instance, imagine taking measurements
+for a fixed number of trials in the context of a psychological experiment.
+In the example above, `nTrials` and `n` are used for creating
+a counting mechanism until the desired number of repeated measurements
+is reached. Note how the old value of `n` is used to mutate
+the value of `n` after one execution cycle of the program. You
+will learn more about the use of *conditionals* and the *while loop*
+in Chapter \@ref(conditionals) and Chapter \@ref(loops), respectively. 
+
+## Data types
+
+Earlier in this chapter, you learned that
+each value belongs to a certain *class* or *data type*.
+This Section will introduce the *basic data types*: *integers*,
+*floats*, *strings*, and *booleans*. Apart from the basic data types, Python knows numerous
+specialized types. You will encounter the basic types in literally
+every program and thus, it seems to be reasonable to say a word or
+two about them. 
+
+### Numbers
+
+There are two main types of numbers in Python, *integers*
+and *floating point numbers* or *floats* for short.
+Integers are whole numbers, such as `6` and `1234`, while
+floats are numbers including a decimal point, such as `2.4`
+and `45.768`. But wait, what happens if we add a float to a
+variable of type integer? Let's try!
+
+```{python,eval=F}
+number = 7
+type(number)
+int
+
+number = number + 3.5
+type(number)
+float
+```
+
+
+The variable changed from type *int* to *float*! This
+is an example of implicit *typecasting*. Typecasting means
+changing the type of a variable, and it can be done explicitly and
+implicitly. At times you will want to change the type of a variable
+to suit your needs. For this, you use explicit typecasting: 
+
+```{python}
+number = 10.5
+int(number)
+10
+
+```
+
+
+
+And here you discover one tricky thing about typecasting *floats*
+to *integers*. Python does not round off the value of floats
+when typecasting them into integers, it simply cuts off whatever there
+is after the decimal point. This can become especially tricky when
+typecasting implicitly and should be monitored with caution.
+
+### Strings
+
+If numbers are *integers* or *floats*, what about
+values such as `"17"` and `"13.65"`? They look like numbers,
+but they are wrapped in quotation marks like *strings*. 
+
+```{python}
+type("17")
+str
+type("13.65")
+str
+```
+
+
+They are strings! In Python, strings can be enclosed in either single
+quotes (`'`), or double quotes (`"`), or three of each
+(`'''` or `"""`). But what if your string includes a quote and you want to indicate this by using quotation marks *within* your string? Using the same quotation marks as used for defining the string will prematurely end the string.
+
+```{python, eval=F}
+quote = "Freud: "The mind is like an iceberg, it floats with one-seventh of its bulk above water.""
+
+SyntaxError: invalid syntax
+```
+
+Instead, when using single quotes, you can use double quotes or triple quotes inside them:
+
+```{python, eval=F}
+quote = 'Carl Rogers: "In my early professional years I was asking the question: How can I treat, or cure, or change this person? Now I would phrase the question in this way: How can I provide a relationship which this person may use for his own personal growth?"'
+```
+
+Double quoted strings can have single quotes and triple quotes inside
+them: 
+
+```{python, eval=F}
+quote = "Ivan Pavlov's best known findings relate to the phenomenon of conditioning."
+```
+
+Triple quoted strings can include either single or double quotes.
+Strings are basically a sequence of single characters tied together
+and unlike variable names, strings may include spaces! They are usually
+used to display text or to export information out of the
+program. The latter you probably want after a participant has completed all trials of an experiement
+in order to save the recorded measurements.
+
+### Booleans
+A *boolean expression* is an expression that is either `True` or `False`.
+```{python}
+print 5 == (3+2)
+print 5 == 6
+
+```
+
+```{python}
+j = "hel"
+print "hello" == j + "lo"
+```
+`True` and `False` are special values of type boolean; they are no strings!  
+```{python,eval=F}
+type(True)
+bool
+
+```
+
+```{python,eval=F}
+type(False)
+bool
+```
+
+A *boolean expression* consists of two operands, located left and right of a *relational* or *comparative* operator. There are six common comparison operators in Python:
+
++ `x == y # x equals y`
++ `x != y # x is not equal to y`
++ `x > y  # x is greater than y`
++ `x < y  # x is smaller than y`
++ `x >= y # x is greater or equal to y`
++ `x <= y # x is smaller or equal to y`
+
+These operators are probably familiar to you, but their usage in Python differs from the mathematical symbols you know from highschool. One very common confusion surrounds the `equals` (`==`) operator. Remember that `=` is reserved as assignment operator and `==` is used for comparisons. There is no such thing as `=>` or `=<`.  
+Apart from that, boolean values can be handled exactly as any other value, that is, they can be assigned to variables, printed, etc.
+```{python}
+number_of_EC_required_for_BSA = 45
+passed_BSA = number_of_EC_required_for_BSA <= 50
+print passed_BSA
+```
+
+## Common Errors
+
+1. Confusing the *assignment operator* (`=`) with the comparative *equals* operator (`==`). The first is solely used for assigning values to variables
+```{python}
+myString = "This is an assignment statement"
+```
+the latter for comparing two values
+```{python}
+17+3 == 21
+```
+2. Forgetting to typecast other data types when incorporating them into strings
+```{python, eval=F}
+myGrade = 8
+print "I got an " + myGrade + " on the last exam!"
+
+TypeError: cannot concatenate 'str' and 'int' objects
+
+```
+Commonly, you will want to export some arithmetic result or recorded non-string data type out of the program, or you simply want to print them. This is usually done by first converting the data into type string and then writing to some external plain text file or using the *print command*. People tend to forget that *explicit typecasting* is required when incorporating non-string values into a sequence of strings.
+```{python}
+myGrade = 8
+print "I got an " + str(myGrade) + " on the last exam!"
+```
+
+3. Unintentionally cutting off decimals when typecasting to *integers*.
+```{python}
+import numpy
+RT = [3.749,2.998,3.0147]
+mean_RT = numpy.mean(RT)
+print "The subject had a mean reaction time of " + str(int(mean_RT)) + " seconds."
+
+```
+Obviously, a mean reaction time of exactly `3` is unrealistic with `3.749`, `2.998`, and `3.0147` as individual trial reaction times. You may feel inclined to typecast anyway to shorten the numerical string expression, but remember that typecasting from *float* to *integer* results in the loss of any information after the decimal point. Besides, usually there are better ways for rounding off floating points; consider the `round` method for instance.
+```{python}
+import numpy
+RT = [3.749,2.998,3.0147]
+mean_RT = numpy.mean(RT)
+print "The subject had a mean reaction time of " + str(round(mean_RT, 3)) + " seconds."
+```
+
+4. Forgetting to reassign the mutated value of a variable
+```{python}
+count = 1
+count + 1
+print count
+```
+Remember to assign the new value of a mutated variable to either a new variable or the original variable name; your computer is otherwise unable to allocate your intended variable mutation and will "forget" that you changed the value.
+```{python}
+count = 1
+count = count + 1
+print count
+```
+
+## Exercises
+
+### Exercise 1. String concatenation
+
+Consider the three blocks of code below.
+
+1. What is the output of the respective *print statement* at the end of each block?
+2. Describe in your own words what *string concatenation* is.
+3. There is an error hidden in the code. Explain what is going wrong and adjust the code so that it runs without throwing any errors.
+
+```{python, eval=FALSE}
+myString = "The statement 'Veni, vidi, vici.'"
+s1 = " was coined by Gaius Julius Caesar."
+myString = myString + s1
+print myString
+
+
+myString = "The statement 'Veni, vidi, vici.'"
+s1 = " was coined by Gaius Julius Caesar."
+s2 = ", 'I came, I saw, I conquered.',"
+myString = myString + s2 + s1
+print myString
+
+
+myString = "The statement 'Veni, vidi, vici.'"
+s1 = " was coined by Gaius Julius Caesar,"
+s2 = " supposedly around "
+year = 47
+s3 = " BC."
+myString = myString + s1 + s2 + year + s3
+print myString
+```
+
+Want to know more about *string concatenation*? The following website
+provides a gentle introduction to the topic: [Python for Beginners: String concatenation and formatting in Python](http://www.pythonforbeginners.com/concatenation/string-concatenation-and-formatting-in-python)
+
+### Exercise 2. Variable names
+
+For the following variable names indicate whether the name is legal
+or not. Point out what makes the variable name violate naming rules and/or conventions.
+```{python,eval=F}
+Reg       = "What have the Romans ever given us?"
+man1      = "The aqueduct?"
+2ndMan    = "The sanitation"
+m@n3      = "And the roads"
+man_4     = "Irrigation"
+man 5     = "Medicine"
+SixthMan  = "Education"
+man_no._7 = "And the wine!"
+8thMan    = "Public votes"
+no9atReg  = """Public order; it's finally safe to walk
+            in the streets at night."""
+reg       = """All right. But apart from sanitation,
+            medicine, education, wine, public order,
+            irrigation, roads, a fresh water system,
+            and public health;
+            what have the Romans ever done for us?"""
+```
+
+
+### Exercise 3. Stroop task welcome message
+
+In this exercise you will add a welcome message to the starting screen
+of the Stroop Task program.
+
+1. Open the file `stroop_modifiedCh1Ex3.py`. Run it.
+2. Make two new variables, `msgColor` and `msgText`. Choose any color and welcome message you want.
+3. Read and try to understand the code written in lines 134-137. Try to formulate in your own words what each line of the code does.
+4. Uncomment lines 134-137. *Hint*: In Python, a commented line starts with a `#`. Commented lines will not be executed.
+5. Hit `Run file` again and see your first modification of the
+Stroop Task script in action.
+
+
+### Exercise 4. Printing
+
+The following code prints part of a Methods section. Copy it and run it.
+
+```{python, eval = F}
+participants = 52.0
+trials = "200"
+experimental_sessions = 3
+trials_pp = trials * experimental_sessions
+conditions = 4
+
+"""
+to be implemented by you
+condition1 = 
+condition2 = 
+condition3 = 
+condition4 =
+"""
+
+print "In total,", participants, "participants participated in the study."
+print "A 2x2 factorial between-subjects design was employed."
+print "The study examined the interaction of two independent variables: "
+print "task difficulty (easy, difficult) and time (limited, unlimited)."
+print conditions, "conditions were devised, plus a control condition."
+print "The conditions were:",condition1,condition2,condition3,condition4
+print "Participants were tested in", experimental_sessions, "experimental sessions."
+print "Each session consisted of",trials,"trials."
+print "In total, each partcipant thus completed", trials_pp, "trials."
+```
+
+1. The first time you run the script, you get an error. Initialize the variables `condition1, condition2, condition3, condition4` to solve the error. In the context of the printed Method text, fill in semantically correct values of the conditions.
+2. You get a a curious output for the number of trials per person. Adjust
+the code so that the correct number of trails per person is printed. Explain what happened in your own words.
+3. `52.0` participants looks a bit ugly when printed as part of the text. Adjust the code in such a way that only full integers are printed.
+
+### Exercise 5. Using Python as a calculator
+
+Make a python script `Ch1Ex5.py` and implement the following pseudo code:
+
+* assign the value 37 to the variable `n1`
+* assign the value 456 to `n2`
+* calculate 1027 modulo n1 and assign the result to `n3`
+* divide n2 by n3
+* add 4 to `n2`
+* calculate `n2` modulo 5 and assign the result to `n4`
+* subtract 17 from `n4`
+* calculate 65 modulo `n4` and divide the result by 2
+
+What is the resulting value of `n4`?
+
+### Exercise 6. A Boolean puzzle
+
+Fill in the blank spots (indicated by a question mark `?`) in the following code in such a way that `True` Boolean values are returned. You can use your Python interpreter for calculations.
+```{python, eval=F}
+n1 = 238
+n2 = 17
+
+print n1 ? n2
+print n1 / ? == 14
+print n1 * ? == n2
+print n1 + ? == n2 - ? and n1 + ? == 972%243 and n2 - ? == 0
+print n2 * ? == n1*47
+print n1 / ? == n2 / ? * ?
+```
+
+## Think Further
+
+For more information and exercise on Variables and Data Types you
+may want to consult some of the following resources:
+
+
+* [Downey, A. (2012). Think Python. O'Reilly Media, Inc.. Chapter 2. Variables,
+expressions and statements](http://www.greenteapress.com/thinkpython/thinkpython.pdf)
+* [Official Python Tutorial, parts 3.1.1 Numbers and 3.1.2 Strings](https://docs.python.org/2/tutorial/introduction.html)
+* [Learnpython ``Variables and Types'' interactive tutorial](http://www.learnpython.org/en/Variables_and_Types)
+* [Swaroop, C. H. (2003). A Byte of Python. Chapter 6 ``Basics''](https://python.swaroopch.com/basics.html)

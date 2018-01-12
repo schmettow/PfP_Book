@@ -1,0 +1,317 @@
+# Conditionals {#conditionals}
+
+```{python}
+if 1 == 1:
+  print('Hello World')
+```
+
+
+## Boolean logic
+
+In Chapter \@ref(variables) we introduced simple *Boolean expressions* that produce *Boolean values* with the help of *comparative operators* (`==`,`!=`,`>`,`<`,`>=`,`<=`). Consider the following examples:
+```{python, echo=TRUE}
+print 10 > 5 and 5 > 2
+```
+
+
+```{python}
+print True or False
+print True and not False
+print not True and False
+```
+
+Python knows three *logical operators*, `and`, `or`, and `not`. They allow us to build more complex Boolean expressions from simpler ones. Sometimes these operators confuse people because they are used differently in informal language. Therefore, it is important to understand what they formally mean in Python (and math and all other programming languages). The following truth table displays what these operators exactly mean for two variables `a` and `b` for all combinations of values:
+
+a|b|not a|a and b|a or b|not a or b
+-|-|-----|-------|------|----------
+True|True|False|True|True|True
+True|False|False|False|True|False
+False|True|True|False|True|True
+False|False|True|False|False|True
+
+There exists a set of rules for working with Boolean values, much like highschool mathematical algebra. First of all, the logical operators `and`, `or`, and `not` differ in their priority. In highschool, you learned that given a formula `a + b * c`, you first multiply `b` and `c` before adding `a`. This is the same as saying that `*` has a higher *precedence* than `+`. From highest to lowest the precedence ranking for the three logical operators is: `not`, `and`, `or`. In addition, the six *comparative* operators (`==`,`!=`,`>`,`<`,`>=`,`<=`) precede all logical operators.
+```{python}
+print not True or 1 == 1
+```
+
+Also notice that
+```{python}
+print not True and False
+```
+is not the same as
+```{python}
+print not (True and False)
+```
+
+## if ... then {#if-then}
+
+Boolean values are essential to conditional execution as they provide the conditions under which certain blocks of code are executed. The simplest form of a *conditional* is the `if statement`.
+
+```{python}
+myNumber = 0
+if (myNumber < 0):
+    print "myNumber is smaller than 0"
+if (myNumber >= 0):
+    print "myNumber is larger than, or equal to 0"
+```
+You can read *if statements* as
+
+> If whatever is written within the curved brackets equals `True`,    
+> then, and only then, the (intended) code within the statement is evaluated
+
+An `if statement` consists of a *header* and a *body*. The header begins with the *keyword* `if`, followed by a *Boolean expression* (the *condition*) and ends with a colon (`:`). The brackets around the condition are optional. Only if the given condition is met, the program will read and execute the code written in the statement's body. Note that Python requires that the statements written in the body of an *if statement* are indented consistently (commonly by four spaces). The intended statements are called a *block* and the first unintended statement designates the end of the block.
+
+Actually, you can simplify the code above by using an *else clause*:
+
+```{python}
+myNumber = 0
+if (myNumber < 0):
+    print "myNumber is smaller than 0"
+else:
+    print "myNumber is larger than, or equal to 0"
+```
+
+Conditionals can even be *nested* within each other:
+```{python}
+myNumber = 0
+if (myNumber < 0):
+    print "myNumber is smaller than 0"
+else:
+    if (myNumber == 0):
+        print "myNumber equals 0"
+    else:
+        print "myNumber is larger than 0"
+
+```
+The indentation makes the structure of the program apparent. However, most of the time, nested conditionals complicate your code unecessarily. As  a result, your code becomes more difficult to read. It is commonly regarded as good practice to keep their usage to a minimum.
+
+But then, how do you implement more than two execution branches, without resorting to nested conditionals?
+
+```{python}
+myNumber = 0
+if (myNumber < 0):
+    print "myNumber is smaller than 0"
+elif (myNumber == 0):
+    print "myNumber equals 0"
+else:
+    print "myNumber is larger than 0"
+```
+
+The *elif statement* allows you to include more than two alternative conditions. The example above is called a *chained conditional*. Note that when using an *else clause* in a chain of conditionals, it always marks the end of the chain. Furthermore, each condition is checked in order. If the first is false, the next is checked, and so on. Note that only the first true branch is executed, even if more than one condition is true.
+
+Alternatively, *nesting* can often be circumvented by using *logical operators*:
+```{python, eval=F}
+myNumber = 5
+if (myNumber > -5):
+    if (myNumber >= 0):
+        print "myNumber is a positive digit"
+```
+
+```{python, eval=F}
+myNumber = 5
+if (myNumber > -5 and myNumber >= 0):
+    print "myNumber is a positive digit"
+```
+
+## Programming interaction: Conditional state transitions
+
+In programming interactive software, such as the Stroop experiment, conditionals are essential to control the flow of the program. By flow, we mean how the program changes states by input of the user. Take a first look of how one `if ... else` statement makes the program move on from the welcome screen to the first trial:
+
+
+```{python eval = FALSE}
+    STATE = "welcome"    
+
+    if STATE == "welcome":
+      if event.type == KEYDOWN and event.key == K_SPACE:
+        STATE = "prepare_next_trial"
+        print(STATE)
+```
+
+To see this in action, run the Stroop program once again, and watch what is printed to the console. You will see that at every key press the state of the program is printed to the console.
+
+
+## Common Errors
+
+1. Using `tabs` and `spaces` interchangably to indent your code. To be honest, your Python compiler may not complain immediately when you mix `tabs` and `spaces`. However, there are good reasons why you do not want to do this anyway:
+
+* Usually the human reader has even more difficulty than the computer discerning block structures when mixing `tabs` and `spaces`. This makes subsequent programming efforts a quite error-prone activity.
+* The semantics of tabs are not very well defined in the computer world. As a result, tabs may be displayed completely differently on different types of systems and editors. This means that you cannot safely copy and paste your code without risking to destroy your program's structure.
+
+More information on indentation in Python can be found [here](http://www.secnetix.de/olli/Python/block_indentation.hawk).
+
+2. Confusing the *assignment operator* (`=`) with the comparative *equals operator* (`==`).
+
+```{python, eval=F}
+myNumber = 5
+if (myNumber = 5):
+    print "Yes, myNumber is indeed equal to 5!"
+
+SytnaxError: invalid sytnax
+```
+
+Yes, this will be a re-occuring issue in many chapters. For human beings it is just too easy to type `=` when they actually mean `==` in Python. Being a psychologist, go figure.
+
+## Exercises
+
+### Exercise 1. Following the control flow
+
+Read the following program code and try to follow its control flow. Write down the content of each `print statement`. Check your answers with the help of your python editor. *Hint*: spaces also add to the length of a string (as measured by the `len()` *method*)!
+
+```{python, eval=F}
+myString = "Hello, World!"
+if len(myString) >= 13 or "ello" in myString:
+    myString = "Hi, programming aspirant!"
+elif len(myString) <= 12 and "ello" in myString:
+    myString = "Hello, from the other side."
+print myString
+
+if "Hi" in myString:
+    if len(myString) < 25:
+        myString = "Wow, my computer seems to answer!"
+    elif len(myString) > 25:
+        myString = myString + " -- Your computer"
+    else:
+        myString = myString + " How are you?"
+else:
+    if len(myString) <= 29:
+        myString = "How are you, my computer?"
+    elif len(myString) == 27 and "Hello" in myString:
+        myString = myString + " I must have called a thousand times."
+    else:
+        myString = myString + " -- Adele"
+print myString
+
+if "computer" in myString or len(myString) == 38 or "HI" in myString:
+    myString = myString + " I myself am doing fine."
+else:
+    myString = myString + " I am doing just fine."
+print myString
+```
+
+### Exercise 2. Indentation
+
+Copy the following piece of code and run it. Correct all indentation errors until the code runs error-free.
+```{python, eval=F}
+myNumber = 4
+if myNumber < 20 and myNumber > 0:
+    if myNumber > 0 and myNumber < 15:
+    myNumber = myNumber + 3
+    else:
+       myNumber = myNumber - 3
+        print "This is a dead end statement."
+elif myNumber > 20:
+print "This should only be printed if myNumber exceeds 20!"
+else:
+    myNumber = 17
+```
+
+
+### Exercise 3. Pseudo code conditionals
+
+Translate the following common language sentences into *pseudo code* conditionals as in
+
+* If it rains tomorrow, I will take an umbrella with me.
+
+```{python, eval=F}
+if rain
+    set umbrella to True
+```
+Pseudo code is a programming language-independent informal and simplified description of the essential operating principles of a computer program. It adheres to the structural conventions of a normal programming language, but it is rather meant for the human reader than machine reading. Pseudo code is commonly used for sketching out the structure of a computer program before the actual code writing takes place.  You can find a more detailed description of what pseudo code is and some examples of written pseudo code [here](https://en.wikipedia.org/wiki/Pseudocode).
+
+1. If there is no *rain* tomorrow, I will either go *swimming*, if Jan has time to join that is, or I will go *hiking*. Otherwise I will stay at home and *read*.
+2. Under the condition that the participant is *18 years or older* and has *no history of alcohol abuse*, he or she *may participate* in our study.
+3. When the streets are *wet*, the chance is high that it has *rained*.
+4. If the participant turns out to be *eligible* to participate *brief* him or her about the experiment. Otherwise kindly *explain* that they do not meet the criteria to participate. If the eligible participant is assigned to *condition A*, lead them to *room 001*. If he or she is assigned to *condition B*, lead them to room *002*.
+
+### Exercise 4. Modify Stroop Task
+
+Add a conditional to the interactive Stroop experiment so that in case the participant's reaction time exceeds 5 milliseconds, "Come on, you can be faster!" is printed to the screen
+
+Hints:
+
+* First think about where in the program you need to make changes to print the message
+
+* Formulate the `if statement` or mutate existing `if statements` to fit your needs
+
+* Use the existing program code as a template for drawing the message
+
+### Exercise 5. Simplify nested conditionals
+
+For a research project, you want to examine to what extent gender affects the influence of coffee on a person's performance on a vigilance task. You perform matching during sampling. All females will be grouped together, and all males will form one condition.
+
+The code below represents a decision tree that matches a candidate participant on the basis of their personal details with either condition A (for females) or condition B (for males). In addition, the decision tree raises a warning if the candidate does not meet at least one of the requirements for participation.
+
+As is, the code is quite complex, including a lot of redundant lines and unneccessary nested conditionals. First, read the code carefully to figure out the requirements a candidate participant has to meet in order to participate in the study. Then, simplify the code while maintaining its functionality.
+
+```{python, eval=F}
+### participant details ###
+age = 20
+gender = "Male"
+study = "Psychology"
+speaks_Dutch = True
+coffee = True
+condition = "not eligible for the experiment"
+
+if age >= 18:
+    
+    if gender == "Female":
+        if study == "Communication Sciences":
+            if speaks_Dutch == True:
+                if coffee == True:
+                    condition = "A"
+                elif coffee == False:
+                    print "Participant is not eligible to take part in the experiment."                   
+            elif speaks_Dutch == False:
+                print "Participant is not eligible to take part in the experiment."
+                
+        elif study == "Psychology":
+            if speaks_Dutch == True:
+                if coffee == True:
+                    condition = "A"
+                elif coffee == False:
+                    print "Participant is not eligible to take part in the experiment."                   
+            elif speaks_Dutch == False:
+                print "Participant is not eligible to take part in the experiment."
+        
+        elif study != "Communication Sciences" and study != "Psychology":
+             print "Participant is not eligible to take part in the experiment."
+                    
+    elif gender == "Male":
+        if study == "Communication Sciences":
+            if speaks_Dutch == True:
+                if coffee == True:
+                    condition = "B"
+                elif coffee == False:
+                    print "Participant is not eligible to take part in the experiment."                   
+            elif speaks_Dutch == False:
+                print "Participant is not eligible to take part in the experiment."
+                
+        elif study == "Psychology":
+            if speaks_Dutch == True:
+                if coffee == True:
+                    condition = "B"
+                elif coffee == False:
+                    print "Participant is not eligible to take part in the experiment."                   
+            elif speaks_Dutch == False:
+                print "Participant is not eligible to take part in the experiment."
+                
+        elif study != "Communication Sciences" and study != "Psychology":
+            print "Participant is not eligible to take part in the experiment."
+else:
+    print "Participant is not eligible to take part in the experiment."
+
+```
+
+
+### Exercise 6. Flow chart conditionals
+
+Turn the following flow chart into a python script and run it. Given that the initial value of `n` is `-1`, what is the final value of `n`?
+
+![](figures/Ch3Ex4.png) 
+
+## Think Further
+
+* For a complete list of all operator precedences in Python feel free to consult the following summary: [Official Python Documentation: 5.15 Operator precedence](https://docs.python.org/2/reference/expressions.html#operator-precedence)
+* For an alternative explanation of the contents of this chapter, consult [A Byte of Python: Chapter 6. Operators and Expressions and Chapter 7. Control Flow](http://files.swaroopch.com/python/byte_of_python.pdf)
+* For more detail on Conditionals, Boolean algebra and related topics, you are invited to take a look at [How to Think Like a Computer Scientist: Learning with Python 3: 5. Conditionals](http://openbookproject.net/thinkcs/python/english3e/conditionals.html)
+

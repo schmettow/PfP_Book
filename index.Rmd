@@ -1,0 +1,15 @@
+---
+title: "Programming for Psychologists"
+author: "Martin Schmettow and Lena Brandl"
+date: "`r Sys.Date()`"
+site: bookdown::bookdown_site
+output: bookdown::gitbook
+documentclass: book
+biblio-style: apalike
+github-repo: schmettow/PfP_book
+description: "a book to accompany the course Programming for Psychologists"
+---
+
+# Preface {-}
+
+This book is authored using [bookdown][https://bookdown.org/yihui/bookdown/].

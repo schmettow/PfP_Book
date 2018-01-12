@@ -1,0 +1,376 @@
+---
+output:
+  pdf_document: default
+  html_document: default
+---
+# Functions {#functions}
+
+```{python}
+def hello(repetitions):
+    for i in range(repetitions):
+        print "Hello, World!"
+
+hello(2)
+```
+
+Functions are reusable pieces of code. By giving a block of statements a name, functions allow you to make use of that block anywhere in your program and as many times as you want. You can use the block of statements without having to write out the actual code contained in the block. This makes your code a lot easier to read and it eliminates a great deal of repetitive code. If you want to make a change later, you only have to do so in one place. We have already seen and used many built-in functions of Python, such as `len()` and `range()`. In this chapter, you will learn how to *define* and *call* your own functions.
+
+## Defining and calling functions
+
+Before you can use a function, it has to be defined in your program.
+
+```{python}
+def echo(text):
+    print text
+```
+
+The syntax for defining a function includes the `def` keyword, an identifier name for the function (`echo`), followed by parentheses which may optionally enclose one or multiple function *parameters* (`text` in the above example). Finally, a colon `:` demarcates the end of the definition statement. The body of a function may include any number of statements and is indented from the `def` statement.
+
+Functions enable us to organize our programs into chunks; code chunks as well as mental chunks. Programs have goals, and usually propose a solution to a given problem. Just as with real-life goals and problem solving, subdividing a task at hand into smaller subgoals helps us organize our approach.
+
+
+Defining a function does not make the function run. To run a function, you need to *call* it.
+
+```{python}
+def echo(text):
+    print text
+echo("Hello there, programming aspirant!")
+```
+
+Function calls consist of the name of the function, and if the function takes one or more arguments, some values are included in the parentheses following the function name.
+
+## Function parameters and arguments
+
+When calling a function that takes *parameters* you should supply the function with values which the function can use to do something. *Parameters* are specified within parentheses during function definition. Multiple parameters are separated by commas. Mind the terminology, the names given to the values during function definition are called *parameters* and the values you supply to the function are called *arguments*.
+
+You can think of parameters as variables which only exist in the function. By default, their values are assigned when you call the function and they cease to exist once the function has finished running. Their sole purpose is to serve internal computations within the function.
+
+Another way of saying this is that variables inside functions are *local*. Local variables are not in any way related to other variables outside a function.
+
+```{python}
+x = 100
+
+def myFunction(x):
+    x += 50
+    print "Local x equals:", x
+    
+print "Global x equals:", x
+myFunction(0)
+
+```
+
+In the above example, the *scope* of the variable `x` within `myFunction(x)` is local, whereas the scope of `x` outside the function is said to be *global*.
+
+## The `return` statement
+
+But what if you want to use a value that has been assigned to some variable and manipulated within a function somewhere else in your program? Let's make a few changes to `myFunction(x)` so that the function *returns* a value that can be used outside `myFunction(x)`.
+
+```{python}
+def myFunction(x):
+    x += 50
+    print "Local x equals:", x
+    return x
+
+x = 100
+print "Global x equals:", x
+x = myFunction(0)
+print "After function call, global x equals:", x
+```
+
+The `return` statement enables us to retrieve one or more values from a function. When returning multiple values, Python makes use of *tuple assignment*. Make sure to provide enough variables on the left side of the assignment operator to unpack the returned tuple. Consult Chapter \@ref(lists) for a revision on tuples and tuple assignment, or take a quick look at [How to Think Like a Computer Scientist: Tuple Assignment](http://interactivepython.org/courselib/static/thinkcspy/Lists/TupleAssignment.html).
+
+To understand the example code above, it helps to realize that function definitions do not affect the flow of execution of a program. Remember that by default, Python faithfully executes a program in a top-down fashion. Function definitions need to precede function calls, but a function's statements are not executed until the function is called.
+
+When a function is called, the execution flow of the program takes a detour. Instead of proceeding to the next program line, it jumps to the first line of the called function, executes all function statements in top-down order, and then jumps back to where it left off.
+
+```{python}
+def echo(text="This is some random text made for the purpose of interruption"):
+    print text
+    
+print "Hi there, "
+echo()
+print "how are you?"
+```
+
+
+## Functions can call other functions, and themselves
+
+This sounds simple enough, but it becomes slightly more complex when functions call one another, and even themselves.
+
+```{python}
+def summation(alist):
+    sum = 0.0
+    for i in range(len(alist)):
+        sum += alist[i]
+    print "Sum of the list is:", sum
+    return sum
+
+def average(alist):
+    return summation(alist)/len(alist)
+    
+print average([1,2,3,4])
+
+```
+
+Note how the above implementation of `average` calls the function `summation` to calculate the sum of the items in the list given as an argument (`alist`) to the function call of `average`. While executing the `return` statement in `average`, `summation` is called and the program's flow of execution jumps to the first line of `summation`. After all statements contained in `summation` are completed, the flow of execution jumps back to where it took off and replaces the expression `summation(alist)` by the value returned by the function call to `summation` (in this case, `10.0`).
+
+What's the morale of this detour? When reading and trying to understand a program, you should not simply read from top to bottom. Instead, follow the flow of execution to understand what is going on.
+
+
+### A word about *Recursion*
+Functions can call other functions, including themselves. A function calling itself is said to take a *recursive* approach to problem solving. *Recursion* is a method involving the subdivision of a problem into smaller and smaller subproblems until a subproblem small enough is obtained that can be solved easily.
+
+You already know how to calculate the sum of a list of numbers using *loops*. Let's pretend for a moment that there are no `while` or `for` loops in Python. How would you approach calculating the sum of a list of numbers then?
+
+While the topic of *Recursion* is beyond the scope of this book, the interested reader is invited to take a look at [Problem Solving with Algorithms and Data Structures: Chapter 4. Recursion](http://interactivepython.org/runestone/static/pythonds/Recursion/toctree.html), by Brad Miller and David Ranum (2011). In particular, [Section 4.3. Calculating the Sum of a List of Numbers](http://interactivepython.org/runestone/static/pythonds/Recursion/pythondsCalculatingtheSumofaListofNumbers.html) adresses the calculation of a sum of a list of numbers by taking a recursive approach. Recursion is a powerful technique that enables solutions to problems that would otherwise be difficult to express in code.
+
+## Stroop functions
+
+## Common errors
+
+* Trying to use local variables globally. Remember that any function parameter and any variable declared within a function statement is *local*, meaning that it cannot be accessed from outside the function.
+
+```{python, eval=F}
+def average(alist):
+    s = sum(alist)
+    return s/float(len(alist))
+    
+m = average([1,2,3,4])
+print s
+
+NameError: name 's' is not defined
+
+```
+
+* Forgetting to return a value at the end of the function definition. In truth, functions do not necessarily *return* values, depending on the purpose of the function. Functions which return one or more value(s) are called *fruitful* functions, those that do not have a `return` statement are called *void* functions. However, now and then we tend to forget to return values which we do want to use outside the function. Consider the example below.
+
+```{python}
+def maximum(alist):
+    if len(alist) == 1:
+        return alist[0]
+    elif len(alist) != 0 and len(alist) > 1:
+        m = 0
+        for i in range(len(alist)):
+            if alist[i] > m:
+                m = alist[i]
+
+m = maximum([2,4,6,8,10])
+print "m equals:", m
+        
+```
+Instead of having assigned the maximum value contained in `[2,4,6,8]` to `m`, `m` apparently became `None`, whatever that is. Let's examine this `None` further.
+
+```{python, eval=F}
+type(m)
+NoneType
+
+print m + 1
+TypeError: unsupported operand type(s) for +: 'NoneType' and 'int'
+```
+
+We accidentally created an object of type `NoneType` by forgetting to return `m` in our function definition of `maximum`. As you see above, this can raise errors somewhere else in your code, whose cause can be tricky to trace back in more complex programs. Therefore, always make sure to double check whether your functions return all values you need outside of the function.
+
+* Forgetting to assign a value returned by a function.
+```{python}
+def average(alist):
+    s = sum(alist)
+    return s/float(len(alist))
+
+a = 0   
+mylist = [1,2,3,4]
+average(mylist)
+print "average of mylist is:", a
+```
+
+* Disregarding tuple assignment when a function returns several values. Keep an eye on how you assign multiple return values. If handled carelessly, this can easily become a source of errors in the remainder of your program.
+
+```{python}
+def sumAverage(alist):
+    s = sum(alist)
+    return s, s/float(len(alist))
+
+result = sumAverage([1,2,3,4])
+s, av = sumAverage([1,2,3,4])
+
+print "result equals", result
+print "s equals", s, ", av equals", av
+
+```
+Note how the first variant returns a tuple with both return values as elements, and the second variant assigns each return value separately to a variable name.
+
+* Providing the wrong number of arguments during a function call.
+```{python, eval=F}
+def average(alist):
+    s = sum(alist)
+    return s/float(len(alist))
+
+average([1,2],[3,4])
+
+TypeError: average() takes exactly 1 argument (2 given)
+```
+
+* Providing a wrong data type as a function argument. The body of a function is written assuming that you provide the intended data type as argument during a function call. That is, assuming that you do not include *type checks* in your self-built functions. Checks are beyond the scope of this introductory book, so you will probably encounter one or another instance where you accidentally provide a wrong data type to a function. Providing a value of an unintended data type can raise all kinds of follow-up errors.
+
+```{python, eval=F}
+def average(alist):
+    s = sum(alist)
+    return s/float(len(alist))
+
+average(True)
+TypeError: 'bool' object is not iterable
+
+average("Hello")
+TypeError: unsupported operand type(s) for +: 'int' and 'str'
+```
+
+
+## Exercises
+
+### Exercise 1. Following the control flow
+
+Read the following script carefully. Try to follow the flow of execution. Indicate the values of `x`,`y` and `anumber` after the program has finished executing. You may use a calculator to perform calculations.
+You can check your answers afterwards by running the script.
+
+```{python, eval=F}
+def mean(numbers):
+    return float(sum(numbers))/max(len(numbers),1)
+    
+def sumMean(myList):
+    return sum(myList), mean(myList)
+
+def add(anumber,to_add):
+    return anumber + to_add
+
+def main():
+    x = 0
+    y = 0
+    anumber = 0
+    myList = range(11)
+
+    x = add(x,37 + mean(myList))
+    
+    if x > 44:
+        x, y = sumMean(myList)
+    else:
+        x, y = sumMean([1,2,3,4])
+        
+    y += add(x,5)
+    anumber += add(y,5)
+    
+    if y > 50:
+        y = mean([x,y])
+    else:
+        anumber = mean([x,max(myList)])
+    
+    print "x equals", x
+    print "y equals", y
+    print "anumber equals", anumber
+        
+main()
+```
+
+### Exercise 2. An imperfect list sorting attempt
+
+Given the following instructions
+
+* Take the two lists `myList1 = [5,2,1,3,0]` and `myList2 = [9,7,8]` and implement an algorithm that sorts them in ascending order so that a sorted list containing all integers from 0 to 10 is obtained.
+* Fill in any missing numbers if applicable.
+
+A fellow student made an attempt of sorting the lists. In order to do so, they
+defined two helper functions, `insert` and `swap`. The attempt followed the approach of first bringing both lists into a correct order separately before combining them.
+
+Unfortunately, the attempt still contains a number of errors. Find those errors and describe in your own words what goes wrong. *Hint*: There are six errors in the code.
+
+```{python, eval=F}
+1  import copy
+2 
+3  # Insert an element at a given position in a list
+4  def insert(a,position,alist):
+5     result = copy.deepcopy(alist)
+6     result = result[:position] + [a] + result[position:]
+7
+8  # Swap the position of two elements a and b in a list
+9  def swap(a,b,alist):
+10     index_a, index_b = alist.index(a), alist.index(b)
+11     index_a, index_b = index_b, index_a
+12     result = copy.deepcopy(alist)
+13     result[index_a], result[index_b] = a,b
+14     return result
+15
+16 myList1 = [5,2,1,3,0]
+17 myList2 = [9,7,8]
+18    
+19 # sorting myList1
+20 swap(5,0,myList1)
+21 swap(2,1,myList1)
+22 myList1 = insert(4,myList1)
+23     
+24 #sorting myList2
+25 myList2 = swap(myList2,8,9,7,8)
+26 myList2 = insert(10,3,myList2)
+27    
+28 result = myList1 + myList2
+29 print result
+```
+
+### Exercise 3. An erroneous sorting algorithm
+
+Instead of sorting a list manually as in exercise 2 which you may figure is quite labour intensive (especially when your amount of data is too large to allow manual sorting), people have come up with a number of more efficient sorting algorithms. In essence, these algorithms are functions that take an unsorted list as input, perform a number of internal manipulations and return a sorted list. Below you find an (erroneous) implementation of *bubble sort*. The main idea of bubble sort is iteratively going through a list and exchanging the position of adjacent elements if they are out of order.
+
+Feel free to take a look at [Problem Solving with Algorithms and Data Structures: Chapter 5. Sorting and Searching, 5.7: The Bubble Sort](https://interactivepython.org/runestone/static/pythonds/SortSearch/TheBubbleSort.html) for a more detailed description of the bubble sort approach.
+
+Correct all errors in the below implementation of bubble sort so that the script runs error-free. The implementation makes use of the `swap` helper function you first encountered in exercise 2. There are no errors in the swap function.
+
+```{python, eval=F}
+import copy
+import random
+
+def swap(a,b,alist):
+    index_a, index_b = alist.index(a), alist.index(b)
+    index_a, index_b = index_b, index_a
+    result = copy.deepcopy(alist)
+    result[index_a], result[index_b] = a,b
+    return result
+
+def bubbleSort(alist):
+    result = copy.deepcopy(alist)
+    for iteration in len(result):
+        for index in range(len(result)-1,0,-1):
+            if result[index] > result[index-1]:
+                result = swap(result[index],result[index-1])
+    return result
+
+myList = range(51)
+random.shuffle(myList)
+print myList
+print bubbleSort(myList)
+```
+
+
+### Exercise 4. Chunking
+
+### Exercise 5. Add functionality to the stroop task
+
+### Exercise 6. Insertion sort algorithm
+
+In exercise 3, you encountered one of the infamous sorting algorithms known to the programming community: *bubble sort*. There are, however, more efficient sorting algorithms. In this exercise, you will take your sorting skills to the next level and implement *insertion sort*.
+
+[Problem Solving with Algorithms and Data Structures: Chapter 5. Sorting and Searching, 5.9: The Insertion Sort](https://interactivepython.org/courselib/static/pythonds/SortSearch/TheInsertionSort.html) explains the insertion sort approach excellently. The main idea behind insertion sort is that it builds a sorted sublist in the left part of an unsorted list and continuously updates that list by comparing a designated element of the unsorted list to each element in the sublist.
+
+The chapter on insertion sort by Miller and Ranum includes a sample implementation of the algorithm. You are, however, strongly advised to build the algorithm yourself so that you understand what happens at each step.
+
+You are therefore required to add an elaborate documentation to your code (in the form of comments explaining what you do at each step). *Elaborate* means that if you were to read back your code a month later, you would still be able to explain how insertion sort works.
+
+There is, by the way, a nice graphical illustration of the insertion algorithm on its [Wikipedia page](https://en.wikipedia.org/wiki/Insertion_sort). It may help to get a grasp of how the algorithm works.
+
+## Think further
+
+For an alternative approach to explaining *functions* in Python and additional information, you are invited to take a look at the following resources:
+
+* [Wentworth, P., Elkner, J., Downey, A. B., & Meyer, C. (2015). How to think like a computer scientist: Learning with Python 3. Chapter 4. Functions](http://openbookproject.net/thinkcs/python/english3e/functions.html)
+* [Tutorials Point India Private Limited Company: Python Basic Tutorial - Functions](https://www.tutorialspoint.com/python/python_functions.htm)
+* [Harrington, A. N. (2017). Hands-on Python Tutorial: 1.11 Defining Functions of your Own](http://anh.cs.luc.edu/python/hands-on/3.1/handsonHtml/functions.html)
+
+## References
+
+* Miller, B. N., & Ranum, D. L. (2011). Problem Solving with Algorithms and Data Structures Using Python SECOND EDITION. Franklin, Beedle & Associates Inc..
