@@ -10,6 +10,17 @@ github-repo: schmettow/PfP_book
 description: "a book to accompany the course Programming for Psychologists"
 ---
 
+```{r setup, include = FALSE}
+library(tidyverse)
+# library(reticulate)
+# use_condaenv("C:\Users\schme\Anaconda2", conda = "auto", required = FALSE)
+
+
+knitr::opts_chunk$set(python.reticulate = FALSE)
+# knitr::knit_engines$set(python = reticulate::eng_python)
+```
+
+
 # Preface {-}
 
 This book is authored using [bookdown][https://bookdown.org/yihui/bookdown/].
