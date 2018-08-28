@@ -1,5 +1,11 @@
 # Variables, values and types {#variables}
 
+##### Testing reticulate
+```{python}
+import sys
+print(sys.executable)
+```
+
 When you took a closer look at the Stroop task program in chapter 1 [Introduction], you encountered components of a computer program called *variables*
 
 ```{python eval = FALSE}
