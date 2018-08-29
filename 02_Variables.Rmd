@@ -252,7 +252,7 @@ They are strings! In Python, strings can be enclosed in either single
 quotes (`'`), or double quotes (`"`), or three of each
 (`'''` or `"""`). But what if your string includes a quote and you want to indicate this by using quotation marks *within* your string? Using the same quotation marks as used for defining the string will prematurely end the string.
 
-```{python, eval = FALSE}
+```{python, eval=FALSE, error=FALSE}
 quote = "Freud: "The mind is like an iceberg, it floats with one-seventh of its bulk above water.""
 
 SyntaxError: invalid syntax
@@ -303,7 +303,7 @@ type(False)
 bool
 ```
 
-A *boolean expression* consists of two operands, located left and right of a *relational* or *comparative* operator. There are six common comparison operators in Python:
+A *boolean expression* consists of two operands, located left and right of a *relational* or *comparative* operator. There are six comparison operators in Python:
 
 + `x == y # x equals y`
 + `x != y # x is not equal to y`
@@ -313,7 +313,7 @@ A *boolean expression* consists of two operands, located left and right of a *re
 + `x <= y # x is smaller or equal to y`
 
 These operators are probably familiar to you, but their usage in Python differs from the mathematical symbols you know from highschool. One very common confusion surrounds the `equals` (`==`) operator. Remember that `=` is reserved as assignment operator and `==` is used for comparisons. There is no such thing as `=>` or `=<`.  
-Apart from that, boolean values can be handled exactly as any other value, that is, they can be assigned to variables, printed, etc.
+Apart from that, boolean values can be handled exactly as any other value, that is, they can be assigned to variables, printed and so on.
 
 ```{python}
 number_of_EC_required_for_BSA = 45
@@ -352,13 +352,16 @@ print("I got an " + myGrade + " on the last exam!")
 TypeError: cannot concatenate 'str' and 'int' objects
 
 ```
-Commonly, you will want to export some arithmetic result or recorded non-string data type out of the program, or you simply want to print them. This is usually done by first converting the data into type string and then writing to some external plain text file or using the *print command*. People tend to forget that *explicit typecasting* is required when incorporating non-string values into a sequence of strings.
+
+Often, you will want to export some arithmetic result (such as a participant's reaction time in the Stroop Task program) or other non-string data out of the program, or you simply want to print them to the screen. This is usually done by first converting the data into type string and then writing to some external file (such as good old plain text files) or using the *print command* to write to the console. Quite often people forget that *explicit typecasting* is required when incorporating non-string values into a sequence of strings.
+
 ```{python}
 myGrade = 8
 print("I got an " + str(myGrade) + " on the last exam!")
 ```
 
 3. Unintentionally cutting off decimals when typecasting to *integers*.
+
 ```{python}
 import numpy
 RT = [3.749,2.998,3.0147]
@@ -367,6 +370,7 @@ print("The subject had a mean reaction time of " + str(int(mean_RT)) + " seconds
 
 ```
 Obviously, a mean reaction time of exactly `3` is unrealistic with `3.749`, `2.998`, and `3.0147` as individual trial reaction times. You may feel inclined to typecast anyway to shorten the numerical string expression, but remember that typecasting from *float* to *integer* results in the loss of any information after the decimal point. Besides, usually there are better ways for rounding off floating points; consider the `round` method for instance.
+
 ```{python}
 import numpy
 RT = [3.749,2.998,3.0147]
@@ -380,12 +384,69 @@ count = 1
 count + 1
 print(count)
 ```
-Remember to assign the new value of a mutated variable to either a new variable or the original variable name; your computer is otherwise unable to allocate your intended variable mutation and will "forget" that you changed the value.
+Remember to assign the new value of a mutated variable to either a new variable or the original variable name; your computer will otherwise ignore the variable mutation and keep the variable's old value in memory.
+
 ```{python}
 count = 1
 count = count + 1
 print(count)
 ```
+
+## Debugging
+
+Despite all efforts and skill, programmers encounter programming errors on a daily (if not hourly) basis. In this, programming beginners and experts are no different. In fact, debugging is a very challenging and instructive task in itself.
+
+Apart from some general good debugging practices introduced in chapter 9 [Debugging], there are some tricks that are especially useful in tracing errors that originate from the variables in your program.
+
+1. Checking all of your equals `==` and assignment `=` operators is a good start when tracking down bugs suspected to originate from variables. For this you can either scan your code from top to bottom manually or use the search function of your programming environment. Use `Cltr` + `F` to search for an expression in your code (in this case either `=` or `==`, or the name of the variable you expect to be the culprit). Then, for each instance of the equals `==` or `=` assignment operator, or the variable itself, ask yourself whether you used the right operator for the intended job. Confusing the equals and assignment operator usually results in a syntax error, but a syntax error does not necessarily need to originate from confusing operators. In fact, syntax errors are undoubtly the most generic errors in programming.
+
+2. Once you are positive that the bug is not caused by confusing the equals with the assignment operator, you should take a closer look at the operations you perform on your variables (such as comparing variables or performing arithmetic calculations). Operations are another potential source of bugs.
+
+```{python, eval=F}
+a = 1
+b = "1"
+
+print(a + b)
+```
+
+In the example above, it is evident what goes wrong. `Strings` and `integers` cannot be added as two numbers are summed. A `type error` is thrown. However, in more complex programs it is often less evident where the bug originates from. Therefore, it is useful to check the data type of your variables at multiple locations in your program. Who knows, you may have unknowingly converted a variable to another type somewhere in your code and at a later moment, this causes your program to throw an error. Use the functions `type()` and `print()` to display the data type of your variables at different places in your code and hit `run`!
+
+```{python}
+a = 1
+b = "1"
+
+print(type(a))
+print(type(b))
+```
+3. Performing operations on variables may still have unexpected results, even when no type errors are involved. Arithmetic (`+`, `-`, `*`, `/`) and *Boolean* operators follow rules of precedence. Arithmetic operators follow the same rules of precedence as you learned about in highschool mathematics. All arithmetic operators also precede any Boolean operator, meaning that in the code snippet below `1 + 1` is evaluated before being compared to `2`.
+
+```{python}
+print(1 + 1 == 2)
+```
+
+As a debugging strategy, it is useful to change the precedence of operators with the help of brackets `()`. The bug may originate in a false assumption about operator precedences. Using brackets, you can make sure that operations are executed in the exact order you intended.
+
+4. When you neither confused the equals with the assignment operator, nor made a type error, nor had false assumptions about operator precedences, the last resort is to mentally follow the flow of your program and to check whether your variables are assigned the expected value at all times. For instance, in the code snippet below, you may expect the result to be `1` since you added `2` to the initial value of `a` and `2 / 2` is `1`.
+
+```{python}
+a = 0
+b = 2
+
+a + 2
+print(a / b)
+```
+
+However, `a` was never assigned the new value of `2` and `0 / 2` is obviously `0`. It is easy to overlook such a mistake when scanning through your code. Therefore, checking which values are assigned to your variables as you read through your program is very helpful. You could for instance adjust the code above if you are puzzled why the result is not `2`, like so
+
+```{python}
+a = 0
+b = 2
+
+a + 2
+print(a, b, a / b)
+```
+
+which prints first the value of `a`, then `b` and then the result of `a / b` to the console.
 
 ## Exercises
 
