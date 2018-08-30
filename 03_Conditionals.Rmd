@@ -5,22 +5,22 @@ if 1 == 1:
   print('Hello World')
 ```
 
-
 ## Boolean logic
 
-In Chapter \@ref(variables) we introduced simple *Boolean expressions* that produce *Boolean values* with the help of *comparative operators* (`==`,`!=`,`>`,`<`,`>=`,`<=`). Consider the following examples:
+In Chapter \@ref(variables), you read about simple *Boolean expressions* that produce *Boolean values* (`True`, `False`) with the help of *comparative operators* (`==`,`!=`,`>`,`<`,`>=`,`<=`). In this chapter, we will first take a closer look at Boolean expressions as we work towards introducing the main actor in regulating the flow of a computer program, *conditionals*. In chapter 1 [Introduction] you took a closer look at the Stroop Task program. You saw that the program shifts between different stages of the Stroop experiment, among which preparing a trial and waiting for the participant's response. These experimental stages are mirrored in the different *states* of the Stroop Task program. A simple lamp, for example, can be regarded as having two possible states, namely being either switched *on* or *off*. The Stroop Task program knows more states than simply being switched on or off, but just as a simple lamp, it needs some kind of switch to transit from one state to another. This is were *conditionals* come in handy as you will see at the end of this chapter. But first things first, let's take a look at the following two examples:
+
 ```{python, echo=TRUE}
-print 10 > 5 and 5 > 2
+print(10 > 5 and 5 > 2)
 ```
 
 
 ```{python}
-print True or False
-print True and not False
-print not True and False
+print(True or False)
+print(True and not False)
+print(not True and False)
 ```
 
-Python knows three *logical operators*, `and`, `or`, and `not`. They allow us to build more complex Boolean expressions from simpler ones. Sometimes these operators confuse people because they are used differently in informal language. Therefore, it is important to understand what they formally mean in Python (and math and all other programming languages). The following truth table displays what these operators exactly mean for two variables `a` and `b` for all combinations of values:
+`and`, `or`, and `not` are the three *logical operators* used in Python. They allow us to build more complex Boolean expressions from simpler ones. Sometimes these operators confuse people because they are used differently in informal language. Therefore, it is important to understand what they formally mean in Python (and math and all other programming languages). The following *truth table* displays what these operators exactly mean for two variables `a` and `b` for all combinations of values:
 
 a|b|not a|a and b|a or b|not a or b
 -|-|-----|-------|------|----------
@@ -32,103 +32,121 @@ False|False|True|False|False|True
 There exists a set of rules for working with Boolean values, much like highschool mathematical algebra. First of all, the logical operators `and`, `or`, and `not` differ in their priority. In highschool, you learned that given a formula `a + b * c`, you first multiply `b` and `c` before adding `a`. This is the same as saying that `*` has a higher *precedence* than `+`. From highest to lowest the precedence ranking for the three logical operators is: `not`, `and`, `or`. In addition, the six *comparative* operators (`==`,`!=`,`>`,`<`,`>=`,`<=`) precede all logical operators.
 
 ```{python}
-print not True or 1 == 1
+print(not True or 1 == 1)
 ```
 
 Also notice that
+
 ```{python}
-print not True and False
+print(not True and False)
 ```
 is not the same as
+
 ```{python}
-print not (True and False)
+print(not (True and False))
 ```
+
+As in mathematics, brackets can be used to change the order of operations! 
 
 ## if ... then {#if-then}
 
-Boolean values are essential to conditional execution as they provide the conditions under which certain blocks of code are executed. The simplest form of a *conditional* is the `if statement`.
+Boolean values are essential for regulating the flow of a computer program as they provide the conditions under which certain blocks of code are executed. The simplest form of a *conditional* is the *if statement*.
 
 ```{python}
 myNumber = 0
 if (myNumber < 0):
-    print "myNumber is smaller than 0"
+    print("myNumber is smaller than 0")
+    
 if (myNumber >= 0):
-    print "myNumber is larger than, or equal to 0"
+    print("myNumber is larger than, or equal to 0")
 ```
 You can read *if statements* as
 
 > If whatever is written within the curved brackets equals `True`,    
-> then, and only then, the (intended) code within the statement is evaluated
+> then, and only then, the intended (from intendation, not intention!) code within the statement is evaluated.
 
-An `if statement` consists of a *header* and a *body*. The header begins with the *keyword* `if`, followed by a *Boolean expression* (the *condition*) and ends with a colon (`:`). The brackets around the condition are optional. Only if the given condition is met, the program will read and execute the code written in the statement's body. Note that Python requires that the statements written in the body of an *if statement* are indented consistently (commonly by four spaces). The intended statements are called a *block* and the first unintended statement designates the end of the block.
+An `if statement` consists of a *header* and a *body*. The header begins with the *keyword* `if`, followed by a *Boolean expression* (the *condition*) and ends with a colon (`:`). The brackets around the condition are optional, but recommended to facilitate readability. Only if the given condition in the *head* is met, the program will read and execute the code written in the statement's *body*. Note that Python requires that the statements written in the body of an `if statement` are indended consistently (commonly by four spaces). The intended statements are called a *block* and the first unintended statement designates the end of the block. The usefulness of intendation may at first not be apparent to you, but trust me, it facilitates reading complex programs enormously.
 
 Actually, you can simplify the code above by using an *else clause*:
 
 ```{python}
 myNumber = 0
 if (myNumber < 0):
-    print "myNumber is smaller than 0"
+    print("myNumber is smaller than 0")
 else:
-    print "myNumber is larger than, or equal to 0"
+    print("myNumber is larger than, or equal to 0")
 ```
 
 Conditionals can even be *nested* within each other:
+
 ```{python}
 myNumber = 0
 if (myNumber < 0):
-    print "myNumber is smaller than 0"
+    print("myNumber is smaller than 0")
 else:
     if (myNumber == 0):
-        print "myNumber equals 0"
+        print("myNumber equals 0")
     else:
-        print "myNumber is larger than 0"
+        print("myNumber is larger than 0")
 
 ```
-The indentation makes the structure of the program apparent. However, most of the time, nested conditionals complicate your code unecessarily. As  a result, your code becomes more difficult to read. It is commonly regarded as good practice to keep their usage to a minimum.
+The indentation makes the structure of the program visible. However, most of the time, nested conditionals complicate your code unecessarily, making it more difficult to read. It is commonly regarded as good practice to keep the usage of nested conditionals to a minimum.
 
-But then, how do you implement more than two execution branches, without resorting to nested conditionals?
+But then, you may ask yourself, how do you implement more than two execution branches, without resorting to nested conditionals? Let's pretend that it is incredibly important to your program that it does make a difference between the case that `myNumber` is larger than 0, compared to when `myNumber` equals 0.
 
 ```{python}
 myNumber = 0
 if (myNumber < 0):
-    print "myNumber is smaller than 0"
+    print("myNumber is smaller than 0")
 elif (myNumber == 0):
-    print "myNumber equals 0"
+    print("myNumber equals 0")
 else:
-    print "myNumber is larger than 0"
+    print("myNumber is larger than 0")
 ```
 
-The *elif statement* allows you to include more than two alternative conditions. The example above is called a *chained conditional*. Note that when using an *else clause* in a chain of conditionals, it always marks the end of the chain. Furthermore, each condition is checked in order. If the first is false, the next is checked, and so on. Note that only the first true branch is executed, even if more than one condition is true.
+The *elif statement* allows you to include more than two alternative conditions. In theory, you can build an endless chain of alternative conditions using `elif`. Whether it is useful to do so, is, of course, a different question. Whenever `elif` is included in a train of conditions, the whole structure is called a *chained conditional*. Note that when using an *else clause* in a chain of conditionals, it always marks the end of the chain. Furthermore, each condition is checked in order. If the first is `False`, the next is checked, and so on. Note that only the first `True` branch is executed, even if more than one condition is `True`. There is nothing like "more true" in Boolean logic.
+
+```{python}
+myNumber = 1
+if (myNumber >= 0):
+    print("myNumber is greater than or equals 0")
+elif (myNumber == 1):
+    print("myNumber equals 1")
+else:
+    print("myNumber is smaller than 0")
+```
+
 
 Alternatively, *nesting* can often be circumvented by using *logical operators*:
+
 ```{python, eval=F}
 myNumber = 5
 if (myNumber > -5):
     if (myNumber >= 0):
-        print "myNumber is a positive digit"
+        print("myNumber is a positive digit")
 ```
 
 ```{python, eval=F}
 myNumber = 5
 if (myNumber > -5 and myNumber >= 0):
-    print "myNumber is a positive digit"
+    print("myNumber is a positive digit")
 ```
 
-## Programming interaction: Conditional state transitions
+## Bringing interaction to life: Conditional state transitions
 
-In programming interactive software, such as the Stroop experiment, conditionals are essential to control the flow of the program. By flow, we mean how the program changes states by input of the user. Take a first look of how one `if ... else` statement makes the program move on from the welcome screen to the first trial:
+In programming interactive software, such as the Stroop experiment, conditionals are essential to control the flow of the program. By controlling the *flow*, we mean how the program changes states in reaction to the input of the user. Without the programmers intervention, a program is executed from top to bottom. You can imagine that the Stroop Task program needs to be more flexible than that, depending on the actions of the participant. Take a closer look at how the Stroop Task program transits from the welcome screen to the first trial:
 
 
 ```{python eval = FALSE}
-    STATE = "welcome"    
+STATE = "welcome"    
 
-    if STATE == "welcome":
-      if event.type == KEYDOWN and event.key == K_SPACE:
+if STATE == "welcome":
+    if event.type == KEYDOWN and event.key == K_SPACE:
         STATE = "prepare_next_trial"
         print(STATE)
 ```
 
-To see this in action, run the Stroop program once again, and watch what is printed to the console. You will see that at every key press the state of the program is printed to the console.
+Which is the same as telling the program to switch from `STATE` `"welcome"` to `"prepare_next_trial"` if the user presses the `SPACE` key while in the welcome menu of the program. To see this in action, run the Stroop Task program, and watch what is printed to the console. You will see that at every key press, the state of the program is printed to the console.
 
 
 ## Common Errors
@@ -151,6 +169,8 @@ SytnaxError: invalid sytnax
 ```
 
 Yes, this will be a re-occuring issue in many chapters. For human beings it is just too easy to type `=` when they actually mean `==` in Python. Being a psychologist, go figure.
+
+## Debugging conditionals
 
 ## Exercises
 
