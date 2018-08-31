@@ -56,7 +56,6 @@ Boolean values are essential for regulating the flow of a computer program as th
 myNumber = 0
 if (myNumber < 0):
     print("myNumber is smaller than 0")
-    
 if (myNumber >= 0):
     print("myNumber is larger than, or equal to 0")
 ```
@@ -77,7 +76,7 @@ else:
     print("myNumber is larger than, or equal to 0")
 ```
 
-Conditionals can even be *nested* within each other:
+*else clauses* are optional, but they often simplify your code. If you need to establish a dichotomy, that is, either condition A is `True` or not, then you using an `if/else clause` is the way to go. More complex conditional structures can lead to *nested* conditionals:
 
 ```{python}
 myNumber = 0
@@ -104,7 +103,7 @@ else:
     print("myNumber is larger than 0")
 ```
 
-The *elif statement* allows you to include more than two alternative conditions. In theory, you can build an endless chain of alternative conditions using `elif`. Whether it is useful to do so, is, of course, a different question. Whenever `elif` is included in a train of conditions, the whole structure is called a *chained conditional*. Note that when using an *else clause* in a chain of conditionals, it always marks the end of the chain. Furthermore, each condition is checked in order. If the first is `False`, the next is checked, and so on. Note that only the first `True` branch is executed, even if more than one condition is `True`. There is nothing like "more true" in Boolean logic.
+The *elif statement* (short for `else if statement`) allows you to include more than two alternative conditions. In theory, you can build an endless chain of alternative conditions using `elif`. Whether it is useful to do so, is, of course, a different question. Whenever `elif` is included in a train of conditions, the whole structure is called a *chained conditional*. Note that when using an *else clause* in a chain of conditionals, it always marks the end of the chain. Furthermore, each condition is checked in order. If the first is `False`, the next is checked, and so on. Note that only the first `True` branch is executed, even if more than one condition is `True`. There is nothing like "more true" in Boolean logic.
 
 ```{python}
 myNumber = 1
@@ -134,7 +133,7 @@ if (myNumber > -5 and myNumber >= 0):
 
 ## Bringing interaction to life: Conditional state transitions
 
-In programming interactive software, such as the Stroop experiment, conditionals are essential to control the flow of the program. By controlling the *flow*, we mean how the program changes states in reaction to the input of the user. Without the programmers intervention, a program is executed from top to bottom. You can imagine that the Stroop Task program needs to be more flexible than that, depending on the actions of the participant. Take a closer look at how the Stroop Task program transits from the welcome screen to the first trial:
+In programming interactive software, such as the Stroop experiment, conditionals are essential to control the flow of the program. By controlling the *flow*, we mean how the program changes states in reaction to the input of the user. Without the programmer's intervention, a program is executed from top to bottom. You can imagine that the Stroop Task program needs to be more flexible than that, depending on the actions of the participant. Take a closer look at how the Stroop Task program transits from the welcome screen to the first trial:
 
 
 ```{python eval = FALSE}
@@ -146,33 +145,246 @@ if STATE == "welcome":
         print(STATE)
 ```
 
-Which is the same as telling the program to switch from `STATE` `"welcome"` to `"prepare_next_trial"` if the user presses the `SPACE` key while in the welcome menu of the program. To see this in action, run the Stroop Task program, and watch what is printed to the console. You will see that at every key press, the state of the program is printed to the console.
+In plain English, this would be the same as telling the program to switch from state `"welcome"` to state `"prepare_next_trial"` upon pressing the `SPACE` key. To see this in action, run the Stroop Task program, and watch closely what is printed to the console. You will see that whenever the program transits into a new state, the state of the program is printed to the console.
+
+### Transition tables
+
+In the previous section, you saw how conditionals regulate the flow of a computer program. Depending on specific user actions, the state of the program transits into another state. When you first encounter the code of an interactive program such as the Stroop Task program, writing out all possible state transitions in a *transition table* helps to understand the structure of the program. A transition table lists all states against each other in a table and documents how the program transits from one state to another. The empty transition table for the Stroop Task program is shown below.
+
+|	|	| welcome |	present_trial |	wait_for_response |	feedback | goodbye | quit |
+|:-:|:-:|:-:|:-:|:-:|:-:|:-:|:-:|
+|FROM |welcome           |	 |	 |	 |	 |   |   |   |   |
+|	  |present_trial     |	 |	 |   |   |   |   |   |   |
+|	  |wait_for_response |	 |	 |   |   |   |   |   |   |
+|	  |feedback          |	 |	 |   |   |   |   |   |   |
+|     |goodbye           |	 |	 |   |   |   |   |   |   |
+|     |quit              |	 |	 |   |   |   |   |   |   |
+
+By taking a close look at how the Stroop Task program transits from one state to another, the transition table can be filled in. For your interest, the changing state part of the Stroop Task program is displayed below, together with the completed transition table for the Stroop Task program.
 
 
-## Common Errors
+```{python, eval=FALSE}
+KEYS     = {"red": K_b,
+            "green": K_n,
+            "blue": K_m}
+            
+# Changing states
+for event in pygame.event.get():                        
+    if STATE == "welcome":
+        if event.type == KEYDOWN and event.key == K_SPACE:
+            STATE = "present_trial"
+            print(STATE)
+                    
+    if STATE == "present_trial":
+        trial_number = trial_number + 1
+        this_word  = pick_color()
+        this_color = pick_color()
+        time_when_presented = time()
+        STATE = "wait_for_response"
+        print(STATE)
+                    
+    if STATE == "wait_for_response":
+        if event.type == KEYDOWN and event.key in KEYS.values():
+            time_when_reacted = time()
+            this_reaction_time = time_when_reacted - time_when_presented
+            this_correctness = (event.key == KEYS[this_color])
+            STATE = "feedback"
+            print(STATE)
 
-1. Using `tabs` and `spaces` interchangably to indent your code. To be honest, your Python compiler may not complain immediately when you mix `tabs` and `spaces`. However, there are good reasons why you do not want to do this anyway:
+                
+    if STATE == "feedback":
+        if event.type == KEYDOWN and event.key == K_SPACE:
+            if trial_number < 20:
+                STATE = "present_trial"
+            else:
+                STATE = "goodbye"
+            print(STATE)
+            
+    if event.type == QUIT:
+        STATE = "quit"
+```
 
-* Usually the human reader has even more difficulty than the computer discerning block structures when mixing `tabs` and `spaces`. This makes subsequent programming efforts a quite error-prone activity.
-* The semantics of tabs are not very well defined in the computer world. As a result, tabs may be displayed completely differently on different types of systems and editors. This means that you cannot safely copy and paste your code without risking to destroy your program's structure.
+|	|	| welcome |	present_trial |	wait_for_response |	feedback | goodbye | quit |
+|:-:|:-:|:-:|:-:|:-:|:-:|:-:|:-:|
+|FROM |welcome           |	 |SPACE	 |	 |	 |   |   |   |   |
+|	  |present_trial     |	 |	 |auto   |   |   |   |   |   |
+|	  |wait_for_response |	 |	 |   |b OR n OR m   |   |   |   |   |
+|	  |feedback          |	 |SPACE	 |   |   |SPACE  |   |   |   |
+|     |goodbye           |	 |	 |   |   |   |   |   |QUIT   |
+|     |quit              |	 |	 |   |   |   |   |   |   |
 
-More information on indentation in Python can be found [here](http://www.secnetix.de/olli/Python/block_indentation.hawk).
+The transition from state `present_trial` to state `wait_for_response` occurs automatically once all preparations for the trial are finished. Generally, we distinguish between two types of transitions, interactive changes (ITC) and automatic changes (ATC). While an input from the user is required in interactive state transitions, the program changes from one state to another on its own in automatic transitions. It is generally a good idea to separate ITCs from ATCs in your code to make the structure of your program more apparent.
 
-2. Confusing the *assignment operator* (`=`) with the comparative *equals operator* (`==`).
+Transition tables are also useful when you conceive your own program. They serve as the interaction skeleton to which you gradually add functionality as you develop your program.
+
+### State charts
+
+## Common errors
+
+1. Confusing the *assignment operator* (`=`) with the comparative *equals operator* (`==`).
 
 ```{python, eval=F}
 myNumber = 5
 if (myNumber = 5):
-    print "Yes, myNumber is indeed equal to 5!"
+    print("Yes, myNumber is indeed equal to 5!")
 
 SytnaxError: invalid sytnax
 ```
 
-Yes, this will be a re-occuring issue in many chapters. For human beings it is just too easy to type `=` when they actually mean `==` in Python. Being a psychologist, go figure.
+Yes, confusing the assignment operator with the comparative equals operator will be a re-occuring issue. For human beings it is just too easy to type `=` when they actually mean `==` in Python. Being a psychologist, go figure.
+
+2. The most common syntax error involving *conditionals* is probably forgetting the colon at the end of the *head* of the `if statement`.
+
+```{python, eval=FALSE}
+if (1 == 1)
+    print("Hello, World!")
+```
+
+Whenever you encounter a syntax error in your conditionals, you should first check whether you forgot a colon.
+
+```{python, eval=FALSE}
+if (1 == 1):
+    print("Hello, World!")
+```
+
+3. Exclusively using `if clauses` in a chain of conditionals. This is a tricky one because the consequences may not immediately be apparent and no error is necessarily thrown. Still, you program somehow does not do what you expect it to do. In truth, exclusively using `if clauses` is not wrong; but chances are high that you intended to use a chain of `if/elif clauses` instead. Let's take a look at the following two code snippets to illustrate the difference between a chain of `if clauses` and a chain of `if/elif clauses`.
+
+```{python}
+number = 6
+if (number % 2 == 0):
+    print("number is divisible by 2")
+elif (number % 3 == 0):
+    print("number is divisible by 3")
+elif (number % 6 == 0):
+    print("number is divisible by 6")
+else:
+    print("number is not divisible by 2, 3 or 6")
+```
+
+```{python}
+number = 6
+if (number % 2 == 0):
+    print("number is divisible by 2")
+if (number % 3 == 0):
+    print("number is divisible by 3")
+if (number % 6 == 0):
+    print("number is divisible by 6")
+else:
+    print("number is not divisible by 2, 3 or 6")
+```
+As you can see, in the first code snippet, only the first `True` conditional branch is executed, although `6` is obviously not only divisible by `2`, but also by `3` and `6`. In the second code snippet, however, all `True` conditions are executed consecutively. Why is that?
+Well, in the first code snippet we are dealing with one single `if statement` or conditional with several subclauses ( the `elif` and `else` clauses), while the second code snippet strictly speaking consists of three individual `if statements`. These three conditionals are independent from each other and as such, are executed independently from each other. The first code snippet is read as "if `number` modulo 2 equals 0 (which is the same as saying 'if `number` is divisible by 2'), then print this or that; however, if (and only if) `number` is not divisible by 2, then look for a different `True` condition". In contrast, the second code snippet reads as "if `number` is divisible by 2, print this or that. Full stop. If `number` is divisible by 3, print this or that. Full stop. If `number` is divisible by 6, print this, else print that". In a chain of `if clauses` the individual clauses are disconnected, which is why they read as a summation of individual clauses rather than one coherent statement.
+
+You may ask yourself why this is included in the *Common errors* section. After all, using exclusively `if clauses` is not necessarily "wrong". The problem is that exclusively using `if clauses` may do the job when you at the beginning of your programming career, but it is a source for complex errors at a later stage. Remember to use chains of `if/elif/else clauses` whenever you want to need to make sure that only one `True` condition is executed at a time.
+
+4. Using `tabs` and `spaces` interchangably to indent your code. To be honest, your Python compiler may not complain immediately when you mix `tabs` and `spaces`. However, there are good reasons why you do not want to do this anyway:
+
+* Usually the human reader has even more difficulty than the computer discerning block structures when mixing `tabs` and `spaces`. This makes subsequent programming efforts a quite error-prone activity.
+* The semantics of tabs are not very well defined in the computer world. As a result, tabs may be displayed completely differently on different types of systems and editors. This means that you cannot safely transfer your code without risking to destroy your program's structure.
+
+More information on indentation in Python can be found [here](http://www.secnetix.de/olli/Python/block_indentation.hawk).
 
 ## Debugging conditionals
 
 ## Exercises
+
+### Exercise A. Boolean logic
+
+What is the output of the following code snippets?
+
+```{python, eval=FALSE}
+a = True
+b = False
+
+print(a and b)
+```
+
+```{python, eval=FALSE}
+a = True
+b = False
+print(not a and b)
+```
+
+```{python, eval=FALSE}
+a = True
+b = False
+print((not a) or b)
+```
+
+```{python, eval=FALSE}
+a = True
+b = False
+
+print(not (a and b))
+```
+
+```{python, eval=FALSE}
+a = True
+b = False
+
+print(not (a or b))
+```
+
+```{python, eval=FALSE}
+a = 1
+b = 2
+c = 4
+
+print(a >= b and c > a + b)
+```
+
+```{python, eval=FALSE}
+a = 1
+b = 2
+c = 3
+
+print(b % a >= c - (a + b))
+```
+
+### Exercise B. State chart
+
+A state chart visualizes the interaction of a program. Which of the code snippets matches the state chart?
+
+### Exercise C. Transition table
+
+For the following code snippet, make a transition table.
+
+```{python, eval=FALSE}
+STATE = "A"
+
+while True:
+    #ITC
+    for event in pygame.event.get():                        
+        if STATE == "A":
+            count = 0
+            if event.type == KEYDOWN and event.key == K_w:
+                STATE = "B"
+                print(STATE)
+        elif STATE == "B":
+            count = count + 1
+            if event.type == KEYDOWN and event.key == K_a:
+                timer = time()
+                STATE = "C"
+                print(STATE)
+        elif STATE == "D":
+            if event.type == KEYDOWN and event.key == K_SPACE:
+                if count < 10:
+                    STATE = "B"
+                else:
+                    STATE = "quit"
+                print(STATE)
+
+    #ATC
+    if STATE == "C":
+        present_picture()
+        if time() - timer > 3:
+            STATE = "D"
+        print(STATE)
+    elif STATE == "quit":
+        pygame.quit()
+        sys.exit()
+```
+
 
 ### Exercise 1. Following the control flow
 

@@ -321,7 +321,7 @@ passed_BSA = number_of_EC_required_for_BSA <= 50
 print(passed_BSA)
 ```
 
-## Common Errors
+## Common errors
 
 1. Confusing the *assignment operator* (`=`) with the comparative *equals* operator (`==`). The first is solely used for assigning values to variables as in 
 
