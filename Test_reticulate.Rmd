@@ -1,0 +1,50 @@
+# Test Python chunks in Rmarkdown
+
+```{r}
+library(reticulate)
+```
+
+```{r}
+print("R chunk")
+```
+
+
+```{python}
+import sys
+print(sys.version)
+```
+
+```{python}
+# Do separate chunks use the same Python session?
+a = 1
+```
+
+```{python}
+# If this prints correctly, they do.
+print(a)
+```
+
+```{r}
+# Python variables can also be accessed form R
+
+print(py$a)
+```
+
+
+```{python eval = F}
+# unevaluated chunk
+print("You should not see output from this")
+```
+
+
+```{python eval = F}
+# unevaluated chunk with error
+print(1.0/0)
+```
+
+
+
+```{}
+""This is syntactically invalid, but should not give an error message"
+""Because it is syntactically invalid, it also cannot be parsed and highlighted""´
+```
