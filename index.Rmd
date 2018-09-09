@@ -13,8 +13,8 @@ description: "a book to accompany the course Programming for Psychologists"
 ```{r setup, include = FALSE}
 library(tidyverse)
 library(reticulate)
-knitr::opts_chunk$set(python.reticulate = FALSE)
-#knitr::knit_engines$set(python = reticulate::eng_python)
+#knitr::opts_chunk$set(python.reticulate = FALSE)
+knitr::knit_engines$set(python = reticulate::eng_python)
 
 #use_condaenv("C:\Users\schme\Anaconda2", conda = "auto", required = FALSE)
 

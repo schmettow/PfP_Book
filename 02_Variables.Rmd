@@ -1,12 +1,6 @@
 # Variables, values and types {#variables}
 
-##### Testing reticulate
-```{python}
-import sys
-print(sys.executable)
-```
-
-In chapter 1 [Introduction], you took a closer look at the Stroop Task program. While doing so, you encountered components of a computer program called *variables*
+In chapter 1 Introduction, you took a closer look at the Stroop Task program. While doing so, you encountered components of a computer program called *variables*
 
 ```{python eval = FALSE}
 col_white = (250, 250, 250)
@@ -35,7 +29,6 @@ print(20 / 4)
 ```{python}
 print("Hello, World!")
 ```
-
 
 In the examples above, the *printed* outputs `4`, `5.0` and `Hello, World!` are *values*. Values can thus be numbers, but also words, or even whole sentences. In the interior of a computer program, `4` and `Hello, World` serve the same purpose, they are both building blocks. Values are classified into different *classes*, or *data types*: `4` is a so-called *integer* and `"Hello, World"` is a
 *string*, so-called because it is a string of individual letters. The class of a value determines which operations can be performed on a value and how these operations are performed. You can think of operations such as arithmetic addition and subtraction, but also self-defined operations, called *functions*. You will learn about functions later in this book.
@@ -252,7 +245,7 @@ They are strings! In Python, strings can be enclosed in either single
 quotes (`'`), or double quotes (`"`), or three of each
 (`'''` or `"""`). But what if your string includes a quote and you want to indicate this by using quotation marks *within* your string? Using the same quotation marks as used for defining the string will prematurely end the string.
 
-```{python, eval=FALSE, error=FALSE}
+```{}
 quote = "Freud: "The mind is like an iceberg, it floats with one-seventh of its bulk above water.""
 
 SyntaxError: invalid syntax
@@ -292,15 +285,13 @@ print("hello" == j + "lo")
 
 `True` and `False` are special values of type boolean; they are no strings! 
 
-```{python, eval=F}
-type(True)
-bool
+```{python}
+print(type(True))
 
 ```
 
-```{python,eval=F}
-type(False)
-bool
+```{python}
+print(type(False))
 ```
 
 A *boolean expression* consists of two operands, located left and right of a *relational* or *comparative* operator. There are six comparison operators in Python:
@@ -337,7 +328,7 @@ the latter for comparing two values
 
 Usually, when you confuse the assignment operator with the equals operator, you will get a syntax error.
 
-```{python, eval=F, echo=TRUE}
+```{}
 17+3 = 21
 
 SyntaxError: can't assign to operator
@@ -345,7 +336,7 @@ SyntaxError: can't assign to operator
 
 2. Forgetting to typecast other data types when incorporating them into strings
 
-```{python, eval=FALSE}
+```{}
 myGrade = 8
 print("I got an " + myGrade + " on the last exam!")
 
@@ -519,7 +510,7 @@ print(x)
 
 What goes wrong in the following code snippets?
 
-```{python, eval=F}
+```{}
 x = 1
 2x = 2
 print(x + 2x)
@@ -529,7 +520,7 @@ print(x + 2x)
 * Variable declarations must be ordered in descending order, so the value `2` should be assigned before `1`
 * An illegal variable name is used
 
-```{python, eval=F}
+```{}
 x = 3
 y = "3"
 print(x = y)
@@ -539,7 +530,7 @@ print(x = y)
 * Strings and integers are not comparable using boolean operators
 * The assignment operator is used instead of a comparative operator
 
-```{python, eval=F}
+```{}
 name = "Colin"
 print(This is + name)
 
@@ -547,7 +538,7 @@ print(This is + name)
 
 * Variables cannot be called in `print` statements
 * The `name` variable needs to be typecasted into a String
-* The `print` statement lacks quotation marks
+* The content of the `print` statement lacks quotation marks
 
 ### Exercise 1. String concatenation
 
@@ -587,7 +578,7 @@ provides a gentle introduction to the topic: [Python for Beginners: String conca
 
 For the following variable names indicate whether the name is legal
 or not. For illegal variable names, point out what makes the name violate rules and/or conventions.
-```{python,eval=F}
+```{}
 Reg       = "What have the Romans ever given us?"
 man1      = "The aqueduct?"
 2ndMan    = "The sanitation"
@@ -671,7 +662,7 @@ What is the resulting value of `n4`?
 ### Exercise 6. A Boolean puzzle
 
 Fill in the blank spots (indicated by a question mark `?`) in the following code in such a way that `True` Boolean values are returned. You can use your Python interpreter for calculations.
-```{python, eval=F}
+```{}
 n1 = 238
 n2 = 17
 
