@@ -189,7 +189,7 @@ in Chapter \@ref(conditionals) and Chapter \@ref(loops), respectively. The basic
 
 Earlier in this chapter, you learned that
 each value belongs to a certain *class* or *data type*.
-This Section will introduce the *basic data types*: *integers*,
+This section will introduce the *basic data types*: *integers*,
 *floats*, *strings*, and *booleans*. Apart from the basic data types, Python knows numerous
 specialized types. Earlier in this chapter, you already encountered two such specialized data types: *dictionaries* and *lists*. Literally any computer program contains values of at least the basic types and thus, it seems to be reasonable to say a word or two about them. 
 

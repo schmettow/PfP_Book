@@ -281,22 +281,21 @@ Well, in the first code snippet we are dealing with one single `if statement` or
 
 You may ask yourself why this is included in the *Common errors* section. After all, using exclusively `if clauses` is not necessarily "wrong". The problem is that exclusively using `if clauses` may do the job at the beginning of your programming career, but it is a source for complex errors at a later stage. Remember to use chains of `if/elif/else clauses` whenever you want to need to make sure that only one `True` condition is executed at a time.
 
-4. Using `tabs` and `spaces` interchangably to indent your code. To be honest, your Python compiler may not complain immediately when you mix `tabs` and `spaces`. However, there are good reasons why you do not want to do this anyway:
+4. Another common error arises from using `tabs` and `spaces` interchangably to indent your code. To be honest, your Python compiler may not complain immediately when you mix `tabs` and `spaces`. However, there are good reasons why you do not want to do this anyway:
 
-1. Usually the human reader has even more difficulty than the computer discerning block structures when mixing `tabs` and `spaces`. This makes subsequent programming efforts a quite error-prone activity. For example, you are more likely to make indentation errors when you use `tabs` and `spaces` carelessly. And believe me, your Python compiler will throw an error at any of those!
-2. The semantics of tabs are not very well defined in the computer world. As a result, tabs may be displayed completely differently on different types of systems and editors. This means that you cannot safely transfer your code without risking to destroy your program's structure.
-
-More information on indentation in Python can be found [here](http://www.secnetix.de/olli/Python/block_indentation.hawk).
+* Usually the human reader has even more difficulty than the computer discerning block structures when mixing `tabs` and `spaces`. This makes subsequent programming efforts a quite error-prone activity. For example, you are more likely to make indentation errors when you use `tabs` and `spaces` carelessly. And believe me, your Python compiler will throw an error at any of those!
+* The semantics of tabs are not very well defined in the computer world. As a result, tabs may be displayed completely differently on different types of systems and editors. This means that you cannot safely transfer your code without risking to destroy your program's structure.
+* More information on indentation in Python can be found [here](http://www.secnetix.de/olli/Python/block_indentation.hawk).
 
 ## Debugging conditionals
 
 In addition to some general good debugging practices summarized in chapter 9 [Debugging], there are some strategies that are especially useful when dealing with errors originating from conditionals in your program.
 
-1. Again, checking your assignment `=` and equals `==` operators is a good starting point when trying to debug errors you suspect to originate from your conditionals. Using an assignment `=` operator where an equals `==` operator is needed will throw a syntax error and vice versa. While you are busy checking your assignment and equals operators, also check whether you forgot any colons `:` at the end of the first line of your if statements. This will also throw a syntax error.
+1. Again, checking your assignment `=` and equals `==` operators is a good starting point when you encounter an error that you suspect to originate from your conditionals. Using an assignment `=` operator where an equals `==` operator is needed will throw a syntax error and vice versa. While you are busy checking your assignment and equals operators, also check whether you forgot any colons `:` at the end of the first line of your if statements. This will also throw a syntax error.
 
-2. Take a good look at the *conditions* in your if statements. You can check a variety of *conditions* interactively in your Python console outside of the program. Check whether the Boolean expression in your condition does indeed evaluate as you expect it to. There a countless reasons why it may not evaluate as you intended. The variables you include in your condition may have unexpected values. You should then track down how they were assigned their respective values. Also check the precedence of your operators when you use several in one expression.
+2. Take a good look at the *conditions* in your if statements. You can check a variety of *conditions* interactively in your Python console outside of the program. Check whether the Boolean expressions in your conditions do indeed evaluate as you expect them to. Or would you immediately know what `True + 1 == False + 2` evaluates to? I still check what my conditions evaluate to when I am not a hundred percent sure. There a countless reasons why a condition may not evaluate as you intended. The variables you include in your condition may have unexpected values or subclauses of your condition may evaluate in a different order than you intended. You should take a look at how the variables you use in your conditions were assigned their respective values. If they are assigned unexpected values, you should look further upwards in the program's flow. Also check the precedence of your operators when you use several rather than a single one in your conditions. Use brackets `()` to enforce a certain operator order, if necessary.
 
-3. Check if you can simplify your conditionals. The more complex your conditionals, the more prone you are to making mistakes. Simplifying deeply nested conditionals can solve programming errors that are otherwise difficult to track down.
+3. You should also consider simplifying your conditionals. The more complex your conditionals, the more prone you are to making mistakes. Simplifying deeply nested conditionals can solve programming errors that are otherwise difficult to track down.
 
 ## Exercises
 
@@ -447,7 +446,7 @@ while True:
               sys.exit()
 
 ```
-### Exercise C. Transition table
+### Exercise C. Transition tables
 
 For the following code snippet, make a transition table.
 
@@ -487,6 +486,47 @@ while True:
         sys.exit()
 ```
 
+### Exercise D. Mini programs
+
+What is the output of the following mini programs?
+
+```{}
+x = 5
+y = 0
+
+if x >= 5 and y != False:
+    print(y/x)
+
+```
+
+* `0`
+* Nothing
+* A `TypeError`, numerical and Boolean values cannot be compared
+
+```{}
+x = 12
+
+if x%3 == 0:
+    print("x is divisible by 3")
+elif x%4 == 0:
+    print("x is divisible by 4")
+```
+
+* `x is divisible by 4`
+* `x is divisible by 3`  
+`x is divisible by 4`
+* `x is divisible by 3`
+
+```{}
+x = 2
+y = 0
+
+if y + 1 == x or not x * 1 <= y:
+   print(x + y)
+```
+* A `SyntaxError`, you need to use brackets if you mix different operator types in one condition
+* Nothing
+* `2`
 
 ### Exercise 1. Following the control flow
 

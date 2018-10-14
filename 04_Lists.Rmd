@@ -3,58 +3,60 @@
 ```{python}
 message = ["Hello,"]
 message.append("world")
-print " ".join(message)
+print(" ".join(message))
 ```
+
+In chapter 2 Variables you encountered the four basic data types, *integers*, *floats*, *Strings* and *Booleans*. You also learned that apart from these four basic data types, Python knows numerous specialized types. In this chapter, you will learn more about one group of these specialized data types: *collections*.
 
 ## Lists
 
-*Lists* are *ordered* collections of values.
+One type of collection are *lists*. Lists are *ordered* collections of values.
 
 ```{python, eval=F}
-list1 = [5, 10, 15, 20]
-list2 = ["eggs", "bacon", "cheese"]
-list3 = [4, "participant", 7.3, False]
+a = [5, 10, 15, 20]
+b = ["eggs", "bacon", "cheese"]
+c = [4, "participant", 7.3, False]
 ```
 
-The values that make up a list are called *items* or *elements*. The easiest way of creating a list is surrounding some values with cornered brackets `[]` and separating the items of the list with commas `,`.  In fact, lists are similar to *strings*, which are ordered collections of *characters*, with the addition that the elements of lists can be of *any* type. Ordered collections such as strings and lists are also called *sequences*.
+The easiest way of creating a list is surrounding some values with cornered brackets `[]` and separating the values of the list with commas `,`. The values that make up a list are called *items* or *elements*. In a sense, lists are similar to *Strings*. Strings are basically ordered collections of *characters*. In contrast to Strings, however, the elements of list can be of *any* type. Ordered collections such as strings and lists are also called *sequences*.
 
-`[]` denotes a list with no elements and is called an *empty list*. Amazingly, lists can even be *nested* into one another to form lists of lists!
+`[]` denotes a list with no elements and is called an *empty list*. Lists can even be *nested* into one another to form lists of lists!
 
 ```{python, eval=F}
-myList = []
-myList = [True, 2.0, "hello", [5,6]]
+a = []
+b = [True, 2.0, "hello", [5,6]]
 ```
 
-Elements of a list can be accessed using the *index operator* `[]`.
+Elements of a list can be accessed using yet another type of operator, called the *index operator* `[]`.
 
 ```{python}
 numbers = [3, 17, 8]
-print numbers[1]
+print(numbers[1])
 ```
 
-The *expression* inside the brackets specifies the *index*. Each element inside a list has a unique index, an *integer* describing the element's position in the sequence. One major cause of errors surrounding lists is that indices start at `0`, not at `1`, as you might expect.
+The *expression* inside the brackets (in this case the integer `1`) specifies the *index* of the selected element. Each element inside a list has a unique index, an *integer* describing the element's position in the sequence. One major cause of errors surrounding lists is that indices start at `0`, not at `1`, as you might expect. This means that the first element of a list is accessed by indexing `0`, not `1`.
 
 ```{python}
 myString = ["Hello", "World", "!"]
-print myString[0]
-print myString[2]
+print(myString[0])
+print(myString[2])
 ```
 
-In contrast to *strings*, *lists* are mutable sequences. You can use the *index operator* to change specific list items.
+In contrast to Strings, lists are *mutable* sequences. This means that even after a variable is assigned a list value, specific elements of the list can be changed without reassigning a completely new list! You can use the *index operator* to change specific list items.
 ```{python}
 shoppinglist = ["appels", "bananas", "tomatoes"]
-print "Wait, I do not need tomatoes after all!"
+print("Wait, I do not need tomatoes after all!")
 shoppinglist[2] = "peaches"
-print "Updated shopping list: " + ",".join(shoppinglist)
+print("Updated shopping list: " + ",".join(shoppinglist))
 ```
 
 You can also access sublists in a list using *list slices*:
 ```{python}
 myList = [1, "a", 2, "b", 3, "c"]
-print myList[:]
-print myList[0:2]
+print(myList[:])
+print(myList[0:2])
 myList[0:2] = "d"
-print myList
+print(myList)
 ```
 
 Note that the statement `myList[0:2] = d` mutates both items, `1` *and* `"a"` into a single new item `"d"`, not only changing the content of `myList`, but also its total number of items!
@@ -64,7 +66,7 @@ The `:` expression selects all elements of a list and can be used for *cloning*.
 ```{python}
 myList = [1, "a", 2, "b", 3, "c"]
 myCopy = myList[:]
-print myCopy
+print(myCopy)
 ```
 
 
@@ -75,7 +77,7 @@ When you use a variable `myList` and assign a value to it, say `[4,5]`, you can 
 ```{python}
 myList = [4,5]
 myList.append(6)
-print myList
+print(myList)
 ```
 
 As you probably already figured, the `append` method adds the element specified between the brackets to the end of the list. Typing `help(list)` in your console will give you a complete list of built-in functions of the class `list` and what their functionalities are.
@@ -84,7 +86,7 @@ As you probably already figured, the `append` method adds the element specified 
 
 *Tuples* are an ordered collection of values, much like *lists*, but with less exentensive functionality and  their unique characteristic being that they are *immutable*. Once Python has created a *tuple* in memory, you cannot change its content.
 
-```{python, eval=F}
+```{}
 thorndike = ("Edward", "Lee", "Thorndike", 1874, "Law of effect", "Law of exercise")
 thorndike[4] = "Law of recency"
 
@@ -98,7 +100,7 @@ However, if you really need to change the contents of an already existing tuple 
 ```{python}
 thorndike = ("Edward", "Lee", "Thorndike", 1874, "Law of effect", "Law of exercise")
 thorndike = thorndike[:] + ("Law of recency",)
-print thorndike
+print(thorndike)
 ```
 
 Note the `,` in the second assignment statement. Without the comma at the end of the parentheses, Python treats the content of one-element tuples such as `("Law of recency",)` as a the data type of the element (in this case a `str`), resulting in a *type error* when trying to concatenate the `thorndike` tuple and `("Law of recency")`.
@@ -108,7 +110,7 @@ Python has a very powerful *tuple assignment* feature that allows a tuple of var
 ```{python}
 thorndike = ("Edward", "Lee", "Thorndike", 1874, "Law of effect", "Law of exercise", "Law of recency")
 (name, middle_name, surname, born, contribution1, contribution2, contribution3) = thorndike
-print contribution2
+print(contribution2)
 ```
 
 
@@ -122,7 +124,7 @@ address_book = {"studyadviser-PSY": "studyadviser-psy@utwente.nl ",
                 "ICT-helpdesk"   : "servicedesk-ict@utwente.nl"
                 }
 
-print address_book["studyadviser-PSY"]
+print(address_book["studyadviser-PSY"])
 ```
 
 
@@ -137,7 +139,7 @@ address_book = {"studyadviser-PSY": "studyadviser-psy@utwente.nl ",
                 }
                 
 address_book["studentservices"] = ("studentservices@utwente.nl", "0534892124")
-print "The telephone number of the student services is", str(address_book["studentservices"][1])
+print("The telephone number of the student services is", str(address_book["studentservices"][1]))
 ```
 
 You can add entries and remove whole entries of a dictionnary using the `del` statement.
@@ -149,10 +151,10 @@ address_book = {"studyadviser-PSY": "studyadviser-psy@utwente.nl ",
                 }
                 
 address_book["studentUnion"] = "studentunion@union.utwente.nl"
-print address_book
+print(address_book)
                 
 del address_book["ICT-helpdesk"]
-print address_book
+print(address_book)
 ```
 
 
@@ -178,9 +180,9 @@ if STATE == "wait_for_response":
 
 ## Common errors
 
-* `index out of range` errors are among the most common programming errors made, even by experienced programmers.They typically occur if you try to access an element that does not exist in a sequence
+* `index out of range` errors are among the most common programming errors made, even by experienced programmers.They typically occur if you try to access an element that does not exist in a sequence.
 
-```{python, eval=F}
+```{}
 shoppinglist = ["milk", "eggs", "bread", "appels"]
 print shoppinglist[4]
 
@@ -190,12 +192,12 @@ IndexError: list index out of range
 Most of the time, this error will occur because you confused the starting index `0` with `1`. Remember that, for instance, in a list of four elements the last element is stored at index `3`, instead of at index `4`.
 ```{python}
 shoppinglist = ["milk", "eggs", "bread", "appels"]
-print shoppinglist[3]
+print(shoppinglist[3])
 ```
 
 * Trying to change the content of a *tuple*. Tuples are immutable, meaning that you cannot change their content after their initialization. You can, however, re-assign the variable name of an existing tuple to a new tuple containing different information.
 
-```{python, eval=F}
+```{}
 myTuple = (1,2,4)
 myTuple[2] = 3
 
@@ -204,9 +206,9 @@ TypeError: 'tuple' object does not support item assignment
 
 ```{python}
 myTuple = (1,2,4)
-print myTuple
+print(myTuple)
 myTuple = (1,2,3)
-print myTuple
+print(myTuple)
 ```
 
 ## Exercises
@@ -257,15 +259,15 @@ Using the given dictionnary on famous psychologists and the above changes made t
 
 * Try to understand the changes made to the original dictionnary by writing down the content of the following print statements
 
-```{python,eval=F}
-1. print famous_psychologists["Erikson"][:3]
-2. print famous_psychologists["Piaget"][3:]
-3. print famous_psychologists["Freud"][2][0]
-4. print famous_psychologists["Skinner"][0][1]
-5. print famous_psychologists["Skinner"][5].keys()[1]
+```{python, eval=F}
+print(famous_psychologists["Erikson"][:3])
+print(famous_psychologists["Piaget"][3:])
+print(famous_psychologists["Freud"][2][0])
+print(famous_psychologists["Skinner"][0][1])
+print(famous_psychologists["Skinner"][5].keys()[1])
 
 word = famous_psychologists["Skinner"][5].keys()[0]
-6. print famous_psychologists["Skinner"][5][word][0]
+print(famous_psychologists["Skinner"][5][word][0])
 ```
 
 * Afterwards, you may check your answers by running the code. Pay attention that your own answers match exactly.
@@ -315,7 +317,7 @@ dataset = {'p1':[21,"Female","Dutch","B-Psychology",[True,False,True,False,False
            'p7':[19,"Male","German","B-Communication_Science",[True,True,False,True,True],5.4]
            }
 ```
-The docent has to perform some last minute changes to the data set before handing it in for statistical examination. Perform the following changes to the data set by accessing the relevant elements.
+The lecturer has to perform some last minute changes to the data set before handing it in for statistical examination. Perform the following changes to the data set by accessing the relevant elements.
 
 1. After taking a resit, participant 1 and participant 7 did pass the course. Participant 1 scored a 6.1 on the resit and participant 7 a 7.4.
 2. Participant 5 forgot to put her age and gender on the registration form. Participant 5 is female and 23 years old.
@@ -377,8 +379,6 @@ In order to implement the comparative Stroop version program (three vs. five col
 * Incorporate the information contained in the table above on the condition assignment of the ten participants. Which data structure will you use for storing this information?
 * Prepare the code for both Stroop task versions, a version with three words, three colors, and three buttons and the same for the five-word version. Choose any two additional colors.
 * Think about which places in the program need to be adapted and which of them need adaptation depending on the condition.
-
-
 
 ## Think further
 
