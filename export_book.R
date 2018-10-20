@@ -3,7 +3,7 @@ file.remove("_main.Rmd")
 ### HTML
 
 bookdown::render_book("index.Rmd", output_format = "bookdown::gitbook", clean = TRUE,
-            output_dir = "../Public/PfP_book/HTML/", 
+            output_dir = "HTML/", 
             encoding = "UTF-8")
 
 ### Epub

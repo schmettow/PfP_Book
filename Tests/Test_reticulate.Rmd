@@ -2,6 +2,8 @@
 
 ```{r}
 library(reticulate)
+
+use_condaenv("PfP_3")
 ```
 
 ```{r}

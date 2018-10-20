@@ -35,10 +35,10 @@ year = "47"
 *Note*: The below description of what the specified code does is not expected from students. The intention is that they think about what happens internally in PyGame when implementing a task such as 'printing something to the screen'.
 
 ```{python, eval=F}
-1 text_surface = font.render(msgText,True,msgColor,BACKGR_COL)
-2 text_rectangle = text_surface.get_rect()
-3 text_rectangle.center = (SCREEN_SIZE[0]/2.0,225)
-4 screen.blit(text_surface,text_rectangle)
+text_surface = font.render(msgText,True,msgColor,BACKGR_COL)
+text_rectangle = text_surface.get_rect()
+text_rectangle.center = (SCREEN_SIZE[0]/2.0,225)
+screen.blit(text_surface,text_rectangle)
 ```
 
 * Line 1 initializes a new Surface object with the pre-defined message `msgText` and color `msgColor` rendered on it and assigns it to the variable `text_surface`. PyGame draws text on a new Surface to create an image (Surface) of the text, then blit this image onto another Surface.
@@ -173,7 +173,7 @@ else:
 
 ### Exercise 3. Pseudo code conditionals
 
-```{python, eval=F}
+```{}
 
 1.
 If not rain
@@ -496,12 +496,12 @@ print n
   
 ### Exercise 2. Dictionnaries
 ```{python,eval=F}
-1. ('Erik', 'Erikson', (1902, 1994))
-2. ('Theory of Cognitive Development',)
-3. 1856
-4. Frederic
-5. Skinner Box
-6. positive reinforcement
+('Erik', 'Erikson', (1902, 1994))
+('Theory of Cognitive Development',)
+1856
+"Frederic"
+"Skinner Box"
+"positive reinforcement"
 
 
 ```
@@ -511,14 +511,14 @@ print n
 ### Exercise 3. Selecting elements
 
 ```{python,eval=F}
-1. shoppingList[2]
-2. shoppingList[0][0]
-3. grades["p3"][3]
-4. grades["p5"][1]
-5. grades["p6"][0]
-6. grades["p1"][4][2]
-7. grades["p5"][4][0]
-8. grades["p6"][4][1]
+shoppingList[2]
+shoppingList[0][0]
+grades["p3"][3]
+grades["p5"][1]
+grades["p6"][0]
+grades["p1"][4][2]
+grades["p5"][4][0]
+grades["p6"][4][1]
 ```
 
 ### Exercise 4. Adjust a dictionnary data set
@@ -887,14 +887,14 @@ main()
 ### Exercise 1. Following the control flow
 
 ```{python, eval=F}
-1. ['p2', 'p3', 'p1', 'p6', 'p7', 'p4', 'p5', 'p10', 'p8', 'p9']
-2. (20, 'Female', 'Dutch', 'B-Psychology')
-3. (20, 'Female', 'Dutch', 'B-Psychology')
-4. 20
-5. 5
-6. 4
-7. 21.8
-8. 19.75
+['p2', 'p3', 'p1', 'p6', 'p7', 'p4', 'p5', 'p10', 'p8', 'p9']
+(20, 'Female', 'Dutch', 'B-Psychology')
+(20, 'Female', 'Dutch', 'B-Psychology')
+20
+5
+4
+21.8
+19.75
 ```
 
 ### Exercise 2. Debugging
@@ -1068,9 +1068,9 @@ sys.exit()
 ### Exercise 1. Following the control flow
 
 ```{python, eval=F}
-x equals 10
-y equals 17.5
-anumber equals 10.0
+"x equals 10"
+"y equals 17.5"
+"anumber equals 10.0"
 ```
 
 ### Exercise 2. An imperfect list sorting attempt

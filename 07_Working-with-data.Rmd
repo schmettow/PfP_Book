@@ -3,7 +3,7 @@
 
 ## Elements of data processing
 
-In the previous chapter we have dealt with functions as reusable pieces of code. There is another common notion of what a function is: *functions process data*. The basic model of data processing is the following:
+In the previous chapter we have dealt with functions as reusable pieces of code. There is another common notion of what a function is: *a function processes data*. The basic model of data processing is the following:
 
 INPUT DATA --> FUNCTION --> OUTPUT DATA
 

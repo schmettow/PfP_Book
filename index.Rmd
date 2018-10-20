@@ -3,25 +3,22 @@ title: "Programming for Psychologists"
 author: "Martin Schmettow and Lena Brandl"
 date: "`r Sys.Date()`"
 site: bookdown::bookdown_site
-output: bookdown::gitbook
 documentclass: book
-biblio-style: apalike
 github-repo: schmettow/PfP_book
 description: "a book to accompany the course Programming for Psychologists"
 ---
+
+# Preface {-}
+
 
 ```{r setup, include = FALSE}
 library(tidyverse)
 library(reticulate)
 #knitr::opts_chunk$set(python.reticulate = FALSE)
-knitr::knit_engines$set(python = reticulate::eng_python)
+#knitr::knit_engines$set(python = reticulate::eng_python)
 
 #use_condaenv("C:\Users\schme\Anaconda2", conda = "auto", required = FALSE)
 
 #use_condaenv("C:\\Users\\User\\Anaconda2", conda = "auto", required = FALSE)
 #use_python("C:\\Users\\User\\Anaconda2\\pythonw.exe", required = TRUE)
 ```
-
-# Preface {-}
-
-This book is authored using [bookdown][https://bookdown.org/yihui/bookdown/].
