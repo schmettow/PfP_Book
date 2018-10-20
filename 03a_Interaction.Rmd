@@ -1,0 +1,130 @@
+# Interaction {#interaction}
+
+When you decided to learn programming you probably had something different in mind than putting some values in variables or compare apple with pears in conditionals. Most likely, your were more thinking of creating something with magic. Perhaps, you already have an idea for a smartphone app on your mind. Who hasn't?
+
+We won't push you that far. In this chapter we will introduce you to writing *interactive programs*. Interactive programs are those that do something when the user presses a button. They don't do something completely random, except for some artistic installations, perhaps, but react in a specified way to user input. We can say, that a program executes an *interaction protocol*, a set of rules that describe the programs behaviour. Unfortunately, an interaction protocol is not something that is readily given to you or that you can download somewhere.  Rather, creating this protocol is 
+part of software development and happens before you start coding. In essence, when starting to work  on an interactive program, the first you do is: switch off your computer, pull out pencils and paper and scratch your head.
+
+First, we will teach you how to analyze an interaction problem and note down your results. Then we'll show you how to quickly implement a prototype for testing the interaction protocol. Finally, we'll explain in more detail how to put the elements of interaction put together in pygame and give them appearance.
+
+
+
+
+## Analyzing interaction
+
+As complex interaction sometimes is, it can be boiled down to three sets of elements: states, transitions and events. The scope of this book covers rather simple interactive programs only, psychological experiments. In order to explain the basics of interaction programming, we go for something even more simple: a Dutch traffic light.
+
+A Dutch traffic light cycles through the following signals:
+
+    X   X   R
+    X   Y   X
+    G   X   X
+
+The first step in the analysis is to *identify states* of the program. A state is a rather abstract term, so let's see a few examples:
+
++ a light switch has the two states On and Off
++ the Dutch traffic light has the three signals Go, Attention and Stop
++ In MS Word, there are several different modes to view a document: Read, Print, Web.
++ ...
+
+Note how we named the states of the traffic light. On purpose did we not  call them Green, Yellow and Red, because this is about the appearance  just visual design, which comes at a much later point in the development process. What we have to capture in the first place in our analysis is the *meaning of states*, not their appearance. Arguably, it is inevitable to think visually when envisioning an interactive program, but when putting it down, do the extra exercise to pick terms that are specific about the meaning of the state, but are not about appearance. It is perfectly fine though On the traffic light example, we finish the first analysis step by noting down:
+
+1. Go: green light indicates that drivers may pass
+2. Att(ention): yellow light indicates that drivers should prepare to stop
+3. Stop: red loght indicates that drivers must wait
+
+The second step in the analysis is about identifying the *transitions* between states. The Dutch traffic light knows three transitions:
+
+    Go   --> Att
+    Att  --> Stop
+    Stop --> Go
+
+Cycling through a set of states is the most simple interaction protocol. It is unique, in that every state appears exactly once on the left-hand side (the original state) and the right-hand side (the destination). As we will later see, this is why we also only  need one button for a manual traffic light.
+
+Most of the time it is more complicated and one easily overlooks a possibloe transition. If at the same time, th number of states is not overwhelmingly large, it helps to create a *transition table*. A transition table is just a square matrix, where you put the states into rows and columns.
+
+          Go  Att Stop
+    Go
+    Att
+    Stop
+
+The traffic light with three states has nine possible transitions, but which of them make any sense? We start in the first row and ask: "Does it make sense that a state Go is followed by itself?"  Here, the answer is No and you leave the cell just empty. But, there are situations, where you would want to make such a "selfish" transition. Next, you ask: "Does a transition from Go to Att make sense?" Absolutely! You make a cross. Then you do the same for the second and the third row, leaving blank the impossble transitions and marking the possible. 
+
+          Go  Att Stop
+    Go          X
+    Att             X
+    Stop  X
+
+
+
+It is important to realize, that transitions are not symmetric. You can go from Go to Att, but there is no transition back.
+
+### Exercises: 
+
+1. States and transitions of a stop watch
+2. Review the Stroop program and find the states in the code. Then, take a closer look at where in the code states are used.
+
+
+
+#### [HERE]
+
+
+## Transitions on event
+
+### automatic events
+
+### interactive events
+
+
+## Appearance
+
+
+
+### Exercise C. Transition tables
+
+For the following code snippet, make a transition table.
+
+```{python, eval=FALSE}
+STATE = "A"
+
+while True:
+    #ITC
+    for event in pygame.event.get():                        
+        if STATE == "A":
+            count = 0
+            if event.type == KEYDOWN and event.key == K_w:
+                STATE = "B"
+                print(STATE)
+        elif STATE == "B":
+            count = count + 1
+            if event.type == KEYDOWN and event.key == K_a:
+                timer = time()
+                STATE = "C"
+                print(STATE)
+        elif STATE == "D":
+            if event.type == KEYDOWN and event.key == K_SPACE:
+                if count < 10:
+                    STATE = "B"
+                else:
+                    STATE = "quit"
+                print(STATE)
+
+    #ATC
+    if STATE == "C":
+        present_picture()
+        if time() - timer > 3:
+            STATE = "D"
+        print(STATE)
+    elif STATE == "quit":
+        pygame.quit()
+        sys.exit()
+```
+
+
+
+## Think Further
+
+* For a complete list of all operator precedences in Python feel free to consult the following summary: [Official Python Documentation: 5.15 Operator precedence](https://docs.python.org/2/reference/expressions.html#operator-precedence)
+* For an alternative explanation of the contents of this chapter, consult [A Byte of Python: Chapter 6. Operators and Expressions and Chapter 7. Control Flow](http://files.swaroopch.com/python/byte_of_python.pdf)
+* For more detail on Conditionals, Boolean algebra and related topics, you are invited to take a look at [How to Think Like a Computer Scientist: Learning with Python 3: 5. Conditionals](http://openbookproject.net/thinkcs/python/english3e/conditionals.html)
+

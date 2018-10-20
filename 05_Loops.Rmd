@@ -92,9 +92,9 @@ In the example above, several conditions have to be fulfilled so that the progra
 myList = [1,2,3,4,5]
 for i in len(myList):
     myList[i] += 1
-
-TypeError: 'int' object is not iterable
 ```
+
+    TypeError: 'int' object is not iterable
 
 Probably, your intention was to make the loop repeat as many times as there are elements in `myList`. However, `len(myList)` returns an *integer*, not a *sequence* object. Instead, you will have to convert the *length* of `myList` into a *sequence*, for instance by using `range()`.
 
@@ -107,16 +107,18 @@ print myList
 ```
 
 * `index out of range` errors tend to slip in when working with loops
+
 ```{python, eval=F}
 myList = [range(10),[1,2,3]]
 
 for i in range(len(myList[0])):
      myList[0][i] = 0
      myList[1][i] = 0
- 
-IndexError: list assignment index out of range
 
 ```
+
+ 
+    IndexError: list assignment index out of range
 
 Always make sure that sequences you intend to modify in a `for` loop body actually have as many elements as the sequence over which you are iterating in the `for` statement.
 
@@ -127,14 +129,14 @@ Always make sure that sequences you intend to modify in a `for` loop body actual
 Read the script below carefully. Indicate the values of the following expressions after the script has finished executing:
 
 ```{python, eval=F}
-1. dataset.keys()
-2. dataset[dataset.keys()[0]]
-3. condA[0]
-4. condA[0][0]
-5. len(condA)
-6. len(condB)
-7. meanA
-8. meanB
+dataset.keys()
+dataset[dataset.keys()[0]]
+condA[0]
+condA[0][0]
+len(condA)
+len(condB)
+meanA
+meanB
 ```
 
 You can check your answers afterwards by running the script.
@@ -252,6 +254,7 @@ If we want to know how many participants withdrew their participation we need a 
 
 counter = 0
 for (participant,expInfo) in participants:
+  pass
         # to be implemented by you
         
 print "The number of participants who withdrew their participation is", counter

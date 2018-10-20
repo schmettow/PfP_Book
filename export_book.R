@@ -2,24 +2,32 @@ file.remove("_main.Rmd")
 
 ### HTML
 
-bookdown::render_book("index.Rmd", output_format = "bookdown::gitbook", clean = TRUE,
-            output_dir = "../Public/PfP_book/HTML/", 
+bookdown::render_book("_bookdown.yml", output_format = "bookdown::gitbook", clean = TRUE,
+            output_dir = "HTML/", 
             encoding = "UTF-8")
 
 ### Epub
 
 bookdown::render_book("index.Rmd", output_format = "bookdown::epub_book", clean = TRUE,
-                      output_dir = "../Public/PfP_book/Epub/", 
+                      output_dir = "Epub/", 
                       encoding = "UTF-8")
 
 ### Kindle
 
-bookdown::kindlegen(epub = "../Public/PfP_book/Epub/_main.epub")
+bookdown::kindlegen(epub = "Epub/")
 
-### PDF
+
+### Word
 ### as LaTeX is not working, we do a workaround via Word, which needs manual conversion to PDF
 
 bookdown::render_book("index.Rmd", output_format = "bookdown::word_document2", clean = T,
-                     output_dir = "../Public/PfP_book/PDF",
+                     output_dir = "DOC/",
                     encoding = "UTF-8")
+
+
+### PDF
+
+bookdown::render_book("index.Rmd", output_format = "bookdown::pdf_book", clean = T,
+                      output_dir = "DOC/",
+                      encoding = "UTF-8")
 
