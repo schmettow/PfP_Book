@@ -6,7 +6,7 @@ message.append("world")
 print(" ".join(message))
 ```
 
-In chapter 2 Variables you encountered the four basic data types, *integers*, *floats*, *Strings* and *Booleans*. You also learned that apart from these four basic data types, Python knows numerous specialized types. In this chapter, you will learn more about one group of these specialized data types: *collections*.
+In chapter, 2 Variables, you encountered the four basic data types of the Python programming language: *integers*, *floats*, *Strings* and *Booleans*. You also learned that apart from these four basic data types, Python knows numerous specialized types. In this chapter, you will learn more about one group of these specialized data types: *collections*.
 
 ## Lists
 
@@ -18,7 +18,7 @@ b = ["eggs", "bacon", "cheese"]
 c = [4, "participant", 7.3, False]
 ```
 
-The easiest way of creating a list is surrounding some values with cornered brackets `[]` and separating the values of the list with commas `,`. The values that make up a list are called *items* or *elements*. In a sense, lists are similar to *Strings*. Strings are basically ordered collections of *characters*. In contrast to Strings, however, the elements of list can be of *any* type. Ordered collections such as strings and lists are also called *sequences*.
+The easiest way of creating a list is surrounding some values with cornered brackets `[]` and separating the values of the list with commas `,`. The values that make up a list are called *items* or *elements*.
 
 `[]` denotes a list with no elements and is called an *empty list*. Lists can even be *nested* into one another to form lists of lists!
 
@@ -27,14 +27,17 @@ a = []
 b = [True, 2.0, "hello", [5,6]]
 ```
 
-Elements of a list can be accessed using yet another type of operator, called the *index operator* `[]`.
+In a sense, lists are similar to *Strings*. Strings are basically ordered collections of *characters*. For example, the word `Hello` is an ordered sequence of five characters: `H`,`e`, `l`, `l`, and `o`.
+In contrast to Strings, however, the elements of list can be of *any* type. Ordered collections such as strings and lists are also called *sequences*.
+
+In ordered collections, the order of elements is significant. Each element occupies a unique position in a list. Elements of a list are accessed by querying the list at a specified position, at a so-called *index*,  and returning the value(s) located at that position. Another type of operator, the *index operator* `[]` is used to access list elements.
 
 ```{python}
 numbers = [3, 17, 8]
 print(numbers[1])
 ```
 
-The *expression* inside the brackets (in this case the integer `1`) specifies the *index* of the selected element. Each element inside a list has a unique index, an *integer* describing the element's position in the sequence. One major cause of errors surrounding lists is that indices start at `0`, not at `1`, as you might expect. This means that the first element of a list is accessed by indexing `0`, not `1`.
+The *expression* inside the brackets of the index operator (in this case the integer `1`) specifies the *index* of the to-be selected element. Each element inside a list has a unique index, an *integer* describing the element's position in the sequence. One major cause of errors surrounding lists is that indices start at `0`, not at `1`, as you might expect. This means that the first element of a list is accessed by indexing `0`, not `1`.
 
 ```{python}
 myString = ["Hello", "World", "!"]
