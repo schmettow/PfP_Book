@@ -10,17 +10,17 @@ In chapter, 2 Variables, you encountered the four basic data types of the Python
 
 ## Lists
 
-One type of collection are *lists*. Lists are *ordered* collections of values.
+One type of collection are *lists*.
 
 ```{python, eval=F}
-a = [5, 10, 15, 20]
+a = [10, 5, 15, 25]
 b = ["eggs", "bacon", "cheese"]
 c = [4, "participant", 7.3, False]
 ```
 
 The easiest way of creating a list is surrounding some values with cornered brackets `[]` and separating the values of the list with commas `,`. The values that make up a list are called *items* or *elements*.
 
-`[]` denotes a list with no elements and is called an *empty list*. Lists can even be *nested* into one another to form lists of lists!
+A special type of list is the so-called *empty list*. An empty list is a list with no elements. Empty lists are denoted with `[]`. Lists can even be *nested* into one another to form lists of lists.
 
 ```{python, eval=F}
 a = []
@@ -28,66 +28,124 @@ b = [True, 2.0, "hello", [5,6]]
 ```
 
 In a sense, lists are similar to *Strings*. Strings are basically ordered collections of *characters*. For example, the word `Hello` is an ordered sequence of five characters: `H`,`e`, `l`, `l`, and `o`.
-In contrast to Strings, however, the elements of list can be of *any* type. Ordered collections such as strings and lists are also called *sequences*.
+In contrast to Strings, however, the elements of lists can be of *any* type. Ordered collections such as strings and lists are also called *sequences*.
 
-In ordered collections, the order of elements is significant. Each element occupies a unique position in a list. Elements of a list are accessed by querying the list at a specified position, at a so-called *index*,  and returning the value(s) located at that position. Another type of operator, the *index operator* `[]` is used to access list elements.
-
-```{python}
-numbers = [3, 17, 8]
-print(numbers[1])
-```
-
-The *expression* inside the brackets of the index operator (in this case the integer `1`) specifies the *index* of the to-be selected element. Each element inside a list has a unique index, an *integer* describing the element's position in the sequence. One major cause of errors surrounding lists is that indices start at `0`, not at `1`, as you might expect. This means that the first element of a list is accessed by indexing `0`, not `1`.
+Lists are *ordered* collections of values. However, a list's internal order has nothing to do with how humans may be inclinded to order list elements. Humans may be inclinded to order a list `a` with three elements `"A", "B",` and `"C"` according to their alphabetic order `a = ["A", "B", "C"]`. However, for lists, the value of an element is irrelevant for its position in the list. Lists are not *ordered* because they grasp some underlying semnatics about their elements and rank their elements accordingly. In fact, element values are arbitrary for a list. Instead, lists are called *ordered* because they allocate a certain position in memory to each element. Each list element occupies a unique position in memory. Elements of a list are accessed by querying the list at a specified position, a so-called *index*. Accessing a list at a specified index, the value located at that position in memory is returned. The *index operator* `[]` is used to access list elements at specified indices.
 
 ```{python}
-myString = ["Hello", "World", "!"]
-print(myString[0])
-print(myString[2])
+a = [3, 17, 8]
+print(a[0])
+print(a[1])
 ```
 
+The *expression* inside the brackets of the index operator (in this case the integers `0` and `1`) specifies the *index* of the to-be selected element. Each element inside a list has a unique index, an *integer* describing the element's position in the list. One major cause of errors surrounding lists is that indices start at `0`, not at `1`, as you might expect. This means that the first element of a list is accessed by indexing `0`, not `1`!
+
+```{python}
+a = ["Hello", "World", "!"]
+print(a[0])
+print(a[2])
+```
+
+### Lists are mutable
 In contrast to Strings, lists are *mutable* sequences. This means that even after a variable is assigned a list value, specific elements of the list can be changed without reassigning a completely new list! You can use the *index operator* to change specific list items.
+
 ```{python}
 shoppinglist = ["appels", "bananas", "tomatoes"]
 print("Wait, I do not need tomatoes after all!")
 shoppinglist[2] = "peaches"
 print("Updated shopping list: " + ",".join(shoppinglist))
 ```
-
-You can also access sublists in a list using *list slices*:
-```{python}
-myList = [1, "a", 2, "b", 3, "c"]
-print(myList[:])
-print(myList[0:2])
-myList[0:2] = "d"
-print(myList)
-```
-
-Note that the statement `myList[0:2] = d` mutates both items, `1` *and* `"a"` into a single new item `"d"`, not only changing the content of `myList`, but also its total number of items!
-
-The `:` expression selects all elements of a list and can be used for *cloning*.
+Because lists are mutable, you can sequentially fill them with elements, step by step. This is very handy for storing values you generate throughout your program. There are several ways of adding elements to a list.
 
 ```{python}
-myList = [1, "a", 2, "b", 3, "c"]
-myCopy = myList[:]
-print(myCopy)
+a = []
+a.append(1)
+print(a)
+a.append(2)
+print(a)
 ```
 
-
-By now, you have seen a few examples of class specific *functions*, such as `",".join(shoppinglist)` for the class `string`. Even though a detailed explanation of *functions* is postponed to Chapter \@ref(functions), a quick introduction to objects, classes, and class specific functions will help you make the best use of the class `list` and the class' useful built-in methods. For now, you can see functions as pieces of reusable code.
-
-When you use a variable `myList` and assign a value to it, say `[4,5]`, you can think of it as creating an *object* (i.e. an instance) `myList` of *class* (i.e. type) *list*. A class can have pre-defined *methods*, that are *functions* that can be accessed and used by any *object* of the class. An example is the `append` method for the `list` class.
+The *append* method adds the specified element at the end of the list. You can use the *extend* method to add the values of a second list (or other type of collection) to your list.
 
 ```{python}
-myList = [4,5]
-myList.append(6)
-print(myList)
+a = [1,2]
+b = [3,4]
+
+a.extend(b)
+print(a)
 ```
 
-As you probably already figured, the `append` method adds the element specified between the brackets to the end of the list. Typing `help(list)` in your console will give you a complete list of built-in functions of the class `list` and what their functionalities are.
+Note that there is a difference between appending a list and extending your list with another list.
+
+```{python}
+a = [1,2]
+b = [3,4]
+
+a.append(b)
+print(a)
+```
+
+
+In the above examples, when `a` is **extended** by `b`, the elements stored in `b` are sequentially appended to `a`, each of them constituting a new element in `a`. In contrast, the whole list `b` is regarded as an element of `a` when `b` is **appended** to `a`.
+
+Another way of mutating a list is by using the index operator. You can use the index operator to change the value of an element in a list.
+
+```{python}
+a = [1,2]
+a[0] = 10
+print(a)
+```
+
+But watch out, you **cannot** use the index operator to add new elements to a list. To do so, you would need to access a new index, an index not yet claimed by an existing list element. Trying to access an index outside of the current range of indices will produce an index out of range error.
+
+```{}
+a = [1,2]
+a[2] = 10
+print(a)
+
+IndexError: list assignment index out of range
+```
+
+Using the index operator, you can access (and change!) several elements at a time in a list using so-called *list slices*:
+
+```{python}
+a = [1, "a", 2, "b", 3, "c"]
+print(a[1:4])
+print(a[0:2])
+a[0:2] = "d"
+print(a)
+```
+
+The indices around the `:` colon indicate the starting and ending index of the selected list slice. Note that a list slice will always include the element located at the starting index, but exclude the element located at the ending index. To include `2` in the second list slice you would thus need to access `a[0:3]`, or simplified `a[:3]`. The latter meaning "every element up until, but excluding index 3".
+
+Note that the statement `a[0:2] = d` mutates both elements, `1` *and* `"a"` into a single new item `"d"`. This means that it did not only change some elements of `a`, but also `a`'s total number of elements!
+
+When no starting or ending index is specified, the `:` expression selects all elements of a list and can be used for *cloning* lists.
+
+```{python}
+a = [1, "a", 2, "b", 3, "c"]
+aCopy = a[:]
+print(aCopy)
+```
+
+###A word about class specific methods
+By now, you have seen a few examples of class specific *methods*, such as `append()` for lists or `join()` for strings. Even though a detailed explanation of *methods* (also called *functions*) is postponed to Chapter \@ref(functions), a quick introduction to objects, classes, and class specific methods will help you make the best use of your lists and their built-in functions. For now, you can see functions as pieces of reusable code.
+
+When you create a variable `a` and assign a value to it, say `[4,5]`, you can think of it as creating an *object* (i.e. an instance) of the Python *class* *list*. The class *list* has been programmed by the developers of the Python language, same as any other built-in Python class. Classes are blueprints for objects and only come into existence when you create an instance of that class. A class has built-in *methods* that can be used by *any* instance of the class. This is very useful, because you can use a wide range of useful code snippets specifically designed for (in this case) lists, simply because your lists inherit these methods from a overarching class definition. An example is the `append()` method for the `list` class.
+
+```{python}
+a = [4,5]
+a.append(6)
+print(a)
+```
+
+The `append()` method adds the value specified between the brackets to the end of the list. Typing `help(list)` in your console will give you a complete list of built-in functions of the class `list` and what their functionalities are.
+
+The take-home message for now is: make use of built-in class functions as much as you can! They provide a tremendous amount of functionality which you are likely going to need and want, written in neat code which makes them very efficient too!
 
 ## Tuples
 
-*Tuples* are an ordered collection of values, much like *lists*, but with less exentensive functionality and  their unique characteristic being that they are *immutable*. Once Python has created a *tuple* in memory, you cannot change its content.
+Much like lists, *tuples* are an ordered collection of values, but with less exentensive functionality and  their unique characteristic being that they are *immutable*. Once you created a *tuple* in memory, you cannot change its content.
 
 ```{}
 thorndike = ("Edward", "Lee", "Thorndike", 1874, "Law of effect", "Law of exercise")
@@ -96,9 +154,9 @@ thorndike[4] = "Law of recency"
 TypeError: 'tuple' object does not support item assignment
 ```
 
-Tuples are usually used when one can assume that the collection of values will not change. They are *records* of related information, chunked together so that we can use it as a single entity.
+Tuples are usually used when you assume that a collection of values will not change in the course of your program. They are *records* of related information, chunked together so that we can use it as a single entity.
 
-However, if you really need to change the contents of an already existing tuple you can always make its variable name reference to a new tuple holding different information.
+However, if you really need to change the contents of an already existing tuple, you can always assign a new value to the variable which holds the value of the tuple you want to change.
 
 ```{python}
 thorndike = ("Edward", "Lee", "Thorndike", 1874, "Law of effect", "Law of exercise")
@@ -106,14 +164,18 @@ thorndike = thorndike[:] + ("Law of recency",)
 print(thorndike)
 ```
 
-Note the `,` in the second assignment statement. Without the comma at the end of the parentheses, Python treats the content of one-element tuples such as `("Law of recency",)` as a the data type of the element (in this case a `str`), resulting in a *type error* when trying to concatenate the `thorndike` tuple and `("Law of recency")`.
+Note the `,` in the second assignment statement `("Law of recency,")`. Without the comma at the end of the parentheses, Python ignores the parentheses and treats the content of one-element tuples such as `("Law of recency",)` as the data type of the element (in this case a `str`). As a result, a *type error* is thrown when you try to concatenate the `thorndike` tuple and `("Law of recency")`.
 
 Python has a very powerful *tuple assignment* feature that allows a tuple of variable names on the left of the assignment operator `=` to be assigned values from a tuple on the right of the assignment operator. Thereby you can easily perform several variable assignments in just one line!
 
 ```{python}
-thorndike = ("Edward", "Lee", "Thorndike", 1874, "Law of effect", "Law of exercise", "Law of recency")
-(name, middle_name, surname, born, contribution1, contribution2, contribution3) = thorndike
-print(contribution2)
+thorndike = ("Edward", "Lee", "Thorndike", 1874)
+name, middle_name, surname, born = thorndike
+print(name)
+```
+```{python}
+a, b = ("Hello", "World")
+print(b)
 ```
 
 
