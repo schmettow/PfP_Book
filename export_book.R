@@ -9,26 +9,25 @@ bookdown::render_book("_bookdown.yml", output_format = "bookdown::gitbook",
 
 ### Epub
 
-bookdown::render_book("index.Rmd", output_format = "bookdown::epub_book", clean = TRUE,
+bookdown::render_book("_bookdown.yml", output_format = "bookdown::epub_book", clean = TRUE,
                       output_dir = "Epub/", 
                       encoding = "UTF-8")
 
 ### Kindle
 
-bookdown::kindlegen(epub = "Epub/")
+# bookdown::kindlegen(epub = "Epub/")
 
 
 ### Word
-### as LaTeX is not working, we do a workaround via Word, which needs manual conversion to PDF
 
-bookdown::render_book("index.Rmd", output_format = "bookdown::word_document2", clean = T,
-                     output_dir = "DOC/",
-                    encoding = "UTF-8")
+# bookdown::render_book("_bookdown.yml", output_format = "bookdown::word_document2", clean = T,
+#                      output_dir = "DOC/",
+#                     encoding = "UTF-8")
 
 
 ### PDF
 
-bookdown::render_book("index.Rmd", output_format = "bookdown::pdf_book", clean = T,
-                      output_dir = "DOC/",
+bookdown::render_book("_bookdown.yml", output_format = "bookdown::pdf_book", clean = T,
+                      output_dir = "PDF/",
                       encoding = "UTF-8")
 

@@ -4,6 +4,8 @@
 
 ## Installing Python
 
+<!-- #9 use conda environments -->
+
 1.	From https://www.anaconda.com/download/ download the 64-bit installer  of Python 2.7 
 2.	Run the downloaded file and 
     a.	Install for “just me”
@@ -16,7 +18,7 @@ For testing your Anaconda environment, follow these steps:
 
 1.	From the Start menu in folder start Spyder (this is the programming environment that was installed alongside with Anaconda)
 2.	Download the Python file Stroop_interaction.py from the folder Week 1 on Google Drive https://goo.gl/UmBsil
-3.	Open this file in Spyder (File  Open).
+3.	Open this file in Spyder (File --> Open).
 4.	Run the program by clicking the green play button. You should see a window popping up, which greets you to the Stroop experiment.
 
 
