@@ -4,7 +4,7 @@ file.remove("_main.Rmd")
 
 bookdown::render_book("_bookdown.yml", output_format = "bookdown::gitbook", 
                       clean = TRUE, 
-            output_dir = "HTML/", 
+            output_dir = "docs/", 
             encoding = "UTF-8")
 
 bookdown::publish_book(render = "local")

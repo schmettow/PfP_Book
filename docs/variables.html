@@ -242,17 +242,15 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="8.3.5" data-path="interaction.html"><a href="interaction.html#pygame-events"><i class="fa fa-check"></i><b>8.3.5</b> Pygame events</a></li>
 </ul></li>
 <li class="chapter" data-level="8.4" data-path="interaction.html"><a href="interaction.html#presentitionals-in-pygame"><i class="fa fa-check"></i><b>8.4</b> Presentitionals in Pygame</a><ul>
-<li class="chapter" data-level="8.4.1" data-path="interaction.html"><a href="interaction.html#displays-and-screen"><i class="fa fa-check"></i><b>8.4.1</b> Displays and screen</a></li>
-<li class="chapter" data-level="8.4.2" data-path="interaction.html"><a href="interaction.html#geometric-figures"><i class="fa fa-check"></i><b>8.4.2</b> Geometric figures</a></li>
-<li class="chapter" data-level="8.4.3" data-path="interaction.html"><a href="interaction.html#text"><i class="fa fa-check"></i><b>8.4.3</b> Text</a></li>
-<li class="chapter" data-level="8.4.4" data-path="interaction.html"><a href="interaction.html#pictures"><i class="fa fa-check"></i><b>8.4.4</b> Pictures</a></li>
-<li class="chapter" data-level="8.4.5" data-path="interaction.html"><a href="interaction.html#animations"><i class="fa fa-check"></i><b>8.4.5</b> Animations</a></li>
-<li class="chapter" data-level="8.4.6" data-path="interaction.html"><a href="interaction.html#interactive-animations"><i class="fa fa-check"></i><b>8.4.6</b> Interactive animations</a></li>
-<li class="chapter" data-level="8.4.7" data-path="interaction.html"><a href="interaction.html#controls"><i class="fa fa-check"></i><b>8.4.7</b> Controls</a></li>
-<li class="chapter" data-level="8.4.8" data-path="interaction.html"><a href="interaction.html#exercise-c.-transition-tables-1"><i class="fa fa-check"></i><b>8.4.8</b> Exercise C. Transition tables</a></li>
+<li class="chapter" data-level="8.4.1" data-path="interaction.html"><a href="interaction.html#display-and-surface"><i class="fa fa-check"></i><b>8.4.1</b> Display and surface</a></li>
+<li class="chapter" data-level="8.4.2" data-path="interaction.html"><a href="interaction.html#drawing-figures"><i class="fa fa-check"></i><b>8.4.2</b> Drawing figures</a></li>
+<li class="chapter" data-level="8.4.3" data-path="interaction.html"><a href="interaction.html#placing-text-and-pictures"><i class="fa fa-check"></i><b>8.4.3</b> Placing text and pictures</a></li>
 </ul></li>
-<li class="chapter" data-level="8.5" data-path="interaction.html"><a href="interaction.html#common-errors-5"><i class="fa fa-check"></i><b>8.5</b> Common errors</a></li>
-<li class="chapter" data-level="8.6" data-path="interaction.html"><a href="interaction.html#think-further-5"><i class="fa fa-check"></i><b>8.6</b> Think Further</a></li>
+<li class="chapter" data-level="8.5" data-path="interaction.html"><a href="interaction.html#exercises-8"><i class="fa fa-check"></i><b>8.5</b> Exercises</a><ul>
+<li class="chapter" data-level="8.5.1" data-path="interaction.html"><a href="interaction.html#exercise-c.-transition-tables-1"><i class="fa fa-check"></i><b>8.5.1</b> Exercise C. Transition tables</a></li>
+</ul></li>
+<li class="chapter" data-level="8.6" data-path="interaction.html"><a href="interaction.html#common-errors-5"><i class="fa fa-check"></i><b>8.6</b> Common errors</a></li>
+<li class="chapter" data-level="8.7" data-path="interaction.html"><a href="interaction.html#think-further-5"><i class="fa fa-check"></i><b>8.7</b> Think Further</a></li>
 </ul></li>
 <li class="chapter" data-level="9" data-path="solutions.html"><a href="solutions.html"><i class="fa fa-check"></i><b>9</b> Solutions</a><ul>
 <li class="chapter" data-level="9.1" data-path="solutions.html"><a href="solutions.html#chapter-1.-introduction"><i class="fa fa-check"></i><b>9.1</b> Chapter 1. Introduction</a></li>
@@ -397,7 +395,7 @@ RT.append(this_reaction_time)</code></pre></div>
 <div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python"><span class="im">import</span> random
 number <span class="op">=</span> random.randint(<span class="dv">0</span>,<span class="dv">10</span>)
 <span class="bu">print</span>(number)</code></pre></div>
-<pre><code>## 9</code></pre>
+<pre><code>## 0</code></pre>
 <p>You will learn in detail about functions in Chapter <a href="functions.html#functions">6</a>. For now it is good enough to know that the function <code>random.randint(0,10)</code> randomly picks an integer between 0 and 10, and <em>returns</em> the chosen integer. Whatever number is picked by the function is stored in the variable <code>number</code> and can easily be retrieved and used for other purposes elsewhere. If this piece of information does not satisfy you, simply type <code>help(random)</code> after importing <code>random</code> and your interpreter will give you a more detailed description of the <em>class</em> <code>random</code>.</p>
 <p>Variables are mutable, meaning that their value can be changed after an initial assignment. This is very useful for structuring a program:</p>
 <div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python"><span class="co"># determining the maximum number of trials</span>

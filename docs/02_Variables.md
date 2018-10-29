@@ -189,7 +189,7 @@ print(number)
 ```
 
 ```
-## 9
+## 0
 ```
 
 You will learn in detail about functions in Chapter \@ref(functions). For now it

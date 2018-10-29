@@ -200,7 +200,8 @@ For the interactive prototype, we will turn the transitions from the table into 
 The following code snippet implements two interactive transitional with the same origin, namely the transition from Billing to Delivery and Credit_card:
 
 
-```python
+
+```{python, eval = F}
 if STATE == "Billing" and key == "p":
   print(STATE)
   key = input("Press a key: ")
@@ -231,7 +232,7 @@ The interaction prototype of Checkout looks like the following.
 
 
 
-```python
+```{python, eval = F}
 STATE = "Delivery"
 while True:
   
@@ -300,7 +301,7 @@ if STATE == <origin>:
 There is no difference in functionality between these two forms of transitionals, but for longer programs it may be easier to read. With nested transitionals, the checkout program would look like the following: 
 
 
-```python
+```{python, eval = F}
 STATE = "Delivery"
 while True:
   
@@ -351,7 +352,7 @@ A frequent case of automatic transitions is staying in a state for a certain amo
 As you have experienced at the Stroop task theater play from chapter \@ref(intro) dealing with time requires some extra tricks. For example, how do we let the automatic traffic light rest in the Go state for exactly 20 seconds? We set a timestamp and wait for the difference to become 20 seconds or longer. Fortunately, for interaction prototypes, there is a cheap and  dirty trick to do that more straight-forwardly, which is the command  `sleep(20)`. It suspends the whole program and wakes it up after twenty seconds. Why is that dirty? For two reasons: First, it only works for interaction prototypes, but not Pygame programs. For example, when you are showing animated stimuli, putting the whole program on halt won't work. Second, you will not be able to bypass the waiting time, say, the user wants to prematurely proceed to the next picture in the dia show.
 
 
-```python
+```{python, eval = F}
 from time import sleep
 STATE = "Stop" # Att, Go
 while True:
@@ -377,7 +378,7 @@ A program can be (and typically is) a mix of interactive and automatic transitio
 
 
 
-```python
+```{python, eval = F}
 from time import sleep
 STATE = "Stop" # Att, Go
 while True:
@@ -412,7 +413,7 @@ As we have said, for a prototype, the `sleep(s)` is fine in most cases to cause 
 The following code shows, how to implement a time delay by setting a timestamp and comparing the difference with current time in the automatic traffic light example. 
 
 
-```python
+```{python, eval = F}
 from time import time
 STATE = "Go" # Att, Go
 time_stamp = time()
@@ -488,7 +489,7 @@ Notice that:
 
 
 
-```python
+```{python, eval = F}
 STATE = "Delivery"
 while True:
   
@@ -538,11 +539,12 @@ while True:
 
 1. setup
 1. initialize display
-1.  fast `while` loop doing the display refresh
+1. fast `while` loop doing the display refresh
 3.    event handler `for` loop
 4.      interactive transitionals
 5.    automatic transitionals
 6.    presentitionals
+7. drawing functions
 
 Before we dive into the matter of interaction programming with Pygame, there is one aspect of the template that is worth briefly mentioning, the `def main():` statement. The only thing it does is to encapsulate the central part of your code as a function, which is called in the last line of code.
 
@@ -563,7 +565,7 @@ A single iteration of the fast while loop we call *a refresh*.
 
 
 
-```python
+```{python, eval = F}
 BACKGR_COL = col_gray
 SCREEN_SIZE = (700, 500)
 pygame.init()
@@ -608,7 +610,7 @@ With Pygame you can create interactive programs that react fluently to user inpu
 While the fast `while` loop runs in the foreground, the event handler is a separate mechanism that continuously listens to input from keyboard or mouse. Whenever something happens, a key is pressed or the mouse is pushed, the event handler registers this event and puts it in a queue. At every regresh this queue is retrieved and emptied by `pygame.event.get()`, which returns the queue as a list. The event `for` loop iterates over this list, pulling out the events one by one out and handing them over to the interactive transitionals.
 
 
-```python
+```{python, eval = F}
 # Event handler
 for event in pygame.event.get(): 
     # interactive transitionals                     
@@ -634,7 +636,7 @@ Notice that
 Interactive transitionals differ only slightly. Because of the event handler mechanism they no longer reside under the fast `while`, but one level deeper in the event handler loop. If you use a print statement to see the state transitions on the console, these must go into the individual transitionals, see yourself:
 
 
-```python
+```{python, eval = F}
 # Event loop
 for event in pygame.event.get():
     
@@ -684,7 +686,7 @@ Automatic transitionals in Pygame differ in no way from automatic transitionals 
 There is one automatic transitional in the Stroop program, that is a little special on closer examination: With every new trial, the transitional `prepare_trial` is triggered and automatically the program moves on to `show_trial`. On closer  examination this transitional is different to the ones we have seen before, because the state `prepare_trial` does not have a presentational. It is completely invisible to the user, a *ghost transitional*. We also notice that there is quite some extra code inside. Some serious data processing is done, before the actual transition.
 
 
-```python
+```{python, eval = F}
 # automatic transitionals
 if STATE == "prepare_trial":
         trial_number = trial_number + 1
@@ -724,7 +726,7 @@ When theer is a `KEYDOWN` there must also be a `KEYUP` event type, that is recor
 The full list of event types is given in the [Pygame documentation]:(https://www.pygame.org/docs/ref/event.html). Here we will only briefly explain the most important, which is the event type QUIT and all mouse event types:
 
 
-```python
+```{python, eval = F}
 if event.type == QUIT:
   STATE = "quit"
   break
@@ -740,7 +742,7 @@ Mouse events come as several types with different properties, the two most impor
 See these two events in action in the following little program:
 
 
-```python
+```{python, eval = F}
 import pygame
 import sys
 from time import time
@@ -826,31 +828,39 @@ And, here we're getting to the candy! With Pygame presentitionals we give our pr
 
 The Pygame system has been developed for arcade games and is very powerful when it comes to creating and transforming graphical objects. Unfortunately, that also makes it very complex, which is why the functions have so many dots in their names. Fortunately, many psychological experiments are at most as complex as the simplest arcade game. Introducing a small subset of Pygame functionality is sufficient. For when you are a geek take a look at other books on game development with Python.
 
-Recall that at every refresh the screen is almost literally painted over. In fact, every one presentitional can be considered a drawing on its very own. That allows us to demonstrate the elements of Pygame graphics in simple programs, that produce a still picture. That also matches the way you should proceed, when writing the transitionals: first you write the scaffolding code, which consists of all the presentitional and their empty draw function:
+Recall that at every refresh the screen is almost literally painted over. In fact, every one presentitional can be considered a drawing on its very own. That allows us to demonstrate the elements of Pygame graphics in simple programs, that produce a still picture. That also matches the way you should proceed, when writing the transitionals: first you write the scaffolding code, which consists of all the presentitional and their empty draw function. Then you grab the draw functions one by one and program the visuals, using text, geometric figures and pictures. Here is how the scaffolding looks like:
 
 
-```python
+```{python, eval = F}
 if state == "some_state":
+  draw_some_state()
+  
+if state == "some_other_state":
   draw_some_state(some_property)
   
-def draw_some_state(some_property):
+pygame.display.update()
+  
+def draw_some_state():
+  pass
+  
+def draw_some_other_state(some_property):
   pass
 ```
 
 Notice that:
 
 1. we do *not* use print statements in presentitionals, as they are in the fast loop.
+1. often, it is useful to make the draw function more generic and use function arguments to fix some properties.
 
 
-
-### Displays and screen
+### Display and surface
 
 Creating the appearence of states means to draw things to the surface (also known as screen or canvas). However, before we can do so, the surface itself must be created. Also, we have to understand the "physical properties" of the surface.
 
 Like almost any other program, a Pygame program appears as a window, just like the one in which this text is displayed, be it a browser or a pdf viewer. This windows is composed of the frame, which consists of a rectangular edge, a title bar with a caption and the Windows controls |_|| ||X| in the upper right corner. Between the edge sits the surface. The first thing that needs to be done is creating this window, which is called the *display* in Pygame terminology. The following code creates a minimal Pygame display with a surface that is 600 pixel wide and 400 pixel high and puts "A Pygame display" into the title bar. The only thing it can do is quit properly.
 
 
-```python
+```{python, eval = F}
 # Required libraries
 import pygame
 import sys
@@ -870,7 +880,7 @@ def main():
             if event.type == QUIT:
                 pygame.quit()
                 sys.exit()
-    pygame.display.update()
+        pygame.display.update()
 main()
 ```
 
@@ -883,62 +893,232 @@ Notice that:
 1. It is the display that is updated (refreshed), not the surface, which is just a little counter-intuitive, as the surface is where we draw.
 1. Although the program does nithing noteworthy, we included the event handler with a quit transition. If we do not, closing the window becomes a surprisingly difficult task.
 
-There is more to say about the surface than you can actually see in this example. One thing to notive is that the saize of the surface is given with *pixel* as a unit. What is a pixel? Take a loupe and look at your computer monitor closely. You will see tiny dots, each of which is composed of three differently colored areas. These dots are the pixel and everything you draw or render to the screen is actually composed of pixel. It seems natural to use pixel as a unit of measurement when programming graphics, as long as we precisely know the size of the surface. One reason for not using metric (mm, cm) as units is that pixel size can differ a lot between monitors. Use the same loupe on teh display of your smartphone to check this yourself. This is why, here, we always work with fixed size displays.
+There is more to say about the surface than you can actually see in this example. One thing to notice is that the size of the surface is given with *pixel* as a unit. What is a pixel? Take a loupe and look at your computer monitor closely. You will see tiny dots, each of which is composed of three differently colored areas. These dots are the pixel and everything you draw or render to the screen is actually composed of pixel. It seems natural to use pixel as a unit of measurement when programming graphics, as long as we precisely know the size of the surface. One reason for not using metric (mm, cm) as units is that pixel size can differ a lot between monitors. Use the same loupe on teh display of your smartphone to check this yourself. This is why, here, we always work with fixed size displays. 
+
+Objects are placed on the canvas by *coordinates*, and these are given in pixel, too. While we are used to coordinate systems that have the origin (x = 0, y = 0) in the lower left corner, Pygame surfaces have the *origin (0,0) in the upper left corner*. The historical reason is that the old clunky electron ray tubes start a new refresh in the first line, from left-to-right. Perhaps, it is easier to remember that it is like writing a text.
+
+By `pygame.update.display()` the refresh loop updates the display at every iteration. This update collects all the graphical elements that have been produced during that iteration and puts them to the surface. However, speaking figuratively this is *unlike* grabbing a fresh canvas and do the drawing. It is much like how the old masters worked with oil on canvas. New or updated elements are over-painted. Areas that are not affected by over-painting stay just as they are. In computer games that perfectly makes sense. When navigating a character, say the famous Pacman, the maze is constant and it makes little sense to update it every 60th of a second. In the interactive programs we are dealing with, here, the interface layout changes more often and, in order to play it safe, we always do the `surface.fill()` in order to create a blank sheet at every refresh.
+
+Speaking of *colors*: after creating the surface, we filled it with our background color of choice, which is the tupel `(0, 0, 0)`. Why these three numbers? Remember what you saw through the loop: every pixel is composed of three subpixel of different colors, namely: Red, Green and Blue. That is how every computer in the world composes colors: as an *additive mixture* of these three colors. In short, we call it the *RGB system*. Every subpixel has a fixed color, but the brightness of the color can vary, taking values from 0 to 255 (which happens to be called a byte). For a few examples, check out the Stroop program, where a number of colors have been predefined as tupels. So, `(0, 0, 0)` means that all three color channels are dark and the results is Black. On the very opposite `(255, 255, 255)` means all channels fire at maximum brightness, which results in White.
+
+<!-- #14 -->
+
+### Drawing figures
+
+<!-- #16 -->
+
+
+```{python, eval = F}
+import pygame
+import sys
+from pygame.locals import *
+from pygame.compat import unichr_, unicode_
+pygame.init()
+width = 1000
+height = 800
+pygame.display.set_mode((width, height))
+pygame.display.set_caption("Drawing figures")
+screen = pygame.display.get_surface()
+screen.fill((0,0,0))
+def main():
+    while True:
+        screen.fill((0,0,0))
+        for event in pygame.event.get():
+            if event.type == QUIT:
+                pygame.quit()
+                sys.exit()
+        
+        draw_circ(250, 200, 200, (255, 255, 255), 5)
+        draw_circ(250, 200, 150, (255, 255, 255), 20)
+        draw_circ(250, 650, 100, (255, 0, 0), 0)
+        
+        draw_rect(500, 50,  400, 600, (0, 0, 255), 0)
+        draw_rect(500, 50,  200, 200, (0, 255, 0), 10)
+        
+        draw_tria(250, 200, 250, 650, 500, 50)
+        
+        pygame.display.update()
+def draw_circ(x, y, radius, 
+              color = (255,255,255), 
+              stroke_size = 1):
+    pygame.draw.circle(screen, color, 
+                       (x,y), radius, stroke_size)
+def draw_rect(x, y, 
+              width, height, 
+              color = (255,255,255), 
+              stroke_size = 1):
+    pygame.draw.rect(screen, color, (x, y, width, height), stroke_size)
+    pass
+def draw_tria(x_1, y_1, 
+              x_2, y_2,
+              x_3, y_3, color = (255,255,255), 
+              stroke_size = 1):
+    points = ((x_1, y_1), (x_2, y_2), (x_3, y_3))
+    pygame.draw.polygon(screen, color, points, stroke_size)
+    pass
+main()
+```
+
+![Drawing_figures](figures/Draw_figures.png)
+
+Notice that:
+
+1. The order of drawing commands determines how figures are painted over one another.
+2. Sometimes it is useful to write your own wrapper functions for Psygame commands. Here, it is mainly for the purpose of creating a matrix-like appearance by function names of equal length.
+3. Even static programs should have a minimal event loop that reacts properly when the user wants to quit the program.
 
 
 
+### Placing text and pictures
 
-What you see when running this 
+Putting text on the screen is something that we experience everyday, when we read the internet, write emails or write code. One might think that this is as straight-forward in Pygame as creating figures. It is not that easy, though, and in order to understand why these complications arise, think about the following: When you want to write on a note "DON'T WORRY!" with a surrounding box. What do you do first, the writing or the box?
 
-+ coordinates
-+ background
-+ painting over
-+ full screen
-+ rotations
+You put the writing first, because only after you have written do you see how high and wide the written text is. And the same problem happens when rendering text on Pygame surfaces. Fonts differ and even individual characters differ. There is no more reasonable way, to determine the size of the text box, after it has been rendered. To solve the problem, we divide the drawing process in two parts: the *rendering* part creates an object of the text box in the computer memory, without sending it to the surface, yet. From this object, we can retrieve the properties of the text box, most notably its dimensions. Even better, this object can be manipulated in many ways, for example resizing or moving it [Pygame doc](https://www.pygame.org/docs/ref/rect.html). Only after that, the text object is send to the surface.
 
-### Geometric figures
-
-+ circles
-+ squares
-+ hitting on objects
+In the following program we merged both steps into a more programmer-friendly function that almost behaves like the figure drawing commands. The only difference: you don't know in advance how large the textbox will be.
 
 
-### Text
+```{python, eval = F}
+import pygame
+import sys
+from pygame.locals import *
+from pygame.compat import unichr_, unicode_
+pygame.init()
+width = 1000
+height = 800
+pygame.display.set_mode((width, height))
+pygame.display.set_caption("Drawing figures")
+FONT = pygame.font.Font('freesansbold.ttf',40)
+SURF = pygame.display.get_surface()
+SURF.fill((0,0,0))
+def main():
+    while True:
+        SURF.fill((0,0,0))
+        for event in pygame.event.get():
+            if event.type == QUIT:
+                pygame.quit()
+                sys.exit()
+        
+        draw_text(x = 0, y = 0, text = "Pygame says:")
+        draw_text(x = width/2, y = height/2, text = "Hi there!", 
+                  center = True)
+        
+        pygame.display.update()
+def draw_text(x, y, text,
+              color = (255, 255, 255),
+              center = False):
+    rendered_text = FONT.render(text, True, color)
+    # retrieving the abstract rectangle of the text box
+    box = rendered_text.get_rect()
+    # this sets the x and why coordinates
+    if center:
+        box.center = (x,y)
+    else:
+        box.topleft = (x,y)
+    # This puts a pre-rendered object to the screen
+    SURF.blit(rendered_text, box)
+ 
+main()
+```
 
-+ text boxes
-+ fonts
+Notice that:
 
-### Pictures
+1. First, we actually have to select a font for the text. Here. this is set globally.
+1. The coordinates of the function refer to the upper left corner by default, but can be set to refer to teh center of the box.
+1. The `SURF.blit()` command sends the rendered text and the textbox to the surface. 
+1. The box is first retrieved from the rendered text, then moved and finally send to the surface.
+1. The function `draw_textbox()` uses `pygame.transform.smoothscale()` to force the text into a given width and height. The results don't neccessarily look good.
+1. We have consistently put all global variables into capital letters to avoid confusion between globalö and local variables.
 
-+ reading files
-+ transformations
+Working with pictures is very similar to text boxes. Again, you only know the size once you have loaded the file from your hard drive.
 
-### Animations
+
+
+```{python, eval = F}
+def main():
+    while True:
+        SURF.fill((0,0,0))
+        for event in pygame.event.get():
+            if event.type == QUIT:
+                pygame.quit()
+                sys.exit()
+        
+        draw_picture(x = WIDTH/2, y = HEIGHT/2, file = "Beach.png", 
+                     center = True,
+                     scale = 0.5)
+        pygame.display.update()
+def draw_picture(x, y, file, scale = 1, center = False):
+    picture = pygame.image.load(file)
+    # retrieving the box
+    box = picture.get_rect()
+    # transformation
+    if scale != 1:
+        new_width = int(box.width * scale)
+        new_height = int(box.height * scale)
+        picture = pygame.transform.smoothscale(picture, 
+                                               (new_width, new_height))
+        box = picture.get_rect()
+    # getting the new box
+    if center:
+        box.center = (x,y)
+    else:
+        box.topleft = (x,y)
+    SURF.blit(picture, box)
+ 
+main()
+```
+
+Notice that 
+
+1. the picture file resides in teh same directory as the program. If that is different you have to use relative paths. Avoid absolute paths, as this makes the program less portable.
+1. in the function definition, we put the scale arguent at the end, although an earlier position would be more logical. The reason is that all argument without a default have to come first, such as file.
+1. `picture.get_rect()` is called twice. After the scaling the box gets an update
+1. Putting the scaling part into a conditional is not necessary, but saves computation where it is not needed.
+
+#### HERE
+
+<!--
+### Playing animations
 
 + the refresh rate
 + computer-aided hypnosis
 
 ### Interactive animations
 
+Remember Pacman? In this classic arcade game, four ghosts haunt you while wander a dungeon to collect all the cookies. Forget the ghosts and recall what above we have said about the Pygame surface being like an oilpainting. If we would write a Pacman program, we would use `surface.fill(BG_COLOR)`, such that whenever the Pacman figure moves it disappears from its previous position. Imagine what would happen if you forgot the surface fill?
+
+The Pacman figure would leave a trail of copies of itself, painting a trail with its past moments. If you would then also remove the dungeon itself, what you get is a program that paints to the screen.
+
 + drawing with objects
 + drawing mandalas
+
+
+-->
+
+<!-- 15 -->
+
+
+<!--
 
 ### Controls
 
 + hitting objects
 + buttons
 + text input
-+ dealing with object sets <!-- Use Pandas, not lists -->
++ dealing with object sets. Use Pandas, not lists. 
+
+-->
 
 
-#### HERE
+
+## Exercises
 
 ### Exercise C. Transition tables
 
 For the following code snippet, make a transition table.
 
 
-```python
+```{python, eval = F}
 STATE = "A"
 while True:
     #ITC

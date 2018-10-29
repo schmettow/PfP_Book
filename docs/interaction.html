@@ -242,17 +242,15 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="8.3.5" data-path="interaction.html"><a href="interaction.html#pygame-events"><i class="fa fa-check"></i><b>8.3.5</b> Pygame events</a></li>
 </ul></li>
 <li class="chapter" data-level="8.4" data-path="interaction.html"><a href="interaction.html#presentitionals-in-pygame"><i class="fa fa-check"></i><b>8.4</b> Presentitionals in Pygame</a><ul>
-<li class="chapter" data-level="8.4.1" data-path="interaction.html"><a href="interaction.html#displays-and-screen"><i class="fa fa-check"></i><b>8.4.1</b> Displays and screen</a></li>
-<li class="chapter" data-level="8.4.2" data-path="interaction.html"><a href="interaction.html#geometric-figures"><i class="fa fa-check"></i><b>8.4.2</b> Geometric figures</a></li>
-<li class="chapter" data-level="8.4.3" data-path="interaction.html"><a href="interaction.html#text"><i class="fa fa-check"></i><b>8.4.3</b> Text</a></li>
-<li class="chapter" data-level="8.4.4" data-path="interaction.html"><a href="interaction.html#pictures"><i class="fa fa-check"></i><b>8.4.4</b> Pictures</a></li>
-<li class="chapter" data-level="8.4.5" data-path="interaction.html"><a href="interaction.html#animations"><i class="fa fa-check"></i><b>8.4.5</b> Animations</a></li>
-<li class="chapter" data-level="8.4.6" data-path="interaction.html"><a href="interaction.html#interactive-animations"><i class="fa fa-check"></i><b>8.4.6</b> Interactive animations</a></li>
-<li class="chapter" data-level="8.4.7" data-path="interaction.html"><a href="interaction.html#controls"><i class="fa fa-check"></i><b>8.4.7</b> Controls</a></li>
-<li class="chapter" data-level="8.4.8" data-path="interaction.html"><a href="interaction.html#exercise-c.-transition-tables-1"><i class="fa fa-check"></i><b>8.4.8</b> Exercise C. Transition tables</a></li>
+<li class="chapter" data-level="8.4.1" data-path="interaction.html"><a href="interaction.html#display-and-surface"><i class="fa fa-check"></i><b>8.4.1</b> Display and surface</a></li>
+<li class="chapter" data-level="8.4.2" data-path="interaction.html"><a href="interaction.html#drawing-figures"><i class="fa fa-check"></i><b>8.4.2</b> Drawing figures</a></li>
+<li class="chapter" data-level="8.4.3" data-path="interaction.html"><a href="interaction.html#placing-text-and-pictures"><i class="fa fa-check"></i><b>8.4.3</b> Placing text and pictures</a></li>
 </ul></li>
-<li class="chapter" data-level="8.5" data-path="interaction.html"><a href="interaction.html#common-errors-5"><i class="fa fa-check"></i><b>8.5</b> Common errors</a></li>
-<li class="chapter" data-level="8.6" data-path="interaction.html"><a href="interaction.html#think-further-5"><i class="fa fa-check"></i><b>8.6</b> Think Further</a></li>
+<li class="chapter" data-level="8.5" data-path="interaction.html"><a href="interaction.html#exercises-8"><i class="fa fa-check"></i><b>8.5</b> Exercises</a><ul>
+<li class="chapter" data-level="8.5.1" data-path="interaction.html"><a href="interaction.html#exercise-c.-transition-tables-1"><i class="fa fa-check"></i><b>8.5.1</b> Exercise C. Transition tables</a></li>
+</ul></li>
+<li class="chapter" data-level="8.6" data-path="interaction.html"><a href="interaction.html#common-errors-5"><i class="fa fa-check"></i><b>8.6</b> Common errors</a></li>
+<li class="chapter" data-level="8.7" data-path="interaction.html"><a href="interaction.html#think-further-5"><i class="fa fa-check"></i><b>8.7</b> Think Further</a></li>
 </ul></li>
 <li class="chapter" data-level="9" data-path="solutions.html"><a href="solutions.html"><i class="fa fa-check"></i><b>9</b> Solutions</a><ul>
 <li class="chapter" data-level="9.1" data-path="solutions.html"><a href="solutions.html#chapter-1.-introduction"><i class="fa fa-check"></i><b>9.1</b> Chapter 1. Introduction</a></li>
@@ -976,18 +974,27 @@ main()</code></pre></div>
 <h2><span class="header-section-number">8.4</span> Presentitionals in Pygame</h2>
 <p>And, here we’re getting to the candy! With Pygame presentitionals we give our program a face. The presentitionals of Pygame have the same formal structure as the prototype presentitionals, so there is nothing more to say about it. This chapter shows you how to create graphical user interface that render stimuli, show pictures, play animations and have buttons.</p>
 <p>The Pygame system has been developed for arcade games and is very powerful when it comes to creating and transforming graphical objects. Unfortunately, that also makes it very complex, which is why the functions have so many dots in their names. Fortunately, many psychological experiments are at most as complex as the simplest arcade game. Introducing a small subset of Pygame functionality is sufficient. For when you are a geek take a look at other books on game development with Python.</p>
-<p>Recall that at every refresh the screen is almost literally painted over. In fact, every one presentitional can be considered a drawing on its very own. That allows us to demonstrate the elements of Pygame graphics in simple programs, that produce a still picture. That also matches the way you should proceed, when writing the transitionals: first you write the scaffolding code, which consists of all the presentitional and their empty draw function:</p>
+<p>Recall that at every refresh the screen is almost literally painted over. In fact, every one presentitional can be considered a drawing on its very own. That allows us to demonstrate the elements of Pygame graphics in simple programs, that produce a still picture. That also matches the way you should proceed, when writing the transitionals: first you write the scaffolding code, which consists of all the presentitional and their empty draw function. Then you grab the draw functions one by one and program the visuals, using text, geometric figures and pictures. Here is how the scaffolding looks like:</p>
 <div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python"><span class="cf">if</span> state <span class="op">==</span> <span class="st">&quot;some_state&quot;</span>:
+  draw_some_state()
+  
+<span class="cf">if</span> state <span class="op">==</span> <span class="st">&quot;some_other_state&quot;</span>:
   draw_some_state(some_property)
   
-<span class="kw">def</span> draw_some_state(some_property):
+pygame.display.update()
+  
+<span class="kw">def</span> draw_some_state():
+  <span class="cf">pass</span>
+  
+<span class="kw">def</span> draw_some_other_state(some_property):
   <span class="cf">pass</span></code></pre></div>
 <p>Notice that:</p>
 <ol style="list-style-type: decimal">
 <li>we do <em>not</em> use print statements in presentitionals, as they are in the fast loop.</li>
+<li>often, it is useful to make the draw function more generic and use function arguments to fix some properties.</li>
 </ol>
-<div id="displays-and-screen" class="section level3">
-<h3><span class="header-section-number">8.4.1</span> Displays and screen</h3>
+<div id="display-and-surface" class="section level3">
+<h3><span class="header-section-number">8.4.1</span> Display and surface</h3>
 <p>Creating the appearence of states means to draw things to the surface (also known as screen or canvas). However, before we can do so, the surface itself must be created. Also, we have to understand the “physical properties” of the surface.</p>
 <p>Like almost any other program, a Pygame program appears as a window, just like the one in which this text is displayed, be it a browser or a pdf viewer. This windows is composed of the frame, which consists of a rectangular edge, a title bar with a caption and the Windows controls |_|| ||X| in the upper right corner. Between the edge sits the surface. The first thing that needs to be done is creating this window, which is called the <em>display</em> in Pygame terminology. The following code creates a minimal Pygame display with a surface that is 600 pixel wide and 400 pixel high and puts “A Pygame display” into the title bar. The only thing it can do is quit properly.</p>
 <div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python"><span class="co"># Required libraries</span>
@@ -1009,7 +1016,7 @@ surface.fill((<span class="dv">0</span>,<span class="dv">0</span>,<span class="d
             <span class="cf">if</span> event.<span class="bu">type</span> <span class="op">==</span> QUIT:
                 pygame.quit()
                 sys.exit()
-    pygame.display.update()
+        pygame.display.update()
 main()</code></pre></div>
 <p>Notice that:</p>
 <ol style="list-style-type: decimal">
@@ -1020,66 +1027,204 @@ main()</code></pre></div>
 <li>It is the display that is updated (refreshed), not the surface, which is just a little counter-intuitive, as the surface is where we draw.</li>
 <li>Although the program does nithing noteworthy, we included the event handler with a quit transition. If we do not, closing the window becomes a surprisingly difficult task.</li>
 </ol>
-<p>There is more to say about the surface than you can actually see in this example. One thing to notive is that the saize of the surface is given with <em>pixel</em> as a unit. What is a pixel? Take a loupe and look at your computer monitor closely. You will see tiny dots, each of which is composed of three differently colored areas. These dots are the pixel and everything you draw or render to the screen is actually composed of pixel. It seems natural to use pixel as a unit of measurement when programming graphics, as long as we precisely know the size of the surface. One reason for not using metric (mm, cm) as units is that pixel size can differ a lot between monitors. Use the same loupe on teh display of your smartphone to check this yourself. This is why, here, we always work with fixed size displays.</p>
-<p>What you see when running this</p>
-<ul>
-<li>coordinates</li>
-<li>background</li>
-<li>painting over</li>
-<li>full screen</li>
-<li>rotations</li>
-</ul>
+<p>There is more to say about the surface than you can actually see in this example. One thing to notice is that the size of the surface is given with <em>pixel</em> as a unit. What is a pixel? Take a loupe and look at your computer monitor closely. You will see tiny dots, each of which is composed of three differently colored areas. These dots are the pixel and everything you draw or render to the screen is actually composed of pixel. It seems natural to use pixel as a unit of measurement when programming graphics, as long as we precisely know the size of the surface. One reason for not using metric (mm, cm) as units is that pixel size can differ a lot between monitors. Use the same loupe on teh display of your smartphone to check this yourself. This is why, here, we always work with fixed size displays.</p>
+<p>Objects are placed on the canvas by <em>coordinates</em>, and these are given in pixel, too. While we are used to coordinate systems that have the origin (x = 0, y = 0) in the lower left corner, Pygame surfaces have the <em>origin (0,0) in the upper left corner</em>. The historical reason is that the old clunky electron ray tubes start a new refresh in the first line, from left-to-right. Perhaps, it is easier to remember that it is like writing a text.</p>
+<p>By <code>pygame.update.display()</code> the refresh loop updates the display at every iteration. This update collects all the graphical elements that have been produced during that iteration and puts them to the surface. However, speaking figuratively this is <em>unlike</em> grabbing a fresh canvas and do the drawing. It is much like how the old masters worked with oil on canvas. New or updated elements are over-painted. Areas that are not affected by over-painting stay just as they are. In computer games that perfectly makes sense. When navigating a character, say the famous Pacman, the maze is constant and it makes little sense to update it every 60th of a second. In the interactive programs we are dealing with, here, the interface layout changes more often and, in order to play it safe, we always do the <code>surface.fill()</code> in order to create a blank sheet at every refresh.</p>
+<p>Speaking of <em>colors</em>: after creating the surface, we filled it with our background color of choice, which is the tupel <code>(0, 0, 0)</code>. Why these three numbers? Remember what you saw through the loop: every pixel is composed of three subpixel of different colors, namely: Red, Green and Blue. That is how every computer in the world composes colors: as an <em>additive mixture</em> of these three colors. In short, we call it the <em>RGB system</em>. Every subpixel has a fixed color, but the brightness of the color can vary, taking values from 0 to 255 (which happens to be called a byte). For a few examples, check out the Stroop program, where a number of colors have been predefined as tupels. So, <code>(0, 0, 0)</code> means that all three color channels are dark and the results is Black. On the very opposite <code>(255, 255, 255)</code> means all channels fire at maximum brightness, which results in White.</p>
+<!-- #14 -->
 </div>
-<div id="geometric-figures" class="section level3">
-<h3><span class="header-section-number">8.4.2</span> Geometric figures</h3>
-<ul>
-<li>circles</li>
-<li>squares</li>
-<li>hitting on objects</li>
-</ul>
+<div id="drawing-figures" class="section level3">
+<h3><span class="header-section-number">8.4.2</span> Drawing figures</h3>
+<!-- #16 -->
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python"><span class="im">import</span> pygame
+<span class="im">import</span> sys
+<span class="im">from</span> pygame.<span class="bu">locals</span> <span class="im">import</span> <span class="op">*</span>
+<span class="im">from</span> pygame.compat <span class="im">import</span> unichr_, unicode_
+pygame.init()
+width <span class="op">=</span> <span class="dv">1000</span>
+height <span class="op">=</span> <span class="dv">800</span>
+pygame.display.set_mode((width, height))
+pygame.display.set_caption(<span class="st">&quot;Drawing figures&quot;</span>)
+screen <span class="op">=</span> pygame.display.get_surface()
+screen.fill((<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>))
+<span class="kw">def</span> main():
+    <span class="cf">while</span> <span class="va">True</span>:
+        screen.fill((<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>))
+        <span class="cf">for</span> event <span class="kw">in</span> pygame.event.get():
+            <span class="cf">if</span> event.<span class="bu">type</span> <span class="op">==</span> QUIT:
+                pygame.quit()
+                sys.exit()
+        
+        draw_circ(<span class="dv">250</span>, <span class="dv">200</span>, <span class="dv">200</span>, (<span class="dv">255</span>, <span class="dv">255</span>, <span class="dv">255</span>), <span class="dv">5</span>)
+        draw_circ(<span class="dv">250</span>, <span class="dv">200</span>, <span class="dv">150</span>, (<span class="dv">255</span>, <span class="dv">255</span>, <span class="dv">255</span>), <span class="dv">20</span>)
+        draw_circ(<span class="dv">250</span>, <span class="dv">650</span>, <span class="dv">100</span>, (<span class="dv">255</span>, <span class="dv">0</span>, <span class="dv">0</span>), <span class="dv">0</span>)
+        
+        draw_rect(<span class="dv">500</span>, <span class="dv">50</span>,  <span class="dv">400</span>, <span class="dv">600</span>, (<span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">255</span>), <span class="dv">0</span>)
+        draw_rect(<span class="dv">500</span>, <span class="dv">50</span>,  <span class="dv">200</span>, <span class="dv">200</span>, (<span class="dv">0</span>, <span class="dv">255</span>, <span class="dv">0</span>), <span class="dv">10</span>)
+        
+        draw_tria(<span class="dv">250</span>, <span class="dv">200</span>, <span class="dv">250</span>, <span class="dv">650</span>, <span class="dv">500</span>, <span class="dv">50</span>)
+        
+        pygame.display.update()
+<span class="kw">def</span> draw_circ(x, y, radius, 
+              color <span class="op">=</span> (<span class="dv">255</span>,<span class="dv">255</span>,<span class="dv">255</span>), 
+              stroke_size <span class="op">=</span> <span class="dv">1</span>):
+    pygame.draw.circle(screen, color, 
+                       (x,y), radius, stroke_size)
+<span class="kw">def</span> draw_rect(x, y, 
+              width, height, 
+              color <span class="op">=</span> (<span class="dv">255</span>,<span class="dv">255</span>,<span class="dv">255</span>), 
+              stroke_size <span class="op">=</span> <span class="dv">1</span>):
+    pygame.draw.rect(screen, color, (x, y, width, height), stroke_size)
+    <span class="cf">pass</span>
+<span class="kw">def</span> draw_tria(x_1, y_1, 
+              x_2, y_2,
+              x_3, y_3, color <span class="op">=</span> (<span class="dv">255</span>,<span class="dv">255</span>,<span class="dv">255</span>), 
+              stroke_size <span class="op">=</span> <span class="dv">1</span>):
+    points <span class="op">=</span> ((x_1, y_1), (x_2, y_2), (x_3, y_3))
+    pygame.draw.polygon(screen, color, points, stroke_size)
+    <span class="cf">pass</span>
+main()</code></pre></div>
+<div class="figure">
+<img src="figures/Draw_figures.png" alt="Drawing_figures" />
+<p class="caption">Drawing_figures</p>
 </div>
-<div id="text" class="section level3">
-<h3><span class="header-section-number">8.4.3</span> Text</h3>
-<ul>
-<li>text boxes</li>
-<li>fonts</li>
-</ul>
+<p>Notice that:</p>
+<ol style="list-style-type: decimal">
+<li>The order of drawing commands determines how figures are painted over one another.</li>
+<li>Sometimes it is useful to write your own wrapper functions for Psygame commands. Here, it is mainly for the purpose of creating a matrix-like appearance by function names of equal length.</li>
+<li>Even static programs should have a minimal event loop that reacts properly when the user wants to quit the program.</li>
+</ol>
 </div>
-<div id="pictures" class="section level3">
-<h3><span class="header-section-number">8.4.4</span> Pictures</h3>
-<ul>
-<li>reading files</li>
-<li>transformations</li>
-</ul>
-</div>
-<div id="animations" class="section level3">
-<h3><span class="header-section-number">8.4.5</span> Animations</h3>
-<ul>
-<li>the refresh rate</li>
-<li>computer-aided hypnosis</li>
-</ul>
-</div>
-<div id="interactive-animations" class="section level3">
-<h3><span class="header-section-number">8.4.6</span> Interactive animations</h3>
-<ul>
-<li>drawing with objects</li>
-<li>drawing mandalas</li>
-</ul>
-</div>
-<div id="controls" class="section level3">
-<h3><span class="header-section-number">8.4.7</span> Controls</h3>
-<ul>
-<li>hitting objects</li>
-<li>buttons</li>
-<li>text input</li>
-<li>dealing with object sets <!-- Use Pandas, not lists --></li>
-</ul>
+<div id="placing-text-and-pictures" class="section level3">
+<h3><span class="header-section-number">8.4.3</span> Placing text and pictures</h3>
+<p>Putting text on the screen is something that we experience everyday, when we read the internet, write emails or write code. One might think that this is as straight-forward in Pygame as creating figures. It is not that easy, though, and in order to understand why these complications arise, think about the following: When you want to write on a note “DON’T WORRY!” with a surrounding box. What do you do first, the writing or the box?</p>
+<p>You put the writing first, because only after you have written do you see how high and wide the written text is. And the same problem happens when rendering text on Pygame surfaces. Fonts differ and even individual characters differ. There is no more reasonable way, to determine the size of the text box, after it has been rendered. To solve the problem, we divide the drawing process in two parts: the <em>rendering</em> part creates an object of the text box in the computer memory, without sending it to the surface, yet. From this object, we can retrieve the properties of the text box, most notably its dimensions. Even better, this object can be manipulated in many ways, for example resizing or moving it <a href="https://www.pygame.org/docs/ref/rect.html">Pygame doc</a>. Only after that, the text object is send to the surface.</p>
+<p>In the following program we merged both steps into a more programmer-friendly function that almost behaves like the figure drawing commands. The only difference: you don’t know in advance how large the textbox will be.</p>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python"><span class="im">import</span> pygame
+<span class="im">import</span> sys
+<span class="im">from</span> pygame.<span class="bu">locals</span> <span class="im">import</span> <span class="op">*</span>
+<span class="im">from</span> pygame.compat <span class="im">import</span> unichr_, unicode_
+pygame.init()
+width <span class="op">=</span> <span class="dv">1000</span>
+height <span class="op">=</span> <span class="dv">800</span>
+pygame.display.set_mode((width, height))
+pygame.display.set_caption(<span class="st">&quot;Drawing figures&quot;</span>)
+FONT <span class="op">=</span> pygame.font.Font(<span class="st">&#39;freesansbold.ttf&#39;</span>,<span class="dv">40</span>)
+SURF <span class="op">=</span> pygame.display.get_surface()
+SURF.fill((<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>))
+<span class="kw">def</span> main():
+    <span class="cf">while</span> <span class="va">True</span>:
+        SURF.fill((<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>))
+        <span class="cf">for</span> event <span class="kw">in</span> pygame.event.get():
+            <span class="cf">if</span> event.<span class="bu">type</span> <span class="op">==</span> QUIT:
+                pygame.quit()
+                sys.exit()
+        
+        draw_text(x <span class="op">=</span> <span class="dv">0</span>, y <span class="op">=</span> <span class="dv">0</span>, text <span class="op">=</span> <span class="st">&quot;Pygame says:&quot;</span>)
+        draw_text(x <span class="op">=</span> width<span class="op">/</span><span class="dv">2</span>, y <span class="op">=</span> height<span class="op">/</span><span class="dv">2</span>, text <span class="op">=</span> <span class="st">&quot;Hi there!&quot;</span>, 
+                  center <span class="op">=</span> <span class="va">True</span>)
+        
+        pygame.display.update()
+<span class="kw">def</span> draw_text(x, y, text,
+              color <span class="op">=</span> (<span class="dv">255</span>, <span class="dv">255</span>, <span class="dv">255</span>),
+              center <span class="op">=</span> <span class="va">False</span>):
+    rendered_text <span class="op">=</span> FONT.render(text, <span class="va">True</span>, color)
+    <span class="co"># retrieving the abstract rectangle of the text box</span>
+    box <span class="op">=</span> rendered_text.get_rect()
+    <span class="co"># this sets the x and why coordinates</span>
+    <span class="cf">if</span> center:
+        box.center <span class="op">=</span> (x,y)
+    <span class="cf">else</span>:
+        box.topleft <span class="op">=</span> (x,y)
+    <span class="co"># This puts a pre-rendered object to the screen</span>
+    SURF.blit(rendered_text, box)
+ 
+main()</code></pre></div>
+<p>Notice that:</p>
+<ol style="list-style-type: decimal">
+<li>First, we actually have to select a font for the text. Here. this is set globally.</li>
+<li>The coordinates of the function refer to the upper left corner by default, but can be set to refer to teh center of the box.</li>
+<li>The <code>SURF.blit()</code> command sends the rendered text and the textbox to the surface.</li>
+<li>The box is first retrieved from the rendered text, then moved and finally send to the surface.</li>
+<li>The function <code>draw_textbox()</code> uses <code>pygame.transform.smoothscale()</code> to force the text into a given width and height. The results don’t neccessarily look good.</li>
+<li>We have consistently put all global variables into capital letters to avoid confusion between globalö and local variables.</li>
+</ol>
+<p>Working with pictures is very similar to text boxes. Again, you only know the size once you have loaded the file from your hard drive.</p>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python"><span class="kw">def</span> main():
+    <span class="cf">while</span> <span class="va">True</span>:
+        SURF.fill((<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>))
+        <span class="cf">for</span> event <span class="kw">in</span> pygame.event.get():
+            <span class="cf">if</span> event.<span class="bu">type</span> <span class="op">==</span> QUIT:
+                pygame.quit()
+                sys.exit()
+        
+        draw_picture(x <span class="op">=</span> WIDTH<span class="op">/</span><span class="dv">2</span>, y <span class="op">=</span> HEIGHT<span class="op">/</span><span class="dv">2</span>, <span class="bu">file</span> <span class="op">=</span> <span class="st">&quot;Beach.png&quot;</span>, 
+                     center <span class="op">=</span> <span class="va">True</span>,
+                     scale <span class="op">=</span> <span class="fl">0.5</span>)
+        pygame.display.update()
+<span class="kw">def</span> draw_picture(x, y, <span class="bu">file</span>, scale <span class="op">=</span> <span class="dv">1</span>, center <span class="op">=</span> <span class="va">False</span>):
+    picture <span class="op">=</span> pygame.image.load(<span class="bu">file</span>)
+    <span class="co"># retrieving the box</span>
+    box <span class="op">=</span> picture.get_rect()
+    <span class="co"># transformation</span>
+    <span class="cf">if</span> scale <span class="op">!=</span> <span class="dv">1</span>:
+        new_width <span class="op">=</span> <span class="bu">int</span>(box.width <span class="op">*</span> scale)
+        new_height <span class="op">=</span> <span class="bu">int</span>(box.height <span class="op">*</span> scale)
+        picture <span class="op">=</span> pygame.transform.smoothscale(picture, 
+                                               (new_width, new_height))
+        box <span class="op">=</span> picture.get_rect()
+    <span class="co"># getting the new box</span>
+    <span class="cf">if</span> center:
+        box.center <span class="op">=</span> (x,y)
+    <span class="cf">else</span>:
+        box.topleft <span class="op">=</span> (x,y)
+    SURF.blit(picture, box)
+ 
+main()</code></pre></div>
+<p>Notice that</p>
+<ol style="list-style-type: decimal">
+<li>the picture file resides in teh same directory as the program. If that is different you have to use relative paths. Avoid absolute paths, as this makes the program less portable.</li>
+<li>in the function definition, we put the scale arguent at the end, although an earlier position would be more logical. The reason is that all argument without a default have to come first, such as file.</li>
+<li><code>picture.get_rect()</code> is called twice. After the scaling the box gets an update</li>
+<li>Putting the scaling part into a conditional is not necessary, but saves computation where it is not needed.</li>
+</ol>
 <div id="here" class="section level4">
-<h4><span class="header-section-number">8.4.7.1</span> HERE</h4>
+<h4><span class="header-section-number">8.4.3.1</span> HERE</h4>
+<!--
+### Playing animations
+
++ the refresh rate
++ computer-aided hypnosis
+
+### Interactive animations
+
+Remember Pacman? In this classic arcade game, four ghosts haunt you while wander a dungeon to collect all the cookies. Forget the ghosts and recall what above we have said about the Pygame surface being like an oilpainting. If we would write a Pacman program, we would use `surface.fill(BG_COLOR)`, such that whenever the Pacman figure moves it disappears from its previous position. Imagine what would happen if you forgot the surface fill?
+
+The Pacman figure would leave a trail of copies of itself, painting a trail with its past moments. If you would then also remove the dungeon itself, what you get is a program that paints to the screen.
+
++ drawing with objects
++ drawing mandalas
+
+
+-->
+<!-- 15 -->
+<!--
+
+### Controls
+
++ hitting objects
++ buttons
++ text input
++ dealing with object sets. Use Pandas, not lists. 
+
+-->
 </div>
 </div>
+</div>
+<div id="exercises-8" class="section level2">
+<h2><span class="header-section-number">8.5</span> Exercises</h2>
 <div id="exercise-c.-transition-tables-1" class="section level3">
-<h3><span class="header-section-number">8.4.8</span> Exercise C. Transition tables</h3>
+<h3><span class="header-section-number">8.5.1</span> Exercise C. Transition tables</h3>
 <p>For the following code snippet, make a transition table.</p>
 <div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python">STATE <span class="op">=</span> <span class="st">&quot;A&quot;</span>
 <span class="cf">while</span> <span class="va">True</span>:
@@ -1115,7 +1260,7 @@ main()</code></pre></div>
 </div>
 </div>
 <div id="common-errors-5" class="section level2">
-<h2><span class="header-section-number">8.5</span> Common errors</h2>
+<h2><span class="header-section-number">8.6</span> Common errors</h2>
 <ol style="list-style-type: decimal">
 <li>You forgot to add <code>continue</code> transitionals.</li>
 <li>You used drawing functions inside the event handler loop.</li>
@@ -1123,7 +1268,7 @@ main()</code></pre></div>
 </ol>
 </div>
 <div id="think-further-5" class="section level2">
-<h2><span class="header-section-number">8.6</span> Think Further</h2>
+<h2><span class="header-section-number">8.7</span> Think Further</h2>
 
 </div>
 </div>
