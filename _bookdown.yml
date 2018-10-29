@@ -1,4 +1,4 @@
-book_filename: "PfP_book"
+book_filename: "PfP_Book"
 chapter_name: "Chapter "
 repo: https://github.com/schmettow/PfP_book
 output_dir: HTML

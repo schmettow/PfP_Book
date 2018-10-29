@@ -7,6 +7,8 @@ bookdown::render_book("_bookdown.yml", output_format = "bookdown::gitbook",
             output_dir = "HTML/", 
             encoding = "UTF-8")
 
+bookdown::publish_book(render = "local")
+
 ### Epub
 
 bookdown::render_book("_bookdown.yml", output_format = "bookdown::epub_book", clean = TRUE,
