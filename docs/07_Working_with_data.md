@@ -1,0 +1,336 @@
+# Working with data {#data}
+
+
+## Elements of data processing
+
+In the previous chapter we have dealt with functions as reusable pieces of code. There is another common notion of what a function is: *a function processes data*. The basic model of data processing is the following:
+
+INPUT DATA --> FUNCTION --> OUTPUT DATA
+
+So, what is data? As psychologists we are used to think of data as observations from empirical studies that we process by statistical procedures. That precisely matches our above model:
+
+table of observations --> t-test --> p-value
+
+In Python, as a general programming language, there exist libraries that implement tables of observations, as well as the t-test (and more modern statistical procedures, luckily). However, we don't want to bother you with statistics for the moment. Instead, take another look at two function that we have introduced in \@ref(functions):
+
+
+```python
+def summation(alist):
+    sum = 0.0
+    for i in range(len(alist)):
+        sum += alist[i]
+    print "Sum of the list is:", sum
+    return sum
+summation([1,2,3,4])
+```
+
+```
+## Sum of the list is: 10.0
+```
+
+The function `summation` takes a list of values and computes the sum. Again, that satisfies the basic model of data processing:
+
+list of numbers --> `summation` --> sum
+
+It is easy to see how input and output are implemented with Python functions:
+
++ function arguments provide the input
++ the function body does the processing
++ the return statement gives the output
+
+Consequently, every function that takes arguments and has a return statement can be considered data processing. Furthermore, data processing can take place as chains. Let's take the variance of a list of numbers as an example. The formula for variance, shown below, reveals that the variance statistic is produces in three steps: first, the residuals are computed, these are squared an finally the mean value is taken. 
+
+list-of-numbers --> square_residuals --> take_the_mean --> Variance
+
+Let's see how this is implemnented in Python. For the squared residuals, we create our own function, but resort to the function `mean` in the `numpy` library. Note how the two defined functions operate on a dedicated list for output, rather than modifying the original one. Recall that lists are called by reference, which means the original list would otherwise be altered by the function.
+
+
+
+```python
+from numpy import mean
+def residuals(lon):
+    avg = mean(lon)
+    output = []
+    for i in lon:
+          output.append((i - avg))
+    return output
+def square(lon):
+    output = []
+    for i in lon:
+          output.append(i**2)
+    return output
+LON = [1, 8, 2, 9]
+RES = residuals(LON)
+SQR = square(RES)
+VAR = mean(SQR)
+print VAR
+```
+
+```
+## 12.5
+```
+
+The above code represents such a data processing in such a way that the intermediate results are stored in dedicated variables (`RES`, `SQR`). While this makes the processing chain clear in the code, for longer chains there is the downside of length and cluttering the program with variables that are just used once. A more compact form to write the chain is by *nesting function*:
+
+
+```python
+from numpy import mean
+def residuals(lon):
+    avg = mean(lon)
+    output = []
+    for i in lon:
+          output.append((i - avg))
+    return output
+def square(lon):
+    output = []
+    for i in lon:
+          output.append(i**2)
+    return output
+LON = [1, 8, 2, 9]
+VAR = mean(square(residuals(LON)))
+print VAR
+```
+
+```
+## 12.5
+```
+
+Nested function are evaluated inside-out. Consequently, when setting up such a chain, one begins with the first processing step and builds the subsequent one "around" it. While this is conveniently compact, it lacks the intuition of the data processing chain. Therefore, it is best in many situations, to encapsulate the whole line as a dedicated function:
+
+
+```python
+from numpy import mean
+def residuals(lon):
+    avg = mean(lon)
+    output = []
+    for i in lon:
+          output.append((i - avg))
+    return output
+def square(lon):
+    output = []
+    for i in lon:
+          output.append(i**2)
+    return output
+def variance(lon):
+    return mean(square(residuals(lon)))
+  
+LON = [1, 8, 2, 9]
+print variance(LON)
+```
+
+```
+## 12.5
+```
+
+This simple example highlights another important aspect about the data processing model: models can be nested. The function variance is itself a data processing chain, but it can take a role in a more global data processing chain. For example, when you prepare a summary statistics table for your report, you use the variance function as part of it. You do care about its required input and know what it will produce, but you don't worry about the above processing chain, anymore. That is called a *black box*.
+
+
+## Data tables
+
+The purpose of psychological experiments is to collect data from participants under various conditions. Imagine you wanted to analyze the data from a single participant in the Stroop task. Perhaps, you wanted to analyze it as a factorial linear model (or ANOVA, if you like). Your data analysis program most likely expects the data in the following form:
+
+
+```
+## # A tibble: 8 x 3
+##   Condition   Correctness    RT
+##   <chr>       <lgl>       <dbl>
+## 1 incongruent FALSE        801.
+## 2 incongruent FALSE        697.
+## 3 congruent   TRUE         765.
+## 4 incongruent FALSE        814.
+## 5 incongruent FALSE        631.
+## 6 incongruent TRUE         686.
+## 7 incongruent TRUE         693.
+## 8 congruent   FALSE        732.
+```
+
+How would you create such a table in Python? The most simple form is to regard every column as a separate list and you would initialize the data gathering by creating three empty lists. In the main part of the program you can then populate the three lists separately, for example:
+
+
+```python
+Condition = []
+Correctness = []
+RT = []
+Condition.append(this_condition)
+Correctness.append(this_correctness)
+RT.append(this_reaction_time)
+```
+
+
+
+## Down the sink: Writing data files
+
+In the case of psychological experiments, the main part of the data processing is most likely done in other programs, such as R, SPSS or Excel.  These programs can make little use of data that is stored in Python variables. Rather, data is read in from files. While all programs have their own data format for tables (and specialized functions exist for some), the Lingua Franca of file based data exchange is the *comma-separated-values (CSV)* form. This is almost as easy as it sounds:
+
++ every row of data is represented as a row of text
++ all values in a row are separated by commata
+
+The example data set above would look like the following in CSV:
+
+
+```r
+write.csv(D_Stroop, file = "", eol = "\n\n")
+```
+
+```
+## "","Condition","Correctness","RT"
+## 
+## "1","incongruent",FALSE,800.921185693852
+## 
+## "2","incongruent",FALSE,696.864295047379
+## 
+## "3","congruent",TRUE,765.243482711174
+## 
+## "4","incongruent",FALSE,814.332269635055
+## 
+## "5","incongruent",FALSE,630.556964944383
+## 
+## "6","incongruent",TRUE,686.060561659131
+## 
+## "7","incongruent",TRUE,693.333933180317
+## 
+## "8","congruent",FALSE,731.797519903504
+```
+
+In order to write such a file, we could use a loop function, together with string concatenation. Fortunately, the `csv` library that comes with Python implements CSV export right-away. However, it is not as simple as issueing just one command. 
+Dealing with files is an issue on its own. Unlike variables, which are linked to a running program, files are just dumb sinks on the hard disk on your computer. What must not happen is that, for example, two programs modify the file simultaneously, as this would create a mess. Therefore, the operating system takes special care of files and ensures that only one programn can write it at a time (simultaneous reading is less of a problem). To signal the operating system that a file is being written, some decoration is necessary. More specifically, the programmer must first create a *fileg handler* on the file, which is what the command `open` does.
+
+Then the csv library commands operate on the writing handler. This happens by means of a *writing handler*, which is created by the function `csv.writer`. Then, the function `writerow` adds the rows of a table, one by one. That is slightly inconvenient, because our data table is arranged by columns (the three lists) in the first place. For that reason, the `for` loops first gathers every row of the table as a list `this_row`.
+And finally, the `close` command signals the operating system that the file is no longer in use.
+
+
+
+
+
+
+```python
+Condition = ["incongruent", "incongruent", "congruent"]
+Correctness = [False, False, True]
+RT = [800, 696, 765]
+import csv
+myfile =  open("Stroop.csv", mode = "w")
+writer = csv.writer(myfile)
+for i in range(0, len(Condition)):
+    thisrow = [Condition[i], Correctness[i], RT[i]]
+    writer.writerow(thisrow)
+myfile.close()
+```
+
+As a general rule, it is good to keep the period between open and close short. Especially, one should not open the file at the start of the program and close it when it quits. Programs in development (and written by apprentices) tend to crash and that means data loss and potential file corruption. The safest way probably is to open the file after an observation has been gathered, append the observation and close it immediatly. 
+
+So how do we append rows to an existing file? A closer look at the `open` function reveals that it takes a second parameter, the `mode`, which is of type string. Three major mode exists (plus a bunch of fine-tuning options):
+
+
+```r
+library(dplyr)
+```
+
+```
+## Warning: package 'dplyr' was built under R version 3.5.1
+```
+
+```
+## 
+## Attaching package: 'dplyr'
+```
+
+```
+## The following objects are masked from 'package:stats':
+## 
+##     filter, lag
+```
+
+```
+## The following objects are masked from 'package:base':
+## 
+##     intersect, setdiff, setequal, union
+```
+
+```r
+data_frame(mode = c("r", "w", "a"),
+           ` ` = c("reading", "writing", "appending")) %>% 
+knitr::kable()
+```
+
+
+
+mode             
+-----  ----------
+r      reading   
+w      writing   
+a      appending 
+Hence, the code for writing an observation one-by-one could be:
+
+
+```python
+import csv
+myfile =  open("Stroop.csv", mode = "a")
+writer = csv.writer(myfile)
+writer.writerow([thisCondition, thisCorrectness, thisRT])
+myfile.close()
+```
+
+## May the source ... reading data files
+
+A processing chain starts with a data source, no matter what. The source can be one of three kinds:
+
+1. a function call, for example one that produces random numbers
+1. user input, such as the response time, which is derived from a button press
+1. data files
+
+The first two options we have already covered in this course. In the following we will see how to read in data from files. Files are typically produced by other programs. For tables that could be Excel (or a programming editor, if you like). As we have seen, CVS is a good choice.
+
+In the Stroop program, we currently use only one external source of input, the user responses. That is definitely not a source we could replace by a prepared file. Reading data from files seems unncecessary at first, but in fact can make the program more flexibel when used by non programmers. A possible scenario for the Stroop task is that different experimenters use it, but with their own sets of colors. Here is how one could do it. First, we prepare a table that assigns color words to their respective RGB codes and stores it as a CSV file. Any spreadsheet program is suited for the job.
+
+
+word        R     G     B
+-------  ----  ----  ----
+violet    180     0   180
+green       0   150   150
+orange    255   150     0
+
+To give a more compelling example for when it is useful to load stimuli at runtime: A modified version of the experiment is the primed Stroop task that by which one can assess the strength of certain semantic associations. It differs from the original in that it
+
++ shows a priming picture upfront (e.g. a wolf)
++ uses no color words, but target words that the participant may associate with the picture (e.g., the word "grandmother")
+
+The assessment of association strength typically takes place within a certain domain, e.g. attitude towards computers or fairy tales. Researchers may therefore want to use same program, but feed it with different sets of images and target words. What one could do, is:
+
++ import one table with the target words
++ import one table with the filenames of all images
++ read the images in one-by-one
+
+
+
+
+## Exercises
+
+### Exercise 1
+
+Write a simple image presentation program, that takes a table of the following form as input and changes to the following picture on key press.
+
+
+```r
+data_frame(File = c("Image01.jpg", "Image02.jpg", "Image03.jpg"))
+```
+
+```
+## # A tibble: 3 x 1
+##   File       
+##   <chr>      
+## 1 Image01.jpg
+## 2 Image02.jpg
+## 3 Image03.jpg
+```
+
+When that works, make the program automatic. Add a column to the table that gives the presentation time for an image in seconds. 
+
+### Exercise 2
+
+With the Python library `openpyxl` you can read and write Excel files, directly. Work through (this tutorial)[https://automatetheboringstuff.com/chapter12/]. Now modify your presentation program to use an Excel files as input.
+
+## Think further
+
+
+## References
+

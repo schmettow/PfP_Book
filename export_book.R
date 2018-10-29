@@ -3,7 +3,7 @@ file.remove("_main.Rmd")
 ### HTML
 
 bookdown::render_book("_bookdown.yml", output_format = "bookdown::gitbook", 
-                      clean = TRUE, output_format = "bookdown::gitbook",
+                      clean = TRUE, 
             output_dir = "HTML/", 
             encoding = "UTF-8")
 
