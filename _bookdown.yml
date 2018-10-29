@@ -4,6 +4,7 @@ repo: https://github.com/schmettow/PfP_book
 output_dir: HTML
 rmd_files: ["index.Rmd", "01_Introduction.Rmd", "02_Variables.Rmd", 
 "03_Conditionals.Rmd", "04_Lists.Rmd", 
-"05_Loops.Rmd", "06_Functions.Rmd", "03_______________________________________________________________________________________a_Interactions.Rmd", "07_Working-with-data.Rmd",
+"05_Loops.Rmd", "06_Functions.Rmd", "07_Working_with_data.Rmd",
+"0x_Interaction.Rmd", 
 "08_Solutions.Rmd", "09_Debugging.Rmd"]
 new_session: yes
