@@ -5,19 +5,19 @@
 
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>Programming for Psychologists</title>
+  <title>Programming Interaction for Psychologists</title>
   <meta name="description" content="a book to accompany the course Programming for Psychologists">
   <meta name="generator" content="bookdown 0.7 and GitBook 2.6.7">
 
-  <meta property="og:title" content="Programming for Psychologists" />
+  <meta property="og:title" content="Programming Interaction for Psychologists" />
   <meta property="og:type" content="book" />
   
   
   <meta property="og:description" content="a book to accompany the course Programming for Psychologists" />
-  <meta name="github-repo" content="schmettow/PfP_book" />
+  <meta name="github-repo" content="schmettow/PfP_Book" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Programming for Psychologists" />
+  <meta name="twitter:title" content="Programming Interaction for Psychologists" />
   
   <meta name="twitter:description" content="a book to accompany the course Programming for Psychologists" />
   
@@ -25,7 +25,7 @@
 <meta name="author" content="Martin Schmettow and Lena Brandl">
 
 
-<meta name="date" content="2018-10-29">
+<meta name="date" content="2018-11-01">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -311,7 +311,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
       <div class="body-inner">
         <div class="book-header" role="navigation">
           <h1>
-            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Programming for Psychologists</a>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Programming Interaction for Psychologists</a>
           </h1>
         </div>
 
@@ -320,7 +320,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 
             <section class="normal" id="section-">
 <div id="variables" class="section level1">
-<h1><span class="header-section-number">Chapter 2</span> Variables, values and types</h1>
+<h1><span class="header-section-number">2</span> Variables, values and types</h1>
 <p>In chapter 1 Introduction, you took a closer look at the Stroop Task program. While doing so, you encountered components of a computer program called <em>variables</em></p>
 <div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python">col_white <span class="op">=</span> (<span class="dv">250</span>, <span class="dv">250</span>, <span class="dv">250</span>)
 col_black <span class="op">=</span> (<span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>)
@@ -395,7 +395,7 @@ RT.append(this_reaction_time)</code></pre></div>
 <div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python"><span class="im">import</span> random
 number <span class="op">=</span> random.randint(<span class="dv">0</span>,<span class="dv">10</span>)
 <span class="bu">print</span>(number)</code></pre></div>
-<pre><code>## 0</code></pre>
+<pre><code>## 7</code></pre>
 <p>You will learn in detail about functions in Chapter <a href="functions.html#functions">6</a>. For now it is good enough to know that the function <code>random.randint(0,10)</code> randomly picks an integer between 0 and 10, and <em>returns</em> the chosen integer. Whatever number is picked by the function is stored in the variable <code>number</code> and can easily be retrieved and used for other purposes elsewhere. If this piece of information does not satisfy you, simply type <code>help(random)</code> after importing <code>random</code> and your interpreter will give you a more detailed description of the <em>class</em> <code>random</code>.</p>
 <p>Variables are mutable, meaning that their value can be changed after an initial assignment. This is very useful for structuring a program:</p>
 <div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python"><span class="co"># determining the maximum number of trials</span>
@@ -805,7 +805,7 @@ gitbook.start({
 "link": null,
 "text": null
 },
-"download": null,
+"download": ["PfP_Book.pdf"],
 "toc": {
 "collapse": "subsection"
 }

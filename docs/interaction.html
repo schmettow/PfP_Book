@@ -5,19 +5,19 @@
 
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>Programming for Psychologists</title>
+  <title>Programming Interaction for Psychologists</title>
   <meta name="description" content="a book to accompany the course Programming for Psychologists">
   <meta name="generator" content="bookdown 0.7 and GitBook 2.6.7">
 
-  <meta property="og:title" content="Programming for Psychologists" />
+  <meta property="og:title" content="Programming Interaction for Psychologists" />
   <meta property="og:type" content="book" />
   
   
   <meta property="og:description" content="a book to accompany the course Programming for Psychologists" />
-  <meta name="github-repo" content="schmettow/PfP_book" />
+  <meta name="github-repo" content="schmettow/PfP_Book" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Programming for Psychologists" />
+  <meta name="twitter:title" content="Programming Interaction for Psychologists" />
   
   <meta name="twitter:description" content="a book to accompany the course Programming for Psychologists" />
   
@@ -25,7 +25,7 @@
 <meta name="author" content="Martin Schmettow and Lena Brandl">
 
 
-<meta name="date" content="2018-10-29">
+<meta name="date" content="2018-11-01">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -311,7 +311,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
       <div class="body-inner">
         <div class="book-header" role="navigation">
           <h1>
-            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Programming for Psychologists</a>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Programming Interaction for Psychologists</a>
           </h1>
         </div>
 
@@ -320,7 +320,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 
             <section class="normal" id="section-">
 <div id="interaction" class="section level1">
-<h1><span class="header-section-number">Chapter 8</span> Interaction</h1>
+<h1><span class="header-section-number">8</span> Interaction</h1>
 <p>When you decided to learn programming you probably had something different in mind than putting some values in variables or compare apple with pears in conditionals. Most likely, your were more thinking of creating something with a little more magic then ASCII letters printed to the console. Perhaps, you already have an idea for a smartphone app on your mind. Who hasn’t?</p>
 <p>We won’t push you that far. But, with conditionals in your hand, you are prepared to get to the next level and develop <em>interactive programs</em> Interactive programs are those that run continuously and do something when the user presses a button or moves and clicks the mouse. They don’t do something completely random, except for some artistic installations, perhaps, but react in a purposeful way to user input. We can say, that a program executes an <em>interaction model</em>, a set of rules that describe the programs behaviour. Then we show you how to write interactive programs very efficiently by turning the transition table into <em>transitionals</em>.</p>
 <p>In this chapter we do more than just show you how to use a conditional or a loop. You will notice that writing an interactive program is more than just coding. It is a <em>development process</em> with a sequence of steps where the output of one step is input for the next.</p>
@@ -747,6 +747,7 @@ With the time stamp method we can write our prototype in a way that comes closer
 <li><pre><code>interactive transitionals</code></pre></li>
 <li>automatic transitionals</li>
 <li>presentitionals</li>
+<li>drawing functions</li>
 </ol>
 <p>Before we dive into the matter of interaction programming with Pygame, there is one aspect of the template that is worth briefly mentioning, the <code>def main():</code> statement. The only thing it does is to encapsulate the central part of your code as a function, which is called in the last line of code.</p>
 </div>
@@ -1097,7 +1098,7 @@ main()</code></pre></div>
 </div>
 <div id="placing-text-and-pictures" class="section level3">
 <h3><span class="header-section-number">8.4.3</span> Placing text and pictures</h3>
-<p>Putting text on the screen is something that we experience everyday, when we read the internet, write emails or write code. One might think that this is as straight-forward in Pygame as creating figures. It is not that easy, though, and in order to understand why these complications arise, think about the following: When you want to write on a note “DON’T WORRY!” with a surrounding box. What do you do first, the writing or the box?</p>
+<p>Putting text on the screen is something that we experience everyday, when we read the internet, write emails or write code. One might think that this is as straight-forward in Pygame as creating figures. It is not that easy, though, and in order to understand why these complications arise, think about the following: When you want to write on a note “DON’T PANIC!” with a surrounding box. What do you do first, the writing or the box?</p>
 <p>You put the writing first, because only after you have written do you see how high and wide the written text is. And the same problem happens when rendering text on Pygame surfaces. Fonts differ and even individual characters differ. There is no more reasonable way, to determine the size of the text box, after it has been rendered. To solve the problem, we divide the drawing process in two parts: the <em>rendering</em> part creates an object of the text box in the computer memory, without sending it to the surface, yet. From this object, we can retrieve the properties of the text box, most notably its dimensions. Even better, this object can be manipulated in many ways, for example resizing or moving it <a href="https://www.pygame.org/docs/ref/rect.html">Pygame doc</a>. Only after that, the text object is send to the surface.</p>
 <p>In the following program we merged both steps into a more programmer-friendly function that almost behaves like the figure drawing commands. The only difference: you don’t know in advance how large the textbox will be.</p>
 <div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python"><span class="im">import</span> pygame
@@ -1311,7 +1312,7 @@ gitbook.start({
 "link": null,
 "text": null
 },
-"download": null,
+"download": ["PfP_Book.pdf"],
 "toc": {
 "collapse": "subsection"
 }

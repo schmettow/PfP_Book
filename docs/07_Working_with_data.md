@@ -253,12 +253,17 @@ knitr::kable()
 ```
 
 
-
-mode             
------  ----------
-r      reading   
-w      writing   
-a      appending 
+\begin{tabular}{l|l}
+\hline
+mode &  \\
+\hline
+r & reading\\
+\hline
+w & writing\\
+\hline
+a & appending\\
+\hline
+\end{tabular}
 Hence, the code for writing an observation one-by-one could be:
 
 
@@ -283,11 +288,17 @@ The first two options we have already covered in this course. In the following w
 In the Stroop program, we currently use only one external source of input, the user responses. That is definitely not a source we could replace by a prepared file. Reading data from files seems unncecessary at first, but in fact can make the program more flexibel when used by non programmers. A possible scenario for the Stroop task is that different experimenters use it, but with their own sets of colors. Here is how one could do it. First, we prepare a table that assigns color words to their respective RGB codes and stores it as a CSV file. Any spreadsheet program is suited for the job.
 
 
-word        R     G     B
--------  ----  ----  ----
-violet    180     0   180
-green       0   150   150
-orange    255   150     0
+\begin{tabular}{l|r|r|r}
+\hline
+word & R & G & B\\
+\hline
+violet & 180 & 0 & 180\\
+\hline
+green & 0 & 150 & 150\\
+\hline
+orange & 255 & 150 & 0\\
+\hline
+\end{tabular}
 
 To give a more compelling example for when it is useful to load stimuli at runtime: A modified version of the experiment is the primed Stroop task that by which one can assess the strength of certain semantic associations. It differs from the original in that it
 

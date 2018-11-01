@@ -546,11 +546,12 @@ while True:
 
 1. setup
 1. initialize display
-1.  fast `while` loop doing the display refresh
+1. fast `while` loop doing the display refresh
 3.    event handler `for` loop
 4.      interactive transitionals
 5.    automatic transitionals
 6.    presentitionals
+7. drawing functions
 
 Before we dive into the matter of interaction programming with Pygame, there is one aspect of the template that is worth briefly mentioning, the `def main():` statement. The only thing it does is to encapsulate the central part of your code as a function, which is called in the last line of code.
 
@@ -986,7 +987,7 @@ Notice that:
 
 ### Placing text and pictures
 
-Putting text on the screen is something that we experience everyday, when we read the internet, write emails or write code. One might think that this is as straight-forward in Pygame as creating figures. It is not that easy, though, and in order to understand why these complications arise, think about the following: When you want to write on a note "DON'T WORRY!" with a surrounding box. What do you do first, the writing or the box?
+Putting text on the screen is something that we experience everyday, when we read the internet, write emails or write code. One might think that this is as straight-forward in Pygame as creating figures. It is not that easy, though, and in order to understand why these complications arise, think about the following: When you want to write on a note "DON'T PANIC!" with a surrounding box. What do you do first, the writing or the box?
 
 You put the writing first, because only after you have written do you see how high and wide the written text is. And the same problem happens when rendering text on Pygame surfaces. Fonts differ and even individual characters differ. There is no more reasonable way, to determine the size of the text box, after it has been rendered. To solve the problem, we divide the drawing process in two parts: the *rendering* part creates an object of the text box in the computer memory, without sending it to the surface, yet. From this object, we can retrieve the properties of the text box, most notably its dimensions. Even better, this object can be manipulated in many ways, for example resizing or moving it [Pygame doc](https://www.pygame.org/docs/ref/rect.html). Only after that, the text object is send to the surface.
 

@@ -1,4 +1,4 @@
-file.remove("_main.Rmd")
+file.remove("PfP_Book.md")
 
 ### HTML
 
@@ -7,12 +7,14 @@ bookdown::render_book("_bookdown.yml", output_format = "bookdown::gitbook",
             output_dir = "docs/", 
             encoding = "UTF-8")
 
-bookdown::publish_book(render = "local")
+# bookdown::publish_book(render = "local")
 
 ### Epub
 
-bookdown::render_book("_bookdown.yml", output_format = "bookdown::epub_book", clean = TRUE,
-                      output_dir = "Epub/", 
+bookdown::render_book("_bookdown.yml", 
+                      output_format = "bookdown::epub_book", 
+                      clean = TRUE,
+                      output_dir = "docs/", 
                       encoding = "UTF-8")
 
 ### Kindle
@@ -29,7 +31,9 @@ bookdown::render_book("_bookdown.yml", output_format = "bookdown::epub_book", cl
 
 ### PDF
 
-bookdown::render_book("_bookdown.yml", output_format = "bookdown::pdf_book", clean = T,
-                      output_dir = "PDF/",
+bookdown::render_book("_bookdown.yml", 
+                      output_format = "bookdown::pdf_book", 
+                      clean = T,
+                      output_dir = "docs",
                       encoding = "UTF-8")
 
