@@ -287,7 +287,7 @@ You may ask yourself why this is included in the *Common errors* section. After 
 * The semantics of tabs are not very well defined in the computer world. As a result, tabs may be displayed completely differently on different types of systems and editors. This means that you cannot safely transfer your code without risking to destroy your program's structure.
 * More information on indentation in Python can be found [here](http://www.secnetix.de/olli/Python/block_indentation.hawk).
 
-## Debugging conditionals
+## Debugging
 
 In addition to some general good debugging practices summarized in chapter 9 [Debugging], there are some strategies that are especially useful when dealing with errors originating from conditionals in your program.
 
