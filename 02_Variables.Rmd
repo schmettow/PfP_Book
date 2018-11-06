@@ -1,6 +1,6 @@
 # Variables, values and types {#variables}
 
-In chapter 1 Introduction, you took a closer look at the Stroop Task program. While doing so, you encountered components of a computer program called *variables*
+In chapter 1 Introduction, you took a closer look at the Stroop Task program. In doing so, you encountered components of a computer program called *variables*
 
 ```{python eval = FALSE}
 col_white = (250, 250, 250)
@@ -15,7 +15,7 @@ COLORS   = {"red": col_red,
 WORDS    = ("red", "green", "blue")
 
 ```
-You learned that the variable `COLORS` for example collects number combinations for red, green, and blue color in one compound variable, called a *dictionary*.
+For instance, you learned that the variable `COLORS` collects combinations of numbers for red, green, and blue color in a compound variable, called a *dictionary*.
 
 However, before we can talk about what compound variables such as dictionaries are, you will meet 
 the most fundamental component of a computer program: *values*.
@@ -30,11 +30,11 @@ print(20 / 4)
 print("Hello, World!")
 ```
 
-In the examples above, the *printed* outputs `4`, `5.0` and `Hello, World!` are *values*. Values can thus be numbers, but also words, or even whole sentences. In the interior of a computer program, `4` and `Hello, World` serve the same purpose, they are both building blocks. Values are classified into different *classes*, or *data types*: `4` is a so-called *integer* and `"Hello, World"` is a
-*string*, so-called because it is a string of individual letters. The class of a value determines which operations can be performed on a value and how these operations are performed. You can think of operations such as arithmetic addition and subtraction, but also self-defined operations, called *functions*. You will learn about functions later in this book.
+In the examples above, the *printed* outputs `4`, `5.0` and `Hello, World!` are *values*. Values can be numbers, but also words, or even whole sentences. In the interior of a computer program, `4` and `Hello, World` serve the same purpose, they are both building blocks. Values are classified into different *classes*, or *data types*: `4` is a so-called *integer* and `"Hello, World"` is a
+*string*, so-called because it is a string of individual letters. The data type of a value determines which operations can be performed on a value, and how these operations are performed. You can think of operations such as arithmetic addition and subtraction, but also self-defined operations, called *functions*. You will learn about functions later in this book.
 
 If you ever wonder what class a value belongs to, your Python interpreter
-can tell you. 
+can tell you.
 
 ```{python, echo = TRUE}
 print(type(4))
@@ -43,32 +43,39 @@ print(type(4))
 ```{python, echo = TRUE}
 print(type("Hello, World!"))
 ```
+You will learn more about the four basic data types in Section 2.4 [Data types].
 
-You will learn more about basic data types in Section 2.4 [Data types].
-
-You will find the `print` function very useful; it makes some output visible by *printing* to the console of your programming environment whatever is written inside the two brackets `()`. Printing is a way to make values such as the result of the simple calculation `2 + 2` visible. In the example above, if the `print` function were not included, your computer would perform the calculation `2 + 2` internally, but you would not see the result, `4`. Do not blame your computer, as we saw in chapter 1, computers are incredibly dumb. How is your computer supposed to know that in addition to making the calculation, it is also supposed to show you its result on the screen? Computers are unfortunately not gifted with common sense - you need to tell them precisely what to do.
+You will find the `print` function very useful; it makes some output visible by *printing* to the console of your programming environment whatever is written inside the two brackets `()`. Printing is a way to make things visible, such as the result of the simple calculation `2 + 2`. In the example above, if the `print` function were not included, your computer would perform the calculation `2 + 2` internally, but you would not see the result, `4`. Do not blame your computer, as we saw in chapter 1, computers are incredibly dumb. How is your computer supposed to know that in addition to making the calculation, it is also supposed to show you its result on the screen? Computers are unfortunately not gifted with common sense - you need to tell them precisely what to do.
 
 ## Variables
-Computer programs are usually required to store information in some way for later retrieval or manipulation. In the Stroop Task program we saw in chapter 1, for each trial, we need to store the color and the word that our computer picked and what the reaction time of the subject was. Otherwise, it will be impossible to establish a relation between reaction times and (in)congruence between words and their colors in any subsequent statistical analysis. In other words, the Stroop task program would be useless if it could only manipulate values as we did when we calculated `2 + 2`. You see, when your computer performs a simple value manipulation you get a momentarily answer. Computers are too efficient for their own good sometimes, they quickly forget about the values that pass through their system. The very moment they finish a calculation, the computer program forgets the outcome of this calculation and even that they ever performed the calculation (if you do not remind them that they did). This is where *variables* come in handy. Variables are storage units
+Computer programs are usually required to store information in some way for later retrieval or manipulation. In the Stroop Task program we saw in chapter 1, for each trial, we need to store the color and the word that our computer picked. In addition, we want to record the reaction time of the subject. Otherwise, the Stroop Task program would be utterly useless for examining the relation between reaction times and (in)congruence between words and their colors. In other words, the Stroop task program would be useless if it could only manipulate values as we did when we calculated `2 + 2`. You see, when your computer performs a simple value manipulation you get a momentarily answer. At times, computers are too efficient for their own good. They quickly forget about the values that pass through their system. The very moment they finish a calculation, computer programs forget the outcome of a calculation. They even forget that they ever performed the calculation (if you do not remind them that they indeed did). This is where *variables* come in handy. Variables are storage units
 in a computer's memory. A variable can store any kind of value. Unlike the result of simple value manipulations, such as `2 + 2`, variables have designated storage addresses in a computer's memory. You need a way to access variables in your computer's memory
 and hence, you give them a name. You can think of a variable's name
-as a unique identification address in the computer's memory. In fact, during a *value assignment*, a value is stored at a certain position in the computer's memory. You can think of this position as a precisely defined location, much like longitude and latitude coordinates describe a physical location in the Global Positioning System (GPS). The command by which a value is stored in a variable
+as a unique identification address in the computer's memory. In fact, during a *value assignment*, a value is stored at a certain position in the computer's memory. This position as a precisely defined location, much like longitude and latitude coordinates describe a physical location in the Global Positioning System (GPS). The command by which a value is stored in a variable
 is called an *assignment statement*. It is common to say "a
 value is assigned to a variable".
 
 ```{python}
-myNumber = 4
-myString = "This is a string"
+a = 4
+b = "This is a string"
 
-print(myNumber)
-print(myString)
+print(a)
+print(b)
 ```
 
 
 The order in which the variable and a value are placed
 around the equal sign `=` is not arbitrary. Variables always have to be
 on the left side, values on the right side. Everything else will
-produce an error. As mentioned above, variables can store any kind of value. The right side can be a complex expression, which is not obviously a value at first sight. The single equal sign, as in `a = 4` is exclusivey reserved for assignment statements. If you read a program out loud, practice saying 
+produce an error. As mentioned above, variables can store any kind of value. The right side can be a complex expression, which is not obviously a value at first sight.
+
+```{python}
+a = 13*17/23
+print(a)
+```
+
+
+The single equal sign, as in `a = 4` is exclusivey reserved for assignment statements. If you read a program out loud, practice saying 
 
 > a is assigned the value 4
 
@@ -94,7 +101,7 @@ either uppercase or lowercase ASCII or Unicode, or an underscore.
 ASCII or Unicode characters), underscores, or digits (0-9).
 
 4. Variable names are case-sensitive. This means that the variables `myString`
-and `mystring` are not treated as the same variable by your
+and `mystring` are **not** treated as the same variable by your
 computer.
 
 5. You may still get sytnax errors despite adhering to all rules named
@@ -110,7 +117,7 @@ print(keyword.kwlist)
 ```
 
 
-## Stroop task variables
+## Stroop Task variables
 
 Now that you read about how variables are assigned their values, let's have a look at how variables are used in the interactive Stroop program.
 
@@ -129,7 +136,7 @@ this_reaction_time = time_when_reacted - time_when_presented
 RT.append(this_reaction_time)
 ```
 
-In the first line of the above code snippets from the Stroop task program, an empty *list* is assigned to the variable `RT`. The purpose of this list is to store reaction times during the Stroop experiment. You will learn more about *lists* in Chapter \@ref(lists). For now it suffices to know that lists are yet another data type, capable of containing values of multiple data types at the same time! You may reckon that they are the ultimate structure for storage. The variables `time_when_presented` and `time_when_reacted` respectively store the point in time (using the *function* `time`) at a certain event. `time_when_presented` records the moment in time when a stimulus is presented and `time_when_reacted` saves the moment in time when the subject reacts to the stimulus. The reaction time of the subject is then calculated by *subtracting* one stored point in time from the other and saved in the variable `this_reaction_time`. Finally, the subject's reaction time is *appended* to `RT`, meaning that `this_reaction_time` is saved in `RT` before the program proceeds to the next trial. Thecode snippets above obviously reduces the mechanics of the Stroop Task program to some highlighted variable assignments, meaning that the code lacks the actual dynamics of the program. But it captures the basic idea of how the program records and manipulates a participant's reaction time with the help of variables.
+In the first line of the above code snippets from the Stroop Task program, an empty *list* is assigned to the variable `RT`. The purpose of this list is to store reaction times during the Stroop experiment. You will learn more about *lists* in Chapter \@ref(lists). For now it suffices to know that lists are yet another data type, capable of containing values of multiple data types at the same time! You may reckon that they are the ultimate structure for storing information. The variables `time_when_presented` and `time_when_reacted` respectively store the point in time (using the *function* `time`) at a certain event. `time_when_presented` records the moment in time when a stimulus is presented and `time_when_reacted` saves the moment in time when the subject reacts to the stimulus. The reaction time of the subject is then calculated by *subtracting* one stored point in time from the other and saved in the variable `this_reaction_time`. Finally, the subject's reaction time is *appended* to `RT`, meaning that `this_reaction_time` is saved in `RT` before the program proceeds to the next trial. A disclaimer; the code snippets above obviously reduce the mechanics of the Stroop Task program to some highlighted variable assignments. This means that the code lacks the actual dynamics of the program and will not run as is. But it captures the basic idea of how the program records and manipulates a participant's reaction time with the help of variables.
 
 ## How Variables Are Used
 
@@ -142,8 +149,8 @@ is storing the output of *functions*:
 
 ```{python}
 import random
-number = random.randint(0,10)
-print(number)
+a = random.randint(0,10)
+print(a)
 
 ```
 
@@ -221,7 +228,6 @@ to suit your needs. For this, you use explicit typecasting:
 number = 10.5
 int(number)
 10
-
 ```
 
 And here you discover one tricky thing about typecasting *floats*
@@ -254,7 +260,7 @@ SyntaxError: invalid syntax
 Instead, when using single quotes, you can use double quotes or triple quotes inside them:
 
 ```{python, eval=F}
-quote = 'Carl Rogers: "In my early professional years I was asking the question: How can I treat, or cure, or change this person? Now I would phrase the question in this way: How can I provide a relationship which this person may use for his own personal growth?"'
+quote = 'Carl Rogers: "How can I provide a relationship which this person may use for his own personal growth?"'
 ```
 
 Double quoted strings can have single quotes and triple quotes inside
@@ -268,7 +274,7 @@ Triple quoted strings can include either single or double quotes.
 Strings are basically a sequence of single characters tied together
 and unlike variable names, strings may include spaces! They are usually
 used to display text or to export information out of the
-program. The latter you probably want after a participant has completed all trials of an experiement to save the recorded measurements.
+program. You need to export data out of the program to save the data you collected during an experiment somewhere on your hard disk.
 
 ### Booleans
 A *boolean expression* is an expression that is either `True` or `False`.
@@ -441,7 +447,7 @@ which prints first the value of `a`, then `b` and then the result of `a / b` to 
 
 ## Exercises
 
-### Exercise A. Operators
+### Exercise 1. Operators
 
 What is the output of the following code snippets?
 
@@ -473,7 +479,7 @@ y = x / 2
 print(y >= 5)
 ```
 
-### Exercise B. Values
+### Exercise 2. Values
 
 Which statements about values are true?
 
@@ -483,7 +489,7 @@ Which statements about values are true?
 * Variables can be assigned any type of value
 * Any operation (e.g. subtraction) can be performed on any two pairs of values  
 
-### Exercise C. Mini programs
+### Exercise 3. Mini programs
 
 What is the output of the following mini programs?
 
@@ -506,7 +512,7 @@ x = x - 2
 print(x)
 ```
 
-### Exercise D. Debugging
+### Exercise 4. Debugging
 
 What goes wrong in the following code snippets?
 
@@ -538,9 +544,9 @@ print(This is + name)
 
 * Variables cannot be called in `print` statements
 * The `name` variable needs to be typecasted into a String
-* The content of the `print` statement lacks quotation marks
+* The content inside the brackets of the `print` statement lacks quotation marks
 
-### Exercise 1. String concatenation
+### Exercise 5. String concatenation
 
 Consider the three blocks of code below.
 
@@ -574,7 +580,7 @@ print(myString)
 Want to know more about *string concatenation*? The following website
 provides a gentle introduction to the topic: [Python for Beginners: String concatenation and formatting in Python](http://www.pythonforbeginners.com/concatenation/string-concatenation-and-formatting-in-python)
 
-### Exercise 2. Variable names
+### Exercise 6. Variable names
 
 For the following variable names indicate whether the name is legal
 or not. For illegal variable names, point out what makes the name violate rules and/or conventions.
@@ -597,7 +603,7 @@ reg       = """All right. But apart from sanitation,
 ```
 
 
-### Exercise 3. Stroop task welcome message
+### Exercise 7. Stroop task welcome message
 
 In this exercise you will add a welcome message to the starting screen
 of the Stroop Task program.
@@ -609,7 +615,7 @@ of the Stroop Task program.
 5. Hit `Run file` again and see your first modification of the Stroop task algorithm in action.
 
 
-### Exercise 4. Printing
+### Exercise 8. Printing
 
 The following code prints part of a Methods section. Copy it and run it.
 
@@ -644,7 +650,7 @@ print("In total, each partcipant thus completed", trials_pp, "trials.")
 the code so that the correct number of trails per person is printed. Explain what happened in your own words.
 3. `52.0` participants looks a bit ugly when printed as part of the text. Adjust the code in such a way that only full integers are printed to the console.
 
-### Exercise 5. Using Python as a calculator
+### Exercise 9. Using Python as a calculator
 
 Make a python script `Ch1Ex5.py` and implement the following pseudo code:
 
@@ -659,7 +665,7 @@ Make a python script `Ch1Ex5.py` and implement the following pseudo code:
 
 What is the resulting value of `n4`?
 
-### Exercise 6. A Boolean puzzle
+### Exercise 10. A Boolean puzzle
 
 Fill in the blank spots (indicated by a question mark `?`) in the following code in such a way that `True` Boolean values are returned. You can use your Python interpreter for calculations.
 ```{}

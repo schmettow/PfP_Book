@@ -3,7 +3,99 @@
 ## Chapter 1. Introduction
 
 ## Chapter 2. Variables, values and types
-### Exercise 1. String concatenation
+
+### Exercise 1. Operators
+
+```{python}
+x = 2
+y = 1.0
+print(x + y)
+```
+
+```{python}
+x = 4.0
+y = x + 1
+print(x + y)
+```
+
+```{}
+x = 1
+y = "1.0"
+print(x + y)
+
+TypeError: unsupported operand type(s) for +: 'int' and 'str'
+```
+
+```{python}
+x = 4
+y = 4.0
+print(x == y)
+```
+
+```{python}
+x = 12
+y = x / 2
+print(y >= 5)
+```
+
+### Exercise 2. Values
+
+Statements 2 and 4 are true
+
+* Each value exclusively belongs to one data type
+* Variables can be assigned any type of value
+
+### Exercise 3. Mini programs
+
+```{python}
+x = "1.0"
+y = "1"
+print(x + y)
+```
+
+```{python}
+x = 5
+y = 2
+print((x / y) == 2.5)
+```
+
+```{python}
+x = 1
+x = x + 1
+x = x - 2
+print(x)
+```
+
+
+### Exercise 4. Debugging
+
+What goes wrong in the following code snippets?
+
+```{}
+x = 1
+2x = 2
+print(x + 2x)
+```
+
+* An illegal variable name is used
+
+```{}
+x = 3
+y = "3"
+print(x = y)
+```
+
+* The assignment operator is used instead of a comparative operator
+
+```{}
+name = "Colin"
+print(This is + name)
+
+```
+
+* The content inside the brackets of the `print` statement lacks quotation marks
+
+### Exercise 5. String concatenation
 
 1.
 
@@ -22,7 +114,7 @@ year = "47"
 
 ```
 
-### Exercise 2. Variable names
+### Exercise 6. Variable names
 
 * `2ndMan`: the variable name starts with a digit
 * `m@n3`: the `@` signs is an illegal character
@@ -30,7 +122,7 @@ year = "47"
 * `man_no._7`: the fullstop is illegal. Python will think that `man_no` is a class (which it is not by default) and therefore throw a NameError
 * `8thMan`: starting with a digit
 
-### Exercise 3. Stroop task welcome message
+### Exercise 7. Stroop task welcome message
 
 *Note*: The below description of what the specified code does is not expected from students. The intention is that they think about what happens internally in PyGame when implementing a task such as 'printing something to the screen'.
 
@@ -47,7 +139,7 @@ screen.blit(text_surface,text_rectangle)
 
 For further clarification, consult the [PyGame documentation](http://www.pygame.org/docs/ref/font.html).
 
-### Exercise 4. Printing
+### Exercise 8. Printing
 
 ```{python}
 participants = 52
@@ -79,7 +171,7 @@ print "In total, each partcipant thus completed", trials_pp, "trials."
 trials_pp = int(trials) * experimental_sessions
 ```
 
-### Exercise 5. Using Python as calculator
+### Exercise 9. Using Python as calculator
 
 ```{python}
 n1 = 37
@@ -94,7 +186,7 @@ n4 = 65%n4/float(2)
 print n4
 ```
 
-### Exercise 6. A Boolean puzzle
+### Exercise 10. A Boolean puzzle
 
 ```{python}
 n1 = 238
@@ -120,7 +212,175 @@ Only for `n1*n2/float(n1) == n2` hardcoding will not work.
 
 ## Chapter 3. Conditionals
 
-### Exercise 1. Following the control flow
+### Exercise 1. Boolean logic
+
+What is the output of the following code snippets?
+
+```{python}
+a = True
+b = False
+
+print(a and b)
+```
+
+```{python}
+a = True
+b = False
+print(not a and b)
+```
+
+```{python}
+a = True
+b = False
+print((not a) or b)
+```
+
+```{python}
+a = True
+b = False
+
+print(not (a and b))
+```
+
+```{python}
+a = True
+b = False
+
+print(not (a or b))
+```
+
+```{python}
+a = 1
+b = 2
+c = 4
+
+print(a >= b and c > a + b)
+```
+
+```{python}
+a = 1
+b = 2
+c = 3
+
+print(b % a >= c - (a + b))
+```
+
+### Exercise 2. State charts
+
+```{python, eval=F}
+
+# Variables
+STATE = "A"
+number_of_trials = 0
+
+while True:
+  #ITC
+  for event in pygame.event.get():
+      if STATE == "A":
+          number_of_trials = number_of_trials + 1
+          if event.type==KEYDOWN and event.key == K_SPACE:
+              STATE = "C"
+      elif STATE == "C":
+          if event.type==KEYDOWN and event.key == K_A or event.key == K_D:
+              arrival_at_B = time()
+              STATE = "B"
+            
+  #ATC
+  if STATE == "B":
+      if time() - arrival_at_B > 3:
+          if number_of_trials < 15:
+              STATE = "A"
+          else:
+              pygame.quit()
+              sys.exit()
+
+```
+
+### Exercise 3. Transition tables
+
+For the following code snippet, make a transition table.
+
+```{python, eval=FALSE}
+STATE = "A"
+
+while True:
+    #ITC
+    for event in pygame.event.get():                        
+        if STATE == "A":
+            count = 0
+            if event.type == KEYDOWN and event.key == K_w:
+                STATE = "B"
+                print(STATE)
+        elif STATE == "B":
+            count = count + 1
+            if event.type == KEYDOWN and event.key == K_a:
+                timer = time()
+                STATE = "C"
+                print(STATE)
+        elif STATE == "D":
+            if event.type == KEYDOWN and event.key == K_SPACE:
+                if count < 10:
+                    STATE = "B"
+                else:
+                    STATE = "quit"
+                print(STATE)
+
+    #ATC
+    if STATE == "C":
+        present_picture()
+        if time() - timer > 3:
+            STATE = "D"
+        print(STATE)
+    elif STATE == "quit":
+        pygame.quit()
+        sys.exit()
+```
+
+|	|	| A |	B |	C | D | quit |
+|:-:|:-:|:-:|:-:|:-:|:-:|:-:|:-:|
+|FROM | A |	 | w	 |	 |	 |   |   |   |
+|	  | B  |	 |	 | a   |   |   |   |   |
+|	  | C |	 |	 |   | auto   |   |   |   |
+|	  | D    |	 |SPACE	 |   |   |SPACE  |   |   |
+|     | quit |	 |	 |   |   |   |   |   |
+
+### Exercise 4. Mini programs
+
+What is the output of the following mini programs?
+
+```{python, eval=F}
+x = 5
+y = 0
+
+if x >= 5 and y != False:
+    print(y/x)
+
+```
+
+* Nothing
+
+```{python, eval=F}
+x = 12
+
+if x%3 == 0:
+    print("x is divisible by 3")
+elif x%4 == 0:
+    print("x is divisible by 4")
+```
+
+* `x is divisible by 3`
+
+```{python, eval=F}
+x = 2
+y = 0
+
+if y + 1 == x or not x * 1 <= y:
+   print(x + y)
+```
+
+* `2`
+
+### Exercise 5. Following the control flow
 
 ```{python}
 myString = "Hello, World!"
@@ -154,7 +414,7 @@ print myString
 ```
 
 
-### Exercise 2. Indentation
+### Exercise 6. Indentation
 
 ```{python, eval=F}
 myNumber = 4
@@ -171,7 +431,7 @@ else:
 ```
 
 
-### Exercise 3. Pseudo code conditionals
+### Exercise 7. Pseudo code conditionals
 
 ```{}
 
@@ -215,7 +475,7 @@ Why is it so famous? Two reasons:
 
 2. In psychology of reasoning it has been shown that people have difficulties with checking the modus ponens. When asked to verify the above example, most people would first check whether the street is wet, although the most relevant  question is whether it is raining, indeed.
 
-### Exercise 4. Modify Stroop Task
+### Exercise 8. Modify Stroop Task
 
 ```{python, eval=F}
 import pygame
@@ -412,9 +672,7 @@ main()
 
 ```
 
-
-
-### Exercise 5. Simplify nested conditionals
+### Exercise 9. Simplify nested conditionals
 ```{python, eval=F}
 # participant details #
 age = 20
@@ -452,7 +710,7 @@ else:
     print "Participant is not eligible to take part in the experiment."
 ```
 
-### Exercise 6. Flow chart conditionals
+### Exercise 10. Flow chart conditionals
 
 ```{python, eval=F}
 n = -1
@@ -469,9 +727,6 @@ else:
         n = n%2
 print n
 ```
-
-
-
 
 ## Chapter 4. Lists
 ### Exercise 1. Shopping list

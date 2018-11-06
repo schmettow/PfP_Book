@@ -53,11 +53,11 @@ As in mathematics, brackets can be used to change the order of operations!
 Boolean values are essential for regulating the flow of a computer program as they provide the conditions under which certain blocks of code are executed. The simplest form of a *conditional* is the *if statement*.
 
 ```{python}
-myNumber = 0
-if (myNumber < 0):
-    print("myNumber is smaller than 0")
-if (myNumber >= 0):
-    print("myNumber is larger than, or equal to 0")
+a = 0
+if (a < 0):
+    print("a is smaller than 0")
+if (a >= 0):
+    print("a is larger than, or equal to 0")
 ```
 You can read *if statements* as
 
@@ -69,66 +69,66 @@ An `if statement` consists of a *header* and a *body*. The header begins with th
 Actually, you can simplify the code above by using an *else clause*:
 
 ```{python}
-myNumber = 0
-if (myNumber < 0):
-    print("myNumber is smaller than 0")
+a = 0
+if (a < 0):
+    print("a is smaller than 0")
 else:
-    print("myNumber is larger than, or equal to 0")
+    print("a is larger than, or equal to 0")
 ```
 
 *else clauses* are optional, but they often simplify your code. If you need to establish a dichotomy, that is, either condition A is `True` or not, then you using an `if/else clause` is the way to go. More complex conditional structures can lead to *nested* conditionals:
 
 ```{python}
-myNumber = 0
-if (myNumber < 0):
-    print("myNumber is smaller than 0")
+a = 0
+if (a < 0):
+    print("a is smaller than 0")
 else:
-    if (myNumber == 0):
-        print("myNumber equals 0")
+    if (a == 0):
+        print("a equals 0")
     else:
-        print("myNumber is larger than 0")
+        print("a is larger than 0")
 
 ```
 The indentation makes the structure of the program visible. However, most of the time, nested conditionals complicate your code unecessarily, making it more difficult to read. It is commonly regarded as good practice to keep the usage of nested conditionals to a minimum.
 
-But then, you may ask yourself, how do you implement more than two execution branches, without resorting to nested conditionals? Let's pretend that it is incredibly important to your program that it does make a difference between the case that `myNumber` is larger than 0, compared to when `myNumber` equals 0.
+But then, you may ask yourself, how do you implement more than two execution branches, without resorting to nested conditionals? Let's pretend that it is incredibly important to your program that it does make a difference between the case that `a` is larger than 0, compared to when `a` equals 0.
 
 ```{python}
-myNumber = 0
-if (myNumber < 0):
-    print("myNumber is smaller than 0")
-elif (myNumber == 0):
-    print("myNumber equals 0")
+a = 0
+if (a < 0):
+    print("a is smaller than 0")
+elif (a == 0):
+    print("a equals 0")
 else:
-    print("myNumber is larger than 0")
+    print("a is larger than 0")
 ```
 
 The *elif statement* (short for `else if statement`) allows you to include more than two alternative conditions. In theory, you can build an endless chain of alternative conditions using `elif`. Whether it is useful to do so, is, of course, a different question. Whenever `elif` is included in a train of conditions, the whole structure is called a *chained conditional*. Note that when using an *else clause* in a chain of conditionals, it always marks the end of the chain. Furthermore, each condition is checked in order. If the first is `False`, the next is checked, and so on. Note that only the first `True` branch is executed, even if more than one condition is `True`. There is nothing like "more true" in Boolean logic.
 
 ```{python}
-myNumber = 1
-if (myNumber >= 0):
-    print("myNumber is greater than or equals 0")
-elif (myNumber == 1):
-    print("myNumber equals 1")
+a = 1
+if (a >= 0):
+    print("a is greater than or equals 0")
+elif (a == 1):
+    print("a equals 1")
 else:
-    print("myNumber is smaller than 0")
+    print("a is smaller than 0")
 ```
 
 
 Alternatively, *nesting* can often be circumvented by using *logical operators*:
 
 ```{python, eval=F}
-myNumber = 5
-if (myNumber > -5):
-    if (myNumber >= 0):
-        print("myNumber is a positive digit")
+a = 5
+if (a > -5):
+    if (a >= 0):
+        print("a is a positive digit")
 ```
 
 ```{python, eval=F}
-myNumber = 5
-if (myNumber > -5 and myNumber >= 0):
-    print("myNumber is a positive digit")
+a = 5
+if (a > -5 and a >= 0):
+    print("a is a positive digit")
 ```
 
 ## Bringing interaction to life: Conditional state transitions
@@ -228,9 +228,9 @@ State charts are another tool for representing the interaction of a program. The
 1. Confusing the *assignment operator* (`=`) with the comparative *equals operator* (`==`).
 
 ```{}
-myNumber = 5
-if (myNumber = 5):
-    print("Yes, myNumber is indeed equal to 5!")
+a = 5
+if (a = 5):
+    print("Yes, a is indeed equal to 5!")
 
 SytnaxError: invalid sytnax
 ```
@@ -254,30 +254,30 @@ if (1 == 1):
 3. Exclusively using `if clauses` in a chain of conditionals. This is a tricky one because the consequences may not immediately be apparent. Plus, no error is necessarily thrown. Still, you program somehow does not do what you expect it to do. In truth, exclusively using `if clauses` is not wrong in itself; but chances are high that you intended to use a chain of `if/elif clauses` instead. Let's take a look at the following two code snippets to illustrate the difference between a chain of `if clauses` and a chain of `if/elif clauses`.
 
 ```{python}
-number = 6
-if (number % 2 == 0):
-    print("number is divisible by 2")
-elif (number % 3 == 0):
-    print("number is divisible by 3")
-elif (number % 6 == 0):
-    print("number is divisible by 6")
+a = 6
+if (a % 2 == 0):
+    print("a is divisible by 2")
+elif (a % 3 == 0):
+    print("a is divisible by 3")
+elif (a % 6 == 0):
+    print("a is divisible by 6")
 else:
-    print("number is not divisible by 2, 3 or 6")
+    print("a is not divisible by 2, 3 or 6")
 ```
 
 ```{python}
-number = 6
-if (number % 2 == 0):
-    print("number is divisible by 2")
-if (number % 3 == 0):
-    print("number is divisible by 3")
-if (number % 6 == 0):
-    print("number is divisible by 6")
+a = 6
+if (a % 2 == 0):
+    print("a is divisible by 2")
+if (a % 3 == 0):
+    print("a is divisible by 3")
+if (a % 6 == 0):
+    print("a is divisible by 6")
 else:
-    print("number is not divisible by 2, 3 or 6")
+    print("a is not divisible by 2, 3 or 6")
 ```
 As you can see, in the first code snippet, only the first `True` conditional branch is executed, although `6` is obviously not only divisible by `2`, but also by `3` and `6`. In the second code snippet, however, all `True` conditions are executed consecutively. Why is that?
-Well, in the first code snippet we are dealing with one single `if statement` or conditional with several subclauses ( the `elif` and `else` clauses), while the second code snippet strictly speaking consists of three individual `if statements`. These three conditionals are independent from each other and as such, are executed independently from each other. The first code snippet is read as "if `number` modulo 2 equals 0 (which is the same as saying 'if `number` is divisible by 2'), then print this or that; however, if (and only if) `number` is not divisible by 2, then look for a different `True` condition". In contrast, the second code snippet reads as "if `number` is divisible by 2, print this or that. Full stop. If `number` is divisible by 3, print this or that. Full stop. If `number` is divisible by 6, print this, else print that". In a chain of `if clauses` the individual clauses are disconnected, which is why they are read as a summation of individual clauses rather than one coherent statement.
+Well, in the first code snippet we are dealing with one single `if statement` or conditional with several subclauses ( the `elif` and `else` clauses), while the second code snippet strictly speaking consists of three individual `if statements`. These three conditionals are independent from each other and as such, are executed independently from each other. The first code snippet is read as "if `a` modulo 2 equals 0 (which is the same as saying 'if `a` is divisible by 2'), then print this or that; however, if (and only if) `a` is not divisible by 2, then look for a different `True` condition". In contrast, the second code snippet reads as "if `a` is divisible by 2, print this or that. Full stop. If `a` is divisible by 3, print this or that. Full stop. If `a` is divisible by 6, print this, else print that". In a chain of `if clauses` the individual clauses are disconnected, which is why they are read as a summation of individual clauses rather than one coherent statement.
 
 You may ask yourself why this is included in the *Common errors* section. After all, using exclusively `if clauses` is not necessarily "wrong". The problem is that exclusively using `if clauses` may do the job at the beginning of your programming career, but it is a source for complex errors at a later stage. Remember to use chains of `if/elif/else clauses` whenever you want to need to make sure that only one `True` condition is executed at a time.
 
@@ -289,7 +289,7 @@ You may ask yourself why this is included in the *Common errors* section. After 
 
 ## Debugging
 
-In addition to some general good debugging practices summarized in chapter 9 [Debugging], there are some strategies that are especially useful when dealing with errors originating from conditionals in your program.
+In addition to some general good debugging practices summarized in the chapter on [Debugging], there are some strategies that are especially useful when dealing with errors originating from conditionals in your program.
 
 1. Again, checking your assignment `=` and equals `==` operators is a good starting point when you encounter an error that you suspect to originate from your conditionals. Using an assignment `=` operator where an equals `==` operator is needed will throw a syntax error and vice versa. While you are busy checking your assignment and equals operators, also check whether you forgot any colons `:` at the end of the first line of your if statements. This will also throw a syntax error.
 
@@ -299,7 +299,7 @@ In addition to some general good debugging practices summarized in chapter 9 [De
 
 ## Exercises
 
-### Exercise A. Boolean logic
+### Exercise 1. Boolean logic
 
 What is the output of the following code snippets?
 
@@ -352,7 +352,7 @@ c = 3
 print(b % a >= c - (a + b))
 ```
 
-### Exercise B. State chart
+### Exercise 2. State charts
 
 A state chart visualizes the interaction of a program. Which of the code snippets matches the state chart?
 
@@ -401,7 +401,7 @@ while True:
           if event.type==KEYDOWN and event.key == K_SPACE:
               STATE = "C"
       elif STATE == "C":
-          if event.type==KEYDOWN and event.key == K_A:
+          if event.type==KEYDOWN and event.key == K_A and event.key == K_D:
               arrival_at_B = time()
               STATE = "B"
           else:
@@ -446,7 +446,7 @@ while True:
               sys.exit()
 
 ```
-### Exercise C. Transition tables
+### Exercise 3. Transition tables
 
 For the following code snippet, make a transition table.
 
@@ -486,7 +486,7 @@ while True:
         sys.exit()
 ```
 
-### Exercise D. Mini programs
+### Exercise 4. Mini programs
 
 What is the output of the following mini programs?
 
@@ -528,7 +528,7 @@ if y + 1 == x or not x * 1 <= y:
 * Nothing
 * `2`
 
-### Exercise 1. Following the control flow
+### Exercise 5. Following the control flow
 
 Read the following program code and try to follow its control flow. Write down the content of each `print statement`. Check your answers with the help of your python editor. *Hint*: spaces also add to the length of a string (as measured by the `len()` *method*)!
 
@@ -563,25 +563,25 @@ else:
 print myString
 ```
 
-### Exercise 2. Indentation
+### Exercise 6. Indentation
 
 Copy the following piece of code and run it. Correct all indentation errors until the code runs error-free.
 ```{}
-myNumber = 4
-if myNumber < 20 and myNumber > 0:
-    if myNumber > 0 and myNumber < 15:
-    myNumber = myNumber + 3
+a = 4
+if a < 20 and a > 0:
+    if a > 0 and a < 15:
+    a = a + 3
     else:
-       myNumber = myNumber - 3
+       a = a - 3
         print "This is a dead end statement."
-elif myNumber > 20:
-print "This should only be printed if myNumber exceeds 20!"
+elif a > 20:
+print "This should only be printed if a exceeds 20!"
 else:
-    myNumber = 17
+    a = 17
 ```
 
 
-### Exercise 3. Pseudo code conditionals
+### Exercise 7. Pseudo code conditionals
 
 Translate the following common language sentences into *pseudo code* conditionals as in
 
@@ -598,7 +598,7 @@ Pseudo code is a programming language-independent informal and simplified descri
 3. When the streets are *wet*, the chance is high that it has *rained*.
 4. If the participant turns out to be *eligible* to participate *brief* him or her about the experiment. Otherwise kindly *explain* that they do not meet the criteria to participate. If the eligible participant is assigned to *condition A*, lead them to *room 001*. If he or she is assigned to *condition B*, lead them to room *002*.
 
-### Exercise 4. Modify Stroop Task
+### Exercise 8. Modify Stroop Task
 
 Add a conditional to the interactive Stroop experiment so that in case the participant's reaction time exceeds 5 milliseconds, "Come on, you can be faster!" is printed to the screen
 
@@ -610,7 +610,7 @@ Hints:
 
 * Use the existing program code as a template for drawing the message
 
-### Exercise 5. Simplify nested conditionals
+### Exercise 9. Simplify nested conditionals
 
 For a research project, you want to examine to what extent gender affects the influence of coffee on a person's performance on a vigilance task. You perform matching during sampling. All females will be grouped together, and all males will form one condition.
 
@@ -678,7 +678,7 @@ else:
 ```
 
 
-### Exercise 6. Flow chart conditionals
+### Exercise 10. Flow chart conditionals
 
 Turn the following flow chart into a python script and run it. Given that the initial value of `n` is `-1`, what is the final value of `n`?
 
