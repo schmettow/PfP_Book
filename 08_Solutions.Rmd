@@ -729,6 +729,56 @@ print n
 ```
 
 ## Chapter 4. Lists
+
+### Exercise 1. Indexing
+
+What is the output of the following code snippets?
+
+```{python}
+a = [6, 7]
+b = [4, 5]
+b.append(a)
+
+print(b)
+```
+
+```{python}
+d = {1: 'a',
+    'a': 1}
+    
+print(d[1])
+```
+
+```{python}
+a = [1]
+b = ('a', 2)
+a.extend(b)
+
+print(a[1])
+```
+
+```{python}
+a, b = (['a', 'd'], ['b', 'c'])
+
+print(b[0])
+```
+
+```{python}
+a = [1, 2, 3]
+
+print(a[-1])
+```
+
+```{python}
+a = (1, 2, [3, 4], 5)
+
+print(a[2][1])
+```
+
+### Exercise 2. Debugging
+
+### Exercise 3. Mini programs
+
 ### Exercise 1. Shopping list
 
 `['buns',

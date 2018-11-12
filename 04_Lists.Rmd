@@ -6,7 +6,7 @@ message.append("world")
 print(" ".join(message))
 ```
 
-In chapter 2 Variables, you encountered the four basic data types of the Python programming language: *integers*, *floats*, *Strings* and *Booleans*. You also learned that apart from these four basic data types, Python knows numerous specialized types. Now it is time to encounter one group of these specialized data types: *collections*. You will learn about three types of collections, *lists*, *tuples*, and *dictionnaries* in this chapter. Together, they make up a toolbox for storing information in a computer program.
+In chapter 2 Variables, you encountered the four basic data types of the Python programming language: *integers*, *floats*, *Strings* and *Booleans*. You also learned that apart from these four basic data types, Python knows numerous specialized types. Now it is time to encounter one group of these specialized data types: *collections*. You will learn about three types of collections, *lists*, *tuples*, and *dictionaries* in this chapter. Together, they make up a toolbox for storing information in a computer program.
 
 ## Lists
 
@@ -100,7 +100,7 @@ print(a)
 IndexError: list assignment index out of range
 ```
 
-Luckily, there are several ways of adding elements to a list.
+Luckily, there are other ways of adding elements to a list.
 
 ```{python}
 a = []
@@ -137,7 +137,7 @@ Because lists are mutable, you can sequentially fill them with elements, one by 
 ###A word about class specific functions
 By now, you have seen a few examples of class-specific *functions*, such as `append()` for lists or `join()` for strings. Even though a detailed explanation of *functions* (also called *methods*) is postponed to Chapter \@ref(functions), a quick introduction to the terminology of objects, classes, and class-specific functions will help you make the most of your lists and other collections. For now, you can see functions as pieces of reusable code that specify what to do with some input values.
 
-When you create a variable `a` and assign a value to it, say `[4,5]`, you can think of it as creating an *object* (i.e. an instance) of the Python *class* *list*. The *list* class has been programmed by the developers of the Python language, same as any other built-in Python class, such as integers and strings. Classes are blueprints, a specification of how to build certain objects. Engineers use blueprints to build cars, buildings, bridges and more. Chefs use recipes to put together meals. Python classes are the same in that they specify how objects of a certain type are programmed internally when you create one of them. A class has built-in *methods* that can be used by *any* object that has been created using the class' blueprint. And this is what you basically do, whenever you surround a number of values with cornered brackets. You create a list according to the blueprint of `lists`. It is very useful that your list inherits functionality from its blueprint, because it enables a wide range of functionality specifically designed for instances of the class `list`. Your lists can use a range of built-in methods simply because they inherit these from their initial blueprint. An example is the `append()` method.
+When you create a variable `a` and assign a value to it, say `[4,5]`, you can think of it as creating an *object* (i.e. an instance) of the Python *class* *list*. The *list* class has been programmed by the developers of the Python language, same as any other built-in Python class, such as integers and strings. Classes are blueprints, a specification of how to build certain objects. Engineers use blueprints to build cars, buildings, bridges and more. Chefs use recipes to put together meals. Python classes are the same in that they specify how objects of a certain type are programmed internally when you create one of them. A class has built-in *methods* that can be used by *any* object that has been created using the class' blueprint. And this is what you basically do whenever you surround a number of values with cornered brackets. You create a list according to the blueprint of the Python class `list`. It is very useful that your list inherits *functions* from its blueprint. It means that without any effort on your part your lists have a variety of functionality at their disposal. They can immediately use a range of built-in methods such as the `append()` method.
 
 ```{python}
 a = [4,5]
@@ -147,7 +147,7 @@ print(a)
 
 The `append()` method adds the value specified between the brackets to the end of the list. Typing `help(list)` in your console will give you a complete list of built-in functions of the class `list` and what they do.
 
-What is the take-home message of this excursion to object-orientation? Well, make use of built-in class functions as much as you can! They provide a tremendous amount of functionality which you are likely going to need and want, written in neat code which makes them very efficient to use.
+What is the take-home message of this excursion to object-orientation? Well, make use of built-in class functions as much as you can! They provide a tremendous amount of functionality which you are likely going to need and want, written in neat code which makes them very efficient to use, too!
 
 The interested reader can find more information on Python classes [here](https://docs.python.org/2/tutorial/classes.html).
 
@@ -196,21 +196,21 @@ print(a)
 
 The brackets `()` are optional in a tuple assignment. Using tuple assignment, you can easily perform several variable assignments in just one line!
 
-## Dictionnaries
+## Dictionaries
 
-*Dictonnaries* share similarities with real-life address books where you can find a person's contact details by looking up his or her name.
+*Dictonaries* share similarities with real-life address books where you can find a person's contact details by looking up his or her name.
 
 ```{python}
-address_book = {"studyadviser-PSY": "studyadviser-psy@utwente.nl",
-                "studentservices" : "studentservices@utwente.nl",
-                "ICT-helpdesk"   : "servicedesk-ict@utwente.nl"
+address_book = {"studyadviser-PSY": "studyadviser-psy[at]utwente.nl",
+                "studentservices" : "studentservices[at]utwente.nl",
+                "ICT-helpdesk"   : "servicedesk-ict[at]utwente.nl"
                 }
 
 print(address_book["studyadviser-PSY"])
 ```
 
 
-Dictionaries associate *keys* (e.g. a name) with *values* (e.g. contact details). The `key:value` pairs of a dictionnary are separated by commas. Each pair contains a *key* and a *value* separated by a colon `:`. `key:value` pairs are always one-to-one mappings. This means that you cannot map the same key to several values, like so
+Dictionaries associate *keys* (e.g. a name) with *values* (e.g. contact details). The `key:value` pairs of a dictionary are separated by commas. Each pair contains a *key* and a *value* separated by a colon `:`. `key:value` pairs are always one-to-one mappings. This means that you cannot map the same key to several values, like so
 
 ```{python}
 address_book = {"studyadviser-PSY": "studyadviser-psy[at]utwente.nl",
@@ -228,26 +228,33 @@ address_book = {"studyadviser-PSY": "studyadviser-psy[at]utwente.nl",
                 "studyadviser-PSY_email": "studyadviser-psy[at]utwente.nl"
                 }
                 
-print(address_book["studyadviser-PSY"])
-print(address_book["studyadviser-PSY_email"])
 print("Number of key:value pairs in address_book: %d" % len(address_book.keys()))
 ```
 
-You can, of course, map a *key* to a *collection* of values. *Keys* are required to be immutable and unique within a dictionary. Therefore, you cannot have two keys named `"studyadviser-PSY"` in the `address_book`. Dictionaries are *unordered* collections. Unlike sequences, such as lists and tuples, the elements of a dictionary are unorderded in the sense that their elements cannot be accessed using indices. Dictionaries do not have a sequential representation of their elements. Values contained in a dictionnary can only be accessed through their respective *keys*.
 
-Dictionaries are mutable. You can modify the values of a dictionnary by accessing its associated key:
+Dictionaries require their keys to be *immutable* and *unique*. As you above, you cannot have two keys named `"studyadviser-PSY"` in the `address_book`. This also means that certain data types are unsuitable as dictionary keys, like lists.
+
+```{}
+d = {['a']: 'b'}
+
+TypeError: unhashable type: 'list'
+```
+
+Whenever you try to use a mutable object (like lists) as a key, a `TypeError` will be thrown. Because lists are mutable (you can update their elements), they are *unhashable*. Without going into the details of hash functions here, a *hash* is another representation of an object. It is a transformation of the object's length sequence of bytes into a fixed length sequence. *Hash functions* are used in cryptographic algorithms, in digital signatures, manipulation detection, password storage and more. Hash functions are constructed so that calculating an object's hash representation is simple, but retrieving the original object is difficult without knowing the function used to hash the object in the first place. You can imagine that things start to get messy if the object itself can change after its hash has been calculated. A hash is a momentary snapshot of an object. It will be impossible to retrieve the latest version of an object from its hash representation if the object changed in the meantime, even if you know its hash function. Dictionaries themselves are also mutable (and thus, unhashable) and cannot be used as *keys*, by the way.
+
+Dictionaries are *unordered* collections. Unlike sequences, such as lists and tuples, the elements of a dictionary cannot be accessed using indices. Dictionaries do not have a sequential representation of their elements. Values stored in a dictionary can be accessed and changed through their respective *keys*, like so
 
 ```{python}
-address_book = {"studyadviser-PSY": "studyadviser-psy@utwente.nl",
-                "studentservices" : "studentservices@utwente.nl",
-                "ICT-helpdesk"   : "servicedesk-ict@utwente.nl"
+address_book = {"studyadviser-PSY": "studyadviser-psy[at]utwente.nl",
+                "studentservices" : "studentservices[at]utwente.nl",
+                "ICT-helpdesk"   : "servicedesk-ict[at]utwente.nl"
                 }
                 
-address_book["studentservices"] = ("studentservices@utwente.nl", "0534892124")
+address_book["studentservices"] = ("studentservices[at]utwente.nl", "0534892124")
 print("The telephone number of the student services is", str(address_book["studentservices"][1]))
 ```
 
-You can add entries and remove whole entries of a dictionnary using the `del` statement.
+Apart from updating existing dictionary entries, you can obviously also add and remove entries of a dictionary. Use the `del` statement to remove dictionary entries.
 
 ```{python}
 address_book = {"studyadviser-PSY": "studyadviser-psy@utwente.nl ",
@@ -263,29 +270,65 @@ print(address_book)
 ```
 
 
-## Putting data structures to use
+## Putting collections to use
 
-Lists, tuples and dictionnaries are used readily in programming interactive software, such as the Stroop experiment, to structure user data or structuring elements of the program in a computer's memory. Structuring user input makes later retrieval of information easier, for instance for the purpose of statistical analysis.
+Lists, tuples and dictionaries are readily used in interactive programs, such as the Stroop Task program. Collections help structure user input and the subsequent storage of user input in computer memory. Structuring user input makes later retrieval of information easier. Below you see a code snippet from the Stroop Task program.
 
 ```{python, eval=F}
 KEYS     = {"red": K_b,
             "green": K_n,
             "blue": K_m}
 RT = []
-STATE = "wait_for_response"
+trial_number = 0    
+    
+while True:
+    pygame.display.get_surface().fill(BACKGR_COL)        
 
-if STATE == "wait_for_response":
-    if event.type == KEYDOWN and event.key in KEYS.values():
-        time_when_reacted = time()
-        this_reaction_time = time_when_reacted - time_when_presented
-        RT.append(this_reaction_time)
+    # Changing states
+    for event in pygame.event.get():                        
+        if STATE == "welcome":
+             if event.type == KEYDOWN and event.key == K_SPACE:
+                 STATE = "present_trial"
+                 print(STATE)
+                    
+        if STATE == "present_trial":
+             trial_number = trial_number + 1
+             this_word  = pick_color()
+             this_color = pick_color()
+             time_when_presented = time()
+             STATE = "wait_for_response"
+             print(STATE)
+                    
+        if STATE == "wait_for_response":
+            if event.type == KEYDOWN and event.key in KEYS.values():
+                time_when_reacted = time()
+                this_reaction_time = time_when_reacted - time_when_presented
+                RT.append(this_reaction_time)
+                this_correctness = (event.key == KEYS[this_color])
+                STATE = "feedback"
+                print(STATE)
+
+                
+        if STATE == "feedback":
+            if event.type == KEYDOWN and event.key == K_SPACE:
+                if trial_number < 20:
+                    STATE = "present_trial"
+                else:
+                    STATE = "goodbye"
+                print(STATE)
+            
+        if event.type == QUIT:
+            STATE = "quit"
 
 ```
 
+Note how the variable `RT` is used to keep track of the user's reaction times throughout the trials. The variable `this_reaction_time` is overwritten in each trial. This means, that at the end of the program, when all trials are completed, `this_reaction_time` only contains the last value assigned to it during the 20th trial. All other reaction times were long erased from computer memory. But wait, what if we want to calculate a user's mean reaction time once the experiment is finished? In order to do so, we need some way of saving the reaction times from trial to trial. They need to persist until the last trial is completed. This is exactly where collections step into the picture. Collections are capable of storing multiple values at the same time and they can be mutated iteratively (one reaction time per trial). Hence, we `append` the calculated reaction time to a list in each trial.
+
+In the end, you as a programmer still need to decide how to proceed with the collected reaction times. Do you want to print their mean to the screen, export them out of the program, or combine them with data gathered from other experimental subjects? It is up to you. Using collections, at least you have a user's reaction times at your disposal, also once all trials are completed.
 
 ## Common errors
 
-* `index out of range` errors are among the most common programming errors made, even by experienced programmers.They typically occur if you try to access an element that does not exist in a sequence.
+* The by far most occurring errors involving lists are `index out of range` errors. I think it is fair to say that they make up a large amount of all programming errors. An `index out of range error` is thrown when you try to access an index that does not exist in a sequence.
 
 ```{}
 shoppinglist = ["milk", "eggs", "bread", "appels"]
@@ -294,33 +337,158 @@ print shoppinglist[4]
 IndexError: list index out of range
 ```
 
-Most of the time, this error will occur because you confused the starting index `0` with `1`. Remember that, for instance, in a list of four elements the last element is stored at index `3`, instead of at index `4`.
+You will usually encounter this error as a result of confusing the starting index `0` with `1`. Against all intuition, in a list of four elements, the last element is stored at index `3`, not at index `4`. It helps to keep in mind that the indices of your sequences always have a range one shorter than the number of elements in your list. For a list with four elements, the positive index range is `0` to 4 minus 1, thus `3`.
 ```{python}
 shoppinglist = ["milk", "eggs", "bread", "appels"]
 print(shoppinglist[3])
 ```
 
-* Trying to change the content of a *tuple*. Tuples are immutable, meaning that you cannot change their content after their initialization. You can, however, re-assign the variable name of an existing tuple to a new tuple containing different information.
+* Another common mistake surrounding collections concerns the immutability of *tuples*. In particular, trying to change the content of a *tuple* will result in a `TypeError`. Tuples are immutable, meaning that you cannot change their content after their initialization. You can, however, re-assign the variable name of an existing tuple to a new tuple containing different values.
 
 ```{}
-myTuple = (1,2,4)
-myTuple[2] = 3
+a = (1,2,4)
+b[2] = 3
 
 TypeError: 'tuple' object does not support item assignment
 ```
 
 ```{python}
-myTuple = (1,2,4)
-print(myTuple)
-myTuple = (1,2,3)
-print(myTuple)
+a = (1,2,4)
+print(a)
+b = (1,2,3)
+print(b)
 ```
+
+* Concerning dictionaries, you will most probably not escape one or another `KeyError`. A `KeyError` is thrown when you try to access a `key` that does not exist in the dictionary.
+
+```{}
+d = {}
+print(d['a'])
+
+KeyError: 'a'
+```
+
+The same is likely to occur when you try to use indices to access the entries of a dictionary
+
+```{}
+d = {'a': 1}
+print(d[0])
+
+KeyError: 0
+```
+
+Dictionaries are the only *unordered* type of collection you encountered in this chapter. It occurs now and then that one assumes that a dictionary can be treated as other common types of collections, such as lists or tuples. 
 
 ## Debugging
 
+Here are some tips and tricks on how to debug errors that potentially originate from your collections.
+
+1. Regularly checking the `length` of your collections can be very helpful to confirm that your code does indeed what you expect it to do. Take the example of `RT`, the list we made to keep track of a participant's reaction times throughout the Stroop Task program. At the end of the experiment, you would expect the list to contain 20 elements, given that `RT` was initialized as an empty list and that the experiment had 20 trials. By checking the `length` of `RT`, you can immediately see whether your code indeed stored one reaction time per trial. `RT` should have a `length` of 20 after the experiment. You can check the length of a collection using the `len()` method, like so
+
+```{python}
+a = [3, 4]
+print(len(a))
+```
+
+2. Dictionaries have a very useful built-in method that represents their `keys` as a list.
+
+```{python}
+d = {'a': 1,
+     'b': 2}
+     
+print(d.keys())
+```
+
+This comes in handy when you keep getting a `KeyError` while you are convinced that your dictionary should contain a certain key.
+
+```{}
+d = {'a ': 1,
+     'b': 2}
+     
+print(d['a'])
+KeyError: 'a'
+```
+
+You can use `in` to check whether a candidate `key` is among the keys of the dictionary
+
+```{python}
+d = {'a ': 1,
+     'b': 2}
+     
+print('a' in d.keys())
+```
+
+In this case, a typing error is the culprit. Instead of `'a'`, `'a '` with a whitespace was set as the first key of `d`.
+
+Alternatively, you can use `not in` to make sure that you do not overwrite any existing keys
+
+```{python}
+d = {'a': 1,
+     'b': 2}
+
+if 'a' not in d.keys():
+    d['a'] = 0
+
+print(d)  
+```
+
+
 ## Exercises
 
-### Exercise 1. Shopping list
+### Exercise 1. Indexing
+
+What is the output of the following code snippets?
+
+```{python, eval=F}
+a = [6, 7]
+b = [4, 5]
+b.append(a)
+
+print(b)
+```
+
+```{python, eval=F}
+d = {1: 'a',
+    'a': 1}
+    
+print(d[1])
+```
+
+```{python, eval=F}
+a = [1]
+b = ('a', 2)
+a.extend(b)
+
+print(a[1])
+```
+
+```{python, eval=F}
+a, b = (['a', 'd'], ['b', 'c'])
+
+print(b[0])
+```
+
+```{python, eval=F}
+a = [1, 2, 3]
+
+print(a[-1])
+```
+
+```{python, eval=F}
+a = (1, 2, [3, 4], 5)
+
+print(a[2][1])
+```
+
+### Exercise 2. Debugging
+
+What goes wrong in the following code snippets?
+
+### Exercise 3. Mini programs
+
+What is the output of the following mini programs?
+
+### Exercise 4. Shopping list
 ```{python, eval=F}
 shoppinglist = ["bread","cheese","jam","milk","oatmeal","blueberries","oranges","apples"]
 shoppinglist[0] = "buns"
@@ -344,7 +512,7 @@ The above shopping list has been subject to several changes since it has been wr
 
 You can check your answer afterwards by running the code.
 
-### Exercise 2. Dictionnaries
+### Exercise 5. Dictionaries
 
 ```{python, eval=F}
 famous_psychologists = {"Freud":("Sigmund", "Freud", (1856,1939), "Psychoanalysis"),
@@ -362,9 +530,9 @@ famous_psychologists["Skinner"] = famous_psychologists["Skinner"][:3] + ("Behavi
 
 ```
 
-Using the given dictionnary on famous psychologists and the above changes made to the dictionnary:
+Using the given dictionary on famous psychologists and the above changes made to the dictionary:
 
-* Try to understand the changes made to the original dictionnary by writing down the content of the following print statements
+* Try to understand the changes made to the original dictionary by writing down the content of the following print statements
 
 ```{python, eval=F}
 print(famous_psychologists["Erikson"][:3])
@@ -379,7 +547,7 @@ print(famous_psychologists["Skinner"][5][word][0])
 
 * Afterwards, you may check your answers by running the code. Pay attention that your own answers match exactly.
 
-### Exercise 3. Element selection
+### Exercise 6. Element selection
 
 For the following data structures, give the code by which you can access the specified element.
 
@@ -410,7 +578,7 @@ grades = {"p1": ("Judith",21,"female","B-PSY",(5.6,7.7,7.3)),
 8. The maximum grade achieved on the second partial exam
 
 
-### Exercise 4. Adjust a dictionnary data set
+### Exercise 7. Adjust a dictionary data set
 
 The data set below originates from a (fictive) language course given at the University of Twente. During the course, the following information was stored about the participants: age, gender, nationality, study programme, for each lesson, whether the participant was present or not (`True` indicates presence during the lesson and `False` absence), and the paricipant's score on the final exam.
 
@@ -432,9 +600,9 @@ The lecturer has to perform some last minute changes to the data set before hand
 4. During the course, participant 2 changed her study programme from B-Psychology to B-Health Sciences.
 5. After the final examination, it was revealed that participant 4 cheated during the exam. The examination board decided to void the student's achievements on the exam. In such a case, the additional note `expelled` is added to the student's record, indicating the student's misbehaviour.
 
-### Exercise 5. A dictionnary data set
+### Exercise 8. A dictionary data set
 
-Fill in the participant information given in the table below in a Python dictionnary with the following structure:
+Fill in the participant information given in the table below in a Python dictionary with the following structure:
 
 ```{python, eval=F}
 participants = {participant_no:(gender, age, nationality, profession)}
@@ -461,7 +629,7 @@ Using Python and by accessing the relevant elements in the dataset
 
 *Hint*: Libraries provide built-in methods beyond the repertoire of the standard Python language. For instance, `NumPy` provides all kinds of methods for statistical operations in Python. You can import a library by typing `import (library name)` and make use of library-specific methods like this `(library name).(method)`. Take a look at the documentation of the `NumPy` library.
 
-### Exercise 6. Stroop extension
+### Exercise 9. Stroop extension
 
 In this exercise you will implement a conditional execution of the interactive Stroop program. Imagine that you want to examine whether the number of colors influences the reaction time of participants in the Stroop experiment. In particular, you have gathered ten participants whom you randomly assigned to either a three or a five word version of the Stroop task. The table below summarizes which participant is assigned to which condition.
 
@@ -490,6 +658,6 @@ In order to implement the comparative Stroop version program (three vs. five col
 ## Think further
 
 * For more detailed information on *lists* beyond the scope of this chapter, you are advised to take a look at [Wentworth, P., Elkner, J., Downey, A. B., & Meyer, C. (2015). How to think like a computer scientist: Learning with Python 3. Chapter 11. Lists](http://openbookproject.net/thinkcs/python/english3e/lists.html)
-* For more information on *dictionnaries*, including explanation on useful built-in functions of the dictionnary class, you are invited to take a look at [Wentworth, P., Elkner, J., Downey, A. B., & Meyer, C. (2015). How to think like a computer scientist: Learning with Python 3. Chapter 20. Dictionnaries](http://openbookproject.net/thinkcs/python/english3e/dictionaries.html)
+* For more information on *dictionaries*, including explanation on useful built-in functions of the dictionary class, you are invited to take a look at [Wentworth, P., Elkner, J., Downey, A. B., & Meyer, C. (2015). How to think like a computer scientist: Learning with Python 3. Chapter 20. dictionaries](http://openbookproject.net/thinkcs/python/english3e/dictionaries.html)
 * More information on *tuples* can be found in [Wentworth, P., Elkner, J., Downey, A. B., & Meyer, C. (2015). How to think like a computer scientist: Learning with Python 3. Chapter 9. Tuples](http://openbookproject.net/thinkcs/python/english3e/tuples.html)
 
