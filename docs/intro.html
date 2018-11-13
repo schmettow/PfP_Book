@@ -25,7 +25,7 @@
 <meta name="author" content="Martin Schmettow and Lena Brandl">
 
 
-<meta name="date" content="2018-11-01">
+<meta name="date" content="2018-11-13">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -47,6 +47,14 @@
 
 
 
+<script src="libs/htmlwidgets-1.3/htmlwidgets.js"></script>
+<script src="libs/d3-3.3.8/d3.min.js"></script>
+<script src="libs/dagre-0.4.0/dagre-d3.min.js"></script>
+<link href="libs/mermaid-0.3.0/dist/mermaid.css" rel="stylesheet" />
+<script src="libs/mermaid-0.3.0/dist/mermaid.slim.min.js"></script>
+<link href="libs/DiagrammeR-styles-0.2/styles.css" rel="stylesheet" />
+<script src="libs/chromatography-0.1/chromatography.js"></script>
+<script src="libs/DiagrammeR-binding-1.0.0/DiagrammeR.js"></script>
 
 
 <style type="text/css">
@@ -108,7 +116,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </ul></li>
 <li class="chapter" data-level="2" data-path="variables.html"><a href="variables.html"><i class="fa fa-check"></i><b>2</b> Variables, values and types</a><ul>
 <li class="chapter" data-level="2.1" data-path="variables.html"><a href="variables.html#variables"><i class="fa fa-check"></i><b>2.1</b> Variables</a></li>
-<li class="chapter" data-level="2.2" data-path="variables.html"><a href="variables.html#stroop-task-variables"><i class="fa fa-check"></i><b>2.2</b> Stroop task variables</a></li>
+<li class="chapter" data-level="2.2" data-path="variables.html"><a href="variables.html#stroop-task-variables"><i class="fa fa-check"></i><b>2.2</b> Stroop Task variables</a></li>
 <li class="chapter" data-level="2.3" data-path="variables.html"><a href="variables.html#how-variables-are-used"><i class="fa fa-check"></i><b>2.3</b> How Variables Are Used</a></li>
 <li class="chapter" data-level="2.4" data-path="variables.html"><a href="variables.html#data-types"><i class="fa fa-check"></i><b>2.4</b> Data types</a><ul>
 <li class="chapter" data-level="2.4.1" data-path="variables.html"><a href="variables.html#numbers"><i class="fa fa-check"></i><b>2.4.1</b> Numbers</a></li>
@@ -118,16 +126,16 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="2.5" data-path="variables.html"><a href="variables.html#common-errors"><i class="fa fa-check"></i><b>2.5</b> Common errors</a></li>
 <li class="chapter" data-level="2.6" data-path="variables.html"><a href="variables.html#debugging"><i class="fa fa-check"></i><b>2.6</b> Debugging</a></li>
 <li class="chapter" data-level="2.7" data-path="variables.html"><a href="variables.html#exercises-1"><i class="fa fa-check"></i><b>2.7</b> Exercises</a><ul>
-<li class="chapter" data-level="2.7.1" data-path="variables.html"><a href="variables.html#exercise-a.-operators"><i class="fa fa-check"></i><b>2.7.1</b> Exercise A. Operators</a></li>
-<li class="chapter" data-level="2.7.2" data-path="variables.html"><a href="variables.html#exercise-b.-values"><i class="fa fa-check"></i><b>2.7.2</b> Exercise B. Values</a></li>
-<li class="chapter" data-level="2.7.3" data-path="variables.html"><a href="variables.html#exercise-c.-mini-programs"><i class="fa fa-check"></i><b>2.7.3</b> Exercise C. Mini programs</a></li>
-<li class="chapter" data-level="2.7.4" data-path="variables.html"><a href="variables.html#exercise-d.-debugging"><i class="fa fa-check"></i><b>2.7.4</b> Exercise D. Debugging</a></li>
-<li class="chapter" data-level="2.7.5" data-path="variables.html"><a href="variables.html#exercise-1.-string-concatenation"><i class="fa fa-check"></i><b>2.7.5</b> Exercise 1. String concatenation</a></li>
-<li class="chapter" data-level="2.7.6" data-path="variables.html"><a href="variables.html#exercise-2.-variable-names"><i class="fa fa-check"></i><b>2.7.6</b> Exercise 2. Variable names</a></li>
-<li class="chapter" data-level="2.7.7" data-path="variables.html"><a href="variables.html#exercise-3.-stroop-task-welcome-message"><i class="fa fa-check"></i><b>2.7.7</b> Exercise 3. Stroop task welcome message</a></li>
-<li class="chapter" data-level="2.7.8" data-path="variables.html"><a href="variables.html#exercise-4.-printing"><i class="fa fa-check"></i><b>2.7.8</b> Exercise 4. Printing</a></li>
-<li class="chapter" data-level="2.7.9" data-path="variables.html"><a href="variables.html#exercise-5.-using-python-as-a-calculator"><i class="fa fa-check"></i><b>2.7.9</b> Exercise 5. Using Python as a calculator</a></li>
-<li class="chapter" data-level="2.7.10" data-path="variables.html"><a href="variables.html#exercise-6.-a-boolean-puzzle"><i class="fa fa-check"></i><b>2.7.10</b> Exercise 6. A Boolean puzzle</a></li>
+<li class="chapter" data-level="2.7.1" data-path="variables.html"><a href="variables.html#exercise-1.-operators"><i class="fa fa-check"></i><b>2.7.1</b> Exercise 1. Operators</a></li>
+<li class="chapter" data-level="2.7.2" data-path="variables.html"><a href="variables.html#exercise-2.-values"><i class="fa fa-check"></i><b>2.7.2</b> Exercise 2. Values</a></li>
+<li class="chapter" data-level="2.7.3" data-path="variables.html"><a href="variables.html#exercise-3.-mini-programs"><i class="fa fa-check"></i><b>2.7.3</b> Exercise 3. Mini programs</a></li>
+<li class="chapter" data-level="2.7.4" data-path="variables.html"><a href="variables.html#exercise-4.-debugging"><i class="fa fa-check"></i><b>2.7.4</b> Exercise 4. Debugging</a></li>
+<li class="chapter" data-level="2.7.5" data-path="variables.html"><a href="variables.html#exercise-5.-string-concatenation"><i class="fa fa-check"></i><b>2.7.5</b> Exercise 5. String concatenation</a></li>
+<li class="chapter" data-level="2.7.6" data-path="variables.html"><a href="variables.html#exercise-6.-variable-names"><i class="fa fa-check"></i><b>2.7.6</b> Exercise 6. Variable names</a></li>
+<li class="chapter" data-level="2.7.7" data-path="variables.html"><a href="variables.html#exercise-7.-stroop-task-welcome-message"><i class="fa fa-check"></i><b>2.7.7</b> Exercise 7. Stroop task welcome message</a></li>
+<li class="chapter" data-level="2.7.8" data-path="variables.html"><a href="variables.html#exercise-8.-printing"><i class="fa fa-check"></i><b>2.7.8</b> Exercise 8. Printing</a></li>
+<li class="chapter" data-level="2.7.9" data-path="variables.html"><a href="variables.html#exercise-9.-using-python-as-a-calculator"><i class="fa fa-check"></i><b>2.7.9</b> Exercise 9. Using Python as a calculator</a></li>
+<li class="chapter" data-level="2.7.10" data-path="variables.html"><a href="variables.html#exercise-10.-a-boolean-puzzle"><i class="fa fa-check"></i><b>2.7.10</b> Exercise 10. A Boolean puzzle</a></li>
 </ul></li>
 <li class="chapter" data-level="2.8" data-path="variables.html"><a href="variables.html#think-further"><i class="fa fa-check"></i><b>2.8</b> Think Further</a></li>
 </ul></li>
@@ -139,18 +147,18 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="3.3.2" data-path="conditionals.html"><a href="conditionals.html#state-charts"><i class="fa fa-check"></i><b>3.3.2</b> State charts</a></li>
 </ul></li>
 <li class="chapter" data-level="3.4" data-path="conditionals.html"><a href="conditionals.html#common-errors-1"><i class="fa fa-check"></i><b>3.4</b> Common errors</a></li>
-<li class="chapter" data-level="3.5" data-path="conditionals.html"><a href="conditionals.html#debugging-conditionals"><i class="fa fa-check"></i><b>3.5</b> Debugging conditionals</a></li>
+<li class="chapter" data-level="3.5" data-path="conditionals.html"><a href="conditionals.html#debugging-1"><i class="fa fa-check"></i><b>3.5</b> Debugging</a></li>
 <li class="chapter" data-level="3.6" data-path="conditionals.html"><a href="conditionals.html#exercises-2"><i class="fa fa-check"></i><b>3.6</b> Exercises</a><ul>
-<li class="chapter" data-level="3.6.1" data-path="conditionals.html"><a href="conditionals.html#exercise-a.-boolean-logic"><i class="fa fa-check"></i><b>3.6.1</b> Exercise A. Boolean logic</a></li>
-<li class="chapter" data-level="3.6.2" data-path="conditionals.html"><a href="conditionals.html#exercise-b.-state-chart"><i class="fa fa-check"></i><b>3.6.2</b> Exercise B. State chart</a></li>
-<li class="chapter" data-level="3.6.3" data-path="conditionals.html"><a href="conditionals.html#exercise-c.-transition-tables"><i class="fa fa-check"></i><b>3.6.3</b> Exercise C. Transition tables</a></li>
-<li class="chapter" data-level="3.6.4" data-path="conditionals.html"><a href="conditionals.html#exercise-d.-mini-programs"><i class="fa fa-check"></i><b>3.6.4</b> Exercise D. Mini programs</a></li>
-<li class="chapter" data-level="3.6.5" data-path="conditionals.html"><a href="conditionals.html#exercise-1.-following-the-control-flow"><i class="fa fa-check"></i><b>3.6.5</b> Exercise 1. Following the control flow</a></li>
-<li class="chapter" data-level="3.6.6" data-path="conditionals.html"><a href="conditionals.html#exercise-2.-indentation"><i class="fa fa-check"></i><b>3.6.6</b> Exercise 2. Indentation</a></li>
-<li class="chapter" data-level="3.6.7" data-path="conditionals.html"><a href="conditionals.html#exercise-3.-pseudo-code-conditionals"><i class="fa fa-check"></i><b>3.6.7</b> Exercise 3. Pseudo code conditionals</a></li>
-<li class="chapter" data-level="3.6.8" data-path="conditionals.html"><a href="conditionals.html#exercise-4.-modify-stroop-task"><i class="fa fa-check"></i><b>3.6.8</b> Exercise 4. Modify Stroop Task</a></li>
-<li class="chapter" data-level="3.6.9" data-path="conditionals.html"><a href="conditionals.html#exercise-5.-simplify-nested-conditionals"><i class="fa fa-check"></i><b>3.6.9</b> Exercise 5. Simplify nested conditionals</a></li>
-<li class="chapter" data-level="3.6.10" data-path="conditionals.html"><a href="conditionals.html#exercise-6.-flow-chart-conditionals"><i class="fa fa-check"></i><b>3.6.10</b> Exercise 6. Flow chart conditionals</a></li>
+<li class="chapter" data-level="3.6.1" data-path="conditionals.html"><a href="conditionals.html#exercise-1.-boolean-logic"><i class="fa fa-check"></i><b>3.6.1</b> Exercise 1. Boolean logic</a></li>
+<li class="chapter" data-level="3.6.2" data-path="conditionals.html"><a href="conditionals.html#exercise-2.-state-charts"><i class="fa fa-check"></i><b>3.6.2</b> Exercise 2. State charts</a></li>
+<li class="chapter" data-level="3.6.3" data-path="conditionals.html"><a href="conditionals.html#exercise-3.-transition-tables"><i class="fa fa-check"></i><b>3.6.3</b> Exercise 3. Transition tables</a></li>
+<li class="chapter" data-level="3.6.4" data-path="conditionals.html"><a href="conditionals.html#exercise-4.-mini-programs"><i class="fa fa-check"></i><b>3.6.4</b> Exercise 4. Mini programs</a></li>
+<li class="chapter" data-level="3.6.5" data-path="conditionals.html"><a href="conditionals.html#exercise-5.-following-the-control-flow"><i class="fa fa-check"></i><b>3.6.5</b> Exercise 5. Following the control flow</a></li>
+<li class="chapter" data-level="3.6.6" data-path="conditionals.html"><a href="conditionals.html#exercise-6.-indentation"><i class="fa fa-check"></i><b>3.6.6</b> Exercise 6. Indentation</a></li>
+<li class="chapter" data-level="3.6.7" data-path="conditionals.html"><a href="conditionals.html#exercise-7.-pseudo-code-conditionals"><i class="fa fa-check"></i><b>3.6.7</b> Exercise 7. Pseudo code conditionals</a></li>
+<li class="chapter" data-level="3.6.8" data-path="conditionals.html"><a href="conditionals.html#exercise-8.-modify-stroop-task"><i class="fa fa-check"></i><b>3.6.8</b> Exercise 8. Modify Stroop Task</a></li>
+<li class="chapter" data-level="3.6.9" data-path="conditionals.html"><a href="conditionals.html#exercise-9.-simplify-nested-conditionals"><i class="fa fa-check"></i><b>3.6.9</b> Exercise 9. Simplify nested conditionals</a></li>
+<li class="chapter" data-level="3.6.10" data-path="conditionals.html"><a href="conditionals.html#exercise-10.-flow-chart-conditionals"><i class="fa fa-check"></i><b>3.6.10</b> Exercise 10. Flow chart conditionals</a></li>
 </ul></li>
 <li class="chapter" data-level="3.7" data-path="conditionals.html"><a href="conditionals.html#think-further-1"><i class="fa fa-check"></i><b>3.7</b> Think Further</a></li>
 </ul></li>
@@ -160,17 +168,20 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="4.1.2" data-path="lists.html"><a href="lists.html#a-word-about-class-specific-functions"><i class="fa fa-check"></i><b>4.1.2</b> A word about class specific functions</a></li>
 </ul></li>
 <li class="chapter" data-level="4.2" data-path="lists.html"><a href="lists.html#tuples"><i class="fa fa-check"></i><b>4.2</b> Tuples</a></li>
-<li class="chapter" data-level="4.3" data-path="lists.html"><a href="lists.html#dictionnaries"><i class="fa fa-check"></i><b>4.3</b> Dictionnaries</a></li>
-<li class="chapter" data-level="4.4" data-path="lists.html"><a href="lists.html#putting-data-structures-to-use"><i class="fa fa-check"></i><b>4.4</b> Putting data structures to use</a></li>
+<li class="chapter" data-level="4.3" data-path="lists.html"><a href="lists.html#dictionaries"><i class="fa fa-check"></i><b>4.3</b> Dictionaries</a></li>
+<li class="chapter" data-level="4.4" data-path="lists.html"><a href="lists.html#putting-collections-to-use"><i class="fa fa-check"></i><b>4.4</b> Putting collections to use</a></li>
 <li class="chapter" data-level="4.5" data-path="lists.html"><a href="lists.html#common-errors-2"><i class="fa fa-check"></i><b>4.5</b> Common errors</a></li>
-<li class="chapter" data-level="4.6" data-path="lists.html"><a href="lists.html#debugging-1"><i class="fa fa-check"></i><b>4.6</b> Debugging</a></li>
+<li class="chapter" data-level="4.6" data-path="lists.html"><a href="lists.html#debugging-2"><i class="fa fa-check"></i><b>4.6</b> Debugging</a></li>
 <li class="chapter" data-level="4.7" data-path="lists.html"><a href="lists.html#exercises-3"><i class="fa fa-check"></i><b>4.7</b> Exercises</a><ul>
-<li class="chapter" data-level="4.7.1" data-path="lists.html"><a href="lists.html#exercise-1.-shopping-list"><i class="fa fa-check"></i><b>4.7.1</b> Exercise 1. Shopping list</a></li>
-<li class="chapter" data-level="4.7.2" data-path="lists.html"><a href="lists.html#exercise-2.-dictionnaries"><i class="fa fa-check"></i><b>4.7.2</b> Exercise 2. Dictionnaries</a></li>
-<li class="chapter" data-level="4.7.3" data-path="lists.html"><a href="lists.html#exercise-3.-element-selection"><i class="fa fa-check"></i><b>4.7.3</b> Exercise 3. Element selection</a></li>
-<li class="chapter" data-level="4.7.4" data-path="lists.html"><a href="lists.html#exercise-4.-adjust-a-dictionnary-data-set"><i class="fa fa-check"></i><b>4.7.4</b> Exercise 4. Adjust a dictionnary data set</a></li>
-<li class="chapter" data-level="4.7.5" data-path="lists.html"><a href="lists.html#exercise-5.-a-dictionnary-data-set"><i class="fa fa-check"></i><b>4.7.5</b> Exercise 5. A dictionnary data set</a></li>
-<li class="chapter" data-level="4.7.6" data-path="lists.html"><a href="lists.html#exercise-6.-stroop-extension"><i class="fa fa-check"></i><b>4.7.6</b> Exercise 6. Stroop extension</a></li>
+<li class="chapter" data-level="4.7.1" data-path="lists.html"><a href="lists.html#exercise-1.-indexing"><i class="fa fa-check"></i><b>4.7.1</b> Exercise 1. Indexing</a></li>
+<li class="chapter" data-level="4.7.2" data-path="lists.html"><a href="lists.html#exercise-2.-debugging"><i class="fa fa-check"></i><b>4.7.2</b> Exercise 2. Debugging</a></li>
+<li class="chapter" data-level="4.7.3" data-path="lists.html"><a href="lists.html#exercise-3.-mini-programs-1"><i class="fa fa-check"></i><b>4.7.3</b> Exercise 3. Mini programs</a></li>
+<li class="chapter" data-level="4.7.4" data-path="lists.html"><a href="lists.html#exercise-4.-shopping-list"><i class="fa fa-check"></i><b>4.7.4</b> Exercise 4. Shopping list</a></li>
+<li class="chapter" data-level="4.7.5" data-path="lists.html"><a href="lists.html#exercise-5.-dictionaries"><i class="fa fa-check"></i><b>4.7.5</b> Exercise 5. Dictionaries</a></li>
+<li class="chapter" data-level="4.7.6" data-path="lists.html"><a href="lists.html#exercise-6.-element-selection"><i class="fa fa-check"></i><b>4.7.6</b> Exercise 6. Element selection</a></li>
+<li class="chapter" data-level="4.7.7" data-path="lists.html"><a href="lists.html#exercise-7.-adjust-a-dictionary-data-set"><i class="fa fa-check"></i><b>4.7.7</b> Exercise 7. Adjust a dictionary data set</a></li>
+<li class="chapter" data-level="4.7.8" data-path="lists.html"><a href="lists.html#exercise-8.-a-dictionary-data-set"><i class="fa fa-check"></i><b>4.7.8</b> Exercise 8. A dictionary data set</a></li>
+<li class="chapter" data-level="4.7.9" data-path="lists.html"><a href="lists.html#exercise-9.-stroop-extension"><i class="fa fa-check"></i><b>4.7.9</b> Exercise 9. Stroop extension</a></li>
 </ul></li>
 <li class="chapter" data-level="4.8" data-path="lists.html"><a href="lists.html#think-further-2"><i class="fa fa-check"></i><b>4.8</b> Think further</a></li>
 </ul></li>
@@ -181,8 +192,8 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="5.4" data-path="loops.html"><a href="loops.html#control-flow"><i class="fa fa-check"></i><b>5.4</b> Control flow</a></li>
 <li class="chapter" data-level="5.5" data-path="loops.html"><a href="loops.html#common-errors-3"><i class="fa fa-check"></i><b>5.5</b> Common errors</a></li>
 <li class="chapter" data-level="5.6" data-path="loops.html"><a href="loops.html#exercises-4"><i class="fa fa-check"></i><b>5.6</b> Exercises</a><ul>
-<li class="chapter" data-level="5.6.1" data-path="loops.html"><a href="loops.html#exercise-1.-following-the-control-flow-1"><i class="fa fa-check"></i><b>5.6.1</b> Exercise 1. Following the control flow</a></li>
-<li class="chapter" data-level="5.6.2" data-path="loops.html"><a href="loops.html#exercise-2.-debugging"><i class="fa fa-check"></i><b>5.6.2</b> Exercise 2. Debugging</a></li>
+<li class="chapter" data-level="5.6.1" data-path="loops.html"><a href="loops.html#exercise-1.-following-the-control-flow"><i class="fa fa-check"></i><b>5.6.1</b> Exercise 1. Following the control flow</a></li>
+<li class="chapter" data-level="5.6.2" data-path="loops.html"><a href="loops.html#exercise-2.-debugging-1"><i class="fa fa-check"></i><b>5.6.2</b> Exercise 2. Debugging</a></li>
 <li class="chapter" data-level="5.6.3" data-path="loops.html"><a href="loops.html#exercise-3.-nested-loops"><i class="fa fa-check"></i><b>5.6.3</b> Exercise 3. Nested loops</a></li>
 <li class="chapter" data-level="5.6.4" data-path="loops.html"><a href="loops.html#exercise-4.-data-transformation-using-loops"><i class="fa fa-check"></i><b>5.6.4</b> Exercise 4. Data transformation using loops</a></li>
 <li class="chapter" data-level="5.6.5" data-path="loops.html"><a href="loops.html#exercise-5.-calculating-a-mean"><i class="fa fa-check"></i><b>5.6.5</b> Exercise 5. Calculating a mean</a></li>
@@ -199,7 +210,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="6.5" data-path="functions.html"><a href="functions.html#stroop-functions"><i class="fa fa-check"></i><b>6.5</b> Stroop functions</a></li>
 <li class="chapter" data-level="6.6" data-path="functions.html"><a href="functions.html#common-errors-4"><i class="fa fa-check"></i><b>6.6</b> Common errors</a></li>
 <li class="chapter" data-level="6.7" data-path="functions.html"><a href="functions.html#exercises-5"><i class="fa fa-check"></i><b>6.7</b> Exercises</a><ul>
-<li class="chapter" data-level="6.7.1" data-path="functions.html"><a href="functions.html#exercise-1.-following-the-control-flow-2"><i class="fa fa-check"></i><b>6.7.1</b> Exercise 1. Following the control flow</a></li>
+<li class="chapter" data-level="6.7.1" data-path="functions.html"><a href="functions.html#exercise-1.-following-the-control-flow-1"><i class="fa fa-check"></i><b>6.7.1</b> Exercise 1. Following the control flow</a></li>
 <li class="chapter" data-level="6.7.2" data-path="functions.html"><a href="functions.html#exercise-2.-an-imperfect-list-sorting-attempt"><i class="fa fa-check"></i><b>6.7.2</b> Exercise 2. An imperfect list sorting attempt</a></li>
 <li class="chapter" data-level="6.7.3" data-path="functions.html"><a href="functions.html#exercise-3.-an-erroneous-sorting-algorithm"><i class="fa fa-check"></i><b>6.7.3</b> Exercise 3. An erroneous sorting algorithm</a></li>
 <li class="chapter" data-level="6.7.4" data-path="functions.html"><a href="functions.html#exercise-4.-chunking"><i class="fa fa-check"></i><b>6.7.4</b> Exercise 4. Chunking</a></li>
@@ -247,7 +258,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="8.4.3" data-path="interaction.html"><a href="interaction.html#placing-text-and-pictures"><i class="fa fa-check"></i><b>8.4.3</b> Placing text and pictures</a></li>
 </ul></li>
 <li class="chapter" data-level="8.5" data-path="interaction.html"><a href="interaction.html#exercises-8"><i class="fa fa-check"></i><b>8.5</b> Exercises</a><ul>
-<li class="chapter" data-level="8.5.1" data-path="interaction.html"><a href="interaction.html#exercise-c.-transition-tables-1"><i class="fa fa-check"></i><b>8.5.1</b> Exercise C. Transition tables</a></li>
+<li class="chapter" data-level="8.5.1" data-path="interaction.html"><a href="interaction.html#exercise-c.-transition-tables"><i class="fa fa-check"></i><b>8.5.1</b> Exercise C. Transition tables</a></li>
 </ul></li>
 <li class="chapter" data-level="8.6" data-path="interaction.html"><a href="interaction.html#common-errors-5"><i class="fa fa-check"></i><b>8.6</b> Common errors</a></li>
 <li class="chapter" data-level="8.7" data-path="interaction.html"><a href="interaction.html#think-further-5"><i class="fa fa-check"></i><b>8.7</b> Think Further</a></li>
@@ -255,39 +266,50 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="9" data-path="solutions.html"><a href="solutions.html"><i class="fa fa-check"></i><b>9</b> Solutions</a><ul>
 <li class="chapter" data-level="9.1" data-path="solutions.html"><a href="solutions.html#chapter-1.-introduction"><i class="fa fa-check"></i><b>9.1</b> Chapter 1. Introduction</a></li>
 <li class="chapter" data-level="9.2" data-path="solutions.html"><a href="solutions.html#chapter-2.-variables-values-and-types"><i class="fa fa-check"></i><b>9.2</b> Chapter 2. Variables, values and types</a><ul>
-<li class="chapter" data-level="9.2.1" data-path="solutions.html"><a href="solutions.html#exercise-1.-string-concatenation-1"><i class="fa fa-check"></i><b>9.2.1</b> Exercise 1. String concatenation</a></li>
-<li class="chapter" data-level="9.2.2" data-path="solutions.html"><a href="solutions.html#exercise-2.-variable-names-1"><i class="fa fa-check"></i><b>9.2.2</b> Exercise 2. Variable names</a></li>
-<li class="chapter" data-level="9.2.3" data-path="solutions.html"><a href="solutions.html#exercise-3.-stroop-task-welcome-message-1"><i class="fa fa-check"></i><b>9.2.3</b> Exercise 3. Stroop task welcome message</a></li>
-<li class="chapter" data-level="9.2.4" data-path="solutions.html"><a href="solutions.html#exercise-4.-printing-1"><i class="fa fa-check"></i><b>9.2.4</b> Exercise 4. Printing</a></li>
-<li class="chapter" data-level="9.2.5" data-path="solutions.html"><a href="solutions.html#exercise-5.-using-python-as-calculator"><i class="fa fa-check"></i><b>9.2.5</b> Exercise 5. Using Python as calculator</a></li>
-<li class="chapter" data-level="9.2.6" data-path="solutions.html"><a href="solutions.html#exercise-6.-a-boolean-puzzle-1"><i class="fa fa-check"></i><b>9.2.6</b> Exercise 6. A Boolean puzzle</a></li>
+<li class="chapter" data-level="9.2.1" data-path="solutions.html"><a href="solutions.html#exercise-1.-operators-1"><i class="fa fa-check"></i><b>9.2.1</b> Exercise 1. Operators</a></li>
+<li class="chapter" data-level="9.2.2" data-path="solutions.html"><a href="solutions.html#exercise-2.-values-1"><i class="fa fa-check"></i><b>9.2.2</b> Exercise 2. Values</a></li>
+<li class="chapter" data-level="9.2.3" data-path="solutions.html"><a href="solutions.html#exercise-3.-mini-programs-2"><i class="fa fa-check"></i><b>9.2.3</b> Exercise 3. Mini programs</a></li>
+<li class="chapter" data-level="9.2.4" data-path="solutions.html"><a href="solutions.html#exercise-4.-debugging-1"><i class="fa fa-check"></i><b>9.2.4</b> Exercise 4. Debugging</a></li>
+<li class="chapter" data-level="9.2.5" data-path="solutions.html"><a href="solutions.html#exercise-5.-string-concatenation-1"><i class="fa fa-check"></i><b>9.2.5</b> Exercise 5. String concatenation</a></li>
+<li class="chapter" data-level="9.2.6" data-path="solutions.html"><a href="solutions.html#exercise-6.-variable-names-1"><i class="fa fa-check"></i><b>9.2.6</b> Exercise 6. Variable names</a></li>
+<li class="chapter" data-level="9.2.7" data-path="solutions.html"><a href="solutions.html#exercise-7.-stroop-task-welcome-message-1"><i class="fa fa-check"></i><b>9.2.7</b> Exercise 7. Stroop task welcome message</a></li>
+<li class="chapter" data-level="9.2.8" data-path="solutions.html"><a href="solutions.html#exercise-8.-printing-1"><i class="fa fa-check"></i><b>9.2.8</b> Exercise 8. Printing</a></li>
+<li class="chapter" data-level="9.2.9" data-path="solutions.html"><a href="solutions.html#exercise-9.-using-python-as-calculator"><i class="fa fa-check"></i><b>9.2.9</b> Exercise 9. Using Python as calculator</a></li>
+<li class="chapter" data-level="9.2.10" data-path="solutions.html"><a href="solutions.html#exercise-10.-a-boolean-puzzle-1"><i class="fa fa-check"></i><b>9.2.10</b> Exercise 10. A Boolean puzzle</a></li>
 </ul></li>
 <li class="chapter" data-level="9.3" data-path="solutions.html"><a href="solutions.html#chapter-3.-conditionals"><i class="fa fa-check"></i><b>9.3</b> Chapter 3. Conditionals</a><ul>
-<li class="chapter" data-level="9.3.1" data-path="solutions.html"><a href="solutions.html#exercise-1.-following-the-control-flow-3"><i class="fa fa-check"></i><b>9.3.1</b> Exercise 1. Following the control flow</a></li>
-<li class="chapter" data-level="9.3.2" data-path="solutions.html"><a href="solutions.html#exercise-2.-indentation-1"><i class="fa fa-check"></i><b>9.3.2</b> Exercise 2. Indentation</a></li>
-<li class="chapter" data-level="9.3.3" data-path="solutions.html"><a href="solutions.html#exercise-3.-pseudo-code-conditionals-1"><i class="fa fa-check"></i><b>9.3.3</b> Exercise 3. Pseudo code conditionals</a></li>
-<li class="chapter" data-level="9.3.4" data-path="solutions.html"><a href="solutions.html#exercise-4.-modify-stroop-task-1"><i class="fa fa-check"></i><b>9.3.4</b> Exercise 4. Modify Stroop Task</a></li>
-<li class="chapter" data-level="9.3.5" data-path="solutions.html"><a href="solutions.html#exercise-5.-simplify-nested-conditionals-1"><i class="fa fa-check"></i><b>9.3.5</b> Exercise 5. Simplify nested conditionals</a></li>
-<li class="chapter" data-level="9.3.6" data-path="solutions.html"><a href="solutions.html#exercise-6.-flow-chart-conditionals-1"><i class="fa fa-check"></i><b>9.3.6</b> Exercise 6. Flow chart conditionals</a></li>
+<li class="chapter" data-level="9.3.1" data-path="solutions.html"><a href="solutions.html#exercise-1.-boolean-logic-1"><i class="fa fa-check"></i><b>9.3.1</b> Exercise 1. Boolean logic</a></li>
+<li class="chapter" data-level="9.3.2" data-path="solutions.html"><a href="solutions.html#exercise-2.-state-charts-1"><i class="fa fa-check"></i><b>9.3.2</b> Exercise 2. State charts</a></li>
+<li class="chapter" data-level="9.3.3" data-path="solutions.html"><a href="solutions.html#exercise-3.-transition-tables-1"><i class="fa fa-check"></i><b>9.3.3</b> Exercise 3. Transition tables</a></li>
+<li class="chapter" data-level="9.3.4" data-path="solutions.html"><a href="solutions.html#exercise-4.-mini-programs-1"><i class="fa fa-check"></i><b>9.3.4</b> Exercise 4. Mini programs</a></li>
+<li class="chapter" data-level="9.3.5" data-path="solutions.html"><a href="solutions.html#exercise-5.-following-the-control-flow-1"><i class="fa fa-check"></i><b>9.3.5</b> Exercise 5. Following the control flow</a></li>
+<li class="chapter" data-level="9.3.6" data-path="solutions.html"><a href="solutions.html#exercise-6.-indentation-1"><i class="fa fa-check"></i><b>9.3.6</b> Exercise 6. Indentation</a></li>
+<li class="chapter" data-level="9.3.7" data-path="solutions.html"><a href="solutions.html#exercise-7.-pseudo-code-conditionals-1"><i class="fa fa-check"></i><b>9.3.7</b> Exercise 7. Pseudo code conditionals</a></li>
+<li class="chapter" data-level="9.3.8" data-path="solutions.html"><a href="solutions.html#exercise-8.-modify-stroop-task-1"><i class="fa fa-check"></i><b>9.3.8</b> Exercise 8. Modify Stroop Task</a></li>
+<li class="chapter" data-level="9.3.9" data-path="solutions.html"><a href="solutions.html#exercise-9.-simplify-nested-conditionals-1"><i class="fa fa-check"></i><b>9.3.9</b> Exercise 9. Simplify nested conditionals</a></li>
+<li class="chapter" data-level="9.3.10" data-path="solutions.html"><a href="solutions.html#exercise-10.-flow-chart-conditionals-1"><i class="fa fa-check"></i><b>9.3.10</b> Exercise 10. Flow chart conditionals</a></li>
 </ul></li>
 <li class="chapter" data-level="9.4" data-path="solutions.html"><a href="solutions.html#chapter-4.-lists"><i class="fa fa-check"></i><b>9.4</b> Chapter 4. Lists</a><ul>
-<li class="chapter" data-level="9.4.1" data-path="solutions.html"><a href="solutions.html#exercise-1.-shopping-list-1"><i class="fa fa-check"></i><b>9.4.1</b> Exercise 1. Shopping list</a></li>
-<li class="chapter" data-level="9.4.2" data-path="solutions.html"><a href="solutions.html#exercise-2.-dictionnaries-1"><i class="fa fa-check"></i><b>9.4.2</b> Exercise 2. Dictionnaries</a></li>
-<li class="chapter" data-level="9.4.3" data-path="solutions.html"><a href="solutions.html#exercise-3.-selecting-elements"><i class="fa fa-check"></i><b>9.4.3</b> Exercise 3. Selecting elements</a></li>
-<li class="chapter" data-level="9.4.4" data-path="solutions.html"><a href="solutions.html#exercise-4.-adjust-a-dictionnary-data-set-1"><i class="fa fa-check"></i><b>9.4.4</b> Exercise 4. Adjust a dictionnary data set</a></li>
-<li class="chapter" data-level="9.4.5" data-path="solutions.html"><a href="solutions.html#exercise-5.-a-dictionnary-data-set-1"><i class="fa fa-check"></i><b>9.4.5</b> Exercise 5. A dictionnary data set</a></li>
-<li class="chapter" data-level="9.4.6" data-path="solutions.html"><a href="solutions.html#exercise-6.-stroop-extension-1"><i class="fa fa-check"></i><b>9.4.6</b> Exercise 6. Stroop extension</a></li>
+<li class="chapter" data-level="9.4.1" data-path="solutions.html"><a href="solutions.html#exercise-1.-indexing-1"><i class="fa fa-check"></i><b>9.4.1</b> Exercise 1. Indexing</a></li>
+<li class="chapter" data-level="9.4.2" data-path="solutions.html"><a href="solutions.html#exercise-2.-debugging-2"><i class="fa fa-check"></i><b>9.4.2</b> Exercise 2. Debugging</a></li>
+<li class="chapter" data-level="9.4.3" data-path="solutions.html"><a href="solutions.html#exercise-3.-mini-programs-3"><i class="fa fa-check"></i><b>9.4.3</b> Exercise 3. Mini programs</a></li>
+<li class="chapter" data-level="9.4.4" data-path="solutions.html"><a href="solutions.html#exercise-1.-shopping-list"><i class="fa fa-check"></i><b>9.4.4</b> Exercise 1. Shopping list</a></li>
+<li class="chapter" data-level="9.4.5" data-path="solutions.html"><a href="solutions.html#exercise-2.-dictionnaries"><i class="fa fa-check"></i><b>9.4.5</b> Exercise 2. Dictionnaries</a></li>
+<li class="chapter" data-level="9.4.6" data-path="solutions.html"><a href="solutions.html#exercise-3.-selecting-elements"><i class="fa fa-check"></i><b>9.4.6</b> Exercise 3. Selecting elements</a></li>
+<li class="chapter" data-level="9.4.7" data-path="solutions.html"><a href="solutions.html#exercise-4.-adjust-a-dictionnary-data-set"><i class="fa fa-check"></i><b>9.4.7</b> Exercise 4. Adjust a dictionnary data set</a></li>
+<li class="chapter" data-level="9.4.8" data-path="solutions.html"><a href="solutions.html#exercise-5.-a-dictionnary-data-set"><i class="fa fa-check"></i><b>9.4.8</b> Exercise 5. A dictionnary data set</a></li>
+<li class="chapter" data-level="9.4.9" data-path="solutions.html"><a href="solutions.html#exercise-6.-stroop-extension"><i class="fa fa-check"></i><b>9.4.9</b> Exercise 6. Stroop extension</a></li>
 </ul></li>
 <li class="chapter" data-level="9.5" data-path="solutions.html"><a href="solutions.html#chapter-5.-loops"><i class="fa fa-check"></i><b>9.5</b> Chapter 5. Loops</a><ul>
-<li class="chapter" data-level="9.5.1" data-path="solutions.html"><a href="solutions.html#exercise-1.-following-the-control-flow-4"><i class="fa fa-check"></i><b>9.5.1</b> Exercise 1. Following the control flow</a></li>
-<li class="chapter" data-level="9.5.2" data-path="solutions.html"><a href="solutions.html#exercise-2.-debugging-1"><i class="fa fa-check"></i><b>9.5.2</b> Exercise 2. Debugging</a></li>
+<li class="chapter" data-level="9.5.1" data-path="solutions.html"><a href="solutions.html#exercise-1.-following-the-control-flow-2"><i class="fa fa-check"></i><b>9.5.1</b> Exercise 1. Following the control flow</a></li>
+<li class="chapter" data-level="9.5.2" data-path="solutions.html"><a href="solutions.html#exercise-2.-debugging-3"><i class="fa fa-check"></i><b>9.5.2</b> Exercise 2. Debugging</a></li>
 <li class="chapter" data-level="9.5.3" data-path="solutions.html"><a href="solutions.html#exercise-3.-nested-loops-1"><i class="fa fa-check"></i><b>9.5.3</b> Exercise 3. Nested loops</a></li>
 <li class="chapter" data-level="9.5.4" data-path="solutions.html"><a href="solutions.html#exercise-4.-data-transformation-using-loops-1"><i class="fa fa-check"></i><b>9.5.4</b> Exercise 4. Data transformation using loops</a></li>
 <li class="chapter" data-level="9.5.5" data-path="solutions.html"><a href="solutions.html#exercise-5.-calculating-a-mean-1"><i class="fa fa-check"></i><b>9.5.5</b> Exercise 5. Calculating a mean</a></li>
 <li class="chapter" data-level="9.5.6" data-path="solutions.html"><a href="solutions.html#exercise-6.-a-guessing-game-1"><i class="fa fa-check"></i><b>9.5.6</b> Exercise 6. A guessing game</a></li>
 </ul></li>
 <li class="chapter" data-level="9.6" data-path="solutions.html"><a href="solutions.html#chapter-6.-functions"><i class="fa fa-check"></i><b>9.6</b> Chapter 6. Functions</a><ul>
-<li class="chapter" data-level="9.6.1" data-path="solutions.html"><a href="solutions.html#exercise-1.-following-the-control-flow-5"><i class="fa fa-check"></i><b>9.6.1</b> Exercise 1. Following the control flow</a></li>
+<li class="chapter" data-level="9.6.1" data-path="solutions.html"><a href="solutions.html#exercise-1.-following-the-control-flow-3"><i class="fa fa-check"></i><b>9.6.1</b> Exercise 1. Following the control flow</a></li>
 <li class="chapter" data-level="9.6.2" data-path="solutions.html"><a href="solutions.html#exercise-2.-an-imperfect-list-sorting-attempt-1"><i class="fa fa-check"></i><b>9.6.2</b> Exercise 2. An imperfect list sorting attempt</a></li>
 <li class="chapter" data-level="9.6.3" data-path="solutions.html"><a href="solutions.html#exercise-3.-an-errorneous-sorting-algorithm"><i class="fa fa-check"></i><b>9.6.3</b> Exercise 3. An errorneous sorting algorithm</a></li>
 <li class="chapter" data-level="9.6.4" data-path="solutions.html"><a href="solutions.html#exercise-4."><i class="fa fa-check"></i><b>9.6.4</b> Exercise 4.</a></li>
@@ -296,8 +318,13 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="10" data-path="debugging-and-good-programming-practices.html"><a href="debugging-and-good-programming-practices.html"><i class="fa fa-check"></i><b>10</b> Debugging and good programming practices</a><ul>
-<li class="chapter" data-level="10.1" data-path="debugging-and-good-programming-practices.html"><a href="debugging-and-good-programming-practices.html#debugging-2"><i class="fa fa-check"></i><b>10.1</b> Debugging</a></li>
-<li class="chapter" data-level="10.2" data-path="debugging-and-good-programming-practices.html"><a href="debugging-and-good-programming-practices.html#how-to-develop-your-programming-skills-quickly"><i class="fa fa-check"></i><b>10.2</b> How to develop your programming skills quickly</a><ul>
+<li class="chapter" data-level="10.1" data-path="debugging-and-good-programming-practices.html"><a href="debugging-and-good-programming-practices.html#debugging-3"><i class="fa fa-check"></i><b>10.1</b> Debugging</a><ul>
+<li class="chapter" data-level="10.1.1" data-path="debugging-and-good-programming-practices.html"><a href="debugging-and-good-programming-practices.html#the-print-statement-is-an-aspiring-programmers-best-friend"><i class="fa fa-check"></i><b>10.1.1</b> The print statement is an aspiring programmer’s best friend</a></li>
+<li class="chapter" data-level="10.1.2" data-path="debugging-and-good-programming-practices.html"><a href="debugging-and-good-programming-practices.html#frequent-unit-testing"><i class="fa fa-check"></i><b>10.1.2</b> Frequent unit-testing</a></li>
+<li class="chapter" data-level="10.1.3" data-path="debugging-and-good-programming-practices.html"><a href="debugging-and-good-programming-practices.html#the-copy-paste-syndrome"><i class="fa fa-check"></i><b>10.1.3</b> The copy-paste syndrome</a></li>
+<li class="chapter" data-level="10.1.4" data-path="debugging-and-good-programming-practices.html"><a href="debugging-and-good-programming-practices.html#standing-on-the-shoulders-of-giants"><i class="fa fa-check"></i><b>10.1.4</b> Standing on the shoulders of giants</a></li>
+</ul></li>
+<li class="chapter" data-level="10.2" data-path="debugging-and-good-programming-practices.html"><a href="debugging-and-good-programming-practices.html#boosting-your-programming-learning-curve"><i class="fa fa-check"></i><b>10.2</b> Boosting your programming learning curve</a><ul>
 <li class="chapter" data-level="10.2.1" data-path="debugging-and-good-programming-practices.html"><a href="debugging-and-good-programming-practices.html#going-with-the-flow"><i class="fa fa-check"></i><b>10.2.1</b> Going with the flow</a></li>
 <li class="chapter" data-level="10.2.2" data-path="debugging-and-good-programming-practices.html"><a href="debugging-and-good-programming-practices.html#just-do-it"><i class="fa fa-check"></i><b>10.2.2</b> Just do it!</a></li>
 </ul></li>
@@ -337,8 +364,9 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </ol>
 <p>For testing your Anaconda environment, follow these steps:</p>
 <ol style="list-style-type: decimal">
-<li>From the Start menu in folder start Spyder (this is the programming environment that was installed alongside with Anaconda)</li>
-<li>Download the Python file Stroop_interaction.py from the folder Week 1 on Google Drive <a href="https://goo.gl/UmBsil" class="uri">https://goo.gl/UmBsil</a></li>
+<li>From the Start menu start Anaconda Navigator</li>
+<li>From the Home screen launch Spyder</li>
+<li>Download the Python file PIP_Stroop_interaction.py from the folder Week 1 on Google Drive <a href="https://goo.gl/UmBsil" class="uri">https://goo.gl/UmBsil</a></li>
 <li>Open this file in Spyder (File –&gt; Open).</li>
 <li>Run the program by clicking the green play button. You should see a window popping up, which greets you to the Stroop experiment.</li>
 </ol>
@@ -419,8 +447,8 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <span class="im">import</span> random
 <span class="im">from</span> pygame.<span class="bu">locals</span> <span class="im">import</span> <span class="op">*</span>
 <span class="im">from</span> pygame.compat <span class="im">import</span> unichr_, unicode_
-<span class="co">##### VARIABLES #####</span>
-<span class="co"># Colors</span>
+<span class="co">##### CONFIG #####</span>
+<span class="co"># Colors abd screen</span>
 col_white <span class="op">=</span> (<span class="dv">250</span>, <span class="dv">250</span>, <span class="dv">250</span>)
 col_black <span class="op">=</span> (<span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>)
 col_gray <span class="op">=</span> (<span class="dv">220</span>, <span class="dv">220</span>, <span class="dv">220</span>)
@@ -428,76 +456,89 @@ col_red <span class="op">=</span> (<span class="dv">250</span>, <span class="dv"
 col_green <span class="op">=</span> (<span class="dv">0</span>, <span class="dv">200</span>, <span class="dv">0</span>)
 col_blue <span class="op">=</span> (<span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">250</span>)
 col_yellow <span class="op">=</span> (<span class="dv">250</span>,<span class="dv">250</span>,<span class="dv">0</span>)
+BACKGR_COL <span class="op">=</span> col_gray
+SCREEN_SIZE <span class="op">=</span> (<span class="dv">700</span>, <span class="dv">500</span>)
+<span class="co"># Experiment</span>
+n_trials <span class="op">=</span> <span class="dv">5</span>
+WORDS    <span class="op">=</span> (<span class="st">&quot;red&quot;</span>, <span class="st">&quot;green&quot;</span>, <span class="st">&quot;blue&quot;</span>)
 COLORS   <span class="op">=</span> {<span class="st">&quot;red&quot;</span>: col_red,
             <span class="st">&quot;green&quot;</span>: col_green,
             <span class="st">&quot;blue&quot;</span>: col_blue}
 KEYS     <span class="op">=</span> {<span class="st">&quot;red&quot;</span>: K_b,
             <span class="st">&quot;green&quot;</span>: K_n,
             <span class="st">&quot;blue&quot;</span>: K_m}
-WORDS    <span class="op">=</span> (<span class="st">&quot;red&quot;</span>, <span class="st">&quot;green&quot;</span>, <span class="st">&quot;blue&quot;</span>)
-BACKGR_COL <span class="op">=</span> col_gray
-SCREEN_SIZE <span class="op">=</span> (<span class="dv">700</span>, <span class="dv">500</span>)
+<span class="co">### PYGAME STARTUP </span><span class="al">###</span>
 pygame.init()
 pygame.display.set_mode(SCREEN_SIZE) 
 pygame.display.set_caption(<span class="st">&quot;Stroop Test&quot;</span>)
 screen <span class="op">=</span> pygame.display.get_surface()
-screen.fill(BACKGR_COL)
+<span class="co"># screen.fill(BACKGR_COL)</span>
 font <span class="op">=</span> pygame.font.Font(<span class="va">None</span>, <span class="dv">80</span>)
 font_small <span class="op">=</span> pygame.font.Font(<span class="va">None</span>, <span class="dv">40</span>) 
+<span class="co">### MAIN PROGRAM </span><span class="al">###</span>
 <span class="kw">def</span> main():
-    <span class="co">&quot;&quot;&quot; Start the Stroop task.</span>
-<span class="co">    &quot;&quot;&quot;</span>
+    
     STATE <span class="op">=</span> <span class="st">&quot;welcome&quot;</span>    
-    
-    <span class="co">#size = font.size(text)</span>
-    
     trial_number <span class="op">=</span> <span class="dv">0</span>    
     
     <span class="cf">while</span> <span class="va">True</span>:
-        pygame.display.get_surface().fill(BACKGR_COL)        
-        <span class="co"># Changing states</span>
-        <span class="cf">for</span> event <span class="kw">in</span> pygame.event.get():                        
+        
+        <span class="co"># refreshing the surface</span>
+        screen.fill(BACKGR_COL)
+        <span class="co"># Event loop</span>
+        <span class="cf">for</span> event <span class="kw">in</span> pygame.event.get():
+            
+            <span class="co"># interactive transitionals                     </span>
             <span class="cf">if</span> STATE <span class="op">==</span> <span class="st">&quot;welcome&quot;</span>:
                 <span class="cf">if</span> event.<span class="bu">type</span> <span class="op">==</span> KEYDOWN <span class="kw">and</span> event.key <span class="op">==</span> K_SPACE:
-                    STATE <span class="op">=</span> <span class="st">&quot;present_trial&quot;</span>
+                    STATE <span class="op">=</span> <span class="st">&quot;prepare_trial&quot;</span>
                     <span class="bu">print</span>(STATE)
+                    <span class="cf">continue</span>
                     
-            <span class="cf">if</span> STATE <span class="op">==</span> <span class="st">&quot;present_trial&quot;</span>:
-                trial_number <span class="op">=</span> trial_number <span class="op">+</span> <span class="dv">1</span>
-                this_word  <span class="op">=</span> pick_color()
-                this_color <span class="op">=</span> pick_color()
-                time_when_presented <span class="op">=</span> time()
-                STATE <span class="op">=</span> <span class="st">&quot;wait_for_response&quot;</span>
-                <span class="bu">print</span>(STATE)
-                    
-            <span class="cf">if</span> STATE <span class="op">==</span> <span class="st">&quot;wait_for_response&quot;</span>:
+            <span class="cf">if</span> STATE <span class="op">==</span> <span class="st">&quot;trial&quot;</span>:
                 <span class="cf">if</span> event.<span class="bu">type</span> <span class="op">==</span> KEYDOWN <span class="kw">and</span> event.key <span class="kw">in</span> KEYS.values():
                     time_when_reacted <span class="op">=</span> time()
                     this_reaction_time <span class="op">=</span> time_when_reacted <span class="op">-</span> time_when_presented
                     this_correctness <span class="op">=</span> (event.key <span class="op">==</span> KEYS[this_color])
                     STATE <span class="op">=</span> <span class="st">&quot;feedback&quot;</span>
                     <span class="bu">print</span>(STATE)
-                
+                    <span class="cf">continue</span>
+    
             <span class="cf">if</span> STATE <span class="op">==</span> <span class="st">&quot;feedback&quot;</span>:
                 <span class="cf">if</span> event.<span class="bu">type</span> <span class="op">==</span> KEYDOWN <span class="kw">and</span> event.key <span class="op">==</span> K_SPACE:
-                    <span class="cf">if</span> trial_number <span class="op">&lt;</span> <span class="dv">20</span>:
-                        STATE <span class="op">=</span> <span class="st">&quot;present_trial&quot;</span>
+                    <span class="cf">if</span> trial_number <span class="op">&lt;</span> n_trials:
+                        STATE <span class="op">=</span> <span class="st">&quot;prepare_trial&quot;</span>
                     <span class="cf">else</span>:
                         STATE <span class="op">=</span> <span class="st">&quot;goodbye&quot;</span>
                     <span class="bu">print</span>(STATE)
+                    <span class="cf">continue</span>
+                    
             
             <span class="cf">if</span> event.<span class="bu">type</span> <span class="op">==</span> QUIT:
                 STATE <span class="op">=</span> <span class="st">&quot;quit&quot;</span>
-        <span class="co"># Drawing to the screen</span>
+                <span class="bu">print</span>(STATE)
+                <span class="cf">break</span>
+        
+        <span class="co"># automatic transitionals</span>
+        <span class="cf">if</span> STATE <span class="op">==</span> <span class="st">&quot;prepare_trial&quot;</span>:
+                trial_number <span class="op">=</span> trial_number <span class="op">+</span> <span class="dv">1</span>
+                this_word  <span class="op">=</span> pick_color()
+                this_color <span class="op">=</span> pick_color()
+                time_when_presented <span class="op">=</span> time()
+                STATE <span class="op">=</span> <span class="st">&quot;show_trial&quot;</span>
+                <span class="bu">print</span>(STATE)    
+        
+        
+        <span class="co"># Presentitionals</span>
         <span class="cf">if</span> STATE <span class="op">==</span> <span class="st">&quot;welcome&quot;</span>:
             draw_welcome()
-            draw_button(SCREEN_SIZE[<span class="dv">0</span>]<span class="op">*</span><span class="dv">1</span><span class="op">/</span><span class="dv">5</span>, <span class="dv">450</span>, <span class="st">&quot;Red: X&quot;</span>, col_red)
+            draw_button(SCREEN_SIZE[<span class="dv">0</span>]<span class="op">*</span><span class="dv">1</span><span class="op">/</span><span class="dv">5</span>, <span class="dv">450</span>, <span class="st">&quot;Red: B&quot;</span>, col_red)
             draw_button(SCREEN_SIZE[<span class="dv">0</span>]<span class="op">*</span><span class="dv">3</span><span class="op">/</span><span class="dv">5</span>, <span class="dv">450</span>, <span class="st">&quot;Green: N&quot;</span>, col_green)
             draw_button(SCREEN_SIZE[<span class="dv">0</span>]<span class="op">*</span><span class="dv">4</span><span class="op">/</span><span class="dv">5</span>, <span class="dv">450</span>, <span class="st">&quot;Blue: M&quot;</span>, col_blue)
         
-        <span class="cf">if</span> STATE <span class="op">==</span> <span class="st">&quot;present_trial&quot;</span>:
+        <span class="cf">if</span> STATE <span class="op">==</span> <span class="st">&quot;trial&quot;</span>:
             draw_stimulus(this_color, this_word)
-            draw_button(SCREEN_SIZE[<span class="dv">0</span>]<span class="op">*</span><span class="dv">1</span><span class="op">/</span><span class="dv">5</span>, <span class="dv">450</span>, <span class="st">&quot;Red: X&quot;</span>, col_red)
+            draw_button(SCREEN_SIZE[<span class="dv">0</span>]<span class="op">*</span><span class="dv">1</span><span class="op">/</span><span class="dv">5</span>, <span class="dv">450</span>, <span class="st">&quot;Red: B&quot;</span>, col_red)
             draw_button(SCREEN_SIZE[<span class="dv">0</span>]<span class="op">*</span><span class="dv">3</span><span class="op">/</span><span class="dv">5</span>, <span class="dv">450</span>, <span class="st">&quot;Green: N&quot;</span>, col_green)
             draw_button(SCREEN_SIZE[<span class="dv">0</span>]<span class="op">*</span><span class="dv">4</span><span class="op">/</span><span class="dv">5</span>, <span class="dv">450</span>, <span class="st">&quot;Blue: M&quot;</span>, col_blue)
         
@@ -510,7 +551,11 @@ font_small <span class="op">=</span> pygame.font.Font(<span class="va">None</spa
         <span class="cf">if</span> STATE <span class="op">==</span> <span class="st">&quot;quit&quot;</span>:
             pygame.quit()
             sys.exit()
+        
+        <span class="co"># Updating the display</span>
         pygame.display.update()
+        
+<span class="co"># Function definitions</span>
         
 <span class="kw">def</span> pick_color():
     <span class="co">&quot;&quot;&quot; Return a random word.</span>
@@ -629,7 +674,7 @@ WORDS    <span class="op">=</span> (<span class="st">&quot;red&quot;</span>, <sp
 <li>Load the Stroop program into your Python editor and run it yourself.</li>
 <li>Find further function definitions that resemble one of the actors in the play</li>
 <li>If you have struggled with recording the response time in a compliant way, how would you do it, now that you have seen how the code works? How many actors are needed, and what precisely can they do?</li>
-<li>Change the program such that it only does 8 trials</li>
+<li>Change the program such that it does 8 trials</li>
 <li>Change the progran such that it uses orange instead of red (words and colors)</li>
 <li>Change the program such that it uses Q, W, E as response keys</li>
 <li>Change the program such that it performs the Stroop task with four words and colors</li>
@@ -676,7 +721,7 @@ gitbook.start({
 "link": null,
 "text": null
 },
-"download": ["PfP_Book.pdf"],
+"download": ["PfP_Book.pdf", "PfP_Book.epub"],
 "toc": {
 "collapse": "subsection"
 }

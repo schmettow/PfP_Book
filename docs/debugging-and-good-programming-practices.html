@@ -25,7 +25,7 @@
 <meta name="author" content="Martin Schmettow and Lena Brandl">
 
 
-<meta name="date" content="2018-11-01">
+<meta name="date" content="2018-11-13">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -47,6 +47,14 @@
 
 
 
+<script src="libs/htmlwidgets-1.3/htmlwidgets.js"></script>
+<script src="libs/d3-3.3.8/d3.min.js"></script>
+<script src="libs/dagre-0.4.0/dagre-d3.min.js"></script>
+<link href="libs/mermaid-0.3.0/dist/mermaid.css" rel="stylesheet" />
+<script src="libs/mermaid-0.3.0/dist/mermaid.slim.min.js"></script>
+<link href="libs/DiagrammeR-styles-0.2/styles.css" rel="stylesheet" />
+<script src="libs/chromatography-0.1/chromatography.js"></script>
+<script src="libs/DiagrammeR-binding-1.0.0/DiagrammeR.js"></script>
 
 
 <style type="text/css">
@@ -108,7 +116,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </ul></li>
 <li class="chapter" data-level="2" data-path="variables.html"><a href="variables.html"><i class="fa fa-check"></i><b>2</b> Variables, values and types</a><ul>
 <li class="chapter" data-level="2.1" data-path="variables.html"><a href="variables.html#variables"><i class="fa fa-check"></i><b>2.1</b> Variables</a></li>
-<li class="chapter" data-level="2.2" data-path="variables.html"><a href="variables.html#stroop-task-variables"><i class="fa fa-check"></i><b>2.2</b> Stroop task variables</a></li>
+<li class="chapter" data-level="2.2" data-path="variables.html"><a href="variables.html#stroop-task-variables"><i class="fa fa-check"></i><b>2.2</b> Stroop Task variables</a></li>
 <li class="chapter" data-level="2.3" data-path="variables.html"><a href="variables.html#how-variables-are-used"><i class="fa fa-check"></i><b>2.3</b> How Variables Are Used</a></li>
 <li class="chapter" data-level="2.4" data-path="variables.html"><a href="variables.html#data-types"><i class="fa fa-check"></i><b>2.4</b> Data types</a><ul>
 <li class="chapter" data-level="2.4.1" data-path="variables.html"><a href="variables.html#numbers"><i class="fa fa-check"></i><b>2.4.1</b> Numbers</a></li>
@@ -118,16 +126,16 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="2.5" data-path="variables.html"><a href="variables.html#common-errors"><i class="fa fa-check"></i><b>2.5</b> Common errors</a></li>
 <li class="chapter" data-level="2.6" data-path="variables.html"><a href="variables.html#debugging"><i class="fa fa-check"></i><b>2.6</b> Debugging</a></li>
 <li class="chapter" data-level="2.7" data-path="variables.html"><a href="variables.html#exercises-1"><i class="fa fa-check"></i><b>2.7</b> Exercises</a><ul>
-<li class="chapter" data-level="2.7.1" data-path="variables.html"><a href="variables.html#exercise-a.-operators"><i class="fa fa-check"></i><b>2.7.1</b> Exercise A. Operators</a></li>
-<li class="chapter" data-level="2.7.2" data-path="variables.html"><a href="variables.html#exercise-b.-values"><i class="fa fa-check"></i><b>2.7.2</b> Exercise B. Values</a></li>
-<li class="chapter" data-level="2.7.3" data-path="variables.html"><a href="variables.html#exercise-c.-mini-programs"><i class="fa fa-check"></i><b>2.7.3</b> Exercise C. Mini programs</a></li>
-<li class="chapter" data-level="2.7.4" data-path="variables.html"><a href="variables.html#exercise-d.-debugging"><i class="fa fa-check"></i><b>2.7.4</b> Exercise D. Debugging</a></li>
-<li class="chapter" data-level="2.7.5" data-path="variables.html"><a href="variables.html#exercise-1.-string-concatenation"><i class="fa fa-check"></i><b>2.7.5</b> Exercise 1. String concatenation</a></li>
-<li class="chapter" data-level="2.7.6" data-path="variables.html"><a href="variables.html#exercise-2.-variable-names"><i class="fa fa-check"></i><b>2.7.6</b> Exercise 2. Variable names</a></li>
-<li class="chapter" data-level="2.7.7" data-path="variables.html"><a href="variables.html#exercise-3.-stroop-task-welcome-message"><i class="fa fa-check"></i><b>2.7.7</b> Exercise 3. Stroop task welcome message</a></li>
-<li class="chapter" data-level="2.7.8" data-path="variables.html"><a href="variables.html#exercise-4.-printing"><i class="fa fa-check"></i><b>2.7.8</b> Exercise 4. Printing</a></li>
-<li class="chapter" data-level="2.7.9" data-path="variables.html"><a href="variables.html#exercise-5.-using-python-as-a-calculator"><i class="fa fa-check"></i><b>2.7.9</b> Exercise 5. Using Python as a calculator</a></li>
-<li class="chapter" data-level="2.7.10" data-path="variables.html"><a href="variables.html#exercise-6.-a-boolean-puzzle"><i class="fa fa-check"></i><b>2.7.10</b> Exercise 6. A Boolean puzzle</a></li>
+<li class="chapter" data-level="2.7.1" data-path="variables.html"><a href="variables.html#exercise-1.-operators"><i class="fa fa-check"></i><b>2.7.1</b> Exercise 1. Operators</a></li>
+<li class="chapter" data-level="2.7.2" data-path="variables.html"><a href="variables.html#exercise-2.-values"><i class="fa fa-check"></i><b>2.7.2</b> Exercise 2. Values</a></li>
+<li class="chapter" data-level="2.7.3" data-path="variables.html"><a href="variables.html#exercise-3.-mini-programs"><i class="fa fa-check"></i><b>2.7.3</b> Exercise 3. Mini programs</a></li>
+<li class="chapter" data-level="2.7.4" data-path="variables.html"><a href="variables.html#exercise-4.-debugging"><i class="fa fa-check"></i><b>2.7.4</b> Exercise 4. Debugging</a></li>
+<li class="chapter" data-level="2.7.5" data-path="variables.html"><a href="variables.html#exercise-5.-string-concatenation"><i class="fa fa-check"></i><b>2.7.5</b> Exercise 5. String concatenation</a></li>
+<li class="chapter" data-level="2.7.6" data-path="variables.html"><a href="variables.html#exercise-6.-variable-names"><i class="fa fa-check"></i><b>2.7.6</b> Exercise 6. Variable names</a></li>
+<li class="chapter" data-level="2.7.7" data-path="variables.html"><a href="variables.html#exercise-7.-stroop-task-welcome-message"><i class="fa fa-check"></i><b>2.7.7</b> Exercise 7. Stroop task welcome message</a></li>
+<li class="chapter" data-level="2.7.8" data-path="variables.html"><a href="variables.html#exercise-8.-printing"><i class="fa fa-check"></i><b>2.7.8</b> Exercise 8. Printing</a></li>
+<li class="chapter" data-level="2.7.9" data-path="variables.html"><a href="variables.html#exercise-9.-using-python-as-a-calculator"><i class="fa fa-check"></i><b>2.7.9</b> Exercise 9. Using Python as a calculator</a></li>
+<li class="chapter" data-level="2.7.10" data-path="variables.html"><a href="variables.html#exercise-10.-a-boolean-puzzle"><i class="fa fa-check"></i><b>2.7.10</b> Exercise 10. A Boolean puzzle</a></li>
 </ul></li>
 <li class="chapter" data-level="2.8" data-path="variables.html"><a href="variables.html#think-further"><i class="fa fa-check"></i><b>2.8</b> Think Further</a></li>
 </ul></li>
@@ -139,18 +147,18 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="3.3.2" data-path="conditionals.html"><a href="conditionals.html#state-charts"><i class="fa fa-check"></i><b>3.3.2</b> State charts</a></li>
 </ul></li>
 <li class="chapter" data-level="3.4" data-path="conditionals.html"><a href="conditionals.html#common-errors-1"><i class="fa fa-check"></i><b>3.4</b> Common errors</a></li>
-<li class="chapter" data-level="3.5" data-path="conditionals.html"><a href="conditionals.html#debugging-conditionals"><i class="fa fa-check"></i><b>3.5</b> Debugging conditionals</a></li>
+<li class="chapter" data-level="3.5" data-path="conditionals.html"><a href="conditionals.html#debugging-1"><i class="fa fa-check"></i><b>3.5</b> Debugging</a></li>
 <li class="chapter" data-level="3.6" data-path="conditionals.html"><a href="conditionals.html#exercises-2"><i class="fa fa-check"></i><b>3.6</b> Exercises</a><ul>
-<li class="chapter" data-level="3.6.1" data-path="conditionals.html"><a href="conditionals.html#exercise-a.-boolean-logic"><i class="fa fa-check"></i><b>3.6.1</b> Exercise A. Boolean logic</a></li>
-<li class="chapter" data-level="3.6.2" data-path="conditionals.html"><a href="conditionals.html#exercise-b.-state-chart"><i class="fa fa-check"></i><b>3.6.2</b> Exercise B. State chart</a></li>
-<li class="chapter" data-level="3.6.3" data-path="conditionals.html"><a href="conditionals.html#exercise-c.-transition-tables"><i class="fa fa-check"></i><b>3.6.3</b> Exercise C. Transition tables</a></li>
-<li class="chapter" data-level="3.6.4" data-path="conditionals.html"><a href="conditionals.html#exercise-d.-mini-programs"><i class="fa fa-check"></i><b>3.6.4</b> Exercise D. Mini programs</a></li>
-<li class="chapter" data-level="3.6.5" data-path="conditionals.html"><a href="conditionals.html#exercise-1.-following-the-control-flow"><i class="fa fa-check"></i><b>3.6.5</b> Exercise 1. Following the control flow</a></li>
-<li class="chapter" data-level="3.6.6" data-path="conditionals.html"><a href="conditionals.html#exercise-2.-indentation"><i class="fa fa-check"></i><b>3.6.6</b> Exercise 2. Indentation</a></li>
-<li class="chapter" data-level="3.6.7" data-path="conditionals.html"><a href="conditionals.html#exercise-3.-pseudo-code-conditionals"><i class="fa fa-check"></i><b>3.6.7</b> Exercise 3. Pseudo code conditionals</a></li>
-<li class="chapter" data-level="3.6.8" data-path="conditionals.html"><a href="conditionals.html#exercise-4.-modify-stroop-task"><i class="fa fa-check"></i><b>3.6.8</b> Exercise 4. Modify Stroop Task</a></li>
-<li class="chapter" data-level="3.6.9" data-path="conditionals.html"><a href="conditionals.html#exercise-5.-simplify-nested-conditionals"><i class="fa fa-check"></i><b>3.6.9</b> Exercise 5. Simplify nested conditionals</a></li>
-<li class="chapter" data-level="3.6.10" data-path="conditionals.html"><a href="conditionals.html#exercise-6.-flow-chart-conditionals"><i class="fa fa-check"></i><b>3.6.10</b> Exercise 6. Flow chart conditionals</a></li>
+<li class="chapter" data-level="3.6.1" data-path="conditionals.html"><a href="conditionals.html#exercise-1.-boolean-logic"><i class="fa fa-check"></i><b>3.6.1</b> Exercise 1. Boolean logic</a></li>
+<li class="chapter" data-level="3.6.2" data-path="conditionals.html"><a href="conditionals.html#exercise-2.-state-charts"><i class="fa fa-check"></i><b>3.6.2</b> Exercise 2. State charts</a></li>
+<li class="chapter" data-level="3.6.3" data-path="conditionals.html"><a href="conditionals.html#exercise-3.-transition-tables"><i class="fa fa-check"></i><b>3.6.3</b> Exercise 3. Transition tables</a></li>
+<li class="chapter" data-level="3.6.4" data-path="conditionals.html"><a href="conditionals.html#exercise-4.-mini-programs"><i class="fa fa-check"></i><b>3.6.4</b> Exercise 4. Mini programs</a></li>
+<li class="chapter" data-level="3.6.5" data-path="conditionals.html"><a href="conditionals.html#exercise-5.-following-the-control-flow"><i class="fa fa-check"></i><b>3.6.5</b> Exercise 5. Following the control flow</a></li>
+<li class="chapter" data-level="3.6.6" data-path="conditionals.html"><a href="conditionals.html#exercise-6.-indentation"><i class="fa fa-check"></i><b>3.6.6</b> Exercise 6. Indentation</a></li>
+<li class="chapter" data-level="3.6.7" data-path="conditionals.html"><a href="conditionals.html#exercise-7.-pseudo-code-conditionals"><i class="fa fa-check"></i><b>3.6.7</b> Exercise 7. Pseudo code conditionals</a></li>
+<li class="chapter" data-level="3.6.8" data-path="conditionals.html"><a href="conditionals.html#exercise-8.-modify-stroop-task"><i class="fa fa-check"></i><b>3.6.8</b> Exercise 8. Modify Stroop Task</a></li>
+<li class="chapter" data-level="3.6.9" data-path="conditionals.html"><a href="conditionals.html#exercise-9.-simplify-nested-conditionals"><i class="fa fa-check"></i><b>3.6.9</b> Exercise 9. Simplify nested conditionals</a></li>
+<li class="chapter" data-level="3.6.10" data-path="conditionals.html"><a href="conditionals.html#exercise-10.-flow-chart-conditionals"><i class="fa fa-check"></i><b>3.6.10</b> Exercise 10. Flow chart conditionals</a></li>
 </ul></li>
 <li class="chapter" data-level="3.7" data-path="conditionals.html"><a href="conditionals.html#think-further-1"><i class="fa fa-check"></i><b>3.7</b> Think Further</a></li>
 </ul></li>
@@ -160,17 +168,20 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="4.1.2" data-path="lists.html"><a href="lists.html#a-word-about-class-specific-functions"><i class="fa fa-check"></i><b>4.1.2</b> A word about class specific functions</a></li>
 </ul></li>
 <li class="chapter" data-level="4.2" data-path="lists.html"><a href="lists.html#tuples"><i class="fa fa-check"></i><b>4.2</b> Tuples</a></li>
-<li class="chapter" data-level="4.3" data-path="lists.html"><a href="lists.html#dictionnaries"><i class="fa fa-check"></i><b>4.3</b> Dictionnaries</a></li>
-<li class="chapter" data-level="4.4" data-path="lists.html"><a href="lists.html#putting-data-structures-to-use"><i class="fa fa-check"></i><b>4.4</b> Putting data structures to use</a></li>
+<li class="chapter" data-level="4.3" data-path="lists.html"><a href="lists.html#dictionaries"><i class="fa fa-check"></i><b>4.3</b> Dictionaries</a></li>
+<li class="chapter" data-level="4.4" data-path="lists.html"><a href="lists.html#putting-collections-to-use"><i class="fa fa-check"></i><b>4.4</b> Putting collections to use</a></li>
 <li class="chapter" data-level="4.5" data-path="lists.html"><a href="lists.html#common-errors-2"><i class="fa fa-check"></i><b>4.5</b> Common errors</a></li>
-<li class="chapter" data-level="4.6" data-path="lists.html"><a href="lists.html#debugging-1"><i class="fa fa-check"></i><b>4.6</b> Debugging</a></li>
+<li class="chapter" data-level="4.6" data-path="lists.html"><a href="lists.html#debugging-2"><i class="fa fa-check"></i><b>4.6</b> Debugging</a></li>
 <li class="chapter" data-level="4.7" data-path="lists.html"><a href="lists.html#exercises-3"><i class="fa fa-check"></i><b>4.7</b> Exercises</a><ul>
-<li class="chapter" data-level="4.7.1" data-path="lists.html"><a href="lists.html#exercise-1.-shopping-list"><i class="fa fa-check"></i><b>4.7.1</b> Exercise 1. Shopping list</a></li>
-<li class="chapter" data-level="4.7.2" data-path="lists.html"><a href="lists.html#exercise-2.-dictionnaries"><i class="fa fa-check"></i><b>4.7.2</b> Exercise 2. Dictionnaries</a></li>
-<li class="chapter" data-level="4.7.3" data-path="lists.html"><a href="lists.html#exercise-3.-element-selection"><i class="fa fa-check"></i><b>4.7.3</b> Exercise 3. Element selection</a></li>
-<li class="chapter" data-level="4.7.4" data-path="lists.html"><a href="lists.html#exercise-4.-adjust-a-dictionnary-data-set"><i class="fa fa-check"></i><b>4.7.4</b> Exercise 4. Adjust a dictionnary data set</a></li>
-<li class="chapter" data-level="4.7.5" data-path="lists.html"><a href="lists.html#exercise-5.-a-dictionnary-data-set"><i class="fa fa-check"></i><b>4.7.5</b> Exercise 5. A dictionnary data set</a></li>
-<li class="chapter" data-level="4.7.6" data-path="lists.html"><a href="lists.html#exercise-6.-stroop-extension"><i class="fa fa-check"></i><b>4.7.6</b> Exercise 6. Stroop extension</a></li>
+<li class="chapter" data-level="4.7.1" data-path="lists.html"><a href="lists.html#exercise-1.-indexing"><i class="fa fa-check"></i><b>4.7.1</b> Exercise 1. Indexing</a></li>
+<li class="chapter" data-level="4.7.2" data-path="lists.html"><a href="lists.html#exercise-2.-debugging"><i class="fa fa-check"></i><b>4.7.2</b> Exercise 2. Debugging</a></li>
+<li class="chapter" data-level="4.7.3" data-path="lists.html"><a href="lists.html#exercise-3.-mini-programs-1"><i class="fa fa-check"></i><b>4.7.3</b> Exercise 3. Mini programs</a></li>
+<li class="chapter" data-level="4.7.4" data-path="lists.html"><a href="lists.html#exercise-4.-shopping-list"><i class="fa fa-check"></i><b>4.7.4</b> Exercise 4. Shopping list</a></li>
+<li class="chapter" data-level="4.7.5" data-path="lists.html"><a href="lists.html#exercise-5.-dictionaries"><i class="fa fa-check"></i><b>4.7.5</b> Exercise 5. Dictionaries</a></li>
+<li class="chapter" data-level="4.7.6" data-path="lists.html"><a href="lists.html#exercise-6.-element-selection"><i class="fa fa-check"></i><b>4.7.6</b> Exercise 6. Element selection</a></li>
+<li class="chapter" data-level="4.7.7" data-path="lists.html"><a href="lists.html#exercise-7.-adjust-a-dictionary-data-set"><i class="fa fa-check"></i><b>4.7.7</b> Exercise 7. Adjust a dictionary data set</a></li>
+<li class="chapter" data-level="4.7.8" data-path="lists.html"><a href="lists.html#exercise-8.-a-dictionary-data-set"><i class="fa fa-check"></i><b>4.7.8</b> Exercise 8. A dictionary data set</a></li>
+<li class="chapter" data-level="4.7.9" data-path="lists.html"><a href="lists.html#exercise-9.-stroop-extension"><i class="fa fa-check"></i><b>4.7.9</b> Exercise 9. Stroop extension</a></li>
 </ul></li>
 <li class="chapter" data-level="4.8" data-path="lists.html"><a href="lists.html#think-further-2"><i class="fa fa-check"></i><b>4.8</b> Think further</a></li>
 </ul></li>
@@ -181,8 +192,8 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="5.4" data-path="loops.html"><a href="loops.html#control-flow"><i class="fa fa-check"></i><b>5.4</b> Control flow</a></li>
 <li class="chapter" data-level="5.5" data-path="loops.html"><a href="loops.html#common-errors-3"><i class="fa fa-check"></i><b>5.5</b> Common errors</a></li>
 <li class="chapter" data-level="5.6" data-path="loops.html"><a href="loops.html#exercises-4"><i class="fa fa-check"></i><b>5.6</b> Exercises</a><ul>
-<li class="chapter" data-level="5.6.1" data-path="loops.html"><a href="loops.html#exercise-1.-following-the-control-flow-1"><i class="fa fa-check"></i><b>5.6.1</b> Exercise 1. Following the control flow</a></li>
-<li class="chapter" data-level="5.6.2" data-path="loops.html"><a href="loops.html#exercise-2.-debugging"><i class="fa fa-check"></i><b>5.6.2</b> Exercise 2. Debugging</a></li>
+<li class="chapter" data-level="5.6.1" data-path="loops.html"><a href="loops.html#exercise-1.-following-the-control-flow"><i class="fa fa-check"></i><b>5.6.1</b> Exercise 1. Following the control flow</a></li>
+<li class="chapter" data-level="5.6.2" data-path="loops.html"><a href="loops.html#exercise-2.-debugging-1"><i class="fa fa-check"></i><b>5.6.2</b> Exercise 2. Debugging</a></li>
 <li class="chapter" data-level="5.6.3" data-path="loops.html"><a href="loops.html#exercise-3.-nested-loops"><i class="fa fa-check"></i><b>5.6.3</b> Exercise 3. Nested loops</a></li>
 <li class="chapter" data-level="5.6.4" data-path="loops.html"><a href="loops.html#exercise-4.-data-transformation-using-loops"><i class="fa fa-check"></i><b>5.6.4</b> Exercise 4. Data transformation using loops</a></li>
 <li class="chapter" data-level="5.6.5" data-path="loops.html"><a href="loops.html#exercise-5.-calculating-a-mean"><i class="fa fa-check"></i><b>5.6.5</b> Exercise 5. Calculating a mean</a></li>
@@ -199,7 +210,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="6.5" data-path="functions.html"><a href="functions.html#stroop-functions"><i class="fa fa-check"></i><b>6.5</b> Stroop functions</a></li>
 <li class="chapter" data-level="6.6" data-path="functions.html"><a href="functions.html#common-errors-4"><i class="fa fa-check"></i><b>6.6</b> Common errors</a></li>
 <li class="chapter" data-level="6.7" data-path="functions.html"><a href="functions.html#exercises-5"><i class="fa fa-check"></i><b>6.7</b> Exercises</a><ul>
-<li class="chapter" data-level="6.7.1" data-path="functions.html"><a href="functions.html#exercise-1.-following-the-control-flow-2"><i class="fa fa-check"></i><b>6.7.1</b> Exercise 1. Following the control flow</a></li>
+<li class="chapter" data-level="6.7.1" data-path="functions.html"><a href="functions.html#exercise-1.-following-the-control-flow-1"><i class="fa fa-check"></i><b>6.7.1</b> Exercise 1. Following the control flow</a></li>
 <li class="chapter" data-level="6.7.2" data-path="functions.html"><a href="functions.html#exercise-2.-an-imperfect-list-sorting-attempt"><i class="fa fa-check"></i><b>6.7.2</b> Exercise 2. An imperfect list sorting attempt</a></li>
 <li class="chapter" data-level="6.7.3" data-path="functions.html"><a href="functions.html#exercise-3.-an-erroneous-sorting-algorithm"><i class="fa fa-check"></i><b>6.7.3</b> Exercise 3. An erroneous sorting algorithm</a></li>
 <li class="chapter" data-level="6.7.4" data-path="functions.html"><a href="functions.html#exercise-4.-chunking"><i class="fa fa-check"></i><b>6.7.4</b> Exercise 4. Chunking</a></li>
@@ -247,7 +258,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="8.4.3" data-path="interaction.html"><a href="interaction.html#placing-text-and-pictures"><i class="fa fa-check"></i><b>8.4.3</b> Placing text and pictures</a></li>
 </ul></li>
 <li class="chapter" data-level="8.5" data-path="interaction.html"><a href="interaction.html#exercises-8"><i class="fa fa-check"></i><b>8.5</b> Exercises</a><ul>
-<li class="chapter" data-level="8.5.1" data-path="interaction.html"><a href="interaction.html#exercise-c.-transition-tables-1"><i class="fa fa-check"></i><b>8.5.1</b> Exercise C. Transition tables</a></li>
+<li class="chapter" data-level="8.5.1" data-path="interaction.html"><a href="interaction.html#exercise-c.-transition-tables"><i class="fa fa-check"></i><b>8.5.1</b> Exercise C. Transition tables</a></li>
 </ul></li>
 <li class="chapter" data-level="8.6" data-path="interaction.html"><a href="interaction.html#common-errors-5"><i class="fa fa-check"></i><b>8.6</b> Common errors</a></li>
 <li class="chapter" data-level="8.7" data-path="interaction.html"><a href="interaction.html#think-further-5"><i class="fa fa-check"></i><b>8.7</b> Think Further</a></li>
@@ -255,39 +266,50 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="9" data-path="solutions.html"><a href="solutions.html"><i class="fa fa-check"></i><b>9</b> Solutions</a><ul>
 <li class="chapter" data-level="9.1" data-path="solutions.html"><a href="solutions.html#chapter-1.-introduction"><i class="fa fa-check"></i><b>9.1</b> Chapter 1. Introduction</a></li>
 <li class="chapter" data-level="9.2" data-path="solutions.html"><a href="solutions.html#chapter-2.-variables-values-and-types"><i class="fa fa-check"></i><b>9.2</b> Chapter 2. Variables, values and types</a><ul>
-<li class="chapter" data-level="9.2.1" data-path="solutions.html"><a href="solutions.html#exercise-1.-string-concatenation-1"><i class="fa fa-check"></i><b>9.2.1</b> Exercise 1. String concatenation</a></li>
-<li class="chapter" data-level="9.2.2" data-path="solutions.html"><a href="solutions.html#exercise-2.-variable-names-1"><i class="fa fa-check"></i><b>9.2.2</b> Exercise 2. Variable names</a></li>
-<li class="chapter" data-level="9.2.3" data-path="solutions.html"><a href="solutions.html#exercise-3.-stroop-task-welcome-message-1"><i class="fa fa-check"></i><b>9.2.3</b> Exercise 3. Stroop task welcome message</a></li>
-<li class="chapter" data-level="9.2.4" data-path="solutions.html"><a href="solutions.html#exercise-4.-printing-1"><i class="fa fa-check"></i><b>9.2.4</b> Exercise 4. Printing</a></li>
-<li class="chapter" data-level="9.2.5" data-path="solutions.html"><a href="solutions.html#exercise-5.-using-python-as-calculator"><i class="fa fa-check"></i><b>9.2.5</b> Exercise 5. Using Python as calculator</a></li>
-<li class="chapter" data-level="9.2.6" data-path="solutions.html"><a href="solutions.html#exercise-6.-a-boolean-puzzle-1"><i class="fa fa-check"></i><b>9.2.6</b> Exercise 6. A Boolean puzzle</a></li>
+<li class="chapter" data-level="9.2.1" data-path="solutions.html"><a href="solutions.html#exercise-1.-operators-1"><i class="fa fa-check"></i><b>9.2.1</b> Exercise 1. Operators</a></li>
+<li class="chapter" data-level="9.2.2" data-path="solutions.html"><a href="solutions.html#exercise-2.-values-1"><i class="fa fa-check"></i><b>9.2.2</b> Exercise 2. Values</a></li>
+<li class="chapter" data-level="9.2.3" data-path="solutions.html"><a href="solutions.html#exercise-3.-mini-programs-2"><i class="fa fa-check"></i><b>9.2.3</b> Exercise 3. Mini programs</a></li>
+<li class="chapter" data-level="9.2.4" data-path="solutions.html"><a href="solutions.html#exercise-4.-debugging-1"><i class="fa fa-check"></i><b>9.2.4</b> Exercise 4. Debugging</a></li>
+<li class="chapter" data-level="9.2.5" data-path="solutions.html"><a href="solutions.html#exercise-5.-string-concatenation-1"><i class="fa fa-check"></i><b>9.2.5</b> Exercise 5. String concatenation</a></li>
+<li class="chapter" data-level="9.2.6" data-path="solutions.html"><a href="solutions.html#exercise-6.-variable-names-1"><i class="fa fa-check"></i><b>9.2.6</b> Exercise 6. Variable names</a></li>
+<li class="chapter" data-level="9.2.7" data-path="solutions.html"><a href="solutions.html#exercise-7.-stroop-task-welcome-message-1"><i class="fa fa-check"></i><b>9.2.7</b> Exercise 7. Stroop task welcome message</a></li>
+<li class="chapter" data-level="9.2.8" data-path="solutions.html"><a href="solutions.html#exercise-8.-printing-1"><i class="fa fa-check"></i><b>9.2.8</b> Exercise 8. Printing</a></li>
+<li class="chapter" data-level="9.2.9" data-path="solutions.html"><a href="solutions.html#exercise-9.-using-python-as-calculator"><i class="fa fa-check"></i><b>9.2.9</b> Exercise 9. Using Python as calculator</a></li>
+<li class="chapter" data-level="9.2.10" data-path="solutions.html"><a href="solutions.html#exercise-10.-a-boolean-puzzle-1"><i class="fa fa-check"></i><b>9.2.10</b> Exercise 10. A Boolean puzzle</a></li>
 </ul></li>
 <li class="chapter" data-level="9.3" data-path="solutions.html"><a href="solutions.html#chapter-3.-conditionals"><i class="fa fa-check"></i><b>9.3</b> Chapter 3. Conditionals</a><ul>
-<li class="chapter" data-level="9.3.1" data-path="solutions.html"><a href="solutions.html#exercise-1.-following-the-control-flow-3"><i class="fa fa-check"></i><b>9.3.1</b> Exercise 1. Following the control flow</a></li>
-<li class="chapter" data-level="9.3.2" data-path="solutions.html"><a href="solutions.html#exercise-2.-indentation-1"><i class="fa fa-check"></i><b>9.3.2</b> Exercise 2. Indentation</a></li>
-<li class="chapter" data-level="9.3.3" data-path="solutions.html"><a href="solutions.html#exercise-3.-pseudo-code-conditionals-1"><i class="fa fa-check"></i><b>9.3.3</b> Exercise 3. Pseudo code conditionals</a></li>
-<li class="chapter" data-level="9.3.4" data-path="solutions.html"><a href="solutions.html#exercise-4.-modify-stroop-task-1"><i class="fa fa-check"></i><b>9.3.4</b> Exercise 4. Modify Stroop Task</a></li>
-<li class="chapter" data-level="9.3.5" data-path="solutions.html"><a href="solutions.html#exercise-5.-simplify-nested-conditionals-1"><i class="fa fa-check"></i><b>9.3.5</b> Exercise 5. Simplify nested conditionals</a></li>
-<li class="chapter" data-level="9.3.6" data-path="solutions.html"><a href="solutions.html#exercise-6.-flow-chart-conditionals-1"><i class="fa fa-check"></i><b>9.3.6</b> Exercise 6. Flow chart conditionals</a></li>
+<li class="chapter" data-level="9.3.1" data-path="solutions.html"><a href="solutions.html#exercise-1.-boolean-logic-1"><i class="fa fa-check"></i><b>9.3.1</b> Exercise 1. Boolean logic</a></li>
+<li class="chapter" data-level="9.3.2" data-path="solutions.html"><a href="solutions.html#exercise-2.-state-charts-1"><i class="fa fa-check"></i><b>9.3.2</b> Exercise 2. State charts</a></li>
+<li class="chapter" data-level="9.3.3" data-path="solutions.html"><a href="solutions.html#exercise-3.-transition-tables-1"><i class="fa fa-check"></i><b>9.3.3</b> Exercise 3. Transition tables</a></li>
+<li class="chapter" data-level="9.3.4" data-path="solutions.html"><a href="solutions.html#exercise-4.-mini-programs-1"><i class="fa fa-check"></i><b>9.3.4</b> Exercise 4. Mini programs</a></li>
+<li class="chapter" data-level="9.3.5" data-path="solutions.html"><a href="solutions.html#exercise-5.-following-the-control-flow-1"><i class="fa fa-check"></i><b>9.3.5</b> Exercise 5. Following the control flow</a></li>
+<li class="chapter" data-level="9.3.6" data-path="solutions.html"><a href="solutions.html#exercise-6.-indentation-1"><i class="fa fa-check"></i><b>9.3.6</b> Exercise 6. Indentation</a></li>
+<li class="chapter" data-level="9.3.7" data-path="solutions.html"><a href="solutions.html#exercise-7.-pseudo-code-conditionals-1"><i class="fa fa-check"></i><b>9.3.7</b> Exercise 7. Pseudo code conditionals</a></li>
+<li class="chapter" data-level="9.3.8" data-path="solutions.html"><a href="solutions.html#exercise-8.-modify-stroop-task-1"><i class="fa fa-check"></i><b>9.3.8</b> Exercise 8. Modify Stroop Task</a></li>
+<li class="chapter" data-level="9.3.9" data-path="solutions.html"><a href="solutions.html#exercise-9.-simplify-nested-conditionals-1"><i class="fa fa-check"></i><b>9.3.9</b> Exercise 9. Simplify nested conditionals</a></li>
+<li class="chapter" data-level="9.3.10" data-path="solutions.html"><a href="solutions.html#exercise-10.-flow-chart-conditionals-1"><i class="fa fa-check"></i><b>9.3.10</b> Exercise 10. Flow chart conditionals</a></li>
 </ul></li>
 <li class="chapter" data-level="9.4" data-path="solutions.html"><a href="solutions.html#chapter-4.-lists"><i class="fa fa-check"></i><b>9.4</b> Chapter 4. Lists</a><ul>
-<li class="chapter" data-level="9.4.1" data-path="solutions.html"><a href="solutions.html#exercise-1.-shopping-list-1"><i class="fa fa-check"></i><b>9.4.1</b> Exercise 1. Shopping list</a></li>
-<li class="chapter" data-level="9.4.2" data-path="solutions.html"><a href="solutions.html#exercise-2.-dictionnaries-1"><i class="fa fa-check"></i><b>9.4.2</b> Exercise 2. Dictionnaries</a></li>
-<li class="chapter" data-level="9.4.3" data-path="solutions.html"><a href="solutions.html#exercise-3.-selecting-elements"><i class="fa fa-check"></i><b>9.4.3</b> Exercise 3. Selecting elements</a></li>
-<li class="chapter" data-level="9.4.4" data-path="solutions.html"><a href="solutions.html#exercise-4.-adjust-a-dictionnary-data-set-1"><i class="fa fa-check"></i><b>9.4.4</b> Exercise 4. Adjust a dictionnary data set</a></li>
-<li class="chapter" data-level="9.4.5" data-path="solutions.html"><a href="solutions.html#exercise-5.-a-dictionnary-data-set-1"><i class="fa fa-check"></i><b>9.4.5</b> Exercise 5. A dictionnary data set</a></li>
-<li class="chapter" data-level="9.4.6" data-path="solutions.html"><a href="solutions.html#exercise-6.-stroop-extension-1"><i class="fa fa-check"></i><b>9.4.6</b> Exercise 6. Stroop extension</a></li>
+<li class="chapter" data-level="9.4.1" data-path="solutions.html"><a href="solutions.html#exercise-1.-indexing-1"><i class="fa fa-check"></i><b>9.4.1</b> Exercise 1. Indexing</a></li>
+<li class="chapter" data-level="9.4.2" data-path="solutions.html"><a href="solutions.html#exercise-2.-debugging-2"><i class="fa fa-check"></i><b>9.4.2</b> Exercise 2. Debugging</a></li>
+<li class="chapter" data-level="9.4.3" data-path="solutions.html"><a href="solutions.html#exercise-3.-mini-programs-3"><i class="fa fa-check"></i><b>9.4.3</b> Exercise 3. Mini programs</a></li>
+<li class="chapter" data-level="9.4.4" data-path="solutions.html"><a href="solutions.html#exercise-1.-shopping-list"><i class="fa fa-check"></i><b>9.4.4</b> Exercise 1. Shopping list</a></li>
+<li class="chapter" data-level="9.4.5" data-path="solutions.html"><a href="solutions.html#exercise-2.-dictionnaries"><i class="fa fa-check"></i><b>9.4.5</b> Exercise 2. Dictionnaries</a></li>
+<li class="chapter" data-level="9.4.6" data-path="solutions.html"><a href="solutions.html#exercise-3.-selecting-elements"><i class="fa fa-check"></i><b>9.4.6</b> Exercise 3. Selecting elements</a></li>
+<li class="chapter" data-level="9.4.7" data-path="solutions.html"><a href="solutions.html#exercise-4.-adjust-a-dictionnary-data-set"><i class="fa fa-check"></i><b>9.4.7</b> Exercise 4. Adjust a dictionnary data set</a></li>
+<li class="chapter" data-level="9.4.8" data-path="solutions.html"><a href="solutions.html#exercise-5.-a-dictionnary-data-set"><i class="fa fa-check"></i><b>9.4.8</b> Exercise 5. A dictionnary data set</a></li>
+<li class="chapter" data-level="9.4.9" data-path="solutions.html"><a href="solutions.html#exercise-6.-stroop-extension"><i class="fa fa-check"></i><b>9.4.9</b> Exercise 6. Stroop extension</a></li>
 </ul></li>
 <li class="chapter" data-level="9.5" data-path="solutions.html"><a href="solutions.html#chapter-5.-loops"><i class="fa fa-check"></i><b>9.5</b> Chapter 5. Loops</a><ul>
-<li class="chapter" data-level="9.5.1" data-path="solutions.html"><a href="solutions.html#exercise-1.-following-the-control-flow-4"><i class="fa fa-check"></i><b>9.5.1</b> Exercise 1. Following the control flow</a></li>
-<li class="chapter" data-level="9.5.2" data-path="solutions.html"><a href="solutions.html#exercise-2.-debugging-1"><i class="fa fa-check"></i><b>9.5.2</b> Exercise 2. Debugging</a></li>
+<li class="chapter" data-level="9.5.1" data-path="solutions.html"><a href="solutions.html#exercise-1.-following-the-control-flow-2"><i class="fa fa-check"></i><b>9.5.1</b> Exercise 1. Following the control flow</a></li>
+<li class="chapter" data-level="9.5.2" data-path="solutions.html"><a href="solutions.html#exercise-2.-debugging-3"><i class="fa fa-check"></i><b>9.5.2</b> Exercise 2. Debugging</a></li>
 <li class="chapter" data-level="9.5.3" data-path="solutions.html"><a href="solutions.html#exercise-3.-nested-loops-1"><i class="fa fa-check"></i><b>9.5.3</b> Exercise 3. Nested loops</a></li>
 <li class="chapter" data-level="9.5.4" data-path="solutions.html"><a href="solutions.html#exercise-4.-data-transformation-using-loops-1"><i class="fa fa-check"></i><b>9.5.4</b> Exercise 4. Data transformation using loops</a></li>
 <li class="chapter" data-level="9.5.5" data-path="solutions.html"><a href="solutions.html#exercise-5.-calculating-a-mean-1"><i class="fa fa-check"></i><b>9.5.5</b> Exercise 5. Calculating a mean</a></li>
 <li class="chapter" data-level="9.5.6" data-path="solutions.html"><a href="solutions.html#exercise-6.-a-guessing-game-1"><i class="fa fa-check"></i><b>9.5.6</b> Exercise 6. A guessing game</a></li>
 </ul></li>
 <li class="chapter" data-level="9.6" data-path="solutions.html"><a href="solutions.html#chapter-6.-functions"><i class="fa fa-check"></i><b>9.6</b> Chapter 6. Functions</a><ul>
-<li class="chapter" data-level="9.6.1" data-path="solutions.html"><a href="solutions.html#exercise-1.-following-the-control-flow-5"><i class="fa fa-check"></i><b>9.6.1</b> Exercise 1. Following the control flow</a></li>
+<li class="chapter" data-level="9.6.1" data-path="solutions.html"><a href="solutions.html#exercise-1.-following-the-control-flow-3"><i class="fa fa-check"></i><b>9.6.1</b> Exercise 1. Following the control flow</a></li>
 <li class="chapter" data-level="9.6.2" data-path="solutions.html"><a href="solutions.html#exercise-2.-an-imperfect-list-sorting-attempt-1"><i class="fa fa-check"></i><b>9.6.2</b> Exercise 2. An imperfect list sorting attempt</a></li>
 <li class="chapter" data-level="9.6.3" data-path="solutions.html"><a href="solutions.html#exercise-3.-an-errorneous-sorting-algorithm"><i class="fa fa-check"></i><b>9.6.3</b> Exercise 3. An errorneous sorting algorithm</a></li>
 <li class="chapter" data-level="9.6.4" data-path="solutions.html"><a href="solutions.html#exercise-4."><i class="fa fa-check"></i><b>9.6.4</b> Exercise 4.</a></li>
@@ -296,8 +318,13 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="10" data-path="debugging-and-good-programming-practices.html"><a href="debugging-and-good-programming-practices.html"><i class="fa fa-check"></i><b>10</b> Debugging and good programming practices</a><ul>
-<li class="chapter" data-level="10.1" data-path="debugging-and-good-programming-practices.html"><a href="debugging-and-good-programming-practices.html#debugging-2"><i class="fa fa-check"></i><b>10.1</b> Debugging</a></li>
-<li class="chapter" data-level="10.2" data-path="debugging-and-good-programming-practices.html"><a href="debugging-and-good-programming-practices.html#how-to-develop-your-programming-skills-quickly"><i class="fa fa-check"></i><b>10.2</b> How to develop your programming skills quickly</a><ul>
+<li class="chapter" data-level="10.1" data-path="debugging-and-good-programming-practices.html"><a href="debugging-and-good-programming-practices.html#debugging-3"><i class="fa fa-check"></i><b>10.1</b> Debugging</a><ul>
+<li class="chapter" data-level="10.1.1" data-path="debugging-and-good-programming-practices.html"><a href="debugging-and-good-programming-practices.html#the-print-statement-is-an-aspiring-programmers-best-friend"><i class="fa fa-check"></i><b>10.1.1</b> The print statement is an aspiring programmer’s best friend</a></li>
+<li class="chapter" data-level="10.1.2" data-path="debugging-and-good-programming-practices.html"><a href="debugging-and-good-programming-practices.html#frequent-unit-testing"><i class="fa fa-check"></i><b>10.1.2</b> Frequent unit-testing</a></li>
+<li class="chapter" data-level="10.1.3" data-path="debugging-and-good-programming-practices.html"><a href="debugging-and-good-programming-practices.html#the-copy-paste-syndrome"><i class="fa fa-check"></i><b>10.1.3</b> The copy-paste syndrome</a></li>
+<li class="chapter" data-level="10.1.4" data-path="debugging-and-good-programming-practices.html"><a href="debugging-and-good-programming-practices.html#standing-on-the-shoulders-of-giants"><i class="fa fa-check"></i><b>10.1.4</b> Standing on the shoulders of giants</a></li>
+</ul></li>
+<li class="chapter" data-level="10.2" data-path="debugging-and-good-programming-practices.html"><a href="debugging-and-good-programming-practices.html#boosting-your-programming-learning-curve"><i class="fa fa-check"></i><b>10.2</b> Boosting your programming learning curve</a><ul>
 <li class="chapter" data-level="10.2.1" data-path="debugging-and-good-programming-practices.html"><a href="debugging-and-good-programming-practices.html#going-with-the-flow"><i class="fa fa-check"></i><b>10.2.1</b> Going with the flow</a></li>
 <li class="chapter" data-level="10.2.2" data-path="debugging-and-good-programming-practices.html"><a href="debugging-and-good-programming-practices.html#just-do-it"><i class="fa fa-check"></i><b>10.2.2</b> Just do it!</a></li>
 </ul></li>
@@ -321,22 +348,30 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
             <section class="normal" id="section-">
 <div id="debugging-and-good-programming-practices" class="section level1">
 <h1><span class="header-section-number">10</span> Debugging and good programming practices</h1>
-<div id="debugging-2" class="section level2">
+<div id="debugging-3" class="section level2">
 <h2><span class="header-section-number">10.1</span> Debugging</h2>
 <p>Debugging is one of the most intellectually challenging aspects of programming. It is often also perceived as the most frustrating aspect. To a large extent, the problems that people face while debugging are not so much technical as they are psychological. Debugging starts with the realization that a computer does nothing wrong. In fact, it does exactly what you tell it to do. The fault lies thus in how the programmer conceived or implemented a solution. You should always remember that even though debugging can be a difficult and frustrating endeavour, it can be done. At times, it will require all the creativity and skill at your disposal, but you will succeed if you act systematically and do not give up on the task.</p>
 <p>There is no recipe-like cookbook approach to debugging, but adhering to some general principles will probably help.</p>
-<ol style="list-style-type: decimal">
-<li><strong>The print statement is an aspiring programmer’s best friend</strong>. In debugging you take on the role of a detective. As such, you focus on what the errorneous program is doing, rather than why it is not doing what you wanted it to do. You work from the facts. Variables and the flow of your program are the key to finding the crucial pieces of information that will lead you to the clue to what is going wrong.</li>
-</ol>
+<div id="the-print-statement-is-an-aspiring-programmers-best-friend" class="section level3">
+<h3><span class="header-section-number">10.1.1</span> The print statement is an aspiring programmer’s best friend</h3>
+<p>In debugging you take on the role of a detective. As such, you focus on what the errorneous program is doing, rather than why it is not doing what you wanted it to do. You work from the facts. Variables and the flow of your program are the key to finding the crucial pieces of information that will lead you to the clue to what is going wrong.</p>
 <p>The <code>print</code> statement is a commonly used tool for debugging. Even if you have no clue as to what is going wrong, you often have a hunch where the culprit might be. If you do not have any idea where to start, simply start from the beginning of your program. It also helps to realize that the bug is not moving around in your code, trying to trick or to evade you (even though it might feel as if it has a will of its own at times). It is sitting in the same place, doing the wrong thing in the same way every time. You start from your hunch and take a closer look at your variables and whether the program is doing what it is supposed to do in this place. Here, <code>print</code> statements come in handy. You can use <code>print</code> statements to make the current values assigned to your variables visible. By following the control flow of the program in your mind (that is calculating the expected values of your variables as you go through the program), you should verify whether your variables were assigned their expected values. If yes, continue to search for the error further downward in the flow of the program. If not, look further upward for the bug. Also take a close look at the values themselves. Do they belong to the expected <em>data type</em>? Are their values in any way remarkable (too high, too low, etc.)? This will give some indication of what is going wrong.</p>
-<ol start="2" style="list-style-type: decimal">
-<li><p><strong>Frequent unit-testing</strong>. Rome was not built in a day and the same is very true about computer programs. Programming, as any other task, can and should be split into subtasks. These subtasks can be chunks of code like <em>functions</em> that generalize operations you frequently need in your program, or the division between graphical and state transition dynamics of your program. Individual components should frequently and extensively be tested for bugs <em>before</em> merging them into the rest of your code. One simple bug in a small component of your program can become untracable in your main code and cause the weirdest errors. It is generally a good idea to pull out code from your main program and put it into functions to keep the main flow of your program readable and to prevent yourself from writing out the same lines of code over and over again. Just make sure that you frequently test these units of code before putting them into the main flow of your program and of course, that the main flow of your program is still working nicely. Inserting <code>print</code> statements before and after calling a function to check whether the involved variables were mutated in the intended way is one way to make sure that the different chunks of your program interact with each other nicely.</p></li>
-<li><p><strong>The copy-paste syndrome</strong>. Copying code is generally a bad idea. Extensive copying of code takes one of two forms. Some programmers over-copy their own code, others copy other people’s code. Little is more frustrating than realizing that you are debugging the same bug multiple times. Whenever you copy undebugged chunks of code, you also copy the bugs within them. You forget which chunks of code you copied where and voilà; chances are high that you encounter the same bug in different places. Putting chunks of code that your program repeatedly uses into functions is a good way to counteract over-copying one’s own code. There is no point in re-inventing the wheel, so there is nothing wrong about trying out another person’s debugging approach to one’s own code. However, over-copying other people’s code is not only bound to cause more errors in the long run, it will also leave you with a great deal of unanswered questions about <em>why</em> another’s solution fixes the bug and <em>why</em> your own attempts do not. In the worst case, you do no longer understand your own code! Copying code works against understanding code. Instead, try to program something similar, adjust small parts and see what happens. That way, you work towards understanding (another’s) code.</p></li>
-<li><p><strong>Standing on the shoulders of giants</strong>. That being said, chances are high that, whatever you try to accomplish in programming, somebody else has already tried it (and may have run into the same errors and bugs). Looking on the internet for a solution can prove to be useful and point your debugging efforts into the right direction. Truth be told, you will rarely find the perfect solution to your individual problem in the context of your personal, specific code. Still, you can figure out on the internet whether you are dealing with a known bug or read up on more specific information in the Python documentation. To do so, you should search for keywords relevant to your problem, such as <em>operator precedence</em> or <em>float division</em>. Just be aware that you will always need to transfer whatever you read about to your individual situation which can be a difficult task as a programming beginner. Taking on the role of detective and figuring out yourself what is going wrong is usually the way to go. Reading up on the internet is merely a tool.</p></li>
-</ol>
 </div>
-<div id="how-to-develop-your-programming-skills-quickly" class="section level2">
-<h2><span class="header-section-number">10.2</span> How to develop your programming skills quickly</h2>
+<div id="frequent-unit-testing" class="section level3">
+<h3><span class="header-section-number">10.1.2</span> Frequent unit-testing</h3>
+<p>Rome was not built in a day and the same is very true about computer programs. Programming, as any other task, can and should be split into subtasks. These subtasks can be chunks of code like <em>functions</em> that generalize operations you frequently need in your program, or the division between graphical and state transition dynamics of your program. Individual components should frequently and extensively be tested for bugs <em>before</em> merging them into the rest of your code. One simple bug in a small component of your program can become untracable in your main code and cause the weirdest errors. It is generally a good idea to pull out code from your main program and put it into functions to keep the main flow of your program readable and to prevent yourself from writing out the same lines of code over and over again. Just make sure that you frequently test these units of code before putting them into the main flow of your program and of course, that the main flow of your program is still working nicely. Inserting <code>print</code> statements before and after calling a function to check whether the involved variables were mutated in the intended way is one way to make sure that the different chunks of your program interact with each other nicely.</p>
+</div>
+<div id="the-copy-paste-syndrome" class="section level3">
+<h3><span class="header-section-number">10.1.3</span> The copy-paste syndrome</h3>
+<p>Copying code is generally a bad idea. Extensive copying of code takes one of two forms. Some programmers over-copy their own code, others copy other people’s code. Little is more frustrating than realizing that you are debugging the same bug multiple times. Whenever you copy undebugged chunks of code, you also copy the bugs within them. You forget which chunks of code you copied where and voilà; chances are high that you encounter the same bug in different places. Putting chunks of code that your program repeatedly uses into functions is a good way to counteract over-copying one’s own code. There is no point in re-inventing the wheel, so there is nothing wrong about trying out another person’s debugging approach to one’s own code. However, over-copying other people’s code is not only bound to cause more errors in the long run, it will also leave you with a great deal of unanswered questions about <em>why</em> another’s solution fixes the bug and <em>why</em> your own attempts do not. In the worst case, you do no longer understand your own code! Copying code works against understanding code. Instead, try to program something similar, adjust small parts and see what happens. That way, you work towards understanding (another’s) code.</p>
+</div>
+<div id="standing-on-the-shoulders-of-giants" class="section level3">
+<h3><span class="header-section-number">10.1.4</span> Standing on the shoulders of giants</h3>
+<p>That being said, chances are high that, whatever you try to accomplish in programming, somebody else has already tried it (and may have run into the same errors and bugs). Looking on the internet for a solution can prove to be useful and point your debugging efforts into the right direction. Truth be told, you will rarely find the perfect solution to your individual problem in the context of your personal, specific code. Still, you can figure out on the internet whether you are dealing with a known bug or read up on more specific information in the Python documentation. To do so, you should search for keywords relevant to your problem, such as <em>operator precedence</em> or <em>float division</em>. Just be aware that you will always need to transfer whatever you read about to your individual situation which can be a difficult task as a programming beginner. Taking on the role of detective and figuring out yourself what is going wrong is usually the way to go. Reading up on the internet is merely a tool.</p>
+</div>
+</div>
+<div id="boosting-your-programming-learning-curve" class="section level2">
+<h2><span class="header-section-number">10.2</span> Boosting your programming learning curve</h2>
 <p>When you start programming, it is easy to become intimidated by the amount of information you find in programming books and the multitude of error messages you encounter. Initially, you may also have difficulty adjusting to how a programmer thinks. Really, to some extent programming is but another way to approach the problem at hand. Programming means seeing a problem from another perspective. To cheer you up, even the most experienced programmers make mistakes, beginner’s mistakes included. They encounter the same error messages as you do. I dare to say that, in total, they spend about as much time on debugging code than any beginner. That is the reality of programming. As your programming skills improve and you become acquainted with thinking with the mind of a programmer, you will be enabled to tackle more advanced problems and solve easier problems in more efficient ways. Luckily, there are some good practices that will speed up the development of your programming skills. In truth, without these good practices, your journey as an aspiring programmer will be much harder. Therefore, it is best to internalize the following practices from the beginning.</p>
 <div id="going-with-the-flow" class="section level3">
 <h3><span class="header-section-number">10.2.1</span> Going with the flow</h3>
@@ -400,7 +435,7 @@ gitbook.start({
 "link": null,
 "text": null
 },
-"download": ["PfP_Book.pdf"],
+"download": ["PfP_Book.pdf", "PfP_Book.epub"],
 "toc": {
 "collapse": "subsection"
 }

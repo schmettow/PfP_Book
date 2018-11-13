@@ -25,7 +25,7 @@
 <meta name="author" content="Martin Schmettow and Lena Brandl">
 
 
-<meta name="date" content="2018-11-01">
+<meta name="date" content="2018-11-13">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -47,6 +47,14 @@
 
 
 
+<script src="libs/htmlwidgets-1.3/htmlwidgets.js"></script>
+<script src="libs/d3-3.3.8/d3.min.js"></script>
+<script src="libs/dagre-0.4.0/dagre-d3.min.js"></script>
+<link href="libs/mermaid-0.3.0/dist/mermaid.css" rel="stylesheet" />
+<script src="libs/mermaid-0.3.0/dist/mermaid.slim.min.js"></script>
+<link href="libs/DiagrammeR-styles-0.2/styles.css" rel="stylesheet" />
+<script src="libs/chromatography-0.1/chromatography.js"></script>
+<script src="libs/DiagrammeR-binding-1.0.0/DiagrammeR.js"></script>
 
 
 <style type="text/css">
@@ -108,7 +116,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </ul></li>
 <li class="chapter" data-level="2" data-path="variables.html"><a href="variables.html"><i class="fa fa-check"></i><b>2</b> Variables, values and types</a><ul>
 <li class="chapter" data-level="2.1" data-path="variables.html"><a href="variables.html#variables"><i class="fa fa-check"></i><b>2.1</b> Variables</a></li>
-<li class="chapter" data-level="2.2" data-path="variables.html"><a href="variables.html#stroop-task-variables"><i class="fa fa-check"></i><b>2.2</b> Stroop task variables</a></li>
+<li class="chapter" data-level="2.2" data-path="variables.html"><a href="variables.html#stroop-task-variables"><i class="fa fa-check"></i><b>2.2</b> Stroop Task variables</a></li>
 <li class="chapter" data-level="2.3" data-path="variables.html"><a href="variables.html#how-variables-are-used"><i class="fa fa-check"></i><b>2.3</b> How Variables Are Used</a></li>
 <li class="chapter" data-level="2.4" data-path="variables.html"><a href="variables.html#data-types"><i class="fa fa-check"></i><b>2.4</b> Data types</a><ul>
 <li class="chapter" data-level="2.4.1" data-path="variables.html"><a href="variables.html#numbers"><i class="fa fa-check"></i><b>2.4.1</b> Numbers</a></li>
@@ -118,16 +126,16 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="2.5" data-path="variables.html"><a href="variables.html#common-errors"><i class="fa fa-check"></i><b>2.5</b> Common errors</a></li>
 <li class="chapter" data-level="2.6" data-path="variables.html"><a href="variables.html#debugging"><i class="fa fa-check"></i><b>2.6</b> Debugging</a></li>
 <li class="chapter" data-level="2.7" data-path="variables.html"><a href="variables.html#exercises-1"><i class="fa fa-check"></i><b>2.7</b> Exercises</a><ul>
-<li class="chapter" data-level="2.7.1" data-path="variables.html"><a href="variables.html#exercise-a.-operators"><i class="fa fa-check"></i><b>2.7.1</b> Exercise A. Operators</a></li>
-<li class="chapter" data-level="2.7.2" data-path="variables.html"><a href="variables.html#exercise-b.-values"><i class="fa fa-check"></i><b>2.7.2</b> Exercise B. Values</a></li>
-<li class="chapter" data-level="2.7.3" data-path="variables.html"><a href="variables.html#exercise-c.-mini-programs"><i class="fa fa-check"></i><b>2.7.3</b> Exercise C. Mini programs</a></li>
-<li class="chapter" data-level="2.7.4" data-path="variables.html"><a href="variables.html#exercise-d.-debugging"><i class="fa fa-check"></i><b>2.7.4</b> Exercise D. Debugging</a></li>
-<li class="chapter" data-level="2.7.5" data-path="variables.html"><a href="variables.html#exercise-1.-string-concatenation"><i class="fa fa-check"></i><b>2.7.5</b> Exercise 1. String concatenation</a></li>
-<li class="chapter" data-level="2.7.6" data-path="variables.html"><a href="variables.html#exercise-2.-variable-names"><i class="fa fa-check"></i><b>2.7.6</b> Exercise 2. Variable names</a></li>
-<li class="chapter" data-level="2.7.7" data-path="variables.html"><a href="variables.html#exercise-3.-stroop-task-welcome-message"><i class="fa fa-check"></i><b>2.7.7</b> Exercise 3. Stroop task welcome message</a></li>
-<li class="chapter" data-level="2.7.8" data-path="variables.html"><a href="variables.html#exercise-4.-printing"><i class="fa fa-check"></i><b>2.7.8</b> Exercise 4. Printing</a></li>
-<li class="chapter" data-level="2.7.9" data-path="variables.html"><a href="variables.html#exercise-5.-using-python-as-a-calculator"><i class="fa fa-check"></i><b>2.7.9</b> Exercise 5. Using Python as a calculator</a></li>
-<li class="chapter" data-level="2.7.10" data-path="variables.html"><a href="variables.html#exercise-6.-a-boolean-puzzle"><i class="fa fa-check"></i><b>2.7.10</b> Exercise 6. A Boolean puzzle</a></li>
+<li class="chapter" data-level="2.7.1" data-path="variables.html"><a href="variables.html#exercise-1.-operators"><i class="fa fa-check"></i><b>2.7.1</b> Exercise 1. Operators</a></li>
+<li class="chapter" data-level="2.7.2" data-path="variables.html"><a href="variables.html#exercise-2.-values"><i class="fa fa-check"></i><b>2.7.2</b> Exercise 2. Values</a></li>
+<li class="chapter" data-level="2.7.3" data-path="variables.html"><a href="variables.html#exercise-3.-mini-programs"><i class="fa fa-check"></i><b>2.7.3</b> Exercise 3. Mini programs</a></li>
+<li class="chapter" data-level="2.7.4" data-path="variables.html"><a href="variables.html#exercise-4.-debugging"><i class="fa fa-check"></i><b>2.7.4</b> Exercise 4. Debugging</a></li>
+<li class="chapter" data-level="2.7.5" data-path="variables.html"><a href="variables.html#exercise-5.-string-concatenation"><i class="fa fa-check"></i><b>2.7.5</b> Exercise 5. String concatenation</a></li>
+<li class="chapter" data-level="2.7.6" data-path="variables.html"><a href="variables.html#exercise-6.-variable-names"><i class="fa fa-check"></i><b>2.7.6</b> Exercise 6. Variable names</a></li>
+<li class="chapter" data-level="2.7.7" data-path="variables.html"><a href="variables.html#exercise-7.-stroop-task-welcome-message"><i class="fa fa-check"></i><b>2.7.7</b> Exercise 7. Stroop task welcome message</a></li>
+<li class="chapter" data-level="2.7.8" data-path="variables.html"><a href="variables.html#exercise-8.-printing"><i class="fa fa-check"></i><b>2.7.8</b> Exercise 8. Printing</a></li>
+<li class="chapter" data-level="2.7.9" data-path="variables.html"><a href="variables.html#exercise-9.-using-python-as-a-calculator"><i class="fa fa-check"></i><b>2.7.9</b> Exercise 9. Using Python as a calculator</a></li>
+<li class="chapter" data-level="2.7.10" data-path="variables.html"><a href="variables.html#exercise-10.-a-boolean-puzzle"><i class="fa fa-check"></i><b>2.7.10</b> Exercise 10. A Boolean puzzle</a></li>
 </ul></li>
 <li class="chapter" data-level="2.8" data-path="variables.html"><a href="variables.html#think-further"><i class="fa fa-check"></i><b>2.8</b> Think Further</a></li>
 </ul></li>
@@ -139,18 +147,18 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="3.3.2" data-path="conditionals.html"><a href="conditionals.html#state-charts"><i class="fa fa-check"></i><b>3.3.2</b> State charts</a></li>
 </ul></li>
 <li class="chapter" data-level="3.4" data-path="conditionals.html"><a href="conditionals.html#common-errors-1"><i class="fa fa-check"></i><b>3.4</b> Common errors</a></li>
-<li class="chapter" data-level="3.5" data-path="conditionals.html"><a href="conditionals.html#debugging-conditionals"><i class="fa fa-check"></i><b>3.5</b> Debugging conditionals</a></li>
+<li class="chapter" data-level="3.5" data-path="conditionals.html"><a href="conditionals.html#debugging-1"><i class="fa fa-check"></i><b>3.5</b> Debugging</a></li>
 <li class="chapter" data-level="3.6" data-path="conditionals.html"><a href="conditionals.html#exercises-2"><i class="fa fa-check"></i><b>3.6</b> Exercises</a><ul>
-<li class="chapter" data-level="3.6.1" data-path="conditionals.html"><a href="conditionals.html#exercise-a.-boolean-logic"><i class="fa fa-check"></i><b>3.6.1</b> Exercise A. Boolean logic</a></li>
-<li class="chapter" data-level="3.6.2" data-path="conditionals.html"><a href="conditionals.html#exercise-b.-state-chart"><i class="fa fa-check"></i><b>3.6.2</b> Exercise B. State chart</a></li>
-<li class="chapter" data-level="3.6.3" data-path="conditionals.html"><a href="conditionals.html#exercise-c.-transition-tables"><i class="fa fa-check"></i><b>3.6.3</b> Exercise C. Transition tables</a></li>
-<li class="chapter" data-level="3.6.4" data-path="conditionals.html"><a href="conditionals.html#exercise-d.-mini-programs"><i class="fa fa-check"></i><b>3.6.4</b> Exercise D. Mini programs</a></li>
-<li class="chapter" data-level="3.6.5" data-path="conditionals.html"><a href="conditionals.html#exercise-1.-following-the-control-flow"><i class="fa fa-check"></i><b>3.6.5</b> Exercise 1. Following the control flow</a></li>
-<li class="chapter" data-level="3.6.6" data-path="conditionals.html"><a href="conditionals.html#exercise-2.-indentation"><i class="fa fa-check"></i><b>3.6.6</b> Exercise 2. Indentation</a></li>
-<li class="chapter" data-level="3.6.7" data-path="conditionals.html"><a href="conditionals.html#exercise-3.-pseudo-code-conditionals"><i class="fa fa-check"></i><b>3.6.7</b> Exercise 3. Pseudo code conditionals</a></li>
-<li class="chapter" data-level="3.6.8" data-path="conditionals.html"><a href="conditionals.html#exercise-4.-modify-stroop-task"><i class="fa fa-check"></i><b>3.6.8</b> Exercise 4. Modify Stroop Task</a></li>
-<li class="chapter" data-level="3.6.9" data-path="conditionals.html"><a href="conditionals.html#exercise-5.-simplify-nested-conditionals"><i class="fa fa-check"></i><b>3.6.9</b> Exercise 5. Simplify nested conditionals</a></li>
-<li class="chapter" data-level="3.6.10" data-path="conditionals.html"><a href="conditionals.html#exercise-6.-flow-chart-conditionals"><i class="fa fa-check"></i><b>3.6.10</b> Exercise 6. Flow chart conditionals</a></li>
+<li class="chapter" data-level="3.6.1" data-path="conditionals.html"><a href="conditionals.html#exercise-1.-boolean-logic"><i class="fa fa-check"></i><b>3.6.1</b> Exercise 1. Boolean logic</a></li>
+<li class="chapter" data-level="3.6.2" data-path="conditionals.html"><a href="conditionals.html#exercise-2.-state-charts"><i class="fa fa-check"></i><b>3.6.2</b> Exercise 2. State charts</a></li>
+<li class="chapter" data-level="3.6.3" data-path="conditionals.html"><a href="conditionals.html#exercise-3.-transition-tables"><i class="fa fa-check"></i><b>3.6.3</b> Exercise 3. Transition tables</a></li>
+<li class="chapter" data-level="3.6.4" data-path="conditionals.html"><a href="conditionals.html#exercise-4.-mini-programs"><i class="fa fa-check"></i><b>3.6.4</b> Exercise 4. Mini programs</a></li>
+<li class="chapter" data-level="3.6.5" data-path="conditionals.html"><a href="conditionals.html#exercise-5.-following-the-control-flow"><i class="fa fa-check"></i><b>3.6.5</b> Exercise 5. Following the control flow</a></li>
+<li class="chapter" data-level="3.6.6" data-path="conditionals.html"><a href="conditionals.html#exercise-6.-indentation"><i class="fa fa-check"></i><b>3.6.6</b> Exercise 6. Indentation</a></li>
+<li class="chapter" data-level="3.6.7" data-path="conditionals.html"><a href="conditionals.html#exercise-7.-pseudo-code-conditionals"><i class="fa fa-check"></i><b>3.6.7</b> Exercise 7. Pseudo code conditionals</a></li>
+<li class="chapter" data-level="3.6.8" data-path="conditionals.html"><a href="conditionals.html#exercise-8.-modify-stroop-task"><i class="fa fa-check"></i><b>3.6.8</b> Exercise 8. Modify Stroop Task</a></li>
+<li class="chapter" data-level="3.6.9" data-path="conditionals.html"><a href="conditionals.html#exercise-9.-simplify-nested-conditionals"><i class="fa fa-check"></i><b>3.6.9</b> Exercise 9. Simplify nested conditionals</a></li>
+<li class="chapter" data-level="3.6.10" data-path="conditionals.html"><a href="conditionals.html#exercise-10.-flow-chart-conditionals"><i class="fa fa-check"></i><b>3.6.10</b> Exercise 10. Flow chart conditionals</a></li>
 </ul></li>
 <li class="chapter" data-level="3.7" data-path="conditionals.html"><a href="conditionals.html#think-further-1"><i class="fa fa-check"></i><b>3.7</b> Think Further</a></li>
 </ul></li>
@@ -160,17 +168,20 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="4.1.2" data-path="lists.html"><a href="lists.html#a-word-about-class-specific-functions"><i class="fa fa-check"></i><b>4.1.2</b> A word about class specific functions</a></li>
 </ul></li>
 <li class="chapter" data-level="4.2" data-path="lists.html"><a href="lists.html#tuples"><i class="fa fa-check"></i><b>4.2</b> Tuples</a></li>
-<li class="chapter" data-level="4.3" data-path="lists.html"><a href="lists.html#dictionnaries"><i class="fa fa-check"></i><b>4.3</b> Dictionnaries</a></li>
-<li class="chapter" data-level="4.4" data-path="lists.html"><a href="lists.html#putting-data-structures-to-use"><i class="fa fa-check"></i><b>4.4</b> Putting data structures to use</a></li>
+<li class="chapter" data-level="4.3" data-path="lists.html"><a href="lists.html#dictionaries"><i class="fa fa-check"></i><b>4.3</b> Dictionaries</a></li>
+<li class="chapter" data-level="4.4" data-path="lists.html"><a href="lists.html#putting-collections-to-use"><i class="fa fa-check"></i><b>4.4</b> Putting collections to use</a></li>
 <li class="chapter" data-level="4.5" data-path="lists.html"><a href="lists.html#common-errors-2"><i class="fa fa-check"></i><b>4.5</b> Common errors</a></li>
-<li class="chapter" data-level="4.6" data-path="lists.html"><a href="lists.html#debugging-1"><i class="fa fa-check"></i><b>4.6</b> Debugging</a></li>
+<li class="chapter" data-level="4.6" data-path="lists.html"><a href="lists.html#debugging-2"><i class="fa fa-check"></i><b>4.6</b> Debugging</a></li>
 <li class="chapter" data-level="4.7" data-path="lists.html"><a href="lists.html#exercises-3"><i class="fa fa-check"></i><b>4.7</b> Exercises</a><ul>
-<li class="chapter" data-level="4.7.1" data-path="lists.html"><a href="lists.html#exercise-1.-shopping-list"><i class="fa fa-check"></i><b>4.7.1</b> Exercise 1. Shopping list</a></li>
-<li class="chapter" data-level="4.7.2" data-path="lists.html"><a href="lists.html#exercise-2.-dictionnaries"><i class="fa fa-check"></i><b>4.7.2</b> Exercise 2. Dictionnaries</a></li>
-<li class="chapter" data-level="4.7.3" data-path="lists.html"><a href="lists.html#exercise-3.-element-selection"><i class="fa fa-check"></i><b>4.7.3</b> Exercise 3. Element selection</a></li>
-<li class="chapter" data-level="4.7.4" data-path="lists.html"><a href="lists.html#exercise-4.-adjust-a-dictionnary-data-set"><i class="fa fa-check"></i><b>4.7.4</b> Exercise 4. Adjust a dictionnary data set</a></li>
-<li class="chapter" data-level="4.7.5" data-path="lists.html"><a href="lists.html#exercise-5.-a-dictionnary-data-set"><i class="fa fa-check"></i><b>4.7.5</b> Exercise 5. A dictionnary data set</a></li>
-<li class="chapter" data-level="4.7.6" data-path="lists.html"><a href="lists.html#exercise-6.-stroop-extension"><i class="fa fa-check"></i><b>4.7.6</b> Exercise 6. Stroop extension</a></li>
+<li class="chapter" data-level="4.7.1" data-path="lists.html"><a href="lists.html#exercise-1.-indexing"><i class="fa fa-check"></i><b>4.7.1</b> Exercise 1. Indexing</a></li>
+<li class="chapter" data-level="4.7.2" data-path="lists.html"><a href="lists.html#exercise-2.-debugging"><i class="fa fa-check"></i><b>4.7.2</b> Exercise 2. Debugging</a></li>
+<li class="chapter" data-level="4.7.3" data-path="lists.html"><a href="lists.html#exercise-3.-mini-programs-1"><i class="fa fa-check"></i><b>4.7.3</b> Exercise 3. Mini programs</a></li>
+<li class="chapter" data-level="4.7.4" data-path="lists.html"><a href="lists.html#exercise-4.-shopping-list"><i class="fa fa-check"></i><b>4.7.4</b> Exercise 4. Shopping list</a></li>
+<li class="chapter" data-level="4.7.5" data-path="lists.html"><a href="lists.html#exercise-5.-dictionaries"><i class="fa fa-check"></i><b>4.7.5</b> Exercise 5. Dictionaries</a></li>
+<li class="chapter" data-level="4.7.6" data-path="lists.html"><a href="lists.html#exercise-6.-element-selection"><i class="fa fa-check"></i><b>4.7.6</b> Exercise 6. Element selection</a></li>
+<li class="chapter" data-level="4.7.7" data-path="lists.html"><a href="lists.html#exercise-7.-adjust-a-dictionary-data-set"><i class="fa fa-check"></i><b>4.7.7</b> Exercise 7. Adjust a dictionary data set</a></li>
+<li class="chapter" data-level="4.7.8" data-path="lists.html"><a href="lists.html#exercise-8.-a-dictionary-data-set"><i class="fa fa-check"></i><b>4.7.8</b> Exercise 8. A dictionary data set</a></li>
+<li class="chapter" data-level="4.7.9" data-path="lists.html"><a href="lists.html#exercise-9.-stroop-extension"><i class="fa fa-check"></i><b>4.7.9</b> Exercise 9. Stroop extension</a></li>
 </ul></li>
 <li class="chapter" data-level="4.8" data-path="lists.html"><a href="lists.html#think-further-2"><i class="fa fa-check"></i><b>4.8</b> Think further</a></li>
 </ul></li>
@@ -181,8 +192,8 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="5.4" data-path="loops.html"><a href="loops.html#control-flow"><i class="fa fa-check"></i><b>5.4</b> Control flow</a></li>
 <li class="chapter" data-level="5.5" data-path="loops.html"><a href="loops.html#common-errors-3"><i class="fa fa-check"></i><b>5.5</b> Common errors</a></li>
 <li class="chapter" data-level="5.6" data-path="loops.html"><a href="loops.html#exercises-4"><i class="fa fa-check"></i><b>5.6</b> Exercises</a><ul>
-<li class="chapter" data-level="5.6.1" data-path="loops.html"><a href="loops.html#exercise-1.-following-the-control-flow-1"><i class="fa fa-check"></i><b>5.6.1</b> Exercise 1. Following the control flow</a></li>
-<li class="chapter" data-level="5.6.2" data-path="loops.html"><a href="loops.html#exercise-2.-debugging"><i class="fa fa-check"></i><b>5.6.2</b> Exercise 2. Debugging</a></li>
+<li class="chapter" data-level="5.6.1" data-path="loops.html"><a href="loops.html#exercise-1.-following-the-control-flow"><i class="fa fa-check"></i><b>5.6.1</b> Exercise 1. Following the control flow</a></li>
+<li class="chapter" data-level="5.6.2" data-path="loops.html"><a href="loops.html#exercise-2.-debugging-1"><i class="fa fa-check"></i><b>5.6.2</b> Exercise 2. Debugging</a></li>
 <li class="chapter" data-level="5.6.3" data-path="loops.html"><a href="loops.html#exercise-3.-nested-loops"><i class="fa fa-check"></i><b>5.6.3</b> Exercise 3. Nested loops</a></li>
 <li class="chapter" data-level="5.6.4" data-path="loops.html"><a href="loops.html#exercise-4.-data-transformation-using-loops"><i class="fa fa-check"></i><b>5.6.4</b> Exercise 4. Data transformation using loops</a></li>
 <li class="chapter" data-level="5.6.5" data-path="loops.html"><a href="loops.html#exercise-5.-calculating-a-mean"><i class="fa fa-check"></i><b>5.6.5</b> Exercise 5. Calculating a mean</a></li>
@@ -199,7 +210,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="6.5" data-path="functions.html"><a href="functions.html#stroop-functions"><i class="fa fa-check"></i><b>6.5</b> Stroop functions</a></li>
 <li class="chapter" data-level="6.6" data-path="functions.html"><a href="functions.html#common-errors-4"><i class="fa fa-check"></i><b>6.6</b> Common errors</a></li>
 <li class="chapter" data-level="6.7" data-path="functions.html"><a href="functions.html#exercises-5"><i class="fa fa-check"></i><b>6.7</b> Exercises</a><ul>
-<li class="chapter" data-level="6.7.1" data-path="functions.html"><a href="functions.html#exercise-1.-following-the-control-flow-2"><i class="fa fa-check"></i><b>6.7.1</b> Exercise 1. Following the control flow</a></li>
+<li class="chapter" data-level="6.7.1" data-path="functions.html"><a href="functions.html#exercise-1.-following-the-control-flow-1"><i class="fa fa-check"></i><b>6.7.1</b> Exercise 1. Following the control flow</a></li>
 <li class="chapter" data-level="6.7.2" data-path="functions.html"><a href="functions.html#exercise-2.-an-imperfect-list-sorting-attempt"><i class="fa fa-check"></i><b>6.7.2</b> Exercise 2. An imperfect list sorting attempt</a></li>
 <li class="chapter" data-level="6.7.3" data-path="functions.html"><a href="functions.html#exercise-3.-an-erroneous-sorting-algorithm"><i class="fa fa-check"></i><b>6.7.3</b> Exercise 3. An erroneous sorting algorithm</a></li>
 <li class="chapter" data-level="6.7.4" data-path="functions.html"><a href="functions.html#exercise-4.-chunking"><i class="fa fa-check"></i><b>6.7.4</b> Exercise 4. Chunking</a></li>
@@ -247,7 +258,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="8.4.3" data-path="interaction.html"><a href="interaction.html#placing-text-and-pictures"><i class="fa fa-check"></i><b>8.4.3</b> Placing text and pictures</a></li>
 </ul></li>
 <li class="chapter" data-level="8.5" data-path="interaction.html"><a href="interaction.html#exercises-8"><i class="fa fa-check"></i><b>8.5</b> Exercises</a><ul>
-<li class="chapter" data-level="8.5.1" data-path="interaction.html"><a href="interaction.html#exercise-c.-transition-tables-1"><i class="fa fa-check"></i><b>8.5.1</b> Exercise C. Transition tables</a></li>
+<li class="chapter" data-level="8.5.1" data-path="interaction.html"><a href="interaction.html#exercise-c.-transition-tables"><i class="fa fa-check"></i><b>8.5.1</b> Exercise C. Transition tables</a></li>
 </ul></li>
 <li class="chapter" data-level="8.6" data-path="interaction.html"><a href="interaction.html#common-errors-5"><i class="fa fa-check"></i><b>8.6</b> Common errors</a></li>
 <li class="chapter" data-level="8.7" data-path="interaction.html"><a href="interaction.html#think-further-5"><i class="fa fa-check"></i><b>8.7</b> Think Further</a></li>
@@ -255,39 +266,50 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="9" data-path="solutions.html"><a href="solutions.html"><i class="fa fa-check"></i><b>9</b> Solutions</a><ul>
 <li class="chapter" data-level="9.1" data-path="solutions.html"><a href="solutions.html#chapter-1.-introduction"><i class="fa fa-check"></i><b>9.1</b> Chapter 1. Introduction</a></li>
 <li class="chapter" data-level="9.2" data-path="solutions.html"><a href="solutions.html#chapter-2.-variables-values-and-types"><i class="fa fa-check"></i><b>9.2</b> Chapter 2. Variables, values and types</a><ul>
-<li class="chapter" data-level="9.2.1" data-path="solutions.html"><a href="solutions.html#exercise-1.-string-concatenation-1"><i class="fa fa-check"></i><b>9.2.1</b> Exercise 1. String concatenation</a></li>
-<li class="chapter" data-level="9.2.2" data-path="solutions.html"><a href="solutions.html#exercise-2.-variable-names-1"><i class="fa fa-check"></i><b>9.2.2</b> Exercise 2. Variable names</a></li>
-<li class="chapter" data-level="9.2.3" data-path="solutions.html"><a href="solutions.html#exercise-3.-stroop-task-welcome-message-1"><i class="fa fa-check"></i><b>9.2.3</b> Exercise 3. Stroop task welcome message</a></li>
-<li class="chapter" data-level="9.2.4" data-path="solutions.html"><a href="solutions.html#exercise-4.-printing-1"><i class="fa fa-check"></i><b>9.2.4</b> Exercise 4. Printing</a></li>
-<li class="chapter" data-level="9.2.5" data-path="solutions.html"><a href="solutions.html#exercise-5.-using-python-as-calculator"><i class="fa fa-check"></i><b>9.2.5</b> Exercise 5. Using Python as calculator</a></li>
-<li class="chapter" data-level="9.2.6" data-path="solutions.html"><a href="solutions.html#exercise-6.-a-boolean-puzzle-1"><i class="fa fa-check"></i><b>9.2.6</b> Exercise 6. A Boolean puzzle</a></li>
+<li class="chapter" data-level="9.2.1" data-path="solutions.html"><a href="solutions.html#exercise-1.-operators-1"><i class="fa fa-check"></i><b>9.2.1</b> Exercise 1. Operators</a></li>
+<li class="chapter" data-level="9.2.2" data-path="solutions.html"><a href="solutions.html#exercise-2.-values-1"><i class="fa fa-check"></i><b>9.2.2</b> Exercise 2. Values</a></li>
+<li class="chapter" data-level="9.2.3" data-path="solutions.html"><a href="solutions.html#exercise-3.-mini-programs-2"><i class="fa fa-check"></i><b>9.2.3</b> Exercise 3. Mini programs</a></li>
+<li class="chapter" data-level="9.2.4" data-path="solutions.html"><a href="solutions.html#exercise-4.-debugging-1"><i class="fa fa-check"></i><b>9.2.4</b> Exercise 4. Debugging</a></li>
+<li class="chapter" data-level="9.2.5" data-path="solutions.html"><a href="solutions.html#exercise-5.-string-concatenation-1"><i class="fa fa-check"></i><b>9.2.5</b> Exercise 5. String concatenation</a></li>
+<li class="chapter" data-level="9.2.6" data-path="solutions.html"><a href="solutions.html#exercise-6.-variable-names-1"><i class="fa fa-check"></i><b>9.2.6</b> Exercise 6. Variable names</a></li>
+<li class="chapter" data-level="9.2.7" data-path="solutions.html"><a href="solutions.html#exercise-7.-stroop-task-welcome-message-1"><i class="fa fa-check"></i><b>9.2.7</b> Exercise 7. Stroop task welcome message</a></li>
+<li class="chapter" data-level="9.2.8" data-path="solutions.html"><a href="solutions.html#exercise-8.-printing-1"><i class="fa fa-check"></i><b>9.2.8</b> Exercise 8. Printing</a></li>
+<li class="chapter" data-level="9.2.9" data-path="solutions.html"><a href="solutions.html#exercise-9.-using-python-as-calculator"><i class="fa fa-check"></i><b>9.2.9</b> Exercise 9. Using Python as calculator</a></li>
+<li class="chapter" data-level="9.2.10" data-path="solutions.html"><a href="solutions.html#exercise-10.-a-boolean-puzzle-1"><i class="fa fa-check"></i><b>9.2.10</b> Exercise 10. A Boolean puzzle</a></li>
 </ul></li>
 <li class="chapter" data-level="9.3" data-path="solutions.html"><a href="solutions.html#chapter-3.-conditionals"><i class="fa fa-check"></i><b>9.3</b> Chapter 3. Conditionals</a><ul>
-<li class="chapter" data-level="9.3.1" data-path="solutions.html"><a href="solutions.html#exercise-1.-following-the-control-flow-3"><i class="fa fa-check"></i><b>9.3.1</b> Exercise 1. Following the control flow</a></li>
-<li class="chapter" data-level="9.3.2" data-path="solutions.html"><a href="solutions.html#exercise-2.-indentation-1"><i class="fa fa-check"></i><b>9.3.2</b> Exercise 2. Indentation</a></li>
-<li class="chapter" data-level="9.3.3" data-path="solutions.html"><a href="solutions.html#exercise-3.-pseudo-code-conditionals-1"><i class="fa fa-check"></i><b>9.3.3</b> Exercise 3. Pseudo code conditionals</a></li>
-<li class="chapter" data-level="9.3.4" data-path="solutions.html"><a href="solutions.html#exercise-4.-modify-stroop-task-1"><i class="fa fa-check"></i><b>9.3.4</b> Exercise 4. Modify Stroop Task</a></li>
-<li class="chapter" data-level="9.3.5" data-path="solutions.html"><a href="solutions.html#exercise-5.-simplify-nested-conditionals-1"><i class="fa fa-check"></i><b>9.3.5</b> Exercise 5. Simplify nested conditionals</a></li>
-<li class="chapter" data-level="9.3.6" data-path="solutions.html"><a href="solutions.html#exercise-6.-flow-chart-conditionals-1"><i class="fa fa-check"></i><b>9.3.6</b> Exercise 6. Flow chart conditionals</a></li>
+<li class="chapter" data-level="9.3.1" data-path="solutions.html"><a href="solutions.html#exercise-1.-boolean-logic-1"><i class="fa fa-check"></i><b>9.3.1</b> Exercise 1. Boolean logic</a></li>
+<li class="chapter" data-level="9.3.2" data-path="solutions.html"><a href="solutions.html#exercise-2.-state-charts-1"><i class="fa fa-check"></i><b>9.3.2</b> Exercise 2. State charts</a></li>
+<li class="chapter" data-level="9.3.3" data-path="solutions.html"><a href="solutions.html#exercise-3.-transition-tables-1"><i class="fa fa-check"></i><b>9.3.3</b> Exercise 3. Transition tables</a></li>
+<li class="chapter" data-level="9.3.4" data-path="solutions.html"><a href="solutions.html#exercise-4.-mini-programs-1"><i class="fa fa-check"></i><b>9.3.4</b> Exercise 4. Mini programs</a></li>
+<li class="chapter" data-level="9.3.5" data-path="solutions.html"><a href="solutions.html#exercise-5.-following-the-control-flow-1"><i class="fa fa-check"></i><b>9.3.5</b> Exercise 5. Following the control flow</a></li>
+<li class="chapter" data-level="9.3.6" data-path="solutions.html"><a href="solutions.html#exercise-6.-indentation-1"><i class="fa fa-check"></i><b>9.3.6</b> Exercise 6. Indentation</a></li>
+<li class="chapter" data-level="9.3.7" data-path="solutions.html"><a href="solutions.html#exercise-7.-pseudo-code-conditionals-1"><i class="fa fa-check"></i><b>9.3.7</b> Exercise 7. Pseudo code conditionals</a></li>
+<li class="chapter" data-level="9.3.8" data-path="solutions.html"><a href="solutions.html#exercise-8.-modify-stroop-task-1"><i class="fa fa-check"></i><b>9.3.8</b> Exercise 8. Modify Stroop Task</a></li>
+<li class="chapter" data-level="9.3.9" data-path="solutions.html"><a href="solutions.html#exercise-9.-simplify-nested-conditionals-1"><i class="fa fa-check"></i><b>9.3.9</b> Exercise 9. Simplify nested conditionals</a></li>
+<li class="chapter" data-level="9.3.10" data-path="solutions.html"><a href="solutions.html#exercise-10.-flow-chart-conditionals-1"><i class="fa fa-check"></i><b>9.3.10</b> Exercise 10. Flow chart conditionals</a></li>
 </ul></li>
 <li class="chapter" data-level="9.4" data-path="solutions.html"><a href="solutions.html#chapter-4.-lists"><i class="fa fa-check"></i><b>9.4</b> Chapter 4. Lists</a><ul>
-<li class="chapter" data-level="9.4.1" data-path="solutions.html"><a href="solutions.html#exercise-1.-shopping-list-1"><i class="fa fa-check"></i><b>9.4.1</b> Exercise 1. Shopping list</a></li>
-<li class="chapter" data-level="9.4.2" data-path="solutions.html"><a href="solutions.html#exercise-2.-dictionnaries-1"><i class="fa fa-check"></i><b>9.4.2</b> Exercise 2. Dictionnaries</a></li>
-<li class="chapter" data-level="9.4.3" data-path="solutions.html"><a href="solutions.html#exercise-3.-selecting-elements"><i class="fa fa-check"></i><b>9.4.3</b> Exercise 3. Selecting elements</a></li>
-<li class="chapter" data-level="9.4.4" data-path="solutions.html"><a href="solutions.html#exercise-4.-adjust-a-dictionnary-data-set-1"><i class="fa fa-check"></i><b>9.4.4</b> Exercise 4. Adjust a dictionnary data set</a></li>
-<li class="chapter" data-level="9.4.5" data-path="solutions.html"><a href="solutions.html#exercise-5.-a-dictionnary-data-set-1"><i class="fa fa-check"></i><b>9.4.5</b> Exercise 5. A dictionnary data set</a></li>
-<li class="chapter" data-level="9.4.6" data-path="solutions.html"><a href="solutions.html#exercise-6.-stroop-extension-1"><i class="fa fa-check"></i><b>9.4.6</b> Exercise 6. Stroop extension</a></li>
+<li class="chapter" data-level="9.4.1" data-path="solutions.html"><a href="solutions.html#exercise-1.-indexing-1"><i class="fa fa-check"></i><b>9.4.1</b> Exercise 1. Indexing</a></li>
+<li class="chapter" data-level="9.4.2" data-path="solutions.html"><a href="solutions.html#exercise-2.-debugging-2"><i class="fa fa-check"></i><b>9.4.2</b> Exercise 2. Debugging</a></li>
+<li class="chapter" data-level="9.4.3" data-path="solutions.html"><a href="solutions.html#exercise-3.-mini-programs-3"><i class="fa fa-check"></i><b>9.4.3</b> Exercise 3. Mini programs</a></li>
+<li class="chapter" data-level="9.4.4" data-path="solutions.html"><a href="solutions.html#exercise-1.-shopping-list"><i class="fa fa-check"></i><b>9.4.4</b> Exercise 1. Shopping list</a></li>
+<li class="chapter" data-level="9.4.5" data-path="solutions.html"><a href="solutions.html#exercise-2.-dictionnaries"><i class="fa fa-check"></i><b>9.4.5</b> Exercise 2. Dictionnaries</a></li>
+<li class="chapter" data-level="9.4.6" data-path="solutions.html"><a href="solutions.html#exercise-3.-selecting-elements"><i class="fa fa-check"></i><b>9.4.6</b> Exercise 3. Selecting elements</a></li>
+<li class="chapter" data-level="9.4.7" data-path="solutions.html"><a href="solutions.html#exercise-4.-adjust-a-dictionnary-data-set"><i class="fa fa-check"></i><b>9.4.7</b> Exercise 4. Adjust a dictionnary data set</a></li>
+<li class="chapter" data-level="9.4.8" data-path="solutions.html"><a href="solutions.html#exercise-5.-a-dictionnary-data-set"><i class="fa fa-check"></i><b>9.4.8</b> Exercise 5. A dictionnary data set</a></li>
+<li class="chapter" data-level="9.4.9" data-path="solutions.html"><a href="solutions.html#exercise-6.-stroop-extension"><i class="fa fa-check"></i><b>9.4.9</b> Exercise 6. Stroop extension</a></li>
 </ul></li>
 <li class="chapter" data-level="9.5" data-path="solutions.html"><a href="solutions.html#chapter-5.-loops"><i class="fa fa-check"></i><b>9.5</b> Chapter 5. Loops</a><ul>
-<li class="chapter" data-level="9.5.1" data-path="solutions.html"><a href="solutions.html#exercise-1.-following-the-control-flow-4"><i class="fa fa-check"></i><b>9.5.1</b> Exercise 1. Following the control flow</a></li>
-<li class="chapter" data-level="9.5.2" data-path="solutions.html"><a href="solutions.html#exercise-2.-debugging-1"><i class="fa fa-check"></i><b>9.5.2</b> Exercise 2. Debugging</a></li>
+<li class="chapter" data-level="9.5.1" data-path="solutions.html"><a href="solutions.html#exercise-1.-following-the-control-flow-2"><i class="fa fa-check"></i><b>9.5.1</b> Exercise 1. Following the control flow</a></li>
+<li class="chapter" data-level="9.5.2" data-path="solutions.html"><a href="solutions.html#exercise-2.-debugging-3"><i class="fa fa-check"></i><b>9.5.2</b> Exercise 2. Debugging</a></li>
 <li class="chapter" data-level="9.5.3" data-path="solutions.html"><a href="solutions.html#exercise-3.-nested-loops-1"><i class="fa fa-check"></i><b>9.5.3</b> Exercise 3. Nested loops</a></li>
 <li class="chapter" data-level="9.5.4" data-path="solutions.html"><a href="solutions.html#exercise-4.-data-transformation-using-loops-1"><i class="fa fa-check"></i><b>9.5.4</b> Exercise 4. Data transformation using loops</a></li>
 <li class="chapter" data-level="9.5.5" data-path="solutions.html"><a href="solutions.html#exercise-5.-calculating-a-mean-1"><i class="fa fa-check"></i><b>9.5.5</b> Exercise 5. Calculating a mean</a></li>
 <li class="chapter" data-level="9.5.6" data-path="solutions.html"><a href="solutions.html#exercise-6.-a-guessing-game-1"><i class="fa fa-check"></i><b>9.5.6</b> Exercise 6. A guessing game</a></li>
 </ul></li>
 <li class="chapter" data-level="9.6" data-path="solutions.html"><a href="solutions.html#chapter-6.-functions"><i class="fa fa-check"></i><b>9.6</b> Chapter 6. Functions</a><ul>
-<li class="chapter" data-level="9.6.1" data-path="solutions.html"><a href="solutions.html#exercise-1.-following-the-control-flow-5"><i class="fa fa-check"></i><b>9.6.1</b> Exercise 1. Following the control flow</a></li>
+<li class="chapter" data-level="9.6.1" data-path="solutions.html"><a href="solutions.html#exercise-1.-following-the-control-flow-3"><i class="fa fa-check"></i><b>9.6.1</b> Exercise 1. Following the control flow</a></li>
 <li class="chapter" data-level="9.6.2" data-path="solutions.html"><a href="solutions.html#exercise-2.-an-imperfect-list-sorting-attempt-1"><i class="fa fa-check"></i><b>9.6.2</b> Exercise 2. An imperfect list sorting attempt</a></li>
 <li class="chapter" data-level="9.6.3" data-path="solutions.html"><a href="solutions.html#exercise-3.-an-errorneous-sorting-algorithm"><i class="fa fa-check"></i><b>9.6.3</b> Exercise 3. An errorneous sorting algorithm</a></li>
 <li class="chapter" data-level="9.6.4" data-path="solutions.html"><a href="solutions.html#exercise-4."><i class="fa fa-check"></i><b>9.6.4</b> Exercise 4.</a></li>
@@ -296,8 +318,13 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="10" data-path="debugging-and-good-programming-practices.html"><a href="debugging-and-good-programming-practices.html"><i class="fa fa-check"></i><b>10</b> Debugging and good programming practices</a><ul>
-<li class="chapter" data-level="10.1" data-path="debugging-and-good-programming-practices.html"><a href="debugging-and-good-programming-practices.html#debugging-2"><i class="fa fa-check"></i><b>10.1</b> Debugging</a></li>
-<li class="chapter" data-level="10.2" data-path="debugging-and-good-programming-practices.html"><a href="debugging-and-good-programming-practices.html#how-to-develop-your-programming-skills-quickly"><i class="fa fa-check"></i><b>10.2</b> How to develop your programming skills quickly</a><ul>
+<li class="chapter" data-level="10.1" data-path="debugging-and-good-programming-practices.html"><a href="debugging-and-good-programming-practices.html#debugging-3"><i class="fa fa-check"></i><b>10.1</b> Debugging</a><ul>
+<li class="chapter" data-level="10.1.1" data-path="debugging-and-good-programming-practices.html"><a href="debugging-and-good-programming-practices.html#the-print-statement-is-an-aspiring-programmers-best-friend"><i class="fa fa-check"></i><b>10.1.1</b> The print statement is an aspiring programmer’s best friend</a></li>
+<li class="chapter" data-level="10.1.2" data-path="debugging-and-good-programming-practices.html"><a href="debugging-and-good-programming-practices.html#frequent-unit-testing"><i class="fa fa-check"></i><b>10.1.2</b> Frequent unit-testing</a></li>
+<li class="chapter" data-level="10.1.3" data-path="debugging-and-good-programming-practices.html"><a href="debugging-and-good-programming-practices.html#the-copy-paste-syndrome"><i class="fa fa-check"></i><b>10.1.3</b> The copy-paste syndrome</a></li>
+<li class="chapter" data-level="10.1.4" data-path="debugging-and-good-programming-practices.html"><a href="debugging-and-good-programming-practices.html#standing-on-the-shoulders-of-giants"><i class="fa fa-check"></i><b>10.1.4</b> Standing on the shoulders of giants</a></li>
+</ul></li>
+<li class="chapter" data-level="10.2" data-path="debugging-and-good-programming-practices.html"><a href="debugging-and-good-programming-practices.html#boosting-your-programming-learning-curve"><i class="fa fa-check"></i><b>10.2</b> Boosting your programming learning curve</a><ul>
 <li class="chapter" data-level="10.2.1" data-path="debugging-and-good-programming-practices.html"><a href="debugging-and-good-programming-practices.html#going-with-the-flow"><i class="fa fa-check"></i><b>10.2.1</b> Going with the flow</a></li>
 <li class="chapter" data-level="10.2.2" data-path="debugging-and-good-programming-practices.html"><a href="debugging-and-good-programming-practices.html#just-do-it"><i class="fa fa-check"></i><b>10.2.2</b> Just do it!</a></li>
 </ul></li>
@@ -325,33 +352,37 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 message.append(<span class="st">&quot;world&quot;</span>)
 <span class="bu">print</span>(<span class="st">&quot; &quot;</span>.join(message))</code></pre></div>
 <pre><code>## Hello, world</code></pre>
-<p>In chapter, 2 Variables, you encountered the four basic data types of the Python programming language: <em>integers</em>, <em>floats</em>, <em>Strings</em> and <em>Booleans</em>. You also learned that apart from these four basic data types, Python knows numerous specialized types. In this chapter, you will learn more about one group of these specialized data types: <em>collections</em>.</p>
+<p>In chapter 2 Variables, you encountered the four basic data types of the Python programming language: <em>integers</em>, <em>floats</em>, <em>Strings</em> and <em>Booleans</em>. You also learned that apart from these four basic data types, Python knows numerous specialized types. Now it is time to encounter one group of these specialized data types: <em>collections</em>. You will learn about three types of collections, <em>lists</em>, <em>tuples</em>, and <em>dictionaries</em> in this chapter. Together, they make up a toolbox for storing information in a computer program.</p>
 <div id="lists" class="section level2">
 <h2><span class="header-section-number">4.1</span> Lists</h2>
-<p>One type of collection are <em>lists</em>.</p>
 <div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python">a <span class="op">=</span> [<span class="dv">10</span>, <span class="dv">5</span>, <span class="dv">15</span>, <span class="dv">25</span>]
 b <span class="op">=</span> [<span class="st">&quot;eggs&quot;</span>, <span class="st">&quot;bacon&quot;</span>, <span class="st">&quot;cheese&quot;</span>]
 c <span class="op">=</span> [<span class="dv">4</span>, <span class="st">&quot;hello&quot;</span>, <span class="fl">7.3</span>, <span class="va">False</span>]</code></pre></div>
-<p>The easiest way of creating a list is surrounding some values with cornered brackets <code>[]</code> and separating the values of the list with commas <code>,</code>. The values that make up a list are called <em>items</em> or <em>elements</em>.</p>
-<p>A special type of list is the so-called <em>empty list</em>. An empty list is a list with no elements. Empty lists are denoted with <code>[]</code>. Lists can also be <em>nested</em> into one another to form <em>lists of lists</em>.</p>
-<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python">a <span class="op">=</span> []
-b <span class="op">=</span> [<span class="va">True</span>, <span class="fl">2.0</span>, <span class="st">&quot;hello&quot;</span>, [<span class="dv">5</span>,<span class="dv">6</span>]]</code></pre></div>
-<p>In a sense, lists are similar to <em>Strings</em>. Strings are basically ordered collections of <em>characters</em>. For example, the word <code>Hello</code> is an ordered sequence of five characters: <code>H</code>,<code>e</code>, <code>l</code>, <code>l</code>, and <code>o</code>. In contrast to Strings, however, the elements of lists can be of <em>any</em> type. Ordered collections such as strings and lists are also called <em>sequences</em>.</p>
-<p>Lists are <em>ordered</em> collections of values. However, a list being <em>ordered</em> has nothing to do with how humans may be inclinded to order the elements of a list. For example, you may want to order a list <code>a</code> with three elements <code>&quot;A&quot;, &quot;B&quot;,</code> and <code>&quot;C&quot;</code> according to their alphabetic order: <code>a = [&quot;A&quot;, &quot;B&quot;, &quot;C&quot;]</code>. However, for lists, the value of an element is irrelevant for its position in the list. Lists are not <em>ordered</em> because they grasp some underlying semantics about their elements and rank their elements accordingly. In fact, element values are arbitrary for a list. Instead, lists are called <em>ordered</em> because they allocate a certain position in memory to each element. Each list element occupies a unique position in memory. Elements of a list are accessed by querying the list at a specified position, a so-called <em>index</em>. Accessing a list at a specified index, the value located at that position in memory is returned. The <em>index operator</em> <code>[]</code> is used to access list elements at specified indices.</p>
-<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python">a <span class="op">=</span> [<span class="dv">3</span>, <span class="dv">17</span>, <span class="dv">8</span>]
+<p>Lists are one type of collection. The easiest way of creating a list is surrounding some values with cornered brackets <code>[]</code> and separating the values of the list with commas <code>,</code>. The values that make up a list are called <em>items</em> or <em>elements</em>. Lists can contain any type of value or variable. From this it follows that lists can also contain other lists! A list that contains another list is called a <em>list of lists</em>, or <em>nested</em> list (you may also think of this phenomenon as <em>listception</em>, if you ever watched Christopher Nolan’s <em>Inception</em> (2010)).</p>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python">a <span class="op">=</span> <span class="dv">2</span>
+b <span class="op">=</span> [a, <span class="dv">2</span><span class="op">*</span>a]
+c <span class="op">=</span> [b, <span class="dv">6</span>]
+<span class="bu">print</span>(c)</code></pre></div>
+<pre><code>## [[2, 4], 6]</code></pre>
+<p>A special type of list is the so-called <em>empty list</em>. An empty list is a list with no elements. Empty lists are denoted with <code>[]</code>.</p>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python">a <span class="op">=</span> []</code></pre></div>
+<p>In a sense, lists are similar to <em>Strings</em>. Strings are basically ordered collections of <em>characters</em>. For example, the word <code>Hello</code> is an ordered collection of five characters: <code>H</code>,<code>e</code>, <code>l</code>, <code>l</code>, and <code>o</code>. In contrast to Strings, however, the elements of lists can be of <em>any</em> type. Ordered collections such as strings and lists are also called <em>sequences</em>.</p>
+<p>Lists are <em>ordered</em> collections of values. However, a list being <em>ordered</em> has nothing to do with how humans may be inclinded to order the elements of a list. For example, you may want to order a list <code>a</code> with three elements <code>&quot;A&quot;, &quot;B&quot;,</code> and <code>&quot;C&quot;</code> according to their alphabetic order: <code>a = [&quot;A&quot;, &quot;B&quot;, &quot;C&quot;]</code>. However, for lists, the value of an element is irrelevant for its position in the list. Lists are <strong>not</strong> <em>ordered</em> because they grasp some underlying semantics about their elements according to which they come up with an order. In fact, element values are arbitrary for a list. Instead, lists are called <em>ordered</em> because they allocate a certain position in memory to each element. Each list element occupies a unique position in memory. Elements of a list are accessed by querying the list at specified positions, so-called <em>indices</em>. Accessing a list at a specified index, the value located at that position in memory is returned. The <em>index operator</em> <code>[]</code> is used to access list elements at specified indices, like so</p>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python">a <span class="op">=</span> [<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>]
 <span class="bu">print</span>(a[<span class="dv">0</span>])</code></pre></div>
-<pre><code>## 3</code></pre>
+<pre><code>## 1</code></pre>
 <div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python"><span class="bu">print</span>(a[<span class="dv">1</span>])</code></pre></div>
-<pre><code>## 17</code></pre>
-<p>The <em>expression</em> inside the brackets of the index operator (in this case the integers <code>0</code> and <code>1</code>) specifies the <em>index</em> of the to-be selected element. Each element inside a list has a unique index, an <em>integer</em> describing the element’s position in the list. One major cause of errors surrounding lists is that indices start at <code>0</code>, not at <code>1</code>, as you might expect. This means that the first element of a list is accessed by indexing <code>0</code>, not <code>1</code>!</p>
+<pre><code>## 2</code></pre>
+<p>The <em>expression</em> inside the brackets of the index operator (in this case the integers <code>0</code> and <code>1</code>) specifies the <em>index</em> of the to-be selected element. Each element inside a list has a unique index, an <em>integer</em> describing the element’s position in the list. One major cause of errors surrounding lists is that indices start at <code>0</code>, not at <code>1</code>, as you might expect. After all, to us it feels natural to start counting at <code>1</code>. As you can see below, this means that the first element of a list is accessed by indexing <code>0</code>.</p>
 <div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python">a <span class="op">=</span> [<span class="st">&quot;Hello&quot;</span>, <span class="st">&quot;World&quot;</span>, <span class="st">&quot;!&quot;</span>]
 <span class="bu">print</span>(a[<span class="dv">0</span>])</code></pre></div>
 <pre><code>## Hello</code></pre>
 <div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python"><span class="bu">print</span>(a[<span class="dv">2</span>])</code></pre></div>
 <pre><code>## !</code></pre>
+<p>Why do indices start at 0, instead of 1? As you might already expect, it has to do with how computers store information in memory. A list serves as a pointer, a reference to a memory location. The expression <code>list[i]</code> then refers to a memory position i-steps away from the starting element. This means that the index is used as an offset. The first element of a list is located at exactly the position the list refers to (which means that the offset is 0). Hence, the first element of a list is located at index 0.</p>
 <div id="lists-are-mutable" class="section level3">
 <h3><span class="header-section-number">4.1.1</span> Lists are mutable</h3>
-<p>In contrast to Strings, lists are <em>mutable</em> sequences. This means that even after a variable is assigned a list value, specific elements of the list can be changed without reassigning a completely new list! You can use the <em>index operator</em> to change specific list items.</p>
+<p>In contrast to Strings, lists are <em>mutable</em> sequences. This means that even after a variable is assigned a list as value, specific elements of this list can be changed without reassigning a completely new list! You can use the <em>index operator</em> to mutate specific list items.</p>
 <div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python">shoppinglist <span class="op">=</span> [<span class="st">&quot;appels&quot;</span>, <span class="st">&quot;bananas&quot;</span>, <span class="st">&quot;tomatoes&quot;</span>]
 shoppinglist[<span class="dv">2</span>] <span class="op">=</span> <span class="st">&quot;peaches&quot;</span>
 <span class="bu">print</span>(<span class="st">&quot;Updated shopping list: &quot;</span> <span class="op">+</span> <span class="st">&quot;, &quot;</span>.join(shoppinglist))</code></pre></div>
@@ -360,34 +391,7 @@ shoppinglist[<span class="dv">2</span>] <span class="op">=</span> <span class="s
 a[<span class="dv">0</span>] <span class="op">=</span> <span class="dv">10</span>
 <span class="bu">print</span>(a)</code></pre></div>
 <pre><code>## [10, 2]</code></pre>
-<p>But watch out, you <strong>cannot</strong> use the index operator to add new elements to a list. To do so, you would need to access a new index, an index not yet claimed by an existing list element. Trying to access an index outside of the current range of indices will produce an index out of range error.</p>
-<pre><code>a = [1,2]
-a[2] = 10
-print(a)
-
-IndexError: list assignment index out of range</code></pre>
-<p>There are several ways of adding elements to a list.</p>
-<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python">a <span class="op">=</span> []
-a.append(<span class="dv">1</span>)
-<span class="bu">print</span>(a)</code></pre></div>
-<pre><code>## [1]</code></pre>
-<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python">a.append(<span class="dv">2</span>)
-<span class="bu">print</span>(a)</code></pre></div>
-<pre><code>## [1, 2]</code></pre>
-<p>The <em>append</em> method adds the specified element at the end of the list. You can use the <em>extend</em> method to add <em>multiple</em> values of another list (or other type of collection) to your list.</p>
-<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python">a <span class="op">=</span> [<span class="dv">1</span>,<span class="dv">2</span>]
-b <span class="op">=</span> [<span class="dv">3</span>,<span class="dv">4</span>]
-a.extend(b)
-<span class="bu">print</span>(a)</code></pre></div>
-<pre><code>## [1, 2, 3, 4]</code></pre>
-<p>Note that there is a difference between appending a list and extending your list with another list.</p>
-<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python">a <span class="op">=</span> [<span class="dv">1</span>,<span class="dv">2</span>]
-b <span class="op">=</span> [<span class="dv">3</span>,<span class="dv">4</span>]
-a.append(b)
-<span class="bu">print</span>(a)</code></pre></div>
-<pre><code>## [1, 2, [3, 4]]</code></pre>
-<p>In the above example, <strong>extending</strong> <code>a</code> with <code>b</code> causes the elements stored in <code>b</code> to be appended to <code>a</code> sequentially, each of them constituting a new element in <code>a</code>. In contrast, the whole list <code>b</code> is regarded as an element of <code>a</code> when <code>b</code> is <strong>appended</strong> to <code>a</code>. Because lists are mutable, you can sequentially fill them with elements, one by one. This is very handy for storing values you generate throughout your program.</p>
-<p>Using the index operator, you can access (and change!) several elements at a time in a list using so-called <em>list slices</em>:</p>
+<p>Using the index operator, you can also access (and change!) several elements at a time using so-called <em>list slices</em>:</p>
 <div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python">a <span class="op">=</span> [<span class="dv">1</span>, <span class="st">&quot;a&quot;</span>, <span class="dv">2</span>, <span class="st">&quot;b&quot;</span>, <span class="dv">3</span>, <span class="st">&quot;c&quot;</span>]
 <span class="bu">print</span>(a[<span class="dv">1</span>:<span class="dv">4</span>])</code></pre></div>
 <pre><code>## [&#39;a&#39;, 2, &#39;b&#39;]</code></pre>
@@ -403,63 +407,114 @@ a.append(b)
 aCopy <span class="op">=</span> a[:]
 <span class="bu">print</span>(aCopy)</code></pre></div>
 <pre><code>## [1, &#39;a&#39;, 2, &#39;b&#39;, 3, &#39;c&#39;]</code></pre>
+<p>But watch out, you <strong>cannot</strong> use the index operator to add new elements to a list. To do so, you would need to access a new index, an index not yet claimed by an existing list element. Trying to access an index outside of the current range of indices will produce an index out of range error.</p>
+<pre><code>a = [1,2]
+a[2] = 10
+print(a)
+
+IndexError: list assignment index out of range</code></pre>
+<p>Luckily, there are other ways of adding elements to a list.</p>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python">a <span class="op">=</span> []
+a.append(<span class="dv">1</span>)
+<span class="bu">print</span>(a)</code></pre></div>
+<pre><code>## [1]</code></pre>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python">a.append(<span class="dv">2</span>)
+<span class="bu">print</span>(a)</code></pre></div>
+<pre><code>## [1, 2]</code></pre>
+<p>The <em>append</em> method adds the specified element at the end of a given list. You can use the <em>extend</em> method to add <em>multiple</em> values of another list (or other type of collection) to your list.</p>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python">a <span class="op">=</span> [<span class="dv">1</span>,<span class="dv">2</span>]
+b <span class="op">=</span> [<span class="dv">3</span>,<span class="dv">4</span>]
+a.extend(b)
+<span class="bu">print</span>(a)</code></pre></div>
+<pre><code>## [1, 2, 3, 4]</code></pre>
+<p>Note that there is a difference between appending a list and extending your list with another list.</p>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python">a <span class="op">=</span> [<span class="dv">1</span>,<span class="dv">2</span>]
+b <span class="op">=</span> [<span class="dv">3</span>,<span class="dv">4</span>]
+a.append(b)
+<span class="bu">print</span>(a)</code></pre></div>
+<pre><code>## [1, 2, [3, 4]]</code></pre>
+<p>In the above example, <strong>extending</strong> <code>a</code> with <code>b</code> causes the elements stored in <code>b</code> to be appended to <code>a</code> sequentially, each of them constituting a new element in <code>a</code>. In contrast, the whole list <code>b</code> is regarded as an element of <code>a</code> when <code>b</code> is <strong>appended</strong> to <code>a</code>. Because lists are mutable, you can sequentially fill them with elements, one by one. This is very handy for storing values you generate throughout your program.</p>
 </div>
 <div id="a-word-about-class-specific-functions" class="section level3">
 <h3><span class="header-section-number">4.1.2</span> A word about class specific functions</h3>
-<p>By now, you have seen a few examples of class-specific <em>functions</em>, such as <code>append()</code> for lists or <code>join()</code> for strings. Even though a detailed explanation of <em>functions</em> (also called <em>methods</em>) is postponed to Chapter <a href="functions.html#functions">6</a>, a quick introduction to objects, classes, and class-specific functions will help you make the most of your lists and their built-in functions. For now, you can see functions as pieces of reusable code.</p>
-<p>When you create a variable <code>a</code> and assign a value to it, say <code>[4,5]</code>, you can think of it as creating an <em>object</em> (i.e. an instance) of the Python <em>class</em> <em>list</em>. The <em>list</em> class has been programmed by the developers of the Python language, same as any other built-in Python class, such as integers and strings. Classes are blueprints, a specification of how to build certain objects. Engineers use blueprints to build cars, buildings, bridges and more. Chefs use recipes to put together meals. Python classes are the same in that they specify how objects of a certain type are programmed when you initiate them. A class has built-in <em>methods</em> that can be used by <em>any</em> object that has been create using the class’ blueprint. This is very useful, because you can use a wide range of useful functions specifically designed for instances of the class. Your lists can use a range of built-in functionalities simply because they inherit these functionalities from their initial blueprint. An example is the <code>append()</code> method for the <code>list</code> class.</p>
+<p>By now, you have seen a few examples of class-specific <em>functions</em>, such as <code>append()</code> for lists or <code>join()</code> for strings. Even though a detailed explanation of <em>functions</em> (also called <em>methods</em>) is postponed to Chapter <a href="functions.html#functions">6</a>, a quick introduction to the terminology of objects, classes, and class-specific functions will help you make the most of your lists and other collections. For now, you can see functions as pieces of reusable code that specify what to do with some input values.</p>
+<p>When you create a variable <code>a</code> and assign a value to it, say <code>[4,5]</code>, you can think of it as creating an <em>object</em> (i.e. an instance) of the Python <em>class</em> <em>list</em>. The <em>list</em> class has been programmed by the developers of the Python language, same as any other built-in Python class, such as integers and strings. Classes are blueprints, a specification of how to build certain objects. Engineers use blueprints to build cars, buildings, bridges and more. Chefs use recipes to put together meals. Python classes are the same in that they specify how objects of a certain type are programmed internally when you create one of them. A class has built-in <em>methods</em> that can be used by <em>any</em> object that has been created using the class’ blueprint. And this is what you basically do whenever you surround a number of values with cornered brackets. You create a list according to the blueprint of the Python class <code>list</code>. It is very useful that your list inherits <em>functions</em> from its blueprint. It means that without any effort on your part your lists have a variety of functionality at their disposal. They can immediately use a range of built-in methods such as the <code>append()</code> method.</p>
 <div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python">a <span class="op">=</span> [<span class="dv">4</span>,<span class="dv">5</span>]
 a.append(<span class="dv">6</span>)
 <span class="bu">print</span>(a)</code></pre></div>
 <pre><code>## [4, 5, 6]</code></pre>
-<p>The <code>append()</code> method adds the value specified between the brackets to the end of the list. Typing <code>help(list)</code> in your console will give you a complete list of built-in functions of the class <code>list</code> and what their functionalities are.</p>
-<p>What is the take-home message of this excursion to object-orientation? Make use of built-in class functions as much as you can! They provide a tremendous amount of functionality which you are likely going to need and want, written in neat code which makes them very efficient to use.</p>
+<p>The <code>append()</code> method adds the value specified between the brackets to the end of the list. Typing <code>help(list)</code> in your console will give you a complete list of built-in functions of the class <code>list</code> and what they do.</p>
+<p>What is the take-home message of this excursion to object-orientation? Well, make use of built-in class functions as much as you can! They provide a tremendous amount of functionality which you are likely going to need and want, written in neat code which makes them very efficient to use, too!</p>
 <p>The interested reader can find more information on Python classes <a href="https://docs.python.org/2/tutorial/classes.html">here</a>.</p>
 </div>
 </div>
 <div id="tuples" class="section level2">
 <h2><span class="header-section-number">4.2</span> Tuples</h2>
-<p>Much like lists, <em>tuples</em> are an ordered collection of values, but with less exentensive functionality and their unique characteristic being that they are <em>immutable</em>. Once you created a <em>tuple</em> in memory, you cannot change its content.</p>
+<p>Much like lists, <em>tuples</em> are ordered collections of values, but with less exentensive functionality and their unique characteristic being that they are <em>immutable</em>. Once you created a <em>tuple</em> in memory, you cannot change its elements.</p>
 <pre><code>thorndike = (&quot;Edward&quot;, &quot;Lee&quot;, &quot;Thorndike&quot;, 1874, &quot;Law of effect&quot;, &quot;Law of exercise&quot;)
 thorndike[4] = &quot;Law of recency&quot;
 
 TypeError: &#39;tuple&#39; object does not support item assignment</code></pre>
-<p>Tuples are usually used when you assume that a collection of values will not change in the course of your program. They are <em>records</em> of related information, chunked together so that we can use it as a single entity.</p>
-<p>However, if you really need to change the contents of an already existing tuple, you can always assign a new value to the variable which holds the value of the tuple you want to change.</p>
+<p>Tuples are usually used when you assume that a collection of values will not change in the course of your program. They are <em>records</em> of related information, chunked together so that we can use them as a single entity. In the Stroop Task program for instance, we saw that tuples were used to chunk together RGB combinations that make up a color. The Pygame module used these tuples to generate color in the Stroop Task.</p>
+<p>Tuples are immutable. However, if you really need to change the contents of an already existing tuple, you can always assign a new value to the variable which holds the tuple as a value.</p>
 <div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python">thorndike <span class="op">=</span> (<span class="st">&quot;Edward&quot;</span>, <span class="st">&quot;Lee&quot;</span>, <span class="st">&quot;Thorndike&quot;</span>, <span class="dv">1874</span>, <span class="st">&quot;Law of effect&quot;</span>, <span class="st">&quot;Law of exercise&quot;</span>)
 thorndike <span class="op">=</span> thorndike[:] <span class="op">+</span> (<span class="st">&quot;Law of recency&quot;</span>,)
 <span class="bu">print</span>(thorndike)</code></pre></div>
 <pre><code>## (&#39;Edward&#39;, &#39;Lee&#39;, &#39;Thorndike&#39;, 1874, &#39;Law of effect&#39;, &#39;Law of exercise&#39;, &#39;Law of recency&#39;)</code></pre>
-<p>Note the <code>,</code> in the second assignment statement <code>(&quot;Law of recency,&quot;)</code>. Without the comma at the end of the parentheses, Python ignores the parentheses and treats the content of one-element tuples such as <code>(&quot;Law of recency&quot;,)</code> as the data type of the element (in this case a <code>str</code>). As a result, a <em>type error</em> is thrown when you try to concatenate the <code>thorndike</code> tuple and <code>(&quot;Law of recency&quot;)</code>.</p>
-<p>Python has a very powerful <em>tuple assignment</em> feature that allows a tuple of variable names on the left of the assignment operator <code>=</code> to be assigned values from a tuple on the right of the assignment operator. Thereby you can easily perform several variable assignments in just one line!</p>
+<p>Note the comma <code>,</code> in the second assignment statement <code>(&quot;Law of recency,&quot;)</code>. Without the comma at the end of the parentheses, Python treats the content of a one-element tuple such as <code>(&quot;Law of recency&quot;,)</code> as belonging to the data type of the element (in this case a <code>str</code>). As a result, a <em>type error</em> is thrown when you try to concatenate the <code>thorndike</code> tuple and <code>(&quot;Law of recency&quot;)</code>.</p>
+<pre><code>thorndike = thorndike[:] + (&quot;Law of recency&quot;,)
+
+TypeError: can only concatenate tuple (not &quot;str&quot;) to tuple</code></pre>
+<p>Python has a very powerful <em>tuple assignment</em> feature that allows a tuple of variable names on the left of the assignment operator <code>=</code> to be assigned to a tuple of values, like so</p>
 <div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python">thorndike <span class="op">=</span> (<span class="st">&quot;Edward&quot;</span>, <span class="st">&quot;Lee&quot;</span>, <span class="st">&quot;Thorndike&quot;</span>, <span class="dv">1874</span>)
-name, middle_name, surname, born <span class="op">=</span> thorndike
+(name, middle_name, surname, born) <span class="op">=</span> thorndike
 <span class="bu">print</span>(name)</code></pre></div>
 <pre><code>## Edward</code></pre>
-<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python">a, b <span class="op">=</span> (<span class="st">&quot;Hello&quot;</span>, <span class="st">&quot;World&quot;</span>)
-<span class="bu">print</span>(b)</code></pre></div>
-<pre><code>## World</code></pre>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python">a, b <span class="op">=</span> <span class="st">&quot;Hello&quot;</span>, <span class="st">&quot;World&quot;</span>
+<span class="bu">print</span>(a)</code></pre></div>
+<pre><code>## Hello</code></pre>
+<p>The brackets <code>()</code> are optional in a tuple assignment. Using tuple assignment, you can easily perform several variable assignments in just one line!</p>
 </div>
-<div id="dictionnaries" class="section level2">
-<h2><span class="header-section-number">4.3</span> Dictionnaries</h2>
-<p><em>Dictonnaries</em> share similarities with real-life address books where you can find a person’s contact details by looking up his or her name.</p>
-<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python">address_book <span class="op">=</span> {<span class="st">&quot;studyadviser-PSY&quot;</span>: <span class="st">&quot;studyadviser-psy@utwente.nl &quot;</span>,
-                <span class="st">&quot;studentservices&quot;</span> : <span class="st">&quot;studentservices@utwente.nl&quot;</span>,
-                <span class="st">&quot;ICT-helpdesk&quot;</span>   : <span class="st">&quot;servicedesk-ict@utwente.nl&quot;</span>
+<div id="dictionaries" class="section level2">
+<h2><span class="header-section-number">4.3</span> Dictionaries</h2>
+<p><em>Dictonaries</em> share similarities with real-life address books where you can find a person’s contact details by looking up his or her name.</p>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python">address_book <span class="op">=</span> {<span class="st">&quot;studyadviser-PSY&quot;</span>: <span class="st">&quot;studyadviser-psy[at]utwente.nl&quot;</span>,
+                <span class="st">&quot;studentservices&quot;</span> : <span class="st">&quot;studentservices[at]utwente.nl&quot;</span>,
+                <span class="st">&quot;ICT-helpdesk&quot;</span>   : <span class="st">&quot;servicedesk-ict[at]utwente.nl&quot;</span>
                 }
 <span class="bu">print</span>(address_book[<span class="st">&quot;studyadviser-PSY&quot;</span>])</code></pre></div>
-<pre><code>## studyadviser-psy@utwente.nl</code></pre>
-<p>Dictionaries associate <em>keys</em> (e.g. a name) with <em>values</em> (e.g. contact details). The <code>key:value</code> pairs of a dictionnary are separated by commas. Each pair contains a <em>key</em> and a <em>value</em> separated by a colon <code>:</code>. <code>key:value</code> pairs are always one-to-one mappings. You can, of course, map a <em>key</em> to a <em>list</em> of multiple values. <em>Keys</em> are required to be immutable and unique within a dictionnary. This means that you cannot have two <code>&quot;studyadviser-PSY&quot;</code> keys in the <code>address_book</code>. Unlike sequence types, such as lists and tuples, the elements of a dictionnary are unorderded in the sense that they do not have indices that mark their position. Values contained in a dictionnary can solely be accessed through their <em>keys</em>.</p>
-<p>Dictionnaries are mutable. You can modify the values of a dictionnary by accessing its associated key:</p>
-<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python">address_book <span class="op">=</span> {<span class="st">&quot;studyadviser-PSY&quot;</span>: <span class="st">&quot;studyadviser-psy@utwente.nl &quot;</span>,
-                <span class="st">&quot;studentservices&quot;</span> : <span class="st">&quot;studentservices@utwente.nl&quot;</span>,
-                <span class="st">&quot;ICT-helpdesk&quot;</span>   : <span class="st">&quot;servicedesk-ict@utwente.nl&quot;</span>
+<pre><code>## studyadviser-psy[at]utwente.nl</code></pre>
+<p>Dictionaries associate <em>keys</em> (e.g. a name) with <em>values</em> (e.g. contact details). The <code>key:value</code> pairs of a dictionary are separated by commas. Each pair contains a <em>key</em> and a <em>value</em> separated by a colon <code>:</code>. <code>key:value</code> pairs are always one-to-one mappings. This means that you cannot map the same key to several values, like so</p>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python">address_book <span class="op">=</span> {<span class="st">&quot;studyadviser-PSY&quot;</span>: <span class="st">&quot;studyadviser-psy[at]utwente.nl&quot;</span>,
+                <span class="st">&quot;studyadviser-PSY&quot;</span>: <span class="st">&quot;Cubicus, room C116&quot;</span>
                 }
                 
-address_book[<span class="st">&quot;studentservices&quot;</span>] <span class="op">=</span> (<span class="st">&quot;studentservices@utwente.nl&quot;</span>, <span class="st">&quot;0534892124&quot;</span>)
+<span class="bu">print</span>(address_book[<span class="st">&quot;studyadviser-PSY&quot;</span>])</code></pre></div>
+<pre><code>## Cubicus, room C116</code></pre>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python"><span class="bu">print</span>(<span class="st">&quot;Number of key:value pairs in address_book: </span><span class="sc">%d</span><span class="st">&quot;</span> <span class="op">%</span> <span class="bu">len</span>(address_book.keys()))</code></pre></div>
+<pre><code>## Number of key:value pairs in address_book: 1</code></pre>
+<p>As you can see, the first mapping of the key <code>&quot;studyadviser-PSY&quot;</code> to <code>&quot;studyadviser-psy[at]utwente.nl&quot;</code> has been overwritten by the second mapping of the key to <code>&quot;Cubicus, room C116&quot;</code>. In total, <code>address_book</code> now only contains a single <code>key:value</code> pair. As with lists and tuples, values are arbitrary for dictionaries. This means that while you cannot map the same key to several values, you can map the same value to multiple keys.</p>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python">address_book <span class="op">=</span> {<span class="st">&quot;studyadviser-PSY&quot;</span>: <span class="st">&quot;studyadviser-psy[at]utwente.nl&quot;</span>,
+                <span class="st">&quot;studyadviser-PSY_email&quot;</span>: <span class="st">&quot;studyadviser-psy[at]utwente.nl&quot;</span>
+                }
+                
+<span class="bu">print</span>(<span class="st">&quot;Number of key:value pairs in address_book: </span><span class="sc">%d</span><span class="st">&quot;</span> <span class="op">%</span> <span class="bu">len</span>(address_book.keys()))</code></pre></div>
+<pre><code>## Number of key:value pairs in address_book: 2</code></pre>
+<p>Dictionaries require their keys to be <em>immutable</em> and <em>unique</em>. As you above, you cannot have two keys named <code>&quot;studyadviser-PSY&quot;</code> in the <code>address_book</code>. This also means that certain data types are unsuitable as dictionary keys, like lists.</p>
+<pre><code>d = {[&#39;a&#39;]: &#39;b&#39;}
+
+TypeError: unhashable type: &#39;list&#39;</code></pre>
+<p>Whenever you try to use a mutable object (like lists) as a key, a <code>TypeError</code> will be thrown. Because lists are mutable (you can update their elements), they are <em>unhashable</em>. Without going into the details of hash functions here, a <em>hash</em> is another representation of an object. It is a transformation of the object’s length sequence of bytes into a fixed length sequence. <em>Hash functions</em> are used in cryptographic algorithms, in digital signatures, manipulation detection, password storage and more. Hash functions are constructed so that calculating an object’s hash representation is simple, but retrieving the original object is difficult without knowing the function used to hash the object in the first place. You can imagine that things start to get messy if the object itself can change after its hash has been calculated. A hash is a momentary snapshot of an object. It will be impossible to retrieve the latest version of an object from its hash representation if the object changed in the meantime, even if you know its hash function. Dictionaries themselves are also mutable (and thus, unhashable) and cannot be used as <em>keys</em>, by the way.</p>
+<p>Dictionaries are <em>unordered</em> collections. Unlike sequences, such as lists and tuples, the elements of a dictionary cannot be accessed using indices. Dictionaries do not have a sequential representation of their elements. Values stored in a dictionary can be accessed and changed through their respective <em>keys</em>, like so</p>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python">address_book <span class="op">=</span> {<span class="st">&quot;studyadviser-PSY&quot;</span>: <span class="st">&quot;studyadviser-psy[at]utwente.nl&quot;</span>,
+                <span class="st">&quot;studentservices&quot;</span> : <span class="st">&quot;studentservices[at]utwente.nl&quot;</span>,
+                <span class="st">&quot;ICT-helpdesk&quot;</span>   : <span class="st">&quot;servicedesk-ict[at]utwente.nl&quot;</span>
+                }
+                
+address_book[<span class="st">&quot;studentservices&quot;</span>] <span class="op">=</span> (<span class="st">&quot;studentservices[at]utwente.nl&quot;</span>, <span class="st">&quot;0534892124&quot;</span>)
 <span class="bu">print</span>(<span class="st">&quot;The telephone number of the student services is&quot;</span>, <span class="bu">str</span>(address_book[<span class="st">&quot;studentservices&quot;</span>][<span class="dv">1</span>]))</code></pre></div>
 <pre><code>## (&#39;The telephone number of the student services is&#39;, &#39;0534892124&#39;)</code></pre>
-<p>You can add entries and remove whole entries of a dictionnary using the <code>del</code> statement.</p>
+<p>Apart from updating existing dictionary entries, you can obviously also add and remove entries of a dictionary. Use the <code>del</code> statement to remove dictionary entries.</p>
 <div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python">address_book <span class="op">=</span> {<span class="st">&quot;studyadviser-PSY&quot;</span>: <span class="st">&quot;studyadviser-psy@utwente.nl &quot;</span>,
                 <span class="st">&quot;studentservices&quot;</span> : <span class="st">&quot;studentservices@utwente.nl&quot;</span>,
                 <span class="st">&quot;ICT-helpdesk&quot;</span>   : <span class="st">&quot;servicedesk-ict@utwente.nl&quot;</span>
@@ -473,54 +528,166 @@ address_book[<span class="st">&quot;studentUnion&quot;</span>] <span class="op">
 <span class="bu">print</span>(address_book)</code></pre></div>
 <pre><code>## {&#39;studentservices&#39;: &#39;studentservices@utwente.nl&#39;, &#39;studyadviser-PSY&#39;: &#39;studyadviser-psy@utwente.nl &#39;, &#39;studentUnion&#39;: &#39;studentunion@union.utwente.nl&#39;}</code></pre>
 </div>
-<div id="putting-data-structures-to-use" class="section level2">
-<h2><span class="header-section-number">4.4</span> Putting data structures to use</h2>
-<p>Lists, tuples and dictionnaries are used readily in programming interactive software, such as the Stroop experiment, to structure user data or structuring elements of the program in a computer’s memory. Structuring user input makes later retrieval of information easier, for instance for the purpose of statistical analysis.</p>
+<div id="putting-collections-to-use" class="section level2">
+<h2><span class="header-section-number">4.4</span> Putting collections to use</h2>
+<p>Lists, tuples and dictionaries are readily used in interactive programs, such as the Stroop Task program. Collections help structure user input and the subsequent storage of user input in computer memory. Structuring user input makes later retrieval of information easier. Below you see a code snippet from the Stroop Task program.</p>
 <div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python">KEYS     <span class="op">=</span> {<span class="st">&quot;red&quot;</span>: K_b,
             <span class="st">&quot;green&quot;</span>: K_n,
             <span class="st">&quot;blue&quot;</span>: K_m}
 RT <span class="op">=</span> []
-STATE <span class="op">=</span> <span class="st">&quot;wait_for_response&quot;</span>
-<span class="cf">if</span> STATE <span class="op">==</span> <span class="st">&quot;wait_for_response&quot;</span>:
-    <span class="cf">if</span> event.<span class="bu">type</span> <span class="op">==</span> KEYDOWN <span class="kw">and</span> event.key <span class="kw">in</span> KEYS.values():
-        time_when_reacted <span class="op">=</span> time()
-        this_reaction_time <span class="op">=</span> time_when_reacted <span class="op">-</span> time_when_presented
-        RT.append(this_reaction_time)</code></pre></div>
+trial_number <span class="op">=</span> <span class="dv">0</span>    
+    
+<span class="cf">while</span> <span class="va">True</span>:
+    pygame.display.get_surface().fill(BACKGR_COL)        
+    <span class="co"># Changing states</span>
+    <span class="cf">for</span> event <span class="kw">in</span> pygame.event.get():                        
+        <span class="cf">if</span> STATE <span class="op">==</span> <span class="st">&quot;welcome&quot;</span>:
+             <span class="cf">if</span> event.<span class="bu">type</span> <span class="op">==</span> KEYDOWN <span class="kw">and</span> event.key <span class="op">==</span> K_SPACE:
+                 STATE <span class="op">=</span> <span class="st">&quot;present_trial&quot;</span>
+                 <span class="bu">print</span>(STATE)
+                    
+        <span class="cf">if</span> STATE <span class="op">==</span> <span class="st">&quot;present_trial&quot;</span>:
+             trial_number <span class="op">=</span> trial_number <span class="op">+</span> <span class="dv">1</span>
+             this_word  <span class="op">=</span> pick_color()
+             this_color <span class="op">=</span> pick_color()
+             time_when_presented <span class="op">=</span> time()
+             STATE <span class="op">=</span> <span class="st">&quot;wait_for_response&quot;</span>
+             <span class="bu">print</span>(STATE)
+                    
+        <span class="cf">if</span> STATE <span class="op">==</span> <span class="st">&quot;wait_for_response&quot;</span>:
+            <span class="cf">if</span> event.<span class="bu">type</span> <span class="op">==</span> KEYDOWN <span class="kw">and</span> event.key <span class="kw">in</span> KEYS.values():
+                time_when_reacted <span class="op">=</span> time()
+                this_reaction_time <span class="op">=</span> time_when_reacted <span class="op">-</span> time_when_presented
+                RT.append(this_reaction_time)
+                this_correctness <span class="op">=</span> (event.key <span class="op">==</span> KEYS[this_color])
+                STATE <span class="op">=</span> <span class="st">&quot;feedback&quot;</span>
+                <span class="bu">print</span>(STATE)
+                
+        <span class="cf">if</span> STATE <span class="op">==</span> <span class="st">&quot;feedback&quot;</span>:
+            <span class="cf">if</span> event.<span class="bu">type</span> <span class="op">==</span> KEYDOWN <span class="kw">and</span> event.key <span class="op">==</span> K_SPACE:
+                <span class="cf">if</span> trial_number <span class="op">&lt;</span> <span class="dv">20</span>:
+                    STATE <span class="op">=</span> <span class="st">&quot;present_trial&quot;</span>
+                <span class="cf">else</span>:
+                    STATE <span class="op">=</span> <span class="st">&quot;goodbye&quot;</span>
+                <span class="bu">print</span>(STATE)
+            
+        <span class="cf">if</span> event.<span class="bu">type</span> <span class="op">==</span> QUIT:
+            STATE <span class="op">=</span> <span class="st">&quot;quit&quot;</span></code></pre></div>
+<p>Note how the variable <code>RT</code> is used to keep track of the user’s reaction times throughout the trials. The variable <code>this_reaction_time</code> is overwritten in each trial. This means, that at the end of the program, when all trials are completed, <code>this_reaction_time</code> only contains the last value assigned to it during the 20th trial. All other reaction times were long erased from computer memory. But wait, what if we want to calculate a user’s mean reaction time once the experiment is finished? In order to do so, we need some way of saving the reaction times from trial to trial. They need to persist until the last trial is completed. This is exactly where collections step into the picture. Collections are capable of storing multiple values at the same time and they can be mutated iteratively (one reaction time per trial). Hence, we <code>append</code> the calculated reaction time to a list in each trial.</p>
+<p>In the end, you as a programmer still need to decide how to proceed with the collected reaction times. Do you want to print their mean to the screen, export them out of the program, or combine them with data gathered from other experimental subjects? It is up to you. Using collections, at least you have a user’s reaction times at your disposal, also once all trials are completed.</p>
 </div>
 <div id="common-errors-2" class="section level2">
 <h2><span class="header-section-number">4.5</span> Common errors</h2>
 <ul>
-<li><code>index out of range</code> errors are among the most common programming errors made, even by experienced programmers.They typically occur if you try to access an element that does not exist in a sequence.</li>
+<li>The by far most occurring errors involving lists are <code>index out of range</code> errors. I think it is fair to say that they make up a large amount of all programming errors. An <code>index out of range error</code> is thrown when you try to access an index that does not exist in a sequence.</li>
 </ul>
 <pre><code>shoppinglist = [&quot;milk&quot;, &quot;eggs&quot;, &quot;bread&quot;, &quot;appels&quot;]
 print shoppinglist[4]
 
 IndexError: list index out of range</code></pre>
-<p>Most of the time, this error will occur because you confused the starting index <code>0</code> with <code>1</code>. Remember that, for instance, in a list of four elements the last element is stored at index <code>3</code>, instead of at index <code>4</code>.</p>
+<p>You will usually encounter this error as a result of confusing the starting index <code>0</code> with <code>1</code>. Against all intuition, in a list of four elements, the last element is stored at index <code>3</code>, not at index <code>4</code>. It helps to keep in mind that the indices of your sequences always have a range one shorter than the number of elements in your list. For a list with four elements, the positive index range is <code>0</code> to 4 minus 1, thus <code>3</code>.</p>
 <div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python">shoppinglist <span class="op">=</span> [<span class="st">&quot;milk&quot;</span>, <span class="st">&quot;eggs&quot;</span>, <span class="st">&quot;bread&quot;</span>, <span class="st">&quot;appels&quot;</span>]
 <span class="bu">print</span>(shoppinglist[<span class="dv">3</span>])</code></pre></div>
 <pre><code>## appels</code></pre>
 <ul>
-<li>Trying to change the content of a <em>tuple</em>. Tuples are immutable, meaning that you cannot change their content after their initialization. You can, however, re-assign the variable name of an existing tuple to a new tuple containing different information.</li>
+<li>Another common mistake surrounding collections concerns the immutability of <em>tuples</em>. In particular, trying to change the content of a <em>tuple</em> will result in a <code>TypeError</code>. Tuples are immutable, meaning that you cannot change their content after their initialization. You can, however, re-assign the variable name of an existing tuple to a new tuple containing different values.</li>
 </ul>
-<pre><code>myTuple = (1,2,4)
-myTuple[2] = 3
+<pre><code>a = (1,2,4)
+b[2] = 3
 
 TypeError: &#39;tuple&#39; object does not support item assignment</code></pre>
-<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python">myTuple <span class="op">=</span> (<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">4</span>)
-<span class="bu">print</span>(myTuple)</code></pre></div>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python">a <span class="op">=</span> (<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">4</span>)
+<span class="bu">print</span>(a)</code></pre></div>
 <pre><code>## (1, 2, 4)</code></pre>
-<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python">myTuple <span class="op">=</span> (<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>)
-<span class="bu">print</span>(myTuple)</code></pre></div>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python">b <span class="op">=</span> (<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>)
+<span class="bu">print</span>(b)</code></pre></div>
 <pre><code>## (1, 2, 3)</code></pre>
+<ul>
+<li>Concerning dictionaries, you will most probably not escape one or another <code>KeyError</code>. A <code>KeyError</code> is thrown when you try to access a <code>key</code> that does not exist in the dictionary.</li>
+</ul>
+<pre><code>d = {}
+print(d[&#39;a&#39;])
+
+KeyError: &#39;a&#39;</code></pre>
+<p>The same is likely to occur when you try to use indices to access the entries of a dictionary</p>
+<pre><code>d = {&#39;a&#39;: 1}
+print(d[0])
+
+KeyError: 0</code></pre>
+<p>Dictionaries are the only <em>unordered</em> type of collection you encountered in this chapter. It occurs now and then that one assumes that a dictionary can be treated as other common types of collections, such as lists or tuples.</p>
 </div>
-<div id="debugging-1" class="section level2">
+<div id="debugging-2" class="section level2">
 <h2><span class="header-section-number">4.6</span> Debugging</h2>
+<p>Here are some tips and tricks on how to debug errors that potentially originate from your collections.</p>
+<ol style="list-style-type: decimal">
+<li>Regularly checking the <code>length</code> of your collections can be very helpful to confirm that your code does indeed what you expect it to do. Take the example of <code>RT</code>, the list we made to keep track of a participant’s reaction times throughout the Stroop Task program. At the end of the experiment, you would expect the list to contain 20 elements, given that <code>RT</code> was initialized as an empty list and that the experiment had 20 trials. By checking the <code>length</code> of <code>RT</code>, you can immediately see whether your code indeed stored one reaction time per trial. <code>RT</code> should have a <code>length</code> of 20 after the experiment. You can check the length of a collection using the <code>len()</code> method, like so</li>
+</ol>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python">a <span class="op">=</span> [<span class="dv">3</span>, <span class="dv">4</span>]
+<span class="bu">print</span>(<span class="bu">len</span>(a))</code></pre></div>
+<pre><code>## 2</code></pre>
+<ol start="2" style="list-style-type: decimal">
+<li>Dictionaries have a very useful built-in method that represents their <code>keys</code> as a list.</li>
+</ol>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python">d <span class="op">=</span> {<span class="st">&#39;a&#39;</span>: <span class="dv">1</span>,
+     <span class="st">&#39;b&#39;</span>: <span class="dv">2</span>}
+     
+<span class="bu">print</span>(d.keys())</code></pre></div>
+<pre><code>## [&#39;a&#39;, &#39;b&#39;]</code></pre>
+<p>This comes in handy when you keep getting a <code>KeyError</code> while you are convinced that your dictionary should contain a certain key.</p>
+<pre><code>d = {&#39;a &#39;: 1,
+     &#39;b&#39;: 2}
+     
+print(d[&#39;a&#39;])
+KeyError: &#39;a&#39;</code></pre>
+<p>You can use <code>in</code> to check whether a candidate <code>key</code> is among the keys of the dictionary</p>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python">d <span class="op">=</span> {<span class="st">&#39;a &#39;</span>: <span class="dv">1</span>,
+     <span class="st">&#39;b&#39;</span>: <span class="dv">2</span>}
+     
+<span class="bu">print</span>(<span class="st">&#39;a&#39;</span> <span class="kw">in</span> d.keys())</code></pre></div>
+<pre><code>## False</code></pre>
+<p>In this case, a typing error is the culprit. Instead of <code>'a'</code>, <code>'a '</code> with a whitespace was set as the first key of <code>d</code>.</p>
+<p>Alternatively, you can use <code>not in</code> to make sure that you do not overwrite any existing keys</p>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python">d <span class="op">=</span> {<span class="st">&#39;a&#39;</span>: <span class="dv">1</span>,
+     <span class="st">&#39;b&#39;</span>: <span class="dv">2</span>}
+<span class="cf">if</span> <span class="st">&#39;a&#39;</span> <span class="kw">not</span> <span class="kw">in</span> d.keys():
+    d[<span class="st">&#39;a&#39;</span>] <span class="op">=</span> <span class="dv">0</span>
+<span class="bu">print</span>(d)  </code></pre></div>
+<pre><code>## {&#39;a&#39;: 1, &#39;b&#39;: 2}</code></pre>
 </div>
 <div id="exercises-3" class="section level2">
 <h2><span class="header-section-number">4.7</span> Exercises</h2>
-<div id="exercise-1.-shopping-list" class="section level3">
-<h3><span class="header-section-number">4.7.1</span> Exercise 1. Shopping list</h3>
+<div id="exercise-1.-indexing" class="section level3">
+<h3><span class="header-section-number">4.7.1</span> Exercise 1. Indexing</h3>
+<p>What is the output of the following code snippets?</p>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python">a <span class="op">=</span> [<span class="dv">6</span>, <span class="dv">7</span>]
+b <span class="op">=</span> [<span class="dv">4</span>, <span class="dv">5</span>]
+b.append(a)
+<span class="bu">print</span>(b)</code></pre></div>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python">d <span class="op">=</span> {<span class="dv">1</span>: <span class="st">&#39;a&#39;</span>,
+    <span class="st">&#39;a&#39;</span>: <span class="dv">1</span>}
+    
+<span class="bu">print</span>(d[<span class="dv">1</span>])</code></pre></div>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python">a <span class="op">=</span> [<span class="dv">1</span>]
+b <span class="op">=</span> (<span class="st">&#39;a&#39;</span>, <span class="dv">2</span>)
+a.extend(b)
+<span class="bu">print</span>(a[<span class="dv">1</span>])</code></pre></div>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python">a, b <span class="op">=</span> ([<span class="st">&#39;a&#39;</span>, <span class="st">&#39;d&#39;</span>], [<span class="st">&#39;b&#39;</span>, <span class="st">&#39;c&#39;</span>])
+<span class="bu">print</span>(b[<span class="dv">0</span>])</code></pre></div>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python">a <span class="op">=</span> [<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>]
+<span class="bu">print</span>(a[<span class="op">-</span><span class="dv">1</span>])</code></pre></div>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python">a <span class="op">=</span> (<span class="dv">1</span>, <span class="dv">2</span>, [<span class="dv">3</span>, <span class="dv">4</span>], <span class="dv">5</span>)
+<span class="bu">print</span>(a[<span class="dv">2</span>][<span class="dv">1</span>])</code></pre></div>
+</div>
+<div id="exercise-2.-debugging" class="section level3">
+<h3><span class="header-section-number">4.7.2</span> Exercise 2. Debugging</h3>
+<p>What goes wrong in the following code snippets?</p>
+</div>
+<div id="exercise-3.-mini-programs-1" class="section level3">
+<h3><span class="header-section-number">4.7.3</span> Exercise 3. Mini programs</h3>
+<p>What is the output of the following mini programs?</p>
+</div>
+<div id="exercise-4.-shopping-list" class="section level3">
+<h3><span class="header-section-number">4.7.4</span> Exercise 4. Shopping list</h3>
 <div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python">shoppinglist <span class="op">=</span> [<span class="st">&quot;bread&quot;</span>,<span class="st">&quot;cheese&quot;</span>,<span class="st">&quot;jam&quot;</span>,<span class="st">&quot;milk&quot;</span>,<span class="st">&quot;oatmeal&quot;</span>,<span class="st">&quot;blueberries&quot;</span>,<span class="st">&quot;oranges&quot;</span>,<span class="st">&quot;apples&quot;</span>]
 shoppinglist[<span class="dv">0</span>] <span class="op">=</span> <span class="st">&quot;buns&quot;</span>
 shoppinglist <span class="op">=</span> shoppinglist <span class="op">+</span> [<span class="st">&quot;chocolate&quot;</span>]
@@ -536,8 +703,8 @@ shoppinglist[<span class="dv">8</span>:<span class="dv">11</span>] <span class="
 <p>The above shopping list has been subject to several changes since it has been written. Standing in the supermarket, you want to know the contents of the final shopping list. Which groceries do you have to buy?</p>
 <p>You can check your answer afterwards by running the code.</p>
 </div>
-<div id="exercise-2.-dictionnaries" class="section level3">
-<h3><span class="header-section-number">4.7.2</span> Exercise 2. Dictionnaries</h3>
+<div id="exercise-5.-dictionaries" class="section level3">
+<h3><span class="header-section-number">4.7.5</span> Exercise 5. Dictionaries</h3>
 <div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python">famous_psychologists <span class="op">=</span> {<span class="st">&quot;Freud&quot;</span>:(<span class="st">&quot;Sigmund&quot;</span>, <span class="st">&quot;Freud&quot;</span>, (<span class="dv">1856</span>,<span class="dv">1939</span>), <span class="st">&quot;Psychoanalysis&quot;</span>),
                         <span class="st">&quot;Piaget&quot;</span>:(<span class="st">&quot;Jean&quot;</span>, <span class="st">&quot;Piaget&quot;</span>, (<span class="dv">1896</span>,<span class="dv">1980</span>), <span class="st">&quot;Theory of Cognitive Development&quot;</span>),
                         <span class="st">&quot;Skinner&quot;</span>:((<span class="st">&quot;Burrhus&quot;</span>, <span class="st">&quot;Frederic&quot;</span>), <span class="st">&quot;Skinner&quot;</span>, (<span class="dv">1904</span>,<span class="dv">1990</span>), <span class="st">&quot;Operant Conditioning&quot;</span>),
@@ -549,9 +716,9 @@ more_on_Skinner <span class="op">=</span> {<span class="st">&quot;Schedules of R
                    <span class="st">&quot;Skinner Box&quot;</span>:(<span class="st">&quot;pigeon&quot;</span>,<span class="st">&quot;lever&quot;</span>,<span class="st">&quot;food&quot;</span>),
                   }
 famous_psychologists[<span class="st">&quot;Skinner&quot;</span>] <span class="op">=</span> famous_psychologists[<span class="st">&quot;Skinner&quot;</span>][:<span class="dv">3</span>] <span class="op">+</span> (<span class="st">&quot;Behaviorism&quot;</span>,) <span class="op">+</span>         (famous_psychologists[<span class="st">&quot;Skinner&quot;</span>][<span class="dv">3</span>],) <span class="op">+</span> (more_on_Skinner,)</code></pre></div>
-<p>Using the given dictionnary on famous psychologists and the above changes made to the dictionnary:</p>
+<p>Using the given dictionary on famous psychologists and the above changes made to the dictionary:</p>
 <ul>
-<li>Try to understand the changes made to the original dictionnary by writing down the content of the following print statements</li>
+<li>Try to understand the changes made to the original dictionary by writing down the content of the following print statements</li>
 </ul>
 <div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python"><span class="bu">print</span>(famous_psychologists[<span class="st">&quot;Erikson&quot;</span>][:<span class="dv">3</span>])
 <span class="bu">print</span>(famous_psychologists[<span class="st">&quot;Piaget&quot;</span>][<span class="dv">3</span>:])
@@ -564,8 +731,8 @@ word <span class="op">=</span> famous_psychologists[<span class="st">&quot;Skinn
 <li>Afterwards, you may check your answers by running the code. Pay attention that your own answers match exactly.</li>
 </ul>
 </div>
-<div id="exercise-3.-element-selection" class="section level3">
-<h3><span class="header-section-number">4.7.3</span> Exercise 3. Element selection</h3>
+<div id="exercise-6.-element-selection" class="section level3">
+<h3><span class="header-section-number">4.7.6</span> Exercise 6. Element selection</h3>
 <p>For the following data structures, give the code by which you can access the specified element.</p>
 <div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python">dinner <span class="op">=</span> [<span class="st">&quot;minced beef&quot;</span>, <span class="st">&quot;tomatoes&quot;</span>, <span class="st">&quot;pasta&quot;</span>, <span class="st">&quot;onions&quot;</span>, <span class="st">&quot;pasta sauce&quot;</span>, <span class="st">&quot;courgette&quot;</span>]
 shoppingList <span class="op">=</span> [dinner, <span class="st">&quot;bread&quot;</span>, <span class="st">&quot;milk&quot;</span>, <span class="st">&quot;cornflakes&quot;</span>, <span class="st">&quot;cheese&quot;</span>]</code></pre></div>
@@ -588,8 +755,8 @@ shoppingList <span class="op">=</span> [dinner, <span class="st">&quot;bread&quo
 <li>The maximum grade achieved on the second partial exam</li>
 </ol>
 </div>
-<div id="exercise-4.-adjust-a-dictionnary-data-set" class="section level3">
-<h3><span class="header-section-number">4.7.4</span> Exercise 4. Adjust a dictionnary data set</h3>
+<div id="exercise-7.-adjust-a-dictionary-data-set" class="section level3">
+<h3><span class="header-section-number">4.7.7</span> Exercise 7. Adjust a dictionary data set</h3>
 <p>The data set below originates from a (fictive) language course given at the University of Twente. During the course, the following information was stored about the participants: age, gender, nationality, study programme, for each lesson, whether the participant was present or not (<code>True</code> indicates presence during the lesson and <code>False</code> absence), and the paricipant’s score on the final exam.</p>
 <div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python">dataset <span class="op">=</span> {<span class="st">&#39;p1&#39;</span>:[<span class="dv">21</span>,<span class="st">&quot;Female&quot;</span>,<span class="st">&quot;Dutch&quot;</span>,<span class="st">&quot;B-Psychology&quot;</span>,[<span class="va">True</span>,<span class="va">False</span>,<span class="va">True</span>,<span class="va">False</span>,<span class="va">False</span>],<span class="fl">5.2</span>],
            <span class="st">&#39;p2&#39;</span>:[<span class="dv">20</span>,<span class="st">&quot;Female&quot;</span>,<span class="st">&quot;Dutch&quot;</span>,<span class="st">&quot;B-Psychology&quot;</span>,[<span class="va">True</span>,<span class="va">True</span>,<span class="va">True</span>,<span class="va">False</span>,<span class="va">True</span>],<span class="fl">8.4</span>],
@@ -608,9 +775,9 @@ shoppingList <span class="op">=</span> [dinner, <span class="st">&quot;bread&quo
 <li>After the final examination, it was revealed that participant 4 cheated during the exam. The examination board decided to void the student’s achievements on the exam. In such a case, the additional note <code>expelled</code> is added to the student’s record, indicating the student’s misbehaviour.</li>
 </ol>
 </div>
-<div id="exercise-5.-a-dictionnary-data-set" class="section level3">
-<h3><span class="header-section-number">4.7.5</span> Exercise 5. A dictionnary data set</h3>
-<p>Fill in the participant information given in the table below in a Python dictionnary with the following structure:</p>
+<div id="exercise-8.-a-dictionary-data-set" class="section level3">
+<h3><span class="header-section-number">4.7.8</span> Exercise 8. A dictionary data set</h3>
+<p>Fill in the participant information given in the table below in a Python dictionary with the following structure:</p>
 <div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python">participants <span class="op">=</span> {participant_no:(gender, age, nationality, profession)}</code></pre></div>
 <table>
 <thead>
@@ -703,8 +870,8 @@ shoppingList <span class="op">=</span> [dinner, <span class="st">&quot;bread&quo
 </ol>
 <p><em>Hint</em>: Libraries provide built-in methods beyond the repertoire of the standard Python language. For instance, <code>NumPy</code> provides all kinds of methods for statistical operations in Python. You can import a library by typing <code>import (library name)</code> and make use of library-specific methods like this <code>(library name).(method)</code>. Take a look at the documentation of the <code>NumPy</code> library.</p>
 </div>
-<div id="exercise-6.-stroop-extension" class="section level3">
-<h3><span class="header-section-number">4.7.6</span> Exercise 6. Stroop extension</h3>
+<div id="exercise-9.-stroop-extension" class="section level3">
+<h3><span class="header-section-number">4.7.9</span> Exercise 9. Stroop extension</h3>
 <p>In this exercise you will implement a conditional execution of the interactive Stroop program. Imagine that you want to examine whether the number of colors influences the reaction time of participants in the Stroop experiment. In particular, you have gathered ten participants whom you randomly assigned to either a three or a five word version of the Stroop task. The table below summarizes which participant is assigned to which condition.</p>
 <table>
 <thead>
@@ -770,7 +937,7 @@ shoppingList <span class="op">=</span> [dinner, <span class="st">&quot;bread&quo
 <h2><span class="header-section-number">4.8</span> Think further</h2>
 <ul>
 <li>For more detailed information on <em>lists</em> beyond the scope of this chapter, you are advised to take a look at <a href="http://openbookproject.net/thinkcs/python/english3e/lists.html">Wentworth, P., Elkner, J., Downey, A. B., &amp; Meyer, C. (2015). How to think like a computer scientist: Learning with Python 3. Chapter 11. Lists</a></li>
-<li>For more information on <em>dictionnaries</em>, including explanation on useful built-in functions of the dictionnary class, you are invited to take a look at <a href="http://openbookproject.net/thinkcs/python/english3e/dictionaries.html">Wentworth, P., Elkner, J., Downey, A. B., &amp; Meyer, C. (2015). How to think like a computer scientist: Learning with Python 3. Chapter 20. Dictionnaries</a></li>
+<li>For more information on <em>dictionaries</em>, including explanation on useful built-in functions of the dictionary class, you are invited to take a look at <a href="http://openbookproject.net/thinkcs/python/english3e/dictionaries.html">Wentworth, P., Elkner, J., Downey, A. B., &amp; Meyer, C. (2015). How to think like a computer scientist: Learning with Python 3. Chapter 20. dictionaries</a></li>
 <li>More information on <em>tuples</em> can be found in <a href="http://openbookproject.net/thinkcs/python/english3e/tuples.html">Wentworth, P., Elkner, J., Downey, A. B., &amp; Meyer, C. (2015). How to think like a computer scientist: Learning with Python 3. Chapter 9. Tuples</a></li>
 </ul>
 
@@ -815,7 +982,7 @@ gitbook.start({
 "link": null,
 "text": null
 },
-"download": ["PfP_Book.pdf"],
+"download": ["PfP_Book.pdf", "PfP_Book.epub"],
 "toc": {
 "collapse": "subsection"
 }
