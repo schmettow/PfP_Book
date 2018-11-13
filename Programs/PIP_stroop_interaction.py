@@ -5,13 +5,9 @@ import random
 from pygame.locals import *
 from pygame.compat import unichr_, unicode_
 
-##### VARIABLES #####
-# Experiment
+##### CONFIG #####
 
-n_trials = 5
-
-
-# Colors
+# Colors abd screen
 col_white = (250, 250, 250)
 col_black = (0, 0, 0)
 col_gray = (220, 220, 220)
@@ -19,6 +15,14 @@ col_red = (250, 0, 0)
 col_green = (0, 200, 0)
 col_blue = (0, 0, 250)
 col_yellow = (250,250,0)
+
+BACKGR_COL = col_gray
+SCREEN_SIZE = (700, 500)
+
+
+# Experiment
+
+n_trials = 5
 
 WORDS    = ("red", "green", "blue")
 
@@ -30,8 +34,9 @@ KEYS     = {"red": K_b,
             "green": K_n,
             "blue": K_m}
 
-BACKGR_COL = col_gray
-SCREEN_SIZE = (700, 500)
+
+
+### PYGAME STARTUP ###
 
 pygame.init()
 pygame.display.set_mode(SCREEN_SIZE) 
@@ -44,6 +49,8 @@ font = pygame.font.Font(None, 80)
 font_small = pygame.font.Font(None, 40) 
 
 
+### MAIN PROGRAM ###
+
 def main():
     
     STATE = "welcome"    
@@ -51,8 +58,7 @@ def main():
     
     while True:
         
-        # refreshing the canvas
-        # pygame.display.get_surface().fill(BACKGR_COL)        
+        # refreshing the surface
         screen.fill(BACKGR_COL)
 
         # Event loop
@@ -127,6 +133,8 @@ def main():
         # Updating the display
         pygame.display.update()
         
+
+# Function definitions
         
 def pick_color():
     """ Return a random word.
