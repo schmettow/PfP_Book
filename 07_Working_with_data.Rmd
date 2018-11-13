@@ -5,11 +5,24 @@
 
 In the previous chapter we have dealt with functions as reusable pieces of code. There is another common notion of what a function is: *a function processes data*. The basic model of data processing is the following:
 
-INPUT DATA --> FUNCTION --> OUTPUT DATA
+```{r echo = F}
+DiagrammeR::mermaid(
+"graph LR
+IN(Input Data) --> PROC[Function]
+PROC --> OUT(Output Data)")
+```
+
+
+
 
 So, what is data? As psychologists we are used to think of data as observations from empirical studies that we process by statistical procedures. That precisely matches our above model:
 
-table of observations --> t-test --> p-value
+```{r echo = F}
+DiagrammeR::mermaid(
+"graph LR
+IN(Observations) --> PROC[t-test]
+PROC --> OUT(p-value)")
+```
 
 In Python, as a general programming language, there exist libraries that implement tables of observations, as well as the t-test (and more modern statistical procedures, luckily). However, we don't want to bother you with statistics for the moment. Instead, take another look at two function that we have introduced in \@ref(functions):
 
@@ -26,7 +39,13 @@ summation([1,2,3,4])
 
 The function `summation` takes a list of values and computes the sum. Again, that satisfies the basic model of data processing:
 
-list of numbers --> `summation` --> sum
+```{r echo = F}
+DiagrammeR::mermaid(
+"graph LR
+IN(List of numbers) --> PROC[Summation]
+PROC --> OUT(sum)")
+
+```
 
 It is easy to see how input and output are implemented with Python functions:
 
@@ -36,7 +55,16 @@ It is easy to see how input and output are implemented with Python functions:
 
 Consequently, every function that takes arguments and has a return statement can be considered data processing. Furthermore, data processing can take place as chains. Let's take the variance of a list of numbers as an example. The formula for variance, shown below, reveals that the variance statistic is produces in three steps: first, the residuals are computed, these are squared an finally the mean value is taken. 
 
-list-of-numbers --> square_residuals --> take_the_mean --> Variance
+```{r}
+DiagrammeR::mermaid(
+"graph LR
+ IN(List of numbers) --> PROC_1[square residuals]
+ PROC_1 --> OUT_1(List of squared residuals)
+ OUT_1 --> PROC_2[take the mean]
+ PROC_2 --> OUT(Variance)")
+
+```
+
 
 Let's see how this is implemnented in Python. For the squared residuals, we create our own function, but resort to the function `mean` in the `numpy` library. Note how the two defined functions operate on a dedicated list for output, rather than modifying the original one. Recall that lists are called by reference, which means the original list would otherwise be altered by the function.
 

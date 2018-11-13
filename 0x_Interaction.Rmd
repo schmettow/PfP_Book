@@ -7,7 +7,7 @@ We won't push you that far. But, with conditionals in your hand, you are prepare
 In this chapter we do more than just show you how to use a conditional or a loop. You will notice that writing an interactive program is more than just coding. It is a *development process* with a sequence of steps where the output of one step is input for the next.
 
         Your brain does              The result is
-    --> [Interaction modelling]  --> Transition table 
+        [Interaction modelling]  --> Transition table 
     --> [Coding transitionals]   --> Interactive prototype
     --> [Coding presentationals] --> Pygame program.
 
@@ -59,9 +59,14 @@ Notice how we named the states of the traffic light, or better how we did not ca
 
 The second step in the analysis is about identifying the *transitions* between states. The Dutch traffic light knows three transitions:
 
-    Go   --> Att
-    Att  --> Stop
-    Stop --> Go
+```{r}
+DiagrammeR::mermaid("graph LR
+         Go   --> Att
+         Att  --> Stop
+         Stop --> Go")
+
+```
+
 
 Cycling through a set of states is the most simple interaction protocol. It is unique, in that states are arrenged in a closed cycle, which implies that every state appears exactly once on the left-hand side (the original state) and the right-hand side (the destination). As we will later see, this is why we also only  need one button for a manual traffic light.
 
@@ -88,12 +93,17 @@ Let's move on: "Does a transition from Go to Att make sense?" Absolutely! You ma
 
 
 
-It is important to realize, that transitions are not generally symmetric. In the case of a traffic light, you can go from Go to Att, but there is no transition back. In interaction models other than a uni-directional cycle, transitions can well be symmetric, think of the checkout process on webshops. Usually, they guide you through the process in a number of steps (billing address --> delivery address, credit card nmumber), but allow you to go back to the previous step to do corrections.
+It is important to realize, that transitions are not generally symmetric. In the case of a traffic light, you can go from Go to Att, but there is no transition back. In interaction models other than a uni-directional cycle, transitions can well be symmetric, think of the checkout process on webshops. Usually, they guide you through the process in a number of steps (billing address --> delivery address, credit card number), but allow you to go back to the previous step to do corrections.
 
+```{r}
+DiagrammeR::mermaid("graph TD
     Delivery    --> Billing
     Billing     --> Delivery
     Delivery    --> Credit_card
-    Credit_card --> Delivery
+    Credit_card --> Delivery")
+```
+
+
 
                  Delivery  Billing Credit_card
     Delivery               x
@@ -189,7 +199,7 @@ STATE = "Billing"the sole purpose of checking whether your interaction model doe
 
 ## Programming interactive prototypes
 
-One of the worst things that can happen in software development is that a flaw that has been introduced during en early state of planning is discovered when the program is almost done. For that reason, is is good practice in software development to test models and catch flaws as early as possible. So, how can we test our interaction model? Of course, we could just implement the whole program and then see, if it does what was intended. But, if there truly are flaws, a lot of effort would have been wasted and a lot of work had to be redone. This catch-22 situation can be resolved by implementing just the aspect of the system that you want to test, for example the flow of interaction. This is called a *prototype* and, as you will see, the transition table can quickly be translated into a simple piece of software, an *interactive prototype*, using just a few standard coding patterns.
+One of the worst things that can happen in software development is that a flaw that has been introduced during an early state of planning is discovered when the program is almost done. For that reason, it is good practice in software development to test models and catch flaws as early as possible. So, how can we test our interaction model? Of course, we could just implement the whole program and then see, if it does what was intended. But, if there truly are flaws, a lot of effort would have been wasted and a lot of work had to be redone. This catch-22 situation can be resolved by implementing just the aspect of the system that you want to test, for example the flow of interaction. This is called a *prototype* and, as you will see, the transition table can quickly be translated into a simple piece of software, an *interactive prototype*, using just a few standard coding patterns.
 
 For the interactive prototype, we will turn the transitions from the table into *transition conditionals* or short: *transitionals*. As we have two kinds of transitions, automatic and interactive, we will also have to deal with interactive and automatic transitionals.
 
