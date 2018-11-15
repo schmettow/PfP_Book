@@ -25,7 +25,7 @@
 <meta name="author" content="Martin Schmettow and Lena Brandl">
 
 
-<meta name="date" content="2018-11-13">
+<meta name="date" content="2018-11-15">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -237,7 +237,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="8.1.1" data-path="interaction.html"><a href="interaction.html#identifying-states"><i class="fa fa-check"></i><b>8.1.1</b> Identifying states</a></li>
 <li class="chapter" data-level="8.1.2" data-path="interaction.html"><a href="interaction.html#identifying-transitions"><i class="fa fa-check"></i><b>8.1.2</b> Identifying transitions</a></li>
 <li class="chapter" data-level="8.1.3" data-path="interaction.html"><a href="interaction.html#events-internal-conditions-and-user-input"><i class="fa fa-check"></i><b>8.1.3</b> Events: internal conditions and user input</a></li>
-<li class="chapter" data-level="8.1.4" data-path="interaction.html"><a href="interaction.html#exercises-7"><i class="fa fa-check"></i><b>8.1.4</b> Exercises:</a></li>
+<li class="chapter" data-level="8.1.4" data-path="interaction.html"><a href="interaction.html#exercises-7"><i class="fa fa-check"></i><b>8.1.4</b> Exercises</a></li>
 </ul></li>
 <li class="chapter" data-level="8.2" data-path="interaction.html"><a href="interaction.html#programming-interactive-prototypes"><i class="fa fa-check"></i><b>8.2</b> Programming interactive prototypes</a><ul>
 <li class="chapter" data-level="8.2.1" data-path="interaction.html"><a href="interaction.html#interactive-transitionals"><i class="fa fa-check"></i><b>8.2.1</b> Interactive transitionals</a></li>
@@ -351,11 +351,11 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <div id="elements-of-data-processing" class="section level2">
 <h2><span class="header-section-number">7.1</span> Elements of data processing</h2>
 <p>In the previous chapter we have dealt with functions as reusable pieces of code. There is another common notion of what a function is: <em>a function processes data</em>. The basic model of data processing is the following:</p>
-<div id="htmlwidget-9cab1d786f4d9a8a8e13" style="width:672px;height:480px;" class="DiagrammeR html-widget"></div>
-<script type="application/json" data-for="htmlwidget-9cab1d786f4d9a8a8e13">{"x":{"diagram":"graph LR\nIN(Input Data) --> PROC[Function]\nPROC --> OUT(Output Data)"},"evals":[],"jsHooks":[]}</script>
+<div id="htmlwidget-b3f78b3abf27b77a7c42" style="width:672px;height:480px;" class="DiagrammeR html-widget"></div>
+<script type="application/json" data-for="htmlwidget-b3f78b3abf27b77a7c42">{"x":{"diagram":"graph LR\nIN(Input Data) --> PROC[Function]\nPROC --> OUT(Output Data)"},"evals":[],"jsHooks":[]}</script>
 <p>So, what is data? As psychologists we are used to think of data as observations from empirical studies that we process by statistical procedures. That precisely matches our above model:</p>
-<div id="htmlwidget-95df2d5624048d7af3e1" style="width:672px;height:480px;" class="DiagrammeR html-widget"></div>
-<script type="application/json" data-for="htmlwidget-95df2d5624048d7af3e1">{"x":{"diagram":"graph LR\nIN(Observations) --> PROC[t-test]\nPROC --> OUT(p-value)"},"evals":[],"jsHooks":[]}</script>
+<div id="htmlwidget-dca5b4476f4a3e723d01" style="width:672px;height:480px;" class="DiagrammeR html-widget"></div>
+<script type="application/json" data-for="htmlwidget-dca5b4476f4a3e723d01">{"x":{"diagram":"graph LR\nIN(Observations) --> PROC[t-test]\nPROC --> OUT(p-value)"},"evals":[],"jsHooks":[]}</script>
 <p>In Python, as a general programming language, there exist libraries that implement tables of observations, as well as the t-test (and more modern statistical procedures, luckily). However, we don’t want to bother you with statistics for the moment. Instead, take another look at two function that we have introduced in <a href="functions.html#functions">6</a>:</p>
 <div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python"><span class="kw">def</span> summation(alist):
     <span class="bu">sum</span> <span class="op">=</span> <span class="fl">0.0</span>
@@ -366,8 +366,8 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 summation([<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">4</span>])</code></pre></div>
 <pre><code>## Sum of the list is: 10.0</code></pre>
 <p>The function <code>summation</code> takes a list of values and computes the sum. Again, that satisfies the basic model of data processing:</p>
-<div id="htmlwidget-97deb8d5758bf16e1202" style="width:672px;height:480px;" class="DiagrammeR html-widget"></div>
-<script type="application/json" data-for="htmlwidget-97deb8d5758bf16e1202">{"x":{"diagram":"graph LR\nIN(List of numbers) --> PROC[Summation]\nPROC --> OUT(sum)"},"evals":[],"jsHooks":[]}</script>
+<div id="htmlwidget-c1c98089b48e41426715" style="width:672px;height:480px;" class="DiagrammeR html-widget"></div>
+<script type="application/json" data-for="htmlwidget-c1c98089b48e41426715">{"x":{"diagram":"graph LR\nIN(List of numbers) --> PROC[Summation]\nPROC --> OUT(sum)"},"evals":[],"jsHooks":[]}</script>
 <p>It is easy to see how input and output are implemented with Python functions:</p>
 <ul>
 <li>function arguments provide the input</li>
@@ -375,14 +375,8 @@ summation([<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">
 <li>the return statement gives the output</li>
 </ul>
 <p>Consequently, every function that takes arguments and has a return statement can be considered data processing. Furthermore, data processing can take place as chains. Let’s take the variance of a list of numbers as an example. The formula for variance, shown below, reveals that the variance statistic is produces in three steps: first, the residuals are computed, these are squared an finally the mean value is taken.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">DiagrammeR<span class="op">::</span><span class="kw">mermaid</span>(
-<span class="st">&quot;graph LR</span>
-<span class="st"> IN(List of numbers) --&gt; PROC_1[square residuals]</span>
-<span class="st"> PROC_1 --&gt; OUT_1(List of squared residuals)</span>
-<span class="st"> OUT_1 --&gt; PROC_2[take the mean]</span>
-<span class="st"> PROC_2 --&gt; OUT(Variance)&quot;</span>)</code></pre></div>
-<div id="htmlwidget-b15d129e40f0fb88f414" style="width:672px;height:480px;" class="DiagrammeR html-widget"></div>
-<script type="application/json" data-for="htmlwidget-b15d129e40f0fb88f414">{"x":{"diagram":"graph LR\n IN(List of numbers) --> PROC_1[square residuals]\n PROC_1 --> OUT_1(List of squared residuals)\n OUT_1 --> PROC_2[take the mean]\n PROC_2 --> OUT(Variance)"},"evals":[],"jsHooks":[]}</script>
+<div id="htmlwidget-4f9d8f0a202e19b3b48a" style="width:672px;height:480px;" class="DiagrammeR html-widget"></div>
+<script type="application/json" data-for="htmlwidget-4f9d8f0a202e19b3b48a">{"x":{"diagram":"graph LR\n IN(List of numbers) --> PROC_1[square residuals]\n PROC_1 --> OUT_1(List of squared residuals)\n OUT_1 --> PROC_2[take the mean]\n PROC_2 --> OUT(Variance)"},"evals":[],"jsHooks":[]}</script>
 <p>Let’s see how this is implemnented in Python. For the squared residuals, we create our own function, but resort to the function <code>mean</code> in the <code>numpy</code> library. Note how the two defined functions operate on a dedicated list for output, rather than modifying the original one. Recall that lists are called by reference, which means the original list would otherwise be altered by the function.</p>
 <div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python"><span class="im">from</span> numpy <span class="im">import</span> mean
 <span class="kw">def</span> residuals(lon):

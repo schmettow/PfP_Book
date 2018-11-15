@@ -25,7 +25,7 @@
 <meta name="author" content="Martin Schmettow and Lena Brandl">
 
 
-<meta name="date" content="2018-11-13">
+<meta name="date" content="2018-11-15">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -237,7 +237,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="8.1.1" data-path="interaction.html"><a href="interaction.html#identifying-states"><i class="fa fa-check"></i><b>8.1.1</b> Identifying states</a></li>
 <li class="chapter" data-level="8.1.2" data-path="interaction.html"><a href="interaction.html#identifying-transitions"><i class="fa fa-check"></i><b>8.1.2</b> Identifying transitions</a></li>
 <li class="chapter" data-level="8.1.3" data-path="interaction.html"><a href="interaction.html#events-internal-conditions-and-user-input"><i class="fa fa-check"></i><b>8.1.3</b> Events: internal conditions and user input</a></li>
-<li class="chapter" data-level="8.1.4" data-path="interaction.html"><a href="interaction.html#exercises-7"><i class="fa fa-check"></i><b>8.1.4</b> Exercises:</a></li>
+<li class="chapter" data-level="8.1.4" data-path="interaction.html"><a href="interaction.html#exercises-7"><i class="fa fa-check"></i><b>8.1.4</b> Exercises</a></li>
 </ul></li>
 <li class="chapter" data-level="8.2" data-path="interaction.html"><a href="interaction.html#programming-interactive-prototypes"><i class="fa fa-check"></i><b>8.2</b> Programming interactive prototypes</a><ul>
 <li class="chapter" data-level="8.2.1" data-path="interaction.html"><a href="interaction.html#interactive-transitionals"><i class="fa fa-check"></i><b>8.2.1</b> Interactive transitionals</a></li>
@@ -392,12 +392,8 @@ G    .    .</code></pre>
 <div id="identifying-transitions" class="section level3">
 <h3><span class="header-section-number">8.1.2</span> Identifying transitions</h3>
 <p>The second step in the analysis is about identifying the <em>transitions</em> between states. The Dutch traffic light knows three transitions:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">DiagrammeR<span class="op">::</span><span class="kw">mermaid</span>(<span class="st">&quot;graph LR</span>
-<span class="st">         Go   --&gt; Att</span>
-<span class="st">         Att  --&gt; Stop</span>
-<span class="st">         Stop --&gt; Go&quot;</span>)</code></pre></div>
-<div id="htmlwidget-1ceb8f3ddd5d6b7b694b" style="width:672px;height:480px;" class="DiagrammeR html-widget"></div>
-<script type="application/json" data-for="htmlwidget-1ceb8f3ddd5d6b7b694b">{"x":{"diagram":"graph LR\n         Go   --> Att\n         Att  --> Stop\n         Stop --> Go"},"evals":[],"jsHooks":[]}</script>
+<div id="htmlwidget-bc665c24bb6b33d79fee" style="width:672px;height:480px;" class="DiagrammeR html-widget"></div>
+<script type="application/json" data-for="htmlwidget-bc665c24bb6b33d79fee">{"x":{"diagram":"graph LR\n         Go   --> Att\n         Att  --> Stop\n         Stop --> Go"},"evals":[],"jsHooks":[]}</script>
 <p>Cycling through a set of states is the most simple interaction protocol. It is unique, in that states are arrenged in a closed cycle, which implies that every state appears exactly once on the left-hand side (the original state) and the right-hand side (the destination). As we will later see, this is why we also only need one button for a manual traffic light.</p>
 <p>Most of the time it is more complicated and one easily overlooks a possible transition. If the number of states is not overwhelmingly large, transitions can systematically be found using a <em>transition table</em>. A transition table is just a square matrix, where you put the states into rows and columns. The rows denote the <em>origin</em> state, the columns are <em>target</em> states.</p>
 <pre><code>      Go  Att Stop
@@ -415,18 +411,14 @@ Go          X
 Att             X
 Stop  X</code></pre>
 <p>It is important to realize, that transitions are not generally symmetric. In the case of a traffic light, you can go from Go to Att, but there is no transition back. In interaction models other than a uni-directional cycle, transitions can well be symmetric, think of the checkout process on webshops. Usually, they guide you through the process in a number of steps (billing address –&gt; delivery address, credit card number), but allow you to go back to the previous step to do corrections.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">DiagrammeR<span class="op">::</span><span class="kw">mermaid</span>(<span class="st">&quot;graph TD</span>
-<span class="st">    Delivery    --&gt; Billing</span>
-<span class="st">    Billing     --&gt; Delivery</span>
-<span class="st">    Delivery    --&gt; Credit_card</span>
-<span class="st">    Credit_card --&gt; Delivery&quot;</span>)</code></pre></div>
-<div id="htmlwidget-6de13723cfba733b9ed8" style="width:672px;height:480px;" class="DiagrammeR html-widget"></div>
-<script type="application/json" data-for="htmlwidget-6de13723cfba733b9ed8">{"x":{"diagram":"graph TD\n    Delivery    --> Billing\n    Billing     --> Delivery\n    Delivery    --> Credit_card\n    Credit_card --> Delivery"},"evals":[],"jsHooks":[]}</script>
+<div id="htmlwidget-dc11fe8602da6ec889c9" style="width:672px;height:480px;" class="DiagrammeR html-widget"></div>
+<script type="application/json" data-for="htmlwidget-dc11fe8602da6ec889c9">{"x":{"diagram":"graph TD\n    Delivery    --> Billing\n    Billing     --> Delivery\n    Delivery    --> Credit_card\n    Credit_card --> Delivery"},"evals":[],"jsHooks":[]}</script>
 <pre><code>             Delivery  Billing Credit_card
 Delivery               x
 Billing      x                 x
 Credit_card            x</code></pre>
 <!-- #5 specify initial state -->
+<p>Notice that in the traffic light example, every state is origin of exactly one transition, whereas in the checkout process there are two transitions originating at Billing. This is called <em>branching</em>. If you wonder how the program eventually decides which transition to take, read on about events.</p>
 </div>
 <div id="events-internal-conditions-and-user-input" class="section level3">
 <h3><span class="header-section-number">8.1.3</span> Events: internal conditions and user input</h3>
@@ -474,9 +466,11 @@ Resp  Word or
 <p>The transition table is now complete. It covers states (in rows and columns), transitions (occupied cells) and events (what is in the cell). In the next section, we will build interactive programs by translating each cell in the table into a <em>transition conditional</em>.</p>
 </div>
 <div id="exercises-7" class="section level3">
-<h3><span class="header-section-number">8.1.4</span> Exercises:</h3>
+<h3><span class="header-section-number">8.1.4</span> Exercises</h3>
 <ol style="list-style-type: decimal">
-<li>Identify states and transitions of a stop watch</li>
+<li>german traffic lights differ from Dutch traffic lights in that they light Red and Yellow before switching to Go. Create a transition table.</li>
+<li>Identify states, events and transitions of a stopwatch program and create a transition table.</li>
+<li>A smart traffic light switches from Stop to Go automatically, when a car is approaching and the crossroads are clear. Analyze and create a transition table.</li>
 <li>Review the Stroop program and find the states in the code. Then, take a closer look at where in the code states are used.</li>
 </ol>
 <!-- 7 rewrite
@@ -497,15 +491,12 @@ STATE = "Billing"the sole purpose of checking whether your interaction model doe
 <div id="interactive-transitionals" class="section level3">
 <h3><span class="header-section-number">8.2.1</span> Interactive transitionals</h3>
 <p>The following code snippet implements two interactive transitional with the same origin, namely the transition from Billing to Delivery and Credit_card:</p>
-<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python"><span class="cf">if</span> STATE <span class="op">==</span> <span class="st">&quot;Billing&quot;</span> <span class="kw">and</span> key <span class="op">==</span> <span class="st">&quot;p&quot;</span>:
-  <span class="bu">print</span>(STATE)
-  key <span class="op">=</span> <span class="bu">input</span>(<span class="st">&quot;Press a key: &quot;</span>)
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python"><span class="bu">print</span>(STATE)
+key <span class="op">=</span> <span class="bu">input</span>(<span class="st">&quot;Press a key: &quot;</span>)
+<span class="cf">if</span> STATE <span class="op">==</span> <span class="st">&quot;Billing&quot;</span> <span class="kw">and</span> key <span class="op">==</span> <span class="st">&quot;p&quot;</span>:
   STATE <span class="op">=</span> <span class="st">&quot;Delivery&quot;</span>
 <span class="cf">if</span> STATE <span class="op">==</span> <span class="st">&quot;Billing&quot;</span> <span class="kw">and</span> key <span class="op">==</span> <span class="st">&quot;n&quot;</span>:
-  <span class="bu">print</span>(STATE)
-  key <span class="op">=</span> <span class="bu">input</span>(<span class="st">&quot;Press a key: &quot;</span>)
-  STATE <span class="op">=</span> <span class="st">&quot;Credit_card&quot;</span>
-<span class="bu">print</span>(STATE)</code></pre></div>
+  STATE <span class="op">=</span> <span class="st">&quot;Credit_card&quot;</span></code></pre></div>
 <p>Notice that</p>
 <ol style="list-style-type: decimal">
 <li>the state of a program is maintained as a plain String variable</li>
@@ -556,7 +547,7 @@ Credit_card            Previous                 X, Next</code></pre>
 exit()</code></pre></div>
 <p>Notice that:</p>
 <ol style="list-style-type: decimal">
-<li>the loop itself comes with no conditions itself. It just plainly loops, as long as someone proves that the truth is not true.</li>
+<li>the loop itself comes with no conditions itself. It just plainly loops, until someone proves that the truth is not true.</li>
 <li>the print statement at the top of the while loop entirely replaces the graphical user interface at this stage.</li>
 <li>after every transitional, we have put a <code>continue</code> statement. Why? Because, when the State veriable is updated, it can fire up a second transitional. Check yourself, by reading the conditionals: within one iteration we would go from Delivery to Exit all the way through and we would not even see the intermediate steps printed to the console. The <code>continue</code> statement forces the loop to begin a new iteration, immediatly, omitting all the transitionals after the one that has fired. That makes sure that per iteration no more than one state transition takes place.</li>
 <li>We use a transitional that does not ask for the state and therefore always triggers Exit when x is pressed</li>
@@ -995,7 +986,7 @@ screen.fill(BACKGR_COL)
 main()</code></pre></div>
 <p>Notice that</p>
 <ol style="list-style-type: decimal">
-<li><code>event.pos</code> is a list of two vakues, the x and y coordinates</li>
+<li><code>event.pos</code> is a list of two values, the x and y coordinates</li>
 <li>Pygame provides the mouse buttons as constants, which are not to be put in quotation marks.</li>
 <li>it is unsafe to create new variables inside an event, as you never know when it happens. It is better to explicitly create variables (mousex, mousey) at the top of the main program</li>
 <li>there are two presentitionals, but they both use the same function to do the drawing</li>
@@ -1221,10 +1212,9 @@ main()</code></pre></div>
 <li><code>picture.get_rect()</code> is called twice. After the scaling the box gets an update</li>
 <li>Putting the scaling part into a conditional is not necessary, but saves computation where it is not needed.</li>
 </ol>
-<div id="here" class="section level4">
-<h4><span class="header-section-number">8.4.3.1</span> HERE</h4>
 <!--
 ### Playing animations
+
 
 + the refresh rate
 + computer-aided hypnosis
@@ -1251,7 +1241,6 @@ The Pacman figure would leave a trail of copies of itself, painting a trail with
 + dealing with object sets. Use Pandas, not lists. 
 
 -->
-</div>
 </div>
 </div>
 <div id="exercises-8" class="section level2">

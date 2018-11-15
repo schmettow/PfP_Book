@@ -102,7 +102,7 @@ def main():
                 this_word  = pick_color()
                 this_color = pick_color()
                 time_when_presented = time()
-                STATE = "show_trial"
+                STATE = "trial"
                 print(STATE)    
 
         

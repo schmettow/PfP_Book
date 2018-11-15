@@ -55,7 +55,7 @@ It is easy to see how input and output are implemented with Python functions:
 
 Consequently, every function that takes arguments and has a return statement can be considered data processing. Furthermore, data processing can take place as chains. Let's take the variance of a list of numbers as an example. The formula for variance, shown below, reveals that the variance statistic is produces in three steps: first, the residuals are computed, these are squared an finally the mean value is taken. 
 
-```{r}
+```{r echo = F}
 DiagrammeR::mermaid(
 "graph LR
  IN(List of numbers) --> PROC_1[square residuals]

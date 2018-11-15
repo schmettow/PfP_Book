@@ -59,7 +59,7 @@ Notice how we named the states of the traffic light, or better how we did not ca
 
 The second step in the analysis is about identifying the *transitions* between states. The Dutch traffic light knows three transitions:
 
-```{r}
+```{r echo = F}
 DiagrammeR::mermaid("graph LR
          Go   --> Att
          Att  --> Stop
@@ -95,7 +95,7 @@ Let's move on: "Does a transition from Go to Att make sense?" Absolutely! You ma
 
 It is important to realize, that transitions are not generally symmetric. In the case of a traffic light, you can go from Go to Att, but there is no transition back. In interaction models other than a uni-directional cycle, transitions can well be symmetric, think of the checkout process on webshops. Usually, they guide you through the process in a number of steps (billing address --> delivery address, credit card number), but allow you to go back to the previous step to do corrections.
 
-```{r}
+```{r echo = F}
 DiagrammeR::mermaid("graph TD
     Delivery    --> Billing
     Billing     --> Delivery
@@ -112,7 +112,7 @@ DiagrammeR::mermaid("graph TD
 
 <!-- #5 specify initial state -->
 
-
+Notice that in the traffic light example, every state is origin of exactly one transition, whereas in the checkout process there are two transitions originating at Billing. This is called *branching*. If you wonder how the program eventually decides which transition to take, read on about events.
 
 
 ### Events: internal conditions and user input
@@ -178,10 +178,12 @@ This needs to be considered carefully, because if you end up putting two control
 The transition table is now complete. It covers states (in rows and columns), transitions (occupied cells) and events (what is in the cell). In the next section, we will build interactive programs by translating each cell in the table into a *transition conditional*.
 
 
-### Exercises: 
+### Exercises
 
-1. Identify states and transitions of a stop watch
-2. Review the Stroop program and find the states in the code. Then, take a closer look at where in the code states are used.
+1. german traffic lights differ from Dutch traffic lights in that they light Red and Yellow before switching to Go. Create a transition table.
+1. Identify states, events and transitions of a stopwatch program and create a transition table.
+1. A smart traffic light switches from Stop to Go automatically, when a car is approaching and the crossroads are clear. Analyze and create a transition table.
+1. Review the Stroop program and find the states in the code. Then, take a closer look at where in the code states are used.
 
 
 
@@ -212,15 +214,14 @@ The following code snippet implements two interactive transitional with the same
 
 
 ```{python, eval = F}
-if STATE == "Billing" and key == "p":
-  print(STATE)
-  key = input("Press a key: ")
-  STATE = "Delivery"
-if STATE == "Billing" and key == "n":
-  print(STATE)
-  key = input("Press a key: ")
-  STATE = "Credit_card"
 print(STATE)
+key = input("Press a key: ")
+
+if STATE == "Billing" and key == "p":
+  STATE = "Delivery"
+
+if STATE == "Billing" and key == "n":
+  STATE = "Credit_card"
 ```
 
 Notice that
@@ -282,7 +283,7 @@ exit()
 
 Notice that:
 
-1. the loop itself comes with no conditions itself. It just plainly loops, as long as someone proves that the truth is not true.
+1. the loop itself comes with no conditions itself. It just plainly loops, until someone proves that the truth is not true.
 2. the print statement at the top of the while loop entirely replaces the graphical user interface at  this stage. 
 3. after every transitional, we have put a `continue` statement. Why? Because, when the State veriable is updated, it can fire up a second transitional. Check yourself, by reading the conditionals: within one iteration we would go from Delivery to Exit all the way through and we would not even see the intermediate steps printed to the console. The `continue` statement forces the loop to begin a new iteration, immediatly, omitting all the transitionals after the one that has fired. That makes sure that per iteration no more than one state transition takes place.
 4. We use a transitional that does not ask for the state and therefore always triggers Exit when x is pressed
@@ -489,6 +490,7 @@ It is tempting to just the print statements into the transitionals, but that wil
 + It works with Pygame.
 
 In order to be more flexible with what the prototype presents to the screen when in a state, we will expand the `print(STATE)` statement into a set of *presentation conditionals (presentitionals)*, allowing us to create different output for different states. We demonstrate the idea by the example of the checkout process. 
+
 
 Notice that:
 
@@ -819,7 +821,7 @@ main()
 
 Notice that
 
-1. `event.pos` is a list of two vakues, the x and y coordinates
+1. `event.pos` is a list of two values, the x and y coordinates
 1. Pygame provides the mouse buttons as constants, which are not to be put in quotation marks.
 2. it is unsafe to create new variables inside an event, as you never know when it happens. It is better to explicitly create variables (mousex, mousey) at the top of the main program
 3. there are two presentitionals, but they both use the same function to do the  drawing
@@ -1085,10 +1087,10 @@ Notice that
 1. `picture.get_rect()` is called twice. After the scaling the box gets an update
 1. Putting the scaling part into a conditional is not necessary, but saves computation where it is not needed.
 
-#### HERE
 
 <!--
 ### Playing animations
+
 
 + the refresh rate
 + computer-aided hypnosis
