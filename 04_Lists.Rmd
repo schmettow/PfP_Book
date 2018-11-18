@@ -240,7 +240,7 @@ d = {['a']: 'b'}
 TypeError: unhashable type: 'list'
 ```
 
-Whenever you try to use a mutable object (like lists) as a key, a `TypeError` will be thrown. Because lists are mutable (you can update their elements), they are *unhashable*. Without going into the details of hash functions here, a *hash* is another representation of an object. It is a transformation of the object's length sequence of bytes into a fixed length sequence. *Hash functions* are used in cryptographic algorithms, in digital signatures, manipulation detection, password storage and more. Hash functions are constructed so that calculating an object's hash representation is simple, but retrieving the original object is difficult without knowing the function used to hash the object in the first place. You can imagine that things start to get messy if the object itself can change after its hash has been calculated. A hash is a momentary snapshot of an object. It will be impossible to retrieve the latest version of an object from its hash representation if the object changed in the meantime, even if you know its hash function. Dictionaries themselves are also mutable (and thus, unhashable) and cannot be used as *keys*, by the way.
+Whenever you try to use a mutable object (like lists) as a key, a `TypeError` will be thrown. Because lists are mutable (you can update their elements), they are *unhashable*. Without going into the details of hash functions here, a *hash* is another representation of an object. It is a transformation of the object's length sequence of bytes into a fixed length sequence. *Hash functions* are used in cryptographic algorithms, in digital signatures, manipulation detection, password storage and more. Hash functions are constructed so that calculating an object's hash representation is simple, but retrieving the original object is difficult without knowing the function used to hash the object in the first place. You can imagine that things start to get messy if the object itself can change after its hash has been calculated. A hash is a momentary snapshot of an object. It is impossible to retrieve the "latest version" of a changable object from its hash representation if, even if you know its hash function. Dictionaries themselves are also mutable (and thus, unhashable) and cannot be used as *keys*, by the way.
 
 Dictionaries are *unordered* collections. Unlike sequences, such as lists and tuples, the elements of a dictionary cannot be accessed using indices. Dictionaries do not have a sequential representation of their elements. Values stored in a dictionary can be accessed and changed through their respective *keys*, like so
 
@@ -420,7 +420,7 @@ print('a' in d.keys())
 
 In this case, a typing error is the culprit. Instead of `'a'`, `'a '` with a whitespace was set as the first key of `d`.
 
-Alternatively, you can use `not in` to make sure that you do not overwrite any existing keys
+Alternatively, you can use a simple conditional constructions and `not in` to make sure that you do not overwrite any existing keys
 
 ```{python}
 d = {'a': 1,
@@ -482,11 +482,97 @@ print(a[2][1])
 
 ### Exercise 2. Debugging
 
-What goes wrong in the following code snippets?
+Will the following code snippets throw an error? If anything goes wrong, why does it go wrong?
+
+```{}
+a, b = 'Sigmund', 'Freud', (1856, 1939)
+```
+
+* No error is thrown, `a` and `b`are assigned the values `'Sigmund'` and `'Freud'` respectively, and `(1856, 1939)` will not persist in computer memory.
+* A `ValueError` is thrown. There are too many values on the right side of the equals sign `=` to unpack.
+* A `NameError` is thrown. The variables `a` and `b` have not been assigned yet and can therefore not be compared with other values.
+
+```{}
+a = [1, 2]
+b = (3, 4)
+
+a.append(b)
+print(a[3])
+```
+
+* Nothing goes wrong, the output is `4` because `4` is located at index `3` after `b` is appended to `a`.
+* A `TypeError` is thrown. `b` cannot be appended to `a` because lists cannot have tuples as elements.
+* An `IndexError` is thrown. After appending `b`, `a` has three elements. `3` is not a valid index.
+
+```{}
+a = ('a', [1, 2])
+
+a[1].append(3)
+```
+
+* A `TypeError` is thrown because tuples are immutable and do not support item assignment.
+* No error is thrown, `3` is appended to `[1, 2]`.
+* An `AttributeError` is thrown, tuples do not have an `append` method.
+
+```{}
+a = {('a', 'b'): 3}
+
+print(a.keys())
+```
+
+* No error is thrown, the list of keys contains one element, `('a', 'b')`.
+* A `TypeError` is thrown. Tuples cannot be *hashed* because they are changable and therefore unsuitable as dictionary keys.
+* No error is thrown. By means of *tuple assignment*, the dictionary has two keys, `a` and `b`.
 
 ### Exercise 3. Mini programs
 
 What is the output of the following mini programs?
+
+```{}
+a = {}
+
+print(a.keys())
+```
+
+* `[]`
+* `0`
+* A `KeyError` because `a` is empty and has no keys.
+
+```{}
+a = []
+b = ([1, 2], [3, 4], [5, 6])
+
+a.extend(b)
+print(a[1])
+```
+
+* `[1, 2]`
+* `2`
+* `[3, 4]`
+
+```{}
+a = ('a', ('b', 'c'))
+
+print('b' in a)
+```
+
+* `True`
+* `False`
+* A `TypeError` is thrown because the `in` operator cannot be used with tuples.
+
+```{}
+a = [{'a': 1 }, {'a': 2}]
+
+if 'a' in a[0]:
+    print(a[0]['a'])
+elif 'a' in a[1]:
+    print(a[1]['a'])
+  
+```
+
+* `1`
+* `2`
+* `1` and `2`
 
 ### Exercise 4. Shopping list
 ```{python, eval=F}
