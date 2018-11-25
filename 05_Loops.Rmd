@@ -2,20 +2,89 @@
 
 ```{python}
 for i in range(2):
-    print "Hello, World!"
+    print("Hello, World!")
 ```
 
-Computers are good at executing repetitive tasks without making errors, unlike people. The repeated execution of a set of statements is called *iteration*. Because making computers do boring, repetitive tasks is so common in programming, Python has a number of language features that make iteration easier.
+Very much unlike human beings, computers are good at executing repetitive tasks without making errors. It just so happens that boring, repetitive tasks are an inescapable part of many exciting things. Take psychological research as an example. In conducting psychological research, you come up with a theory about human beings, about how things work between humans, or maybe between a human operator and a machine. Or, alternatively, you may have a research question, a question about how things work, how human beings function, why they make the mistakes they make. Now, what do psychologists do when they try to find an answer to their questions? Right, psychologists conduct empirical research. 
+
+Let's say, you have a research question and you try to answer your question by setting up an empirical experiment. You invite others to participate in your research. You repeat your experimental procedure with each and every participant. Depending on the kind of research you conducted, you repeat the qualitative inspection of the generated data for each participant. Depending on the statistical tool you use, you may end up filling in the data of each and every participant by hand into your statistical software. Now, here is the good news. Programming can help you unbore (yes, that is a word) the boring and repetitive bits of your exciting research.
+
+At the root of boring tasks often lies repetition. You repeat an experimental procedure, you repeat the same quality checks for each participant's data, you perform the same data cleaning on each single row in a data frame, and so on. Human beings tend to make mistakes when they repeat the same task over and over again. At the same time, this is exactly where the strength of computers lies. Computers do not make mistakes when they repeat a task. When a computer makes a mistake, then it is because it was falsely instructed in the first place.
+
+Chapter 5 introduces you to the mechanism that lies at the heart of a computer's paramount strength, repetition; or as it is called in computer jargon: *loops*. The Python language has a number of features that make it easier for you as a programmer to make your computer execute those boring, repetitive tasks for you.
 
 ## The `for` loop
 
 ```{python}
-for letter in "Hello!":
-    print letter
-print "The for loop is over"
+for letter in "Hello":
+    print(letter)
 ```
 
-The `for` loop statement *iterates* over a sequence of objects. This means that it goes through all items of a sequence. The statement begins with the `for` keyword, followed by a *loop variable* (`letter` in the example above), which can really be any valid variable name. Then the `in` keyword follows and after that, a *sequence* (such as a `list` or a `string`) or a *range object* (returned by `range()`) follows. Finally a `:` demarcates the end of the statement. On each iteration of the loop, the loop variable takes on the value of the next item in the sequence. The *loop body* specifies the statements that are to be executed during each iteration. The borders of the loop body are demarcated by *indentation*. Once the value of the last item in the sequence has been assigned to the loop variable and the body of the loop has been executed, the loop terminates and program execution is continued on the first line after the loop body.
+The `for` loop is one possibility to create repetition in a computer program. In computer science, the repeated execution of a set of statements is called *iteration*. The `for` loop *iterates* over a *sequence* of objects. Remember from chapter 4 Lists, that *lists* and *strings* are both sequences. They are *ordered* collections of elements, where strings are sequences of characters and lists can contain any kind of object. So what does it mean for the `for` loop to iterate over a sequence? It means that it visits each element in the sequence one by one, in an ordered fashion. 
+
+Regarding the syntax of `for` loops; a `for` loop begins with the `for` keyword, followed by the so-called *loop variable*. In the example above, the variable `letter` serves as the loop variable. The `in` keyword, which you encountered in chapter 4 follows on the loop variable. Then a *sequence* which can (amongst other things) be a list or a string is included. Finally, a colon `:` demarcates the end of the `for` statement. Semantically, the `for` statement in the above example says nothing else but
+
+> For each letter that exists in the word "Hello"
+
+On each iteration of the `for` loop, the *loop variable* takes on the value of the next element in the sequence. This means that on the first iteration, the loop variable `letter` has the value `H`, on the second iteration, it has the value `e`, on the third iteration, its value is `l`, and so on. The loop variable ceases to take on a new value once it is assigned the last element of the designated sequence, in this case the`o` of `"Hello"`.
+
+Syntactically, after the `for` statement, the so-called *loop body* follows. The body of a loop specifies the statements that are to be executed on each iteration. In the example above, printing the current value of the loop variable `letter` is executed on each iteration of the loop.
+
+The body of a loop needs to be *indented*. The end of a `for` loop is demarcated by indentation. Once the value of the last element in the sequence has been assigned to the loop variable, and the body of the loop has been executed, the loop terminates. The execution of the computer program is continued on the first line after the loop body, and indentation (or rather the lack thereof) demarcates this line, like so
+
+```{python, eval=F}
+for letter in "Hello":
+    print(letter)
+
+print("World")
+```
+
+Here, `print("Hello")` constitutes the first line after the `for` loop.
+
+Instead of including a manually defined sequence in the `for` statement, such as the string `"Hello"`, you can use the `range` method to create a list of integers. For example, you may want to repeat a certain block of statements twice. However, the block of statements may not involve a suitable sequence over which you can make a `for` loop iterate. In such cases, you can use the `range` method to create a looping mechanism, like so
+
+```{python}
+for i in range(2):
+    print("Hello, World!")
+```
+
+Unless specified otherwise, the `range` method initiates a list that contains each integer starting at `0` until, but excluding the specified integer between the brackets `()`.
+
+```{python}
+print(range(2))
+```
+
+Read the documentation of the `range` method for further information on how to customize the sequence of integers it produces.
+
+```{python, eval=F}
+help(range)
+```
+
+In summary, from the above it follows that there are at least two ways for iterating over *ordered* sequences of objects using `for` loops. First, you assign each element of the sequence iteratively to the loop variable, like so
+
+```{python}
+a = ['a', 'b']
+for i in a:
+    print(i)
+```
+
+Second, you access the elements of the sequence through their indices, like so
+
+```{python}
+for i in range(len(a)):
+    print(a[i])
+```
+
+Which way of iterating over *ordered* sequences you prefer is up to you. Sometimes, the problem you try to solve with your code will require one way, sometimes the other. However, remember that you **cannot** access the elements of *unordered* collections like dictionaries using the index operator.
+
+```{}
+d = {'a': 1,
+     'b': 2}
+for i in range(len(d)):
+    print(d[i])
+
+KeyError: 0
+```
 
 ## The `while` loop
 
@@ -121,6 +190,8 @@ for i in range(len(myList[0])):
     IndexError: list assignment index out of range
 
 Always make sure that sequences you intend to modify in a `for` loop body actually have as many elements as the sequence over which you are iterating in the `for` statement.
+
+## Debugging
 
 ## Exercises
 

@@ -324,7 +324,7 @@ while True:
 
 Note how the variable `RT` is used to keep track of the user's reaction times throughout the trials. The variable `this_reaction_time` is overwritten in each trial. This means, that at the end of the program, when all trials are completed, `this_reaction_time` only contains the last value assigned to it during the 20th trial. All other reaction times were long erased from computer memory. But wait, what if we want to calculate a user's mean reaction time once the experiment is finished? In order to do so, we need some way of saving the reaction times from trial to trial. They need to persist until the last trial is completed. This is exactly where collections step into the picture. Collections are capable of storing multiple values at the same time and they can be mutated iteratively (one reaction time per trial). Hence, we `append` the calculated reaction time to a list in each trial.
 
-In the end, you as a programmer still need to decide how to proceed with the collected reaction times. Do you want to print their mean to the screen, export them out of the program, or combine them with data gathered from other experimental subjects? It is up to you. Using collections, at least you have a user's reaction times at your disposal, also once all trials are completed.
+In the end, you as a programmer still need to decide how to proceed with the collected reaction times. Do you want to print their mean to the screen, export them out of the program, or combine them with data gathered from other experimental subjects? It is up to you. Using collections, at least you have a user's reaction times at your disposal, even after they completed the experiment.
 
 ## Common errors
 
