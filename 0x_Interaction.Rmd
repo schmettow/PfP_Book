@@ -549,34 +549,6 @@ while True:
 
 ### Overall structure
 
-1. setup
-1. initialize display
-1. fast `while` loop doing the display refresh
-3.    event handler `for` loop
-4.      interactive transitionals
-5.    automatic transitionals
-6.    presentitionals
-7. drawing functions
-
-Before we dive into the matter of interaction programming with Pygame, there is one aspect of the template that is worth briefly mentioning, the `def main():` statement. The only thing it does is to encapsulate the central part of your code as a function, which is called in the last line of code.
-
-
-### Screen and display loop.
-
-With Pygame you can create interactive programs with fancy geometries and fluent animations. In fact, all computer animations are just pseudo-fluent. It is like in the movies: a fluent movement, like that of a jumping ball, is captured in a high speed. It is just a sequence of still images, but by the sluggish human visual system it is perceived no less fluent than the real scene.
-
-In a Pygame program, an animation is created by a series of stills, too, with the only difference that these stills are not on celluloid. They get computed in an instance and transfered to the computer screen in fast succession, like 60 per second (60Hz). This happens as followed:
-
-1. setting up the display
-1. a fast while loop runs continuously, at every iteration:
-2.   the screen is refreshed by painting the background color over the previous image
-3.   the next image is computed by transitionals and presentitionals
-4.   the display is updated with the new image
-
-A single iteration of the fast while loop we call *a refresh*.
-
-
-
 ```{python, eval = F}
 BACKGR_COL = col_gray
 SCREEN_SIZE = (700, 500)
@@ -613,6 +585,26 @@ Notice that:
     + set the width and height of the screen by changing `SCREEN_SIZE`
     + change the caption of the screen (to appear in the top bar of the window)
     + change font and font size
+1. the main program is nbot invoked directly, but encapsulated in a function `def main():`. This function is then executed in the very last line of code.
+
+
+### The screen and the refresh loop.
+
+With Pygame you can create interactive programs with fancy geometries and fluent animations. In fact, all computer animations are just pseudo-fluent. It is like in the movies: a fluent movement, like that of a jumping ball, is captured in a high speed. It is just a sequence of still images, but by the sluggish human visual system it is perceived no less fluent than the real scene.
+
+In a Pygame program, an animation is created by a series of stills, too, with the only difference that these stills are not on celluloid. They get computed in an instance and transfered to the computer screen in fast succession, like 60 per second (60Hz). This happens as followed:
+
+1. setting up the display
+1. a fast while loop runs continuously, at every iteration:
+2.   the screen is refreshed by painting the background color over the previous image
+3.   the next image is computed by transitionals and presentitionals
+4.   the display is updated with the new image
+
+A single iteration of the fast while loop we call *a refresh*.
+
+
+
+
 
 
 ### Handling user input
