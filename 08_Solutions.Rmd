@@ -340,8 +340,8 @@ while True:
 |:-:|:-:|:-:|:-:|:-:|:-:|:-:|:-:|
 |FROM | A |	 | w	 |	 |	 |   |   |   |
 |	  | B  |	 |	 | a   |   |   |   |   |
-|	  | C |	 |	 |   | auto   |   |   |   |
-|	  | D    |	 |SPACE	 |   |   |SPACE  |   |   |
+|	  | C |	 |	 |   | after 3s   |   |   |   |
+|	  | D    |	 |SPACE	AND count < 10 |   |   |SPACE  AND count >= 10|   |   |
 |     | quit |	 |	 |   |   |   |   |   |
 
 ### Exercise 4. Mini programs
