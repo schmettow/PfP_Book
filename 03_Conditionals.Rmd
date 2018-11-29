@@ -31,6 +31,8 @@ False|False|True|False|False|True
 
 There exists a set of rules for working with Boolean values, much like highschool mathematical algebra. First of all, the logical operators `and`, `or`, and `not` differ in their priority. In highschool, you learned that given a formula `a + b * c`, you first multiply `b` and `c` before adding `a`. This is the same as saying that `*` has a higher *precedence* than `+`. From highest to lowest the precedence ranking for the three logical operators is: `not`, `and`, `or`. In addition, the six *comparative* operators (`==`,`!=`,`>`,`<`,`>=`,`<=`) precede all logical operators.
 
+As in mathematics, brackets can be used to change the order of operations.
+
 ```{python}
 print(not True or 1 == 1)
 ```
@@ -40,15 +42,51 @@ Also notice that
 ```{python}
 print(not True and False)
 ```
+
 is not the same as
 
 ```{python}
 print(not (True and False))
 ```
 
-As in mathematics, brackets can be used to change the order of operations! 
+Finally, in Python code you will frequently encounter numerical values as part of Boolean expressions, such as in the following:
 
-## if ... then {#if-then}
+```{python}
+trial = 3
+max_trials = 6
+correct = True
+
+print((max_trials - trial) and correct)
+```
+
+Here, the numerical expression is evaluated in the context of the Boolean operator   `and` and is converted to Boolean. When that happens, zero becomes `False` and any other valuebecomes `True`, *including negative values* :
+
+```{python}
+print(-2 and True)
+```
+
+That may not be what you expected, and the whole situation with implicit typecasts to Boolean is even worse, as the typecast depends on the order.
+
+```{python}
+print(True and 2)
+```
+
+Certainly, there are some reasons, why Python behaves that way, but it is far from being intuitive (breaking the law of commutivity for the `and` operator!). Therefore one should *always do explicitly Boolean expressions*, such as the following:
+
+```{python}
+trial = 3
+max_trials = 6
+correct = True
+
+print((max_trials - trial) > 0  and correct)
+```
+
+
+
+
+
+
+## if this is true, then do this {#if-then}
 
 Boolean values are essential for regulating the flow of a computer program as they provide the conditions under which certain blocks of code are executed. The simplest form of a *conditional* is the *if statement*.
 
@@ -66,6 +104,9 @@ You can read *if statements* as
 
 An `if statement` consists of a *header* and a *body*. The header begins with the *keyword* `if`, followed by a *Boolean expression* (the *condition*) and ends with a colon (`:`). The brackets around the condition are optional, but recommended to facilitate readability. Only if the given condition in the *head* is met, the program will read and execute the code written in the statement's *body*. Note that Python requires that the statements written in the body of an `if statement` are indended consistently (commonly by four spaces). The intended statements are called a *block* and the first unintended statement designates the end of the block. The usefulness of intendation may at first not be apparent to you, but trust me, it facilitates reading complex programs enormously.
 
+
+## else do that
+
 Actually, you can simplify the code above by using an *else clause*:
 
 ```{python}
@@ -76,7 +117,13 @@ else:
     print("a is larger than, or equal to 0")
 ```
 
-*else clauses* are optional, but they often simplify your code. If you need to establish a dichotomy, that is, either condition A is `True` or not, then you using an `if/else clause` is the way to go. More complex conditional structures can lead to *nested* conditionals:
+But, take great care: the conditions `a < 0` and `a >= 0` are special in that they are:
+
++ mutually exclusive; only one can be true at any time
++ complete; there is no third option.
+
+
+*else clauses* are optional, but they often simplify your code. If you are dealing with two complete, mutually exclusive conditions, then using an `if/else clause` is the way to go. If there are more than two choices, you can either use *nested* conditionals or `if ... elif ... else`:
 
 ```{python}
 a = 0
@@ -89,9 +136,10 @@ else:
         print("a is larger than 0")
 
 ```
+
 The indentation makes the structure of the program visible. However, most of the time, nested conditionals complicate your code unecessarily, making it more difficult to read. It is commonly regarded as good practice to keep the usage of nested conditionals to a minimum.
 
-But then, you may ask yourself, how do you implement more than two execution branches, without resorting to nested conditionals? Let's pretend that it is incredibly important to your program that it does make a difference between the case that `a` is larger than 0, compared to when `a` equals 0.
+Then again, how do you implement more than two execution branches, without resorting to nested conditionals? Let's pretend that it is incredibly important to your program that it does make a difference between the case that `a` is larger than 0, compared to when `a` equals 0.
 
 ```{python}
 a = 0
@@ -116,7 +164,7 @@ else:
 ```
 
 
-Alternatively, *nesting* can often be circumvented by using *logical operators*:
+Alternatively, nesting can often be circumvented by combining simple Boolean expressions using  *logical operators*:
 
 ```{python, eval=F}
 a = 5
@@ -130,6 +178,9 @@ a = 5
 if (a > -5 and a >= 0):
     print("a is a positive digit")
 ```
+
+
+
 
 ## Bringing interaction to life: Conditional state transitions
 

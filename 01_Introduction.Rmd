@@ -90,8 +90,8 @@ For the play you will need the following requisites:
 1.	these instructions
 2.	three color word stencils
 3.	three ink colors (to put behind the stencil)
-4.	a button bar with three 
-5.	a timer that starts at 00:00:00 when the play begins and counts minutes and seconds continuously. You can use a smartphone for this purpose. Or you assign an actor who just counts up.
+4.	a bar with three buttons drawn on paper
+5.	a clock
 6.	paper and pencil
 
 It is further recommended that one of the team is assigned the role of the *debugger*. This person does not take an active role, but watches over the compliance with the set of rules. 

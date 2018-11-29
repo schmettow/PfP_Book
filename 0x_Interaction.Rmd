@@ -95,12 +95,12 @@ Let's move on: "Does a transition from Go to Att make sense?" Absolutely! You ma
 
 It is important to realize, that transitions are not generally symmetric. In the case of a traffic light, you can go from Go to Att, but there is no transition back. In interaction models other than a uni-directional cycle, transitions can well be symmetric, think of the checkout process on webshops. Usually, they guide you through the process in a number of steps (billing address --> delivery address, credit card number), but allow you to go back to the previous step to do corrections.
 
-```{r echo = F}
-DiagrammeR::mermaid("graph TD
+```{r echo = F, fig.height = 2}
+DiagrammeR::mermaid("graph LR
     Delivery    --> Billing
-    Billing     --> Delivery
-    Delivery    --> Credit_card
-    Credit_card --> Delivery")
+    Billing    --> Credit_card
+    Credit_card --> Billing
+    Billing     --> Delivery")
 ```
 
 
@@ -108,7 +108,7 @@ DiagrammeR::mermaid("graph TD
                  Delivery  Billing Credit_card
     Delivery               x
     Billing      x                 x
-    Credit_card            x
+    Credit_card            x       
 
 <!-- #5 specify initial state -->
 
@@ -293,7 +293,7 @@ In general, interactive transitional emerge from the transition table by the fol
 
 ```{}
 if STATE == <origin> and <event>:
-  STATE == <state>
+  STATE = <state>
   continue
 ```
 
