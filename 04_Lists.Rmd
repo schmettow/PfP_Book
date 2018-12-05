@@ -155,11 +155,9 @@ The interested reader can find more information on Python classes [here](https:/
 
 Much like lists, *tuples* are ordered collections of values, but with less exentensive functionality and their unique characteristic being that they are *immutable*. Once you created a *tuple* in memory, you cannot change its elements.
 
-```{}
+```{python error = T}
 thorndike = ("Edward", "Lee", "Thorndike", 1874, "Law of effect", "Law of exercise")
 thorndike[4] = "Law of recency"
-
-TypeError: 'tuple' object does not support item assignment
 ```
 
 Tuples are usually used when you assume that a collection of values will not change in the course of your program. They are *records* of related information, chunked together so that we can use them as a single entity.
@@ -173,12 +171,11 @@ thorndike = thorndike[:] + ("Law of recency",)
 print(thorndike)
 ```
 
-Note the comma `,` in the second assignment statement `("Law of recency,")`. Without the comma at the end of the parentheses, Python treats the content of a one-element tuple such as `("Law of recency",)` as belonging to the data type of the element (in this case a `str`). As a result, a *type error* is thrown when you try to concatenate the `thorndike` tuple and `("Law of recency")`.
+Note the trailing comma in the second line `("Law of recency",)`. Without the comma at the end of the parentheses, Python treats the content of a one-element tuple such as `("Law of recency")` as belonging to the data type of the element (in this case a `str`). As a result, a *type error* is thrown when you try to concatenate the `thorndike` tuple and `("Law of recency")`.
 
-```{}
-thorndike = thorndike[:] + ("Law of recency",)
-
-TypeError: can only concatenate tuple (not "str") to tuple
+```{python error = TRUE}
+thorndike = ("Edward", "Lee", "Thorndike", 1874, "Law of effect", "Law of exercise")
+thorndike = thorndike[:] + ("Law of recency")
 ```
 
 Python has a very powerful *tuple assignment* feature that allows a tuple of variable names on the left of the assignment operator `=` to be assigned to a tuple of values, like so
