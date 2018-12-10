@@ -92,12 +92,10 @@ print(aCopy)
 
 But watch out, you **cannot** use the index operator to add new elements to a list. To do so, you would need to access a new index, an index not yet claimed by an existing list element. Trying to access an index outside of the current range of indices will produce an index out of range error.
 
-```{}
+```{python error = T}
 a = [1,2]
 a[2] = 10
 print(a)
-
-IndexError: list assignment index out of range
 ```
 
 Luckily, there are other ways of adding elements to a list.
@@ -231,10 +229,8 @@ print("Number of key:value pairs in address_book: %d" % len(address_book.keys())
 
 Dictionaries require their keys to be *immutable* and *unique*. As you above, you cannot have two keys named `"studyadviser-PSY"` in the `address_book`. This also means that certain data types are unsuitable as dictionary keys, like lists.
 
-```{}
+```{python error = T}
 d = {['a']: 'b'}
-
-TypeError: unhashable type: 'list'
 ```
 
 Whenever you try to use a mutable object (like lists) as a key, a `TypeError` will be thrown. Because lists are mutable (you can update their elements), they are *unhashable*. Without going into the details of hash functions here, a *hash* is another representation of an object. It is a transformation of the object's length sequence of bytes into a fixed length sequence. *Hash functions* are used in cryptographic algorithms, in digital signatures, manipulation detection, password storage and more. Hash functions are constructed so that calculating an object's hash representation is simple, but retrieving the original object is difficult without knowing the function used to hash the object in the first place. You can imagine that things start to get messy if the object itself can change after its hash has been calculated. A hash is a momentary snapshot of an object. It is impossible to retrieve the "latest version" of a changable object from its hash representation if, even if you know its hash function. Dictionaries themselves are also mutable (and thus, unhashable) and cannot be used as *keys*, by the way.
@@ -327,11 +323,9 @@ In the end, you as a programmer still need to decide how to proceed with the col
 
 * The by far most occurring errors involving lists are `index out of range` errors. I think it is fair to say that they make up a large amount of all programming errors. An `index out of range error` is thrown when you try to access an index that does not exist in a sequence.
 
-```{}
+```{python error = T}
 shoppinglist = ["milk", "eggs", "bread", "appels"]
 print shoppinglist[4]
-
-IndexError: list index out of range
 ```
 
 You will usually encounter this error as a result of confusing the starting index `0` with `1`. Against all intuition, in a list of four elements, the last element is stored at index `3`, not at index `4`. It helps to keep in mind that the indices of your sequences always have a range one shorter than the number of elements in your list. For a list with four elements, the positive index range is `0` to 4 minus 1, thus `3`.
@@ -342,11 +336,9 @@ print(shoppinglist[3])
 
 * Another common mistake surrounding collections concerns the immutability of *tuples*. In particular, trying to change the content of a *tuple* will result in a `TypeError`. Tuples are immutable, meaning that you cannot change their content after their initialization. You can, however, re-assign the variable name of an existing tuple to a new tuple containing different values.
 
-```{}
+```{python error = T}
 a = (1,2,4)
 b[2] = 3
-
-TypeError: 'tuple' object does not support item assignment
 ```
 
 ```{python}
@@ -358,20 +350,16 @@ print(b)
 
 * Concerning dictionaries, you will most probably not escape one or another `KeyError`. A `KeyError` is thrown when you try to access a `key` that does not exist in the dictionary.
 
-```{}
+```{python error = T}
 d = {}
 print(d['a'])
-
-KeyError: 'a'
 ```
 
 The same is likely to occur when you try to use indices to access the entries of a dictionary
 
-```{}
+```{python error = T}
 d = {'a': 1}
 print(d[0])
-
-KeyError: 0
 ```
 
 Dictionaries are the only *unordered* type of collection you encountered in this chapter. It occurs now and then that one assumes that a dictionary can be treated as other common types of collections, such as lists or tuples. 
@@ -398,12 +386,11 @@ print(d.keys())
 
 This comes in handy when you keep getting a `KeyError` while you are convinced that your dictionary should contain a certain key.
 
-```{}
+```{python error = T}
 d = {'a ': 1,
      'b': 2}
      
 print(d['a'])
-KeyError: 'a'
 ```
 
 You can use `in` to check whether a candidate `key` is among the keys of the dictionary
@@ -613,7 +600,7 @@ famous_psychologists["Skinner"] = famous_psychologists["Skinner"][:3] + ("Behavi
 
 ```
 
-Using the given dictionary on famous psychologists and the above changes made to the dictionary:
+Using the dictionary `famous psychologists` and the above changes made to the dictionary:
 
 * Try to understand the changes made to the original dictionary by writing down the content of the following print statements
 

@@ -77,13 +77,11 @@ for i in range(len(a)):
 
 Which way of iterating over *ordered* sequences you prefer is up to you. Sometimes, the problem you try to solve with your code will require one way, sometimes the other. However, remember that you **cannot** access the elements of *unordered* collections like dictionaries using the index operator.
 
-```{}
+```{python error = TRUE}
 d = {'a': 1,
      'b': 2}
 for i in range(len(d)):
     print(d[i])
-
-KeyError: 0
 ```
 
 ## The `while` loop
@@ -95,9 +93,9 @@ value = 1
 while value < 5:
     sum += value
     value += value
-    print "current sum is:", sum, "current value is:", value
+    print("current sum is:", sum, "current value is:", value)
 
-print "The loop is over, the sum is:", sum
+print("The loop is over, the sum is:", sum)
     
 ```
 
@@ -117,12 +115,12 @@ myNumber = 17
 while True:
     guess = input("Enter a number:")
     if guess > 17:
-        print "My number is smaller than", guess
+        print("My number is smaller than", guess)
     elif guess < 17:
-        print "My number is larger than", guess
+        print("My number is larger than", guess)
     else:
         break
-print "Ding! Ding! You guessed correctly, my number is", myNumber
+print("Ding! Ding! You guessed correctly, my number is", myNumber)
 ```
 
 The `break` statement allows you to immediately exit any loop. The next statement that is executed is the first after the loop body. Interactive programs that process user input often require to exit their loops prematurely. Depending on the input given, the program may need to transition to the next state or terminate altogether.
@@ -157,13 +155,11 @@ In the example above, several conditions have to be fulfilled so that the progra
 ## Common errors
 
 * Trying to make a `for` loop iterate over an *integer* instead of a *sequence*. Very often, you will want your program to modify all elements of a given sequence according to a set of statements. Logically, you will need as many iterations as elements in the sequence. This often leads to `for`statement definitions such as:
-```{python, eval=F}
+```{python error = TRUE}
 myList = [1,2,3,4,5]
 for i in len(myList):
     myList[i] += 1
 ```
-
-    TypeError: 'int' object is not iterable
 
 Probably, your intention was to make the loop repeat as many times as there are elements in `myList`. However, `len(myList)` returns an *integer*, not a *sequence* object. Instead, you will have to convert the *length* of `myList` into a *sequence*, for instance by using `range()`.
 
@@ -177,7 +173,7 @@ print myList
 
 * `index out of range` errors tend to slip in when working with loops
 
-```{python, eval=F}
+```{python error = TRUE}
 myList = [range(10),[1,2,3]]
 
 for i in range(len(myList[0])):
@@ -185,9 +181,6 @@ for i in range(len(myList[0])):
      myList[1][i] = 0
 
 ```
-
- 
-    IndexError: list assignment index out of range
 
 Always make sure that sequences you intend to modify in a `for` loop body actually have as many elements as the sequence over which you are iterating in the `for` statement.
 
@@ -257,7 +250,7 @@ meanB = np.mean(ageB)
 
 The script below calculates some descriptives from `data`. The code is still somewhat buggy. Debug the script and indicate the values of `fastest`, `slowest`, and `all_mean`.
 
-```{python,eval=F}
+```{}
 data = {'p1':(21,"Female","Condition B",[0.675,0.777,0.778,0.62,0.869]),
         'p2':(20,"Female","Condition A",[0.599,0.674,0.698,0.569,0.7]),
         'p3':(21,"Female","Condition A",[0.655,0.645,0.633,0.788,0.866]),
@@ -270,7 +263,7 @@ data = {'p1':(21,"Female","Condition B",[0.675,0.777,0.778,0.62,0.869]),
         'p10':(18,"Male","Condition A",[0.788,0.599,0.621,0.599,0.623])
         }
 
-fastest = ("initialization",100)
+fastest = ("initialization", 100)
 for participant in data:
     RTsum = 0
     for i in len(data[participant][3]):
@@ -279,7 +272,7 @@ for participant in data:
     if RTmean < fastest[1]:
         fastest = (participant,RTmean)
         
-slowest = ("initialization",0)
+slowest = ("initialization", 0)
 for participant in data:
     RTsum = 0
     for RT in participant[3]:
@@ -297,8 +290,6 @@ for participant in data:
         all_sum += data[participant][3][counter]
 all_mean = all_sum/number_of_trials*len(data)
 ```
-
-
 
 ### Exercise 3. Nested loops
 
@@ -324,11 +315,11 @@ If we want to know how many participants withdrew their participation we need a 
 ```{python,eval=F}
 
 counter = 0
-for (participant,expInfo) in participants:
+for (participant, expInfo) in participants:
   pass
         # to be implemented by you
         
-print "The number of participants who withdrew their participation is", counter
+print("The number of participants who withdrew their participation is", counter)
 
 ```
 
