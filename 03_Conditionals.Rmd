@@ -59,7 +59,7 @@ correct = True
 print((max_trials - trial) and correct)
 ```
 
-Here, the numerical expression is evaluated in the context of the Boolean operator   `and` and is converted to Boolean. When that happens, zero becomes `False` and any other valuebecomes `True`, *including negative values* :
+Here, the numerical expression is evaluated in the context of the Boolean operator   `and` and is converted to Boolean. When that happens, zero becomes `False` and any other value becomes `True`, *including negative values* :
 
 ```{python}
 print(-2 and True)
@@ -71,7 +71,7 @@ That may not be what you expected, and the whole situation with implicit typecas
 print(True and 2)
 ```
 
-Certainly, there are some reasons, why Python behaves that way, but it is far from being intuitive (breaking the law of commutivity for the `and` operator!). Therefore one should *always do explicitly Boolean expressions*, such as the following:
+Certainly, there are some reasons, why Python behaves that way, but it is far from being intuitive (breaking the law of commutivity for the `and` operator!). Therefore one should *always use explicit Boolean expressions*, such as the following:
 
 ```{python}
 trial = 3

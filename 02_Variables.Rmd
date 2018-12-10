@@ -164,7 +164,7 @@ you, simply type `help(random)` after importing `random`
 and your interpreter will give you a more detailed description of
 the *class* `random`.
 
-Variables are mutable, meaning that their value can be changed after
+A variable's assigned value can be updated. This means that its value can be changed after
 an initial assignment. This is very useful for structuring a program:
 
 ```{python, eval=F}
@@ -180,17 +180,16 @@ while(n < nTrials):
 ```
 
 
-This
-comes in handy if you want to repeat a part of your program until
+This comes in handy if you want to repeat a part of your program until
 a certain condition is fulfilled. For instance, imagine taking measurements
 for a fixed number of trials for a psychological experiment.
 In the example above, `nTrials` and `n` are used for creating
 a counting mechanism until the desired number of repeated measurements
-is reached. Note how the old value of `n` is used to mutate
-the value of `n` after one execution cycle of the program in `n = n + 1`. In particular, after the first execution of the `while` part of the code snippet,`n` will have the value `1` instead of `0`!
+is reached. Note how the old value of `n` is used to update
+the value of `n` after one execution cycle of the program in `n = n + 1`. After the first execution of the `while` part of the code snippet,`n` will have the value `1` instead of `0`!
 If you are not yet fully getting the hang of it, do not worry. You
 will learn more about the use of *conditionals* and the *while loop*
-in Chapter \@ref(conditionals) and Chapter \@ref(loops), respectively. The basic idea behind the above code snippet is to show you how the mutability of variables can be used to create a counting mechanism in computer programs.
+in Chapter \@ref(conditionals) and Chapter \@ref(loops), respectively. The basic idea behind the above code snippet is to show you how updating variables can be used to create a counting mechanism in a computer program.
 
 ## Data types
 
