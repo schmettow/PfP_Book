@@ -54,13 +54,15 @@ Unless specified otherwise, the `range` method initiates a list that contains ea
 print(range(2))
 ```
 
+In the example above, the loop variable `i` will thus have two values before the loop terminates, `0` and `1`. In total, the statement `print("Hello, World")` is therefore executed twice.
+
 Read the documentation of the `range` method for further information on how to customize the sequence of integers it produces.
 
 ```{python, eval=F}
 help(range)
 ```
 
-In summary, from the above it follows that there are at least two ways for iterating over *ordered* sequences of objects using `for` loops. First, you assign each element of the sequence iteratively to the loop variable, like so
+In summary, from the above it follows that there are at least two ways for iterating over *ordered* sequences of objects, such as lists and strings, using `for` loops. In the first strategy, you assign each element of the sequence iteratively to the loop variable, like so
 
 ```{python}
 a = ['a', 'b']
@@ -68,7 +70,7 @@ for i in a:
     print(i)
 ```
 
-Second, you access the elements of the sequence through their indices, like so
+Following the second strategy, you access the elements of the sequence through their indices, like so
 
 ```{python}
 for i in range(len(a)):
@@ -87,26 +89,38 @@ for i in range(len(d)):
 ## The `while` loop
 
 ```{python}
-sum = 0
-value = 1
+a = 0
+b = 1
 
-while value < 5:
-    sum += value
-    value += value
-    print("current sum is:", sum, "current value is:", value)
+while b < 5:
+    a += b
+    b += b
+    print("Current sum is:", a, "current value is:", b)
 
-print("The loop is over, the sum is:", sum)
+print("This is the first line of code after the loop, the sum is:", a)
     
 ```
 
-A `while` loop allows you to repeatedly execute a number of statements as long as the condition in the `while` statement remains `True`. Note that the body of a while loop is never executed if the loop condition is `False` at its first execution.
+A `while` loop is centered around a condition formulated in the first line of the loop, the `while` statement. It allows you to repeatedly execute a number of body statements as long as the condition in the `while` statement remains `True`. At the same time, this means that the body of a `while` loop is never executed if the loop condition is `False` at its initial execution.
 
-The body of a `while` loop should change one or more (loop) variables so that the loop condition eventually becomes `False`. Otherwise, the loop will continue forever and we speak of an *infinte loop*. If unintended, infinite loops can manoeuver your program into a dead end.
+```{python}
+a = 0
+b = 5
 
-At times it may be confusing whether either a `for` or a `while` loop will suit your needs best, ask yourself the following questions:
+while b < 5:
+    a += b
+    b += b
+    print("Current sum is:", a, "current value is:", b)
 
-* Do I know in advance how many times I need the loop body to be executed? Any problems like "search a list of words" or "execute until the desired number of trials is reached" suggest that a `for` loop will suit your needs best.
-* Do I require the computations to stop when some condition is met, but I cannot calculate in advance when (of if) this will happen? Chances are high that a `while` loop will fit your needs best in this case.
+print("This is the first line of code after the loop, the sum is:", a)
+```
+
+The strategy behind `while` loops is that the body of the loop changes one or more (loop) variables so that the loop condition eventually becomes `False`. Otherwise, the loop will continue forever and we speak of an *infinte loop*. Infinite loops can manoeuver your program into a dead end if started unintentionally.
+
+At times it may be confusing whether either a `for` or a `while` loop will suit your needs best. If you are unsure which kind of loop you should use, ask yourself the following questions:
+
+* Do I know in advance how many times I need the loop body to be executed? Problems like "searching a collection for a specified element" or "executing code until the desired number of trials is reached" suggest that a `for` loop will suit your needs best.
+* Do I require the computations to stop when some condition is met, but I cannot tell in advance when (or if) this will happen? Chances are high that a `while` loop will fit your needs best in this case.
 
 ## The `break` statement
 
@@ -123,13 +137,13 @@ while True:
 print("Ding! Ding! You guessed correctly, my number is", myNumber)
 ```
 
-The `break` statement allows you to immediately exit any loop. The next statement that is executed is the first after the loop body. Interactive programs that process user input often require to exit their loops prematurely. Depending on the input given, the program may need to transition to the next state or terminate altogether.
+The `break` statement allows you to immediately exit any loop, be it a `for` or a `while` loop. The next statement that is executed is the first after the loop body. Interactive programs that process user input often require to exit their loops prematurely. Depending on the input given, the program may need to transition to the next state or terminate altogether.
 
 ## Control flow
 
 By now you will have noticed that by default, Python faithfully executes any program in a top-down order. But what if you want to change the order in which specific parts of your program are being executed, possibly depending on external conditions such as the time of the day, or user input?
 
-Yes, you may have guessed it already, this is achieved by using *control flow statements*. Python knows three control flow statements: : `ìf`,`for`, and `while`statements. We already encountered `if` statements in Chapter 3 [Conditionals]. Control flow statements are readily used in interactive software such as the Stroop experiment
+Yes, you may have guessed it already, this is achieved by using *control flow statements*. Python knows three control flow statements: : `if`,`for`, and `while`statements. We already encountered `if` statements in Chapter 3 [Conditionals]. Control flow statements are readily used in interactive software such as the Stroop experiment
 
 ```{python, eval=F}
 STATE = "welcome"
@@ -185,6 +199,31 @@ for i in range(len(myList[0])):
 Always make sure that sequences you intend to modify in a `for` loop body actually have as many elements as the sequence over which you are iterating in the `for` statement.
 
 ## Debugging
+
+1. Loops can (in theory) continue for an infinite amount of iterations. Imagine looping over a data set of more than 1000 experimental participants. Loops with a large amount of iterations may seem cumbersome to debug at first sight. Computers make mistakes when they are falsely instructed and they will make the same mistake over and over again, infinitely if they must. You can imagine that debugging a loop that runs over hundreds or thousands of iterations is a pain when each time you change a small piece of code you need to run all iterations before you can inspect the result of the change in code. Here, the `break` statement can be used to inspect the output your loop generates at a single, or a fixed amount of iterations. By doing so, you do not only save time because your program does not need to execute each iteration of the program, your output will also be less cluttered. Picture a piece of code that produces one printed line for each iteration of code, like so
+
+```{python, eval=F}
+for i in range(1000):
+  print("Hello, World!")
+```
+
+Now you change a small part of the code and want to inspect its effect.
+
+```{python, eval=F}
+for i in range(1000):
+  print("Hello " + "World" + "!")
+```
+
+It is unneccessary to print this one-liner a thousand times to see what is going on. Instead, you can use the break statement to print a single line.
+
+
+```{python}
+for i in range(1000):
+  print("Hello " + "World" + "!")
+  break
+```
+
+This comes in handy when you suspect a bug in one of your loops. Remember that if there is a bug in your loop, your computer will make the same mistake over and over again. So if you identify the bug in one iteration or a small amount of iterations, it will also be present in the exact same way in the remaining iterations. Usually, you can resolve bugs in your loops based on what you inspect in a subset of iterations.
 
 ## Exercises
 
