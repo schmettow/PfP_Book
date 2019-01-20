@@ -233,9 +233,9 @@ Dictionaries require their keys to be *immutable* and *unique*. As you above, yo
 d = {['a']: 'b'}
 ```
 
-Whenever you try to use a mutable object (like lists) as a key, a `TypeError` will be thrown. Because lists are mutable (you can update their elements), they are *unhashable*. Without going into the details of hash functions here, a *hash* is another representation of an object. It is a transformation of the object's length sequence of bytes into a fixed length sequence. *Hash functions* are used in cryptographic algorithms, in digital signatures, manipulation detection, password storage and more. Hash functions are constructed so that calculating an object's hash representation is simple, but retrieving the original object is difficult without knowing the function used to hash the object in the first place. You can imagine that things start to get messy if the object itself can change after its hash has been calculated. A hash is a momentary snapshot of an object. It is impossible to retrieve the "latest version" of a changable object from its hash representation if, even if you know its hash function. Dictionaries themselves are also mutable (and thus, unhashable) and cannot be used as *keys*, by the way.
+Whenever you try to use a mutable object (like lists) as a key, a `TypeError` will be thrown. Because lists are mutable (you can update their elements), they are *unhashable*. Without going into the details of hash functions here, a *hash* is another representation of an object. It is a transformation of the object's length sequence of bytes into a fixed length sequence. *Hash functions* are used in cryptographic algorithms, in digital signatures, manipulation detection, password storage and more. Hash functions are constructed so that calculating an object's hash representation is simple, but retrieving the original object is difficult without knowing the function used to hash the object in the first place. You can imagine that things start to get messy if the object itself can change after its hash has been calculated. A hash is a momentary snapshot of an object. It is impossible to retrieve the "latest version" of a changable object from its hash representation, even if you know its hash function. Dictionaries themselves are also mutable (and thus, unhashable) and cannot be used as *keys*, by the way.
 
-Dictionaries are *unordered* collections. Unlike sequences, such as lists and tuples, the elements of a dictionary cannot be accessed using indices. Dictionaries do not have a sequential representation of their elements. Values stored in a dictionary can be accessed and changed through their respective *keys*, like so
+Dictionaries are *unordered* collections. Dictionaries do not have a sequential representation of their elements. Unlike sequences, such as lists and tuples, the elements of a dictionary cannot be accessed using indices. Values stored in a dictionary can be accessed and changed through their respective *keys*, like so
 
 ```{python}
 address_book = {"studyadviser-PSY": "studyadviser-psy[at]utwente.nl",
@@ -413,9 +413,10 @@ d = {'a': 1,
 if 'a' not in d.keys():
     d['a'] = 0
 
-print(d)  
+print(d)
 ```
 
+Finally, you should know that the output list produced by the `keys()` method can be confusing at times. It is possible that your Python interpreter returns a different list of keys than the same code snippet `d.keys()` produces on another system. This has to do with how dictionaries are stored internally in computer memory. Here as well *hash functions* are utilized for efficiency reasons. As a result, the order of the keys in a dictionary is unspecified (which is why you cannot use the index operator to access elements of a dictionary). In practice, it means that `'a'` is not necessarily the first element in a list produced by `d.keys()`. Rest assured, in practice, this peculiarity is rather insignificant.
 
 ## Exercises
 

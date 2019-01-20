@@ -1258,6 +1258,8 @@ main()
 ## Chapter 5. Loops
 ### Exercise 1. Following the control flow
 
+*Disclaimer*: It is possible that your Python interpreter returns the keys of `dataset` in a different order than shown below when you execute `dataset.keys()` on your system. This has to do with how dictionaries are stored internally in computer memory. Here as well *hash functions* are utilized for efficiency reasons. As a consequence, the order of the keys in a dictionary is unspecified (which is why you cannot use the index operator to access elements of a dictionary and `p1` is not necessarily the first key shown in the list). It also means that when you display the keys of a dictionary as a list (which is what the `keys()` method does), the order in which the keys occur in the list can differ from system to system. For you this means that you should not worry if your system returns a different order when you execute `dataset.keys()`. But it is important that you understand why `dataset[dataset.keys()[0]]` returns the value that is displayed when you execute the code snippet.
+
 ```{python, eval=F}
 ['p2', 'p3', 'p1', 'p6', 'p7', 'p4', 'p5', 'p10', 'p8', 'p9']
 (20, 'Female', 'Dutch', 'B-Psychology')
