@@ -90,17 +90,17 @@ You will need to think of another way to iterate over the contents of a dictiona
 
 ```{python}
 for i in d.keys():
-  print(i)
+    print(i)
   
 for j in d.values():
-  print(j)
+    print(j)
 ```
 
 Alternatively, the `items()` method can be used to iterate over the key-value pairs contained in a dictionary.
 
 ```{python}
 for z in d.items():
-  print(z)
+    print(z)
 ```
 
 As usual, which iteration strategy you use depends on what you try to achieve. There is not one golden solution that fits all problems.
@@ -136,7 +136,7 @@ print("This is the first line of code after the loop, the sum is:", a)
 
 The strategy behind `while` loops is that the body of the loop changes one or more (loop) variables so that the loop condition eventually becomes `False`. Otherwise, the loop will continue forever and we speak of an *infinte loop*. Infinite loops can manoeuver your program into a dead end if started unintentionally.
 
-Note how the basic structure of the Stroop Task program is a large while loop. Unless the required number of trials has been executed, the program will keep running.
+Note how the basic structure of the Stroop Task program is a large while loop. Unless the required number of trials has been executed or the user manually closes the program, it will keep running no matter what.
 
 ### `for` or `while`?
 
@@ -145,7 +145,7 @@ At times, it may be confusing whether either a `for` or a `while` loop will suit
 * Do I know in advance how many times I need the loop body to be executed? Problems like "searching a collection for a specified element" or "executing code a specified number of times" suggest that a `for` loop will suit your needs best.
 * Do I require the computations to stop when some condition is met, but I cannot tell in advance when (or if) this will happen? Chances are high that a `while` loop will fit your needs best in this case.
 
-Still, a programmer has a certain freedom in choosing either *for* or *while* loops for their purposes. In many cases, using either kind of loop is but a difference of perspective on the problem you try to solve with your code.
+Still, as a programmer you have great freedom in choosing either *for* or *while* loops. In many cases, using either kind of loop is but a difference in perspective on the problem you try to solve with your code. In other cases, using one kind of loop will be more efficient than using the other.
 
 
 ## The `break` statement
@@ -163,13 +163,13 @@ while True:
 print("Ding! Ding! You guessed correctly, my number is", myNumber)
 ```
 
-The `break` statement allows you to immediately exit any loop, be it a `for` or a `while` loop. The next statement that is executed is the first after the loop body. Interactive programs that process user input often require to exit their loops prematurely. Depending on the input given, the program may need to transition to the next state or terminate altogether.
+The `break` statement allows you to immediately exit any loop, be it a `for` or a `while` loop. The next statement that is executed is the first line after the loop body. Interactive programs that process user input often require to exit their loops prematurely. Depending on the input given, the program may need to transition to the next state or terminate altogether.
 
-## Control flow
+## Controlling the flow of your program (using loops)
 
-By now you will have noticed that by default, Python faithfully executes any program in a top-down order. But what if you want to change the order in which specific parts of your program are being executed, possibly depending on external conditions such as the time of the day, or user input?
+By now you will have noticed that by default, Python faithfully executes any program in a top-down order. But what if you want to change the order in which specific parts of your program are being executed, possibly depending on external conditions such as the time of the day, or the input of a user?
 
-Yes, you may have guessed it already, this is achieved by using *control flow statements*. Python knows three control flow statements: : `if`,`for`, and `while`statements. We already encountered `if` statements in Chapter 3 [Conditionals]. Control flow statements are readily used in interactive software such as the Stroop experiment
+The basic top-down execution order can be alterated using *control flow statements*. Python knows three control flow statements: `if`,`for`, and `while` statements. We already encountered `if` statements in Chapter 3 [Conditionals]. Control flow statements are readily used in interactive software such as the Stroop Task experiment
 
 ```{python, eval=F}
 STATE = "welcome"
@@ -188,41 +188,68 @@ while True:
 
 In principle, the above code can run infinitely, unless the user triggers the `QUIT` `event.type`. Note that in the original Stroop experiment, there is another condition that prevents the program from running infinitely, namely a maximum number of trials.
 
-Within the main `while` loop, a `for`loop manages the changing of program states as a consequence of user input. To this end, the loop variable `event` iterates over *event objects* stored in an *event queue*, which is essentially a special sequence devised by the `Pygame library`. The `pygame.event` *module* knowns a number of event types, among which the `KEYDOWN` event, referring to the event that the user presses a key on the keyboard.
+Within the main `while` loop, a `for`loop manages the changing of program states as a consequence of user input. To this end, the loop variable `event` iterates over *event objects* stored in an *event queue*, which is essentially a special sequence devised by the *Pygame library*. The `pygame.event` *module* knowns a number of event types, among which the `KEYDOWN` event, referring to the event that the user presses a key on the keyboard.
 
 In the example above, several conditions have to be fulfilled so that the program state changes to `"prepare next trial"`: The current program state has to be `"welcome"`, the event has to be a `KEYDOWN`and the key pressed has to be `SPACE`. Note that in the program above, program termination can be achieved at any time through the `"quit"` state.
 
 ## Common errors
 
-* Trying to make a `for` loop iterate over an *integer* instead of a *sequence*. Very often, you will want your program to modify all elements of a given sequence according to a set of statements. Logically, you will need as many iterations as elements in the sequence. This often leads to `for`statement definitions such as:
+* Easily the most common error surrounding loops is trying to make them iterate over an *integer* instead of a *sequence*. Very often, you will want your program to modify the elements of a given sequence according to a set of statements. Logically, you will need as many iterations as elements in the sequence. This often leads to `for` statement definitions such as:
+
 ```{python error = TRUE}
 myList = [1,2,3,4,5]
 for i in len(myList):
     myList[i] += 1
 ```
 
-Probably, your intention was to make the loop repeat as many times as there are elements in `myList`. However, `len(myList)` returns an *integer*, not a *sequence* object. Instead, you will have to convert the *length* of `myList` into a *sequence*, for instance by using `range()`.
+Probably, your intention was to make the loop repeat as many times as there are elements in `myList`. However, `len(myList)` returns an *integer*, not a *sequence* object! Instead, you will have to convert the *length* of `myList` into a *sequence*, for instance by using `range()`.
 
 ```{python}
-myList = [1,2,3,4,5]
+myList = [5,2,3,4,5]
 for i in range(len(myList)):
     myList[i] += 1
   
-print myList
+print(myList)
 ```
 
-* `index out of range` errors tend to slip in when working with loops
+Alternatively, you can assign the values of `myList` iteratively to the looping variable `i` to avoid this kind of error.
+
+```{python}
+myList = [5,2,3,4,5]
+for i in myList:
+    myList[myList.index(i)] += 1
+
+print(myList)
+    
+```
+
+As you can see, the second strategy does not return the exact same result. You do get an alterated version of `myList` where each element is enhanced by `1` (as in the first example), but the order is messed up. That is exactly because a different strategy is devised by accessing each element directly in the `for` statement. In the second example, the `index()` method is used to find the index of the first occurrence of the value specified within the brackets. It is because the method returns the index of the **first** occurence that the two strategies return different results in this case.
+
+When you opt for either of the two looping strategies, keep in mind that you may need to go to some length to get the exact same result using both strategies. Usually, either one strategy quickly turns out to be the better, less complicated means for your end. In the above example, you could for instance have used a second list object to obtain the same result as in the first example, like so
+
+```{python}
+myList = [5,2,3,4,5]
+a = []
+for i in myList:
+    a.append(i + 1)
+
+print(a)
+```
+
+Again, whether using a second list or not is a viable option is totally up to what you try to achieve with your code.
+
+* `index out of range` errors tend to slip in when working with `for` loops.
 
 ```{python error = TRUE}
-myList = [range(10),[1,2,3]]
+a = [1, 'a']
+b = [1, 'a', 'b']
 
-for i in range(len(myList[0])):
-     myList[0][i] = 0
-     myList[1][i] = 0
+for i in range(len(b)):
+     a[i] = b[i]
 
 ```
 
-Always make sure that sequences you intend to modify in a `for` loop body actually have as many elements as the sequence over which you are iterating in the `for` statement.
+An `index out of range error` is thrown when you try to access a non-existing index in a sequence. In the example above, `a` has two elements, thus two valid indices (`0` and `1`). `b` on the contrary has three elements and thereby three valid indices (`0`, `1` and `2`). The code snippet throws an error when a third index is accessed in `a`. Always make sure that the sequences you intend to modify in a `for` loop body have the same amount of elements as the sequence over which you are iterating in the `for` statement.
 
 ## Debugging
 
@@ -252,6 +279,8 @@ for i in range(1000):
 This comes in handy when you suspect a bug in one of your loops. Remember that if there is a bug in your loop, your computer will make the same mistake over and over again. So if you identify the bug in one iteration or a small amount of iterations, it will also be present in the exact same way in the remaining iterations. Usually, you can resolve bugs in your loops based on what you inspect in a subset of iterations.
 
 ## Exercises
+
+### Exercise 1. Controlling the flow
 
 ### Exercise 1. Following the control flow
 
