@@ -5,11 +5,11 @@ for i in range(2):
     print("Hello, World!")
 ```
 
-Very much unlike human beings, computers are good at executing repetitive tasks without making errors. It just so happens that boring, repetitive tasks are an inescapable part of many exciting things. Take psychological research as an example. In conducting psychological research, you come up with a theory about human beings, about how things work between humans, or maybe between a human operator and a machine. Or, alternatively, you may have a research question, a question about how things work, how human beings function, why they make the mistakes they make. Now, what do psychologists do when they try to find an answer to their questions? Right, psychologists conduct empirical research. 
+Very much unlike human beings, computers are good at executing repetitive tasks without making errors. It just so happens that boring, repetitive tasks are an inescapable part of many exciting things. Take psychological research as an example. In conducting psychological research, you may come up with a theory about human beings, about how things work between humans, or maybe between a human operator and a machine. Or, alternatively, you may have a research question, a question about how things work, how human beings function, why they make the mistakes they make. Now, what do psychologists do to find an answer to their scientific questions? Right, psychologists conduct empirical research. 
 
-Let's say, you have a research question and you try to answer your question by setting up an empirical experiment. You invite others to participate in your research. You repeat your experimental procedure with each and every participant. Depending on the kind of research you conducted, you repeat the qualitative inspection of the generated data for each participant. Depending on the statistical tool you use, you may end up filling in the data of each and every participant by hand into your statistical software. Now, here is the good news. Programming can help you unbore (yes, that is a word) the boring and repetitive bits of your exciting research.
+Let's say, you have a research question and you try to answer your question by setting up an empirical experiment. You invite others to participate in your research. You repeat your experimental procedure with each and every participant. Depending on the kind of research you conducted, you repeat the qualitative inspection of the generated data for each participant. And depending on the statistical tool you use, you may end up filling in the data of each and every participant by hand into your statistical software. Now, here is the good news. Programming can help you unbore (yes, that is a word) the boring and repetitive bits of your exciting research.
 
-At the root of boring tasks often lies repetition. You repeat an experimental procedure, you repeat the same quality checks for each participant's data, you perform the same data cleaning on each single row in a data frame, and so on. Human beings tend to make mistakes when they repeat the same task over and over again. At the same time, this is exactly where the strength of computers lies. Computers do not make mistakes when they repeat a task. When a computer makes a mistake, then it is because it was falsely instructed in the first place.
+At the root of boring tasks often lies repetition. You repeat an experimental procedure, you repeat the same quality checks for the data of each participant, you perform the same data cleaning on each single row in a data frame, and so on. Human beings tend to make mistakes when they repeat the same task over and over again. At the same time, this is exactly where the strength of computers lies. Computers do not make mistakes when they repeat a task. When a computer makes a mistake, then it is because it was falsely instructed in the first place.
 
 Chapter 5 introduces you to the mechanism that lies at the heart of a computer's paramount strength, repetition; or as it is called in computer jargon: *loops*. The Python language has a number of features that make it easier for you as a programmer to make your computer execute those boring, repetitive tasks for you.
 
@@ -77,7 +77,7 @@ for i in range(len(a)):
     print(a[i])
 ```
 
-Which way of iterating over *ordered* sequences you prefer is up to you. Sometimes, the problem you try to solve with your code will require one way, sometimes the other. However, remember that you **cannot** access the elements of *unordered* collections like dictionaries using the index operator.
+Which way of iterating over *ordered* sequences you prefer is up to you. Sometimes, the problem you try to solve with your code will require one way, sometimes the other. However, when constructing loops, remember that you **cannot** access the elements of an *unordered* collection such as dictionaries using the index operator.
 
 ```{python error = TRUE}
 d = {'a': 1,
@@ -85,6 +85,25 @@ d = {'a': 1,
 for i in range(len(d)):
     print(d[i])
 ```
+
+You will need to think of another way to iterate over the contents of a dictionary. You could use the `keys()` method to iterate over the dictionary's keys, or the `values()` method for its values respectively, like so
+
+```{python}
+for i in d.keys():
+  print(i)
+  
+for j in d.values():
+  print(j)
+```
+
+Alternatively, the `items()` method can be used to iterate over the key-value pairs contained in a dictionary.
+
+```{python}
+for z in d.items():
+  print(z)
+```
+
+As usual, which iteration strategy you use depends on what you try to achieve. There is not one golden solution that fits all problems.
 
 ## The `while` loop
 
@@ -117,10 +136,17 @@ print("This is the first line of code after the loop, the sum is:", a)
 
 The strategy behind `while` loops is that the body of the loop changes one or more (loop) variables so that the loop condition eventually becomes `False`. Otherwise, the loop will continue forever and we speak of an *infinte loop*. Infinite loops can manoeuver your program into a dead end if started unintentionally.
 
-At times it may be confusing whether either a `for` or a `while` loop will suit your needs best. If you are unsure which kind of loop you should use, ask yourself the following questions:
+Note how the basic structure of the Stroop Task program is a large while loop. Unless the required number of trials has been executed, the program will keep running.
 
-* Do I know in advance how many times I need the loop body to be executed? Problems like "searching a collection for a specified element" or "executing code until the desired number of trials is reached" suggest that a `for` loop will suit your needs best.
+### `for` or `while`?
+
+At times, it may be confusing whether either a `for` or a `while` loop will suit your needs best. If you are unsure which kind of loop you should use, ask yourself the following:
+
+* Do I know in advance how many times I need the loop body to be executed? Problems like "searching a collection for a specified element" or "executing code a specified number of times" suggest that a `for` loop will suit your needs best.
 * Do I require the computations to stop when some condition is met, but I cannot tell in advance when (or if) this will happen? Chances are high that a `while` loop will fit your needs best in this case.
+
+Still, a programmer has a certain freedom in choosing either *for* or *while* loops for their purposes. In many cases, using either kind of loop is but a difference of perspective on the problem you try to solve with your code.
+
 
 ## The `break` statement
 
