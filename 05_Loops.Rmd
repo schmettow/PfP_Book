@@ -331,9 +331,107 @@ This comes in handy when you suspect a bug in one of your loops. Remember that i
 
 ## Exercises
 
-### Exercise 1. Controlling the flow
+### Exercise 1. Following the control flow I
 
-### Exercise 1. Following the control flow
+What is the output of the following code snippets?
+
+```{python, eval=F}
+for i in range(len([1,2,3])):
+    print(i)
+```
+
+```{python, eval=F}
+for i in range(len([])):
+    print(i)
+```
+
+```{python, eval=F}
+a = 0
+for i in range(3):
+    a += i
+    print(a + i)
+    
+```
+
+```{python, eval=F}
+a = 0
+b = 30
+for i in range(5):
+    a += i
+    b -= i
+    
+print(a + b)
+```
+
+```{python, eval=F}
+for i in range(1,3):
+    print(i)
+```
+
+```{python, eval=F}
+i = 10
+while i > 5:
+    print(i - 5)
+    i -= 2
+```
+
+```{python, eval=F}
+a = 2
+b = (1,2)
+
+while a != 0:
+    for i in b:
+        print(a + i)
+    a -= 1
+```
+
+### Exercise 2. Debugging I
+
+Do the following code snippets throw an error? If they do, what goes wrong? Only one answer is correct.
+
+```{}
+a = [4,6,8]
+
+for i in len(a):
+    print(a[i])
+```
+
+* No error is thrown, the code snippet prints `4` on its first iteration, then `6`, and finally `8`.
+* No error is thwon, the code snippet prints `0` on its first iteration, then `1` and finally `2`.
+* A `TypeError` is thrown because the `for` statement does not include a sequence to iterate over.
+
+```{}
+myNumber = 43
+while True:
+    guess = input("Enter a number:")
+    if guess > 43:
+        print("My number is smaller than {0}".format(guess))
+    elif guess < 43:
+        print("My number is greater than {0}".format(guess))
+    else:
+        print("Ding, ding! Correct, my number is {0}".format(myNumber))
+```
+
+* Nothing goes wrong, once the user guesses `43`, `Ding, ding! Correct, my number is 43` will be printed and the program terminates.
+* No error is thrown, once the user guesses `43`, `Ding, ding! Correct, my number is 43` will be printed, but the program does not terminate.
+* An `IndexError` will be thrown by the positioning argument in the curly brackets because only one value is provided as substitution in which case using indexing is wrong.
+
+```{}
+a = [4,6]
+b = [0, 1.5]
+for i in a:
+    for j in range(len(b)):
+        print(i * b[j])
+```
+
+* A `TypeError` is thrown because the first `for` statement involving the looping variable `i` does not include a sequence to iterate over.
+* No error is thrown, the output is of the mini program is `0`, `6.0`, `0`, `9.0` because each element in `a` is multiplied by each element in `b`.
+* A `NameError` is thrown because `i` is an undefined variable in the body of the second `for` loop that starts with `for j in range(len(b))`.
+* No error is thrown, the output of the mini program is `0`, `0`, `0`, `1.5` because each index in `a` is multiplied by each element in `b`.
+
+### Exercise 3. Controlling the flow
+
+### Exercise 4. Following the control flow II
 
 Read the script below carefully. Indicate the values of the following expressions after the script has finished executing:
 
@@ -391,7 +489,7 @@ meanB = np.mean(ageB)
 ```
 
 
-### Exercise 2. Debugging
+### Exercise 5. Debugging II
 
 The script below calculates some descriptives from `data`. The code is still somewhat buggy. Debug the script and indicate the values of `fastest`, `slowest`, and `all_mean`.
 
@@ -436,7 +534,7 @@ for participant in data:
 all_mean = all_sum/number_of_trials*len(data)
 ```
 
-### Exercise 3. Nested loops
+### Exercise 6. Nested loops
 
 Nested data often requires *nested loops* for answering certain questions about the data. Let's have a look at the `list` data set below. each participant has a participant number paired with a list of additional experiment information.
 
@@ -470,12 +568,12 @@ print("The number of participants who withdrew their participation is", counter)
 
 Implement the second `for` loop that iterates over the experiment information and count the number of participants who withdrew their participation.
 
-### Exercise 4. Data transformation using loops
+### Exercise 7. Data transformation using loops
 
 * Write a script that transforms the data set `participants` from Exercise 3 into a dictonary data set.
 * Extend the script with a `counter` mechanism that counts the number of participants who were tested at location A and location B respectively.
 
-### Exercise 5. Calculating a mean
+### Exercise 8. Calculating a mean
 
 For the sequence `seq` calculate the arithmetic mean using a `while` loop. Check your implementation using the `mean()` method of the `NumPy` library.
 
@@ -486,8 +584,7 @@ seq = range(1000)
 
 ```
 
-
-### Exercise 6. A guessing game
+### Exercise 9. A guessing game
 
 Make a Python script `guessing.py` that implements the following behaviour:
 
@@ -500,6 +597,6 @@ Make a Python script `guessing.py` that implements the following behaviour:
 
 *Hint*: Prompting and feedback via the console is sufficient.
 
-# Think Further
+## Think Further
 
 * Tutorial on String formatting. [Lisa Tagliaferri (2016). How To Use String Formatters in Python 3] (https://www.digitalocean.com/community/tutorials/how-to-use-string-formatters-in-python-3) Though the heading says 'Python 3', all Lisa discusses in her tutorial also applies to Python 2.7.
