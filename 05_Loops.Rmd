@@ -155,17 +155,43 @@ myNumber = 17
 while True:
     guess = input("Enter a number:")
     if guess > 17:
-        print("My number is smaller than", guess)
+        print("My number is smaller than {}".format(guess))
     elif guess < 17:
-        print("My number is larger than", guess)
+        print("My number is greater than {}".format(guess))
     else:
         break
-print("Ding! Ding! You guessed correctly, my number is", myNumber)
+print("Ding, ding! Correct, my number is {}".format(myNumber))
 ```
 
 The `break` statement allows you to immediately exit any loop, be it a `for` or a `while` loop. The next statement that is executed is the first line after the loop body. Interactive programs that process user input often require to exit their loops prematurely. Depending on the input given, the program may need to transition to the next state or terminate altogether.
 
-## Controlling the flow of your program (using loops)
+Also note the usage of *String formatting*. The `.format()` method can be applied to any String and allows you to specify value and variable substitutions within a given String. While a detailed discussion of *formatters* is beyond the scope of the current chapter, a tutorial on String formatting can be found [here] (https://www.digitalocean.com/community/tutorials/how-to-use-string-formatters-in-python-3). String formatting is highly useful, no matter whether you want to export some information out of your program by writing text or Excel files, or whether you simply want to print something to the console.
+
+The basic idea behind String formatters is that you substitute a value, a variable, or an expression that you want to insert in your String by curly brackets `{}`. You specify the to-be-inserted value within the method brackets, like so
+
+```{python}
+print("{} participants took part in the conducted research".format(10))
+```
+
+Formatters can manage multiple placeholders, variables and perform cool transformations on the to-be-substituted values, like rounding
+
+```{python}
+n = 10
+print("{0} participants took part in the conducted research. Their average score was {1:.2f}.".format(n, 25.7777))
+```
+
+Notice the usage of the *positional arguments* `0` and `1` to specify the order in which the to-be-substituted values `n` and `25.7777` are inserted in the String. Positional arguments specify the index of the to-be-inserted values within the brackets of the `format` method.
+
+Here, rounding is achieved by some minor usage of format code syntax, which first specifies the position of the transformation and then the intended conversion `{position:transformation}`. In this case we transform `25.7777` inhabiting index `1` into a floating point with two decimals, thus the format code syntax `{1:.2f}`. We could as well have exchanged the two values, but that would not have made much sense, would it now?
+
+```{python}
+n = 10
+print("{1:.2f} participants took part in the conducted research. Their average score was {0}.".format(n, 25.7777))
+```
+
+Check out the [tutorial](https://www.digitalocean.com/community/tutorials/how-to-use-string-formatters-in-python-3) for more information on String formatters!
+
+## Controlling the flow of your program with loops
 
 By now you will have noticed that by default, Python faithfully executes any program in a top-down order. But what if you want to change the order in which specific parts of your program are being executed, possibly depending on external conditions such as the time of the day, or the input of a user?
 
@@ -212,7 +238,7 @@ for i in range(len(myList)):
 print(myList)
 ```
 
-Alternatively, you can assign the values of `myList` iteratively to the looping variable `i` to avoid this kind of error.
+Alternatively, you can assign the values of `myList` iteratively to the looping variable `i` to avoid working with the `length` of the sequence.
 
 ```{python}
 myList = [5,2,3,4,5]
@@ -223,7 +249,7 @@ print(myList)
     
 ```
 
-As you can see, the second strategy does not return the exact same result. You do get an alterated version of `myList` where each element is enhanced by `1` (as in the first example), but the order is messed up. That is exactly because a different strategy is devised by accessing each element directly in the `for` statement. In the second example, the `index()` method is used to find the index of the first occurrence of the value specified within the brackets. It is because the method returns the index of the **first** occurence that the two strategies return different results in this case.
+But wait, this result seems slightly different. You do get an alterated version of `myList` where each element is enhanced by `1` (as in the first example), but the order is messed up. That is exactly because a different strategy is devised by accessing each element directly in the `for` statement. Furthermore, the `index()` method is used to find the index of the first occurrence of the value specified within the brackets. It is because the method returns the index of the **first** occurence that the two strategies return different results in this case.
 
 When you opt for either of the two looping strategies, keep in mind that you may need to go to some length to get the exact same result using both strategies. Usually, either one strategy quickly turns out to be the better, less complicated means for your end. In the above example, you could for instance have used a second list object to obtain the same result as in the first example, like so
 
@@ -236,7 +262,7 @@ for i in myList:
 print(a)
 ```
 
-Again, whether using a second list or not is a viable option is totally up to what you try to achieve with your code.
+Again, whether using a second list is a viable option to solve the problem at hand is totally up to what you try to achieve with your code.
 
 * `index out of range` errors tend to slip in when working with `for` loops.
 
@@ -249,11 +275,36 @@ for i in range(len(b)):
 
 ```
 
-An `index out of range error` is thrown when you try to access a non-existing index in a sequence. In the example above, `a` has two elements, thus two valid indices (`0` and `1`). `b` on the contrary has three elements and thereby three valid indices (`0`, `1` and `2`). The code snippet throws an error when a third index is accessed in `a`. Always make sure that the sequences you intend to modify in a `for` loop body have the same amount of elements as the sequence over which you are iterating in the `for` statement.
+An `index out of range error` is thrown when you try to access a non-existing index in a sequence. In the example above, `a` has two elements, thus two valid indices (`0` and `1`). `b` on the contrary has three elements and thereby three valid indices (`0`, `1` and `2`). The code snippet throws an error when a third index is accessed in `a`. Always make sure that the sequences you iterate over or intend to modify in the body of a `for` loop have the right amount of indices at their disposal.
+
+* Letting a `while` loop run endlessly. Unless you actively construct a `while` loop to terminate, it will not. This can result in all sorts of errors, but usually you will notice that your program does not enter its later states. When you construct your `while` loops, think well about how to terminate them. The `break` statement can also be an option to intentionally terminate the loop when another condition is met that is not defined in the `while` statement, like so
+
+```{python, eval=F}
+i = 5
+myNumber = 13
+while i > 0:
+    guess = input("Enter a number:")
+    if guess == myNumber:
+        print("Ding, ding! Correct, my number is {}".format(myNumber))
+        break
+    elif guess > myNumber:
+        i -= 1
+        print("My number is smaller than {}".format(guess))
+        print("You may guess another {} times".format(i))
+    elif guess < myNumber:
+        i -= 1
+        print("My number is greater than {}".format(guess))
+        if i == 0:
+            print("Too bad, you lost")
+        else:
+            print("You may guess another {} times".format(i))
+```
+
+In the above alteration of the guessing game, there are two ways to make the program terminate. First, you guess the number. Second, you run out of trials. The easiest way of terminating a `while` loop in response to user input remains using the `break` statement.
 
 ## Debugging
 
-1. Loops can (in theory) continue for an infinite amount of iterations. Imagine looping over a data set of more than 1000 experimental participants. Loops with a large amount of iterations may seem cumbersome to debug at first sight. Computers make mistakes when they are falsely instructed and they will make the same mistake over and over again, infinitely if they must. You can imagine that debugging a loop that runs over hundreds or thousands of iterations is a pain when each time you change a small piece of code you need to run all iterations before you can inspect the result of the change in code. Here, the `break` statement can be used to inspect the output your loop generates at a single, or a fixed amount of iterations. By doing so, you do not only save time because your program does not need to execute each iteration of the program, your output will also be less cluttered. Picture a piece of code that produces one printed line for each iteration of code, like so
+Loops can (in theory) continue for an infinite amount of iterations. Imagine looping over a data set of more than 1000 experimental participants. Loops with a large amount of iterations may seem cumbersome to debug at first sight. Computers make mistakes when they are falsely instructed and they will make the same mistake over and over again, infinitely if they must. You can imagine that debugging a loop that runs over hundreds or thousands of iterations is a pain when each time you change a small piece of code you need to run all iterations before you can inspect the result of the change in code. Here, the `break` statement can be used to inspect the output your loop generates at a single, or a fixed amount of iterations. By doing so, you do not only save time because your program does not need to execute each iteration of the program, your output will also be less cluttered. Picture a piece of code that produces one printed line for each iteration of code, like so
 
 ```{python, eval=F}
 for i in range(1000):
@@ -448,3 +499,7 @@ Make a Python script `guessing.py` that implements the following behaviour:
 * If no input is given, the program should terminate. In this case, the program should terminate if the given input is *empty*. *Hint:* Use the internet to figure out how to handle empty input.
 
 *Hint*: Prompting and feedback via the console is sufficient.
+
+# Think Further
+
+* Tutorial on String formatting. [Lisa Tagliaferri (2016). How To Use String Formatters in Python 3] (https://www.digitalocean.com/community/tutorials/how-to-use-string-formatters-in-python-3) Though the heading says 'Python 3', all Lisa discusses in her tutorial also applies to Python 2.7.
