@@ -214,7 +214,7 @@ while True:
 
 In principle, the above code can run infinitely, unless the user triggers the `QUIT` `event.type`. Note that in the original Stroop experiment, there is another condition that prevents the program from running infinitely, namely a maximum number of trials.
 
-Within the main `while` loop, a `for`loop manages the changing of program states as a consequence of user input. To this end, the loop variable `event` iterates over *event objects* stored in an *event queue*, which is essentially a special sequence devised by the *Pygame library*. The `pygame.event` *module* knowns a number of event types, among which the `KEYDOWN` event, referring to the event that the user presses a key on the keyboard.
+Within the main `while` loop, a `for` loop manages the changing of program states as a consequence of user input. To this end, the loop variable `event` iterates over *event objects* stored in an *event queue*, which is essentially a special sequence devised by the *Pygame library*. The `pygame.event` *module* knowns a number of event types, among which the `KEYDOWN` event, referring to the event that the user presses a key on the keyboard.
 
 In the example above, several conditions have to be fulfilled so that the program state changes to `"prepare next trial"`: The current program state has to be `"welcome"`, the event has to be a `KEYDOWN`and the key pressed has to be `SPACE`. Note that in the program above, program termination can be achieved at any time through the `"quit"` state.
 
@@ -387,7 +387,7 @@ while a != 0:
 
 ### Exercise 2. Debugging I
 
-Do the following code snippets throw an error? If they do, what goes wrong? Only one answer is correct.
+Do the following code snippets throw an error? If they do, what goes wrong? For each exercise, only one answer is correct.
 
 ```{}
 a = [4,6,8]
@@ -429,9 +429,24 @@ for i in a:
 * A `NameError` is thrown because `i` is an undefined variable in the body of the second `for` loop that starts with `for j in range(len(b))`.
 * No error is thrown, the output of the mini program is `0`, `0`, `0`, `1.5` because each index in `a` is multiplied by each element in `b`.
 
-### Exercise 3. Controlling the flow
+### Exercise 3. A guessing game
 
-### Exercise 4. Following the control flow II
+Make a Python script `guessing.py` that implements the following behaviour:
+
+* At the beginning of the script, a random number between 0 and 1000 is generated.
+* The program continuously asks for user input prompting the user with the request to enter a number.
+* If the user guesses the number correctly, the program gives feedback that the number was guessed correctly. The program also shows the number of guesses needed. Finally, the program terminates.
+* If the guessed number is too large, the program gives feedback that the number is smaller.
+* If the guessed number is too small, the program gives feedback that the number is larger.
+* If no input is given, the program should terminate. In this case, the program should terminate if the given input is *empty*. *Hint:* Use the internet to figure out how to handle empty input.
+
+*Hint*: Prompting and feedback via the console is sufficient.
+
+### Exercise 4. Controlling the flow
+
+Programming small interactive programs such as the guessing game helps you understand how to use *control flow statements* to bring about a desired behaviour in your programs. For this exercise, you will be programming an extension to the guessing game, a three digit number lock!
+
+### Exercise 5. Following the control flow II
 
 Read the script below carefully. Indicate the values of the following expressions after the script has finished executing:
 
@@ -489,7 +504,7 @@ meanB = np.mean(ageB)
 ```
 
 
-### Exercise 5. Debugging II
+### Exercise 6. Debugging II
 
 The script below calculates some descriptives from `data`. The code is still somewhat buggy. Debug the script and indicate the values of `fastest`, `slowest`, and `all_mean`.
 
@@ -534,7 +549,7 @@ for participant in data:
 all_mean = all_sum/number_of_trials*len(data)
 ```
 
-### Exercise 6. Nested loops
+### Exercise 7. Nested loops
 
 Nested data often requires *nested loops* for answering certain questions about the data. Let's have a look at the `list` data set below. each participant has a participant number paired with a list of additional experiment information.
 
@@ -568,12 +583,12 @@ print("The number of participants who withdrew their participation is", counter)
 
 Implement the second `for` loop that iterates over the experiment information and count the number of participants who withdrew their participation.
 
-### Exercise 7. Data transformation using loops
+### Exercise 8. Data transformation using loops
 
 * Write a script that transforms the data set `participants` from Exercise 3 into a dictonary data set.
 * Extend the script with a `counter` mechanism that counts the number of participants who were tested at location A and location B respectively.
 
-### Exercise 8. Calculating a mean
+### Exercise 9. Calculating a mean
 
 For the sequence `seq` calculate the arithmetic mean using a `while` loop. Check your implementation using the `mean()` method of the `NumPy` library.
 
@@ -583,19 +598,6 @@ import numpy as np
 seq = range(1000)
 
 ```
-
-### Exercise 9. A guessing game
-
-Make a Python script `guessing.py` that implements the following behaviour:
-
-* At the beginning of the script, a random number between 0 and 1000 is generated.
-* The program continuously asks for user input prompting the user with the request to enter a number.
-* If the user guesses the number correctly, the program gives feedback that the number was guessed correctly. The program also shows the number of guesses needed. Finally, the program terminates.
-* If the guessed number is too large, the program gives feedback that the number is smaller.
-* If the guessed number is too small, the program gives feedback that the number is larger.
-* If no input is given, the program should terminate. In this case, the program should terminate if the given input is *empty*. *Hint:* Use the internet to figure out how to handle empty input.
-
-*Hint*: Prompting and feedback via the console is sufficient.
 
 ## Think Further
 
