@@ -5,11 +5,11 @@
 
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>Programming Interaction for Psychologists</title>
+  <title>1 Introduction | Programming Interaction for Psychologists</title>
   <meta name="description" content="a book to accompany the course Programming for Psychologists">
-  <meta name="generator" content="bookdown 0.7 and GitBook 2.6.7">
+  <meta name="generator" content="bookdown  and GitBook 2.6.7">
 
-  <meta property="og:title" content="Programming Interaction for Psychologists" />
+  <meta property="og:title" content="1 Introduction | Programming Interaction for Psychologists" />
   <meta property="og:type" content="book" />
   
   
@@ -17,7 +17,7 @@
   <meta name="github-repo" content="schmettow/PfP_Book" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Programming Interaction for Psychologists" />
+  <meta name="twitter:title" content="1 Introduction | Programming Interaction for Psychologists" />
   
   <meta name="twitter:description" content="a book to accompany the course Programming for Psychologists" />
   
@@ -25,7 +25,7 @@
 <meta name="author" content="Martin Schmettow and Lena Brandl">
 
 
-<meta name="date" content="2018-11-29">
+<meta name="date" content="2019-11-07">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -36,6 +36,7 @@
 <link rel="next" href="variables.html">
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
@@ -449,7 +450,9 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <span class="im">import</span> random
 <span class="im">from</span> pygame.<span class="bu">locals</span> <span class="im">import</span> <span class="op">*</span>
 <span class="im">from</span> pygame.compat <span class="im">import</span> unichr_, unicode_
+
 <span class="co">##### CONFIG #####</span>
+
 <span class="co"># Colors abd screen</span>
 col_white <span class="op">=</span> (<span class="dv">250</span>, <span class="dv">250</span>, <span class="dv">250</span>)
 col_black <span class="op">=</span> (<span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>)
@@ -458,26 +461,42 @@ col_red <span class="op">=</span> (<span class="dv">250</span>, <span class="dv"
 col_green <span class="op">=</span> (<span class="dv">0</span>, <span class="dv">200</span>, <span class="dv">0</span>)
 col_blue <span class="op">=</span> (<span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">250</span>)
 col_yellow <span class="op">=</span> (<span class="dv">250</span>,<span class="dv">250</span>,<span class="dv">0</span>)
+
 BACKGR_COL <span class="op">=</span> col_gray
 SCREEN_SIZE <span class="op">=</span> (<span class="dv">700</span>, <span class="dv">500</span>)
+
+
 <span class="co"># Experiment</span>
+
 n_trials <span class="op">=</span> <span class="dv">5</span>
+
 WORDS    <span class="op">=</span> (<span class="st">&quot;red&quot;</span>, <span class="st">&quot;green&quot;</span>, <span class="st">&quot;blue&quot;</span>)
+
 COLORS   <span class="op">=</span> {<span class="st">&quot;red&quot;</span>: col_red,
             <span class="st">&quot;green&quot;</span>: col_green,
             <span class="st">&quot;blue&quot;</span>: col_blue}
+
 KEYS     <span class="op">=</span> {<span class="st">&quot;red&quot;</span>: K_b,
             <span class="st">&quot;green&quot;</span>: K_n,
             <span class="st">&quot;blue&quot;</span>: K_m}
+
+
+
 <span class="co">### PYGAME STARTUP </span><span class="al">###</span>
+
 pygame.init()
 pygame.display.set_mode(SCREEN_SIZE) 
 pygame.display.set_caption(<span class="st">&quot;Stroop Test&quot;</span>)
+
 screen <span class="op">=</span> pygame.display.get_surface()
 <span class="co"># screen.fill(BACKGR_COL)</span>
+
 font <span class="op">=</span> pygame.font.Font(<span class="va">None</span>, <span class="dv">80</span>)
 font_small <span class="op">=</span> pygame.font.Font(<span class="va">None</span>, <span class="dv">40</span>) 
+
+
 <span class="co">### MAIN PROGRAM </span><span class="al">###</span>
+
 <span class="kw">def</span> main():
     
     STATE <span class="op">=</span> <span class="st">&quot;welcome&quot;</span>    
@@ -487,6 +506,7 @@ font_small <span class="op">=</span> pygame.font.Font(<span class="va">None</spa
         
         <span class="co"># refreshing the surface</span>
         screen.fill(BACKGR_COL)
+
         <span class="co"># Event loop</span>
         <span class="cf">for</span> event <span class="kw">in</span> pygame.event.get():
             
@@ -520,6 +540,7 @@ font_small <span class="op">=</span> pygame.font.Font(<span class="va">None</spa
                 STATE <span class="op">=</span> <span class="st">&quot;quit&quot;</span>
                 <span class="bu">print</span>(STATE)
                 <span class="cf">break</span>
+
         
         <span class="co"># automatic transitionals</span>
         <span class="cf">if</span> STATE <span class="op">==</span> <span class="st">&quot;prepare_trial&quot;</span>:
@@ -529,6 +550,7 @@ font_small <span class="op">=</span> pygame.font.Font(<span class="va">None</spa
                 time_when_presented <span class="op">=</span> time()
                 STATE <span class="op">=</span> <span class="st">&quot;show_trial&quot;</span>
                 <span class="bu">print</span>(STATE)    
+
         
         
         <span class="co"># Presentitionals</span>
@@ -557,6 +579,7 @@ font_small <span class="op">=</span> pygame.font.Font(<span class="va">None</spa
         <span class="co"># Updating the display</span>
         pygame.display.update()
         
+
 <span class="co"># Function definitions</span>
         
 <span class="kw">def</span> pick_color():
@@ -564,11 +587,13 @@ font_small <span class="op">=</span> pygame.font.Font(<span class="va">None</spa
 <span class="co">    &quot;&quot;&quot;</span>
     random_number <span class="op">=</span> random.randint(<span class="dv">0</span>,<span class="dv">2</span>)
     <span class="cf">return</span> WORDS[random_number]
+
 <span class="kw">def</span> draw_button(xpos, ypos, label, color):
     text <span class="op">=</span> font_small.render(label, <span class="va">True</span>, color, BACKGR_COL)
     text_rectangle <span class="op">=</span> text.get_rect()
     text_rectangle.center <span class="op">=</span> (xpos, ypos)
     screen.blit(text, text_rectangle)
+
 <span class="kw">def</span> draw_welcome():
     text_surface <span class="op">=</span> font.render(<span class="st">&quot;STROOP Experiment&quot;</span>, <span class="va">True</span>, col_black, BACKGR_COL)
     text_rectangle <span class="op">=</span> text_surface.get_rect()
@@ -578,11 +603,13 @@ font_small <span class="op">=</span> pygame.font.Font(<span class="va">None</spa
     text_rectangle <span class="op">=</span> text_surface.get_rect()
     text_rectangle.center <span class="op">=</span> (SCREEN_SIZE[<span class="dv">0</span>]<span class="op">/</span><span class="fl">2.0</span>,<span class="dv">300</span>)
     screen.blit(text_surface, text_rectangle)
+
 <span class="kw">def</span> draw_stimulus(color, word):
     text_surface <span class="op">=</span> font.render(word, <span class="va">True</span>, COLORS[color], col_gray)
     text_rectangle <span class="op">=</span> text_surface.get_rect()
     text_rectangle.center <span class="op">=</span> (SCREEN_SIZE[<span class="dv">0</span>]<span class="op">/</span><span class="fl">2.0</span>,<span class="dv">150</span>)
     screen.blit(text_surface, text_rectangle)
+
 <span class="kw">def</span> draw_feedback(correct, reaction_time):
     <span class="cf">if</span> correct:
         text_surface <span class="op">=</span> font_small.render(<span class="st">&quot;correct&quot;</span>, <span class="va">True</span>, col_black, BACKGR_COL)
@@ -602,6 +629,7 @@ font_small <span class="op">=</span> pygame.font.Font(<span class="va">None</spa
     text_rectangle <span class="op">=</span> text_surface.get_rect()
     text_rectangle.center <span class="op">=</span> (SCREEN_SIZE[<span class="dv">0</span>]<span class="op">/</span><span class="fl">2.0</span>,<span class="dv">300</span>)
     screen.blit(text_surface, text_rectangle)
+
 <span class="kw">def</span> draw_goodbye():
     text_surface <span class="op">=</span> font_small.render(<span class="st">&quot;END OF THE EXPERIMENT&quot;</span>, <span class="va">True</span>, col_black, BACKGR_COL)
     text_rectangle <span class="op">=</span> text_surface.get_rect()
@@ -620,9 +648,11 @@ col_gray <span class="op">=</span> (<span class="dv">220</span>, <span class="dv
 col_red <span class="op">=</span> (<span class="dv">250</span>, <span class="dv">0</span>, <span class="dv">0</span>)
 col_green <span class="op">=</span> (<span class="dv">0</span>, <span class="dv">200</span>, <span class="dv">0</span>)
 col_blue <span class="op">=</span> (<span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">250</span>)
+
 COLORS   <span class="op">=</span> {<span class="st">&quot;red&quot;</span>: col_red,
             <span class="st">&quot;green&quot;</span>: col_green,
             <span class="st">&quot;blue&quot;</span>: col_blue}
+
 WORDS    <span class="op">=</span> (<span class="st">&quot;red&quot;</span>, <span class="st">&quot;green&quot;</span>, <span class="st">&quot;blue&quot;</span>)</code></pre></div>
 <p>The first paragraph defines each color used throughout the program as three numbers. This is because computer screens produce all colors by mixture of red, blue and green, which not coincidentily matches the three types of color vision sensors in our eyes. For example, black just means that all lights are out, hence the three zeroes. Red means that only the red channel is firing photons.</p>
 <p>Whenever you see a single <code>=</code> character, that means that what is given to the right is stored in a <em>variable</em> to the left. The second paragraph just collects the three colors in one compound variable, which you will later learn to be a <em>dictionary</em>. Search for <code>COLOR</code> in the following code to see, how it is being used:</p>
@@ -710,7 +740,7 @@ gitbook.start({
 "google": false,
 "linkedin": false,
 "weibo": false,
-"instapper": false,
+"instapaper": false,
 "vk": false,
 "all": ["facebook", "google", "twitter", "linkedin", "weibo", "instapaper"]
 },
@@ -720,6 +750,10 @@ gitbook.start({
 "size": 2
 },
 "edit": {
+"link": null,
+"text": null
+},
+"history": {
 "link": null,
 "text": null
 },

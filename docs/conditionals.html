@@ -5,11 +5,11 @@
 
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>Programming Interaction for Psychologists</title>
+  <title>3 Conditionals | Programming Interaction for Psychologists</title>
   <meta name="description" content="a book to accompany the course Programming for Psychologists">
-  <meta name="generator" content="bookdown 0.7 and GitBook 2.6.7">
+  <meta name="generator" content="bookdown  and GitBook 2.6.7">
 
-  <meta property="og:title" content="Programming Interaction for Psychologists" />
+  <meta property="og:title" content="3 Conditionals | Programming Interaction for Psychologists" />
   <meta property="og:type" content="book" />
   
   
@@ -17,7 +17,7 @@
   <meta name="github-repo" content="schmettow/PfP_Book" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Programming Interaction for Psychologists" />
+  <meta name="twitter:title" content="3 Conditionals | Programming Interaction for Psychologists" />
   
   <meta name="twitter:description" content="a book to accompany the course Programming for Psychologists" />
   
@@ -25,7 +25,7 @@
 <meta name="author" content="Martin Schmettow and Lena Brandl">
 
 
-<meta name="date" content="2018-11-29">
+<meta name="date" content="2019-11-07">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -36,6 +36,7 @@
 <link rel="next" href="lists.html">
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
@@ -425,6 +426,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python">trial <span class="op">=</span> <span class="dv">3</span>
 max_trials <span class="op">=</span> <span class="dv">6</span>
 correct <span class="op">=</span> <span class="va">True</span>
+
 <span class="bu">print</span>((max_trials <span class="op">-</span> trial) <span class="kw">and</span> correct)</code></pre></div>
 <pre><code>## True</code></pre>
 <p>Here, the numerical expression is evaluated in the context of the Boolean operator <code>and</code> and is converted to Boolean. When that happens, zero becomes <code>False</code> and any other valuebecomes <code>True</code>, <em>including negative values</em> :</p>
@@ -437,6 +439,7 @@ correct <span class="op">=</span> <span class="va">True</span>
 <div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python">trial <span class="op">=</span> <span class="dv">3</span>
 max_trials <span class="op">=</span> <span class="dv">6</span>
 correct <span class="op">=</span> <span class="va">True</span>
+
 <span class="bu">print</span>((max_trials <span class="op">-</span> trial) <span class="op">&gt;</span> <span class="dv">0</span>  <span class="kw">and</span> correct)</code></pre></div>
 <pre><code>## True</code></pre>
 </div>
@@ -512,6 +515,7 @@ then, and only then, the intended (from intendation, not intention!) code within
 <h2><span class="header-section-number">3.4</span> Bringing interaction to life: Conditional state transitions</h2>
 <p>In programming interactive software, such as the Stroop experiment, conditionals are essential to control the flow of the program. By controlling the <em>flow</em>, we mean how the program changes states in reaction to the input of the user. Without the programmer’s intervention, a program is executed from top to bottom. You can imagine that the Stroop Task program needs to be more flexible than that, depending on the actions of the participant. Take a closer look at how the Stroop Task program transits from the welcome screen to the first trial:</p>
 <div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python">STATE <span class="op">=</span> <span class="st">&quot;welcome&quot;</span>    
+
 <span class="cf">if</span> STATE <span class="op">==</span> <span class="st">&quot;welcome&quot;</span>:
     <span class="cf">if</span> event.<span class="bu">type</span> <span class="op">==</span> KEYDOWN <span class="kw">and</span> event.key <span class="op">==</span> K_SPACE:
         STATE <span class="op">=</span> <span class="st">&quot;prepare_next_trial&quot;</span>
@@ -623,6 +627,7 @@ then, and only then, the intended (from intendation, not intention!) code within
             this_correctness <span class="op">=</span> (event.key <span class="op">==</span> KEYS[this_color])
             STATE <span class="op">=</span> <span class="st">&quot;feedback&quot;</span>
             <span class="bu">print</span>(STATE)
+
                 
     <span class="cf">if</span> STATE <span class="op">==</span> <span class="st">&quot;feedback&quot;</span>:
         <span class="cf">if</span> event.<span class="bu">type</span> <span class="op">==</span> KEYDOWN <span class="kw">and</span> event.key <span class="op">==</span> K_SPACE:
@@ -793,6 +798,7 @@ SytnaxError: invalid sytnax</code></pre>
 <p>What is the output of the following code snippets?</p>
 <div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python">a <span class="op">=</span> <span class="va">True</span>
 b <span class="op">=</span> <span class="va">False</span>
+
 <span class="bu">print</span>(a <span class="kw">and</span> b)</code></pre></div>
 <div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python">a <span class="op">=</span> <span class="va">True</span>
 b <span class="op">=</span> <span class="va">False</span>
@@ -802,17 +808,21 @@ b <span class="op">=</span> <span class="va">False</span>
 <span class="bu">print</span>((<span class="kw">not</span> a) <span class="kw">or</span> b)</code></pre></div>
 <div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python">a <span class="op">=</span> <span class="va">True</span>
 b <span class="op">=</span> <span class="va">False</span>
+
 <span class="bu">print</span>(<span class="kw">not</span> (a <span class="kw">and</span> b))</code></pre></div>
 <div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python">a <span class="op">=</span> <span class="va">True</span>
 b <span class="op">=</span> <span class="va">False</span>
+
 <span class="bu">print</span>(<span class="kw">not</span> (a <span class="kw">or</span> b))</code></pre></div>
 <div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python">a <span class="op">=</span> <span class="dv">1</span>
 b <span class="op">=</span> <span class="dv">2</span>
 c <span class="op">=</span> <span class="dv">4</span>
+
 <span class="bu">print</span>(a <span class="op">&gt;=</span> b <span class="kw">and</span> c <span class="op">&gt;</span> a <span class="op">+</span> b)</code></pre></div>
 <div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python">a <span class="op">=</span> <span class="dv">1</span>
 b <span class="op">=</span> <span class="dv">2</span>
 c <span class="op">=</span> <span class="dv">3</span>
+
 <span class="bu">print</span>(b <span class="op">%</span> a <span class="op">&gt;=</span> c <span class="op">-</span> (a <span class="op">+</span> b))</code></pre></div>
 </div>
 <div id="exercise-2.-state-charts" class="section level3">
@@ -825,6 +835,7 @@ c <span class="op">=</span> <span class="dv">3</span>
 <div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python"><span class="co"># Variables</span>
 STATE <span class="op">=</span> <span class="st">&quot;A&quot;</span>
 number_of_trials <span class="op">=</span> <span class="dv">0</span>
+
 <span class="cf">while</span> <span class="va">True</span>:
   <span class="co">#ITC</span>
   <span class="cf">for</span> event <span class="kw">in</span> pygame.event.get():
@@ -850,6 +861,7 @@ number_of_trials <span class="op">=</span> <span class="dv">0</span>
 <div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python"><span class="co"># Variables</span>
 STATE <span class="op">=</span> <span class="st">&quot;A&quot;</span>
 number_of_trials <span class="op">=</span> <span class="dv">0</span>
+
 <span class="cf">while</span> <span class="va">True</span>:
   <span class="co">#ITC</span>
   <span class="cf">for</span> event <span class="kw">in</span> pygame.event.get():
@@ -876,6 +888,7 @@ number_of_trials <span class="op">=</span> <span class="dv">0</span>
 <div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python"><span class="co"># Variables</span>
 STATE <span class="op">=</span> <span class="st">&quot;A&quot;</span>
 number_of_trials <span class="op">=</span> <span class="dv">0</span>
+
 <span class="cf">while</span> <span class="va">True</span>:
   <span class="co">#ITC</span>
   <span class="cf">for</span> event <span class="kw">in</span> pygame.event.get():
@@ -901,6 +914,7 @@ number_of_trials <span class="op">=</span> <span class="dv">0</span>
 <h3><span class="header-section-number">3.7.3</span> Exercise 3. Transition tables</h3>
 <p>For the following code snippet, make a transition table.</p>
 <div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python">STATE <span class="op">=</span> <span class="st">&quot;A&quot;</span>
+
 <span class="cf">while</span> <span class="va">True</span>:
     <span class="co">#ITC</span>
     <span class="cf">for</span> event <span class="kw">in</span> pygame.event.get():                        
@@ -922,6 +936,7 @@ number_of_trials <span class="op">=</span> <span class="dv">0</span>
                 <span class="cf">else</span>:
                     STATE <span class="op">=</span> <span class="st">&quot;quit&quot;</span>
                 <span class="bu">print</span>(STATE)
+
     <span class="co">#ATC</span>
     <span class="cf">if</span> STATE <span class="op">==</span> <span class="st">&quot;C&quot;</span>:
         present_picture()
@@ -978,6 +993,7 @@ if y + 1 == x or not x * 1 &lt;= y:
 <span class="cf">elif</span> <span class="bu">len</span>(myString) <span class="op">&lt;=</span> <span class="dv">12</span> <span class="kw">and</span> <span class="st">&quot;ello&quot;</span> <span class="kw">in</span> myString:
     myString <span class="op">=</span> <span class="st">&quot;Hello, from the other side.&quot;</span>
 <span class="bu">print</span> myString
+
 <span class="cf">if</span> <span class="st">&quot;Hi&quot;</span> <span class="kw">in</span> myString:
     <span class="cf">if</span> <span class="bu">len</span>(myString) <span class="op">&lt;</span> <span class="dv">25</span>:
         myString <span class="op">=</span> <span class="st">&quot;Wow, my computer seems to answer!&quot;</span>
@@ -993,6 +1009,7 @@ if y + 1 == x or not x * 1 &lt;= y:
     <span class="cf">else</span>:
         myString <span class="op">=</span> myString <span class="op">+</span> <span class="st">&quot; -- Adele&quot;</span>
 <span class="bu">print</span> myString
+
 <span class="cf">if</span> <span class="st">&quot;computer&quot;</span> <span class="kw">in</span> myString <span class="kw">or</span> <span class="bu">len</span>(myString) <span class="op">==</span> <span class="dv">38</span> <span class="kw">or</span> <span class="st">&quot;HI&quot;</span> <span class="kw">in</span> myString:
     myString <span class="op">=</span> myString <span class="op">+</span> <span class="st">&quot; I myself am doing fine.&quot;</span>
 <span class="cf">else</span>:
@@ -1052,6 +1069,7 @@ study <span class="op">=</span> <span class="st">&quot;Psychology&quot;</span>
 speaks_Dutch <span class="op">=</span> <span class="va">True</span>
 coffee <span class="op">=</span> <span class="va">True</span>
 condition <span class="op">=</span> <span class="st">&quot;not eligible for the experiment&quot;</span>
+
 <span class="cf">if</span> age <span class="op">&gt;=</span> <span class="dv">18</span>:
     
     <span class="cf">if</span> gender <span class="op">==</span> <span class="st">&quot;Female&quot;</span>:
@@ -1145,7 +1163,7 @@ gitbook.start({
 "google": false,
 "linkedin": false,
 "weibo": false,
-"instapper": false,
+"instapaper": false,
 "vk": false,
 "all": ["facebook", "google", "twitter", "linkedin", "weibo", "instapaper"]
 },
@@ -1155,6 +1173,10 @@ gitbook.start({
 "size": 2
 },
 "edit": {
+"link": null,
+"text": null
+},
+"history": {
 "link": null,
 "text": null
 },

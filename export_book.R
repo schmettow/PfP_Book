@@ -11,10 +11,10 @@ bookdown::render_book("_bookdown.yml", output_format = "bookdown::gitbook",
 
 ### Epub
 
-bookdown::render_book("_bookdown.yml", 
-                      output_format = "bookdown::epub_book", 
+bookdown::render_book("_bookdown.yml",
+                      output_format = "bookdown::epub_book",
                       clean = TRUE,
-                      output_dir = "docs/", 
+                      output_dir = "docs/",
                       encoding = "UTF-8")
 
 ### Kindle

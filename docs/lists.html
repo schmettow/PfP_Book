@@ -5,11 +5,11 @@
 
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>Programming Interaction for Psychologists</title>
+  <title>4 Lists | Programming Interaction for Psychologists</title>
   <meta name="description" content="a book to accompany the course Programming for Psychologists">
-  <meta name="generator" content="bookdown 0.7 and GitBook 2.6.7">
+  <meta name="generator" content="bookdown  and GitBook 2.6.7">
 
-  <meta property="og:title" content="Programming Interaction for Psychologists" />
+  <meta property="og:title" content="4 Lists | Programming Interaction for Psychologists" />
   <meta property="og:type" content="book" />
   
   
@@ -17,7 +17,7 @@
   <meta name="github-repo" content="schmettow/PfP_Book" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Programming Interaction for Psychologists" />
+  <meta name="twitter:title" content="4 Lists | Programming Interaction for Psychologists" />
   
   <meta name="twitter:description" content="a book to accompany the course Programming for Psychologists" />
   
@@ -25,7 +25,7 @@
 <meta name="author" content="Martin Schmettow and Lena Brandl">
 
 
-<meta name="date" content="2018-11-29">
+<meta name="date" content="2019-11-07">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -36,6 +36,7 @@
 <link rel="next" href="loops.html">
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
@@ -426,12 +427,14 @@ a.append(<span class="dv">1</span>)
 <p>The <em>append</em> method adds the specified element at the end of a given list. You can use the <em>extend</em> method to add <em>multiple</em> values of another list (or other type of collection) to your list.</p>
 <div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python">a <span class="op">=</span> [<span class="dv">1</span>,<span class="dv">2</span>]
 b <span class="op">=</span> [<span class="dv">3</span>,<span class="dv">4</span>]
+
 a.extend(b)
 <span class="bu">print</span>(a)</code></pre></div>
 <pre><code>## [1, 2, 3, 4]</code></pre>
 <p>Note that there is a difference between appending a list and extending your list with another list.</p>
 <div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python">a <span class="op">=</span> [<span class="dv">1</span>,<span class="dv">2</span>]
 b <span class="op">=</span> [<span class="dv">3</span>,<span class="dv">4</span>]
+
 a.append(b)
 <span class="bu">print</span>(a)</code></pre></div>
 <pre><code>## [1, 2, [3, 4]]</code></pre>
@@ -453,20 +456,25 @@ a.append(<span class="dv">6</span>)
 <div id="tuples" class="section level2">
 <h2><span class="header-section-number">4.2</span> Tuples</h2>
 <p>Much like lists, <em>tuples</em> are ordered collections of values, but with less exentensive functionality and their unique characteristic being that they are <em>immutable</em>. Once you created a <em>tuple</em> in memory, you cannot change its elements.</p>
-<pre><code>thorndike = (&quot;Edward&quot;, &quot;Lee&quot;, &quot;Thorndike&quot;, 1874, &quot;Law of effect&quot;, &quot;Law of exercise&quot;)
-thorndike[4] = &quot;Law of recency&quot;
-
-TypeError: &#39;tuple&#39; object does not support item assignment</code></pre>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python">thorndike <span class="op">=</span> (<span class="st">&quot;Edward&quot;</span>, <span class="st">&quot;Lee&quot;</span>, <span class="st">&quot;Thorndike&quot;</span>, <span class="dv">1874</span>, <span class="st">&quot;Law of effect&quot;</span>, <span class="st">&quot;Law of exercise&quot;</span>)
+thorndike[<span class="dv">4</span>] <span class="op">=</span> <span class="st">&quot;Law of recency&quot;</span></code></pre></div>
+<pre><code>## Error in py_call_impl(callable, dots$args, dots$keywords): TypeError: &#39;tuple&#39; object does not support item assignment
+## 
+## Detailed traceback: 
+##   File &quot;&lt;string&gt;&quot;, line 1, in &lt;module&gt;</code></pre>
 <p>Tuples are usually used when you assume that a collection of values will not change in the course of your program. They are <em>records</em> of related information, chunked together so that we can use them as a single entity. In the Stroop Task program for instance, we saw that tuples were used to chunk together RGB combinations that make up a color. The Pygame module used these tuples to generate color in the Stroop Task.</p>
 <p>Tuples are immutable. However, if you really need to change the contents of an already existing tuple, you can always assign a new value to the variable which holds the tuple as a value.</p>
 <div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python">thorndike <span class="op">=</span> (<span class="st">&quot;Edward&quot;</span>, <span class="st">&quot;Lee&quot;</span>, <span class="st">&quot;Thorndike&quot;</span>, <span class="dv">1874</span>, <span class="st">&quot;Law of effect&quot;</span>, <span class="st">&quot;Law of exercise&quot;</span>)
 thorndike <span class="op">=</span> thorndike[:] <span class="op">+</span> (<span class="st">&quot;Law of recency&quot;</span>,)
 <span class="bu">print</span>(thorndike)</code></pre></div>
 <pre><code>## (&#39;Edward&#39;, &#39;Lee&#39;, &#39;Thorndike&#39;, 1874, &#39;Law of effect&#39;, &#39;Law of exercise&#39;, &#39;Law of recency&#39;)</code></pre>
-<p>Note the comma <code>,</code> in the second assignment statement <code>(&quot;Law of recency,&quot;)</code>. Without the comma at the end of the parentheses, Python treats the content of a one-element tuple such as <code>(&quot;Law of recency&quot;,)</code> as belonging to the data type of the element (in this case a <code>str</code>). As a result, a <em>type error</em> is thrown when you try to concatenate the <code>thorndike</code> tuple and <code>(&quot;Law of recency&quot;)</code>.</p>
-<pre><code>thorndike = thorndike[:] + (&quot;Law of recency&quot;,)
-
-TypeError: can only concatenate tuple (not &quot;str&quot;) to tuple</code></pre>
+<p>Note the trailing comma in the second line <code>(&quot;Law of recency&quot;,)</code>. Without the comma at the end of the parentheses, Python treats the content of a one-element tuple such as <code>(&quot;Law of recency&quot;)</code> as belonging to the data type of the element (in this case a <code>str</code>). As a result, a <em>type error</em> is thrown when you try to concatenate the <code>thorndike</code> tuple and <code>(&quot;Law of recency&quot;)</code>.</p>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python">thorndike <span class="op">=</span> (<span class="st">&quot;Edward&quot;</span>, <span class="st">&quot;Lee&quot;</span>, <span class="st">&quot;Thorndike&quot;</span>, <span class="dv">1874</span>, <span class="st">&quot;Law of effect&quot;</span>, <span class="st">&quot;Law of exercise&quot;</span>)
+thorndike <span class="op">=</span> thorndike[:] <span class="op">+</span> (<span class="st">&quot;Law of recency&quot;</span>)</code></pre></div>
+<pre><code>## Error in py_call_impl(callable, dots$args, dots$keywords): TypeError: can only concatenate tuple (not &quot;str&quot;) to tuple
+## 
+## Detailed traceback: 
+##   File &quot;&lt;string&gt;&quot;, line 1, in &lt;module&gt;</code></pre>
 <p>Python has a very powerful <em>tuple assignment</em> feature that allows a tuple of variable names on the left of the assignment operator <code>=</code> to be assigned to a tuple of values, like so</p>
 <div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python">thorndike <span class="op">=</span> (<span class="st">&quot;Edward&quot;</span>, <span class="st">&quot;Lee&quot;</span>, <span class="st">&quot;Thorndike&quot;</span>, <span class="dv">1874</span>)
 (name, middle_name, surname, born) <span class="op">=</span> thorndike
@@ -484,6 +492,7 @@ TypeError: can only concatenate tuple (not &quot;str&quot;) to tuple</code></pre
                 <span class="st">&quot;studentservices&quot;</span> : <span class="st">&quot;studentservices[at]utwente.nl&quot;</span>,
                 <span class="st">&quot;ICT-helpdesk&quot;</span>   : <span class="st">&quot;servicedesk-ict[at]utwente.nl&quot;</span>
                 }
+
 <span class="bu">print</span>(address_book[<span class="st">&quot;studyadviser-PSY&quot;</span>])</code></pre></div>
 <pre><code>## studyadviser-psy[at]utwente.nl</code></pre>
 <p>Dictionaries associate <em>keys</em> (e.g. a name) with <em>values</em> (e.g. contact details). The <code>key:value</code> pairs of a dictionary are separated by commas. Each pair contains a <em>key</em> and a <em>value</em> separated by a colon <code>:</code>. <code>key:value</code> pairs are always one-to-one mappings. This means that you cannot map the same key to several values, like so</p>
@@ -541,6 +550,7 @@ trial_number <span class="op">=</span> <span class="dv">0</span>
     
 <span class="cf">while</span> <span class="va">True</span>:
     pygame.display.get_surface().fill(BACKGR_COL)        
+
     <span class="co"># Changing states</span>
     <span class="cf">for</span> event <span class="kw">in</span> pygame.event.get():                        
         <span class="cf">if</span> STATE <span class="op">==</span> <span class="st">&quot;welcome&quot;</span>:
@@ -564,6 +574,7 @@ trial_number <span class="op">=</span> <span class="dv">0</span>
                 this_correctness <span class="op">=</span> (event.key <span class="op">==</span> KEYS[this_color])
                 STATE <span class="op">=</span> <span class="st">&quot;feedback&quot;</span>
                 <span class="bu">print</span>(STATE)
+
                 
         <span class="cf">if</span> STATE <span class="op">==</span> <span class="st">&quot;feedback&quot;</span>:
             <span class="cf">if</span> event.<span class="bu">type</span> <span class="op">==</span> KEYDOWN <span class="kw">and</span> event.key <span class="op">==</span> K_SPACE:
@@ -651,8 +662,10 @@ KeyError: &#39;a&#39;</code></pre>
 <p>Alternatively, you can use a simple conditional constructions and <code>not in</code> to make sure that you do not overwrite any existing keys</p>
 <div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python">d <span class="op">=</span> {<span class="st">&#39;a&#39;</span>: <span class="dv">1</span>,
      <span class="st">&#39;b&#39;</span>: <span class="dv">2</span>}
+
 <span class="cf">if</span> <span class="st">&#39;a&#39;</span> <span class="kw">not</span> <span class="kw">in</span> d.keys():
     d[<span class="st">&#39;a&#39;</span>] <span class="op">=</span> <span class="dv">0</span>
+
 <span class="bu">print</span>(d)  </code></pre></div>
 <pre><code>## {&#39;a&#39;: 1, &#39;b&#39;: 2}</code></pre>
 </div>
@@ -664,6 +677,7 @@ KeyError: &#39;a&#39;</code></pre>
 <div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python">a <span class="op">=</span> [<span class="dv">6</span>, <span class="dv">7</span>]
 b <span class="op">=</span> [<span class="dv">4</span>, <span class="dv">5</span>]
 b.append(a)
+
 <span class="bu">print</span>(b)</code></pre></div>
 <div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python">d <span class="op">=</span> {<span class="dv">1</span>: <span class="st">&#39;a&#39;</span>,
     <span class="st">&#39;a&#39;</span>: <span class="dv">1</span>}
@@ -672,12 +686,16 @@ b.append(a)
 <div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python">a <span class="op">=</span> [<span class="dv">1</span>]
 b <span class="op">=</span> (<span class="st">&#39;a&#39;</span>, <span class="dv">2</span>)
 a.extend(b)
+
 <span class="bu">print</span>(a[<span class="dv">1</span>])</code></pre></div>
 <div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python">a, b <span class="op">=</span> ([<span class="st">&#39;a&#39;</span>, <span class="st">&#39;d&#39;</span>], [<span class="st">&#39;b&#39;</span>, <span class="st">&#39;c&#39;</span>])
+
 <span class="bu">print</span>(b[<span class="dv">0</span>])</code></pre></div>
 <div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python">a <span class="op">=</span> [<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>]
+
 <span class="bu">print</span>(a[<span class="op">-</span><span class="dv">1</span>])</code></pre></div>
 <div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python">a <span class="op">=</span> (<span class="dv">1</span>, <span class="dv">2</span>, [<span class="dv">3</span>, <span class="dv">4</span>], <span class="dv">5</span>)
+
 <span class="bu">print</span>(a[<span class="dv">2</span>][<span class="dv">1</span>])</code></pre></div>
 </div>
 <div id="exercise-2.-debugging" class="section level3">
@@ -764,13 +782,17 @@ elif &#39;a&#39; in a[1]:
 shoppinglist[<span class="dv">0</span>] <span class="op">=</span> <span class="st">&quot;buns&quot;</span>
 shoppinglist <span class="op">=</span> shoppinglist <span class="op">+</span> [<span class="st">&quot;chocolate&quot;</span>]
 <span class="kw">del</span> shoppinglist[<span class="dv">2</span>]
+
 shoppinglist_mum <span class="op">=</span> [<span class="st">&quot;eggs&quot;</span>,<span class="st">&quot;yoghurt&quot;</span>,<span class="st">&quot;potatoes&quot;</span>,<span class="st">&quot;salmon&quot;</span>]
 shoppinglist <span class="op">+=</span> shoppinglist_mum
 <span class="kw">del</span> shoppinglist[<span class="dv">10</span>]
+
 ingredients_muffins <span class="op">=</span> [<span class="st">&quot;icing sugar&quot;</span>,<span class="st">&quot;whipping cream&quot;</span>,<span class="st">&quot;lemons&quot;</span>,<span class="st">&quot;flower&quot;</span>,<span class="st">&quot;vanilla sugar&quot;</span>,<span class="st">&quot;eggs&quot;</span>,<span class="st">&quot;mandarines&quot;</span>,<span class="st">&quot;baking powder&quot;</span>,<span class="st">&quot;sugar&quot;</span>,<span class="st">&quot;margarine&quot;</span>]
+
 shoppinglist.append(ingredients_muffins)
 <span class="kw">del</span> shoppinglist[<span class="dv">11</span>][<span class="dv">6</span>]
 shoppinglist[<span class="dv">8</span>:<span class="dv">11</span>] <span class="op">=</span> [shoppinglist[<span class="dv">8</span>:<span class="dv">11</span>]]
+
 <span class="kw">del</span> ingredients_muffins[<span class="dv">7</span>]</code></pre></div>
 <p>The above shopping list has been subject to several changes since it has been written. Standing in the supermarket, you want to know the contents of the final shopping list. Which groceries do you have to buy?</p>
 <p>You can check your answer afterwards by running the code.</p>
@@ -784,6 +806,7 @@ shoppinglist[<span class="dv">8</span>:<span class="dv">11</span>] <span class="
                       
 erikson <span class="op">=</span> (<span class="st">&quot;Erik&quot;</span>, <span class="st">&quot;Erikson&quot;</span>, (<span class="dv">1902</span>,<span class="dv">1994</span>), <span class="st">&quot;Theory of Psychological Development&quot;</span>)
 famous_psychologists[<span class="st">&quot;Erikson&quot;</span>] <span class="op">=</span> erikson
+
 more_on_Skinner <span class="op">=</span> {<span class="st">&quot;Schedules of Reinforcement&quot;</span>:(<span class="st">&quot;positive reinforcement&quot;</span>, <span class="st">&quot;negative reinforcement&quot;</span>, <span class="st">&quot;extinction&quot;</span>),
                    <span class="st">&quot;Skinner Box&quot;</span>:(<span class="st">&quot;pigeon&quot;</span>,<span class="st">&quot;lever&quot;</span>,<span class="st">&quot;food&quot;</span>),
                   }
@@ -797,6 +820,7 @@ famous_psychologists[<span class="st">&quot;Skinner&quot;</span>] <span class="o
 <span class="bu">print</span>(famous_psychologists[<span class="st">&quot;Freud&quot;</span>][<span class="dv">2</span>][<span class="dv">0</span>])
 <span class="bu">print</span>(famous_psychologists[<span class="st">&quot;Skinner&quot;</span>][<span class="dv">0</span>][<span class="dv">1</span>])
 <span class="bu">print</span>(famous_psychologists[<span class="st">&quot;Skinner&quot;</span>][<span class="dv">5</span>].keys()[<span class="dv">1</span>])
+
 word <span class="op">=</span> famous_psychologists[<span class="st">&quot;Skinner&quot;</span>][<span class="dv">5</span>].keys()[<span class="dv">0</span>]
 <span class="bu">print</span>(famous_psychologists[<span class="st">&quot;Skinner&quot;</span>][<span class="dv">5</span>][word][<span class="dv">0</span>])</code></pre></div>
 <ul>
@@ -1041,7 +1065,7 @@ gitbook.start({
 "google": false,
 "linkedin": false,
 "weibo": false,
-"instapper": false,
+"instapaper": false,
 "vk": false,
 "all": ["facebook", "google", "twitter", "linkedin", "weibo", "instapaper"]
 },
@@ -1051,6 +1075,10 @@ gitbook.start({
 "size": 2
 },
 "edit": {
+"link": null,
+"text": null
+},
+"history": {
 "link": null,
 "text": null
 },

@@ -5,11 +5,11 @@
 
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>Programming Interaction for Psychologists</title>
+  <title>2 Variables, values and types | Programming Interaction for Psychologists</title>
   <meta name="description" content="a book to accompany the course Programming for Psychologists">
-  <meta name="generator" content="bookdown 0.7 and GitBook 2.6.7">
+  <meta name="generator" content="bookdown  and GitBook 2.6.7">
 
-  <meta property="og:title" content="Programming Interaction for Psychologists" />
+  <meta property="og:title" content="2 Variables, values and types | Programming Interaction for Psychologists" />
   <meta property="og:type" content="book" />
   
   
@@ -17,7 +17,7 @@
   <meta name="github-repo" content="schmettow/PfP_Book" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Programming Interaction for Psychologists" />
+  <meta name="twitter:title" content="2 Variables, values and types | Programming Interaction for Psychologists" />
   
   <meta name="twitter:description" content="a book to accompany the course Programming for Psychologists" />
   
@@ -25,7 +25,7 @@
 <meta name="author" content="Martin Schmettow and Lena Brandl">
 
 
-<meta name="date" content="2018-11-29">
+<meta name="date" content="2019-11-07">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -36,6 +36,7 @@
 <link rel="next" href="conditionals.html">
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
@@ -382,6 +383,7 @@ WORDS    <span class="op">=</span> (<span class="st">&quot;red&quot;</span>, <sp
 <p>Computer programs are usually required to store information in some way for later retrieval or manipulation. In the Stroop Task program we saw in chapter 1, for each trial, we need to store the color and the word that our computer picked. In addition, we want to record the reaction time of the subject. Otherwise, the Stroop Task program would be utterly useless for examining the relation between reaction times and (in)congruence between words and their colors. In other words, the Stroop task program would be useless if it could only manipulate values as we did when we calculated <code>2 + 2</code>. You see, when your computer performs a simple value manipulation you get a momentarily answer. At times, computers are too efficient for their own good. They quickly forget about the values that pass through their system. The very moment they finish a calculation, computer programs forget the outcome of a calculation. They even forget that they ever performed the calculation (if you do not remind them that they indeed did). This is where <em>variables</em> come in handy. Variables are storage units in a computer’s memory. A variable can store any kind of value. Unlike the result of simple value manipulations, such as <code>2 + 2</code>, variables have designated storage addresses in a computer’s memory. You need a way to access variables in your computer’s memory and hence, you give them a name. You can think of a variable’s name as a unique identification address in the computer’s memory. In fact, during a <em>value assignment</em>, a value is stored at a certain position in the computer’s memory. This position as a precisely defined location, much like longitude and latitude coordinates describe a physical location in the Global Positioning System (GPS). The command by which a value is stored in a variable is called an <em>assignment statement</em>. It is common to say “a value is assigned to a variable”.</p>
 <div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python">a <span class="op">=</span> <span class="dv">4</span>
 b <span class="op">=</span> <span class="st">&quot;This is a string&quot;</span>
+
 <span class="bu">print</span>(a)</code></pre></div>
 <pre><code>## 4</code></pre>
 <div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python"><span class="bu">print</span>(b)</code></pre></div>
@@ -413,10 +415,13 @@ b <span class="op">=</span> <span class="st">&quot;This is a string&quot;</span>
 <p>Now that you read about how variables are assigned their values, let’s have a look at how variables are used in the interactive Stroop program.</p>
 <div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python"><span class="co"># a list for gathering the response times</span>
 RT <span class="op">=</span> []
+
 <span class="co"># remember when stimulus was presented</span>
 time_when_presented <span class="op">=</span> time()
+
 <span class="co"># remember when the user has reacted</span>
 time_when_reacted <span class="op">=</span> time()
+
 <span class="co"># calculate the response time</span>
 this_reaction_time <span class="op">=</span> time_when_reacted <span class="op">-</span> time_when_presented
 RT.append(this_reaction_time)</code></pre></div>
@@ -428,7 +433,7 @@ RT.append(this_reaction_time)</code></pre></div>
 <div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python"><span class="im">import</span> random
 a <span class="op">=</span> random.randint(<span class="dv">0</span>,<span class="dv">10</span>)
 <span class="bu">print</span>(a)</code></pre></div>
-<pre><code>## 2</code></pre>
+<pre><code>## 6</code></pre>
 <p>You will learn in detail about functions in Chapter <a href="functions.html#functions">6</a>. For now it is good enough to know that the function <code>random.randint(0,10)</code> randomly picks an integer between 0 and 10, and <em>returns</em> the chosen integer. Whatever number is picked by the function is stored in the variable <code>number</code> and can easily be retrieved and used for other purposes elsewhere. If this piece of information does not satisfy you, simply type <code>help(random)</code> after importing <code>random</code> and your interpreter will give you a more detailed description of the <em>class</em> <code>random</code>.</p>
 <p>Variables are mutable, meaning that their value can be changed after an initial assignment. This is very useful for structuring a program:</p>
 <div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python"><span class="co"># determining the maximum number of trials</span>
@@ -456,8 +461,10 @@ n <span class="op">=</span> <span class="dv">0</span>
 <pre><code>## &lt;type &#39;float&#39;&gt;</code></pre>
 <p>The variable changed from type <em>int</em> to <em>float</em>! This is an example of implicit <em>typecasting</em>. Typecasting means changing the type of a variable, and it can be done explicitly and implicitly. At times you will want to change the type of a variable to suit your needs. For this, you use explicit typecasting:</p>
 <div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python">number <span class="op">=</span> <span class="fl">10.5</span>
-<span class="bu">int</span>(number)
-<span class="dv">10</span></code></pre></div>
+<span class="bu">int</span>(number)</code></pre></div>
+<pre><code>## 10</code></pre>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python"><span class="dv">10</span></code></pre></div>
+<pre><code>## 10</code></pre>
 <p>And here you discover one tricky thing about typecasting <em>floats</em> to <em>integers</em>. Python does not round off the value of floats when typecasting them into integers, it simply cuts off whatever there is after the decimal point. This can become especially tricky when typecasting implicitly and should be monitored with caution.</p>
 </div>
 <div id="strings" class="section level3">
@@ -515,6 +522,7 @@ passed_BSA <span class="op">=</span> number_of_EC_required_for_BSA <span class="
 <div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python">myString <span class="op">=</span> <span class="st">&quot;This is an assignment statement&quot;</span></code></pre></div>
 <p>the latter for comparing two values</p>
 <div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python"><span class="dv">17</span><span class="op">+</span><span class="dv">3</span> <span class="op">==</span> <span class="dv">21</span></code></pre></div>
+<pre><code>## False</code></pre>
 <p>Usually, when you confuse the assignment operator with the equals operator, you will get a syntax error.</p>
 <pre><code>17+3 = 21
 
@@ -549,8 +557,9 @@ mean_RT <span class="op">=</span> numpy.mean(RT)
 <li>Forgetting to reassign the mutated value of a variable</li>
 </ol>
 <div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python">count <span class="op">=</span> <span class="dv">1</span>
-count <span class="op">+</span> <span class="dv">1</span>
-<span class="bu">print</span>(count)</code></pre></div>
+count <span class="op">+</span> <span class="dv">1</span></code></pre></div>
+<pre><code>## 2</code></pre>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python"><span class="bu">print</span>(count)</code></pre></div>
 <pre><code>## 1</code></pre>
 <p>Remember to assign the new value of a mutated variable to either a new variable or the original variable name; your computer will otherwise ignore the variable mutation and keep the variable’s old value in memory.</p>
 <div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python">count <span class="op">=</span> <span class="dv">1</span>
@@ -568,10 +577,12 @@ count <span class="op">=</span> count <span class="op">+</span> <span class="dv"
 </ol>
 <div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python">a <span class="op">=</span> <span class="dv">1</span>
 b <span class="op">=</span> <span class="st">&quot;1&quot;</span>
+
 <span class="bu">print</span>(a <span class="op">+</span> b)</code></pre></div>
 <p>In the example above, it is evident what goes wrong. <code>Strings</code> and <code>integers</code> cannot be added as two numbers are summed. A <code>type error</code> is thrown. However, in more complex programs it is often less evident where the bug originates from. Therefore, it is useful to check the data type of your variables at multiple locations in your program. Who knows, you may have unknowingly converted a variable to another type somewhere in your code and at a later moment, this causes your program to throw an error. Use the functions <code>type()</code> and <code>print()</code> to display the data type of your variables at different places in your code and hit <code>run</code>!</p>
 <div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python">a <span class="op">=</span> <span class="dv">1</span>
 b <span class="op">=</span> <span class="st">&quot;1&quot;</span>
+
 <span class="bu">print</span>(<span class="bu">type</span>(a))</code></pre></div>
 <pre><code>## &lt;type &#39;int&#39;&gt;</code></pre>
 <div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python"><span class="bu">print</span>(<span class="bu">type</span>(b))</code></pre></div>
@@ -587,14 +598,18 @@ b <span class="op">=</span> <span class="st">&quot;1&quot;</span>
 </ol>
 <div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python">a <span class="op">=</span> <span class="dv">0</span>
 b <span class="op">=</span> <span class="dv">2</span>
-a <span class="op">+</span> <span class="dv">2</span>
-<span class="bu">print</span>(a <span class="op">/</span> b)</code></pre></div>
+
+a <span class="op">+</span> <span class="dv">2</span></code></pre></div>
+<pre><code>## 2</code></pre>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python"><span class="bu">print</span>(a <span class="op">/</span> b)</code></pre></div>
 <pre><code>## 0</code></pre>
 <p>However, <code>a</code> was never assigned the new value of <code>2</code> and <code>0 / 2</code> is obviously <code>0</code>. It is easy to overlook such a mistake when scanning through your code. Therefore, checking which values are assigned to your variables as you read through your program is very helpful. You could for instance adjust the code above if you are puzzled why the result is not <code>2</code>, like so</p>
 <div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python">a <span class="op">=</span> <span class="dv">0</span>
 b <span class="op">=</span> <span class="dv">2</span>
-a <span class="op">+</span> <span class="dv">2</span>
-<span class="bu">print</span>(a, b, a <span class="op">/</span> b)</code></pre></div>
+
+a <span class="op">+</span> <span class="dv">2</span></code></pre></div>
+<pre><code>## 2</code></pre>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python"><span class="bu">print</span>(a, b, a <span class="op">/</span> b)</code></pre></div>
 <pre><code>## (0, 2, 0)</code></pre>
 <p>which prints first the value of <code>a</code>, then <code>b</code> and then the result of <code>a / b</code> to the console.</p>
 </div>
@@ -684,11 +699,15 @@ print(This is + name)
 s1 <span class="op">=</span> <span class="st">&quot; was coined by Gaius Julius Caesar.&quot;</span>
 myString <span class="op">=</span> myString <span class="op">+</span> s1
 <span class="bu">print</span>(myString)
+
+
 myString <span class="op">=</span> <span class="st">&quot;The statement &#39;Veni, vidi, vici.&#39;&quot;</span>
 s1 <span class="op">=</span> <span class="st">&quot; was coined by Gaius Julius Caesar.&quot;</span>
 s2 <span class="op">=</span> <span class="st">&quot;, &#39;I came, I saw, I conquered.&#39;,&quot;</span>
 myString <span class="op">=</span> myString <span class="op">+</span> s2 <span class="op">+</span> s1
 <span class="bu">print</span>(myString)
+
+
 myString <span class="op">=</span> <span class="st">&quot;The statement &#39;Veni, vidi, vici.&#39;&quot;</span>
 s1 <span class="op">=</span> <span class="st">&quot; was coined by Gaius Julius Caesar,&quot;</span>
 s2 <span class="op">=</span> <span class="st">&quot; supposedly around &quot;</span>
@@ -736,6 +755,7 @@ trials <span class="op">=</span> <span class="st">&quot;200&quot;</span>
 experimental_sessions <span class="op">=</span> <span class="dv">3</span>
 trials_pp <span class="op">=</span> trials <span class="op">*</span> experimental_sessions
 conditions <span class="op">=</span> <span class="dv">4</span>
+
 <span class="co">&quot;&quot;&quot;</span>
 <span class="co">to be implemented by you</span>
 <span class="co">condition1 = </span>
@@ -743,6 +763,7 @@ conditions <span class="op">=</span> <span class="dv">4</span>
 <span class="co">condition3 = </span>
 <span class="co">condition4 =</span>
 <span class="co">&quot;&quot;&quot;</span>
+
 <span class="bu">print</span>(<span class="st">&quot;In total,&quot;</span>, participants, <span class="st">&quot;participants participated in the study.&quot;</span>)
 <span class="bu">print</span>(<span class="st">&quot;A 2x2 factorial between-subjects design was employed.&quot;</span>)
 <span class="bu">print</span>(<span class="st">&quot;The study examined the interaction of two independent variables: &quot;</span>)
@@ -825,7 +846,7 @@ gitbook.start({
 "google": false,
 "linkedin": false,
 "weibo": false,
-"instapper": false,
+"instapaper": false,
 "vk": false,
 "all": ["facebook", "google", "twitter", "linkedin", "weibo", "instapaper"]
 },
@@ -835,6 +856,10 @@ gitbook.start({
 "size": 2
 },
 "edit": {
+"link": null,
+"text": null
+},
+"history": {
 "link": null,
 "text": null
 },
