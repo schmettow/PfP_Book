@@ -164,33 +164,32 @@ you, simply type `help(random)` after importing `random`
 and your interpreter will give you a more detailed description of
 the *class* `random`.
 
-Variables are mutable, meaning that their value can be changed after
+A variable's assigned value can be updated. This means that its value can be changed after
 an initial assignment. This is very useful for structuring a program:
 
 ```{python, eval=F}
 # determining the maximum number of trials
-nTrials = 3
+n_trials = 3
 # setting a counting variable to 0
 # at the beginning of the program
 n = 0
-# adding 1 to n as long as n does not exceed nTrials
-while(n < nTrials):
+# adding 1 to n as long as n does not exceed n_trials
+while(n < n_trials):
     # do something
     n = n + 1
 ```
 
 
-This
-comes in handy if you want to repeat a part of your program until
+This comes in handy if you want to repeat a part of your program until
 a certain condition is fulfilled. For instance, imagine taking measurements
 for a fixed number of trials for a psychological experiment.
-In the example above, `nTrials` and `n` are used for creating
+In the example above, `n_trials` and `n` are used for creating
 a counting mechanism until the desired number of repeated measurements
-is reached. Note how the old value of `n` is used to mutate
-the value of `n` after one execution cycle of the program in `n = n + 1`. In particular, after the first execution of the `while` part of the code snippet,`n` will have the value `1` instead of `0`!
+is reached. Note how the old value of `n` is used to update
+the value of `n` after one execution cycle of the program in `n = n + 1`. After the first execution of the `while` part of the code snippet,`n` will have the value `1` instead of `0`!
 If you are not yet fully getting the hang of it, do not worry. You
 will learn more about the use of *conditionals* and the *while loop*
-in Chapter \@ref(conditionals) and Chapter \@ref(loops), respectively. The basic idea behind the above code snippet is to show you how the mutability of variables can be used to create a counting mechanism in computer programs.
+in Chapter \@ref(conditionals) and Chapter \@ref(loops), respectively. The basic idea behind the above code snippet is to show you how updating variables can be used to create a counting mechanism in a computer program.
 
 ## Data types
 
@@ -242,7 +241,7 @@ If numbers are *integers* or *floats*, what about
 values such as `"17"` and `"13.65"`? They look like numbers,
 but they are wrapped in quotation marks like *strings*. 
 
-```{python, eval=F}
+```{python}
 print(type("17"))
 print(type("13.65"))
 ```
@@ -251,10 +250,8 @@ They are strings! In Python, strings can be enclosed in either single
 quotes (`'`), or double quotes (`"`), or three of each
 (`'''` or `"""`). But what if your string includes a quote and you want to indicate this by using quotation marks *within* your string? Using the same quotation marks as used for defining the string will prematurely end the string.
 
-```{}
+```{python error = TRUE}
 quote = "Freud: "The mind is like an iceberg, it floats with one-seventh of its bulk above water.""
-
-SyntaxError: invalid syntax
 ```
 
 Instead, when using single quotes, you can use double quotes or triple quotes inside them:
@@ -334,19 +331,15 @@ the latter for comparing two values
 
 Usually, when you confuse the assignment operator with the equals operator, you will get a syntax error.
 
-```{}
+```{python error = T}
 17+3 = 21
-
-SyntaxError: can't assign to operator
 ```
 
 2. Forgetting to typecast other data types when incorporating them into strings
 
-```{}
+```{python error = T}
 myGrade = 8
 print("I got an " + myGrade + " on the last exam!")
-
-TypeError: cannot concatenate 'str' and 'int' objects
 
 ```
 
@@ -375,7 +368,7 @@ mean_RT = numpy.mean(RT)
 print("The subject had a mean reaction time of " + str(round(mean_RT, 3)) + " seconds.")
 ```
 
-4. Forgetting to reassign the mutated value of a variable
+4. Forgetting to reassign an updated value of a variable
 ```{python}
 count = 1
 count + 1
@@ -557,7 +550,7 @@ Consider the three blocks of code below.
 2. Describe in your own words what *string concatenation* is.
 3. There is an error hidden in the code. Explain what is going wrong and adjust the code so that it runs without throwing any errors.
 
-```{python, eval=FALSE}
+```{}
 myString = "The statement 'Veni, vidi, vici.'"
 s1 = " was coined by Gaius Julius Caesar."
 myString = myString + s1
@@ -622,20 +615,19 @@ of the Stroop Task program.
 
 The following code prints part of a Methods section. Copy it and run it.
 
-```{python, eval = F}
+```{}
 participants = 52.0
 trials = "200"
 experimental_sessions = 3
 trials_pp = trials * experimental_sessions
 conditions = 4
 
-"""
-to be implemented by you
+
+# to be implemented by you
 condition1 = 
 condition2 = 
 condition3 = 
 condition4 =
-"""
 
 print("In total,", participants, "participants participated in the study.")
 print("A 2x2 factorial between-subjects design was employed.")

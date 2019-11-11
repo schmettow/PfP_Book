@@ -31,7 +31,7 @@ def summation(alist):
     sum = 0.0
     for i in range(len(alist)):
         sum += alist[i]
-    print "Sum of the list is:", sum
+    print("Sum of the list is:", sum)
     return sum
 
 summation([1,2,3,4])
@@ -90,7 +90,7 @@ RES = residuals(LON)
 SQR = square(RES)
 VAR = mean(SQR)
 
-print VAR
+print(VAR)
 
 ```
 
@@ -114,7 +114,7 @@ def square(lon):
 
 LON = [1, 8, 2, 9]
 VAR = mean(square(residuals(LON)))
-print VAR
+print(VAR)
 ```
 
 Nested function are evaluated inside-out. Consequently, when setting up such a chain, one begins with the first processing step and builds the subsequent one "around" it. While this is conveniently compact, it lacks the intuition of the data processing chain. Therefore, it is best in many situations, to encapsulate the whole line as a dedicated function:
@@ -139,7 +139,7 @@ def variance(lon):
     return mean(square(residuals(lon)))
   
 LON = [1, 8, 2, 9]
-print variance(LON)
+print(variance(LON))
 ```
 
 This simple example highlights another important aspect about the data processing model: models can be nested. The function variance is itself a data processing chain, but it can take a role in a more global data processing chain. For example, when you prepare a summary statistics table for your report, you use the variance function as part of it. You do care about its required input and know what it will produce, but you don't worry about the above processing chain, anymore. That is called a *black box*.

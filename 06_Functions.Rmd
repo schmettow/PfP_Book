@@ -130,19 +130,14 @@ While the topic of *Recursion* is beyond the scope of this book, the interested 
 
 * Trying to use local variables globally. Remember that any function parameter and any variable declared within a function statement is *local*, meaning that it cannot be accessed from outside the function.
 
-```{}
+```{python error = T}
 def average(alist):
     s = sum(alist)
     return s/float(len(alist))
     
 m = average([1,2,3,4])
 print(s)
-
-NameError: name 's' is not defined
 ```
-
-    
-    NameError: name 's' is not defined
 
 
 * Forgetting to return a value at the end of the function definition. In truth, functions do not necessarily *return* values, depending on the purpose of the function. Functions which return one or more value(s) are called *fruitful* functions, those that do not have a `return` statement are called *void* functions. However, now and then we tend to forget to return values which we do want to use outside the function. Consider the example below.
@@ -163,16 +158,12 @@ print("m equals:", m)
 ```
 Instead of having assigned the maximum value contained in `[2,4,6,8]` to `m`, `m` apparently became `None`, whatever that is. Let's examine this `None` further.
 
-```{python, eval=F}
+```{python}
 type(m)
 ```
 
-    NoneType
-
-```{}
+```{python error = TRUE}
 print(m + 1)
-
-TypeError: unsupported operand type(s) for +: 'NoneType' and 'int'
 ```
 
 We accidentally created an object of type `NoneType` by forgetting to return `m` in our function definition of `maximum`. As you see above, this can raise errors somewhere else in your code, whose cause can be tricky to trace back in more complex programs. Therefore, always make sure to double check whether your functions return all values you need outside of the function.
@@ -181,7 +172,7 @@ We accidentally created an object of type `NoneType` by forgetting to return `m`
 
 <!-- #4 -->
 
-```{python, eval = F}
+```{python, error = TRUE}
 
 def average(alist):
     s = sum(alist)
@@ -213,32 +204,26 @@ Note how the first variant returns a tuple with both return values as elements, 
 
 * Providing the wrong number of arguments during a function call.
 
-```{}
+```{python error = TRUE}
 def average(alist):
     s = sum(alist)
     return s/float(len(alist))
 
 average([1,2],[3,4])
-
-TypeError: average() takes 1 positional argument but 2 were given
 ```
 
 * Providing a wrong data type as a function argument. The body of a function is written assuming that you provide the intended data type as argument during a function call. In software engineering, every piece of new code is intensively checked with the help of so-called unit tests before going into production. Amongst other things, these unit tests include *type checks* on the data input and output format of self-built functions. This minimizes the chance that a new piece of code crashes the rest of the program. Unit tests are beyond the scope of this introductory book, so you will probably encounter one or another instance where you accidentally provide a wrong data type to a function. Providing a value of an unintended data type can raise all kinds of follow-up errors.
 
-```{}
+```{python error = TRUE}
 def average(alist):
     s = sum(alist)
     return s/float(len(alist))
 
 average(True)
-
-TypeError: 'bool' object is not iterable
 ```
 
-```{}
+```{python error = TRUE}
 average("Hello")
-
-TypeError: unsupported operand type(s) for +: 'int' and 'str'
 ```
 
 ## Exercises

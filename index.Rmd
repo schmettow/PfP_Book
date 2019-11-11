@@ -22,6 +22,7 @@ library(tidyverse)
 library(reticulate)
 #knitr::opts_chunk$set(python.reticulate = FALSE)
 #knitr::knit_engines$set(python = reticulate::eng_python)
+#knitr::opts_chunk$set(error = TRUE)
 
 #use_condaenv("C:\Users\schme\Anaconda2", conda = "auto", required = FALSE)
 

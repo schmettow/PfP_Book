@@ -59,7 +59,7 @@ correct = True
 print((max_trials - trial) and correct)
 ```
 
-Here, the numerical expression is evaluated in the context of the Boolean operator   `and` and is converted to Boolean. When that happens, zero becomes `False` and any other valuebecomes `True`, *including negative values* :
+Here, the numerical expression is evaluated in the context of the Boolean operator `and` and is converted to Boolean. When that happens, zero becomes `False` and any other value becomes `True`, *including negative values* :
 
 ```{python}
 print(-2 and True)
@@ -71,7 +71,7 @@ That may not be what you expected, and the whole situation with implicit typecas
 print(True and 2)
 ```
 
-Certainly, there are some reasons, why Python behaves that way, but it is far from being intuitive (breaking the law of commutivity for the `and` operator!). Therefore one should *always do explicitly Boolean expressions*, such as the following:
+Certainly, there are some reasons, why Python behaves that way, but it is far from being intuitive (breaking the law of commutivity for the `and` operator!). Therefore one should *always use explicit Boolean expressions*, such as the following:
 
 ```{python}
 trial = 3
@@ -80,10 +80,6 @@ correct = True
 
 print((max_trials - trial) > 0  and correct)
 ```
-
-
-
-
 
 
 ## if this is true, then do this {#if-then}
@@ -278,19 +274,17 @@ State charts are another tool for representing the interaction of a program. The
 
 1. Confusing the *assignment operator* (`=`) with the comparative *equals operator* (`==`).
 
-```{}
+```{python error = TRUE}
 a = 5
 if (a = 5):
     print("Yes, a is indeed equal to 5!")
-
-SytnaxError: invalid sytnax
 ```
 
 Yes, confusing the assignment operator with the comparative equals operator will be a re-occuring issue. For human beings it is just too easy to type `=` when they actually mean `==` in Python. Being a psychologist, go figure.
 
 2. The most common syntax error involving *conditionals* is probably forgetting the colon at the end of the *head* of the `if statement`.
 
-```{}
+```{python error = TRUE}
 if (1 == 1)
     print("Hello, World!")
 ```
@@ -589,7 +583,7 @@ if len(myString) >= 13 or "ello" in myString:
     myString = "Hi, programming aspirant!"
 elif len(myString) <= 12 and "ello" in myString:
     myString = "Hello, from the other side."
-print myString
+print(myString)
 
 if "Hi" in myString:
     if len(myString) < 25:
@@ -605,13 +599,13 @@ else:
         myString = myString + " I must have called a thousand times."
     else:
         myString = myString + " -- Adele"
-print myString
+print(myString)
 
 if "computer" in myString or len(myString) == 38 or "HI" in myString:
     myString = myString + " I myself am doing fine."
 else:
     myString = myString + " I am doing just fine."
-print myString
+print(myString)
 ```
 
 ### Exercise 6. Indentation
@@ -624,9 +618,9 @@ if a < 20 and a > 0:
     a = a + 3
     else:
        a = a - 3
-        print "This is a dead end statement."
+        print("This is a dead end statement.")
 elif a > 20:
-print "This should only be printed if a exceeds 20!"
+print("This should only be printed if a exceeds 20!")
 else:
     a = 17
 ```
@@ -686,21 +680,21 @@ if age >= 18:
                 if coffee == True:
                     condition = "A"
                 elif coffee == False:
-                    print "Participant is not eligible to take part in the experiment."                   
+                    print("Participant is not eligible to take part in the experiment.")                   
             elif speaks_Dutch == False:
-                print "Participant is not eligible to take part in the experiment."
+                print("Participant is not eligible to take part in the experiment.")
                 
         elif study == "Psychology":
             if speaks_Dutch == True:
                 if coffee == True:
                     condition = "A"
                 elif coffee == False:
-                    print "Participant is not eligible to take part in the experiment."                   
+                    print("Participant is not eligible to take part in the experiment.")                   
             elif speaks_Dutch == False:
-                print "Participant is not eligible to take part in the experiment."
+                print("Participant is not eligible to take part in the experiment.")
         
         elif study != "Communication Sciences" and study != "Psychology":
-             print "Participant is not eligible to take part in the experiment."
+             print("Participant is not eligible to take part in the experiment.")
                     
     elif gender == "Male":
         if study == "Communication Sciences":
@@ -708,23 +702,23 @@ if age >= 18:
                 if coffee == True:
                     condition = "B"
                 elif coffee == False:
-                    print "Participant is not eligible to take part in the experiment."                   
+                    print("Participant is not eligible to take part in the experiment.")                   
             elif speaks_Dutch == False:
-                print "Participant is not eligible to take part in the experiment."
+                print("Participant is not eligible to take part in the experiment.")
                 
         elif study == "Psychology":
             if speaks_Dutch == True:
                 if coffee == True:
                     condition = "B"
                 elif coffee == False:
-                    print "Participant is not eligible to take part in the experiment."                   
+                    print("Participant is not eligible to take part in the experiment.")                   
             elif speaks_Dutch == False:
-                print "Participant is not eligible to take part in the experiment."
+                print("Participant is not eligible to take part in the experiment.")
                 
         elif study != "Communication Sciences" and study != "Psychology":
-            print "Participant is not eligible to take part in the experiment."
+            print("Participant is not eligible to take part in the experiment.")
 else:
-    print "Participant is not eligible to take part in the experiment."
+    print("Participant is not eligible to take part in the experiment.")
 
 ```
 

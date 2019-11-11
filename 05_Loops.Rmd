@@ -5,11 +5,11 @@ for i in range(2):
     print("Hello, World!")
 ```
 
-Very much unlike human beings, computers are good at executing repetitive tasks without making errors. It just so happens that boring, repetitive tasks are an inescapable part of many exciting things. Take psychological research as an example. In conducting psychological research, you come up with a theory about human beings, about how things work between humans, or maybe between a human operator and a machine. Or, alternatively, you may have a research question, a question about how things work, how human beings function, why they make the mistakes they make. Now, what do psychologists do when they try to find an answer to their questions? Right, psychologists conduct empirical research. 
+Very much unlike human beings, computers are good at executing repetitive tasks without making errors. It just so happens that boring, repetitive tasks are an inescapable part of many exciting things. Take psychological research as an example. In conducting psychological research, you may come up with a theory about human beings, about how things work between humans, or maybe between a human operator and a machine. Or, alternatively, you may have a research question, a question about how things work, how human beings function, why they make the mistakes they make. Now, what do psychologists do to find an answer to their scientific questions? Right, psychologists conduct empirical research. 
 
-Let's say, you have a research question and you try to answer your question by setting up an empirical experiment. You invite others to participate in your research. You repeat your experimental procedure with each and every participant. Depending on the kind of research you conducted, you repeat the qualitative inspection of the generated data for each participant. Depending on the statistical tool you use, you may end up filling in the data of each and every participant by hand into your statistical software. Now, here is the good news. Programming can help you unbore (yes, that is a word) the boring and repetitive bits of your exciting research.
+Let's say, you have a research question and you try to answer your question by setting up an empirical experiment. You invite others to participate in your research. You repeat your experimental procedure with each and every participant. Depending on the kind of research you conducted, you repeat the qualitative inspection of the generated data for each participant. And depending on the statistical tool you use, you may end up filling in the data of each and every participant by hand into your statistical software. Now, here is the good news. Programming can help you unbore (yes, that is a word) the boring and repetitive bits of your exciting research.
 
-At the root of boring tasks often lies repetition. You repeat an experimental procedure, you repeat the same quality checks for each participant's data, you perform the same data cleaning on each single row in a data frame, and so on. Human beings tend to make mistakes when they repeat the same task over and over again. At the same time, this is exactly where the strength of computers lies. Computers do not make mistakes when they repeat a task. When a computer makes a mistake, then it is because it was falsely instructed in the first place.
+At the root of boring tasks often lies repetition. You repeat an experimental procedure, you repeat the same quality checks for the data of each participant, you perform the same data cleaning on each single row in a data frame, and so on. Human beings tend to make mistakes when they repeat the same task over and over again. At the same time, this is exactly where the strength of computers lies. Computers do not make mistakes when they repeat a task. When a computer makes a mistake, then it is because it was falsely instructed in the first place.
 
 Chapter 5 introduces you to the mechanism that lies at the heart of a computer's paramount strength, repetition; or as it is called in computer jargon: *loops*. The Python language has a number of features that make it easier for you as a programmer to make your computer execute those boring, repetitive tasks for you.
 
@@ -54,13 +54,15 @@ Unless specified otherwise, the `range` method initiates a list that contains ea
 print(range(2))
 ```
 
+In the example above, the loop variable `i` will thus have two values before the loop terminates, `0` and `1`. In total, the statement `print("Hello, World")` is therefore executed twice.
+
 Read the documentation of the `range` method for further information on how to customize the sequence of integers it produces.
 
 ```{python, eval=F}
 help(range)
 ```
 
-In summary, from the above it follows that there are at least two ways for iterating over *ordered* sequences of objects using `for` loops. First, you assign each element of the sequence iteratively to the loop variable, like so
+In summary, from the above it follows that there are at least two ways for iterating over *ordered* sequences of objects, such as lists and strings, using `for` loops. In the first strategy, you assign each element of the sequence iteratively to the loop variable, like so
 
 ```{python}
 a = ['a', 'b']
@@ -68,47 +70,83 @@ for i in a:
     print(i)
 ```
 
-Second, you access the elements of the sequence through their indices, like so
+Following the second strategy, you access the elements of the sequence through their indices, like so
 
 ```{python}
 for i in range(len(a)):
     print(a[i])
 ```
 
-Which way of iterating over *ordered* sequences you prefer is up to you. Sometimes, the problem you try to solve with your code will require one way, sometimes the other. However, remember that you **cannot** access the elements of *unordered* collections like dictionaries using the index operator.
+Which way of iterating over *ordered* sequences you prefer is up to you. Sometimes, the problem you try to solve with your code will require one way, sometimes the other. However, when constructing loops, remember that you **cannot** access the elements of an *unordered* collection such as dictionaries using the index operator.
 
-```{}
+```{python error = TRUE}
 d = {'a': 1,
      'b': 2}
 for i in range(len(d)):
     print(d[i])
-
-KeyError: 0
 ```
+
+You will need to think of another way to iterate over the contents of a dictionary. You could use the `keys()` method to iterate over the dictionary's keys, or the `values()` method for its values respectively, like so
+
+```{python}
+for i in d.keys():
+    print(i)
+  
+for j in d.values():
+    print(j)
+```
+
+Alternatively, the `items()` method can be used to iterate over the key-value pairs contained in a dictionary.
+
+```{python}
+for z in d.items():
+    print(z)
+```
+
+As usual, which iteration strategy you use depends on what you try to achieve. There is not one golden solution that fits all problems.
 
 ## The `while` loop
 
 ```{python}
-sum = 0
-value = 1
+a = 0
+b = 1
 
-while value < 5:
-    sum += value
-    value += value
-    print "current sum is:", sum, "current value is:", value
+while b < 5:
+    a += b
+    b += b
+    print("Current sum is:", a, "current value is:", b)
 
-print "The loop is over, the sum is:", sum
+print("This is the first line of code after the loop, the sum is:", a)
     
 ```
 
-A `while` loop allows you to repeatedly execute a number of statements as long as the condition in the `while` statement remains `True`. Note that the body of a while loop is never executed if the loop condition is `False` at its first execution.
+A `while` loop is centered around a condition formulated in the first line of the loop, the `while` statement. It allows you to repeatedly execute a number of body statements as long as the condition in the `while` statement remains `True`. At the same time, this means that the body of a `while` loop is never executed if the loop condition is `False` at its initial execution.
 
-The body of a `while` loop should change one or more (loop) variables so that the loop condition eventually becomes `False`. Otherwise, the loop will continue forever and we speak of an *infinte loop*. If unintended, infinite loops can manoeuver your program into a dead end.
+```{python}
+a = 0
+b = 5
 
-At times it may be confusing whether either a `for` or a `while` loop will suit your needs best, ask yourself the following questions:
+while b < 5:
+    a += b
+    b += b
+    print("Current sum is:", a, "current value is:", b)
 
-* Do I know in advance how many times I need the loop body to be executed? Any problems like "search a list of words" or "execute until the desired number of trials is reached" suggest that a `for` loop will suit your needs best.
-* Do I require the computations to stop when some condition is met, but I cannot calculate in advance when (of if) this will happen? Chances are high that a `while` loop will fit your needs best in this case.
+print("This is the first line of code after the loop, the sum is:", a)
+```
+
+The strategy behind `while` loops is that the body of the loop changes one or more (loop) variables so that the loop condition eventually becomes `False`. Otherwise, the loop will continue forever and we speak of an *infinte loop*. Infinite loops can manoeuver your program into a dead end if started unintentionally.
+
+Note how the basic structure of the Stroop Task program is a large while loop. Unless the required number of trials has been executed or the user manually closes the program, it will keep running no matter what.
+
+### `for` or `while`?
+
+At times, it may be confusing whether either a `for` or a `while` loop will suit your needs best. If you are unsure which kind of loop you should use, ask yourself the following:
+
+* Do I know in advance how many times I need the loop body to be executed? Problems like "searching a collection for a specified element" or "executing code a specified number of times" suggest that a `for` loop will suit your needs best.
+* Do I require the computations to stop when some condition is met, but I cannot tell in advance when (or if) this will happen? Chances are high that a `while` loop will fit your needs best in this case.
+
+Still, as a programmer you have great freedom in choosing either *for* or *while* loops. In many cases, using either kind of loop is but a difference in perspective on the problem you try to solve with your code. In other cases, using one kind of loop will be more efficient than using the other.
+
 
 ## The `break` statement
 
@@ -117,21 +155,47 @@ myNumber = 17
 while True:
     guess = input("Enter a number:")
     if guess > 17:
-        print "My number is smaller than", guess
+        print("My number is smaller than {}".format(guess))
     elif guess < 17:
-        print "My number is larger than", guess
+        print("My number is greater than {}".format(guess))
     else:
         break
-print "Ding! Ding! You guessed correctly, my number is", myNumber
+print("Ding, ding! Correct, my number is {}".format(myNumber))
 ```
 
-The `break` statement allows you to immediately exit any loop. The next statement that is executed is the first after the loop body. Interactive programs that process user input often require to exit their loops prematurely. Depending on the input given, the program may need to transition to the next state or terminate altogether.
+The `break` statement allows you to immediately exit any loop, be it a `for` or a `while` loop. The next statement that is executed is the first line after the loop body. Interactive programs that process user input often require to exit their loops prematurely. Depending on the input given, the program may need to transition to the next state or terminate altogether.
 
-## Control flow
+Also note the usage of *String formatting*. The `.format()` method can be applied to any String and allows you to specify value and variable substitutions within a given String. While a detailed discussion of *formatters* is beyond the scope of the current chapter, a tutorial on String formatting can be found [here] (https://www.digitalocean.com/community/tutorials/how-to-use-string-formatters-in-python-3). String formatting is highly useful, no matter whether you want to export some information out of your program by writing text or Excel files, or whether you simply want to print something to the console.
 
-By now you will have noticed that by default, Python faithfully executes any program in a top-down order. But what if you want to change the order in which specific parts of your program are being executed, possibly depending on external conditions such as the time of the day, or user input?
+The basic idea behind String formatters is that you substitute a value, a variable, or an expression that you want to insert in your String by curly brackets `{}`. You specify the to-be-inserted value within the method brackets, like so
 
-Yes, you may have guessed it already, this is achieved by using *control flow statements*. Python knows three control flow statements: : `ìf`,`for`, and `while`statements. We already encountered `if` statements in Chapter 3 [Conditionals]. Control flow statements are readily used in interactive software such as the Stroop experiment
+```{python}
+print("{} participants took part in the conducted research".format(10))
+```
+
+Formatters can manage multiple placeholders, variables and perform cool transformations on the to-be-substituted values, like rounding
+
+```{python}
+n = 10
+print("{0} participants took part in the conducted research. Their average score was {1:.2f}.".format(n, 25.7777))
+```
+
+Notice the usage of the *positional arguments* `0` and `1` to specify the order in which the to-be-substituted values `n` and `25.7777` are inserted in the String. Positional arguments specify the index of the to-be-inserted values within the brackets of the `format` method.
+
+Here, rounding is achieved by some minor usage of format code syntax, which first specifies the position of the transformation and then the intended conversion `{position:transformation}`. In this case we transform `25.7777` inhabiting index `1` into a floating point with two decimals, thus the format code syntax `{1:.2f}`. We could as well have exchanged the two values, but that would not have made much sense, would it now?
+
+```{python}
+n = 10
+print("{1:.2f} participants took part in the conducted research. Their average score was {0}.".format(n, 25.7777))
+```
+
+Check out the [tutorial](https://www.digitalocean.com/community/tutorials/how-to-use-string-formatters-in-python-3) for more information on String formatters!
+
+## Controlling the flow of your program with loops
+
+By now you will have noticed that by default, Python faithfully executes any program in a top-down order. But what if you want to change the order in which specific parts of your program are being executed, possibly depending on external conditions such as the time of the day, or the input of a user?
+
+The basic top-down execution order can be alterated using *control flow statements*. Python knows three control flow statements: `if`,`for`, and `while` statements. We already encountered `if` statements in Chapter 3 [Conditionals]. Control flow statements are readily used in interactive software such as the Stroop Task experiment
 
 ```{python, eval=F}
 STATE = "welcome"
@@ -150,52 +214,239 @@ while True:
 
 In principle, the above code can run infinitely, unless the user triggers the `QUIT` `event.type`. Note that in the original Stroop experiment, there is another condition that prevents the program from running infinitely, namely a maximum number of trials.
 
-Within the main `while` loop, a `for`loop manages the changing of program states as a consequence of user input. To this end, the loop variable `event` iterates over *event objects* stored in an *event queue*, which is essentially a special sequence devised by the `Pygame library`. The `pygame.event` *module* knowns a number of event types, among which the `KEYDOWN` event, referring to the event that the user presses a key on the keyboard.
+Within the main `while` loop, a `for` loop manages the changing of program states as a consequence of user input. To this end, the loop variable `event` iterates over *event objects* stored in an *event queue*, which is essentially a special sequence devised by the *Pygame library*. The `pygame.event` *module* knowns a number of event types, among which the `KEYDOWN` event, referring to the event that the user presses a key on the keyboard.
 
 In the example above, several conditions have to be fulfilled so that the program state changes to `"prepare next trial"`: The current program state has to be `"welcome"`, the event has to be a `KEYDOWN`and the key pressed has to be `SPACE`. Note that in the program above, program termination can be achieved at any time through the `"quit"` state.
 
 ## Common errors
 
-* Trying to make a `for` loop iterate over an *integer* instead of a *sequence*. Very often, you will want your program to modify all elements of a given sequence according to a set of statements. Logically, you will need as many iterations as elements in the sequence. This often leads to `for`statement definitions such as:
-```{python, eval=F}
+* Easily the most common error surrounding loops is trying to make them iterate over an *integer* instead of a *sequence*. Very often, you will want your program to modify the elements of a given sequence according to a set of statements. Logically, you will need as many iterations as elements in the sequence. This often leads to `for` statement definitions such as:
+
+```{python error = TRUE}
 myList = [1,2,3,4,5]
 for i in len(myList):
     myList[i] += 1
 ```
 
-    TypeError: 'int' object is not iterable
-
-Probably, your intention was to make the loop repeat as many times as there are elements in `myList`. However, `len(myList)` returns an *integer*, not a *sequence* object. Instead, you will have to convert the *length* of `myList` into a *sequence*, for instance by using `range()`.
+Probably, your intention was to make the loop repeat as many times as there are elements in `myList`. However, `len(myList)` returns an *integer*, not a *sequence* object! Instead, you will have to convert the *length* of `myList` into a *sequence*, for instance by using `range()`.
 
 ```{python}
-myList = [1,2,3,4,5]
+myList = [5,2,3,4,5]
 for i in range(len(myList)):
     myList[i] += 1
   
-print myList
+print(myList)
 ```
 
-* `index out of range` errors tend to slip in when working with loops
+Alternatively, you can assign the values of `myList` iteratively to the looping variable `i` to avoid working with the `length` of the sequence.
+
+```{python}
+myList = [5,2,3,4,5]
+for i in myList:
+    myList[myList.index(i)] += 1
+
+print(myList)
+    
+```
+
+But wait, this result seems slightly different. You do get an alterated version of `myList` where each element is enhanced by `1` (as in the first example), but the order is messed up. That is exactly because a different strategy is devised by accessing each element directly in the `for` statement. Furthermore, the `index()` method is used to find the index of the first occurrence of the value specified within the brackets. It is because the method returns the index of the **first** occurence that the two strategies return different results in this case.
+
+When you opt for either of the two looping strategies, keep in mind that you may need to go to some length to get the exact same result using both strategies. Usually, either one strategy quickly turns out to be the better, less complicated means for your end. In the above example, you could for instance have used a second list object to obtain the same result as in the first example, like so
+
+```{python}
+myList = [5,2,3,4,5]
+a = []
+for i in myList:
+    a.append(i + 1)
+
+print(a)
+```
+
+Again, whether using a second list is a viable option to solve the problem at hand is totally up to what you try to achieve with your code.
+
+* `index out of range` errors tend to slip in when working with `for` loops.
+
+```{python error = TRUE}
+a = [1, 'a']
+b = [1, 'a', 'b']
+
+for i in range(len(b)):
+     a[i] = b[i]
+
+```
+
+An `index out of range error` is thrown when you try to access a non-existing index in a sequence. In the example above, `a` has two elements, thus two valid indices (`0` and `1`). `b` on the contrary has three elements and thereby three valid indices (`0`, `1` and `2`). The code snippet throws an error when a third index is accessed in `a`. Always make sure that the sequences you iterate over or intend to modify in the body of a `for` loop have the right amount of indices at their disposal.
+
+* Letting a `while` loop run endlessly. Unless you actively construct a `while` loop to terminate, it will not. This can result in all sorts of errors, but usually you will notice that your program does not enter its later states. When you construct your `while` loops, think well about how to terminate them. The `break` statement can also be an option to intentionally terminate the loop when another condition is met that is not defined in the `while` statement, like so
 
 ```{python, eval=F}
-myList = [range(10),[1,2,3]]
-
-for i in range(len(myList[0])):
-     myList[0][i] = 0
-     myList[1][i] = 0
-
+i = 5
+myNumber = 13
+while i > 0:
+    guess = input("Enter a number:")
+    if guess == myNumber:
+        print("Ding, ding! Correct, my number is {}".format(myNumber))
+        break
+    elif guess > myNumber:
+        i -= 1
+        print("My number is smaller than {}".format(guess))
+        print("You may guess another {} times".format(i))
+    elif guess < myNumber:
+        i -= 1
+        print("My number is greater than {}".format(guess))
+        if i == 0:
+            print("Too bad, you lost")
+        else:
+            print("You may guess another {} times".format(i))
 ```
 
- 
-    IndexError: list assignment index out of range
-
-Always make sure that sequences you intend to modify in a `for` loop body actually have as many elements as the sequence over which you are iterating in the `for` statement.
+In the above alteration of the guessing game, there are two ways to make the program terminate. First, you guess the number. Second, you run out of trials. The easiest way of terminating a `while` loop in response to user input remains using the `break` statement.
 
 ## Debugging
 
+Loops can (in theory) continue for an infinite amount of iterations. Imagine looping over a data set of more than 1000 experimental participants. Loops with a large amount of iterations may seem cumbersome to debug at first sight. Computers make mistakes when they are falsely instructed and they will make the same mistake over and over again, infinitely if they must. You can imagine that debugging a loop that runs over hundreds or thousands of iterations is a pain when each time you change a small piece of code you need to run all iterations before you can inspect the result of the change in code. Here, the `break` statement can be used to inspect the output your loop generates at a single, or a fixed amount of iterations. By doing so, you do not only save time because your program does not need to execute each iteration of the program, your output will also be less cluttered. Picture a piece of code that produces one printed line for each iteration of code, like so
+
+```{python, eval=F}
+for i in range(1000):
+  print("Hello, World!")
+```
+
+Now you change a small part of the code and want to inspect its effect.
+
+```{python, eval=F}
+for i in range(1000):
+  print("Hello " + "World" + "!")
+```
+
+It is unneccessary to print this one-liner a thousand times to see what is going on. Instead, you can use the break statement to print a single line.
+
+
+```{python}
+for i in range(1000):
+  print("Hello " + "World" + "!")
+  break
+```
+
+This comes in handy when you suspect a bug in one of your loops. Remember that if there is a bug in your loop, your computer will make the same mistake over and over again. So if you identify the bug in one iteration or a small amount of iterations, it will also be present in the exact same way in the remaining iterations. Usually, you can resolve bugs in your loops based on what you inspect in a subset of iterations.
+
 ## Exercises
 
-### Exercise 1. Following the control flow
+### Exercise 1. Following the control flow I
+
+What is the output of the following code snippets?
+
+```{python, eval=F}
+for i in range(len([1,2,3])):
+    print(i)
+```
+
+```{python, eval=F}
+for i in range(len([])):
+    print(i)
+```
+
+```{python, eval=F}
+a = 0
+for i in range(3):
+    a += i
+    print(a + i)
+    
+```
+
+```{python, eval=F}
+a = 0
+b = 30
+for i in range(5):
+    a += i
+    b -= i
+    
+print(a + b)
+```
+
+```{python, eval=F}
+for i in range(1,3):
+    print(i)
+```
+
+```{python, eval=F}
+i = 10
+while i > 5:
+    print(i - 5)
+    i -= 2
+```
+
+```{python, eval=F}
+a = 2
+b = (1,2)
+
+while a != 0:
+    for i in b:
+        print(a + i)
+    a -= 1
+```
+
+### Exercise 2. Debugging I
+
+Do the following code snippets throw an error? If they do, what goes wrong? For each exercise, only one answer is correct.
+
+```{}
+a = [4,6,8]
+
+for i in len(a):
+    print(a[i])
+```
+
+* No error is thrown, the code snippet prints `4` on its first iteration, then `6`, and finally `8`.
+* No error is thwon, the code snippet prints `0` on its first iteration, then `1` and finally `2`.
+* A `TypeError` is thrown because the `for` statement does not include a sequence to iterate over.
+
+```{}
+myNumber = 43
+while True:
+    guess = input("Enter a number:")
+    if guess > 43:
+        print("My number is smaller than {0}".format(guess))
+    elif guess < 43:
+        print("My number is greater than {0}".format(guess))
+    else:
+        print("Ding, ding! Correct, my number is {0}".format(myNumber))
+```
+
+* Nothing goes wrong, once the user guesses `43`, `Ding, ding! Correct, my number is 43` will be printed and the program terminates.
+* No error is thrown, once the user guesses `43`, `Ding, ding! Correct, my number is 43` will be printed, but the program does not terminate.
+* An `IndexError` will be thrown by the positioning argument in the curly brackets because only one value is provided as substitution in which case using indexing is wrong.
+
+```{}
+a = [4,6]
+b = [0, 1.5]
+for i in a:
+    for j in range(len(b)):
+        print(i * b[j])
+```
+
+* A `TypeError` is thrown because the first `for` statement involving the looping variable `i` does not include a sequence to iterate over.
+* No error is thrown, the output is of the mini program is `0`, `6.0`, `0`, `9.0` because each element in `a` is multiplied by each element in `b`.
+* A `NameError` is thrown because `i` is an undefined variable in the body of the second `for` loop that starts with `for j in range(len(b))`.
+* No error is thrown, the output of the mini program is `0`, `0`, `0`, `1.5` because each index in `a` is multiplied by each element in `b`.
+
+### Exercise 3. A guessing game
+
+Make a Python script `guessing.py` that implements the following behaviour:
+
+* At the beginning of the script, a random number between 0 and 1000 is generated.
+* The program continuously asks for user input prompting the user with the request to enter a number.
+* If the user guesses the number correctly, the program gives feedback that the number was guessed correctly. The program also shows the number of guesses needed. Finally, the program terminates.
+* If the guessed number is too large, the program gives feedback that the number is smaller.
+* If the guessed number is too small, the program gives feedback that the number is larger.
+* If no input is given, the program should terminate. In this case, the program should terminate if the given input is *empty*. *Hint:* Use the internet to figure out how to handle empty input.
+
+*Hint*: Prompting and feedback via the console is sufficient.
+
+### Exercise 4. Controlling the flow
+
+Programming small interactive programs such as the guessing game helps you understand how to use *control flow statements* to bring about a desired behaviour in your programs. For this exercise, you will be programming an extension to the guessing game, a three digit number lock!
+
+### Exercise 5. Following the control flow II
 
 Read the script below carefully. Indicate the values of the following expressions after the script has finished executing:
 
@@ -253,11 +504,11 @@ meanB = np.mean(ageB)
 ```
 
 
-### Exercise 2. Debugging
+### Exercise 6. Debugging II
 
 The script below calculates some descriptives from `data`. The code is still somewhat buggy. Debug the script and indicate the values of `fastest`, `slowest`, and `all_mean`.
 
-```{python,eval=F}
+```{}
 data = {'p1':(21,"Female","Condition B",[0.675,0.777,0.778,0.62,0.869]),
         'p2':(20,"Female","Condition A",[0.599,0.674,0.698,0.569,0.7]),
         'p3':(21,"Female","Condition A",[0.655,0.645,0.633,0.788,0.866]),
@@ -270,7 +521,7 @@ data = {'p1':(21,"Female","Condition B",[0.675,0.777,0.778,0.62,0.869]),
         'p10':(18,"Male","Condition A",[0.788,0.599,0.621,0.599,0.623])
         }
 
-fastest = ("initialization",100)
+fastest = ("initialization", 100)
 for participant in data:
     RTsum = 0
     for i in len(data[participant][3]):
@@ -279,7 +530,7 @@ for participant in data:
     if RTmean < fastest[1]:
         fastest = (participant,RTmean)
         
-slowest = ("initialization",0)
+slowest = ("initialization", 0)
 for participant in data:
     RTsum = 0
     for RT in participant[3]:
@@ -298,9 +549,7 @@ for participant in data:
 all_mean = all_sum/number_of_trials*len(data)
 ```
 
-
-
-### Exercise 3. Nested loops
+### Exercise 7. Nested loops
 
 Nested data often requires *nested loops* for answering certain questions about the data. Let's have a look at the `list` data set below. each participant has a participant number paired with a list of additional experiment information.
 
@@ -324,22 +573,22 @@ If we want to know how many participants withdrew their participation we need a 
 ```{python,eval=F}
 
 counter = 0
-for (participant,expInfo) in participants:
+for (participant, expInfo) in participants:
   pass
         # to be implemented by you
         
-print "The number of participants who withdrew their participation is", counter
+print("The number of participants who withdrew their participation is", counter)
 
 ```
 
 Implement the second `for` loop that iterates over the experiment information and count the number of participants who withdrew their participation.
 
-### Exercise 4. Data transformation using loops
+### Exercise 8. Data transformation using loops
 
 * Write a script that transforms the data set `participants` from Exercise 3 into a dictonary data set.
 * Extend the script with a `counter` mechanism that counts the number of participants who were tested at location A and location B respectively.
 
-### Exercise 5. Calculating a mean
+### Exercise 9. Calculating a mean
 
 For the sequence `seq` calculate the arithmetic mean using a `while` loop. Check your implementation using the `mean()` method of the `NumPy` library.
 
@@ -350,16 +599,6 @@ seq = range(1000)
 
 ```
 
+## Think Further
 
-### Exercise 6. A guessing game
-
-Make a Python script `guessing.py` that implements the following behaviour:
-
-* At the beginning of the script, a random number between 0 and 1000 is generated.
-* The program continuously asks for user input prompting the user with the request to enter a number.
-* If the user guesses the number correctly, the program gives feedback that the number was guessed correctly. The program also shows the number of guesses needed. Finally, the program terminates.
-* If the guessed number is too large, the program gives feedback that the number is smaller.
-* If the guessed number is too small, the program gives feedback that the number is larger.
-* If no input is given, the program should terminate. In this case, the program should terminate if the given input is *empty*. *Hint:* Use the internet to figure out how to handle empty input.
-
-*Hint*: Prompting and feedback via the console is sufficient.
+* Tutorial on String formatting. [Lisa Tagliaferri (2016). How To Use String Formatters in Python 3] (https://www.digitalocean.com/community/tutorials/how-to-use-string-formatters-in-python-3) Though the heading says 'Python 3', all Lisa discusses in her tutorial also applies to Python 2.7.
