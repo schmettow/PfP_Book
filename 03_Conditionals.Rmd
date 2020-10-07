@@ -274,20 +274,29 @@ State charts are another tool for representing the interaction of a program. The
 
 1. Confusing the *assignment operator* (`=`) with the comparative *equals operator* (`==`).
 
-```{python error = TRUE}
+```{python eval = F}
 a = 5
 if (a = 5):
     print("Yes, a is indeed equal to 5!")
 ```
+```{r echo = T}
+print("Error: invalid syntax (<string>, line 2)")
+```
+
 
 Yes, confusing the assignment operator with the comparative equals operator will be a re-occuring issue. For human beings it is just too easy to type `=` when they actually mean `==` in Python. Being a psychologist, go figure.
 
 2. The most common syntax error involving *conditionals* is probably forgetting the colon at the end of the *head* of the `if statement`.
 
-```{python error = TRUE}
+```{python eval = F}
 if (1 == 1)
     print("Hello, World!")
 ```
+```{r echo = T}
+print("Error: invalid syntax (<string>, line 2)")
+```
+
+
 
 Whenever you encounter a syntax error in your conditionals, you should first check whether you forgot a colon.
 

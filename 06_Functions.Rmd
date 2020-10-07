@@ -102,7 +102,7 @@ def summation(alist):
     sum = 0.0
     for i in range(len(alist)):
         sum += alist[i]
-    print "Sum of the list is:", sum
+    print("Sum of the list is:", sum)
     return sum
 
 def average(alist):

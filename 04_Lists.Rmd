@@ -323,10 +323,15 @@ In the end, you as a programmer still need to decide how to proceed with the col
 
 * The by far most occurring errors involving lists are `index out of range` errors. I think it is fair to say that they make up a large amount of all programming errors. An `index out of range error` is thrown when you try to access an index that does not exist in a sequence.
 
-```{python error = T}
+```{python eval = F}
 shoppinglist = ["milk", "eggs", "bread", "appels"]
 print shoppinglist[4]
 ```
+
+```{r echo = F}
+print("Error: Missing parentheses in call to 'print'. Did you mean print(shoppinglist[4])? (<string>, line 2)")
+```
+
 
 You will usually encounter this error as a result of confusing the starting index `0` with `1`. Against all intuition, in a list of four elements, the last element is stored at index `3`, not at index `4`. It helps to keep in mind that the indices of your sequences always have a range one shorter than the number of elements in your list. For a list with four elements, the positive index range is `0` to 4 minus 1, thus `3`.
 ```{python}

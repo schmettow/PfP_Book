@@ -6,7 +6,7 @@ date: "`r Sys.Date()`"
 #site: bookdown::bookdown_site
 repo: https://schmettow.github.io/PfP_Book/
 github-repo: schmettow/PfP_Book
-description: "a book to accompany the course Programming for Psychologists"
+description: ""
 
 
 chapter_name: "Chapter "

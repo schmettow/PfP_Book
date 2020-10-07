@@ -1,5 +1,11 @@
 # Variables, values and types {#variables}
 
+```{r setup, include = FALSE}
+library(tidyverse)
+library(reticulate)
+#knitr::knit_engines$set(python = reticulate::eng_python)
+```
+
 In chapter 1 Introduction, you took a closer look at the Stroop Task program. In doing so, you encountered components of a computer program called *variables*
 
 ```{python eval = FALSE}
@@ -250,20 +256,27 @@ They are strings! In Python, strings can be enclosed in either single
 quotes (`'`), or double quotes (`"`), or three of each
 (`'''` or `"""`). But what if your string includes a quote and you want to indicate this by using quotation marks *within* your string? Using the same quotation marks as used for defining the string will prematurely end the string.
 
-```{python error = TRUE}
+```{python eval = F}
 quote = "Freud: "The mind is like an iceberg, it floats with one-seventh of its bulk above water.""
 ```
+```{r echo = F}
+print(" Error: invalid syntax (<string>, line 1)")
+```
+
 
 Instead, when using single quotes, you can use double quotes or triple quotes inside them:
 
-```{python, eval=F}
+```{python}
 quote = 'Carl Rogers: "How can I provide a relationship which this person may use for his own personal growth?"'
 ```
+
+
+
 
 Double quoted strings can have single quotes and triple quotes inside
 them: 
 
-```{python, eval=F}
+```{python}
 quote = "Ivan Pavlov's best known findings relate to the phenomenon of conditioning."
 ```
 
@@ -331,9 +344,14 @@ the latter for comparing two values
 
 Usually, when you confuse the assignment operator with the equals operator, you will get a syntax error.
 
-```{python error = T}
+```{python eval = F}
 17+3 = 21
 ```
+```{r echo = F}
+print("Error: can't assign to operator (<string>, line 1)")
+```
+
+
 
 2. Forgetting to typecast other data types when incorporating them into strings
 

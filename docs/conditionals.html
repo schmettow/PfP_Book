@@ -25,7 +25,7 @@
 <meta name="author" content="Martin Schmettow and Lena Brandl">
 
 
-<meta name="date" content="2019-11-07">
+<meta name="date" content="2020-02-26">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -59,41 +59,67 @@
 
 
 <style type="text/css">
-div.sourceCode { overflow-x: auto; }
-table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
-  margin: 0; padding: 0; vertical-align: baseline; border: none; }
-table.sourceCode { width: 100%; line-height: 100%; }
-td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
-td.sourceCode { padding-left: 5px; }
-code > span.kw { color: #007020; font-weight: bold; } /* Keyword */
-code > span.dt { color: #902000; } /* DataType */
-code > span.dv { color: #40a070; } /* DecVal */
-code > span.bn { color: #40a070; } /* BaseN */
-code > span.fl { color: #40a070; } /* Float */
-code > span.ch { color: #4070a0; } /* Char */
-code > span.st { color: #4070a0; } /* String */
-code > span.co { color: #60a0b0; font-style: italic; } /* Comment */
-code > span.ot { color: #007020; } /* Other */
-code > span.al { color: #ff0000; font-weight: bold; } /* Alert */
-code > span.fu { color: #06287e; } /* Function */
-code > span.er { color: #ff0000; font-weight: bold; } /* Error */
-code > span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
-code > span.cn { color: #880000; } /* Constant */
-code > span.sc { color: #4070a0; } /* SpecialChar */
-code > span.vs { color: #4070a0; } /* VerbatimString */
-code > span.ss { color: #bb6688; } /* SpecialString */
-code > span.im { } /* Import */
-code > span.va { color: #19177c; } /* Variable */
-code > span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
-code > span.op { color: #666666; } /* Operator */
-code > span.bu { } /* BuiltIn */
-code > span.ex { } /* Extension */
-code > span.pp { color: #bc7a00; } /* Preprocessor */
-code > span.at { color: #7d9029; } /* Attribute */
-code > span.do { color: #ba2121; font-style: italic; } /* Documentation */
-code > span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
-code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
-code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+a.sourceLine { display: inline-block; line-height: 1.25; }
+a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
+a.sourceLine:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+a.sourceLine { text-indent: -1em; padding-left: 1em; }
+}
+pre.numberSource a.sourceLine
+  { position: relative; left: -4em; }
+pre.numberSource a.sourceLine::before
+  { content: attr(title);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; pointer-events: all; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {  }
+@media screen {
+a.sourceLine::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
 </style>
 
 </head>
@@ -110,13 +136,17 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <ul class="summary">
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Preface</a></li>
 <li class="chapter" data-level="1" data-path="intro.html"><a href="intro.html"><i class="fa fa-check"></i><b>1</b> Introduction</a><ul>
-<li class="chapter" data-level="1.1" data-path="intro.html"><a href="intro.html#installing-python"><i class="fa fa-check"></i><b>1.1</b> Installing Python</a></li>
-<li class="chapter" data-level="1.2" data-path="intro.html"><a href="intro.html#dumb_computers"><i class="fa fa-check"></i><b>1.2</b> Computers are dumb</a></li>
-<li class="chapter" data-level="1.3" data-path="intro.html"><a href="intro.html#dive-in-a-first-example"><i class="fa fa-check"></i><b>1.3</b> Dive in: a first example</a></li>
-<li class="chapter" data-level="1.4" data-path="intro.html"><a href="intro.html#exercises"><i class="fa fa-check"></i><b>1.4</b> Exercises</a></li>
+<li class="chapter" data-level="1.1" data-path="intro.html"><a href="intro.html#installing-a-python-environment"><i class="fa fa-check"></i><b>1.1</b> Installing a Python environment</a></li>
+<li class="chapter" data-level="1.2" data-path="intro.html"><a href="intro.html#installing-the-anaconda-python-environment"><i class="fa fa-check"></i><b>1.2</b> Installing the Anaconda Python environment</a></li>
+<li class="chapter" data-level="1.3" data-path="intro.html"><a href="intro.html#windows"><i class="fa fa-check"></i><b>1.3</b> Windows</a></li>
+<li class="chapter" data-level="1.4" data-path="intro.html"><a href="intro.html#macos"><i class="fa fa-check"></i><b>1.4</b> MacOS</a></li>
+<li class="chapter" data-level="1.5" data-path="intro.html"><a href="intro.html#testing-your-environment"><i class="fa fa-check"></i><b>1.5</b> Testing your environment</a></li>
+<li class="chapter" data-level="1.6" data-path="intro.html"><a href="intro.html#dumb_computers"><i class="fa fa-check"></i><b>1.6</b> Computers are dumb</a></li>
+<li class="chapter" data-level="1.7" data-path="intro.html"><a href="intro.html#dive-in-a-first-example"><i class="fa fa-check"></i><b>1.7</b> Dive in: a first example</a></li>
+<li class="chapter" data-level="1.8" data-path="intro.html"><a href="intro.html#exercises"><i class="fa fa-check"></i><b>1.8</b> Exercises</a></li>
 </ul></li>
 <li class="chapter" data-level="2" data-path="variables.html"><a href="variables.html"><i class="fa fa-check"></i><b>2</b> Variables, values and types</a><ul>
-<li class="chapter" data-level="2.1" data-path="variables.html"><a href="variables.html#variables"><i class="fa fa-check"></i><b>2.1</b> Variables</a></li>
+<li class="chapter" data-level="2.1" data-path="variables.html"><a href="variables.html#variables-1"><i class="fa fa-check"></i><b>2.1</b> Variables</a></li>
 <li class="chapter" data-level="2.2" data-path="variables.html"><a href="variables.html#stroop-task-variables"><i class="fa fa-check"></i><b>2.2</b> Stroop Task variables</a></li>
 <li class="chapter" data-level="2.3" data-path="variables.html"><a href="variables.html#how-variables-are-used"><i class="fa fa-check"></i><b>2.3</b> How Variables Are Used</a></li>
 <li class="chapter" data-level="2.4" data-path="variables.html"><a href="variables.html#data-types"><i class="fa fa-check"></i><b>2.4</b> Data types</a><ul>
@@ -165,9 +195,8 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="3.8" data-path="conditionals.html"><a href="conditionals.html#think-further-1"><i class="fa fa-check"></i><b>3.8</b> Think Further</a></li>
 </ul></li>
 <li class="chapter" data-level="4" data-path="lists.html"><a href="lists.html"><i class="fa fa-check"></i><b>4</b> Lists</a><ul>
-<li class="chapter" data-level="4.1" data-path="lists.html"><a href="lists.html#lists"><i class="fa fa-check"></i><b>4.1</b> Lists</a><ul>
+<li class="chapter" data-level="4.1" data-path="lists.html"><a href="lists.html#lists-1"><i class="fa fa-check"></i><b>4.1</b> Lists</a><ul>
 <li class="chapter" data-level="4.1.1" data-path="lists.html"><a href="lists.html#lists-are-mutable"><i class="fa fa-check"></i><b>4.1.1</b> Lists are mutable</a></li>
-<li class="chapter" data-level="4.1.2" data-path="lists.html"><a href="lists.html#a-word-about-class-specific-functions"><i class="fa fa-check"></i><b>4.1.2</b> A word about class specific functions</a></li>
 </ul></li>
 <li class="chapter" data-level="4.2" data-path="lists.html"><a href="lists.html#tuples"><i class="fa fa-check"></i><b>4.2</b> Tuples</a></li>
 <li class="chapter" data-level="4.3" data-path="lists.html"><a href="lists.html#dictionaries"><i class="fa fa-check"></i><b>4.3</b> Dictionaries</a></li>
@@ -189,19 +218,25 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </ul></li>
 <li class="chapter" data-level="5" data-path="loops.html"><a href="loops.html"><i class="fa fa-check"></i><b>5</b> Loops</a><ul>
 <li class="chapter" data-level="5.1" data-path="loops.html"><a href="loops.html#the-for-loop"><i class="fa fa-check"></i><b>5.1</b> The <code>for</code> loop</a></li>
-<li class="chapter" data-level="5.2" data-path="loops.html"><a href="loops.html#the-while-loop"><i class="fa fa-check"></i><b>5.2</b> The <code>while</code> loop</a></li>
+<li class="chapter" data-level="5.2" data-path="loops.html"><a href="loops.html#the-while-loop"><i class="fa fa-check"></i><b>5.2</b> The <code>while</code> loop</a><ul>
+<li class="chapter" data-level="5.2.1" data-path="loops.html"><a href="loops.html#for-or-while"><i class="fa fa-check"></i><b>5.2.1</b> <code>for</code> or <code>while</code>?</a></li>
+</ul></li>
 <li class="chapter" data-level="5.3" data-path="loops.html"><a href="loops.html#the-break-statement"><i class="fa fa-check"></i><b>5.3</b> The <code>break</code> statement</a></li>
-<li class="chapter" data-level="5.4" data-path="loops.html"><a href="loops.html#control-flow"><i class="fa fa-check"></i><b>5.4</b> Control flow</a></li>
+<li class="chapter" data-level="5.4" data-path="loops.html"><a href="loops.html#controlling-the-flow-of-your-program-with-loops"><i class="fa fa-check"></i><b>5.4</b> Controlling the flow of your program with loops</a></li>
 <li class="chapter" data-level="5.5" data-path="loops.html"><a href="loops.html#common-errors-3"><i class="fa fa-check"></i><b>5.5</b> Common errors</a></li>
 <li class="chapter" data-level="5.6" data-path="loops.html"><a href="loops.html#debugging-3"><i class="fa fa-check"></i><b>5.6</b> Debugging</a></li>
 <li class="chapter" data-level="5.7" data-path="loops.html"><a href="loops.html#exercises-4"><i class="fa fa-check"></i><b>5.7</b> Exercises</a><ul>
-<li class="chapter" data-level="5.7.1" data-path="loops.html"><a href="loops.html#exercise-1.-following-the-control-flow"><i class="fa fa-check"></i><b>5.7.1</b> Exercise 1. Following the control flow</a></li>
-<li class="chapter" data-level="5.7.2" data-path="loops.html"><a href="loops.html#exercise-2.-debugging-1"><i class="fa fa-check"></i><b>5.7.2</b> Exercise 2. Debugging</a></li>
-<li class="chapter" data-level="5.7.3" data-path="loops.html"><a href="loops.html#exercise-3.-nested-loops"><i class="fa fa-check"></i><b>5.7.3</b> Exercise 3. Nested loops</a></li>
-<li class="chapter" data-level="5.7.4" data-path="loops.html"><a href="loops.html#exercise-4.-data-transformation-using-loops"><i class="fa fa-check"></i><b>5.7.4</b> Exercise 4. Data transformation using loops</a></li>
-<li class="chapter" data-level="5.7.5" data-path="loops.html"><a href="loops.html#exercise-5.-calculating-a-mean"><i class="fa fa-check"></i><b>5.7.5</b> Exercise 5. Calculating a mean</a></li>
-<li class="chapter" data-level="5.7.6" data-path="loops.html"><a href="loops.html#exercise-6.-a-guessing-game"><i class="fa fa-check"></i><b>5.7.6</b> Exercise 6. A guessing game</a></li>
+<li class="chapter" data-level="5.7.1" data-path="loops.html"><a href="loops.html#exercise-1.-following-the-control-flow-i"><i class="fa fa-check"></i><b>5.7.1</b> Exercise 1. Following the control flow I</a></li>
+<li class="chapter" data-level="5.7.2" data-path="loops.html"><a href="loops.html#exercise-2.-debugging-i"><i class="fa fa-check"></i><b>5.7.2</b> Exercise 2. Debugging I</a></li>
+<li class="chapter" data-level="5.7.3" data-path="loops.html"><a href="loops.html#exercise-3.-a-guessing-game"><i class="fa fa-check"></i><b>5.7.3</b> Exercise 3. A guessing game</a></li>
+<li class="chapter" data-level="5.7.4" data-path="loops.html"><a href="loops.html#exercise-4.-controlling-the-flow"><i class="fa fa-check"></i><b>5.7.4</b> Exercise 4. Controlling the flow</a></li>
+<li class="chapter" data-level="5.7.5" data-path="loops.html"><a href="loops.html#exercise-5.-following-the-control-flow-ii"><i class="fa fa-check"></i><b>5.7.5</b> Exercise 5. Following the control flow II</a></li>
+<li class="chapter" data-level="5.7.6" data-path="loops.html"><a href="loops.html#exercise-6.-debugging-ii"><i class="fa fa-check"></i><b>5.7.6</b> Exercise 6. Debugging II</a></li>
+<li class="chapter" data-level="5.7.7" data-path="loops.html"><a href="loops.html#exercise-7.-nested-loops"><i class="fa fa-check"></i><b>5.7.7</b> Exercise 7. Nested loops</a></li>
+<li class="chapter" data-level="5.7.8" data-path="loops.html"><a href="loops.html#exercise-8.-data-transformation-using-loops"><i class="fa fa-check"></i><b>5.7.8</b> Exercise 8. Data transformation using loops</a></li>
+<li class="chapter" data-level="5.7.9" data-path="loops.html"><a href="loops.html#exercise-9.-calculating-a-mean"><i class="fa fa-check"></i><b>5.7.9</b> Exercise 9. Calculating a mean</a></li>
 </ul></li>
+<li class="chapter" data-level="5.8" data-path="loops.html"><a href="loops.html#think-further-3"><i class="fa fa-check"></i><b>5.8</b> Think Further</a></li>
 </ul></li>
 <li class="chapter" data-level="6" data-path="functions.html"><a href="functions.html"><i class="fa fa-check"></i><b>6</b> Functions</a><ul>
 <li class="chapter" data-level="6.1" data-path="functions.html"><a href="functions.html#defining-and-calling-functions"><i class="fa fa-check"></i><b>6.1</b> Defining and calling functions</a></li>
@@ -213,33 +248,33 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="6.5" data-path="functions.html"><a href="functions.html#stroop-functions"><i class="fa fa-check"></i><b>6.5</b> Stroop functions</a></li>
 <li class="chapter" data-level="6.6" data-path="functions.html"><a href="functions.html#common-errors-4"><i class="fa fa-check"></i><b>6.6</b> Common errors</a></li>
 <li class="chapter" data-level="6.7" data-path="functions.html"><a href="functions.html#exercises-5"><i class="fa fa-check"></i><b>6.7</b> Exercises</a><ul>
-<li class="chapter" data-level="6.7.1" data-path="functions.html"><a href="functions.html#exercise-1.-following-the-control-flow-1"><i class="fa fa-check"></i><b>6.7.1</b> Exercise 1. Following the control flow</a></li>
+<li class="chapter" data-level="6.7.1" data-path="functions.html"><a href="functions.html#exercise-1.-following-the-control-flow"><i class="fa fa-check"></i><b>6.7.1</b> Exercise 1. Following the control flow</a></li>
 <li class="chapter" data-level="6.7.2" data-path="functions.html"><a href="functions.html#exercise-2.-an-imperfect-list-sorting-attempt"><i class="fa fa-check"></i><b>6.7.2</b> Exercise 2. An imperfect list sorting attempt</a></li>
 <li class="chapter" data-level="6.7.3" data-path="functions.html"><a href="functions.html#exercise-3.-an-erroneous-sorting-algorithm"><i class="fa fa-check"></i><b>6.7.3</b> Exercise 3. An erroneous sorting algorithm</a></li>
 <li class="chapter" data-level="6.7.4" data-path="functions.html"><a href="functions.html#exercise-4.-chunking"><i class="fa fa-check"></i><b>6.7.4</b> Exercise 4. Chunking</a></li>
 <li class="chapter" data-level="6.7.5" data-path="functions.html"><a href="functions.html#exercise-5.-add-functionality-to-the-stroop-task"><i class="fa fa-check"></i><b>6.7.5</b> Exercise 5. Add functionality to the stroop task</a></li>
 <li class="chapter" data-level="6.7.6" data-path="functions.html"><a href="functions.html#exercise-6.-insertion-sort-algorithm"><i class="fa fa-check"></i><b>6.7.6</b> Exercise 6. Insertion sort algorithm</a></li>
 </ul></li>
-<li class="chapter" data-level="6.8" data-path="functions.html"><a href="functions.html#think-further-3"><i class="fa fa-check"></i><b>6.8</b> Think further</a></li>
+<li class="chapter" data-level="6.8" data-path="functions.html"><a href="functions.html#think-further-4"><i class="fa fa-check"></i><b>6.8</b> Think further</a></li>
 <li class="chapter" data-level="6.9" data-path="functions.html"><a href="functions.html#references"><i class="fa fa-check"></i><b>6.9</b> References</a></li>
 </ul></li>
 <li class="chapter" data-level="7" data-path="data.html"><a href="data.html"><i class="fa fa-check"></i><b>7</b> Working with data</a><ul>
 <li class="chapter" data-level="7.1" data-path="data.html"><a href="data.html#elements-of-data-processing"><i class="fa fa-check"></i><b>7.1</b> Elements of data processing</a></li>
 <li class="chapter" data-level="7.2" data-path="data.html"><a href="data.html#data-tables"><i class="fa fa-check"></i><b>7.2</b> Data tables</a></li>
 <li class="chapter" data-level="7.3" data-path="data.html"><a href="data.html#down-the-sink-writing-data-files"><i class="fa fa-check"></i><b>7.3</b> Down the sink: Writing data files</a></li>
-<li class="chapter" data-level="7.4" data-path="data.html"><a href="data.html#may-the-source-reading-data-files"><i class="fa fa-check"></i><b>7.4</b> May the source … reading data files</a></li>
+<li class="chapter" data-level="7.4" data-path="data.html"><a href="data.html#may-the-source-reading-data-files"><i class="fa fa-check"></i><b>7.4</b> May the source …: reading data files</a></li>
 <li class="chapter" data-level="7.5" data-path="data.html"><a href="data.html#exercises-6"><i class="fa fa-check"></i><b>7.5</b> Exercises</a><ul>
 <li class="chapter" data-level="7.5.1" data-path="data.html"><a href="data.html#exercise-1"><i class="fa fa-check"></i><b>7.5.1</b> Exercise 1</a></li>
 <li class="chapter" data-level="7.5.2" data-path="data.html"><a href="data.html#exercise-2"><i class="fa fa-check"></i><b>7.5.2</b> Exercise 2</a></li>
 </ul></li>
-<li class="chapter" data-level="7.6" data-path="data.html"><a href="data.html#think-further-4"><i class="fa fa-check"></i><b>7.6</b> Think further</a></li>
+<li class="chapter" data-level="7.6" data-path="data.html"><a href="data.html#think-further-5"><i class="fa fa-check"></i><b>7.6</b> Think further</a></li>
 <li class="chapter" data-level="7.7" data-path="data.html"><a href="data.html#references-1"><i class="fa fa-check"></i><b>7.7</b> References</a></li>
 </ul></li>
 <li class="chapter" data-level="8" data-path="interaction.html"><a href="interaction.html"><i class="fa fa-check"></i><b>8</b> Interaction</a><ul>
 <li class="chapter" data-level="8.1" data-path="interaction.html"><a href="interaction.html#interaction-models"><i class="fa fa-check"></i><b>8.1</b> Interaction models</a><ul>
 <li class="chapter" data-level="8.1.1" data-path="interaction.html"><a href="interaction.html#identifying-states"><i class="fa fa-check"></i><b>8.1.1</b> Identifying states</a></li>
 <li class="chapter" data-level="8.1.2" data-path="interaction.html"><a href="interaction.html#identifying-transitions"><i class="fa fa-check"></i><b>8.1.2</b> Identifying transitions</a></li>
-<li class="chapter" data-level="8.1.3" data-path="interaction.html"><a href="interaction.html#events-internal-conditions-and-user-input"><i class="fa fa-check"></i><b>8.1.3</b> Events: internal conditions and user input</a></li>
+<li class="chapter" data-level="8.1.3" data-path="interaction.html"><a href="interaction.html#events-user-input-and-internal-conditions"><i class="fa fa-check"></i><b>8.1.3</b> Events: user input and internal conditions</a></li>
 <li class="chapter" data-level="8.1.4" data-path="interaction.html"><a href="interaction.html#exercises-7"><i class="fa fa-check"></i><b>8.1.4</b> Exercises</a></li>
 </ul></li>
 <li class="chapter" data-level="8.2" data-path="interaction.html"><a href="interaction.html#programming-interactive-prototypes"><i class="fa fa-check"></i><b>8.2</b> Programming interactive prototypes</a><ul>
@@ -264,7 +299,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="8.5.1" data-path="interaction.html"><a href="interaction.html#exercise-c.-transition-tables"><i class="fa fa-check"></i><b>8.5.1</b> Exercise C. Transition tables</a></li>
 </ul></li>
 <li class="chapter" data-level="8.6" data-path="interaction.html"><a href="interaction.html#common-errors-5"><i class="fa fa-check"></i><b>8.6</b> Common errors</a></li>
-<li class="chapter" data-level="8.7" data-path="interaction.html"><a href="interaction.html#think-further-5"><i class="fa fa-check"></i><b>8.7</b> Think Further</a></li>
+<li class="chapter" data-level="8.7" data-path="interaction.html"><a href="interaction.html#think-further-6"><i class="fa fa-check"></i><b>8.7</b> Think Further</a></li>
 </ul></li>
 <li class="chapter" data-level="9" data-path="solutions.html"><a href="solutions.html"><i class="fa fa-check"></i><b>9</b> Solutions</a><ul>
 <li class="chapter" data-level="9.1" data-path="solutions.html"><a href="solutions.html#chapter-1.-introduction"><i class="fa fa-check"></i><b>9.1</b> Chapter 1. Introduction</a></li>
@@ -294,7 +329,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </ul></li>
 <li class="chapter" data-level="9.4" data-path="solutions.html"><a href="solutions.html#chapter-4.-lists"><i class="fa fa-check"></i><b>9.4</b> Chapter 4. Lists</a><ul>
 <li class="chapter" data-level="9.4.1" data-path="solutions.html"><a href="solutions.html#exercise-1.-indexing-1"><i class="fa fa-check"></i><b>9.4.1</b> Exercise 1. Indexing</a></li>
-<li class="chapter" data-level="9.4.2" data-path="solutions.html"><a href="solutions.html#exercise-2.-debugging-2"><i class="fa fa-check"></i><b>9.4.2</b> Exercise 2. Debugging</a></li>
+<li class="chapter" data-level="9.4.2" data-path="solutions.html"><a href="solutions.html#exercise-2.-debugging-1"><i class="fa fa-check"></i><b>9.4.2</b> Exercise 2. Debugging</a></li>
 <li class="chapter" data-level="9.4.3" data-path="solutions.html"><a href="solutions.html#exercise-3.-mini-programs-3"><i class="fa fa-check"></i><b>9.4.3</b> Exercise 3. Mini programs</a></li>
 <li class="chapter" data-level="9.4.4" data-path="solutions.html"><a href="solutions.html#exercise-1.-shopping-list"><i class="fa fa-check"></i><b>9.4.4</b> Exercise 1. Shopping list</a></li>
 <li class="chapter" data-level="9.4.5" data-path="solutions.html"><a href="solutions.html#exercise-2.-dictionnaries"><i class="fa fa-check"></i><b>9.4.5</b> Exercise 2. Dictionnaries</a></li>
@@ -304,15 +339,18 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="9.4.9" data-path="solutions.html"><a href="solutions.html#exercise-6.-stroop-extension"><i class="fa fa-check"></i><b>9.4.9</b> Exercise 6. Stroop extension</a></li>
 </ul></li>
 <li class="chapter" data-level="9.5" data-path="solutions.html"><a href="solutions.html#chapter-5.-loops"><i class="fa fa-check"></i><b>9.5</b> Chapter 5. Loops</a><ul>
-<li class="chapter" data-level="9.5.1" data-path="solutions.html"><a href="solutions.html#exercise-1.-following-the-control-flow-2"><i class="fa fa-check"></i><b>9.5.1</b> Exercise 1. Following the control flow</a></li>
-<li class="chapter" data-level="9.5.2" data-path="solutions.html"><a href="solutions.html#exercise-2.-debugging-3"><i class="fa fa-check"></i><b>9.5.2</b> Exercise 2. Debugging</a></li>
-<li class="chapter" data-level="9.5.3" data-path="solutions.html"><a href="solutions.html#exercise-3.-nested-loops-1"><i class="fa fa-check"></i><b>9.5.3</b> Exercise 3. Nested loops</a></li>
-<li class="chapter" data-level="9.5.4" data-path="solutions.html"><a href="solutions.html#exercise-4.-data-transformation-using-loops-1"><i class="fa fa-check"></i><b>9.5.4</b> Exercise 4. Data transformation using loops</a></li>
-<li class="chapter" data-level="9.5.5" data-path="solutions.html"><a href="solutions.html#exercise-5.-calculating-a-mean-1"><i class="fa fa-check"></i><b>9.5.5</b> Exercise 5. Calculating a mean</a></li>
-<li class="chapter" data-level="9.5.6" data-path="solutions.html"><a href="solutions.html#exercise-6.-a-guessing-game-1"><i class="fa fa-check"></i><b>9.5.6</b> Exercise 6. A guessing game</a></li>
+<li class="chapter" data-level="9.5.1" data-path="solutions.html"><a href="solutions.html#exercise-1.-following-the-control-flow-i-1"><i class="fa fa-check"></i><b>9.5.1</b> Exercise 1. Following the control flow I</a></li>
+<li class="chapter" data-level="9.5.2" data-path="solutions.html"><a href="solutions.html#exercise-2.-debugging-i-1"><i class="fa fa-check"></i><b>9.5.2</b> Exercise 2. Debugging I</a></li>
+<li class="chapter" data-level="9.5.3" data-path="solutions.html"><a href="solutions.html#exercise-3.-controlling-the-flow"><i class="fa fa-check"></i><b>9.5.3</b> Exercise 3. Controlling the flow</a></li>
+<li class="chapter" data-level="9.5.4" data-path="solutions.html"><a href="solutions.html#exercise-4.-following-the-control-flow-ii"><i class="fa fa-check"></i><b>9.5.4</b> Exercise 4. Following the control flow II</a></li>
+<li class="chapter" data-level="9.5.5" data-path="solutions.html"><a href="solutions.html#exercise-5.-debugging"><i class="fa fa-check"></i><b>9.5.5</b> Exercise 5. Debugging</a></li>
+<li class="chapter" data-level="9.5.6" data-path="solutions.html"><a href="solutions.html#exercise-6.-nested-loops"><i class="fa fa-check"></i><b>9.5.6</b> Exercise 6. Nested loops</a></li>
+<li class="chapter" data-level="9.5.7" data-path="solutions.html"><a href="solutions.html#exercise-7.-data-transformation-using-loops"><i class="fa fa-check"></i><b>9.5.7</b> Exercise 7. Data transformation using loops</a></li>
+<li class="chapter" data-level="9.5.8" data-path="solutions.html"><a href="solutions.html#exercise-8.-calculating-a-mean"><i class="fa fa-check"></i><b>9.5.8</b> Exercise 8. Calculating a mean</a></li>
+<li class="chapter" data-level="9.5.9" data-path="solutions.html"><a href="solutions.html#exercise-9.-a-guessing-game"><i class="fa fa-check"></i><b>9.5.9</b> Exercise 9. A guessing game</a></li>
 </ul></li>
 <li class="chapter" data-level="9.6" data-path="solutions.html"><a href="solutions.html#chapter-6.-functions"><i class="fa fa-check"></i><b>9.6</b> Chapter 6. Functions</a><ul>
-<li class="chapter" data-level="9.6.1" data-path="solutions.html"><a href="solutions.html#exercise-1.-following-the-control-flow-3"><i class="fa fa-check"></i><b>9.6.1</b> Exercise 1. Following the control flow</a></li>
+<li class="chapter" data-level="9.6.1" data-path="solutions.html"><a href="solutions.html#exercise-1.-following-the-control-flow-1"><i class="fa fa-check"></i><b>9.6.1</b> Exercise 1. Following the control flow</a></li>
 <li class="chapter" data-level="9.6.2" data-path="solutions.html"><a href="solutions.html#exercise-2.-an-imperfect-list-sorting-attempt-1"><i class="fa fa-check"></i><b>9.6.2</b> Exercise 2. An imperfect list sorting attempt</a></li>
 <li class="chapter" data-level="9.6.3" data-path="solutions.html"><a href="solutions.html#exercise-3.-an-errorneous-sorting-algorithm"><i class="fa fa-check"></i><b>9.6.3</b> Exercise 3. An errorneous sorting algorithm</a></li>
 <li class="chapter" data-level="9.6.4" data-path="solutions.html"><a href="solutions.html#exercise-4."><i class="fa fa-check"></i><b>9.6.4</b> Exercise 4.</a></li>
@@ -321,12 +359,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="10" data-path="debugging-and-good-programming-practices.html"><a href="debugging-and-good-programming-practices.html"><i class="fa fa-check"></i><b>10</b> Debugging and good programming practices</a><ul>
-<li class="chapter" data-level="10.1" data-path="debugging-and-good-programming-practices.html"><a href="debugging-and-good-programming-practices.html#debugging-4"><i class="fa fa-check"></i><b>10.1</b> Debugging</a><ul>
-<li class="chapter" data-level="10.1.1" data-path="debugging-and-good-programming-practices.html"><a href="debugging-and-good-programming-practices.html#the-print-statement-is-an-aspiring-programmers-best-friend"><i class="fa fa-check"></i><b>10.1.1</b> The print statement is an aspiring programmer’s best friend</a></li>
-<li class="chapter" data-level="10.1.2" data-path="debugging-and-good-programming-practices.html"><a href="debugging-and-good-programming-practices.html#frequent-unit-testing"><i class="fa fa-check"></i><b>10.1.2</b> Frequent unit-testing</a></li>
-<li class="chapter" data-level="10.1.3" data-path="debugging-and-good-programming-practices.html"><a href="debugging-and-good-programming-practices.html#the-copy-paste-syndrome"><i class="fa fa-check"></i><b>10.1.3</b> The copy-paste syndrome</a></li>
-<li class="chapter" data-level="10.1.4" data-path="debugging-and-good-programming-practices.html"><a href="debugging-and-good-programming-practices.html#standing-on-the-shoulders-of-giants"><i class="fa fa-check"></i><b>10.1.4</b> Standing on the shoulders of giants</a></li>
-</ul></li>
+<li class="chapter" data-level="10.1" data-path="debugging-and-good-programming-practices.html"><a href="debugging-and-good-programming-practices.html#debugging-4"><i class="fa fa-check"></i><b>10.1</b> Debugging</a></li>
 <li class="chapter" data-level="10.2" data-path="debugging-and-good-programming-practices.html"><a href="debugging-and-good-programming-practices.html#boosting-your-programming-learning-curve"><i class="fa fa-check"></i><b>10.2</b> Boosting your programming learning curve</a><ul>
 <li class="chapter" data-level="10.2.1" data-path="debugging-and-good-programming-practices.html"><a href="debugging-and-good-programming-practices.html#going-with-the-flow"><i class="fa fa-check"></i><b>10.2.1</b> Going with the flow</a></li>
 <li class="chapter" data-level="10.2.2" data-path="debugging-and-good-programming-practices.html"><a href="debugging-and-good-programming-practices.html#just-do-it"><i class="fa fa-check"></i><b>10.2.2</b> Just do it!</a></li>
@@ -351,19 +384,19 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
             <section class="normal" id="section-">
 <div id="conditionals" class="section level1">
 <h1><span class="header-section-number">3</span> Conditionals</h1>
-<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python"><span class="cf">if</span> <span class="dv">1</span> <span class="op">==</span> <span class="dv">1</span>:
-  <span class="bu">print</span>(<span class="st">&#39;Hello World&#39;</span>)</code></pre></div>
+<pre class="sourceCode python"><code class="sourceCode python"><span class="cf">if</span> <span class="dv">1</span> <span class="op">==</span> <span class="dv">1</span>:
+  <span class="bu">print</span>(<span class="st">&#39;Hello World&#39;</span>)</code></pre>
 <pre><code>## Hello World</code></pre>
 <div id="boolean-logic" class="section level2">
 <h2><span class="header-section-number">3.1</span> Boolean logic</h2>
 <p>In Chapter 2 Variables, you read about simple <em>Boolean expressions</em> that produce <em>Boolean values</em> (<code>True</code>, <code>False</code>) with the help of <em>comparative operators</em> (<code>==</code>,<code>!=</code>,<code>&gt;</code>,<code>&lt;</code>,<code>&gt;=</code>,<code>&lt;=</code>). In this chapter, we will first take a closer look at Boolean expressions as we work towards introducing the main actor in regulating the flow of a computer program, <em>conditionals</em>. In chapter 1 <a href="intro.html#intro">Introduction</a> you took a closer look at the Stroop Task program. You saw that the program shifts between different stages of the Stroop experiment, among which preparing a trial and waiting for the participant’s response. These experimental stages are mirrored in the different <em>states</em> of the Stroop Task program. A simple lamp, for example, can be regarded as having two possible states, namely being either switched <em>on</em> or <em>off</em>. The Stroop Task program knows more states than simply being switched on or off, but just as a simple lamp, it needs some kind of switch to transit from one state to another. This is were <em>conditionals</em> come in handy as you will see at the end of this chapter. But first things first, let’s take a look at the following two examples:</p>
-<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python"><span class="bu">print</span>(<span class="dv">10</span> <span class="op">&gt;</span> <span class="dv">5</span> <span class="kw">and</span> <span class="dv">5</span> <span class="op">&gt;</span> <span class="dv">2</span>)</code></pre></div>
+<pre class="sourceCode python"><code class="sourceCode python"><span class="bu">print</span>(<span class="dv">10</span> <span class="op">&gt;</span> <span class="dv">5</span> <span class="kw">and</span> <span class="dv">5</span> <span class="op">&gt;</span> <span class="dv">2</span>)</code></pre>
 <pre><code>## True</code></pre>
-<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python"><span class="bu">print</span>(<span class="va">True</span> <span class="kw">or</span> <span class="va">False</span>)</code></pre></div>
+<pre class="sourceCode python"><code class="sourceCode python"><span class="bu">print</span>(<span class="va">True</span> <span class="kw">or</span> <span class="va">False</span>)</code></pre>
 <pre><code>## True</code></pre>
-<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python"><span class="bu">print</span>(<span class="va">True</span> <span class="kw">and</span> <span class="kw">not</span> <span class="va">False</span>)</code></pre></div>
+<pre class="sourceCode python"><code class="sourceCode python"><span class="bu">print</span>(<span class="va">True</span> <span class="kw">and</span> <span class="kw">not</span> <span class="va">False</span>)</code></pre>
 <pre><code>## True</code></pre>
-<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python"><span class="bu">print</span>(<span class="kw">not</span> <span class="va">True</span> <span class="kw">and</span> <span class="va">False</span>)</code></pre></div>
+<pre class="sourceCode python"><code class="sourceCode python"><span class="bu">print</span>(<span class="kw">not</span> <span class="va">True</span> <span class="kw">and</span> <span class="va">False</span>)</code></pre>
 <pre><code>## False</code></pre>
 <p><code>and</code>, <code>or</code>, and <code>not</code> are the three <em>logical operators</em> used in Python. They allow us to build more complex Boolean expressions from simpler ones. Sometimes these operators confuse people because they are used differently in informal language. Therefore, it is important to understand what they formally mean in Python (and math and all other programming languages). The following <em>truth table</em> displays what these operators exactly mean for two variables <code>a</code> and <code>b</code> for all combinations of values:</p>
 <table>
@@ -414,43 +447,43 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </table>
 <p>There exists a set of rules for working with Boolean values, much like highschool mathematical algebra. First of all, the logical operators <code>and</code>, <code>or</code>, and <code>not</code> differ in their priority. In highschool, you learned that given a formula <code>a + b * c</code>, you first multiply <code>b</code> and <code>c</code> before adding <code>a</code>. This is the same as saying that <code>*</code> has a higher <em>precedence</em> than <code>+</code>. From highest to lowest the precedence ranking for the three logical operators is: <code>not</code>, <code>and</code>, <code>or</code>. In addition, the six <em>comparative</em> operators (<code>==</code>,<code>!=</code>,<code>&gt;</code>,<code>&lt;</code>,<code>&gt;=</code>,<code>&lt;=</code>) precede all logical operators.</p>
 <p>As in mathematics, brackets can be used to change the order of operations.</p>
-<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python"><span class="bu">print</span>(<span class="kw">not</span> <span class="va">True</span> <span class="kw">or</span> <span class="dv">1</span> <span class="op">==</span> <span class="dv">1</span>)</code></pre></div>
+<pre class="sourceCode python"><code class="sourceCode python"><span class="bu">print</span>(<span class="kw">not</span> <span class="va">True</span> <span class="kw">or</span> <span class="dv">1</span> <span class="op">==</span> <span class="dv">1</span>)</code></pre>
 <pre><code>## True</code></pre>
 <p>Also notice that</p>
-<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python"><span class="bu">print</span>(<span class="kw">not</span> <span class="va">True</span> <span class="kw">and</span> <span class="va">False</span>)</code></pre></div>
+<pre class="sourceCode python"><code class="sourceCode python"><span class="bu">print</span>(<span class="kw">not</span> <span class="va">True</span> <span class="kw">and</span> <span class="va">False</span>)</code></pre>
 <pre><code>## False</code></pre>
 <p>is not the same as</p>
-<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python"><span class="bu">print</span>(<span class="kw">not</span> (<span class="va">True</span> <span class="kw">and</span> <span class="va">False</span>))</code></pre></div>
+<pre class="sourceCode python"><code class="sourceCode python"><span class="bu">print</span>(<span class="kw">not</span> (<span class="va">True</span> <span class="kw">and</span> <span class="va">False</span>))</code></pre>
 <pre><code>## True</code></pre>
 <p>Finally, in Python code you will frequently encounter numerical values as part of Boolean expressions, such as in the following:</p>
-<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python">trial <span class="op">=</span> <span class="dv">3</span>
+<pre class="sourceCode python"><code class="sourceCode python">trial <span class="op">=</span> <span class="dv">3</span>
 max_trials <span class="op">=</span> <span class="dv">6</span>
 correct <span class="op">=</span> <span class="va">True</span>
 
-<span class="bu">print</span>((max_trials <span class="op">-</span> trial) <span class="kw">and</span> correct)</code></pre></div>
+<span class="bu">print</span>((max_trials <span class="op">-</span> trial) <span class="kw">and</span> correct)</code></pre>
 <pre><code>## True</code></pre>
-<p>Here, the numerical expression is evaluated in the context of the Boolean operator <code>and</code> and is converted to Boolean. When that happens, zero becomes <code>False</code> and any other valuebecomes <code>True</code>, <em>including negative values</em> :</p>
-<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python"><span class="bu">print</span>(<span class="op">-</span><span class="dv">2</span> <span class="kw">and</span> <span class="va">True</span>)</code></pre></div>
+<p>Here, the numerical expression is evaluated in the context of the Boolean operator <code>and</code> and is converted to Boolean. When that happens, zero becomes <code>False</code> and any other value becomes <code>True</code>, <em>including negative values</em> :</p>
+<pre class="sourceCode python"><code class="sourceCode python"><span class="bu">print</span>(<span class="op">-</span><span class="dv">2</span> <span class="kw">and</span> <span class="va">True</span>)</code></pre>
 <pre><code>## True</code></pre>
 <p>That may not be what you expected, and the whole situation with implicit typecasts to Boolean is even worse, as the typecast depends on the order.</p>
-<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python"><span class="bu">print</span>(<span class="va">True</span> <span class="kw">and</span> <span class="dv">2</span>)</code></pre></div>
+<pre class="sourceCode python"><code class="sourceCode python"><span class="bu">print</span>(<span class="va">True</span> <span class="kw">and</span> <span class="dv">2</span>)</code></pre>
 <pre><code>## 2</code></pre>
-<p>Certainly, there are some reasons, why Python behaves that way, but it is far from being intuitive (breaking the law of commutivity for the <code>and</code> operator!). Therefore one should <em>always do explicitly Boolean expressions</em>, such as the following:</p>
-<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python">trial <span class="op">=</span> <span class="dv">3</span>
+<p>Certainly, there are some reasons, why Python behaves that way, but it is far from being intuitive (breaking the law of commutivity for the <code>and</code> operator!). Therefore one should <em>always use explicit Boolean expressions</em>, such as the following:</p>
+<pre class="sourceCode python"><code class="sourceCode python">trial <span class="op">=</span> <span class="dv">3</span>
 max_trials <span class="op">=</span> <span class="dv">6</span>
 correct <span class="op">=</span> <span class="va">True</span>
 
-<span class="bu">print</span>((max_trials <span class="op">-</span> trial) <span class="op">&gt;</span> <span class="dv">0</span>  <span class="kw">and</span> correct)</code></pre></div>
+<span class="bu">print</span>((max_trials <span class="op">-</span> trial) <span class="op">&gt;</span> <span class="dv">0</span>  <span class="kw">and</span> correct)</code></pre>
 <pre><code>## True</code></pre>
 </div>
 <div id="if-then" class="section level2">
 <h2><span class="header-section-number">3.2</span> if this is true, then do this</h2>
 <p>Boolean values are essential for regulating the flow of a computer program as they provide the conditions under which certain blocks of code are executed. The simplest form of a <em>conditional</em> is the <em>if statement</em>.</p>
-<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python">a <span class="op">=</span> <span class="dv">0</span>
+<pre class="sourceCode python"><code class="sourceCode python">a <span class="op">=</span> <span class="dv">0</span>
 <span class="cf">if</span> (a <span class="op">&lt;</span> <span class="dv">0</span>):
     <span class="bu">print</span>(<span class="st">&quot;a is smaller than 0&quot;</span>)
 <span class="cf">if</span> (a <span class="op">&gt;=</span> <span class="dv">0</span>):
-    <span class="bu">print</span>(<span class="st">&quot;a is larger than, or equal to 0&quot;</span>)</code></pre></div>
+    <span class="bu">print</span>(<span class="st">&quot;a is larger than, or equal to 0&quot;</span>)</code></pre>
 <pre><code>## a is larger than, or equal to 0</code></pre>
 <p>You can read <em>if statements</em> as</p>
 <blockquote>
@@ -462,11 +495,11 @@ then, and only then, the intended (from intendation, not intention!) code within
 <div id="else-do-that" class="section level2">
 <h2><span class="header-section-number">3.3</span> else do that</h2>
 <p>Actually, you can simplify the code above by using an <em>else clause</em>:</p>
-<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python">a <span class="op">=</span> <span class="dv">0</span>
+<pre class="sourceCode python"><code class="sourceCode python">a <span class="op">=</span> <span class="dv">0</span>
 <span class="cf">if</span> (a <span class="op">&lt;</span> <span class="dv">0</span>):
     <span class="bu">print</span>(<span class="st">&quot;a is smaller than 0&quot;</span>)
 <span class="cf">else</span>:
-    <span class="bu">print</span>(<span class="st">&quot;a is larger than, or equal to 0&quot;</span>)</code></pre></div>
+    <span class="bu">print</span>(<span class="st">&quot;a is larger than, or equal to 0&quot;</span>)</code></pre>
 <pre><code>## a is larger than, or equal to 0</code></pre>
 <p>But, take great care: the conditions <code>a &lt; 0</code> and <code>a &gt;= 0</code> are special in that they are:</p>
 <ul>
@@ -474,53 +507,53 @@ then, and only then, the intended (from intendation, not intention!) code within
 <li>complete; there is no third option.</li>
 </ul>
 <p><em>else clauses</em> are optional, but they often simplify your code. If you are dealing with two complete, mutually exclusive conditions, then using an <code>if/else clause</code> is the way to go. If there are more than two choices, you can either use <em>nested</em> conditionals or <code>if ... elif ... else</code>:</p>
-<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python">a <span class="op">=</span> <span class="dv">0</span>
+<pre class="sourceCode python"><code class="sourceCode python">a <span class="op">=</span> <span class="dv">0</span>
 <span class="cf">if</span> (a <span class="op">&lt;</span> <span class="dv">0</span>):
     <span class="bu">print</span>(<span class="st">&quot;a is smaller than 0&quot;</span>)
 <span class="cf">else</span>:
     <span class="cf">if</span> (a <span class="op">==</span> <span class="dv">0</span>):
         <span class="bu">print</span>(<span class="st">&quot;a equals 0&quot;</span>)
     <span class="cf">else</span>:
-        <span class="bu">print</span>(<span class="st">&quot;a is larger than 0&quot;</span>)</code></pre></div>
+        <span class="bu">print</span>(<span class="st">&quot;a is larger than 0&quot;</span>)</code></pre>
 <pre><code>## a equals 0</code></pre>
 <p>The indentation makes the structure of the program visible. However, most of the time, nested conditionals complicate your code unecessarily, making it more difficult to read. It is commonly regarded as good practice to keep the usage of nested conditionals to a minimum.</p>
 <p>Then again, how do you implement more than two execution branches, without resorting to nested conditionals? Let’s pretend that it is incredibly important to your program that it does make a difference between the case that <code>a</code> is larger than 0, compared to when <code>a</code> equals 0.</p>
-<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python">a <span class="op">=</span> <span class="dv">0</span>
+<pre class="sourceCode python"><code class="sourceCode python">a <span class="op">=</span> <span class="dv">0</span>
 <span class="cf">if</span> (a <span class="op">&lt;</span> <span class="dv">0</span>):
     <span class="bu">print</span>(<span class="st">&quot;a is smaller than 0&quot;</span>)
 <span class="cf">elif</span> (a <span class="op">==</span> <span class="dv">0</span>):
     <span class="bu">print</span>(<span class="st">&quot;a equals 0&quot;</span>)
 <span class="cf">else</span>:
-    <span class="bu">print</span>(<span class="st">&quot;a is larger than 0&quot;</span>)</code></pre></div>
+    <span class="bu">print</span>(<span class="st">&quot;a is larger than 0&quot;</span>)</code></pre>
 <pre><code>## a equals 0</code></pre>
 <p>The <em>elif statement</em> (short for <code>else if statement</code>) allows you to include more than two alternative conditions. In theory, you can build an endless chain of alternative conditions using <code>elif</code>. Whether it is useful to do so, is, of course, a different question. Whenever <code>elif</code> is included in a train of conditions, the whole structure is called a <em>chained conditional</em>. Note that when using an <em>else clause</em> in a chain of conditionals, it always marks the end of the chain. Furthermore, each condition is checked in order. If the first is <code>False</code>, the next is checked, and so on. Note that only the first <code>True</code> branch is executed, even if more than one condition is <code>True</code>. There is nothing like “more true” in Boolean logic.</p>
-<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python">a <span class="op">=</span> <span class="dv">1</span>
+<pre class="sourceCode python"><code class="sourceCode python">a <span class="op">=</span> <span class="dv">1</span>
 <span class="cf">if</span> (a <span class="op">&gt;=</span> <span class="dv">0</span>):
     <span class="bu">print</span>(<span class="st">&quot;a is greater than or equals 0&quot;</span>)
 <span class="cf">elif</span> (a <span class="op">==</span> <span class="dv">1</span>):
     <span class="bu">print</span>(<span class="st">&quot;a equals 1&quot;</span>)
 <span class="cf">else</span>:
-    <span class="bu">print</span>(<span class="st">&quot;a is smaller than 0&quot;</span>)</code></pre></div>
+    <span class="bu">print</span>(<span class="st">&quot;a is smaller than 0&quot;</span>)</code></pre>
 <pre><code>## a is greater than or equals 0</code></pre>
 <p>Alternatively, nesting can often be circumvented by combining simple Boolean expressions using <em>logical operators</em>:</p>
-<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python">a <span class="op">=</span> <span class="dv">5</span>
-<span class="cf">if</span> (a <span class="op">&gt;</span> <span class="op">-</span><span class="dv">5</span>):
+<pre class="sourceCode python"><code class="sourceCode python">a <span class="op">=</span> <span class="dv">5</span>
+<span class="cf">if</span> (a <span class="op">&gt;</span> <span class="dv">-5</span>):
     <span class="cf">if</span> (a <span class="op">&gt;=</span> <span class="dv">0</span>):
-        <span class="bu">print</span>(<span class="st">&quot;a is a positive digit&quot;</span>)</code></pre></div>
-<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python">a <span class="op">=</span> <span class="dv">5</span>
-<span class="cf">if</span> (a <span class="op">&gt;</span> <span class="op">-</span><span class="dv">5</span> <span class="kw">and</span> a <span class="op">&gt;=</span> <span class="dv">0</span>):
-    <span class="bu">print</span>(<span class="st">&quot;a is a positive digit&quot;</span>)</code></pre></div>
+        <span class="bu">print</span>(<span class="st">&quot;a is a positive digit&quot;</span>)</code></pre>
+<pre class="sourceCode python"><code class="sourceCode python">a <span class="op">=</span> <span class="dv">5</span>
+<span class="cf">if</span> (a <span class="op">&gt;</span> <span class="dv">-5</span> <span class="kw">and</span> a <span class="op">&gt;=</span> <span class="dv">0</span>):
+    <span class="bu">print</span>(<span class="st">&quot;a is a positive digit&quot;</span>)</code></pre>
 </div>
 <div id="bringing-interaction-to-life-conditional-state-transitions" class="section level2">
 <h2><span class="header-section-number">3.4</span> Bringing interaction to life: Conditional state transitions</h2>
 <p>In programming interactive software, such as the Stroop experiment, conditionals are essential to control the flow of the program. By controlling the <em>flow</em>, we mean how the program changes states in reaction to the input of the user. Without the programmer’s intervention, a program is executed from top to bottom. You can imagine that the Stroop Task program needs to be more flexible than that, depending on the actions of the participant. Take a closer look at how the Stroop Task program transits from the welcome screen to the first trial:</p>
-<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python">STATE <span class="op">=</span> <span class="st">&quot;welcome&quot;</span>    
+<pre class="sourceCode python"><code class="sourceCode python">STATE <span class="op">=</span> <span class="st">&quot;welcome&quot;</span>    
 
 <span class="cf">if</span> STATE <span class="op">==</span> <span class="st">&quot;welcome&quot;</span>:
     <span class="cf">if</span> event.<span class="bu">type</span> <span class="op">==</span> KEYDOWN <span class="kw">and</span> event.key <span class="op">==</span> K_SPACE:
         STATE <span class="op">=</span> <span class="st">&quot;prepare_next_trial&quot;</span>
-        <span class="bu">print</span>(STATE)</code></pre></div>
-<p>In plain English, this would be the same as telling the program to switch from state <code>&quot;welcome&quot;</code> to state <code>&quot;prepare_next_trial&quot;</code> upon pressing the <code>SPACE</code> key. To see this in action, run the Stroop Task program, and watch closely what is printed to the console. You will see that whenever the program transits into a new state, the state of the program is printed to the console.</p>
+        <span class="bu">print</span>(STATE)</code></pre>
+<p>In plain English, this would be the same as telling the program to switch from state <code>"welcome"</code> to state <code>"prepare_next_trial"</code> upon pressing the <code>SPACE</code> key. To see this in action, run the Stroop Task program, and watch closely what is printed to the console. You will see that whenever the program transits into a new state, the state of the program is printed to the console.</p>
 <div id="transition-tables" class="section level3">
 <h3><span class="header-section-number">3.4.1</span> Transition tables</h3>
 <p>In the previous section, you saw how conditionals regulate the flow of a computer program. Depending on specific user actions, the state of the program transits into another state. When you first encounter the code of an interactive program such as the Stroop Task program, writing out all possible state transitions in a <em>transition table</em> helps to understand the structure of the program. A transition table lists all states against each other in a table and documents how the program transits from one state to another. The empty transition table for the Stroop Task program is shown below.</p>
@@ -601,7 +634,7 @@ then, and only then, the intended (from intendation, not intention!) code within
 </tbody>
 </table>
 <p>By taking a close look at how the Stroop Task program transits from one state to another, the transition table can be filled in. The changing state part of the Stroop Task program is displayed below, together with the completed transition table for the Stroop Task program.</p>
-<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python">KEYS     <span class="op">=</span> {<span class="st">&quot;red&quot;</span>: K_b,
+<pre class="sourceCode python"><code class="sourceCode python">KEYS     <span class="op">=</span> {<span class="st">&quot;red&quot;</span>: K_b,
             <span class="st">&quot;green&quot;</span>: K_n,
             <span class="st">&quot;blue&quot;</span>: K_m}
             
@@ -638,7 +671,7 @@ then, and only then, the intended (from intendation, not intention!) code within
             <span class="bu">print</span>(STATE)
             
     <span class="cf">if</span> event.<span class="bu">type</span> <span class="op">==</span> QUIT:
-        STATE <span class="op">=</span> <span class="st">&quot;quit&quot;</span></code></pre></div>
+        STATE <span class="op">=</span> <span class="st">&quot;quit&quot;</span></code></pre>
 <table>
 <thead>
 <tr class="header">
@@ -721,10 +754,7 @@ then, and only then, the intended (from intendation, not intention!) code within
 <div id="state-charts" class="section level3">
 <h3><span class="header-section-number">3.4.2</span> State charts</h3>
 <p>State charts are another tool for representing the interaction of a program. They are especially useful for developing your own programs. State charts serve as a blueprint. They depict the basic structure of your program to which you gradually add functionality. It helps to keep the basic functionality in sight while developing. You can easily get lost in small, optional features while the basic structure of your program is still unfinished. Below you see a state chart of the interaction in the Stroop Task program. States are shown as squares and conditions as diamonds. Arrows indicate the flow of the program, their labels give more information about state transition changes. Note how the state transition from <code>present_trial</code> to <code>wait_for_response</code> has no label. When you look into the code of the Stroop Task program, you will notice that the transition between these states is automatic with no further condition to be fulfilled.</p>
-<div class="figure">
-<img src="figures/Ch3statechart.png" />
-
-</div>
+<p><img src="figures/Ch3statechart.png" /></p>
 </div>
 </div>
 <div id="common-errors-1" class="section level2">
@@ -732,24 +762,26 @@ then, and only then, the intended (from intendation, not intention!) code within
 <ol style="list-style-type: decimal">
 <li>Confusing the <em>assignment operator</em> (<code>=</code>) with the comparative <em>equals operator</em> (<code>==</code>).</li>
 </ol>
-<pre><code>a = 5
-if (a = 5):
-    print(&quot;Yes, a is indeed equal to 5!&quot;)
-
-SytnaxError: invalid sytnax</code></pre>
+<pre class="sourceCode python"><code class="sourceCode python">a <span class="op">=</span> <span class="dv">5</span>
+<span class="cf">if</span> (a <span class="op">=</span> <span class="dv">5</span>):
+    <span class="bu">print</span>(<span class="st">&quot;Yes, a is indeed equal to 5!&quot;</span>)</code></pre>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">print</span>(<span class="st">&quot;Error: invalid syntax (&lt;string&gt;, line 2)&quot;</span>)</code></pre>
+<pre><code>## [1] &quot;Error: invalid syntax (&lt;string&gt;, line 2)&quot;</code></pre>
 <p>Yes, confusing the assignment operator with the comparative equals operator will be a re-occuring issue. For human beings it is just too easy to type <code>=</code> when they actually mean <code>==</code> in Python. Being a psychologist, go figure.</p>
 <ol start="2" style="list-style-type: decimal">
 <li>The most common syntax error involving <em>conditionals</em> is probably forgetting the colon at the end of the <em>head</em> of the <code>if statement</code>.</li>
 </ol>
-<pre><code>if (1 == 1)
-    print(&quot;Hello, World!&quot;)</code></pre>
+<pre class="sourceCode python"><code class="sourceCode python"><span class="cf">if</span> (<span class="dv">1</span> <span class="op">==</span> <span class="dv">1</span>)
+    <span class="bu">print</span>(<span class="st">&quot;Hello, World!&quot;</span>)</code></pre>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">print</span>(<span class="st">&quot;Error: invalid syntax (&lt;string&gt;, line 2)&quot;</span>)</code></pre>
+<pre><code>## [1] &quot;Error: invalid syntax (&lt;string&gt;, line 2)&quot;</code></pre>
 <p>Whenever you encounter a syntax error in your conditionals, you should first check whether you forgot a colon.</p>
-<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python"><span class="cf">if</span> (<span class="dv">1</span> <span class="op">==</span> <span class="dv">1</span>):
-    <span class="bu">print</span>(<span class="st">&quot;Hello, World!&quot;</span>)</code></pre></div>
+<pre class="sourceCode python"><code class="sourceCode python"><span class="cf">if</span> (<span class="dv">1</span> <span class="op">==</span> <span class="dv">1</span>):
+    <span class="bu">print</span>(<span class="st">&quot;Hello, World!&quot;</span>)</code></pre>
 <ol start="3" style="list-style-type: decimal">
 <li>Exclusively using <code>if clauses</code> in a chain of conditionals. This is a tricky one because the consequences may not immediately be apparent. Plus, no error is necessarily thrown. Still, you program somehow does not do what you expect it to do. In truth, exclusively using <code>if clauses</code> is not wrong in itself; but chances are high that you intended to use a chain of <code>if/elif clauses</code> instead. Let’s take a look at the following two code snippets to illustrate the difference between a chain of <code>if clauses</code> and a chain of <code>if/elif clauses</code>.</li>
 </ol>
-<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python">a <span class="op">=</span> <span class="dv">6</span>
+<pre class="sourceCode python"><code class="sourceCode python">a <span class="op">=</span> <span class="dv">6</span>
 <span class="cf">if</span> (a <span class="op">%</span> <span class="dv">2</span> <span class="op">==</span> <span class="dv">0</span>):
     <span class="bu">print</span>(<span class="st">&quot;a is divisible by 2&quot;</span>)
 <span class="cf">elif</span> (a <span class="op">%</span> <span class="dv">3</span> <span class="op">==</span> <span class="dv">0</span>):
@@ -757,21 +789,22 @@ SytnaxError: invalid sytnax</code></pre>
 <span class="cf">elif</span> (a <span class="op">%</span> <span class="dv">6</span> <span class="op">==</span> <span class="dv">0</span>):
     <span class="bu">print</span>(<span class="st">&quot;a is divisible by 6&quot;</span>)
 <span class="cf">else</span>:
-    <span class="bu">print</span>(<span class="st">&quot;a is not divisible by 2, 3 or 6&quot;</span>)</code></pre></div>
+    <span class="bu">print</span>(<span class="st">&quot;a is not divisible by 2, 3 or 6&quot;</span>)</code></pre>
 <pre><code>## a is divisible by 2</code></pre>
-<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python">a <span class="op">=</span> <span class="dv">6</span>
+<pre class="sourceCode python"><code class="sourceCode python">a <span class="op">=</span> <span class="dv">6</span>
 <span class="cf">if</span> (a <span class="op">%</span> <span class="dv">2</span> <span class="op">==</span> <span class="dv">0</span>):
-    <span class="bu">print</span>(<span class="st">&quot;a is divisible by 2&quot;</span>)</code></pre></div>
+    <span class="bu">print</span>(<span class="st">&quot;a is divisible by 2&quot;</span>)</code></pre>
 <pre><code>## a is divisible by 2</code></pre>
-<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python"><span class="cf">if</span> (a <span class="op">%</span> <span class="dv">3</span> <span class="op">==</span> <span class="dv">0</span>):
-    <span class="bu">print</span>(<span class="st">&quot;a is divisible by 3&quot;</span>)</code></pre></div>
+<pre class="sourceCode python"><code class="sourceCode python"><span class="cf">if</span> (a <span class="op">%</span> <span class="dv">3</span> <span class="op">==</span> <span class="dv">0</span>):
+    <span class="bu">print</span>(<span class="st">&quot;a is divisible by 3&quot;</span>)</code></pre>
 <pre><code>## a is divisible by 3</code></pre>
-<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python"><span class="cf">if</span> (a <span class="op">%</span> <span class="dv">6</span> <span class="op">==</span> <span class="dv">0</span>):
+<pre class="sourceCode python"><code class="sourceCode python"><span class="cf">if</span> (a <span class="op">%</span> <span class="dv">6</span> <span class="op">==</span> <span class="dv">0</span>):
     <span class="bu">print</span>(<span class="st">&quot;a is divisible by 6&quot;</span>)
 <span class="cf">else</span>:
-    <span class="bu">print</span>(<span class="st">&quot;a is not divisible by 2, 3 or 6&quot;</span>)</code></pre></div>
+    <span class="bu">print</span>(<span class="st">&quot;a is not divisible by 2, 3 or 6&quot;</span>)</code></pre>
 <pre><code>## a is divisible by 6</code></pre>
-<p>As you can see, in the first code snippet, only the first <code>True</code> conditional branch is executed, although <code>6</code> is obviously not only divisible by <code>2</code>, but also by <code>3</code> and <code>6</code>. In the second code snippet, however, all <code>True</code> conditions are executed consecutively. Why is that? Well, in the first code snippet we are dealing with one single <code>if statement</code> or conditional with several subclauses ( the <code>elif</code> and <code>else</code> clauses), while the second code snippet strictly speaking consists of three individual <code>if statements</code>. These three conditionals are independent from each other and as such, are executed independently from each other. The first code snippet is read as “if <code>a</code> modulo 2 equals 0 (which is the same as saying ‘if <code>a</code> is divisible by 2’), then print this or that; however, if (and only if) <code>a</code> is not divisible by 2, then look for a different <code>True</code> condition”. In contrast, the second code snippet reads as “if <code>a</code> is divisible by 2, print this or that. Full stop. If <code>a</code> is divisible by 3, print this or that. Full stop. If <code>a</code> is divisible by 6, print this, else print that”. In a chain of <code>if clauses</code> the individual clauses are disconnected, which is why they are read as a summation of individual clauses rather than one coherent statement.</p>
+<p>As you can see, in the first code snippet, only the first <code>True</code> conditional branch is executed, although <code>6</code> is obviously not only divisible by <code>2</code>, but also by <code>3</code> and <code>6</code>. In the second code snippet, however, all <code>True</code> conditions are executed consecutively. Why is that?
+Well, in the first code snippet we are dealing with one single <code>if statement</code> or conditional with several subclauses ( the <code>elif</code> and <code>else</code> clauses), while the second code snippet strictly speaking consists of three individual <code>if statements</code>. These three conditionals are independent from each other and as such, are executed independently from each other. The first code snippet is read as “if <code>a</code> modulo 2 equals 0 (which is the same as saying ‘if <code>a</code> is divisible by 2’), then print this or that; however, if (and only if) <code>a</code> is not divisible by 2, then look for a different <code>True</code> condition”. In contrast, the second code snippet reads as “if <code>a</code> is divisible by 2, print this or that. Full stop. If <code>a</code> is divisible by 3, print this or that. Full stop. If <code>a</code> is divisible by 6, print this, else print that”. In a chain of <code>if clauses</code> the individual clauses are disconnected, which is why they are read as a summation of individual clauses rather than one coherent statement.</p>
 <p>You may ask yourself why this is included in the <em>Common errors</em> section. After all, using exclusively <code>if clauses</code> is not necessarily “wrong”. The problem is that exclusively using <code>if clauses</code> may do the job at the beginning of your programming career, but it is a source for complex errors at a later stage. Remember to use chains of <code>if/elif/else clauses</code> whenever you want to need to make sure that only one <code>True</code> condition is executed at a time.</p>
 <ol start="4" style="list-style-type: decimal">
 <li>Another common error arises from using <code>tabs</code> and <code>spaces</code> interchangably to indent your code. To be honest, your Python compiler may not complain immediately when you mix <code>tabs</code> and <code>spaces</code>. However, there are good reasons why you do not want to do this anyway:</li>
@@ -796,43 +829,40 @@ SytnaxError: invalid sytnax</code></pre>
 <div id="exercise-1.-boolean-logic" class="section level3">
 <h3><span class="header-section-number">3.7.1</span> Exercise 1. Boolean logic</h3>
 <p>What is the output of the following code snippets?</p>
-<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python">a <span class="op">=</span> <span class="va">True</span>
+<pre class="sourceCode python"><code class="sourceCode python">a <span class="op">=</span> <span class="va">True</span>
 b <span class="op">=</span> <span class="va">False</span>
 
-<span class="bu">print</span>(a <span class="kw">and</span> b)</code></pre></div>
-<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python">a <span class="op">=</span> <span class="va">True</span>
+<span class="bu">print</span>(a <span class="kw">and</span> b)</code></pre>
+<pre class="sourceCode python"><code class="sourceCode python">a <span class="op">=</span> <span class="va">True</span>
 b <span class="op">=</span> <span class="va">False</span>
-<span class="bu">print</span>(<span class="kw">not</span> a <span class="kw">and</span> b)</code></pre></div>
-<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python">a <span class="op">=</span> <span class="va">True</span>
+<span class="bu">print</span>(<span class="kw">not</span> a <span class="kw">and</span> b)</code></pre>
+<pre class="sourceCode python"><code class="sourceCode python">a <span class="op">=</span> <span class="va">True</span>
 b <span class="op">=</span> <span class="va">False</span>
-<span class="bu">print</span>((<span class="kw">not</span> a) <span class="kw">or</span> b)</code></pre></div>
-<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python">a <span class="op">=</span> <span class="va">True</span>
-b <span class="op">=</span> <span class="va">False</span>
-
-<span class="bu">print</span>(<span class="kw">not</span> (a <span class="kw">and</span> b))</code></pre></div>
-<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python">a <span class="op">=</span> <span class="va">True</span>
+<span class="bu">print</span>((<span class="kw">not</span> a) <span class="kw">or</span> b)</code></pre>
+<pre class="sourceCode python"><code class="sourceCode python">a <span class="op">=</span> <span class="va">True</span>
 b <span class="op">=</span> <span class="va">False</span>
 
-<span class="bu">print</span>(<span class="kw">not</span> (a <span class="kw">or</span> b))</code></pre></div>
-<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python">a <span class="op">=</span> <span class="dv">1</span>
+<span class="bu">print</span>(<span class="kw">not</span> (a <span class="kw">and</span> b))</code></pre>
+<pre class="sourceCode python"><code class="sourceCode python">a <span class="op">=</span> <span class="va">True</span>
+b <span class="op">=</span> <span class="va">False</span>
+
+<span class="bu">print</span>(<span class="kw">not</span> (a <span class="kw">or</span> b))</code></pre>
+<pre class="sourceCode python"><code class="sourceCode python">a <span class="op">=</span> <span class="dv">1</span>
 b <span class="op">=</span> <span class="dv">2</span>
 c <span class="op">=</span> <span class="dv">4</span>
 
-<span class="bu">print</span>(a <span class="op">&gt;=</span> b <span class="kw">and</span> c <span class="op">&gt;</span> a <span class="op">+</span> b)</code></pre></div>
-<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python">a <span class="op">=</span> <span class="dv">1</span>
+<span class="bu">print</span>(a <span class="op">&gt;=</span> b <span class="kw">and</span> c <span class="op">&gt;</span> a <span class="op">+</span> b)</code></pre>
+<pre class="sourceCode python"><code class="sourceCode python">a <span class="op">=</span> <span class="dv">1</span>
 b <span class="op">=</span> <span class="dv">2</span>
 c <span class="op">=</span> <span class="dv">3</span>
 
-<span class="bu">print</span>(b <span class="op">%</span> a <span class="op">&gt;=</span> c <span class="op">-</span> (a <span class="op">+</span> b))</code></pre></div>
+<span class="bu">print</span>(b <span class="op">%</span> a <span class="op">&gt;=</span> c <span class="op">-</span> (a <span class="op">+</span> b))</code></pre>
 </div>
 <div id="exercise-2.-state-charts" class="section level3">
 <h3><span class="header-section-number">3.7.2</span> Exercise 2. State charts</h3>
 <p>A state chart visualizes the interaction of a program. Which of the code snippets matches the state chart?</p>
-<div class="figure">
-<img src="figures/ch3exB.png" />
-
-</div>
-<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python"><span class="co"># Variables</span>
+<p><img src="figures/ch3exB.png" /></p>
+<pre class="sourceCode python"><code class="sourceCode python"><span class="co"># Variables</span>
 STATE <span class="op">=</span> <span class="st">&quot;A&quot;</span>
 number_of_trials <span class="op">=</span> <span class="dv">0</span>
 
@@ -857,8 +887,8 @@ number_of_trials <span class="op">=</span> <span class="dv">0</span>
           STATE <span class="op">=</span> <span class="st">&quot;A&quot;</span>
       <span class="cf">else</span>:
           pygame.quit()
-          sys.exit()</code></pre></div>
-<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python"><span class="co"># Variables</span>
+          sys.exit()</code></pre>
+<pre class="sourceCode python"><code class="sourceCode python"><span class="co"># Variables</span>
 STATE <span class="op">=</span> <span class="st">&quot;A&quot;</span>
 number_of_trials <span class="op">=</span> <span class="dv">0</span>
 
@@ -884,8 +914,8 @@ number_of_trials <span class="op">=</span> <span class="dv">0</span>
               STATE <span class="op">=</span> <span class="st">&quot;A&quot;</span>
           <span class="cf">else</span>:
               pygame.quit()
-              sys.exit()</code></pre></div>
-<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python"><span class="co"># Variables</span>
+              sys.exit()</code></pre>
+<pre class="sourceCode python"><code class="sourceCode python"><span class="co"># Variables</span>
 STATE <span class="op">=</span> <span class="st">&quot;A&quot;</span>
 number_of_trials <span class="op">=</span> <span class="dv">0</span>
 
@@ -908,12 +938,12 @@ number_of_trials <span class="op">=</span> <span class="dv">0</span>
               STATE <span class="op">=</span> <span class="st">&quot;A&quot;</span>
           <span class="cf">else</span>:
               pygame.quit()
-              sys.exit()</code></pre></div>
+              sys.exit()</code></pre>
 </div>
 <div id="exercise-3.-transition-tables" class="section level3">
 <h3><span class="header-section-number">3.7.3</span> Exercise 3. Transition tables</h3>
 <p>For the following code snippet, make a transition table.</p>
-<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python">STATE <span class="op">=</span> <span class="st">&quot;A&quot;</span>
+<pre class="sourceCode python"><code class="sourceCode python">STATE <span class="op">=</span> <span class="st">&quot;A&quot;</span>
 
 <span class="cf">while</span> <span class="va">True</span>:
     <span class="co">#ITC</span>
@@ -945,7 +975,7 @@ number_of_trials <span class="op">=</span> <span class="dv">0</span>
         <span class="bu">print</span>(STATE)
     <span class="cf">elif</span> STATE <span class="op">==</span> <span class="st">&quot;quit&quot;</span>:
         pygame.quit()
-        sys.exit()</code></pre></div>
+        sys.exit()</code></pre>
 </div>
 <div id="exercise-4.-mini-programs" class="section level3">
 <h3><span class="header-section-number">3.7.4</span> Exercise 4. Mini programs</h3>
@@ -987,12 +1017,12 @@ if y + 1 == x or not x * 1 &lt;= y:
 <div id="exercise-5.-following-the-control-flow" class="section level3">
 <h3><span class="header-section-number">3.7.5</span> Exercise 5. Following the control flow</h3>
 <p>Read the following program code and try to follow its control flow. Write down the content of each <code>print statement</code>. Check your answers with the help of your python editor. <em>Hint</em>: spaces also add to the length of a string (as measured by the <code>len()</code> <em>method</em>)!</p>
-<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python">myString <span class="op">=</span> <span class="st">&quot;Hello, World!&quot;</span>
+<pre class="sourceCode python"><code class="sourceCode python">myString <span class="op">=</span> <span class="st">&quot;Hello, World!&quot;</span>
 <span class="cf">if</span> <span class="bu">len</span>(myString) <span class="op">&gt;=</span> <span class="dv">13</span> <span class="kw">or</span> <span class="st">&quot;ello&quot;</span> <span class="kw">in</span> myString:
     myString <span class="op">=</span> <span class="st">&quot;Hi, programming aspirant!&quot;</span>
 <span class="cf">elif</span> <span class="bu">len</span>(myString) <span class="op">&lt;=</span> <span class="dv">12</span> <span class="kw">and</span> <span class="st">&quot;ello&quot;</span> <span class="kw">in</span> myString:
     myString <span class="op">=</span> <span class="st">&quot;Hello, from the other side.&quot;</span>
-<span class="bu">print</span> myString
+<span class="bu">print</span>(myString)
 
 <span class="cf">if</span> <span class="st">&quot;Hi&quot;</span> <span class="kw">in</span> myString:
     <span class="cf">if</span> <span class="bu">len</span>(myString) <span class="op">&lt;</span> <span class="dv">25</span>:
@@ -1008,13 +1038,13 @@ if y + 1 == x or not x * 1 &lt;= y:
         myString <span class="op">=</span> myString <span class="op">+</span> <span class="st">&quot; I must have called a thousand times.&quot;</span>
     <span class="cf">else</span>:
         myString <span class="op">=</span> myString <span class="op">+</span> <span class="st">&quot; -- Adele&quot;</span>
-<span class="bu">print</span> myString
+<span class="bu">print</span>(myString)
 
 <span class="cf">if</span> <span class="st">&quot;computer&quot;</span> <span class="kw">in</span> myString <span class="kw">or</span> <span class="bu">len</span>(myString) <span class="op">==</span> <span class="dv">38</span> <span class="kw">or</span> <span class="st">&quot;HI&quot;</span> <span class="kw">in</span> myString:
     myString <span class="op">=</span> myString <span class="op">+</span> <span class="st">&quot; I myself am doing fine.&quot;</span>
 <span class="cf">else</span>:
     myString <span class="op">=</span> myString <span class="op">+</span> <span class="st">&quot; I am doing just fine.&quot;</span>
-<span class="bu">print</span> myString</code></pre></div>
+<span class="bu">print</span>(myString)</code></pre>
 </div>
 <div id="exercise-6.-indentation" class="section level3">
 <h3><span class="header-section-number">3.7.6</span> Exercise 6. Indentation</h3>
@@ -1025,9 +1055,9 @@ if a &lt; 20 and a &gt; 0:
     a = a + 3
     else:
        a = a - 3
-        print &quot;This is a dead end statement.&quot;
+        print(&quot;This is a dead end statement.&quot;)
 elif a &gt; 20:
-print &quot;This should only be printed if a exceeds 20!&quot;
+print(&quot;This should only be printed if a exceeds 20!&quot;)
 else:
     a = 17</code></pre>
 </div>
@@ -1062,7 +1092,7 @@ else:
 <p>For a research project, you want to examine to what extent gender affects the influence of coffee on a person’s performance on a vigilance task. You perform matching during sampling. All females will be grouped together, and all males will form one condition.</p>
 <p>The code below represents a decision tree that matches a candidate participant on the basis of their personal details with either condition A (for females) or condition B (for males). In addition, the decision tree raises a warning if the candidate does not meet at least one of the requirements for participation.</p>
 <p>As is, the code is quite complex, including a lot of redundant lines and unneccessary nested conditionals. First, read the code carefully to figure out the requirements a candidate participant has to meet in order to participate in the study. Then, simplify the code while maintaining its functionality.</p>
-<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python"><span class="co">### participant details </span><span class="al">###</span>
+<pre class="sourceCode python"><code class="sourceCode python"><span class="co">### participant details </span><span class="al">###</span>
 age <span class="op">=</span> <span class="dv">20</span>
 gender <span class="op">=</span> <span class="st">&quot;Male&quot;</span>
 study <span class="op">=</span> <span class="st">&quot;Psychology&quot;</span>
@@ -1078,21 +1108,21 @@ condition <span class="op">=</span> <span class="st">&quot;not eligible for the 
                 <span class="cf">if</span> coffee <span class="op">==</span> <span class="va">True</span>:
                     condition <span class="op">=</span> <span class="st">&quot;A&quot;</span>
                 <span class="cf">elif</span> coffee <span class="op">==</span> <span class="va">False</span>:
-                    <span class="bu">print</span> <span class="st">&quot;Participant is not eligible to take part in the experiment.&quot;</span>                   
+                    <span class="bu">print</span>(<span class="st">&quot;Participant is not eligible to take part in the experiment.&quot;</span>)                   
             <span class="cf">elif</span> speaks_Dutch <span class="op">==</span> <span class="va">False</span>:
-                <span class="bu">print</span> <span class="st">&quot;Participant is not eligible to take part in the experiment.&quot;</span>
+                <span class="bu">print</span>(<span class="st">&quot;Participant is not eligible to take part in the experiment.&quot;</span>)
                 
         <span class="cf">elif</span> study <span class="op">==</span> <span class="st">&quot;Psychology&quot;</span>:
             <span class="cf">if</span> speaks_Dutch <span class="op">==</span> <span class="va">True</span>:
                 <span class="cf">if</span> coffee <span class="op">==</span> <span class="va">True</span>:
                     condition <span class="op">=</span> <span class="st">&quot;A&quot;</span>
                 <span class="cf">elif</span> coffee <span class="op">==</span> <span class="va">False</span>:
-                    <span class="bu">print</span> <span class="st">&quot;Participant is not eligible to take part in the experiment.&quot;</span>                   
+                    <span class="bu">print</span>(<span class="st">&quot;Participant is not eligible to take part in the experiment.&quot;</span>)                   
             <span class="cf">elif</span> speaks_Dutch <span class="op">==</span> <span class="va">False</span>:
-                <span class="bu">print</span> <span class="st">&quot;Participant is not eligible to take part in the experiment.&quot;</span>
+                <span class="bu">print</span>(<span class="st">&quot;Participant is not eligible to take part in the experiment.&quot;</span>)
         
         <span class="cf">elif</span> study <span class="op">!=</span> <span class="st">&quot;Communication Sciences&quot;</span> <span class="kw">and</span> study <span class="op">!=</span> <span class="st">&quot;Psychology&quot;</span>:
-             <span class="bu">print</span> <span class="st">&quot;Participant is not eligible to take part in the experiment.&quot;</span>
+             <span class="bu">print</span>(<span class="st">&quot;Participant is not eligible to take part in the experiment.&quot;</span>)
                     
     <span class="cf">elif</span> gender <span class="op">==</span> <span class="st">&quot;Male&quot;</span>:
         <span class="cf">if</span> study <span class="op">==</span> <span class="st">&quot;Communication Sciences&quot;</span>:
@@ -1100,31 +1130,28 @@ condition <span class="op">=</span> <span class="st">&quot;not eligible for the 
                 <span class="cf">if</span> coffee <span class="op">==</span> <span class="va">True</span>:
                     condition <span class="op">=</span> <span class="st">&quot;B&quot;</span>
                 <span class="cf">elif</span> coffee <span class="op">==</span> <span class="va">False</span>:
-                    <span class="bu">print</span> <span class="st">&quot;Participant is not eligible to take part in the experiment.&quot;</span>                   
+                    <span class="bu">print</span>(<span class="st">&quot;Participant is not eligible to take part in the experiment.&quot;</span>)                   
             <span class="cf">elif</span> speaks_Dutch <span class="op">==</span> <span class="va">False</span>:
-                <span class="bu">print</span> <span class="st">&quot;Participant is not eligible to take part in the experiment.&quot;</span>
+                <span class="bu">print</span>(<span class="st">&quot;Participant is not eligible to take part in the experiment.&quot;</span>)
                 
         <span class="cf">elif</span> study <span class="op">==</span> <span class="st">&quot;Psychology&quot;</span>:
             <span class="cf">if</span> speaks_Dutch <span class="op">==</span> <span class="va">True</span>:
                 <span class="cf">if</span> coffee <span class="op">==</span> <span class="va">True</span>:
                     condition <span class="op">=</span> <span class="st">&quot;B&quot;</span>
                 <span class="cf">elif</span> coffee <span class="op">==</span> <span class="va">False</span>:
-                    <span class="bu">print</span> <span class="st">&quot;Participant is not eligible to take part in the experiment.&quot;</span>                   
+                    <span class="bu">print</span>(<span class="st">&quot;Participant is not eligible to take part in the experiment.&quot;</span>)                   
             <span class="cf">elif</span> speaks_Dutch <span class="op">==</span> <span class="va">False</span>:
-                <span class="bu">print</span> <span class="st">&quot;Participant is not eligible to take part in the experiment.&quot;</span>
+                <span class="bu">print</span>(<span class="st">&quot;Participant is not eligible to take part in the experiment.&quot;</span>)
                 
         <span class="cf">elif</span> study <span class="op">!=</span> <span class="st">&quot;Communication Sciences&quot;</span> <span class="kw">and</span> study <span class="op">!=</span> <span class="st">&quot;Psychology&quot;</span>:
-            <span class="bu">print</span> <span class="st">&quot;Participant is not eligible to take part in the experiment.&quot;</span>
+            <span class="bu">print</span>(<span class="st">&quot;Participant is not eligible to take part in the experiment.&quot;</span>)
 <span class="cf">else</span>:
-    <span class="bu">print</span> <span class="st">&quot;Participant is not eligible to take part in the experiment.&quot;</span></code></pre></div>
+    <span class="bu">print</span>(<span class="st">&quot;Participant is not eligible to take part in the experiment.&quot;</span>)</code></pre>
 </div>
 <div id="exercise-10.-flow-chart-conditionals" class="section level3">
 <h3><span class="header-section-number">3.7.10</span> Exercise 10. Flow chart conditionals</h3>
 <p>Turn the following flow chart into a python script and run it. Given that the initial value of <code>n</code> is <code>-1</code>, what is the final value of <code>n</code>?</p>
-<div class="figure">
-<img src="figures/Ch3Ex4.png" />
-
-</div>
+<p><img src="figures/Ch3Ex4.png" /></p>
 </div>
 </div>
 <div id="think-further-1" class="section level2">

@@ -34,6 +34,6 @@ bookdown::render_book("_bookdown.yml",
 bookdown::render_book("_bookdown.yml", 
                       output_format = "bookdown::pdf_book", 
                       clean = T,
-                      output_dir = "docs",
+                      output_dir = "docs/",
                       encoding = "UTF-8")
 

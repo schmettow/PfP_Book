@@ -47,13 +47,17 @@ Here are the three displays of the traffic light:
     .    Y    .
     G    .    .
 
-Then we capture the purpose of state and give it What we have to capture in the first place in our analysis is the *purpose of states*:
+Then we capture the purpose of state and give it What we have to capture in the first place in our analysis is the *purpose of states*.  and this we note this down in a *table of states (TOS)*:
 
-1. Go: green light indicates that drivers may pass
-2. Att(ention): yellow light indicates that drivers should prepare to stop
-3. Stop: red loght indicates that drivers must wait
 
-Notice how we named the states of the traffic light, or better how we did not call them Green, Yellow and Red. The description of the state should address the purpose of the state and not its appearance. Visual design comes at a much later point in the development process. 
+```{r echo=FALSE, message=FALSE}
+tibble::tribble(~State, ~Purpose,
+                "Go", "signal permission to cross",
+                "Att", "signal soon Stop",
+                "Stop", "No permission to cross")
+```
+
+Notice how we named the states of the traffic light, or better how we did not call them Green, Yellow and Red. Why, because colored lamps are just one medium for the signal. The description of the state should address the purpose of the state and not its appearance. When doing the analysis, rather than thinking of lamps and buzzers, think of what the user will understans. Visual design comes at a later point in the development process.
 
 ### Identifying transitions
 
@@ -70,7 +74,7 @@ DiagrammeR::mermaid("graph LR
 
 Cycling through a set of states is the most simple interaction protocol. It is unique, in that states are arrenged in a closed cycle, which implies that every state appears exactly once on the left-hand side (the original state) and the right-hand side (the destination). As we will later see, this is why we also only  need one button for a manual traffic light.
 
-Most of the time it is more complicated and one easily overlooks a possible transition. If  the number of states is not overwhelmingly large, transitions can systematically be found using a *transition table*. A transition table is just a square matrix, where you put the states into rows and columns. The rows denote the *origin* state, the columns are *target* states.
+Most of the time it is more complicated and state charts can easily go out-of-hand. We now introduce the method of *transition tables*, which breaks down the complex analysis into a series of simple questions. All we know afterthe state analysis is the set of states and that, potentially, every state can change into every other. We put this into a square matrix of states. The rows denote the *origin* state, the columns are *target* states.
 
           Go  Att Stop
     Go
@@ -93,7 +97,7 @@ Let's move on: "Does a transition from Go to Att make sense?" Absolutely! You ma
 
 
 
-It is important to realize, that transitions are not generally symmetric. In the case of a traffic light, you can go from Go to Att, but there is no transition back. In interaction models other than a uni-directional cycle, transitions can well be symmetric, think of the checkout process on webshops. Usually, they guide you through the process in a number of steps (billing address --> delivery address, credit card number), but allow you to go back to the previous step to do corrections.
+It is important to understand, that transitions are not symmetric. In the case of a traffic light, you can go from Go to Att, but there is no transition back. In interaction models other than a uni-directional cycle, transitions can well be symmetric, think of the checkout process on webshops. Usually, they guide you through the process in a number of steps (billing address --> delivery address, credit card number), but allow you to go back to the previous step to do corrections.
 
 ```{r echo = F, fig.height = 2}
 DiagrammeR::mermaid("graph LR
@@ -115,7 +119,7 @@ DiagrammeR::mermaid("graph LR
 Notice that in the traffic light example, every state is origin of exactly one transition, whereas in the checkout process there are two transitions originating at Billing. This is called *branching*. If you wonder how the program eventually decides which transition to take, read on about events.
 
 
-### Events: internal conditions and user input
+### Events: user input and internal conditions
 
 The transition table tells you which of the possible transitions are allowed and should be implemented. It does not yet tell you when this is going to happen, exactly. An *event* is a condition that triggers a transitions. Events can be internal conditions or user input. 
 

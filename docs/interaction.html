@@ -25,7 +25,7 @@
 <meta name="author" content="Martin Schmettow and Lena Brandl">
 
 
-<meta name="date" content="2019-11-07">
+<meta name="date" content="2020-02-26">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -59,41 +59,67 @@
 
 
 <style type="text/css">
-div.sourceCode { overflow-x: auto; }
-table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
-  margin: 0; padding: 0; vertical-align: baseline; border: none; }
-table.sourceCode { width: 100%; line-height: 100%; }
-td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
-td.sourceCode { padding-left: 5px; }
-code > span.kw { color: #007020; font-weight: bold; } /* Keyword */
-code > span.dt { color: #902000; } /* DataType */
-code > span.dv { color: #40a070; } /* DecVal */
-code > span.bn { color: #40a070; } /* BaseN */
-code > span.fl { color: #40a070; } /* Float */
-code > span.ch { color: #4070a0; } /* Char */
-code > span.st { color: #4070a0; } /* String */
-code > span.co { color: #60a0b0; font-style: italic; } /* Comment */
-code > span.ot { color: #007020; } /* Other */
-code > span.al { color: #ff0000; font-weight: bold; } /* Alert */
-code > span.fu { color: #06287e; } /* Function */
-code > span.er { color: #ff0000; font-weight: bold; } /* Error */
-code > span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
-code > span.cn { color: #880000; } /* Constant */
-code > span.sc { color: #4070a0; } /* SpecialChar */
-code > span.vs { color: #4070a0; } /* VerbatimString */
-code > span.ss { color: #bb6688; } /* SpecialString */
-code > span.im { } /* Import */
-code > span.va { color: #19177c; } /* Variable */
-code > span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
-code > span.op { color: #666666; } /* Operator */
-code > span.bu { } /* BuiltIn */
-code > span.ex { } /* Extension */
-code > span.pp { color: #bc7a00; } /* Preprocessor */
-code > span.at { color: #7d9029; } /* Attribute */
-code > span.do { color: #ba2121; font-style: italic; } /* Documentation */
-code > span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
-code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
-code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+a.sourceLine { display: inline-block; line-height: 1.25; }
+a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
+a.sourceLine:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+a.sourceLine { text-indent: -1em; padding-left: 1em; }
+}
+pre.numberSource a.sourceLine
+  { position: relative; left: -4em; }
+pre.numberSource a.sourceLine::before
+  { content: attr(title);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; pointer-events: all; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {  }
+@media screen {
+a.sourceLine::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
 </style>
 
 </head>
@@ -110,13 +136,17 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <ul class="summary">
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Preface</a></li>
 <li class="chapter" data-level="1" data-path="intro.html"><a href="intro.html"><i class="fa fa-check"></i><b>1</b> Introduction</a><ul>
-<li class="chapter" data-level="1.1" data-path="intro.html"><a href="intro.html#installing-python"><i class="fa fa-check"></i><b>1.1</b> Installing Python</a></li>
-<li class="chapter" data-level="1.2" data-path="intro.html"><a href="intro.html#dumb_computers"><i class="fa fa-check"></i><b>1.2</b> Computers are dumb</a></li>
-<li class="chapter" data-level="1.3" data-path="intro.html"><a href="intro.html#dive-in-a-first-example"><i class="fa fa-check"></i><b>1.3</b> Dive in: a first example</a></li>
-<li class="chapter" data-level="1.4" data-path="intro.html"><a href="intro.html#exercises"><i class="fa fa-check"></i><b>1.4</b> Exercises</a></li>
+<li class="chapter" data-level="1.1" data-path="intro.html"><a href="intro.html#installing-a-python-environment"><i class="fa fa-check"></i><b>1.1</b> Installing a Python environment</a></li>
+<li class="chapter" data-level="1.2" data-path="intro.html"><a href="intro.html#installing-the-anaconda-python-environment"><i class="fa fa-check"></i><b>1.2</b> Installing the Anaconda Python environment</a></li>
+<li class="chapter" data-level="1.3" data-path="intro.html"><a href="intro.html#windows"><i class="fa fa-check"></i><b>1.3</b> Windows</a></li>
+<li class="chapter" data-level="1.4" data-path="intro.html"><a href="intro.html#macos"><i class="fa fa-check"></i><b>1.4</b> MacOS</a></li>
+<li class="chapter" data-level="1.5" data-path="intro.html"><a href="intro.html#testing-your-environment"><i class="fa fa-check"></i><b>1.5</b> Testing your environment</a></li>
+<li class="chapter" data-level="1.6" data-path="intro.html"><a href="intro.html#dumb_computers"><i class="fa fa-check"></i><b>1.6</b> Computers are dumb</a></li>
+<li class="chapter" data-level="1.7" data-path="intro.html"><a href="intro.html#dive-in-a-first-example"><i class="fa fa-check"></i><b>1.7</b> Dive in: a first example</a></li>
+<li class="chapter" data-level="1.8" data-path="intro.html"><a href="intro.html#exercises"><i class="fa fa-check"></i><b>1.8</b> Exercises</a></li>
 </ul></li>
 <li class="chapter" data-level="2" data-path="variables.html"><a href="variables.html"><i class="fa fa-check"></i><b>2</b> Variables, values and types</a><ul>
-<li class="chapter" data-level="2.1" data-path="variables.html"><a href="variables.html#variables"><i class="fa fa-check"></i><b>2.1</b> Variables</a></li>
+<li class="chapter" data-level="2.1" data-path="variables.html"><a href="variables.html#variables-1"><i class="fa fa-check"></i><b>2.1</b> Variables</a></li>
 <li class="chapter" data-level="2.2" data-path="variables.html"><a href="variables.html#stroop-task-variables"><i class="fa fa-check"></i><b>2.2</b> Stroop Task variables</a></li>
 <li class="chapter" data-level="2.3" data-path="variables.html"><a href="variables.html#how-variables-are-used"><i class="fa fa-check"></i><b>2.3</b> How Variables Are Used</a></li>
 <li class="chapter" data-level="2.4" data-path="variables.html"><a href="variables.html#data-types"><i class="fa fa-check"></i><b>2.4</b> Data types</a><ul>
@@ -165,9 +195,8 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="3.8" data-path="conditionals.html"><a href="conditionals.html#think-further-1"><i class="fa fa-check"></i><b>3.8</b> Think Further</a></li>
 </ul></li>
 <li class="chapter" data-level="4" data-path="lists.html"><a href="lists.html"><i class="fa fa-check"></i><b>4</b> Lists</a><ul>
-<li class="chapter" data-level="4.1" data-path="lists.html"><a href="lists.html#lists"><i class="fa fa-check"></i><b>4.1</b> Lists</a><ul>
+<li class="chapter" data-level="4.1" data-path="lists.html"><a href="lists.html#lists-1"><i class="fa fa-check"></i><b>4.1</b> Lists</a><ul>
 <li class="chapter" data-level="4.1.1" data-path="lists.html"><a href="lists.html#lists-are-mutable"><i class="fa fa-check"></i><b>4.1.1</b> Lists are mutable</a></li>
-<li class="chapter" data-level="4.1.2" data-path="lists.html"><a href="lists.html#a-word-about-class-specific-functions"><i class="fa fa-check"></i><b>4.1.2</b> A word about class specific functions</a></li>
 </ul></li>
 <li class="chapter" data-level="4.2" data-path="lists.html"><a href="lists.html#tuples"><i class="fa fa-check"></i><b>4.2</b> Tuples</a></li>
 <li class="chapter" data-level="4.3" data-path="lists.html"><a href="lists.html#dictionaries"><i class="fa fa-check"></i><b>4.3</b> Dictionaries</a></li>
@@ -189,19 +218,25 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </ul></li>
 <li class="chapter" data-level="5" data-path="loops.html"><a href="loops.html"><i class="fa fa-check"></i><b>5</b> Loops</a><ul>
 <li class="chapter" data-level="5.1" data-path="loops.html"><a href="loops.html#the-for-loop"><i class="fa fa-check"></i><b>5.1</b> The <code>for</code> loop</a></li>
-<li class="chapter" data-level="5.2" data-path="loops.html"><a href="loops.html#the-while-loop"><i class="fa fa-check"></i><b>5.2</b> The <code>while</code> loop</a></li>
+<li class="chapter" data-level="5.2" data-path="loops.html"><a href="loops.html#the-while-loop"><i class="fa fa-check"></i><b>5.2</b> The <code>while</code> loop</a><ul>
+<li class="chapter" data-level="5.2.1" data-path="loops.html"><a href="loops.html#for-or-while"><i class="fa fa-check"></i><b>5.2.1</b> <code>for</code> or <code>while</code>?</a></li>
+</ul></li>
 <li class="chapter" data-level="5.3" data-path="loops.html"><a href="loops.html#the-break-statement"><i class="fa fa-check"></i><b>5.3</b> The <code>break</code> statement</a></li>
-<li class="chapter" data-level="5.4" data-path="loops.html"><a href="loops.html#control-flow"><i class="fa fa-check"></i><b>5.4</b> Control flow</a></li>
+<li class="chapter" data-level="5.4" data-path="loops.html"><a href="loops.html#controlling-the-flow-of-your-program-with-loops"><i class="fa fa-check"></i><b>5.4</b> Controlling the flow of your program with loops</a></li>
 <li class="chapter" data-level="5.5" data-path="loops.html"><a href="loops.html#common-errors-3"><i class="fa fa-check"></i><b>5.5</b> Common errors</a></li>
 <li class="chapter" data-level="5.6" data-path="loops.html"><a href="loops.html#debugging-3"><i class="fa fa-check"></i><b>5.6</b> Debugging</a></li>
 <li class="chapter" data-level="5.7" data-path="loops.html"><a href="loops.html#exercises-4"><i class="fa fa-check"></i><b>5.7</b> Exercises</a><ul>
-<li class="chapter" data-level="5.7.1" data-path="loops.html"><a href="loops.html#exercise-1.-following-the-control-flow"><i class="fa fa-check"></i><b>5.7.1</b> Exercise 1. Following the control flow</a></li>
-<li class="chapter" data-level="5.7.2" data-path="loops.html"><a href="loops.html#exercise-2.-debugging-1"><i class="fa fa-check"></i><b>5.7.2</b> Exercise 2. Debugging</a></li>
-<li class="chapter" data-level="5.7.3" data-path="loops.html"><a href="loops.html#exercise-3.-nested-loops"><i class="fa fa-check"></i><b>5.7.3</b> Exercise 3. Nested loops</a></li>
-<li class="chapter" data-level="5.7.4" data-path="loops.html"><a href="loops.html#exercise-4.-data-transformation-using-loops"><i class="fa fa-check"></i><b>5.7.4</b> Exercise 4. Data transformation using loops</a></li>
-<li class="chapter" data-level="5.7.5" data-path="loops.html"><a href="loops.html#exercise-5.-calculating-a-mean"><i class="fa fa-check"></i><b>5.7.5</b> Exercise 5. Calculating a mean</a></li>
-<li class="chapter" data-level="5.7.6" data-path="loops.html"><a href="loops.html#exercise-6.-a-guessing-game"><i class="fa fa-check"></i><b>5.7.6</b> Exercise 6. A guessing game</a></li>
+<li class="chapter" data-level="5.7.1" data-path="loops.html"><a href="loops.html#exercise-1.-following-the-control-flow-i"><i class="fa fa-check"></i><b>5.7.1</b> Exercise 1. Following the control flow I</a></li>
+<li class="chapter" data-level="5.7.2" data-path="loops.html"><a href="loops.html#exercise-2.-debugging-i"><i class="fa fa-check"></i><b>5.7.2</b> Exercise 2. Debugging I</a></li>
+<li class="chapter" data-level="5.7.3" data-path="loops.html"><a href="loops.html#exercise-3.-a-guessing-game"><i class="fa fa-check"></i><b>5.7.3</b> Exercise 3. A guessing game</a></li>
+<li class="chapter" data-level="5.7.4" data-path="loops.html"><a href="loops.html#exercise-4.-controlling-the-flow"><i class="fa fa-check"></i><b>5.7.4</b> Exercise 4. Controlling the flow</a></li>
+<li class="chapter" data-level="5.7.5" data-path="loops.html"><a href="loops.html#exercise-5.-following-the-control-flow-ii"><i class="fa fa-check"></i><b>5.7.5</b> Exercise 5. Following the control flow II</a></li>
+<li class="chapter" data-level="5.7.6" data-path="loops.html"><a href="loops.html#exercise-6.-debugging-ii"><i class="fa fa-check"></i><b>5.7.6</b> Exercise 6. Debugging II</a></li>
+<li class="chapter" data-level="5.7.7" data-path="loops.html"><a href="loops.html#exercise-7.-nested-loops"><i class="fa fa-check"></i><b>5.7.7</b> Exercise 7. Nested loops</a></li>
+<li class="chapter" data-level="5.7.8" data-path="loops.html"><a href="loops.html#exercise-8.-data-transformation-using-loops"><i class="fa fa-check"></i><b>5.7.8</b> Exercise 8. Data transformation using loops</a></li>
+<li class="chapter" data-level="5.7.9" data-path="loops.html"><a href="loops.html#exercise-9.-calculating-a-mean"><i class="fa fa-check"></i><b>5.7.9</b> Exercise 9. Calculating a mean</a></li>
 </ul></li>
+<li class="chapter" data-level="5.8" data-path="loops.html"><a href="loops.html#think-further-3"><i class="fa fa-check"></i><b>5.8</b> Think Further</a></li>
 </ul></li>
 <li class="chapter" data-level="6" data-path="functions.html"><a href="functions.html"><i class="fa fa-check"></i><b>6</b> Functions</a><ul>
 <li class="chapter" data-level="6.1" data-path="functions.html"><a href="functions.html#defining-and-calling-functions"><i class="fa fa-check"></i><b>6.1</b> Defining and calling functions</a></li>
@@ -213,33 +248,33 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="6.5" data-path="functions.html"><a href="functions.html#stroop-functions"><i class="fa fa-check"></i><b>6.5</b> Stroop functions</a></li>
 <li class="chapter" data-level="6.6" data-path="functions.html"><a href="functions.html#common-errors-4"><i class="fa fa-check"></i><b>6.6</b> Common errors</a></li>
 <li class="chapter" data-level="6.7" data-path="functions.html"><a href="functions.html#exercises-5"><i class="fa fa-check"></i><b>6.7</b> Exercises</a><ul>
-<li class="chapter" data-level="6.7.1" data-path="functions.html"><a href="functions.html#exercise-1.-following-the-control-flow-1"><i class="fa fa-check"></i><b>6.7.1</b> Exercise 1. Following the control flow</a></li>
+<li class="chapter" data-level="6.7.1" data-path="functions.html"><a href="functions.html#exercise-1.-following-the-control-flow"><i class="fa fa-check"></i><b>6.7.1</b> Exercise 1. Following the control flow</a></li>
 <li class="chapter" data-level="6.7.2" data-path="functions.html"><a href="functions.html#exercise-2.-an-imperfect-list-sorting-attempt"><i class="fa fa-check"></i><b>6.7.2</b> Exercise 2. An imperfect list sorting attempt</a></li>
 <li class="chapter" data-level="6.7.3" data-path="functions.html"><a href="functions.html#exercise-3.-an-erroneous-sorting-algorithm"><i class="fa fa-check"></i><b>6.7.3</b> Exercise 3. An erroneous sorting algorithm</a></li>
 <li class="chapter" data-level="6.7.4" data-path="functions.html"><a href="functions.html#exercise-4.-chunking"><i class="fa fa-check"></i><b>6.7.4</b> Exercise 4. Chunking</a></li>
 <li class="chapter" data-level="6.7.5" data-path="functions.html"><a href="functions.html#exercise-5.-add-functionality-to-the-stroop-task"><i class="fa fa-check"></i><b>6.7.5</b> Exercise 5. Add functionality to the stroop task</a></li>
 <li class="chapter" data-level="6.7.6" data-path="functions.html"><a href="functions.html#exercise-6.-insertion-sort-algorithm"><i class="fa fa-check"></i><b>6.7.6</b> Exercise 6. Insertion sort algorithm</a></li>
 </ul></li>
-<li class="chapter" data-level="6.8" data-path="functions.html"><a href="functions.html#think-further-3"><i class="fa fa-check"></i><b>6.8</b> Think further</a></li>
+<li class="chapter" data-level="6.8" data-path="functions.html"><a href="functions.html#think-further-4"><i class="fa fa-check"></i><b>6.8</b> Think further</a></li>
 <li class="chapter" data-level="6.9" data-path="functions.html"><a href="functions.html#references"><i class="fa fa-check"></i><b>6.9</b> References</a></li>
 </ul></li>
 <li class="chapter" data-level="7" data-path="data.html"><a href="data.html"><i class="fa fa-check"></i><b>7</b> Working with data</a><ul>
 <li class="chapter" data-level="7.1" data-path="data.html"><a href="data.html#elements-of-data-processing"><i class="fa fa-check"></i><b>7.1</b> Elements of data processing</a></li>
 <li class="chapter" data-level="7.2" data-path="data.html"><a href="data.html#data-tables"><i class="fa fa-check"></i><b>7.2</b> Data tables</a></li>
 <li class="chapter" data-level="7.3" data-path="data.html"><a href="data.html#down-the-sink-writing-data-files"><i class="fa fa-check"></i><b>7.3</b> Down the sink: Writing data files</a></li>
-<li class="chapter" data-level="7.4" data-path="data.html"><a href="data.html#may-the-source-reading-data-files"><i class="fa fa-check"></i><b>7.4</b> May the source … reading data files</a></li>
+<li class="chapter" data-level="7.4" data-path="data.html"><a href="data.html#may-the-source-reading-data-files"><i class="fa fa-check"></i><b>7.4</b> May the source …: reading data files</a></li>
 <li class="chapter" data-level="7.5" data-path="data.html"><a href="data.html#exercises-6"><i class="fa fa-check"></i><b>7.5</b> Exercises</a><ul>
 <li class="chapter" data-level="7.5.1" data-path="data.html"><a href="data.html#exercise-1"><i class="fa fa-check"></i><b>7.5.1</b> Exercise 1</a></li>
 <li class="chapter" data-level="7.5.2" data-path="data.html"><a href="data.html#exercise-2"><i class="fa fa-check"></i><b>7.5.2</b> Exercise 2</a></li>
 </ul></li>
-<li class="chapter" data-level="7.6" data-path="data.html"><a href="data.html#think-further-4"><i class="fa fa-check"></i><b>7.6</b> Think further</a></li>
+<li class="chapter" data-level="7.6" data-path="data.html"><a href="data.html#think-further-5"><i class="fa fa-check"></i><b>7.6</b> Think further</a></li>
 <li class="chapter" data-level="7.7" data-path="data.html"><a href="data.html#references-1"><i class="fa fa-check"></i><b>7.7</b> References</a></li>
 </ul></li>
 <li class="chapter" data-level="8" data-path="interaction.html"><a href="interaction.html"><i class="fa fa-check"></i><b>8</b> Interaction</a><ul>
 <li class="chapter" data-level="8.1" data-path="interaction.html"><a href="interaction.html#interaction-models"><i class="fa fa-check"></i><b>8.1</b> Interaction models</a><ul>
 <li class="chapter" data-level="8.1.1" data-path="interaction.html"><a href="interaction.html#identifying-states"><i class="fa fa-check"></i><b>8.1.1</b> Identifying states</a></li>
 <li class="chapter" data-level="8.1.2" data-path="interaction.html"><a href="interaction.html#identifying-transitions"><i class="fa fa-check"></i><b>8.1.2</b> Identifying transitions</a></li>
-<li class="chapter" data-level="8.1.3" data-path="interaction.html"><a href="interaction.html#events-internal-conditions-and-user-input"><i class="fa fa-check"></i><b>8.1.3</b> Events: internal conditions and user input</a></li>
+<li class="chapter" data-level="8.1.3" data-path="interaction.html"><a href="interaction.html#events-user-input-and-internal-conditions"><i class="fa fa-check"></i><b>8.1.3</b> Events: user input and internal conditions</a></li>
 <li class="chapter" data-level="8.1.4" data-path="interaction.html"><a href="interaction.html#exercises-7"><i class="fa fa-check"></i><b>8.1.4</b> Exercises</a></li>
 </ul></li>
 <li class="chapter" data-level="8.2" data-path="interaction.html"><a href="interaction.html#programming-interactive-prototypes"><i class="fa fa-check"></i><b>8.2</b> Programming interactive prototypes</a><ul>
@@ -264,7 +299,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="8.5.1" data-path="interaction.html"><a href="interaction.html#exercise-c.-transition-tables"><i class="fa fa-check"></i><b>8.5.1</b> Exercise C. Transition tables</a></li>
 </ul></li>
 <li class="chapter" data-level="8.6" data-path="interaction.html"><a href="interaction.html#common-errors-5"><i class="fa fa-check"></i><b>8.6</b> Common errors</a></li>
-<li class="chapter" data-level="8.7" data-path="interaction.html"><a href="interaction.html#think-further-5"><i class="fa fa-check"></i><b>8.7</b> Think Further</a></li>
+<li class="chapter" data-level="8.7" data-path="interaction.html"><a href="interaction.html#think-further-6"><i class="fa fa-check"></i><b>8.7</b> Think Further</a></li>
 </ul></li>
 <li class="chapter" data-level="9" data-path="solutions.html"><a href="solutions.html"><i class="fa fa-check"></i><b>9</b> Solutions</a><ul>
 <li class="chapter" data-level="9.1" data-path="solutions.html"><a href="solutions.html#chapter-1.-introduction"><i class="fa fa-check"></i><b>9.1</b> Chapter 1. Introduction</a></li>
@@ -294,7 +329,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </ul></li>
 <li class="chapter" data-level="9.4" data-path="solutions.html"><a href="solutions.html#chapter-4.-lists"><i class="fa fa-check"></i><b>9.4</b> Chapter 4. Lists</a><ul>
 <li class="chapter" data-level="9.4.1" data-path="solutions.html"><a href="solutions.html#exercise-1.-indexing-1"><i class="fa fa-check"></i><b>9.4.1</b> Exercise 1. Indexing</a></li>
-<li class="chapter" data-level="9.4.2" data-path="solutions.html"><a href="solutions.html#exercise-2.-debugging-2"><i class="fa fa-check"></i><b>9.4.2</b> Exercise 2. Debugging</a></li>
+<li class="chapter" data-level="9.4.2" data-path="solutions.html"><a href="solutions.html#exercise-2.-debugging-1"><i class="fa fa-check"></i><b>9.4.2</b> Exercise 2. Debugging</a></li>
 <li class="chapter" data-level="9.4.3" data-path="solutions.html"><a href="solutions.html#exercise-3.-mini-programs-3"><i class="fa fa-check"></i><b>9.4.3</b> Exercise 3. Mini programs</a></li>
 <li class="chapter" data-level="9.4.4" data-path="solutions.html"><a href="solutions.html#exercise-1.-shopping-list"><i class="fa fa-check"></i><b>9.4.4</b> Exercise 1. Shopping list</a></li>
 <li class="chapter" data-level="9.4.5" data-path="solutions.html"><a href="solutions.html#exercise-2.-dictionnaries"><i class="fa fa-check"></i><b>9.4.5</b> Exercise 2. Dictionnaries</a></li>
@@ -304,15 +339,18 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="9.4.9" data-path="solutions.html"><a href="solutions.html#exercise-6.-stroop-extension"><i class="fa fa-check"></i><b>9.4.9</b> Exercise 6. Stroop extension</a></li>
 </ul></li>
 <li class="chapter" data-level="9.5" data-path="solutions.html"><a href="solutions.html#chapter-5.-loops"><i class="fa fa-check"></i><b>9.5</b> Chapter 5. Loops</a><ul>
-<li class="chapter" data-level="9.5.1" data-path="solutions.html"><a href="solutions.html#exercise-1.-following-the-control-flow-2"><i class="fa fa-check"></i><b>9.5.1</b> Exercise 1. Following the control flow</a></li>
-<li class="chapter" data-level="9.5.2" data-path="solutions.html"><a href="solutions.html#exercise-2.-debugging-3"><i class="fa fa-check"></i><b>9.5.2</b> Exercise 2. Debugging</a></li>
-<li class="chapter" data-level="9.5.3" data-path="solutions.html"><a href="solutions.html#exercise-3.-nested-loops-1"><i class="fa fa-check"></i><b>9.5.3</b> Exercise 3. Nested loops</a></li>
-<li class="chapter" data-level="9.5.4" data-path="solutions.html"><a href="solutions.html#exercise-4.-data-transformation-using-loops-1"><i class="fa fa-check"></i><b>9.5.4</b> Exercise 4. Data transformation using loops</a></li>
-<li class="chapter" data-level="9.5.5" data-path="solutions.html"><a href="solutions.html#exercise-5.-calculating-a-mean-1"><i class="fa fa-check"></i><b>9.5.5</b> Exercise 5. Calculating a mean</a></li>
-<li class="chapter" data-level="9.5.6" data-path="solutions.html"><a href="solutions.html#exercise-6.-a-guessing-game-1"><i class="fa fa-check"></i><b>9.5.6</b> Exercise 6. A guessing game</a></li>
+<li class="chapter" data-level="9.5.1" data-path="solutions.html"><a href="solutions.html#exercise-1.-following-the-control-flow-i-1"><i class="fa fa-check"></i><b>9.5.1</b> Exercise 1. Following the control flow I</a></li>
+<li class="chapter" data-level="9.5.2" data-path="solutions.html"><a href="solutions.html#exercise-2.-debugging-i-1"><i class="fa fa-check"></i><b>9.5.2</b> Exercise 2. Debugging I</a></li>
+<li class="chapter" data-level="9.5.3" data-path="solutions.html"><a href="solutions.html#exercise-3.-controlling-the-flow"><i class="fa fa-check"></i><b>9.5.3</b> Exercise 3. Controlling the flow</a></li>
+<li class="chapter" data-level="9.5.4" data-path="solutions.html"><a href="solutions.html#exercise-4.-following-the-control-flow-ii"><i class="fa fa-check"></i><b>9.5.4</b> Exercise 4. Following the control flow II</a></li>
+<li class="chapter" data-level="9.5.5" data-path="solutions.html"><a href="solutions.html#exercise-5.-debugging"><i class="fa fa-check"></i><b>9.5.5</b> Exercise 5. Debugging</a></li>
+<li class="chapter" data-level="9.5.6" data-path="solutions.html"><a href="solutions.html#exercise-6.-nested-loops"><i class="fa fa-check"></i><b>9.5.6</b> Exercise 6. Nested loops</a></li>
+<li class="chapter" data-level="9.5.7" data-path="solutions.html"><a href="solutions.html#exercise-7.-data-transformation-using-loops"><i class="fa fa-check"></i><b>9.5.7</b> Exercise 7. Data transformation using loops</a></li>
+<li class="chapter" data-level="9.5.8" data-path="solutions.html"><a href="solutions.html#exercise-8.-calculating-a-mean"><i class="fa fa-check"></i><b>9.5.8</b> Exercise 8. Calculating a mean</a></li>
+<li class="chapter" data-level="9.5.9" data-path="solutions.html"><a href="solutions.html#exercise-9.-a-guessing-game"><i class="fa fa-check"></i><b>9.5.9</b> Exercise 9. A guessing game</a></li>
 </ul></li>
 <li class="chapter" data-level="9.6" data-path="solutions.html"><a href="solutions.html#chapter-6.-functions"><i class="fa fa-check"></i><b>9.6</b> Chapter 6. Functions</a><ul>
-<li class="chapter" data-level="9.6.1" data-path="solutions.html"><a href="solutions.html#exercise-1.-following-the-control-flow-3"><i class="fa fa-check"></i><b>9.6.1</b> Exercise 1. Following the control flow</a></li>
+<li class="chapter" data-level="9.6.1" data-path="solutions.html"><a href="solutions.html#exercise-1.-following-the-control-flow-1"><i class="fa fa-check"></i><b>9.6.1</b> Exercise 1. Following the control flow</a></li>
 <li class="chapter" data-level="9.6.2" data-path="solutions.html"><a href="solutions.html#exercise-2.-an-imperfect-list-sorting-attempt-1"><i class="fa fa-check"></i><b>9.6.2</b> Exercise 2. An imperfect list sorting attempt</a></li>
 <li class="chapter" data-level="9.6.3" data-path="solutions.html"><a href="solutions.html#exercise-3.-an-errorneous-sorting-algorithm"><i class="fa fa-check"></i><b>9.6.3</b> Exercise 3. An errorneous sorting algorithm</a></li>
 <li class="chapter" data-level="9.6.4" data-path="solutions.html"><a href="solutions.html#exercise-4."><i class="fa fa-check"></i><b>9.6.4</b> Exercise 4.</a></li>
@@ -321,12 +359,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="10" data-path="debugging-and-good-programming-practices.html"><a href="debugging-and-good-programming-practices.html"><i class="fa fa-check"></i><b>10</b> Debugging and good programming practices</a><ul>
-<li class="chapter" data-level="10.1" data-path="debugging-and-good-programming-practices.html"><a href="debugging-and-good-programming-practices.html#debugging-4"><i class="fa fa-check"></i><b>10.1</b> Debugging</a><ul>
-<li class="chapter" data-level="10.1.1" data-path="debugging-and-good-programming-practices.html"><a href="debugging-and-good-programming-practices.html#the-print-statement-is-an-aspiring-programmers-best-friend"><i class="fa fa-check"></i><b>10.1.1</b> The print statement is an aspiring programmer’s best friend</a></li>
-<li class="chapter" data-level="10.1.2" data-path="debugging-and-good-programming-practices.html"><a href="debugging-and-good-programming-practices.html#frequent-unit-testing"><i class="fa fa-check"></i><b>10.1.2</b> Frequent unit-testing</a></li>
-<li class="chapter" data-level="10.1.3" data-path="debugging-and-good-programming-practices.html"><a href="debugging-and-good-programming-practices.html#the-copy-paste-syndrome"><i class="fa fa-check"></i><b>10.1.3</b> The copy-paste syndrome</a></li>
-<li class="chapter" data-level="10.1.4" data-path="debugging-and-good-programming-practices.html"><a href="debugging-and-good-programming-practices.html#standing-on-the-shoulders-of-giants"><i class="fa fa-check"></i><b>10.1.4</b> Standing on the shoulders of giants</a></li>
-</ul></li>
+<li class="chapter" data-level="10.1" data-path="debugging-and-good-programming-practices.html"><a href="debugging-and-good-programming-practices.html#debugging-4"><i class="fa fa-check"></i><b>10.1</b> Debugging</a></li>
 <li class="chapter" data-level="10.2" data-path="debugging-and-good-programming-practices.html"><a href="debugging-and-good-programming-practices.html#boosting-your-programming-learning-curve"><i class="fa fa-check"></i><b>10.2</b> Boosting your programming learning curve</a><ul>
 <li class="chapter" data-level="10.2.1" data-path="debugging-and-good-programming-practices.html"><a href="debugging-and-good-programming-practices.html#going-with-the-flow"><i class="fa fa-check"></i><b>10.2.1</b> Going with the flow</a></li>
 <li class="chapter" data-level="10.2.2" data-path="debugging-and-good-programming-practices.html"><a href="debugging-and-good-programming-practices.html#just-do-it"><i class="fa fa-check"></i><b>10.2.2</b> Just do it!</a></li>
@@ -384,21 +417,22 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <pre><code>.    .    R
 .    Y    .
 G    .    .</code></pre>
-<p>Then we capture the purpose of state and give it What we have to capture in the first place in our analysis is the <em>purpose of states</em>:</p>
-<ol style="list-style-type: decimal">
-<li>Go: green light indicates that drivers may pass</li>
-<li>Att(ention): yellow light indicates that drivers should prepare to stop</li>
-<li>Stop: red loght indicates that drivers must wait</li>
-</ol>
-<p>Notice how we named the states of the traffic light, or better how we did not call them Green, Yellow and Red. The description of the state should address the purpose of the state and not its appearance. Visual design comes at a much later point in the development process.</p>
+<p>Then we capture the purpose of state and give it What we have to capture in the first place in our analysis is the <em>purpose of states</em>. and this we note this down in a <em>table of states (TOS)</em>:</p>
+<pre><code>## # A tibble: 3 x 2
+##   State Purpose                   
+##   &lt;chr&gt; &lt;chr&gt;                     
+## 1 Go    signal permission to cross
+## 2 Att   signal soon Stop          
+## 3 Stop  No permission to cross</code></pre>
+<p>Notice how we named the states of the traffic light, or better how we did not call them Green, Yellow and Red. Why, because colored lamps are just one medium for the signal. The description of the state should address the purpose of the state and not its appearance. When doing the analysis, rather than thinking of lamps and buzzers, think of what the user will understans. Visual design comes at a later point in the development process.</p>
 </div>
 <div id="identifying-transitions" class="section level3">
 <h3><span class="header-section-number">8.1.2</span> Identifying transitions</h3>
 <p>The second step in the analysis is about identifying the <em>transitions</em> between states. The Dutch traffic light knows three transitions:</p>
-<div id="htmlwidget-1478bd8bf8d99f3d781d" style="width:672px;height:480px;" class="DiagrammeR html-widget"></div>
-<script type="application/json" data-for="htmlwidget-1478bd8bf8d99f3d781d">{"x":{"diagram":"graph LR\n         Go   --> Att\n         Att  --> Stop\n         Stop --> Go"},"evals":[],"jsHooks":[]}</script>
+<div id="htmlwidget-d4978f28917acb4035ba" style="width:672px;height:480px;" class="DiagrammeR html-widget"></div>
+<script type="application/json" data-for="htmlwidget-d4978f28917acb4035ba">{"x":{"diagram":"graph LR\n         Go   --> Att\n         Att  --> Stop\n         Stop --> Go"},"evals":[],"jsHooks":[]}</script>
 <p>Cycling through a set of states is the most simple interaction protocol. It is unique, in that states are arrenged in a closed cycle, which implies that every state appears exactly once on the left-hand side (the original state) and the right-hand side (the destination). As we will later see, this is why we also only need one button for a manual traffic light.</p>
-<p>Most of the time it is more complicated and one easily overlooks a possible transition. If the number of states is not overwhelmingly large, transitions can systematically be found using a <em>transition table</em>. A transition table is just a square matrix, where you put the states into rows and columns. The rows denote the <em>origin</em> state, the columns are <em>target</em> states.</p>
+<p>Most of the time it is more complicated and state charts can easily go out-of-hand. We now introduce the method of <em>transition tables</em>, which breaks down the complex analysis into a series of simple questions. All we know afterthe state analysis is the set of states and that, potentially, every state can change into every other. We put this into a square matrix of states. The rows denote the <em>origin</em> state, the columns are <em>target</em> states.</p>
 <pre><code>      Go  Att Stop
 Go
 Att
@@ -413,9 +447,9 @@ Goodbye  </code></pre>
 Go          X
 Att             X
 Stop  X</code></pre>
-<p>It is important to realize, that transitions are not generally symmetric. In the case of a traffic light, you can go from Go to Att, but there is no transition back. In interaction models other than a uni-directional cycle, transitions can well be symmetric, think of the checkout process on webshops. Usually, they guide you through the process in a number of steps (billing address –&gt; delivery address, credit card number), but allow you to go back to the previous step to do corrections.</p>
-<div id="htmlwidget-d3e187675a7b264f1aec" style="width:672px;height:192px;" class="DiagrammeR html-widget"></div>
-<script type="application/json" data-for="htmlwidget-d3e187675a7b264f1aec">{"x":{"diagram":"graph LR\n    Delivery    --> Billing\n    Billing    --> Credit_card\n    Credit_card --> Billing\n    Billing     --> Delivery"},"evals":[],"jsHooks":[]}</script>
+<p>It is important to understand, that transitions are not symmetric. In the case of a traffic light, you can go from Go to Att, but there is no transition back. In interaction models other than a uni-directional cycle, transitions can well be symmetric, think of the checkout process on webshops. Usually, they guide you through the process in a number of steps (billing address –&gt; delivery address, credit card number), but allow you to go back to the previous step to do corrections.</p>
+<div id="htmlwidget-a369842cf2bc00b4077a" style="width:672px;height:192px;" class="DiagrammeR html-widget"></div>
+<script type="application/json" data-for="htmlwidget-a369842cf2bc00b4077a">{"x":{"diagram":"graph LR\n    Delivery    --> Billing\n    Billing    --> Credit_card\n    Credit_card --> Billing\n    Billing     --> Delivery"},"evals":[],"jsHooks":[]}</script>
 <pre><code>             Delivery  Billing Credit_card
 Delivery               x
 Billing      x                 x
@@ -423,8 +457,8 @@ Credit_card            x       </code></pre>
 <!-- #5 specify initial state -->
 <p>Notice that in the traffic light example, every state is origin of exactly one transition, whereas in the checkout process there are two transitions originating at Billing. This is called <em>branching</em>. If you wonder how the program eventually decides which transition to take, read on about events.</p>
 </div>
-<div id="events-internal-conditions-and-user-input" class="section level3">
-<h3><span class="header-section-number">8.1.3</span> Events: internal conditions and user input</h3>
+<div id="events-user-input-and-internal-conditions" class="section level3">
+<h3><span class="header-section-number">8.1.3</span> Events: user input and internal conditions</h3>
 <p>The transition table tells you which of the possible transitions are allowed and should be implemented. It does not yet tell you when this is going to happen, exactly. An <em>event</em> is a condition that triggers a transitions. Events can be internal conditions or user input.</p>
 <p><em>Internal conditions</em> do not require user input. The program decides solely by itself, when to transit. This is why we call transitions on internal conditions <em>automatic transitions</em>. A typical case of automatic transitions is control by a timer. If we assume that the Dutch traffic light runs automatically, without someone standing next to it (in a yellow vest) and pushing buttons, all transitions must be automatic. Certainly, we do not want the traffic light to change states instantly, but only after a certain time has passed. For the interaction model that means we have to specify the resting time in every state. We do that right on the transition table by replacing the crosses with a brief description of the condition that makes the system leave the origin state:</p>
 <pre><code>      Go  Att   Stop
@@ -494,14 +528,14 @@ STATE = "Billing"the sole purpose of checking whether your interaction model doe
 <div id="interactive-transitionals" class="section level3">
 <h3><span class="header-section-number">8.2.1</span> Interactive transitionals</h3>
 <p>The following code snippet implements two interactive transitional with the same origin, namely the transition from Billing to Delivery and Credit_card:</p>
-<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python"><span class="bu">print</span>(STATE)
+<pre class="sourceCode python"><code class="sourceCode python"><span class="bu">print</span>(STATE)
 key <span class="op">=</span> <span class="bu">input</span>(<span class="st">&quot;Press a key: &quot;</span>)
 
 <span class="cf">if</span> STATE <span class="op">==</span> <span class="st">&quot;Billing&quot;</span> <span class="kw">and</span> key <span class="op">==</span> <span class="st">&quot;p&quot;</span>:
   STATE <span class="op">=</span> <span class="st">&quot;Delivery&quot;</span>
 
 <span class="cf">if</span> STATE <span class="op">==</span> <span class="st">&quot;Billing&quot;</span> <span class="kw">and</span> key <span class="op">==</span> <span class="st">&quot;n&quot;</span>:
-  STATE <span class="op">=</span> <span class="st">&quot;Credit_card&quot;</span></code></pre></div>
+  STATE <span class="op">=</span> <span class="st">&quot;Credit_card&quot;</span></code></pre>
 <p>Notice that</p>
 <ol style="list-style-type: decimal">
 <li>the state of a program is maintained as a plain String variable</li>
@@ -515,7 +549,7 @@ Delivery               Next                     X
 Billing      Previous              Next         X
 Credit_card            Previous                 X, Next</code></pre>
 <p>The interaction prototype of Checkout looks like the following.</p>
-<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python">STATE <span class="op">=</span> <span class="st">&quot;Delivery&quot;</span>
+<pre class="sourceCode python"><code class="sourceCode python">STATE <span class="op">=</span> <span class="st">&quot;Delivery&quot;</span>
 <span class="cf">while</span> <span class="va">True</span>:
   
   <span class="bu">print</span>(STATE)
@@ -549,7 +583,7 @@ Credit_card            Previous                 X, Next</code></pre>
     <span class="cf">break</span>
     
     
-exit()</code></pre></div>
+exit()</code></pre>
 <p>Notice that:</p>
 <ol style="list-style-type: decimal">
 <li>the loop itself comes with no conditions itself. It just plainly loops, until someone proves that the truth is not true.</li>
@@ -571,7 +605,7 @@ exit()</code></pre></div>
   elif ...
   continue</code></pre>
 <p>There is no difference in functionality between these two forms of transitionals, but for longer programs it may be easier to read. With nested transitionals, the checkout program would look like the following:</p>
-<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python">STATE <span class="op">=</span> <span class="st">&quot;Delivery&quot;</span>
+<pre class="sourceCode python"><code class="sourceCode python">STATE <span class="op">=</span> <span class="st">&quot;Delivery&quot;</span>
 <span class="cf">while</span> <span class="va">True</span>:
   
   <span class="bu">print</span>(STATE)
@@ -596,7 +630,7 @@ exit()</code></pre></div>
     <span class="cf">continue</span>
   
   <span class="cf">if</span> STATE <span class="op">==</span> <span class="st">&quot;Exit&quot;</span>:
-    <span class="cf">break</span></code></pre></div>
+    <span class="cf">break</span></code></pre>
 <p>Notice that</p>
 <ol style="list-style-type: decimal">
 <li>the indentation visually groups all transitions that belong to the same origin state</li>
@@ -614,7 +648,7 @@ exit()</code></pre></div>
 </ul>
 <p>A frequent case of automatic transitions is staying in a state for a certain amount of time, then move on to the next state. Take as an example a dia show program that automatically shows every picture for, say, 30 seconds. Fortunately, automatic transitions almost look the same, the only difference being that <code>&lt;event&gt;</code> becomes <code>&lt;condition&gt;</code>.</p>
 <p>As you have experienced at the Stroop task theater play from chapter <a href="intro.html#intro">1</a> dealing with time requires some extra tricks. For example, how do we let the automatic traffic light rest in the Go state for exactly 20 seconds? We set a timestamp and wait for the difference to become 20 seconds or longer. Fortunately, for interaction prototypes, there is a cheap and dirty trick to do that more straight-forwardly, which is the command <code>sleep(20)</code>. It suspends the whole program and wakes it up after twenty seconds. Why is that dirty? For two reasons: First, it only works for interaction prototypes, but not Pygame programs. For example, when you are showing animated stimuli, putting the whole program on halt won’t work. Second, you will not be able to bypass the waiting time, say, the user wants to prematurely proceed to the next picture in the dia show.</p>
-<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python"><span class="im">from</span> time <span class="im">import</span> sleep
+<pre class="sourceCode python"><code class="sourceCode python"><span class="im">from</span> time <span class="im">import</span> sleep
 STATE <span class="op">=</span> <span class="st">&quot;Stop&quot;</span> <span class="co"># Att, Go</span>
 <span class="cf">while</span> <span class="va">True</span>:
     <span class="bu">print</span>(STATE)
@@ -631,9 +665,9 @@ STATE <span class="op">=</span> <span class="st">&quot;Stop&quot;</span> <span c
     <span class="cf">if</span> STATE <span class="op">==</span> <span class="st">&quot;Stop&quot;</span>:
       sleep(<span class="dv">2</span>)
       STATE <span class="op">=</span> <span class="st">&quot;Go&quot;</span>
-      <span class="cf">continue</span></code></pre></div>
+      <span class="cf">continue</span></code></pre>
 <p>A program can be (and typically is) a mix of interactive and automatic transitionals. For example, we could create a semi-automatic traffic light, where the operator only has to switch Stop and Go. When set to Stop, the program first goes to state Att, rests there for a few seconds and than automatically moves on to Stop.</p>
-<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python"><span class="im">from</span> time <span class="im">import</span> sleep
+<pre class="sourceCode python"><code class="sourceCode python"><span class="im">from</span> time <span class="im">import</span> sleep
 STATE <span class="op">=</span> <span class="st">&quot;Stop&quot;</span> <span class="co"># Att, Go</span>
 <span class="cf">while</span> <span class="va">True</span>:
     <span class="bu">print</span>(STATE)
@@ -650,7 +684,7 @@ STATE <span class="op">=</span> <span class="st">&quot;Stop&quot;</span> <span c
     <span class="cf">if</span> STATE <span class="op">==</span> <span class="st">&quot;Stop&quot;</span>:
       <span class="bu">input</span>(<span class="st">&quot;Hit Return&quot;</span>)
       STATE <span class="op">=</span> <span class="st">&quot;Go&quot;</span>
-      <span class="cf">continue</span></code></pre></div>
+      <span class="cf">continue</span></code></pre>
 <p>Notice that</p>
 <ol style="list-style-type: decimal">
 <li>the <code>input</code> commands moved into the transitionals as otherwise the loop would prompt for input for automatic transitions, as well, which is just not the idea. Later, we will use the event handling mechanism of Pygame, which will provide a better solution for mixing interactive and automatic transitionals.</li>
@@ -661,7 +695,7 @@ STATE <span class="op">=</span> <span class="st">&quot;Stop&quot;</span> <span c
 <h3><span class="header-section-number">8.2.3</span> The timestamp method</h3>
 <p>As we have said, for a prototype, the <code>sleep(s)</code> is fine in most cases to cause a delayed reaction, but not when we start coding with Pygame. Then we have to use the timestamp method, which has little benefits for interactive prototypes. Still, it seems in order to introduce this method on the somewhat cleaner code of the interactive prototypes.</p>
 <p>The following code shows, how to implement a time delay by setting a timestamp and comparing the difference with current time in the automatic traffic light example.</p>
-<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python"><span class="im">from</span> time <span class="im">import</span> time
+<pre class="sourceCode python"><code class="sourceCode python"><span class="im">from</span> time <span class="im">import</span> time
 STATE <span class="op">=</span> <span class="st">&quot;Go&quot;</span> <span class="co"># Att, Go</span>
 time_stamp <span class="op">=</span> time()
 <span class="cf">while</span> <span class="va">True</span>:
@@ -684,7 +718,7 @@ time_stamp <span class="op">=</span> time()
       STATE <span class="op">=</span> <span class="st">&quot;Go&quot;</span>
       time_stamp <span class="op">=</span> time()
       <span class="bu">print</span>(STATE)
-      <span class="cf">continue</span></code></pre></div>
+      <span class="cf">continue</span></code></pre>
 <p>Notice that</p>
 <ul>
 <li>the second condition of time-controlled transitionals carries the waiting time</li>
@@ -721,7 +755,7 @@ With the time stamp method we can write our prototype in a way that comes closer
 <li>we use <code>if</code> statements without <code>continue</code>. If we would do otherwise, the iteration would jump over our carefully crafted transitionals and nothing will ever happen anymore. We also don’t need to break the iteration, because the program always is in exactly one state and the presetitionals never change state. That makes sure that exactly one presentitional will fire during a single iteration.</li>
 <li>presentitionals come before transitionals, as otherwise they would fall prey to the <code>continue</code> statement and never show up. With Pygame, due to its better event handler mechanism, this is no longer necessary and it seems more logical to put presentitionals last.</li>
 </ol>
-<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python">STATE <span class="op">=</span> <span class="st">&quot;Delivery&quot;</span>
+<pre class="sourceCode python"><code class="sourceCode python">STATE <span class="op">=</span> <span class="st">&quot;Delivery&quot;</span>
 <span class="cf">while</span> <span class="va">True</span>:
   
   <span class="co"># presentation conditionals</span>
@@ -760,14 +794,14 @@ With the time stamp method we can write our prototype in a way that comes closer
       STATE <span class="op">=</span> <span class="st">&quot;Exit&quot;</span>
     <span class="cf">elif</span> key <span class="op">==</span> <span class="st">&quot;p&quot;</span>:
       STATE <span class="op">=</span> <span class="st">&quot;Billing&quot;</span>
-    <span class="cf">continue</span></code></pre></div>
+    <span class="cf">continue</span></code></pre>
 </div>
 </div>
 <div id="interactions-in-pygame" class="section level2">
 <h2><span class="header-section-number">8.3</span> Interactions in Pygame</h2>
 <div id="overall-structure" class="section level3">
 <h3><span class="header-section-number">8.3.1</span> Overall structure</h3>
-<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python">BACKGR_COL <span class="op">=</span> col_gray
+<pre class="sourceCode python"><code class="sourceCode python">BACKGR_COL <span class="op">=</span> col_gray
 SCREEN_SIZE <span class="op">=</span> (<span class="dv">700</span>, <span class="dv">500</span>)
 pygame.init()
 pygame.display.set_mode(SCREEN_SIZE) 
@@ -792,12 +826,12 @@ font_small <span class="op">=</span> pygame.font.Font(<span class="va">None</spa
   
           <span class="co"># Updating the display</span>
           pygame.display.update()
-main()</code></pre></div>
+main()</code></pre>
 <p>Notice that:</p>
 <ol style="list-style-type: decimal">
 <li>The code for setting up the display looks complicated, but it usually suffices to just copy that part of the code whenever we start a new project. Still, you probably want to configure a few aspects to your requirements:
 <ul>
-<li>choose a background color, e.g. <code>col_black</code> or <code>#FFFFFF</code> (white)</li>
+<li>choose a background color, e.g. <code>col_black</code> or <code>#FFFFFF</code> (white)</li>
 <li>set the width and height of the screen by changing <code>SCREEN_SIZE</code></li>
 <li>change the caption of the screen (to appear in the top bar of the window)</li>
 <li>change font and font size</li>
@@ -822,14 +856,14 @@ main()</code></pre></div>
 <h3><span class="header-section-number">8.3.3</span> Handling user input</h3>
 <p>With Pygame you can create interactive programs that react fluently to user input. There no longer is a prompt that waits for input and requires Return to continue. User input in Pygame programs is handled by a very clever mechanism called the <em>event handler queue</em>. You don’t actually see it, as it is set up behind the scenes by <code>pygame.init()</code>. It acts a lot like a descretive secretary: it stays in teh background and collects the incoming messages, hands them over one by one to the executive and lets her do her own thing with it.</p>
 <p>While the fast <code>while</code> loop runs in the foreground, the event handler is a separate mechanism that continuously listens to input from keyboard or mouse. Whenever something happens, a key is pressed or the mouse is pushed, the event handler registers this event and puts it in a queue. At every regresh this queue is retrieved and emptied by <code>pygame.event.get()</code>, which returns the queue as a list. The event <code>for</code> loop iterates over this list, pulling out the events one by one out and handing them over to the interactive transitionals.</p>
-<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python"><span class="co"># Event handler</span>
+<pre class="sourceCode python"><code class="sourceCode python"><span class="co"># Event handler</span>
 <span class="cf">for</span> event <span class="kw">in</span> pygame.event.get(): 
     <span class="co"># interactive transitionals                     </span>
     <span class="cf">if</span> STATE <span class="op">==</span> <span class="st">&quot;welcome&quot;</span>:
         <span class="cf">if</span> event.<span class="bu">type</span> <span class="op">==</span> KEYDOWN <span class="kw">and</span> event.key <span class="op">==</span> K_SPACE:
             STATE <span class="op">=</span> <span class="st">&quot;prepare_next_trial&quot;</span>
             <span class="bu">print</span>(STATE)
-            <span class="cf">continue</span></code></pre></div>
+            <span class="cf">continue</span></code></pre>
 <p>Notice that</p>
 <ol style="list-style-type: decimal">
 <li>when there is no input, the event loop never runs and none of the interactive transitionals wil fire. The event handler loop acts like a conditional most of the time. It sits in the fast refresh loop and therefore is idle most of the iterations. That is why you should never put automatic transitionals into the event loop.</li>
@@ -842,7 +876,7 @@ main()</code></pre></div>
 <div id="transitionals" class="section level3">
 <h3><span class="header-section-number">8.3.4</span> Transitionals</h3>
 <p>Interactive transitionals differ only slightly. Because of the event handler mechanism they no longer reside under the fast <code>while</code>, but one level deeper in the event handler loop. If you use a print statement to see the state transitions on the console, these must go into the individual transitionals, see yourself:</p>
-<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python"><span class="co"># Event loop</span>
+<pre class="sourceCode python"><code class="sourceCode python"><span class="co"># Event loop</span>
 <span class="cf">for</span> event <span class="kw">in</span> pygame.event.get():
     
     <span class="co"># interactive transitionals                     </span>
@@ -873,7 +907,7 @@ main()</code></pre></div>
     <span class="cf">if</span> event.<span class="bu">type</span> <span class="op">==</span> QUIT:
         STATE <span class="op">=</span> <span class="st">&quot;quit&quot;</span>
         <span class="bu">print</span>(STATE)
-        <span class="cf">break</span></code></pre></div>
+        <span class="cf">break</span></code></pre>
 <p>Notice that:</p>
 <ol style="list-style-type: decimal">
 <li>the event condition gets a little more complicated (more on that below) and that lets us prefer nested transitionals</li>
@@ -883,14 +917,14 @@ main()</code></pre></div>
 </ol>
 <p>Automatic transitionals in Pygame differ in no way from automatic transitionals in console prototypes, except when you have to use the time_stamp method to cause a delay. They have the same structure and they remain directly under the fast <code>while</code> loop.</p>
 <p>There is one automatic transitional in the Stroop program, that is a little special on closer examination: With every new trial, the transitional <code>prepare_trial</code> is triggered and automatically the program moves on to <code>show_trial</code>. On closer examination this transitional is different to the ones we have seen before, because the state <code>prepare_trial</code> does not have a presentational. It is completely invisible to the user, a <em>ghost transitional</em>. We also notice that there is quite some extra code inside. Some serious data processing is done, before the actual transition.</p>
-<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python"><span class="co"># automatic transitionals</span>
+<pre class="sourceCode python"><code class="sourceCode python"><span class="co"># automatic transitionals</span>
 <span class="cf">if</span> STATE <span class="op">==</span> <span class="st">&quot;prepare_trial&quot;</span>:
         trial_number <span class="op">=</span> trial_number <span class="op">+</span> <span class="dv">1</span>
         this_word  <span class="op">=</span> pick_color()
         this_color <span class="op">=</span> pick_color()
         time_when_presented <span class="op">=</span> time()
         STATE <span class="op">=</span> <span class="st">&quot;show_trial&quot;</span>
-        <span class="bu">print</span>(STATE)    </code></pre></div>
+        <span class="bu">print</span>(STATE)    </code></pre>
 <p>This transition actually prepares all aspects of the stimulus, before it is shown. But, why aren’t these computations just be done during a direct transition to <code>show_trial</code>? In fact, for the little program we have here, it does not matter. It is just there to have one automatic transitional.</p>
 <p>But, there are situations, where using ghost transitionals can be useful</p>
 <ul>
@@ -907,9 +941,9 @@ main()</code></pre></div>
 <p>So, this conditional asks for the type of the event, which is that a key has been pressed down. Note that this is more basic than that a key has been entered, as that would also mean it has been released. The secod condition is about the key. Different to our prototypes, this is not a literal character, but a constant, that Pygame has predefined. That helps to deal with keys that do not have a character assigned, such as Return, Alt, Ctrl and the arrows on your keyboard. The full list of key definitions can be found in the [Pygame documentation]:(<a href="https://www.pygame.org/docs/ref/key.html" class="uri">https://www.pygame.org/docs/ref/key.html</a>).</p>
 <p>When theer is a <code>KEYDOWN</code> there must also be a <code>KEYUP</code> event type, that is recorded, when the key is released again. That can be quite useful, when the goal is to do something as long as the key is pressed. Just try out what the key arrow_up does when you are editing a document. It moves the cursor up the lines until you release it.</p>
 <p>The full list of event types is given in the [Pygame documentation]:(<a href="https://www.pygame.org/docs/ref/event.html" class="uri">https://www.pygame.org/docs/ref/event.html</a>). Here we will only briefly explain the most important, which is the event type QUIT and all mouse event types:</p>
-<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python"><span class="cf">if</span> event.<span class="bu">type</span> <span class="op">==</span> QUIT:
+<pre class="sourceCode python"><code class="sourceCode python"><span class="cf">if</span> event.<span class="bu">type</span> <span class="op">==</span> QUIT:
   STATE <span class="op">=</span> <span class="st">&quot;quit&quot;</span>
-  <span class="cf">break</span></code></pre></div>
+  <span class="cf">break</span></code></pre>
 <p>This actually corresponds with the alltime exit that we once implemented in the prototype. Usually, the QUIT event is the same as a key press on the ESC key. And if you try it out, you will see that you can cancel the Stroop program at any time pressing ESC. It is no more than a short cut.</p>
 <p>Mouse events come as several types with different properties, the two most important ones are:</p>
 <ul>
@@ -917,7 +951,7 @@ main()</code></pre></div>
 <li>MOUSEBUTTONDOWN is recorded when a mouse button is pressed down. The attribute event.button identifies which button it was (LEFT, RIGHT).</li>
 </ul>
 <p>See these two events in action in the following little program:</p>
-<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python"><span class="im">import</span> pygame
+<pre class="sourceCode python"><code class="sourceCode python"><span class="im">import</span> pygame
 <span class="im">import</span> sys
 <span class="im">from</span> time <span class="im">import</span> time
 <span class="im">from</span> pygame.<span class="bu">locals</span> <span class="im">import</span> <span class="op">*</span>
@@ -978,7 +1012,7 @@ screen.fill(BACKGR_COL)
     text_rectangle <span class="op">=</span> text_surface.get_rect()
     text_rectangle.center <span class="op">=</span> (SCREEN_SIZE[<span class="dv">0</span>]<span class="op">/</span><span class="fl">2.0</span>,SCREEN_SIZE[<span class="dv">1</span>]<span class="op">/</span><span class="fl">2.0</span>)
     screen.blit(text_surface, text_rectangle)
-main()</code></pre></div>
+main()</code></pre>
 <p>Notice that</p>
 <ol style="list-style-type: decimal">
 <li><code>event.pos</code> is a list of two values, the x and y coordinates</li>
@@ -994,7 +1028,7 @@ main()</code></pre></div>
 <p>And, here we’re getting to the candy! With Pygame presentitionals we give our program a face. The presentitionals of Pygame have the same formal structure as the prototype presentitionals, so there is nothing more to say about it. This chapter shows you how to create graphical user interface that render stimuli, show pictures, play animations and have buttons.</p>
 <p>The Pygame system has been developed for arcade games and is very powerful when it comes to creating and transforming graphical objects. Unfortunately, that also makes it very complex, which is why the functions have so many dots in their names. Fortunately, many psychological experiments are at most as complex as the simplest arcade game. Introducing a small subset of Pygame functionality is sufficient. For when you are a geek take a look at other books on game development with Python.</p>
 <p>Recall that at every refresh the screen is almost literally painted over. In fact, every one presentitional can be considered a drawing on its very own. That allows us to demonstrate the elements of Pygame graphics in simple programs, that produce a still picture. That also matches the way you should proceed, when writing the transitionals: first you write the scaffolding code, which consists of all the presentitional and their empty draw function. Then you grab the draw functions one by one and program the visuals, using text, geometric figures and pictures. Here is how the scaffolding looks like:</p>
-<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python"><span class="cf">if</span> state <span class="op">==</span> <span class="st">&quot;some_state&quot;</span>:
+<pre class="sourceCode python"><code class="sourceCode python"><span class="cf">if</span> state <span class="op">==</span> <span class="st">&quot;some_state&quot;</span>:
   draw_some_state()
   
 <span class="cf">if</span> state <span class="op">==</span> <span class="st">&quot;some_other_state&quot;</span>:
@@ -1006,7 +1040,7 @@ pygame.display.update()
   <span class="cf">pass</span>
   
 <span class="kw">def</span> draw_some_other_state(some_property):
-  <span class="cf">pass</span></code></pre></div>
+  <span class="cf">pass</span></code></pre>
 <p>Notice that:</p>
 <ol style="list-style-type: decimal">
 <li>we do <em>not</em> use print statements in presentitionals, as they are in the fast loop.</li>
@@ -1016,7 +1050,7 @@ pygame.display.update()
 <h3><span class="header-section-number">8.4.1</span> Display and surface</h3>
 <p>Creating the appearence of states means to draw things to the surface (also known as screen or canvas). However, before we can do so, the surface itself must be created. Also, we have to understand the “physical properties” of the surface.</p>
 <p>Like almost any other program, a Pygame program appears as a window, just like the one in which this text is displayed, be it a browser or a pdf viewer. This windows is composed of the frame, which consists of a rectangular edge, a title bar with a caption and the Windows controls |_|| ||X| in the upper right corner. Between the edge sits the surface. The first thing that needs to be done is creating this window, which is called the <em>display</em> in Pygame terminology. The following code creates a minimal Pygame display with a surface that is 600 pixel wide and 400 pixel high and puts “A Pygame display” into the title bar. The only thing it can do is quit properly.</p>
-<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python"><span class="co"># Required libraries</span>
+<pre class="sourceCode python"><code class="sourceCode python"><span class="co"># Required libraries</span>
 <span class="im">import</span> pygame
 <span class="im">import</span> sys
 <span class="im">from</span> pygame.<span class="bu">locals</span> <span class="im">import</span> <span class="op">*</span>
@@ -1036,7 +1070,7 @@ surface.fill((<span class="dv">0</span>,<span class="dv">0</span>,<span class="d
                 pygame.quit()
                 sys.exit()
         pygame.display.update()
-main()</code></pre></div>
+main()</code></pre>
 <p>Notice that:</p>
 <ol style="list-style-type: decimal">
 <li>When initializing the display, there is no assignment operator involved. There is only one display object <code>pygame.display</code> which magically appears by initializing pygame. However, to some extent you can configure it to your liking.</li>
@@ -1055,7 +1089,7 @@ main()</code></pre></div>
 <div id="drawing-figures" class="section level3">
 <h3><span class="header-section-number">8.4.2</span> Drawing figures</h3>
 <!-- #16 -->
-<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python"><span class="im">import</span> pygame
+<pre class="sourceCode python"><code class="sourceCode python"><span class="im">import</span> pygame
 <span class="im">import</span> sys
 <span class="im">from</span> pygame.<span class="bu">locals</span> <span class="im">import</span> <span class="op">*</span>
 <span class="im">from</span> pygame.compat <span class="im">import</span> unichr_, unicode_
@@ -1102,7 +1136,7 @@ screen.fill((<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv
     points <span class="op">=</span> ((x_1, y_1), (x_2, y_2), (x_3, y_3))
     pygame.draw.polygon(screen, color, points, stroke_size)
     <span class="cf">pass</span>
-main()</code></pre></div>
+main()</code></pre>
 <div class="figure">
 <img src="figures/Draw_figures.png" alt="Drawing_figures" />
 <p class="caption">Drawing_figures</p>
@@ -1119,7 +1153,7 @@ main()</code></pre></div>
 <p>Putting text on the screen is something that we experience everyday, when we read the internet, write emails or write code. One might think that this is as straight-forward in Pygame as creating figures. It is not that easy, though, and in order to understand why these complications arise, think about the following: When you want to write on a note “DON’T PANIC!” with a surrounding box. What do you do first, the writing or the box?</p>
 <p>You put the writing first, because only after you have written do you see how high and wide the written text is. And the same problem happens when rendering text on Pygame surfaces. Fonts differ and even individual characters differ. There is no more reasonable way, to determine the size of the text box, after it has been rendered. To solve the problem, we divide the drawing process in two parts: the <em>rendering</em> part creates an object of the text box in the computer memory, without sending it to the surface, yet. From this object, we can retrieve the properties of the text box, most notably its dimensions. Even better, this object can be manipulated in many ways, for example resizing or moving it <a href="https://www.pygame.org/docs/ref/rect.html">Pygame doc</a>. Only after that, the text object is send to the surface.</p>
 <p>In the following program we merged both steps into a more programmer-friendly function that almost behaves like the figure drawing commands. The only difference: you don’t know in advance how large the textbox will be.</p>
-<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python"><span class="im">import</span> pygame
+<pre class="sourceCode python"><code class="sourceCode python"><span class="im">import</span> pygame
 <span class="im">import</span> sys
 <span class="im">from</span> pygame.<span class="bu">locals</span> <span class="im">import</span> <span class="op">*</span>
 <span class="im">from</span> pygame.compat <span class="im">import</span> unichr_, unicode_
@@ -1158,7 +1192,7 @@ SURF.fill((<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">
     <span class="co"># This puts a pre-rendered object to the screen</span>
     SURF.blit(rendered_text, box)
  
-main()</code></pre></div>
+main()</code></pre>
 <p>Notice that:</p>
 <ol style="list-style-type: decimal">
 <li>First, we actually have to select a font for the text. Here. this is set globally.</li>
@@ -1169,7 +1203,7 @@ main()</code></pre></div>
 <li>We have consistently put all global variables into capital letters to avoid confusion between globalö and local variables.</li>
 </ol>
 <p>Working with pictures is very similar to text boxes. Again, you only know the size once you have loaded the file from your hard drive.</p>
-<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python"><span class="kw">def</span> main():
+<pre class="sourceCode python"><code class="sourceCode python"><span class="kw">def</span> main():
     <span class="cf">while</span> <span class="va">True</span>:
         SURF.fill((<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>))
         <span class="cf">for</span> event <span class="kw">in</span> pygame.event.get():
@@ -1199,7 +1233,7 @@ main()</code></pre></div>
         box.topleft <span class="op">=</span> (x,y)
     SURF.blit(picture, box)
  
-main()</code></pre></div>
+main()</code></pre>
 <p>Notice that</p>
 <ol style="list-style-type: decimal">
 <li>the picture file resides in teh same directory as the program. If that is different you have to use relative paths. Avoid absolute paths, as this makes the program less portable.</li>
@@ -1243,7 +1277,7 @@ The Pacman figure would leave a trail of copies of itself, painting a trail with
 <div id="exercise-c.-transition-tables" class="section level3">
 <h3><span class="header-section-number">8.5.1</span> Exercise C. Transition tables</h3>
 <p>For the following code snippet, make a transition table.</p>
-<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python">STATE <span class="op">=</span> <span class="st">&quot;A&quot;</span>
+<pre class="sourceCode python"><code class="sourceCode python">STATE <span class="op">=</span> <span class="st">&quot;A&quot;</span>
 <span class="cf">while</span> <span class="va">True</span>:
     <span class="co">#ITC</span>
     <span class="cf">for</span> event <span class="kw">in</span> pygame.event.get():                        
@@ -1273,7 +1307,7 @@ The Pacman figure would leave a trail of copies of itself, painting a trail with
         <span class="bu">print</span>(STATE)
     <span class="cf">elif</span> STATE <span class="op">==</span> <span class="st">&quot;quit&quot;</span>:
         pygame.quit()
-        sys.exit()</code></pre></div>
+        sys.exit()</code></pre>
 </div>
 </div>
 <div id="common-errors-5" class="section level2">
@@ -1284,7 +1318,7 @@ The Pacman figure would leave a trail of copies of itself, painting a trail with
 <li>You used the wait command in a Pygame program.</li>
 </ol>
 </div>
-<div id="think-further-5" class="section level2">
+<div id="think-further-6" class="section level2">
 <h2><span class="header-section-number">8.7</span> Think Further</h2>
 
 </div>

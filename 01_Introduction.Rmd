@@ -1,10 +1,23 @@
 # Introduction {#intro}
 
 
+## Installing a Python environment
 
-## Installing Python
+This course teaches the programming language Python. In order to write Python programs, you need a set of general tools, referred to as the *Python environment*:
+
+  1. a *Python editor*, where you write your code
+  1. a *Python interpreter*, which runs your code
+  1. *Python libraries* libraries, that provide specialized functionality for the task at hand
+
+The *Anaconda Python* system puts an editor, an interpreter and a huge set of libraries on your computer. There is just one library that you have to install separately. The *Pygame* library provides specialized functionality for developing arcade games (Ping Pong, Super Mario, etc.), which is almost perfect for writing programs that do psychological experiments.
+
+
+
+## Installing the Anaconda Python environment
 
 <!-- #9 use conda environments -->
+
+## Windows
 
 1.	From https://www.anaconda.com/download/ download the 64-bit installer  of Python 2.7 
 2.	Run the downloaded file and 
@@ -14,11 +27,23 @@
 3.	In the start menu find the program Anaconda Prompt
 4.	In the console, type: `conda install –c cogsci pygame` and hit Return. Confirm with y
 
+
+
+## MacOS
+
+
+Unfortunately, the authors use Windows computers, so the following instructions are less throughly tested, as compared to a Windows installation.
+
+
+<!-- 30  -->
+
+## Testing your environment
+
 For testing your Anaconda environment, follow these steps:
 
 1.	From the Start menu start Anaconda Navigator
 1.  From the Home screen launch Spyder
-2.	Download the Python file PIP_Stroop_interaction.py from the folder Week 1 on Google Drive https://goo.gl/UmBsil
+2.	Download the Python file `PIP_Stroop_interaction.py` from the folder Week 1 on Google Drive https://goo.gl/UmBsil
 3.	Open this file in Spyder (File --> Open).
 4.	Run the program by clicking the green play button. You should see a window popping up, which greets you to the Stroop experiment.
 
@@ -27,9 +52,9 @@ And finally, it is a dear tradition to greet the world with your first program. 
 
 
 ```{python}
-x = 'hello, python world!'
-print(x.split(' '))
+print('Hello world!')
 ```
+
 
 
 

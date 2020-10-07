@@ -2,8 +2,7 @@
 
 ```{r}
 library(reticulate)
-
-use_condaenv("PfP_3")
+use_condaenv("base_2.7")
 ```
 
 ```{r}
@@ -16,37 +15,39 @@ import sys
 print(sys.version)
 ```
 
-```{python}
 # Do separate chunks use the same Python session?
+
+```{python}
 a = 1
 ```
 
+If this prints correctly, they do.
+
 ```{python}
-# If this prints correctly, they do.
 print(a)
 ```
 
-```{r}
-# Python variables can also be accessed form R
+And Python variables can also be accessed from R
 
+```{r}
 print(py$a)
 ```
 
+Unevaluated chunk
 
 ```{python eval = F}
-# unevaluated chunk
 print("You should not see output from this")
 ```
 
+Chunk with Python error
 
-```{python eval = F}
-# unevaluated chunk with error
+```{python error = TRUE} 
 print(1.0/0)
 ```
 
+Chunk with Python syntax error
 
-
-```{}
-""This is syntactically invalid, but should not give an error message"
-""Because it is syntactically invalid, it also cannot be parsed and highlighted""´
+```{python eval = F} 
+quote = "Freud: "The mind is like an iceberg, it floats with one-seventh of its bulk above water.""
 ```
+

@@ -1,4 +1,7 @@
 # Working with data {#data}
+```{r setup}
+library(tidyverse)
+```
 
 
 ## Elements of data processing
@@ -151,10 +154,10 @@ The purpose of psychological experiments is to collect data from participants un
 
 ```{r echo = F}
 set.seed(42)
-D_Stroop <- tibble::data_frame(Condition = sample(c("congruent", "incongruent"), 8, replace = T),
+D_Stroop <- tibble(Condition = sample(c("congruent", "incongruent"), 8, replace = T),
                                Correctness = sample(c(T, F), 8, replace = T),
                                RT = rnorm(8, 700, 50))
-D_Stroop
+D_Stroop %>% knitr::kable()
 ```
 
 How would you create such a table in Python? The most simple form is to regard every column as a separate list and you would initialize the data gathering by creating three empty lists. In the main part of the program you can then populate the three lists separately, for example:
@@ -218,9 +221,8 @@ As a general rule, it is good to keep the period between open and close short. E
 
 So how do we append rows to an existing file? A closer look at the `open` function reveals that it takes a second parameter, the `mode`, which is of type string. Three major mode exists (plus a bunch of fine-tuning options):
 
-```{r echo = T, results = "markup"}
-library(dplyr)
-data_frame(mode = c("r", "w", "a"),
+```{r echo = F, results = "markup"}
+tibble(mode = c("r", "w", "a"),
            ` ` = c("reading", "writing", "appending")) %>% 
 knitr::kable()
 ```
@@ -234,7 +236,7 @@ writer.writerow([thisCondition, thisCorrectness, thisRT])
 myfile.close()
 ```
 
-## May the source ... reading data files
+## May the source ...: reading data files
 
 A processing chain starts with a data source, no matter what. The source can be one of three kinds:
 
@@ -244,26 +246,71 @@ A processing chain starts with a data source, no matter what. The source can be 
 
 The first two options we have already covered in this course. In the following we will see how to read in data from files. Files are typically produced by other programs. For tables that could be Excel (or a programming editor, if you like). As we have seen, CVS is a good choice.
 
-In the Stroop program, we currently use only one external source of input, the user responses. That is definitely not a source we could replace by a prepared file. Reading data from files seems unncecessary at first, but in fact can make the program more flexibel when used by non programmers. A possible scenario for the Stroop task is that different experimenters use it, but with their own sets of colors. Here is how one could do it. First, we prepare a table that assigns color words to their respective RGB codes and stores it as a CSV file. Any spreadsheet program is suited for the job.
+In the Stroop program, we currently use only one external source of data, the user responses. All other data, like the words andf colors are just coded as list, tupels and dictionaries. Reading data from files seems an unncecessary exercise at first, but in fact can make the program more flexibel when used by non-programmers. A possible scenario for the Stroop task is that different experimenters use it, but with their own sets of colors. Here is how one could do it. First, we prepare a table that assigns color words to their respective RGB codes and save it as a CSV file. Any spreadsheet program is suited for the job.
 
 ```{r echo = F}
-knitr::kable(tibble::data_frame(word = c("violet", "green", "orange"),
+Colors <- tibble(
+  Color = c("violet", "green", "orange"),
            R = c(180, 0, 255),
            G = c(0, 150, 150),
-           B = c(180, 150, 0)))
+           B = c(180, 150, 0))
+
+write_csv(Colors, path = "Colors.csv")
 
 ```
 
-To give a more compelling example for when it is useful to load stimuli at runtime: A modified version of the experiment is the primed Stroop task that by which one can assess the strength of certain semantic associations. It differs from the original in that it
+Lets assume the above table has been created in Excel and saved as `Colors.csv`. The following Python codes opens the csv file and creates a reader (analog to the writer above). Then four lists are created that will capture the table columns. The for loop walks the reader through the CSV file line-by-line. As the first line of the file (with index 0) typically contains the column names, it is omitted. The result is four lists of the same length which makes a table. By using two integer ramdom numbers, we can select a color word, and the ink color and which we can produce the stimuli.
 
-+ shows a priming picture upfront (e.g. a wolf)
-+ uses no color words, but target words that the participant may associate with the picture (e.g., the word "grandmother")
 
-The assessment of association strength typically takes place within a certain domain, e.g. attitude towards computers or fairy tales. Researchers may therefore want to use same program, but feed it with different sets of images and target words. What one could do, is:
 
-+ import one table with the target words
-+ import one table with the filenames of all images
-+ read the images in one-by-one
+
+```{python}
+import csv
+import random
+
+csv_file   = open("Colors.csv")
+csv_reader = csv.reader(csv_file)
+
+Color = []
+R = []
+G = []
+B = []
+
+row_number = 0
+
+for row in csv_reader:
+  if row_number > 0:
+    Color.append(row[0])
+    R.append(row[1])
+    G.append(row[2])
+    B.append(row[3])
+  row_number += 1
+  
+csv_file.close()
+
+
+this_word  = random.randint(0,2)
+this_color = random.randint(0,2)
+
+print("Presenting", 
+Color[this_word], "in color", Color[this_color], "(", 
+R[this_color],
+G[this_color],
+B[this_color], ")")
+```
+
+
+
+<!-- To give a more compelling example for when it is useful to load stimuli at runtime: A modified version of the experiment is the primed Stroop task that by which one can assess the strength of certain semantic associations. It differs from the original in that it -->
+
+<!-- + shows a priming picture upfront (e.g. a wolf) -->
+<!-- + uses no color words, but target words that the participant may associate with the picture (e.g., the word "grandmother") -->
+
+<!-- The assessment of association strength typically takes place within a certain domain, e.g. attitude towards computers or fairy tales. Researchers may therefore want to use same program, but feed it with different sets of images and target words. What one could do, is: -->
+
+<!-- + import one table with the target words -->
+<!-- + import one table with the filenames of all images -->
+<!-- + read the images in one-by-one -->
 
 
 
@@ -285,6 +332,21 @@ When that works, make the program automatic. Add a column to the table that give
 With the Python library `openpyxl` you can read and write Excel files, directly. Work through (this tutorial)[https://automatetheboringstuff.com/chapter12/]. Now modify your presentation program to use an Excel files as input.
 
 ## Think further
+
+If you are working with data tables a lot, it may be worth to take a look at the Pandas library. The primary contribution of Pandas is an object class *DataFrame*, which captures a whole table at once and provides a plethora of useful methods for filtering and manipulation of data. And there are also commands to read and write csv files into a DataFrame.
+
+```{python}
+import pandas
+
+Colors = pandas.read_csv("colors.csv")
+
+print(Colors)
+```
+
+```{r include = F}
+file.remove("Colors.csv")
+```
+
 
 
 ## References
