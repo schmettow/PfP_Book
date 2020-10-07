@@ -1,39 +1,38 @@
 <!DOCTYPE html>
-<html >
-
+<html lang="" xml:lang="">
 <head>
 
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>4 Lists | Programming Interaction for Psychologists</title>
-  <meta name="description" content="a book to accompany the course Programming for Psychologists">
-  <meta name="generator" content="bookdown  and GitBook 2.6.7">
+  <meta name="description" content="4 Lists | Programming Interaction for Psychologists" />
+  <meta name="generator" content="bookdown 0.20 and GitBook 2.6.7" />
 
   <meta property="og:title" content="4 Lists | Programming Interaction for Psychologists" />
   <meta property="og:type" content="book" />
   
   
-  <meta property="og:description" content="a book to accompany the course Programming for Psychologists" />
+  
   <meta name="github-repo" content="schmettow/PfP_Book" />
 
   <meta name="twitter:card" content="summary" />
   <meta name="twitter:title" content="4 Lists | Programming Interaction for Psychologists" />
   
-  <meta name="twitter:description" content="a book to accompany the course Programming for Psychologists" />
-  
-
-<meta name="author" content="Martin Schmettow and Lena Brandl">
-
-
-<meta name="date" content="2020-02-26">
-
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="apple-mobile-web-app-capable" content="yes">
-  <meta name="apple-mobile-web-app-status-bar-style" content="black">
   
   
-<link rel="prev" href="conditionals.html">
-<link rel="next" href="loops.html">
+
+<meta name="author" content="Martin Schmettow and Lena Brandl" />
+
+
+<meta name="date" content="2020-10-07" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="conditionals.html"/>
+<link rel="next" href="loops.html"/>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -41,6 +40,7 @@
 <link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
 
 
 
@@ -48,37 +48,41 @@
 
 
 
-<script src="libs/htmlwidgets-1.3/htmlwidgets.js"></script>
+
+
+<script src="libs/accessible-code-block-0.0.1/empty-anchor.js"></script>
+<script src="libs/htmlwidgets-1.5.1/htmlwidgets.js"></script>
 <script src="libs/d3-3.3.8/d3.min.js"></script>
 <script src="libs/dagre-0.4.0/dagre-d3.min.js"></script>
 <link href="libs/mermaid-0.3.0/dist/mermaid.css" rel="stylesheet" />
 <script src="libs/mermaid-0.3.0/dist/mermaid.slim.min.js"></script>
 <link href="libs/DiagrammeR-styles-0.2/styles.css" rel="stylesheet" />
 <script src="libs/chromatography-0.1/chromatography.js"></script>
-<script src="libs/DiagrammeR-binding-1.0.0/DiagrammeR.js"></script>
+<script src="libs/DiagrammeR-binding-1.0.6.1/DiagrammeR.js"></script>
 
 
 <style type="text/css">
-a.sourceLine { display: inline-block; line-height: 1.25; }
-a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
-a.sourceLine:empty { height: 1.2em; }
+code.sourceCode > span { display: inline-block; line-height: 1.25; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+code.sourceCode > span:empty { height: 1.2em; }
 .sourceCode { overflow: visible; }
 code.sourceCode { white-space: pre; position: relative; }
-div.sourceCode { margin: 1em 0; }
 pre.sourceCode { margin: 0; }
 @media screen {
 div.sourceCode { overflow: auto; }
 }
 @media print {
 code.sourceCode { white-space: pre-wrap; }
-a.sourceLine { text-indent: -1em; padding-left: 1em; }
+code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
 }
-pre.numberSource a.sourceLine
-  { position: relative; left: -4em; }
-pre.numberSource a.sourceLine::before
-  { content: attr(title);
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
     position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; pointer-events: all; display: inline-block;
+    border: none; display: inline-block;
     -webkit-touch-callout: none; -webkit-user-select: none;
     -khtml-user-select: none; -moz-user-select: none;
     -ms-user-select: none; user-select: none;
@@ -87,9 +91,9 @@ pre.numberSource a.sourceLine::before
   }
 pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
 div.sourceCode
-  {  }
+  {   }
 @media screen {
-a.sourceLine::before { text-decoration: underline; }
+code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 code span.al { color: #ff0000; font-weight: bold; } /* Alert */
 code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
@@ -156,7 +160,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="chapter" data-level="2.5" data-path="variables.html"><a href="variables.html#common-errors"><i class="fa fa-check"></i><b>2.5</b> Common errors</a></li>
 <li class="chapter" data-level="2.6" data-path="variables.html"><a href="variables.html#debugging"><i class="fa fa-check"></i><b>2.6</b> Debugging</a></li>
-<li class="chapter" data-level="2.7" data-path="variables.html"><a href="variables.html#exercises-1"><i class="fa fa-check"></i><b>2.7</b> Exercises</a><ul>
+<li class="chapter" data-level="2.7" data-path="intro.html"><a href="intro.html#exercises"><i class="fa fa-check"></i><b>2.7</b> Exercises</a><ul>
 <li class="chapter" data-level="2.7.1" data-path="variables.html"><a href="variables.html#exercise-1.-operators"><i class="fa fa-check"></i><b>2.7.1</b> Exercise 1. Operators</a></li>
 <li class="chapter" data-level="2.7.2" data-path="variables.html"><a href="variables.html#exercise-2.-values"><i class="fa fa-check"></i><b>2.7.2</b> Exercise 2. Values</a></li>
 <li class="chapter" data-level="2.7.3" data-path="variables.html"><a href="variables.html#exercise-3.-mini-programs"><i class="fa fa-check"></i><b>2.7.3</b> Exercise 3. Mini programs</a></li>
@@ -178,9 +182,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="3.4.1" data-path="conditionals.html"><a href="conditionals.html#transition-tables"><i class="fa fa-check"></i><b>3.4.1</b> Transition tables</a></li>
 <li class="chapter" data-level="3.4.2" data-path="conditionals.html"><a href="conditionals.html#state-charts"><i class="fa fa-check"></i><b>3.4.2</b> State charts</a></li>
 </ul></li>
-<li class="chapter" data-level="3.5" data-path="conditionals.html"><a href="conditionals.html#common-errors-1"><i class="fa fa-check"></i><b>3.5</b> Common errors</a></li>
-<li class="chapter" data-level="3.6" data-path="conditionals.html"><a href="conditionals.html#debugging-1"><i class="fa fa-check"></i><b>3.6</b> Debugging</a></li>
-<li class="chapter" data-level="3.7" data-path="conditionals.html"><a href="conditionals.html#exercises-2"><i class="fa fa-check"></i><b>3.7</b> Exercises</a><ul>
+<li class="chapter" data-level="3.5" data-path="variables.html"><a href="variables.html#common-errors"><i class="fa fa-check"></i><b>3.5</b> Common errors</a></li>
+<li class="chapter" data-level="3.6" data-path="variables.html"><a href="variables.html#debugging"><i class="fa fa-check"></i><b>3.6</b> Debugging</a></li>
+<li class="chapter" data-level="3.7" data-path="intro.html"><a href="intro.html#exercises"><i class="fa fa-check"></i><b>3.7</b> Exercises</a><ul>
 <li class="chapter" data-level="3.7.1" data-path="conditionals.html"><a href="conditionals.html#exercise-1.-boolean-logic"><i class="fa fa-check"></i><b>3.7.1</b> Exercise 1. Boolean logic</a></li>
 <li class="chapter" data-level="3.7.2" data-path="conditionals.html"><a href="conditionals.html#exercise-2.-state-charts"><i class="fa fa-check"></i><b>3.7.2</b> Exercise 2. State charts</a></li>
 <li class="chapter" data-level="3.7.3" data-path="conditionals.html"><a href="conditionals.html#exercise-3.-transition-tables"><i class="fa fa-check"></i><b>3.7.3</b> Exercise 3. Transition tables</a></li>
@@ -192,7 +196,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="3.7.9" data-path="conditionals.html"><a href="conditionals.html#exercise-9.-simplify-nested-conditionals"><i class="fa fa-check"></i><b>3.7.9</b> Exercise 9. Simplify nested conditionals</a></li>
 <li class="chapter" data-level="3.7.10" data-path="conditionals.html"><a href="conditionals.html#exercise-10.-flow-chart-conditionals"><i class="fa fa-check"></i><b>3.7.10</b> Exercise 10. Flow chart conditionals</a></li>
 </ul></li>
-<li class="chapter" data-level="3.8" data-path="conditionals.html"><a href="conditionals.html#think-further-1"><i class="fa fa-check"></i><b>3.8</b> Think Further</a></li>
+<li class="chapter" data-level="3.8" data-path="variables.html"><a href="variables.html#think-further"><i class="fa fa-check"></i><b>3.8</b> Think Further</a></li>
 </ul></li>
 <li class="chapter" data-level="4" data-path="lists.html"><a href="lists.html"><i class="fa fa-check"></i><b>4</b> Lists</a><ul>
 <li class="chapter" data-level="4.1" data-path="lists.html"><a href="lists.html#lists-1"><i class="fa fa-check"></i><b>4.1</b> Lists</a><ul>
@@ -201,12 +205,12 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="4.2" data-path="lists.html"><a href="lists.html#tuples"><i class="fa fa-check"></i><b>4.2</b> Tuples</a></li>
 <li class="chapter" data-level="4.3" data-path="lists.html"><a href="lists.html#dictionaries"><i class="fa fa-check"></i><b>4.3</b> Dictionaries</a></li>
 <li class="chapter" data-level="4.4" data-path="lists.html"><a href="lists.html#putting-collections-to-use"><i class="fa fa-check"></i><b>4.4</b> Putting collections to use</a></li>
-<li class="chapter" data-level="4.5" data-path="lists.html"><a href="lists.html#common-errors-2"><i class="fa fa-check"></i><b>4.5</b> Common errors</a></li>
-<li class="chapter" data-level="4.6" data-path="lists.html"><a href="lists.html#debugging-2"><i class="fa fa-check"></i><b>4.6</b> Debugging</a></li>
-<li class="chapter" data-level="4.7" data-path="lists.html"><a href="lists.html#exercises-3"><i class="fa fa-check"></i><b>4.7</b> Exercises</a><ul>
+<li class="chapter" data-level="4.5" data-path="variables.html"><a href="variables.html#common-errors"><i class="fa fa-check"></i><b>4.5</b> Common errors</a></li>
+<li class="chapter" data-level="4.6" data-path="variables.html"><a href="variables.html#debugging"><i class="fa fa-check"></i><b>4.6</b> Debugging</a></li>
+<li class="chapter" data-level="4.7" data-path="intro.html"><a href="intro.html#exercises"><i class="fa fa-check"></i><b>4.7</b> Exercises</a><ul>
 <li class="chapter" data-level="4.7.1" data-path="lists.html"><a href="lists.html#exercise-1.-indexing"><i class="fa fa-check"></i><b>4.7.1</b> Exercise 1. Indexing</a></li>
 <li class="chapter" data-level="4.7.2" data-path="lists.html"><a href="lists.html#exercise-2.-debugging"><i class="fa fa-check"></i><b>4.7.2</b> Exercise 2. Debugging</a></li>
-<li class="chapter" data-level="4.7.3" data-path="lists.html"><a href="lists.html#exercise-3.-mini-programs-1"><i class="fa fa-check"></i><b>4.7.3</b> Exercise 3. Mini programs</a></li>
+<li class="chapter" data-level="4.7.3" data-path="variables.html"><a href="variables.html#exercise-3.-mini-programs"><i class="fa fa-check"></i><b>4.7.3</b> Exercise 3. Mini programs</a></li>
 <li class="chapter" data-level="4.7.4" data-path="lists.html"><a href="lists.html#exercise-4.-shopping-list"><i class="fa fa-check"></i><b>4.7.4</b> Exercise 4. Shopping list</a></li>
 <li class="chapter" data-level="4.7.5" data-path="lists.html"><a href="lists.html#exercise-5.-dictionaries"><i class="fa fa-check"></i><b>4.7.5</b> Exercise 5. Dictionaries</a></li>
 <li class="chapter" data-level="4.7.6" data-path="lists.html"><a href="lists.html#exercise-6.-element-selection"><i class="fa fa-check"></i><b>4.7.6</b> Exercise 6. Element selection</a></li>
@@ -214,7 +218,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="4.7.8" data-path="lists.html"><a href="lists.html#exercise-8.-a-dictionary-data-set"><i class="fa fa-check"></i><b>4.7.8</b> Exercise 8. A dictionary data set</a></li>
 <li class="chapter" data-level="4.7.9" data-path="lists.html"><a href="lists.html#exercise-9.-stroop-extension"><i class="fa fa-check"></i><b>4.7.9</b> Exercise 9. Stroop extension</a></li>
 </ul></li>
-<li class="chapter" data-level="4.8" data-path="lists.html"><a href="lists.html#think-further-2"><i class="fa fa-check"></i><b>4.8</b> Think further</a></li>
+<li class="chapter" data-level="4.8" data-path="variables.html"><a href="variables.html#think-further"><i class="fa fa-check"></i><b>4.8</b> Think further</a></li>
 </ul></li>
 <li class="chapter" data-level="5" data-path="loops.html"><a href="loops.html"><i class="fa fa-check"></i><b>5</b> Loops</a><ul>
 <li class="chapter" data-level="5.1" data-path="loops.html"><a href="loops.html#the-for-loop"><i class="fa fa-check"></i><b>5.1</b> The <code>for</code> loop</a></li>
@@ -223,9 +227,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="chapter" data-level="5.3" data-path="loops.html"><a href="loops.html#the-break-statement"><i class="fa fa-check"></i><b>5.3</b> The <code>break</code> statement</a></li>
 <li class="chapter" data-level="5.4" data-path="loops.html"><a href="loops.html#controlling-the-flow-of-your-program-with-loops"><i class="fa fa-check"></i><b>5.4</b> Controlling the flow of your program with loops</a></li>
-<li class="chapter" data-level="5.5" data-path="loops.html"><a href="loops.html#common-errors-3"><i class="fa fa-check"></i><b>5.5</b> Common errors</a></li>
-<li class="chapter" data-level="5.6" data-path="loops.html"><a href="loops.html#debugging-3"><i class="fa fa-check"></i><b>5.6</b> Debugging</a></li>
-<li class="chapter" data-level="5.7" data-path="loops.html"><a href="loops.html#exercises-4"><i class="fa fa-check"></i><b>5.7</b> Exercises</a><ul>
+<li class="chapter" data-level="5.5" data-path="variables.html"><a href="variables.html#common-errors"><i class="fa fa-check"></i><b>5.5</b> Common errors</a></li>
+<li class="chapter" data-level="5.6" data-path="variables.html"><a href="variables.html#debugging"><i class="fa fa-check"></i><b>5.6</b> Debugging</a></li>
+<li class="chapter" data-level="5.7" data-path="intro.html"><a href="intro.html#exercises"><i class="fa fa-check"></i><b>5.7</b> Exercises</a><ul>
 <li class="chapter" data-level="5.7.1" data-path="loops.html"><a href="loops.html#exercise-1.-following-the-control-flow-i"><i class="fa fa-check"></i><b>5.7.1</b> Exercise 1. Following the control flow I</a></li>
 <li class="chapter" data-level="5.7.2" data-path="loops.html"><a href="loops.html#exercise-2.-debugging-i"><i class="fa fa-check"></i><b>5.7.2</b> Exercise 2. Debugging I</a></li>
 <li class="chapter" data-level="5.7.3" data-path="loops.html"><a href="loops.html#exercise-3.-a-guessing-game"><i class="fa fa-check"></i><b>5.7.3</b> Exercise 3. A guessing game</a></li>
@@ -236,7 +240,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="5.7.8" data-path="loops.html"><a href="loops.html#exercise-8.-data-transformation-using-loops"><i class="fa fa-check"></i><b>5.7.8</b> Exercise 8. Data transformation using loops</a></li>
 <li class="chapter" data-level="5.7.9" data-path="loops.html"><a href="loops.html#exercise-9.-calculating-a-mean"><i class="fa fa-check"></i><b>5.7.9</b> Exercise 9. Calculating a mean</a></li>
 </ul></li>
-<li class="chapter" data-level="5.8" data-path="loops.html"><a href="loops.html#think-further-3"><i class="fa fa-check"></i><b>5.8</b> Think Further</a></li>
+<li class="chapter" data-level="5.8" data-path="variables.html"><a href="variables.html#think-further"><i class="fa fa-check"></i><b>5.8</b> Think Further</a></li>
 </ul></li>
 <li class="chapter" data-level="6" data-path="functions.html"><a href="functions.html"><i class="fa fa-check"></i><b>6</b> Functions</a><ul>
 <li class="chapter" data-level="6.1" data-path="functions.html"><a href="functions.html#defining-and-calling-functions"><i class="fa fa-check"></i><b>6.1</b> Defining and calling functions</a></li>
@@ -246,8 +250,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="6.4.1" data-path="functions.html"><a href="functions.html#a-word-about-recursion"><i class="fa fa-check"></i><b>6.4.1</b> A word about <em>Recursion</em></a></li>
 </ul></li>
 <li class="chapter" data-level="6.5" data-path="functions.html"><a href="functions.html#stroop-functions"><i class="fa fa-check"></i><b>6.5</b> Stroop functions</a></li>
-<li class="chapter" data-level="6.6" data-path="functions.html"><a href="functions.html#common-errors-4"><i class="fa fa-check"></i><b>6.6</b> Common errors</a></li>
-<li class="chapter" data-level="6.7" data-path="functions.html"><a href="functions.html#exercises-5"><i class="fa fa-check"></i><b>6.7</b> Exercises</a><ul>
+<li class="chapter" data-level="6.6" data-path="variables.html"><a href="variables.html#common-errors"><i class="fa fa-check"></i><b>6.6</b> Common errors</a></li>
+<li class="chapter" data-level="6.7" data-path="intro.html"><a href="intro.html#exercises"><i class="fa fa-check"></i><b>6.7</b> Exercises</a><ul>
 <li class="chapter" data-level="6.7.1" data-path="functions.html"><a href="functions.html#exercise-1.-following-the-control-flow"><i class="fa fa-check"></i><b>6.7.1</b> Exercise 1. Following the control flow</a></li>
 <li class="chapter" data-level="6.7.2" data-path="functions.html"><a href="functions.html#exercise-2.-an-imperfect-list-sorting-attempt"><i class="fa fa-check"></i><b>6.7.2</b> Exercise 2. An imperfect list sorting attempt</a></li>
 <li class="chapter" data-level="6.7.3" data-path="functions.html"><a href="functions.html#exercise-3.-an-erroneous-sorting-algorithm"><i class="fa fa-check"></i><b>6.7.3</b> Exercise 3. An erroneous sorting algorithm</a></li>
@@ -255,7 +259,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="6.7.5" data-path="functions.html"><a href="functions.html#exercise-5.-add-functionality-to-the-stroop-task"><i class="fa fa-check"></i><b>6.7.5</b> Exercise 5. Add functionality to the stroop task</a></li>
 <li class="chapter" data-level="6.7.6" data-path="functions.html"><a href="functions.html#exercise-6.-insertion-sort-algorithm"><i class="fa fa-check"></i><b>6.7.6</b> Exercise 6. Insertion sort algorithm</a></li>
 </ul></li>
-<li class="chapter" data-level="6.8" data-path="functions.html"><a href="functions.html#think-further-4"><i class="fa fa-check"></i><b>6.8</b> Think further</a></li>
+<li class="chapter" data-level="6.8" data-path="variables.html"><a href="variables.html#think-further"><i class="fa fa-check"></i><b>6.8</b> Think further</a></li>
 <li class="chapter" data-level="6.9" data-path="functions.html"><a href="functions.html#references"><i class="fa fa-check"></i><b>6.9</b> References</a></li>
 </ul></li>
 <li class="chapter" data-level="7" data-path="data.html"><a href="data.html"><i class="fa fa-check"></i><b>7</b> Working with data</a><ul>
@@ -263,19 +267,19 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="7.2" data-path="data.html"><a href="data.html#data-tables"><i class="fa fa-check"></i><b>7.2</b> Data tables</a></li>
 <li class="chapter" data-level="7.3" data-path="data.html"><a href="data.html#down-the-sink-writing-data-files"><i class="fa fa-check"></i><b>7.3</b> Down the sink: Writing data files</a></li>
 <li class="chapter" data-level="7.4" data-path="data.html"><a href="data.html#may-the-source-reading-data-files"><i class="fa fa-check"></i><b>7.4</b> May the source …: reading data files</a></li>
-<li class="chapter" data-level="7.5" data-path="data.html"><a href="data.html#exercises-6"><i class="fa fa-check"></i><b>7.5</b> Exercises</a><ul>
+<li class="chapter" data-level="7.5" data-path="intro.html"><a href="intro.html#exercises"><i class="fa fa-check"></i><b>7.5</b> Exercises</a><ul>
 <li class="chapter" data-level="7.5.1" data-path="data.html"><a href="data.html#exercise-1"><i class="fa fa-check"></i><b>7.5.1</b> Exercise 1</a></li>
 <li class="chapter" data-level="7.5.2" data-path="data.html"><a href="data.html#exercise-2"><i class="fa fa-check"></i><b>7.5.2</b> Exercise 2</a></li>
 </ul></li>
-<li class="chapter" data-level="7.6" data-path="data.html"><a href="data.html#think-further-5"><i class="fa fa-check"></i><b>7.6</b> Think further</a></li>
-<li class="chapter" data-level="7.7" data-path="data.html"><a href="data.html#references-1"><i class="fa fa-check"></i><b>7.7</b> References</a></li>
+<li class="chapter" data-level="7.6" data-path="variables.html"><a href="variables.html#think-further"><i class="fa fa-check"></i><b>7.6</b> Think further</a></li>
+<li class="chapter" data-level="7.7" data-path="functions.html"><a href="functions.html#references"><i class="fa fa-check"></i><b>7.7</b> References</a></li>
 </ul></li>
 <li class="chapter" data-level="8" data-path="interaction.html"><a href="interaction.html"><i class="fa fa-check"></i><b>8</b> Interaction</a><ul>
 <li class="chapter" data-level="8.1" data-path="interaction.html"><a href="interaction.html#interaction-models"><i class="fa fa-check"></i><b>8.1</b> Interaction models</a><ul>
 <li class="chapter" data-level="8.1.1" data-path="interaction.html"><a href="interaction.html#identifying-states"><i class="fa fa-check"></i><b>8.1.1</b> Identifying states</a></li>
 <li class="chapter" data-level="8.1.2" data-path="interaction.html"><a href="interaction.html#identifying-transitions"><i class="fa fa-check"></i><b>8.1.2</b> Identifying transitions</a></li>
 <li class="chapter" data-level="8.1.3" data-path="interaction.html"><a href="interaction.html#events-user-input-and-internal-conditions"><i class="fa fa-check"></i><b>8.1.3</b> Events: user input and internal conditions</a></li>
-<li class="chapter" data-level="8.1.4" data-path="interaction.html"><a href="interaction.html#exercises-7"><i class="fa fa-check"></i><b>8.1.4</b> Exercises</a></li>
+<li class="chapter" data-level="8.1.4" data-path="intro.html"><a href="intro.html#exercises"><i class="fa fa-check"></i><b>8.1.4</b> Exercises</a></li>
 </ul></li>
 <li class="chapter" data-level="8.2" data-path="interaction.html"><a href="interaction.html#programming-interactive-prototypes"><i class="fa fa-check"></i><b>8.2</b> Programming interactive prototypes</a><ul>
 <li class="chapter" data-level="8.2.1" data-path="interaction.html"><a href="interaction.html#interactive-transitionals"><i class="fa fa-check"></i><b>8.2.1</b> Interactive transitionals</a></li>
@@ -295,42 +299,42 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="8.4.2" data-path="interaction.html"><a href="interaction.html#drawing-figures"><i class="fa fa-check"></i><b>8.4.2</b> Drawing figures</a></li>
 <li class="chapter" data-level="8.4.3" data-path="interaction.html"><a href="interaction.html#placing-text-and-pictures"><i class="fa fa-check"></i><b>8.4.3</b> Placing text and pictures</a></li>
 </ul></li>
-<li class="chapter" data-level="8.5" data-path="interaction.html"><a href="interaction.html#exercises-8"><i class="fa fa-check"></i><b>8.5</b> Exercises</a><ul>
+<li class="chapter" data-level="8.5" data-path="interaction.html"><a href="interaction.html#exercises-1"><i class="fa fa-check"></i><b>8.5</b> Exercises</a><ul>
 <li class="chapter" data-level="8.5.1" data-path="interaction.html"><a href="interaction.html#exercise-c.-transition-tables"><i class="fa fa-check"></i><b>8.5.1</b> Exercise C. Transition tables</a></li>
 </ul></li>
-<li class="chapter" data-level="8.6" data-path="interaction.html"><a href="interaction.html#common-errors-5"><i class="fa fa-check"></i><b>8.6</b> Common errors</a></li>
-<li class="chapter" data-level="8.7" data-path="interaction.html"><a href="interaction.html#think-further-6"><i class="fa fa-check"></i><b>8.7</b> Think Further</a></li>
+<li class="chapter" data-level="8.6" data-path="variables.html"><a href="variables.html#common-errors"><i class="fa fa-check"></i><b>8.6</b> Common errors</a></li>
+<li class="chapter" data-level="8.7" data-path="variables.html"><a href="variables.html#think-further"><i class="fa fa-check"></i><b>8.7</b> Think Further</a></li>
 </ul></li>
 <li class="chapter" data-level="9" data-path="solutions.html"><a href="solutions.html"><i class="fa fa-check"></i><b>9</b> Solutions</a><ul>
 <li class="chapter" data-level="9.1" data-path="solutions.html"><a href="solutions.html#chapter-1.-introduction"><i class="fa fa-check"></i><b>9.1</b> Chapter 1. Introduction</a></li>
 <li class="chapter" data-level="9.2" data-path="solutions.html"><a href="solutions.html#chapter-2.-variables-values-and-types"><i class="fa fa-check"></i><b>9.2</b> Chapter 2. Variables, values and types</a><ul>
-<li class="chapter" data-level="9.2.1" data-path="solutions.html"><a href="solutions.html#exercise-1.-operators-1"><i class="fa fa-check"></i><b>9.2.1</b> Exercise 1. Operators</a></li>
-<li class="chapter" data-level="9.2.2" data-path="solutions.html"><a href="solutions.html#exercise-2.-values-1"><i class="fa fa-check"></i><b>9.2.2</b> Exercise 2. Values</a></li>
-<li class="chapter" data-level="9.2.3" data-path="solutions.html"><a href="solutions.html#exercise-3.-mini-programs-2"><i class="fa fa-check"></i><b>9.2.3</b> Exercise 3. Mini programs</a></li>
-<li class="chapter" data-level="9.2.4" data-path="solutions.html"><a href="solutions.html#exercise-4.-debugging-1"><i class="fa fa-check"></i><b>9.2.4</b> Exercise 4. Debugging</a></li>
-<li class="chapter" data-level="9.2.5" data-path="solutions.html"><a href="solutions.html#exercise-5.-string-concatenation-1"><i class="fa fa-check"></i><b>9.2.5</b> Exercise 5. String concatenation</a></li>
-<li class="chapter" data-level="9.2.6" data-path="solutions.html"><a href="solutions.html#exercise-6.-variable-names-1"><i class="fa fa-check"></i><b>9.2.6</b> Exercise 6. Variable names</a></li>
-<li class="chapter" data-level="9.2.7" data-path="solutions.html"><a href="solutions.html#exercise-7.-stroop-task-welcome-message-1"><i class="fa fa-check"></i><b>9.2.7</b> Exercise 7. Stroop task welcome message</a></li>
-<li class="chapter" data-level="9.2.8" data-path="solutions.html"><a href="solutions.html#exercise-8.-printing-1"><i class="fa fa-check"></i><b>9.2.8</b> Exercise 8. Printing</a></li>
+<li class="chapter" data-level="9.2.1" data-path="variables.html"><a href="variables.html#exercise-1.-operators"><i class="fa fa-check"></i><b>9.2.1</b> Exercise 1. Operators</a></li>
+<li class="chapter" data-level="9.2.2" data-path="variables.html"><a href="variables.html#exercise-2.-values"><i class="fa fa-check"></i><b>9.2.2</b> Exercise 2. Values</a></li>
+<li class="chapter" data-level="9.2.3" data-path="variables.html"><a href="variables.html#exercise-3.-mini-programs"><i class="fa fa-check"></i><b>9.2.3</b> Exercise 3. Mini programs</a></li>
+<li class="chapter" data-level="9.2.4" data-path="variables.html"><a href="variables.html#exercise-4.-debugging"><i class="fa fa-check"></i><b>9.2.4</b> Exercise 4. Debugging</a></li>
+<li class="chapter" data-level="9.2.5" data-path="variables.html"><a href="variables.html#exercise-5.-string-concatenation"><i class="fa fa-check"></i><b>9.2.5</b> Exercise 5. String concatenation</a></li>
+<li class="chapter" data-level="9.2.6" data-path="variables.html"><a href="variables.html#exercise-6.-variable-names"><i class="fa fa-check"></i><b>9.2.6</b> Exercise 6. Variable names</a></li>
+<li class="chapter" data-level="9.2.7" data-path="variables.html"><a href="variables.html#exercise-7.-stroop-task-welcome-message"><i class="fa fa-check"></i><b>9.2.7</b> Exercise 7. Stroop task welcome message</a></li>
+<li class="chapter" data-level="9.2.8" data-path="variables.html"><a href="variables.html#exercise-8.-printing"><i class="fa fa-check"></i><b>9.2.8</b> Exercise 8. Printing</a></li>
 <li class="chapter" data-level="9.2.9" data-path="solutions.html"><a href="solutions.html#exercise-9.-using-python-as-calculator"><i class="fa fa-check"></i><b>9.2.9</b> Exercise 9. Using Python as calculator</a></li>
-<li class="chapter" data-level="9.2.10" data-path="solutions.html"><a href="solutions.html#exercise-10.-a-boolean-puzzle-1"><i class="fa fa-check"></i><b>9.2.10</b> Exercise 10. A Boolean puzzle</a></li>
+<li class="chapter" data-level="9.2.10" data-path="variables.html"><a href="variables.html#exercise-10.-a-boolean-puzzle"><i class="fa fa-check"></i><b>9.2.10</b> Exercise 10. A Boolean puzzle</a></li>
 </ul></li>
 <li class="chapter" data-level="9.3" data-path="solutions.html"><a href="solutions.html#chapter-3.-conditionals"><i class="fa fa-check"></i><b>9.3</b> Chapter 3. Conditionals</a><ul>
-<li class="chapter" data-level="9.3.1" data-path="solutions.html"><a href="solutions.html#exercise-1.-boolean-logic-1"><i class="fa fa-check"></i><b>9.3.1</b> Exercise 1. Boolean logic</a></li>
-<li class="chapter" data-level="9.3.2" data-path="solutions.html"><a href="solutions.html#exercise-2.-state-charts-1"><i class="fa fa-check"></i><b>9.3.2</b> Exercise 2. State charts</a></li>
-<li class="chapter" data-level="9.3.3" data-path="solutions.html"><a href="solutions.html#exercise-3.-transition-tables-1"><i class="fa fa-check"></i><b>9.3.3</b> Exercise 3. Transition tables</a></li>
-<li class="chapter" data-level="9.3.4" data-path="solutions.html"><a href="solutions.html#exercise-4.-mini-programs-1"><i class="fa fa-check"></i><b>9.3.4</b> Exercise 4. Mini programs</a></li>
-<li class="chapter" data-level="9.3.5" data-path="solutions.html"><a href="solutions.html#exercise-5.-following-the-control-flow-1"><i class="fa fa-check"></i><b>9.3.5</b> Exercise 5. Following the control flow</a></li>
-<li class="chapter" data-level="9.3.6" data-path="solutions.html"><a href="solutions.html#exercise-6.-indentation-1"><i class="fa fa-check"></i><b>9.3.6</b> Exercise 6. Indentation</a></li>
-<li class="chapter" data-level="9.3.7" data-path="solutions.html"><a href="solutions.html#exercise-7.-pseudo-code-conditionals-1"><i class="fa fa-check"></i><b>9.3.7</b> Exercise 7. Pseudo code conditionals</a></li>
-<li class="chapter" data-level="9.3.8" data-path="solutions.html"><a href="solutions.html#exercise-8.-modify-stroop-task-1"><i class="fa fa-check"></i><b>9.3.8</b> Exercise 8. Modify Stroop Task</a></li>
-<li class="chapter" data-level="9.3.9" data-path="solutions.html"><a href="solutions.html#exercise-9.-simplify-nested-conditionals-1"><i class="fa fa-check"></i><b>9.3.9</b> Exercise 9. Simplify nested conditionals</a></li>
-<li class="chapter" data-level="9.3.10" data-path="solutions.html"><a href="solutions.html#exercise-10.-flow-chart-conditionals-1"><i class="fa fa-check"></i><b>9.3.10</b> Exercise 10. Flow chart conditionals</a></li>
+<li class="chapter" data-level="9.3.1" data-path="conditionals.html"><a href="conditionals.html#exercise-1.-boolean-logic"><i class="fa fa-check"></i><b>9.3.1</b> Exercise 1. Boolean logic</a></li>
+<li class="chapter" data-level="9.3.2" data-path="conditionals.html"><a href="conditionals.html#exercise-2.-state-charts"><i class="fa fa-check"></i><b>9.3.2</b> Exercise 2. State charts</a></li>
+<li class="chapter" data-level="9.3.3" data-path="conditionals.html"><a href="conditionals.html#exercise-3.-transition-tables"><i class="fa fa-check"></i><b>9.3.3</b> Exercise 3. Transition tables</a></li>
+<li class="chapter" data-level="9.3.4" data-path="conditionals.html"><a href="conditionals.html#exercise-4.-mini-programs"><i class="fa fa-check"></i><b>9.3.4</b> Exercise 4. Mini programs</a></li>
+<li class="chapter" data-level="9.3.5" data-path="conditionals.html"><a href="conditionals.html#exercise-5.-following-the-control-flow"><i class="fa fa-check"></i><b>9.3.5</b> Exercise 5. Following the control flow</a></li>
+<li class="chapter" data-level="9.3.6" data-path="conditionals.html"><a href="conditionals.html#exercise-6.-indentation"><i class="fa fa-check"></i><b>9.3.6</b> Exercise 6. Indentation</a></li>
+<li class="chapter" data-level="9.3.7" data-path="conditionals.html"><a href="conditionals.html#exercise-7.-pseudo-code-conditionals"><i class="fa fa-check"></i><b>9.3.7</b> Exercise 7. Pseudo code conditionals</a></li>
+<li class="chapter" data-level="9.3.8" data-path="conditionals.html"><a href="conditionals.html#exercise-8.-modify-stroop-task"><i class="fa fa-check"></i><b>9.3.8</b> Exercise 8. Modify Stroop Task</a></li>
+<li class="chapter" data-level="9.3.9" data-path="conditionals.html"><a href="conditionals.html#exercise-9.-simplify-nested-conditionals"><i class="fa fa-check"></i><b>9.3.9</b> Exercise 9. Simplify nested conditionals</a></li>
+<li class="chapter" data-level="9.3.10" data-path="conditionals.html"><a href="conditionals.html#exercise-10.-flow-chart-conditionals"><i class="fa fa-check"></i><b>9.3.10</b> Exercise 10. Flow chart conditionals</a></li>
 </ul></li>
 <li class="chapter" data-level="9.4" data-path="solutions.html"><a href="solutions.html#chapter-4.-lists"><i class="fa fa-check"></i><b>9.4</b> Chapter 4. Lists</a><ul>
-<li class="chapter" data-level="9.4.1" data-path="solutions.html"><a href="solutions.html#exercise-1.-indexing-1"><i class="fa fa-check"></i><b>9.4.1</b> Exercise 1. Indexing</a></li>
-<li class="chapter" data-level="9.4.2" data-path="solutions.html"><a href="solutions.html#exercise-2.-debugging-1"><i class="fa fa-check"></i><b>9.4.2</b> Exercise 2. Debugging</a></li>
-<li class="chapter" data-level="9.4.3" data-path="solutions.html"><a href="solutions.html#exercise-3.-mini-programs-3"><i class="fa fa-check"></i><b>9.4.3</b> Exercise 3. Mini programs</a></li>
+<li class="chapter" data-level="9.4.1" data-path="lists.html"><a href="lists.html#exercise-1.-indexing"><i class="fa fa-check"></i><b>9.4.1</b> Exercise 1. Indexing</a></li>
+<li class="chapter" data-level="9.4.2" data-path="lists.html"><a href="lists.html#exercise-2.-debugging"><i class="fa fa-check"></i><b>9.4.2</b> Exercise 2. Debugging</a></li>
+<li class="chapter" data-level="9.4.3" data-path="solutions.html"><a href="solutions.html#exercise-3.-mini-programs-1"><i class="fa fa-check"></i><b>9.4.3</b> Exercise 3. Mini programs</a></li>
 <li class="chapter" data-level="9.4.4" data-path="solutions.html"><a href="solutions.html#exercise-1.-shopping-list"><i class="fa fa-check"></i><b>9.4.4</b> Exercise 1. Shopping list</a></li>
 <li class="chapter" data-level="9.4.5" data-path="solutions.html"><a href="solutions.html#exercise-2.-dictionnaries"><i class="fa fa-check"></i><b>9.4.5</b> Exercise 2. Dictionnaries</a></li>
 <li class="chapter" data-level="9.4.6" data-path="solutions.html"><a href="solutions.html#exercise-3.-selecting-elements"><i class="fa fa-check"></i><b>9.4.6</b> Exercise 3. Selecting elements</a></li>
@@ -339,8 +343,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="9.4.9" data-path="solutions.html"><a href="solutions.html#exercise-6.-stroop-extension"><i class="fa fa-check"></i><b>9.4.9</b> Exercise 6. Stroop extension</a></li>
 </ul></li>
 <li class="chapter" data-level="9.5" data-path="solutions.html"><a href="solutions.html#chapter-5.-loops"><i class="fa fa-check"></i><b>9.5</b> Chapter 5. Loops</a><ul>
-<li class="chapter" data-level="9.5.1" data-path="solutions.html"><a href="solutions.html#exercise-1.-following-the-control-flow-i-1"><i class="fa fa-check"></i><b>9.5.1</b> Exercise 1. Following the control flow I</a></li>
-<li class="chapter" data-level="9.5.2" data-path="solutions.html"><a href="solutions.html#exercise-2.-debugging-i-1"><i class="fa fa-check"></i><b>9.5.2</b> Exercise 2. Debugging I</a></li>
+<li class="chapter" data-level="9.5.1" data-path="loops.html"><a href="loops.html#exercise-1.-following-the-control-flow-i"><i class="fa fa-check"></i><b>9.5.1</b> Exercise 1. Following the control flow I</a></li>
+<li class="chapter" data-level="9.5.2" data-path="loops.html"><a href="loops.html#exercise-2.-debugging-i"><i class="fa fa-check"></i><b>9.5.2</b> Exercise 2. Debugging I</a></li>
 <li class="chapter" data-level="9.5.3" data-path="solutions.html"><a href="solutions.html#exercise-3.-controlling-the-flow"><i class="fa fa-check"></i><b>9.5.3</b> Exercise 3. Controlling the flow</a></li>
 <li class="chapter" data-level="9.5.4" data-path="solutions.html"><a href="solutions.html#exercise-4.-following-the-control-flow-ii"><i class="fa fa-check"></i><b>9.5.4</b> Exercise 4. Following the control flow II</a></li>
 <li class="chapter" data-level="9.5.5" data-path="solutions.html"><a href="solutions.html#exercise-5.-debugging"><i class="fa fa-check"></i><b>9.5.5</b> Exercise 5. Debugging</a></li>
@@ -350,16 +354,16 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="9.5.9" data-path="solutions.html"><a href="solutions.html#exercise-9.-a-guessing-game"><i class="fa fa-check"></i><b>9.5.9</b> Exercise 9. A guessing game</a></li>
 </ul></li>
 <li class="chapter" data-level="9.6" data-path="solutions.html"><a href="solutions.html#chapter-6.-functions"><i class="fa fa-check"></i><b>9.6</b> Chapter 6. Functions</a><ul>
-<li class="chapter" data-level="9.6.1" data-path="solutions.html"><a href="solutions.html#exercise-1.-following-the-control-flow-1"><i class="fa fa-check"></i><b>9.6.1</b> Exercise 1. Following the control flow</a></li>
-<li class="chapter" data-level="9.6.2" data-path="solutions.html"><a href="solutions.html#exercise-2.-an-imperfect-list-sorting-attempt-1"><i class="fa fa-check"></i><b>9.6.2</b> Exercise 2. An imperfect list sorting attempt</a></li>
+<li class="chapter" data-level="9.6.1" data-path="functions.html"><a href="functions.html#exercise-1.-following-the-control-flow"><i class="fa fa-check"></i><b>9.6.1</b> Exercise 1. Following the control flow</a></li>
+<li class="chapter" data-level="9.6.2" data-path="functions.html"><a href="functions.html#exercise-2.-an-imperfect-list-sorting-attempt"><i class="fa fa-check"></i><b>9.6.2</b> Exercise 2. An imperfect list sorting attempt</a></li>
 <li class="chapter" data-level="9.6.3" data-path="solutions.html"><a href="solutions.html#exercise-3.-an-errorneous-sorting-algorithm"><i class="fa fa-check"></i><b>9.6.3</b> Exercise 3. An errorneous sorting algorithm</a></li>
 <li class="chapter" data-level="9.6.4" data-path="solutions.html"><a href="solutions.html#exercise-4."><i class="fa fa-check"></i><b>9.6.4</b> Exercise 4.</a></li>
 <li class="chapter" data-level="9.6.5" data-path="solutions.html"><a href="solutions.html#exercise-5."><i class="fa fa-check"></i><b>9.6.5</b> Exercise 5.</a></li>
-<li class="chapter" data-level="9.6.6" data-path="solutions.html"><a href="solutions.html#exercise-6.-insertion-sort-algorithm-1"><i class="fa fa-check"></i><b>9.6.6</b> Exercise 6. Insertion sort algorithm</a></li>
+<li class="chapter" data-level="9.6.6" data-path="functions.html"><a href="functions.html#exercise-6.-insertion-sort-algorithm"><i class="fa fa-check"></i><b>9.6.6</b> Exercise 6. Insertion sort algorithm</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="10" data-path="debugging-and-good-programming-practices.html"><a href="debugging-and-good-programming-practices.html"><i class="fa fa-check"></i><b>10</b> Debugging and good programming practices</a><ul>
-<li class="chapter" data-level="10.1" data-path="debugging-and-good-programming-practices.html"><a href="debugging-and-good-programming-practices.html#debugging-4"><i class="fa fa-check"></i><b>10.1</b> Debugging</a></li>
+<li class="chapter" data-level="10.1" data-path="variables.html"><a href="variables.html#debugging"><i class="fa fa-check"></i><b>10.1</b> Debugging</a></li>
 <li class="chapter" data-level="10.2" data-path="debugging-and-good-programming-practices.html"><a href="debugging-and-good-programming-practices.html#boosting-your-programming-learning-curve"><i class="fa fa-check"></i><b>10.2</b> Boosting your programming learning curve</a><ul>
 <li class="chapter" data-level="10.2.1" data-path="debugging-and-good-programming-practices.html"><a href="debugging-and-good-programming-practices.html#going-with-the-flow"><i class="fa fa-check"></i><b>10.2.1</b> Going with the flow</a></li>
 <li class="chapter" data-level="10.2.2" data-path="debugging-and-good-programming-practices.html"><a href="debugging-and-good-programming-practices.html#just-do-it"><i class="fa fa-check"></i><b>10.2.2</b> Just do it!</a></li>
@@ -384,105 +388,105 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
             <section class="normal" id="section-">
 <div id="lists" class="section level1">
 <h1><span class="header-section-number">4</span> Lists</h1>
-<pre class="sourceCode python"><code class="sourceCode python">message <span class="op">=</span> [<span class="st">&quot;Hello,&quot;</span>]
-message.append(<span class="st">&quot;world&quot;</span>)
-<span class="bu">print</span>(<span class="st">&quot; &quot;</span>.join(message))</code></pre>
+<div class="sourceCode" id="cb182"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb182-1"><a href="lists.html#cb182-1"></a>message <span class="op">=</span> [<span class="st">&quot;Hello,&quot;</span>]</span>
+<span id="cb182-2"><a href="lists.html#cb182-2"></a>message.append(<span class="st">&quot;world&quot;</span>)</span>
+<span id="cb182-3"><a href="lists.html#cb182-3"></a><span class="bu">print</span>(<span class="st">&quot; &quot;</span>.join(message))</span></code></pre></div>
 <pre><code>## Hello, world</code></pre>
 <p>In chapter 2 Variables, you encountered the four basic data types of the Python programming language: <em>integers</em>, <em>floats</em>, <em>Strings</em> and <em>Booleans</em>. You also learned that apart from these four basic data types, Python knows numerous specialized types. Now it is time to encounter one group of these specialized data types: <em>collections</em>. You will learn about three types of collections, <em>lists</em>, <em>tuples</em>, and <em>dictionaries</em> in this chapter. Together, they make up a toolbox for storing information in a computer program.</p>
 <div id="lists-1" class="section level2">
 <h2><span class="header-section-number">4.1</span> Lists</h2>
-<pre class="sourceCode python"><code class="sourceCode python">a <span class="op">=</span> [<span class="dv">10</span>, <span class="dv">5</span>, <span class="dv">15</span>, <span class="dv">25</span>]
-b <span class="op">=</span> [<span class="st">&quot;eggs&quot;</span>, <span class="st">&quot;bacon&quot;</span>, <span class="st">&quot;cheese&quot;</span>]
-c <span class="op">=</span> [<span class="dv">4</span>, <span class="st">&quot;hello&quot;</span>, <span class="fl">7.3</span>, <span class="va">False</span>]</code></pre>
+<div class="sourceCode" id="cb184"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb184-1"><a href="lists.html#cb184-1"></a>a <span class="op">=</span> [<span class="dv">10</span>, <span class="dv">5</span>, <span class="dv">15</span>, <span class="dv">25</span>]</span>
+<span id="cb184-2"><a href="lists.html#cb184-2"></a>b <span class="op">=</span> [<span class="st">&quot;eggs&quot;</span>, <span class="st">&quot;bacon&quot;</span>, <span class="st">&quot;cheese&quot;</span>]</span>
+<span id="cb184-3"><a href="lists.html#cb184-3"></a>c <span class="op">=</span> [<span class="dv">4</span>, <span class="st">&quot;hello&quot;</span>, <span class="fl">7.3</span>, <span class="va">False</span>]</span></code></pre></div>
 <p>Lists are one type of collection. The easiest way of creating a list is surrounding some values with cornered brackets <code>[]</code> and separating the values of the list with commas <code>,</code>. The values that make up a list are called <em>items</em> or <em>elements</em>. Lists can contain any type of value or variable. From this it follows that lists can also contain other lists! A list that contains another list is called a <em>list of lists</em>, or <em>nested</em> list (you may also think of this phenomenon as <em>listception</em>, if you ever watched Christopher Nolan’s <em>Inception</em> (2010)).</p>
-<pre class="sourceCode python"><code class="sourceCode python">a <span class="op">=</span> <span class="dv">2</span>
-b <span class="op">=</span> [a, <span class="dv">2</span><span class="op">*</span>a]
-c <span class="op">=</span> [b, <span class="dv">6</span>]
-<span class="bu">print</span>(c)</code></pre>
+<div class="sourceCode" id="cb185"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb185-1"><a href="lists.html#cb185-1"></a>a <span class="op">=</span> <span class="dv">2</span></span>
+<span id="cb185-2"><a href="lists.html#cb185-2"></a>b <span class="op">=</span> [a, <span class="dv">2</span><span class="op">*</span>a]</span>
+<span id="cb185-3"><a href="lists.html#cb185-3"></a>c <span class="op">=</span> [b, <span class="dv">6</span>]</span>
+<span id="cb185-4"><a href="lists.html#cb185-4"></a><span class="bu">print</span>(c)</span></code></pre></div>
 <pre><code>## [[2, 4], 6]</code></pre>
 <p>A special type of list is the so-called <em>empty list</em>. An empty list is a list with no elements. Empty lists are denoted with <code>[]</code>.</p>
-<pre class="sourceCode python"><code class="sourceCode python">a <span class="op">=</span> []</code></pre>
+<div class="sourceCode" id="cb187"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb187-1"><a href="lists.html#cb187-1"></a>a <span class="op">=</span> []</span></code></pre></div>
 <p>In a sense, lists are similar to <em>Strings</em>. Strings are basically ordered collections of <em>characters</em>. For example, the word <code>Hello</code> is an ordered collection of five characters: <code>H</code>,<code>e</code>, <code>l</code>, <code>l</code>, and <code>o</code>.
 In contrast to Strings, however, the elements of lists can be of <em>any</em> type. Ordered collections such as strings and lists are also called <em>sequences</em>.</p>
 <p>Lists are <em>ordered</em> collections of values. However, a list being <em>ordered</em> has nothing to do with how humans may be inclinded to order the elements of a list. For example, you may want to order a list <code>a</code> with three elements <code>"A", "B",</code> and <code>"C"</code> according to their alphabetic order: <code>a = ["A", "B", "C"]</code>. However, for lists, the value of an element is irrelevant for its position in the list. Lists are <strong>not</strong> <em>ordered</em> because they grasp some underlying semantics about their elements according to which they come up with an order. In fact, element values are arbitrary for a list. Instead, lists are called <em>ordered</em> because they allocate a certain position in memory to each element. Each list element occupies a unique position in memory. Elements of a list are accessed by querying the list at specified positions, so-called <em>indices</em>. Accessing a list at a specified index, the value located at that position in memory is returned. The <em>index operator</em> <code>[]</code> is used to access list elements at specified indices, like so</p>
-<pre class="sourceCode python"><code class="sourceCode python">a <span class="op">=</span> [<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>]
-<span class="bu">print</span>(a[<span class="dv">0</span>])</code></pre>
+<div class="sourceCode" id="cb188"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb188-1"><a href="lists.html#cb188-1"></a>a <span class="op">=</span> [<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>]</span>
+<span id="cb188-2"><a href="lists.html#cb188-2"></a><span class="bu">print</span>(a[<span class="dv">0</span>])</span></code></pre></div>
 <pre><code>## 1</code></pre>
-<pre class="sourceCode python"><code class="sourceCode python"><span class="bu">print</span>(a[<span class="dv">1</span>])</code></pre>
+<div class="sourceCode" id="cb190"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb190-1"><a href="lists.html#cb190-1"></a><span class="bu">print</span>(a[<span class="dv">1</span>])</span></code></pre></div>
 <pre><code>## 2</code></pre>
 <p>The <em>expression</em> inside the brackets of the index operator (in this case the integers <code>0</code> and <code>1</code>) specifies the <em>index</em> of the to-be selected element. Each element inside a list has a unique index, an <em>integer</em> describing the element’s position in the list. One major cause of errors surrounding lists is that indices start at <code>0</code>, not at <code>1</code>, as you might expect. After all, to us it feels natural to start counting at <code>1</code>. As you can see below, this means that the first element of a list is accessed by indexing <code>0</code>.</p>
-<pre class="sourceCode python"><code class="sourceCode python">a <span class="op">=</span> [<span class="st">&quot;Hello&quot;</span>, <span class="st">&quot;World&quot;</span>, <span class="st">&quot;!&quot;</span>]
-<span class="bu">print</span>(a[<span class="dv">0</span>])</code></pre>
+<div class="sourceCode" id="cb192"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb192-1"><a href="lists.html#cb192-1"></a>a <span class="op">=</span> [<span class="st">&quot;Hello&quot;</span>, <span class="st">&quot;World&quot;</span>, <span class="st">&quot;!&quot;</span>]</span>
+<span id="cb192-2"><a href="lists.html#cb192-2"></a><span class="bu">print</span>(a[<span class="dv">0</span>])</span></code></pre></div>
 <pre><code>## Hello</code></pre>
-<pre class="sourceCode python"><code class="sourceCode python"><span class="bu">print</span>(a[<span class="dv">2</span>])</code></pre>
+<div class="sourceCode" id="cb194"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb194-1"><a href="lists.html#cb194-1"></a><span class="bu">print</span>(a[<span class="dv">2</span>])</span></code></pre></div>
 <pre><code>## !</code></pre>
 <p>Why do indices start at 0, instead of 1? As you might already expect, it has to do with how computers store information in memory. A list serves as a pointer, a reference to a memory location. The expression <code>list[i]</code> then refers to a memory position i-steps away from the starting element. This means that the index is used as an offset. The first element of a list is located at exactly the position the list refers to (which means that the offset is 0). Hence, the first element of a list is located at index 0.</p>
 <div id="lists-are-mutable" class="section level3">
 <h3><span class="header-section-number">4.1.1</span> Lists are mutable</h3>
 <p>In contrast to Strings, lists are <em>mutable</em> sequences. This means that even after a variable is assigned a list as value, specific elements of this list can be changed without reassigning a completely new list! You can use the <em>index operator</em> to mutate specific list items.</p>
-<pre class="sourceCode python"><code class="sourceCode python">shoppinglist <span class="op">=</span> [<span class="st">&quot;appels&quot;</span>, <span class="st">&quot;bananas&quot;</span>, <span class="st">&quot;tomatoes&quot;</span>]
-shoppinglist[<span class="dv">2</span>] <span class="op">=</span> <span class="st">&quot;peaches&quot;</span>
-<span class="bu">print</span>(<span class="st">&quot;Updated shopping list: &quot;</span> <span class="op">+</span> <span class="st">&quot;, &quot;</span>.join(shoppinglist))</code></pre>
+<div class="sourceCode" id="cb196"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb196-1"><a href="lists.html#cb196-1"></a>shoppinglist <span class="op">=</span> [<span class="st">&quot;appels&quot;</span>, <span class="st">&quot;bananas&quot;</span>, <span class="st">&quot;tomatoes&quot;</span>]</span>
+<span id="cb196-2"><a href="lists.html#cb196-2"></a>shoppinglist[<span class="dv">2</span>] <span class="op">=</span> <span class="st">&quot;peaches&quot;</span></span>
+<span id="cb196-3"><a href="lists.html#cb196-3"></a><span class="bu">print</span>(<span class="st">&quot;Updated shopping list: &quot;</span> <span class="op">+</span> <span class="st">&quot;, &quot;</span>.join(shoppinglist))</span></code></pre></div>
 <pre><code>## Updated shopping list: appels, bananas, peaches</code></pre>
-<pre class="sourceCode python"><code class="sourceCode python">a <span class="op">=</span> [<span class="dv">1</span>,<span class="dv">2</span>]
-a[<span class="dv">0</span>] <span class="op">=</span> <span class="dv">10</span>
-<span class="bu">print</span>(a)</code></pre>
+<div class="sourceCode" id="cb198"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb198-1"><a href="lists.html#cb198-1"></a>a <span class="op">=</span> [<span class="dv">1</span>,<span class="dv">2</span>]</span>
+<span id="cb198-2"><a href="lists.html#cb198-2"></a>a[<span class="dv">0</span>] <span class="op">=</span> <span class="dv">10</span></span>
+<span id="cb198-3"><a href="lists.html#cb198-3"></a><span class="bu">print</span>(a)</span></code></pre></div>
 <pre><code>## [10, 2]</code></pre>
 <p>Using the index operator, you can also access (and change!) several elements at a time using so-called <em>list slices</em>:</p>
-<pre class="sourceCode python"><code class="sourceCode python">a <span class="op">=</span> [<span class="dv">1</span>, <span class="st">&quot;a&quot;</span>, <span class="dv">2</span>, <span class="st">&quot;b&quot;</span>, <span class="dv">3</span>, <span class="st">&quot;c&quot;</span>]
-<span class="bu">print</span>(a[<span class="dv">1</span>:<span class="dv">4</span>])</code></pre>
+<div class="sourceCode" id="cb200"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb200-1"><a href="lists.html#cb200-1"></a>a <span class="op">=</span> [<span class="dv">1</span>, <span class="st">&quot;a&quot;</span>, <span class="dv">2</span>, <span class="st">&quot;b&quot;</span>, <span class="dv">3</span>, <span class="st">&quot;c&quot;</span>]</span>
+<span id="cb200-2"><a href="lists.html#cb200-2"></a><span class="bu">print</span>(a[<span class="dv">1</span>:<span class="dv">4</span>])</span></code></pre></div>
 <pre><code>## [&#39;a&#39;, 2, &#39;b&#39;]</code></pre>
-<pre class="sourceCode python"><code class="sourceCode python"><span class="bu">print</span>(a[<span class="dv">0</span>:<span class="dv">2</span>])</code></pre>
+<div class="sourceCode" id="cb202"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb202-1"><a href="lists.html#cb202-1"></a><span class="bu">print</span>(a[<span class="dv">0</span>:<span class="dv">2</span>])</span></code></pre></div>
 <pre><code>## [1, &#39;a&#39;]</code></pre>
-<pre class="sourceCode python"><code class="sourceCode python">a[<span class="dv">0</span>:<span class="dv">2</span>] <span class="op">=</span> <span class="st">&quot;d&quot;</span>
-<span class="bu">print</span>(a)</code></pre>
+<div class="sourceCode" id="cb204"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb204-1"><a href="lists.html#cb204-1"></a>a[<span class="dv">0</span>:<span class="dv">2</span>] <span class="op">=</span> <span class="st">&quot;d&quot;</span></span>
+<span id="cb204-2"><a href="lists.html#cb204-2"></a><span class="bu">print</span>(a)</span></code></pre></div>
 <pre><code>## [&#39;d&#39;, 2, &#39;b&#39;, 3, &#39;c&#39;]</code></pre>
 <p>The indices around the <code>:</code> colon indicate the starting and ending index of the selected list slice. Note that a list slice will always include the element located at the starting index, but exclude the element located at the ending index. To include <code>2</code> in the second list slice you would thus need to access <code>a[0:3]</code>, or simplified <code>a[:3]</code>. The latter meaning “every element up until, but excluding index 3”.</p>
 <p>Note that the statement <code>a[0:2] = d</code> mutates both elements, <code>1</code> <em>and</em> <code>"a"</code> into a single new item <code>"d"</code>. This means that the statement did not only change some elements of <code>a</code>, but also <code>a</code>’s total number of elements!</p>
 <p>When no starting or ending index is specified, the <code>:</code> expression selects all elements of a list and can be used for <em>cloning</em> lists.</p>
-<pre class="sourceCode python"><code class="sourceCode python">a <span class="op">=</span> [<span class="dv">1</span>, <span class="st">&quot;a&quot;</span>, <span class="dv">2</span>, <span class="st">&quot;b&quot;</span>, <span class="dv">3</span>, <span class="st">&quot;c&quot;</span>]
-aCopy <span class="op">=</span> a[:]
-<span class="bu">print</span>(aCopy)</code></pre>
+<div class="sourceCode" id="cb206"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb206-1"><a href="lists.html#cb206-1"></a>a <span class="op">=</span> [<span class="dv">1</span>, <span class="st">&quot;a&quot;</span>, <span class="dv">2</span>, <span class="st">&quot;b&quot;</span>, <span class="dv">3</span>, <span class="st">&quot;c&quot;</span>]</span>
+<span id="cb206-2"><a href="lists.html#cb206-2"></a>aCopy <span class="op">=</span> a[:]</span>
+<span id="cb206-3"><a href="lists.html#cb206-3"></a><span class="bu">print</span>(aCopy)</span></code></pre></div>
 <pre><code>## [1, &#39;a&#39;, 2, &#39;b&#39;, 3, &#39;c&#39;]</code></pre>
 <p>But watch out, you <strong>cannot</strong> use the index operator to add new elements to a list. To do so, you would need to access a new index, an index not yet claimed by an existing list element. Trying to access an index outside of the current range of indices will produce an index out of range error.</p>
-<pre class="sourceCode python"><code class="sourceCode python">a <span class="op">=</span> [<span class="dv">1</span>,<span class="dv">2</span>]
-a[<span class="dv">2</span>] <span class="op">=</span> <span class="dv">10</span></code></pre>
+<div class="sourceCode" id="cb208"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb208-1"><a href="lists.html#cb208-1"></a>a <span class="op">=</span> [<span class="dv">1</span>,<span class="dv">2</span>]</span>
+<span id="cb208-2"><a href="lists.html#cb208-2"></a>a[<span class="dv">2</span>] <span class="op">=</span> <span class="dv">10</span></span></code></pre></div>
 <pre><code>## Error in py_call_impl(callable, dots$args, dots$keywords): IndexError: list assignment index out of range
 ## 
 ## Detailed traceback: 
 ##   File &quot;&lt;string&gt;&quot;, line 1, in &lt;module&gt;</code></pre>
-<pre class="sourceCode python"><code class="sourceCode python"><span class="bu">print</span>(a)</code></pre>
+<div class="sourceCode" id="cb210"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb210-1"><a href="lists.html#cb210-1"></a><span class="bu">print</span>(a)</span></code></pre></div>
 <pre><code>## [1, 2]</code></pre>
 <p>Luckily, there are other ways of adding elements to a list.</p>
-<pre class="sourceCode python"><code class="sourceCode python">a <span class="op">=</span> []
-a.append(<span class="dv">1</span>)
-<span class="bu">print</span>(a)</code></pre>
+<div class="sourceCode" id="cb212"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb212-1"><a href="lists.html#cb212-1"></a>a <span class="op">=</span> []</span>
+<span id="cb212-2"><a href="lists.html#cb212-2"></a>a.append(<span class="dv">1</span>)</span>
+<span id="cb212-3"><a href="lists.html#cb212-3"></a><span class="bu">print</span>(a)</span></code></pre></div>
 <pre><code>## [1]</code></pre>
-<pre class="sourceCode python"><code class="sourceCode python">a.append(<span class="dv">2</span>)
-<span class="bu">print</span>(a)</code></pre>
+<div class="sourceCode" id="cb214"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb214-1"><a href="lists.html#cb214-1"></a>a.append(<span class="dv">2</span>)</span>
+<span id="cb214-2"><a href="lists.html#cb214-2"></a><span class="bu">print</span>(a)</span></code></pre></div>
 <pre><code>## [1, 2]</code></pre>
 <p>The <em>append</em> method adds the specified element at the end of a given list. You can use the <em>extend</em> method to add <em>multiple</em> values of another list (or other type of collection) to your list.</p>
-<pre class="sourceCode python"><code class="sourceCode python">a <span class="op">=</span> [<span class="dv">1</span>,<span class="dv">2</span>]
-b <span class="op">=</span> [<span class="dv">3</span>,<span class="dv">4</span>]
-
-a.extend(b)
-<span class="bu">print</span>(a)</code></pre>
+<div class="sourceCode" id="cb216"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb216-1"><a href="lists.html#cb216-1"></a>a <span class="op">=</span> [<span class="dv">1</span>,<span class="dv">2</span>]</span>
+<span id="cb216-2"><a href="lists.html#cb216-2"></a>b <span class="op">=</span> [<span class="dv">3</span>,<span class="dv">4</span>]</span>
+<span id="cb216-3"><a href="lists.html#cb216-3"></a></span>
+<span id="cb216-4"><a href="lists.html#cb216-4"></a>a.extend(b)</span>
+<span id="cb216-5"><a href="lists.html#cb216-5"></a><span class="bu">print</span>(a)</span></code></pre></div>
 <pre><code>## [1, 2, 3, 4]</code></pre>
 <p>Note that there is a difference between appending a list and extending your list with another list.</p>
-<pre class="sourceCode python"><code class="sourceCode python">a <span class="op">=</span> [<span class="dv">1</span>,<span class="dv">2</span>]
-b <span class="op">=</span> [<span class="dv">3</span>,<span class="dv">4</span>]
-
-a.append(b)
-<span class="bu">print</span>(a)</code></pre>
+<div class="sourceCode" id="cb218"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb218-1"><a href="lists.html#cb218-1"></a>a <span class="op">=</span> [<span class="dv">1</span>,<span class="dv">2</span>]</span>
+<span id="cb218-2"><a href="lists.html#cb218-2"></a>b <span class="op">=</span> [<span class="dv">3</span>,<span class="dv">4</span>]</span>
+<span id="cb218-3"><a href="lists.html#cb218-3"></a></span>
+<span id="cb218-4"><a href="lists.html#cb218-4"></a>a.append(b)</span>
+<span id="cb218-5"><a href="lists.html#cb218-5"></a><span class="bu">print</span>(a)</span></code></pre></div>
 <pre><code>## [1, 2, [3, 4]]</code></pre>
 <p>In the above example, <strong>extending</strong> <code>a</code> with <code>b</code> causes the elements stored in <code>b</code> to be appended to <code>a</code> sequentially, each of them constituting a new element in <code>a</code>. In contrast, the whole list <code>b</code> is regarded as an element of <code>a</code> when <code>b</code> is <strong>appended</strong> to <code>a</code>.
 Because lists are mutable, you can sequentially fill them with elements, one by one. This is very handy for storing values you generate throughout your program.</p>
 <p>###A word about class specific functions
 By now, you have seen a few examples of class-specific <em>functions</em>, such as <code>append()</code> for lists or <code>join()</code> for strings. Even though a detailed explanation of <em>functions</em> (also called <em>methods</em>) is postponed to Chapter <a href="functions.html#functions">6</a>, a quick introduction to the terminology of objects, classes, and class-specific functions will help you make the most of your lists and other collections. For now, you can see functions as pieces of reusable code that specify what to do with some input values.</p>
 <p>When you create a variable <code>a</code> and assign a value to it, say <code>[4,5]</code>, you can think of it as creating an <em>object</em> (i.e. an instance) of the Python <em>class</em> <em>list</em>. The <em>list</em> class has been programmed by the developers of the Python language, same as any other built-in Python class, such as integers and strings. Classes are blueprints, a specification of how to build certain objects. Engineers use blueprints to build cars, buildings, bridges and more. Chefs use recipes to put together meals. Python classes are the same in that they specify how objects of a certain type are programmed internally when you create one of them. A class has built-in <em>methods</em> that can be used by <em>any</em> object that has been created using the class’ blueprint. And this is what you basically do whenever you surround a number of values with cornered brackets. You create a list according to the blueprint of the Python class <code>list</code>. It is very useful that your list inherits <em>functions</em> from its blueprint. It means that without any effort on your part your lists have a variety of functionality at their disposal. They can immediately use a range of built-in methods such as the <code>append()</code> method.</p>
-<pre class="sourceCode python"><code class="sourceCode python">a <span class="op">=</span> [<span class="dv">4</span>,<span class="dv">5</span>]
-a.append(<span class="dv">6</span>)
-<span class="bu">print</span>(a)</code></pre>
+<div class="sourceCode" id="cb220"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb220-1"><a href="lists.html#cb220-1"></a>a <span class="op">=</span> [<span class="dv">4</span>,<span class="dv">5</span>]</span>
+<span id="cb220-2"><a href="lists.html#cb220-2"></a>a.append(<span class="dv">6</span>)</span>
+<span id="cb220-3"><a href="lists.html#cb220-3"></a><span class="bu">print</span>(a)</span></code></pre></div>
 <pre><code>## [4, 5, 6]</code></pre>
 <p>The <code>append()</code> method adds the value specified between the brackets to the end of the list. Typing <code>help(list)</code> in your console will give you a complete list of built-in functions of the class <code>list</code> and what they do.</p>
 <p>What is the take-home message of this excursion to object-orientation? Well, make use of built-in class functions as much as you can! They provide a tremendous amount of functionality which you are likely going to need and want, written in neat code which makes them very efficient to use, too!</p>
@@ -492,8 +496,8 @@ a.append(<span class="dv">6</span>)
 <div id="tuples" class="section level2">
 <h2><span class="header-section-number">4.2</span> Tuples</h2>
 <p>Much like lists, <em>tuples</em> are ordered collections of values, but with less exentensive functionality and their unique characteristic being that they are <em>immutable</em>. Once you created a <em>tuple</em> in memory, you cannot change its elements.</p>
-<pre class="sourceCode python"><code class="sourceCode python">thorndike <span class="op">=</span> (<span class="st">&quot;Edward&quot;</span>, <span class="st">&quot;Lee&quot;</span>, <span class="st">&quot;Thorndike&quot;</span>, <span class="dv">1874</span>, <span class="st">&quot;Law of effect&quot;</span>, <span class="st">&quot;Law of exercise&quot;</span>)
-thorndike[<span class="dv">4</span>] <span class="op">=</span> <span class="st">&quot;Law of recency&quot;</span></code></pre>
+<div class="sourceCode" id="cb222"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb222-1"><a href="lists.html#cb222-1"></a>thorndike <span class="op">=</span> (<span class="st">&quot;Edward&quot;</span>, <span class="st">&quot;Lee&quot;</span>, <span class="st">&quot;Thorndike&quot;</span>, <span class="dv">1874</span>, <span class="st">&quot;Law of effect&quot;</span>, <span class="st">&quot;Law of exercise&quot;</span>)</span>
+<span id="cb222-2"><a href="lists.html#cb222-2"></a>thorndike[<span class="dv">4</span>] <span class="op">=</span> <span class="st">&quot;Law of recency&quot;</span></span></code></pre></div>
 <pre><code>## Error in py_call_impl(callable, dots$args, dots$keywords): TypeError: &#39;tuple&#39; object does not support item assignment
 ## 
 ## Detailed traceback: 
@@ -501,250 +505,250 @@ thorndike[<span class="dv">4</span>] <span class="op">=</span> <span class="st">
 <p>Tuples are usually used when you assume that a collection of values will not change in the course of your program. They are <em>records</em> of related information, chunked together so that we can use them as a single entity.
 In the Stroop Task program for instance, we saw that tuples were used to chunk together RGB combinations that make up a color. The Pygame module used these tuples to generate color in the Stroop Task.</p>
 <p>Tuples are immutable. However, if you really need to change the contents of an already existing tuple, you can always assign a new value to the variable which holds the tuple as a value.</p>
-<pre class="sourceCode python"><code class="sourceCode python">thorndike <span class="op">=</span> (<span class="st">&quot;Edward&quot;</span>, <span class="st">&quot;Lee&quot;</span>, <span class="st">&quot;Thorndike&quot;</span>, <span class="dv">1874</span>, <span class="st">&quot;Law of effect&quot;</span>, <span class="st">&quot;Law of exercise&quot;</span>)
-thorndike <span class="op">=</span> thorndike[:] <span class="op">+</span> (<span class="st">&quot;Law of recency&quot;</span>,)
-<span class="bu">print</span>(thorndike)</code></pre>
+<div class="sourceCode" id="cb224"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb224-1"><a href="lists.html#cb224-1"></a>thorndike <span class="op">=</span> (<span class="st">&quot;Edward&quot;</span>, <span class="st">&quot;Lee&quot;</span>, <span class="st">&quot;Thorndike&quot;</span>, <span class="dv">1874</span>, <span class="st">&quot;Law of effect&quot;</span>, <span class="st">&quot;Law of exercise&quot;</span>)</span>
+<span id="cb224-2"><a href="lists.html#cb224-2"></a>thorndike <span class="op">=</span> thorndike[:] <span class="op">+</span> (<span class="st">&quot;Law of recency&quot;</span>,)</span>
+<span id="cb224-3"><a href="lists.html#cb224-3"></a><span class="bu">print</span>(thorndike)</span></code></pre></div>
 <pre><code>## (&#39;Edward&#39;, &#39;Lee&#39;, &#39;Thorndike&#39;, 1874, &#39;Law of effect&#39;, &#39;Law of exercise&#39;, &#39;Law of recency&#39;)</code></pre>
 <p>Note the trailing comma in the second line <code>("Law of recency",)</code>. Without the comma at the end of the parentheses, Python treats the content of a one-element tuple such as <code>("Law of recency")</code> as belonging to the data type of the element (in this case a <code>str</code>). As a result, a <em>type error</em> is thrown when you try to concatenate the <code>thorndike</code> tuple and <code>("Law of recency")</code>.</p>
-<pre class="sourceCode python"><code class="sourceCode python">thorndike <span class="op">=</span> (<span class="st">&quot;Edward&quot;</span>, <span class="st">&quot;Lee&quot;</span>, <span class="st">&quot;Thorndike&quot;</span>, <span class="dv">1874</span>, <span class="st">&quot;Law of effect&quot;</span>, <span class="st">&quot;Law of exercise&quot;</span>)
-thorndike <span class="op">=</span> thorndike[:] <span class="op">+</span> (<span class="st">&quot;Law of recency&quot;</span>)</code></pre>
+<div class="sourceCode" id="cb226"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb226-1"><a href="lists.html#cb226-1"></a>thorndike <span class="op">=</span> (<span class="st">&quot;Edward&quot;</span>, <span class="st">&quot;Lee&quot;</span>, <span class="st">&quot;Thorndike&quot;</span>, <span class="dv">1874</span>, <span class="st">&quot;Law of effect&quot;</span>, <span class="st">&quot;Law of exercise&quot;</span>)</span>
+<span id="cb226-2"><a href="lists.html#cb226-2"></a>thorndike <span class="op">=</span> thorndike[:] <span class="op">+</span> (<span class="st">&quot;Law of recency&quot;</span>)</span></code></pre></div>
 <pre><code>## Error in py_call_impl(callable, dots$args, dots$keywords): TypeError: can only concatenate tuple (not &quot;str&quot;) to tuple
 ## 
 ## Detailed traceback: 
 ##   File &quot;&lt;string&gt;&quot;, line 1, in &lt;module&gt;</code></pre>
 <p>Python has a very powerful <em>tuple assignment</em> feature that allows a tuple of variable names on the left of the assignment operator <code>=</code> to be assigned to a tuple of values, like so</p>
-<pre class="sourceCode python"><code class="sourceCode python">thorndike <span class="op">=</span> (<span class="st">&quot;Edward&quot;</span>, <span class="st">&quot;Lee&quot;</span>, <span class="st">&quot;Thorndike&quot;</span>, <span class="dv">1874</span>)
-(name, middle_name, surname, born) <span class="op">=</span> thorndike
-<span class="bu">print</span>(name)</code></pre>
+<div class="sourceCode" id="cb228"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb228-1"><a href="lists.html#cb228-1"></a>thorndike <span class="op">=</span> (<span class="st">&quot;Edward&quot;</span>, <span class="st">&quot;Lee&quot;</span>, <span class="st">&quot;Thorndike&quot;</span>, <span class="dv">1874</span>)</span>
+<span id="cb228-2"><a href="lists.html#cb228-2"></a>(name, middle_name, surname, born) <span class="op">=</span> thorndike</span>
+<span id="cb228-3"><a href="lists.html#cb228-3"></a><span class="bu">print</span>(name)</span></code></pre></div>
 <pre><code>## Edward</code></pre>
-<pre class="sourceCode python"><code class="sourceCode python">a, b <span class="op">=</span> <span class="st">&quot;Hello&quot;</span>, <span class="st">&quot;World&quot;</span>
-<span class="bu">print</span>(a)</code></pre>
+<div class="sourceCode" id="cb230"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb230-1"><a href="lists.html#cb230-1"></a>a, b <span class="op">=</span> <span class="st">&quot;Hello&quot;</span>, <span class="st">&quot;World&quot;</span></span>
+<span id="cb230-2"><a href="lists.html#cb230-2"></a><span class="bu">print</span>(a)</span></code></pre></div>
 <pre><code>## Hello</code></pre>
 <p>The brackets <code>()</code> are optional in a tuple assignment. Using tuple assignment, you can easily perform several variable assignments in just one line!</p>
 </div>
 <div id="dictionaries" class="section level2">
 <h2><span class="header-section-number">4.3</span> Dictionaries</h2>
 <p><em>Dictonaries</em> share similarities with real-life address books where you can find a person’s contact details by looking up his or her name.</p>
-<pre class="sourceCode python"><code class="sourceCode python">address_book <span class="op">=</span> {<span class="st">&quot;studyadviser-PSY&quot;</span>: <span class="st">&quot;studyadviser-psy[at]utwente.nl&quot;</span>,
-                <span class="st">&quot;studentservices&quot;</span> : <span class="st">&quot;studentservices[at]utwente.nl&quot;</span>,
-                <span class="st">&quot;ICT-helpdesk&quot;</span>   : <span class="st">&quot;servicedesk-ict[at]utwente.nl&quot;</span>
-                }
-
-<span class="bu">print</span>(address_book[<span class="st">&quot;studyadviser-PSY&quot;</span>])</code></pre>
+<div class="sourceCode" id="cb232"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb232-1"><a href="lists.html#cb232-1"></a>address_book <span class="op">=</span> {<span class="st">&quot;studyadviser-PSY&quot;</span>: <span class="st">&quot;studyadviser-psy[at]utwente.nl&quot;</span>,</span>
+<span id="cb232-2"><a href="lists.html#cb232-2"></a>                <span class="st">&quot;studentservices&quot;</span> : <span class="st">&quot;studentservices[at]utwente.nl&quot;</span>,</span>
+<span id="cb232-3"><a href="lists.html#cb232-3"></a>                <span class="st">&quot;ICT-helpdesk&quot;</span>   : <span class="st">&quot;servicedesk-ict[at]utwente.nl&quot;</span></span>
+<span id="cb232-4"><a href="lists.html#cb232-4"></a>                }</span>
+<span id="cb232-5"><a href="lists.html#cb232-5"></a></span>
+<span id="cb232-6"><a href="lists.html#cb232-6"></a><span class="bu">print</span>(address_book[<span class="st">&quot;studyadviser-PSY&quot;</span>])</span></code></pre></div>
 <pre><code>## studyadviser-psy[at]utwente.nl</code></pre>
 <p>Dictionaries associate <em>keys</em> (e.g. a name) with <em>values</em> (e.g. contact details). The <code>key:value</code> pairs of a dictionary are separated by commas. Each pair contains a <em>key</em> and a <em>value</em> separated by a colon <code>:</code>. <code>key:value</code> pairs are always one-to-one mappings. This means that you cannot map the same key to several values, like so</p>
-<pre class="sourceCode python"><code class="sourceCode python">address_book <span class="op">=</span> {<span class="st">&quot;studyadviser-PSY&quot;</span>: <span class="st">&quot;studyadviser-psy[at]utwente.nl&quot;</span>,
-                <span class="st">&quot;studyadviser-PSY&quot;</span>: <span class="st">&quot;Cubicus, room C116&quot;</span>
-                }
-                
-<span class="bu">print</span>(address_book[<span class="st">&quot;studyadviser-PSY&quot;</span>])</code></pre>
+<div class="sourceCode" id="cb234"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb234-1"><a href="lists.html#cb234-1"></a>address_book <span class="op">=</span> {<span class="st">&quot;studyadviser-PSY&quot;</span>: <span class="st">&quot;studyadviser-psy[at]utwente.nl&quot;</span>,</span>
+<span id="cb234-2"><a href="lists.html#cb234-2"></a>                <span class="st">&quot;studyadviser-PSY&quot;</span>: <span class="st">&quot;Cubicus, room C116&quot;</span></span>
+<span id="cb234-3"><a href="lists.html#cb234-3"></a>                }</span>
+<span id="cb234-4"><a href="lists.html#cb234-4"></a>                </span>
+<span id="cb234-5"><a href="lists.html#cb234-5"></a><span class="bu">print</span>(address_book[<span class="st">&quot;studyadviser-PSY&quot;</span>])</span></code></pre></div>
 <pre><code>## Cubicus, room C116</code></pre>
-<pre class="sourceCode python"><code class="sourceCode python"><span class="bu">print</span>(<span class="st">&quot;Number of key:value pairs in address_book: </span><span class="sc">%d</span><span class="st">&quot;</span> <span class="op">%</span> <span class="bu">len</span>(address_book.keys()))</code></pre>
+<div class="sourceCode" id="cb236"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb236-1"><a href="lists.html#cb236-1"></a><span class="bu">print</span>(<span class="st">&quot;Number of key:value pairs in address_book: </span><span class="sc">%d</span><span class="st">&quot;</span> <span class="op">%</span> <span class="bu">len</span>(address_book.keys()))</span></code></pre></div>
 <pre><code>## Number of key:value pairs in address_book: 1</code></pre>
 <p>As you can see, the first mapping of the key <code>"studyadviser-PSY"</code> to <code>"studyadviser-psy[at]utwente.nl"</code> has been overwritten by the second mapping of the key to <code>"Cubicus, room C116"</code>. In total, <code>address_book</code> now only contains a single <code>key:value</code> pair. As with lists and tuples, values are arbitrary for dictionaries. This means that while you cannot map the same key to several values, you can map the same value to multiple keys.</p>
-<pre class="sourceCode python"><code class="sourceCode python">address_book <span class="op">=</span> {<span class="st">&quot;studyadviser-PSY&quot;</span>: <span class="st">&quot;studyadviser-psy[at]utwente.nl&quot;</span>,
-                <span class="st">&quot;studyadviser-PSY_email&quot;</span>: <span class="st">&quot;studyadviser-psy[at]utwente.nl&quot;</span>
-                }
-                
-<span class="bu">print</span>(<span class="st">&quot;Number of key:value pairs in address_book: </span><span class="sc">%d</span><span class="st">&quot;</span> <span class="op">%</span> <span class="bu">len</span>(address_book.keys()))</code></pre>
+<div class="sourceCode" id="cb238"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb238-1"><a href="lists.html#cb238-1"></a>address_book <span class="op">=</span> {<span class="st">&quot;studyadviser-PSY&quot;</span>: <span class="st">&quot;studyadviser-psy[at]utwente.nl&quot;</span>,</span>
+<span id="cb238-2"><a href="lists.html#cb238-2"></a>                <span class="st">&quot;studyadviser-PSY_email&quot;</span>: <span class="st">&quot;studyadviser-psy[at]utwente.nl&quot;</span></span>
+<span id="cb238-3"><a href="lists.html#cb238-3"></a>                }</span>
+<span id="cb238-4"><a href="lists.html#cb238-4"></a>                </span>
+<span id="cb238-5"><a href="lists.html#cb238-5"></a><span class="bu">print</span>(<span class="st">&quot;Number of key:value pairs in address_book: </span><span class="sc">%d</span><span class="st">&quot;</span> <span class="op">%</span> <span class="bu">len</span>(address_book.keys()))</span></code></pre></div>
 <pre><code>## Number of key:value pairs in address_book: 2</code></pre>
 <p>Dictionaries require their keys to be <em>immutable</em> and <em>unique</em>. As you above, you cannot have two keys named <code>"studyadviser-PSY"</code> in the <code>address_book</code>. This also means that certain data types are unsuitable as dictionary keys, like lists.</p>
-<pre class="sourceCode python"><code class="sourceCode python">d <span class="op">=</span> {[<span class="st">&#39;a&#39;</span>]: <span class="st">&#39;b&#39;</span>}</code></pre>
+<div class="sourceCode" id="cb240"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb240-1"><a href="lists.html#cb240-1"></a>d <span class="op">=</span> {[<span class="st">&#39;a&#39;</span>]: <span class="st">&#39;b&#39;</span>}</span></code></pre></div>
 <pre><code>## Error in py_call_impl(callable, dots$args, dots$keywords): TypeError: unhashable type: &#39;list&#39;
 ## 
 ## Detailed traceback: 
 ##   File &quot;&lt;string&gt;&quot;, line 1, in &lt;module&gt;</code></pre>
 <p>Whenever you try to use a mutable object (like lists) as a key, a <code>TypeError</code> will be thrown. Because lists are mutable (you can update their elements), they are <em>unhashable</em>. Without going into the details of hash functions here, a <em>hash</em> is another representation of an object. It is a transformation of the object’s length sequence of bytes into a fixed length sequence. <em>Hash functions</em> are used in cryptographic algorithms, in digital signatures, manipulation detection, password storage and more. Hash functions are constructed so that calculating an object’s hash representation is simple, but retrieving the original object is difficult without knowing the function used to hash the object in the first place. You can imagine that things start to get messy if the object itself can change after its hash has been calculated. A hash is a momentary snapshot of an object. It is impossible to retrieve the “latest version” of a changable object from its hash representation, even if you know its hash function. Dictionaries themselves are also mutable (and thus, unhashable) and cannot be used as <em>keys</em>, by the way.</p>
 <p>Dictionaries are <em>unordered</em> collections. Dictionaries do not have a sequential representation of their elements. Unlike sequences, such as lists and tuples, the elements of a dictionary cannot be accessed using indices. Values stored in a dictionary can be accessed and changed through their respective <em>keys</em>, like so</p>
-<pre class="sourceCode python"><code class="sourceCode python">address_book <span class="op">=</span> {<span class="st">&quot;studyadviser-PSY&quot;</span>: <span class="st">&quot;studyadviser-psy[at]utwente.nl&quot;</span>,
-                <span class="st">&quot;studentservices&quot;</span> : <span class="st">&quot;studentservices[at]utwente.nl&quot;</span>,
-                <span class="st">&quot;ICT-helpdesk&quot;</span>   : <span class="st">&quot;servicedesk-ict[at]utwente.nl&quot;</span>
-                }
-                
-address_book[<span class="st">&quot;studentservices&quot;</span>] <span class="op">=</span> (<span class="st">&quot;studentservices[at]utwente.nl&quot;</span>, <span class="st">&quot;0534892124&quot;</span>)
-<span class="bu">print</span>(<span class="st">&quot;The telephone number of the student services is&quot;</span>, <span class="bu">str</span>(address_book[<span class="st">&quot;studentservices&quot;</span>][<span class="dv">1</span>]))</code></pre>
+<div class="sourceCode" id="cb242"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb242-1"><a href="lists.html#cb242-1"></a>address_book <span class="op">=</span> {<span class="st">&quot;studyadviser-PSY&quot;</span>: <span class="st">&quot;studyadviser-psy[at]utwente.nl&quot;</span>,</span>
+<span id="cb242-2"><a href="lists.html#cb242-2"></a>                <span class="st">&quot;studentservices&quot;</span> : <span class="st">&quot;studentservices[at]utwente.nl&quot;</span>,</span>
+<span id="cb242-3"><a href="lists.html#cb242-3"></a>                <span class="st">&quot;ICT-helpdesk&quot;</span>   : <span class="st">&quot;servicedesk-ict[at]utwente.nl&quot;</span></span>
+<span id="cb242-4"><a href="lists.html#cb242-4"></a>                }</span>
+<span id="cb242-5"><a href="lists.html#cb242-5"></a>                </span>
+<span id="cb242-6"><a href="lists.html#cb242-6"></a>address_book[<span class="st">&quot;studentservices&quot;</span>] <span class="op">=</span> (<span class="st">&quot;studentservices[at]utwente.nl&quot;</span>, <span class="st">&quot;0534892124&quot;</span>)</span>
+<span id="cb242-7"><a href="lists.html#cb242-7"></a><span class="bu">print</span>(<span class="st">&quot;The telephone number of the student services is&quot;</span>, <span class="bu">str</span>(address_book[<span class="st">&quot;studentservices&quot;</span>][<span class="dv">1</span>]))</span></code></pre></div>
 <pre><code>## The telephone number of the student services is 0534892124</code></pre>
 <p>Apart from updating existing dictionary entries, you can obviously also add and remove entries of a dictionary. Use the <code>del</code> statement to remove dictionary entries.</p>
-<pre class="sourceCode python"><code class="sourceCode python">address_book <span class="op">=</span> {<span class="st">&quot;studyadviser-PSY&quot;</span>: <span class="st">&quot;studyadviser-psy@utwente.nl &quot;</span>,
-                <span class="st">&quot;studentservices&quot;</span> : <span class="st">&quot;studentservices@utwente.nl&quot;</span>,
-                <span class="st">&quot;ICT-helpdesk&quot;</span>   : <span class="st">&quot;servicedesk-ict@utwente.nl&quot;</span>
-                }
-                
-address_book[<span class="st">&quot;studentUnion&quot;</span>] <span class="op">=</span> <span class="st">&quot;studentunion@union.utwente.nl&quot;</span>
-<span class="bu">print</span>(address_book)
-                </code></pre>
+<div class="sourceCode" id="cb244"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb244-1"><a href="lists.html#cb244-1"></a>address_book <span class="op">=</span> {<span class="st">&quot;studyadviser-PSY&quot;</span>: <span class="st">&quot;studyadviser-psy@utwente.nl &quot;</span>,</span>
+<span id="cb244-2"><a href="lists.html#cb244-2"></a>                <span class="st">&quot;studentservices&quot;</span> : <span class="st">&quot;studentservices@utwente.nl&quot;</span>,</span>
+<span id="cb244-3"><a href="lists.html#cb244-3"></a>                <span class="st">&quot;ICT-helpdesk&quot;</span>   : <span class="st">&quot;servicedesk-ict@utwente.nl&quot;</span></span>
+<span id="cb244-4"><a href="lists.html#cb244-4"></a>                }</span>
+<span id="cb244-5"><a href="lists.html#cb244-5"></a>                </span>
+<span id="cb244-6"><a href="lists.html#cb244-6"></a>address_book[<span class="st">&quot;studentUnion&quot;</span>] <span class="op">=</span> <span class="st">&quot;studentunion@union.utwente.nl&quot;</span></span>
+<span id="cb244-7"><a href="lists.html#cb244-7"></a><span class="bu">print</span>(address_book)</span>
+<span id="cb244-8"><a href="lists.html#cb244-8"></a>                </span></code></pre></div>
 <pre><code>## {&#39;studyadviser-PSY&#39;: &#39;studyadviser-psy@utwente.nl &#39;, &#39;studentservices&#39;: &#39;studentservices@utwente.nl&#39;, &#39;ICT-helpdesk&#39;: &#39;servicedesk-ict@utwente.nl&#39;, &#39;studentUnion&#39;: &#39;studentunion@union.utwente.nl&#39;}</code></pre>
-<pre class="sourceCode python"><code class="sourceCode python"><span class="kw">del</span> address_book[<span class="st">&quot;ICT-helpdesk&quot;</span>]
-<span class="bu">print</span>(address_book)</code></pre>
+<div class="sourceCode" id="cb246"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb246-1"><a href="lists.html#cb246-1"></a><span class="kw">del</span> address_book[<span class="st">&quot;ICT-helpdesk&quot;</span>]</span>
+<span id="cb246-2"><a href="lists.html#cb246-2"></a><span class="bu">print</span>(address_book)</span></code></pre></div>
 <pre><code>## {&#39;studyadviser-PSY&#39;: &#39;studyadviser-psy@utwente.nl &#39;, &#39;studentservices&#39;: &#39;studentservices@utwente.nl&#39;, &#39;studentUnion&#39;: &#39;studentunion@union.utwente.nl&#39;}</code></pre>
 </div>
 <div id="putting-collections-to-use" class="section level2">
 <h2><span class="header-section-number">4.4</span> Putting collections to use</h2>
 <p>Lists, tuples and dictionaries are readily used in interactive programs, such as the Stroop Task program. Collections help structure user input and the subsequent storage of user input in computer memory. Structuring user input makes later retrieval of information easier. Below you see a code snippet from the Stroop Task program.</p>
-<pre class="sourceCode python"><code class="sourceCode python">KEYS     <span class="op">=</span> {<span class="st">&quot;red&quot;</span>: K_b,
-            <span class="st">&quot;green&quot;</span>: K_n,
-            <span class="st">&quot;blue&quot;</span>: K_m}
-RT <span class="op">=</span> []
-trial_number <span class="op">=</span> <span class="dv">0</span>    
-    
-<span class="cf">while</span> <span class="va">True</span>:
-    pygame.display.get_surface().fill(BACKGR_COL)        
-
-    <span class="co"># Changing states</span>
-    <span class="cf">for</span> event <span class="kw">in</span> pygame.event.get():                        
-        <span class="cf">if</span> STATE <span class="op">==</span> <span class="st">&quot;welcome&quot;</span>:
-             <span class="cf">if</span> event.<span class="bu">type</span> <span class="op">==</span> KEYDOWN <span class="kw">and</span> event.key <span class="op">==</span> K_SPACE:
-                 STATE <span class="op">=</span> <span class="st">&quot;present_trial&quot;</span>
-                 <span class="bu">print</span>(STATE)
-                    
-        <span class="cf">if</span> STATE <span class="op">==</span> <span class="st">&quot;present_trial&quot;</span>:
-             trial_number <span class="op">=</span> trial_number <span class="op">+</span> <span class="dv">1</span>
-             this_word  <span class="op">=</span> pick_color()
-             this_color <span class="op">=</span> pick_color()
-             time_when_presented <span class="op">=</span> time()
-             STATE <span class="op">=</span> <span class="st">&quot;wait_for_response&quot;</span>
-             <span class="bu">print</span>(STATE)
-                    
-        <span class="cf">if</span> STATE <span class="op">==</span> <span class="st">&quot;wait_for_response&quot;</span>:
-            <span class="cf">if</span> event.<span class="bu">type</span> <span class="op">==</span> KEYDOWN <span class="kw">and</span> event.key <span class="kw">in</span> KEYS.values():
-                time_when_reacted <span class="op">=</span> time()
-                this_reaction_time <span class="op">=</span> time_when_reacted <span class="op">-</span> time_when_presented
-                RT.append(this_reaction_time)
-                this_correctness <span class="op">=</span> (event.key <span class="op">==</span> KEYS[this_color])
-                STATE <span class="op">=</span> <span class="st">&quot;feedback&quot;</span>
-                <span class="bu">print</span>(STATE)
-
-                
-        <span class="cf">if</span> STATE <span class="op">==</span> <span class="st">&quot;feedback&quot;</span>:
-            <span class="cf">if</span> event.<span class="bu">type</span> <span class="op">==</span> KEYDOWN <span class="kw">and</span> event.key <span class="op">==</span> K_SPACE:
-                <span class="cf">if</span> trial_number <span class="op">&lt;</span> <span class="dv">20</span>:
-                    STATE <span class="op">=</span> <span class="st">&quot;present_trial&quot;</span>
-                <span class="cf">else</span>:
-                    STATE <span class="op">=</span> <span class="st">&quot;goodbye&quot;</span>
-                <span class="bu">print</span>(STATE)
-            
-        <span class="cf">if</span> event.<span class="bu">type</span> <span class="op">==</span> QUIT:
-            STATE <span class="op">=</span> <span class="st">&quot;quit&quot;</span></code></pre>
+<div class="sourceCode" id="cb248"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb248-1"><a href="lists.html#cb248-1"></a>KEYS     <span class="op">=</span> {<span class="st">&quot;red&quot;</span>: K_b,</span>
+<span id="cb248-2"><a href="lists.html#cb248-2"></a>            <span class="st">&quot;green&quot;</span>: K_n,</span>
+<span id="cb248-3"><a href="lists.html#cb248-3"></a>            <span class="st">&quot;blue&quot;</span>: K_m}</span>
+<span id="cb248-4"><a href="lists.html#cb248-4"></a>RT <span class="op">=</span> []</span>
+<span id="cb248-5"><a href="lists.html#cb248-5"></a>trial_number <span class="op">=</span> <span class="dv">0</span>    </span>
+<span id="cb248-6"><a href="lists.html#cb248-6"></a>    </span>
+<span id="cb248-7"><a href="lists.html#cb248-7"></a><span class="cf">while</span> <span class="va">True</span>:</span>
+<span id="cb248-8"><a href="lists.html#cb248-8"></a>    pygame.display.get_surface().fill(BACKGR_COL)        </span>
+<span id="cb248-9"><a href="lists.html#cb248-9"></a></span>
+<span id="cb248-10"><a href="lists.html#cb248-10"></a>    <span class="co"># Changing states</span></span>
+<span id="cb248-11"><a href="lists.html#cb248-11"></a>    <span class="cf">for</span> event <span class="kw">in</span> pygame.event.get():                        </span>
+<span id="cb248-12"><a href="lists.html#cb248-12"></a>        <span class="cf">if</span> STATE <span class="op">==</span> <span class="st">&quot;welcome&quot;</span>:</span>
+<span id="cb248-13"><a href="lists.html#cb248-13"></a>             <span class="cf">if</span> event.<span class="bu">type</span> <span class="op">==</span> KEYDOWN <span class="kw">and</span> event.key <span class="op">==</span> K_SPACE:</span>
+<span id="cb248-14"><a href="lists.html#cb248-14"></a>                 STATE <span class="op">=</span> <span class="st">&quot;present_trial&quot;</span></span>
+<span id="cb248-15"><a href="lists.html#cb248-15"></a>                 <span class="bu">print</span>(STATE)</span>
+<span id="cb248-16"><a href="lists.html#cb248-16"></a>                    </span>
+<span id="cb248-17"><a href="lists.html#cb248-17"></a>        <span class="cf">if</span> STATE <span class="op">==</span> <span class="st">&quot;present_trial&quot;</span>:</span>
+<span id="cb248-18"><a href="lists.html#cb248-18"></a>             trial_number <span class="op">=</span> trial_number <span class="op">+</span> <span class="dv">1</span></span>
+<span id="cb248-19"><a href="lists.html#cb248-19"></a>             this_word  <span class="op">=</span> pick_color()</span>
+<span id="cb248-20"><a href="lists.html#cb248-20"></a>             this_color <span class="op">=</span> pick_color()</span>
+<span id="cb248-21"><a href="lists.html#cb248-21"></a>             time_when_presented <span class="op">=</span> time()</span>
+<span id="cb248-22"><a href="lists.html#cb248-22"></a>             STATE <span class="op">=</span> <span class="st">&quot;wait_for_response&quot;</span></span>
+<span id="cb248-23"><a href="lists.html#cb248-23"></a>             <span class="bu">print</span>(STATE)</span>
+<span id="cb248-24"><a href="lists.html#cb248-24"></a>                    </span>
+<span id="cb248-25"><a href="lists.html#cb248-25"></a>        <span class="cf">if</span> STATE <span class="op">==</span> <span class="st">&quot;wait_for_response&quot;</span>:</span>
+<span id="cb248-26"><a href="lists.html#cb248-26"></a>            <span class="cf">if</span> event.<span class="bu">type</span> <span class="op">==</span> KEYDOWN <span class="kw">and</span> event.key <span class="kw">in</span> KEYS.values():</span>
+<span id="cb248-27"><a href="lists.html#cb248-27"></a>                time_when_reacted <span class="op">=</span> time()</span>
+<span id="cb248-28"><a href="lists.html#cb248-28"></a>                this_reaction_time <span class="op">=</span> time_when_reacted <span class="op">-</span> time_when_presented</span>
+<span id="cb248-29"><a href="lists.html#cb248-29"></a>                RT.append(this_reaction_time)</span>
+<span id="cb248-30"><a href="lists.html#cb248-30"></a>                this_correctness <span class="op">=</span> (event.key <span class="op">==</span> KEYS[this_color])</span>
+<span id="cb248-31"><a href="lists.html#cb248-31"></a>                STATE <span class="op">=</span> <span class="st">&quot;feedback&quot;</span></span>
+<span id="cb248-32"><a href="lists.html#cb248-32"></a>                <span class="bu">print</span>(STATE)</span>
+<span id="cb248-33"><a href="lists.html#cb248-33"></a></span>
+<span id="cb248-34"><a href="lists.html#cb248-34"></a>                </span>
+<span id="cb248-35"><a href="lists.html#cb248-35"></a>        <span class="cf">if</span> STATE <span class="op">==</span> <span class="st">&quot;feedback&quot;</span>:</span>
+<span id="cb248-36"><a href="lists.html#cb248-36"></a>            <span class="cf">if</span> event.<span class="bu">type</span> <span class="op">==</span> KEYDOWN <span class="kw">and</span> event.key <span class="op">==</span> K_SPACE:</span>
+<span id="cb248-37"><a href="lists.html#cb248-37"></a>                <span class="cf">if</span> trial_number <span class="op">&lt;</span> <span class="dv">20</span>:</span>
+<span id="cb248-38"><a href="lists.html#cb248-38"></a>                    STATE <span class="op">=</span> <span class="st">&quot;present_trial&quot;</span></span>
+<span id="cb248-39"><a href="lists.html#cb248-39"></a>                <span class="cf">else</span>:</span>
+<span id="cb248-40"><a href="lists.html#cb248-40"></a>                    STATE <span class="op">=</span> <span class="st">&quot;goodbye&quot;</span></span>
+<span id="cb248-41"><a href="lists.html#cb248-41"></a>                <span class="bu">print</span>(STATE)</span>
+<span id="cb248-42"><a href="lists.html#cb248-42"></a>            </span>
+<span id="cb248-43"><a href="lists.html#cb248-43"></a>        <span class="cf">if</span> event.<span class="bu">type</span> <span class="op">==</span> QUIT:</span>
+<span id="cb248-44"><a href="lists.html#cb248-44"></a>            STATE <span class="op">=</span> <span class="st">&quot;quit&quot;</span></span></code></pre></div>
 <p>Note how the variable <code>RT</code> is used to keep track of the user’s reaction times throughout the trials. The variable <code>this_reaction_time</code> is overwritten in each trial. This means, that at the end of the program, when all trials are completed, <code>this_reaction_time</code> only contains the last value assigned to it during the 20th trial. All other reaction times were long erased from computer memory. But wait, what if we want to calculate a user’s mean reaction time once the experiment is finished? In order to do so, we need some way of saving the reaction times from trial to trial. They need to persist until the last trial is completed. This is exactly where collections step into the picture. Collections are capable of storing multiple values at the same time and they can be mutated iteratively (one reaction time per trial). Hence, we <code>append</code> the calculated reaction time to a list in each trial.</p>
 <p>In the end, you as a programmer still need to decide how to proceed with the collected reaction times. Do you want to print their mean to the screen, export them out of the program, or combine them with data gathered from other experimental subjects? It is up to you. Using collections, at least you have a user’s reaction times at your disposal, even after they completed the experiment.</p>
 </div>
-<div id="common-errors-2" class="section level2">
+<div id="common-errors" class="section level2">
 <h2><span class="header-section-number">4.5</span> Common errors</h2>
 <ul>
 <li>The by far most occurring errors involving lists are <code>index out of range</code> errors. I think it is fair to say that they make up a large amount of all programming errors. An <code>index out of range error</code> is thrown when you try to access an index that does not exist in a sequence.</li>
 </ul>
-<pre class="sourceCode python"><code class="sourceCode python">shoppinglist <span class="op">=</span> [<span class="st">&quot;milk&quot;</span>, <span class="st">&quot;eggs&quot;</span>, <span class="st">&quot;bread&quot;</span>, <span class="st">&quot;appels&quot;</span>]
-<span class="bu">print</span> shoppinglist[<span class="dv">4</span>]</code></pre>
+<div class="sourceCode" id="cb249"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb249-1"><a href="lists.html#cb249-1"></a>shoppinglist <span class="op">=</span> [<span class="st">&quot;milk&quot;</span>, <span class="st">&quot;eggs&quot;</span>, <span class="st">&quot;bread&quot;</span>, <span class="st">&quot;appels&quot;</span>]</span>
+<span id="cb249-2"><a href="lists.html#cb249-2"></a><span class="bu">print</span> shoppinglist[<span class="dv">4</span>]</span></code></pre></div>
 <pre><code>## [1] &quot;Error: Missing parentheses in call to &#39;print&#39;. Did you mean print(shoppinglist[4])? (&lt;string&gt;, line 2)&quot;</code></pre>
 <p>You will usually encounter this error as a result of confusing the starting index <code>0</code> with <code>1</code>. Against all intuition, in a list of four elements, the last element is stored at index <code>3</code>, not at index <code>4</code>. It helps to keep in mind that the indices of your sequences always have a range one shorter than the number of elements in your list. For a list with four elements, the positive index range is <code>0</code> to 4 minus 1, thus <code>3</code>.</p>
-<pre class="sourceCode python"><code class="sourceCode python">shoppinglist <span class="op">=</span> [<span class="st">&quot;milk&quot;</span>, <span class="st">&quot;eggs&quot;</span>, <span class="st">&quot;bread&quot;</span>, <span class="st">&quot;appels&quot;</span>]
-<span class="bu">print</span>(shoppinglist[<span class="dv">3</span>])</code></pre>
+<div class="sourceCode" id="cb251"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb251-1"><a href="lists.html#cb251-1"></a>shoppinglist <span class="op">=</span> [<span class="st">&quot;milk&quot;</span>, <span class="st">&quot;eggs&quot;</span>, <span class="st">&quot;bread&quot;</span>, <span class="st">&quot;appels&quot;</span>]</span>
+<span id="cb251-2"><a href="lists.html#cb251-2"></a><span class="bu">print</span>(shoppinglist[<span class="dv">3</span>])</span></code></pre></div>
 <pre><code>## appels</code></pre>
 <ul>
 <li>Another common mistake surrounding collections concerns the immutability of <em>tuples</em>. In particular, trying to change the content of a <em>tuple</em> will result in a <code>TypeError</code>. Tuples are immutable, meaning that you cannot change their content after their initialization. You can, however, re-assign the variable name of an existing tuple to a new tuple containing different values.</li>
 </ul>
-<pre class="sourceCode python"><code class="sourceCode python">a <span class="op">=</span> (<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">4</span>)
-b[<span class="dv">2</span>] <span class="op">=</span> <span class="dv">3</span></code></pre>
+<div class="sourceCode" id="cb253"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb253-1"><a href="lists.html#cb253-1"></a>a <span class="op">=</span> (<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">4</span>)</span>
+<span id="cb253-2"><a href="lists.html#cb253-2"></a>b[<span class="dv">2</span>] <span class="op">=</span> <span class="dv">3</span></span></code></pre></div>
 <pre><code>## Error in py_call_impl(callable, dots$args, dots$keywords): TypeError: &#39;str&#39; object does not support item assignment
 ## 
 ## Detailed traceback: 
 ##   File &quot;&lt;string&gt;&quot;, line 1, in &lt;module&gt;</code></pre>
-<pre class="sourceCode python"><code class="sourceCode python">a <span class="op">=</span> (<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">4</span>)
-<span class="bu">print</span>(a)</code></pre>
+<div class="sourceCode" id="cb255"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb255-1"><a href="lists.html#cb255-1"></a>a <span class="op">=</span> (<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">4</span>)</span>
+<span id="cb255-2"><a href="lists.html#cb255-2"></a><span class="bu">print</span>(a)</span></code></pre></div>
 <pre><code>## (1, 2, 4)</code></pre>
-<pre class="sourceCode python"><code class="sourceCode python">b <span class="op">=</span> (<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>)
-<span class="bu">print</span>(b)</code></pre>
+<div class="sourceCode" id="cb257"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb257-1"><a href="lists.html#cb257-1"></a>b <span class="op">=</span> (<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>)</span>
+<span id="cb257-2"><a href="lists.html#cb257-2"></a><span class="bu">print</span>(b)</span></code></pre></div>
 <pre><code>## (1, 2, 3)</code></pre>
 <ul>
 <li>Concerning dictionaries, you will most probably not escape one or another <code>KeyError</code>. A <code>KeyError</code> is thrown when you try to access a <code>key</code> that does not exist in the dictionary.</li>
 </ul>
-<pre class="sourceCode python"><code class="sourceCode python">d <span class="op">=</span> {}
-<span class="bu">print</span>(d[<span class="st">&#39;a&#39;</span>])</code></pre>
+<div class="sourceCode" id="cb259"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb259-1"><a href="lists.html#cb259-1"></a>d <span class="op">=</span> {}</span>
+<span id="cb259-2"><a href="lists.html#cb259-2"></a><span class="bu">print</span>(d[<span class="st">&#39;a&#39;</span>])</span></code></pre></div>
 <pre><code>## Error in py_call_impl(callable, dots$args, dots$keywords): KeyError: &#39;a&#39;
 ## 
 ## Detailed traceback: 
 ##   File &quot;&lt;string&gt;&quot;, line 1, in &lt;module&gt;</code></pre>
 <p>The same is likely to occur when you try to use indices to access the entries of a dictionary</p>
-<pre class="sourceCode python"><code class="sourceCode python">d <span class="op">=</span> {<span class="st">&#39;a&#39;</span>: <span class="dv">1</span>}
-<span class="bu">print</span>(d[<span class="dv">0</span>])</code></pre>
+<div class="sourceCode" id="cb261"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb261-1"><a href="lists.html#cb261-1"></a>d <span class="op">=</span> {<span class="st">&#39;a&#39;</span>: <span class="dv">1</span>}</span>
+<span id="cb261-2"><a href="lists.html#cb261-2"></a><span class="bu">print</span>(d[<span class="dv">0</span>])</span></code></pre></div>
 <pre><code>## Error in py_call_impl(callable, dots$args, dots$keywords): KeyError: 0
 ## 
 ## Detailed traceback: 
 ##   File &quot;&lt;string&gt;&quot;, line 1, in &lt;module&gt;</code></pre>
 <p>Dictionaries are the only <em>unordered</em> type of collection you encountered in this chapter. It occurs now and then that one assumes that a dictionary can be treated as other common types of collections, such as lists or tuples.</p>
 </div>
-<div id="debugging-2" class="section level2">
+<div id="debugging" class="section level2">
 <h2><span class="header-section-number">4.6</span> Debugging</h2>
 <p>Here are some tips and tricks on how to debug errors that potentially originate from your collections.</p>
 <ol style="list-style-type: decimal">
 <li>Regularly checking the <code>length</code> of your collections can be very helpful to confirm that your code does indeed what you expect it to do. Take the example of <code>RT</code>, the list we made to keep track of a participant’s reaction times throughout the Stroop Task program. At the end of the experiment, you would expect the list to contain 20 elements, given that <code>RT</code> was initialized as an empty list and that the experiment had 20 trials. By checking the <code>length</code> of <code>RT</code>, you can immediately see whether your code indeed stored one reaction time per trial. <code>RT</code> should have a <code>length</code> of 20 after the experiment. You can check the length of a collection using the <code>len()</code> method, like so</li>
 </ol>
-<pre class="sourceCode python"><code class="sourceCode python">a <span class="op">=</span> [<span class="dv">3</span>, <span class="dv">4</span>]
-<span class="bu">print</span>(<span class="bu">len</span>(a))</code></pre>
+<div class="sourceCode" id="cb263"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb263-1"><a href="lists.html#cb263-1"></a>a <span class="op">=</span> [<span class="dv">3</span>, <span class="dv">4</span>]</span>
+<span id="cb263-2"><a href="lists.html#cb263-2"></a><span class="bu">print</span>(<span class="bu">len</span>(a))</span></code></pre></div>
 <pre><code>## 2</code></pre>
 <ol start="2" style="list-style-type: decimal">
 <li>Dictionaries have a very useful built-in method that represents their <code>keys</code> as a list.</li>
 </ol>
-<pre class="sourceCode python"><code class="sourceCode python">d <span class="op">=</span> {<span class="st">&#39;a&#39;</span>: <span class="dv">1</span>,
-     <span class="st">&#39;b&#39;</span>: <span class="dv">2</span>}
-     
-<span class="bu">print</span>(d.keys())</code></pre>
+<div class="sourceCode" id="cb265"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb265-1"><a href="lists.html#cb265-1"></a>d <span class="op">=</span> {<span class="st">&#39;a&#39;</span>: <span class="dv">1</span>,</span>
+<span id="cb265-2"><a href="lists.html#cb265-2"></a>     <span class="st">&#39;b&#39;</span>: <span class="dv">2</span>}</span>
+<span id="cb265-3"><a href="lists.html#cb265-3"></a>     </span>
+<span id="cb265-4"><a href="lists.html#cb265-4"></a><span class="bu">print</span>(d.keys())</span></code></pre></div>
 <pre><code>## dict_keys([&#39;a&#39;, &#39;b&#39;])</code></pre>
 <p>This comes in handy when you keep getting a <code>KeyError</code> while you are convinced that your dictionary should contain a certain key.</p>
-<pre class="sourceCode python"><code class="sourceCode python">d <span class="op">=</span> {<span class="st">&#39;a &#39;</span>: <span class="dv">1</span>,
-     <span class="st">&#39;b&#39;</span>: <span class="dv">2</span>}
-     
-<span class="bu">print</span>(d[<span class="st">&#39;a&#39;</span>])</code></pre>
+<div class="sourceCode" id="cb267"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb267-1"><a href="lists.html#cb267-1"></a>d <span class="op">=</span> {<span class="st">&#39;a &#39;</span>: <span class="dv">1</span>,</span>
+<span id="cb267-2"><a href="lists.html#cb267-2"></a>     <span class="st">&#39;b&#39;</span>: <span class="dv">2</span>}</span>
+<span id="cb267-3"><a href="lists.html#cb267-3"></a>     </span>
+<span id="cb267-4"><a href="lists.html#cb267-4"></a><span class="bu">print</span>(d[<span class="st">&#39;a&#39;</span>])</span></code></pre></div>
 <pre><code>## Error in py_call_impl(callable, dots$args, dots$keywords): KeyError: &#39;a&#39;
 ## 
 ## Detailed traceback: 
 ##   File &quot;&lt;string&gt;&quot;, line 1, in &lt;module&gt;</code></pre>
 <p>You can use <code>in</code> to check whether a candidate <code>key</code> is among the keys of the dictionary</p>
-<pre class="sourceCode python"><code class="sourceCode python">d <span class="op">=</span> {<span class="st">&#39;a &#39;</span>: <span class="dv">1</span>,
-     <span class="st">&#39;b&#39;</span>: <span class="dv">2</span>}
-     
-<span class="bu">print</span>(<span class="st">&#39;a&#39;</span> <span class="kw">in</span> d.keys())</code></pre>
+<div class="sourceCode" id="cb269"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb269-1"><a href="lists.html#cb269-1"></a>d <span class="op">=</span> {<span class="st">&#39;a &#39;</span>: <span class="dv">1</span>,</span>
+<span id="cb269-2"><a href="lists.html#cb269-2"></a>     <span class="st">&#39;b&#39;</span>: <span class="dv">2</span>}</span>
+<span id="cb269-3"><a href="lists.html#cb269-3"></a>     </span>
+<span id="cb269-4"><a href="lists.html#cb269-4"></a><span class="bu">print</span>(<span class="st">&#39;a&#39;</span> <span class="kw">in</span> d.keys())</span></code></pre></div>
 <pre><code>## False</code></pre>
 <p>In this case, a typing error is the culprit. Instead of <code>'a'</code>, <code>'a '</code> with a whitespace was set as the first key of <code>d</code>.</p>
 <p>Alternatively, you can use a simple conditional constructions and <code>not in</code> to make sure that you do not overwrite any existing keys</p>
-<pre class="sourceCode python"><code class="sourceCode python">d <span class="op">=</span> {<span class="st">&#39;a&#39;</span>: <span class="dv">1</span>,
-     <span class="st">&#39;b&#39;</span>: <span class="dv">2</span>}
-
-<span class="cf">if</span> <span class="st">&#39;a&#39;</span> <span class="kw">not</span> <span class="kw">in</span> d.keys():
-    d[<span class="st">&#39;a&#39;</span>] <span class="op">=</span> <span class="dv">0</span>
-
-<span class="bu">print</span>(d)</code></pre>
+<div class="sourceCode" id="cb271"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb271-1"><a href="lists.html#cb271-1"></a>d <span class="op">=</span> {<span class="st">&#39;a&#39;</span>: <span class="dv">1</span>,</span>
+<span id="cb271-2"><a href="lists.html#cb271-2"></a>     <span class="st">&#39;b&#39;</span>: <span class="dv">2</span>}</span>
+<span id="cb271-3"><a href="lists.html#cb271-3"></a></span>
+<span id="cb271-4"><a href="lists.html#cb271-4"></a><span class="cf">if</span> <span class="st">&#39;a&#39;</span> <span class="kw">not</span> <span class="kw">in</span> d.keys():</span>
+<span id="cb271-5"><a href="lists.html#cb271-5"></a>    d[<span class="st">&#39;a&#39;</span>] <span class="op">=</span> <span class="dv">0</span></span>
+<span id="cb271-6"><a href="lists.html#cb271-6"></a></span>
+<span id="cb271-7"><a href="lists.html#cb271-7"></a><span class="bu">print</span>(d)</span></code></pre></div>
 <pre><code>## {&#39;a&#39;: 1, &#39;b&#39;: 2}</code></pre>
 <p>Finally, you should know that the output list produced by the <code>keys()</code> method can be confusing at times. It is possible that your Python interpreter returns a different list of keys than the same code snippet <code>d.keys()</code> produces on another system. This has to do with how dictionaries are stored internally in computer memory. Here as well <em>hash functions</em> are utilized for efficiency reasons. As a result, the order of the keys in a dictionary is unspecified (which is why you cannot use the index operator to access elements of a dictionary). In practice, it means that <code>'a'</code> is not necessarily the first element in a list produced by <code>d.keys()</code>. Rest assured, in practice, this peculiarity is rather insignificant.</p>
 </div>
-<div id="exercises-3" class="section level2">
+<div id="exercises" class="section level2">
 <h2><span class="header-section-number">4.7</span> Exercises</h2>
 <div id="exercise-1.-indexing" class="section level3">
 <h3><span class="header-section-number">4.7.1</span> Exercise 1. Indexing</h3>
 <p>What is the output of the following code snippets?</p>
-<pre class="sourceCode python"><code class="sourceCode python">a <span class="op">=</span> [<span class="dv">6</span>, <span class="dv">7</span>]
-b <span class="op">=</span> [<span class="dv">4</span>, <span class="dv">5</span>]
-b.append(a)
-
-<span class="bu">print</span>(b)</code></pre>
-<pre class="sourceCode python"><code class="sourceCode python">d <span class="op">=</span> {<span class="dv">1</span>: <span class="st">&#39;a&#39;</span>,
-    <span class="st">&#39;a&#39;</span>: <span class="dv">1</span>}
-    
-<span class="bu">print</span>(d[<span class="dv">1</span>])</code></pre>
-<pre class="sourceCode python"><code class="sourceCode python">a <span class="op">=</span> [<span class="dv">1</span>]
-b <span class="op">=</span> (<span class="st">&#39;a&#39;</span>, <span class="dv">2</span>)
-a.extend(b)
-
-<span class="bu">print</span>(a[<span class="dv">1</span>])</code></pre>
-<pre class="sourceCode python"><code class="sourceCode python">a, b <span class="op">=</span> ([<span class="st">&#39;a&#39;</span>, <span class="st">&#39;d&#39;</span>], [<span class="st">&#39;b&#39;</span>, <span class="st">&#39;c&#39;</span>])
-
-<span class="bu">print</span>(b[<span class="dv">0</span>])</code></pre>
-<pre class="sourceCode python"><code class="sourceCode python">a <span class="op">=</span> [<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>]
-
-<span class="bu">print</span>(a[<span class="op">-</span><span class="dv">1</span>])</code></pre>
-<pre class="sourceCode python"><code class="sourceCode python">a <span class="op">=</span> (<span class="dv">1</span>, <span class="dv">2</span>, [<span class="dv">3</span>, <span class="dv">4</span>], <span class="dv">5</span>)
-
-<span class="bu">print</span>(a[<span class="dv">2</span>][<span class="dv">1</span>])</code></pre>
+<div class="sourceCode" id="cb273"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb273-1"><a href="lists.html#cb273-1"></a>a <span class="op">=</span> [<span class="dv">6</span>, <span class="dv">7</span>]</span>
+<span id="cb273-2"><a href="lists.html#cb273-2"></a>b <span class="op">=</span> [<span class="dv">4</span>, <span class="dv">5</span>]</span>
+<span id="cb273-3"><a href="lists.html#cb273-3"></a>b.append(a)</span>
+<span id="cb273-4"><a href="lists.html#cb273-4"></a></span>
+<span id="cb273-5"><a href="lists.html#cb273-5"></a><span class="bu">print</span>(b)</span></code></pre></div>
+<div class="sourceCode" id="cb274"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb274-1"><a href="lists.html#cb274-1"></a>d <span class="op">=</span> {<span class="dv">1</span>: <span class="st">&#39;a&#39;</span>,</span>
+<span id="cb274-2"><a href="lists.html#cb274-2"></a>    <span class="st">&#39;a&#39;</span>: <span class="dv">1</span>}</span>
+<span id="cb274-3"><a href="lists.html#cb274-3"></a>    </span>
+<span id="cb274-4"><a href="lists.html#cb274-4"></a><span class="bu">print</span>(d[<span class="dv">1</span>])</span></code></pre></div>
+<div class="sourceCode" id="cb275"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb275-1"><a href="lists.html#cb275-1"></a>a <span class="op">=</span> [<span class="dv">1</span>]</span>
+<span id="cb275-2"><a href="lists.html#cb275-2"></a>b <span class="op">=</span> (<span class="st">&#39;a&#39;</span>, <span class="dv">2</span>)</span>
+<span id="cb275-3"><a href="lists.html#cb275-3"></a>a.extend(b)</span>
+<span id="cb275-4"><a href="lists.html#cb275-4"></a></span>
+<span id="cb275-5"><a href="lists.html#cb275-5"></a><span class="bu">print</span>(a[<span class="dv">1</span>])</span></code></pre></div>
+<div class="sourceCode" id="cb276"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb276-1"><a href="lists.html#cb276-1"></a>a, b <span class="op">=</span> ([<span class="st">&#39;a&#39;</span>, <span class="st">&#39;d&#39;</span>], [<span class="st">&#39;b&#39;</span>, <span class="st">&#39;c&#39;</span>])</span>
+<span id="cb276-2"><a href="lists.html#cb276-2"></a></span>
+<span id="cb276-3"><a href="lists.html#cb276-3"></a><span class="bu">print</span>(b[<span class="dv">0</span>])</span></code></pre></div>
+<div class="sourceCode" id="cb277"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb277-1"><a href="lists.html#cb277-1"></a>a <span class="op">=</span> [<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>]</span>
+<span id="cb277-2"><a href="lists.html#cb277-2"></a></span>
+<span id="cb277-3"><a href="lists.html#cb277-3"></a><span class="bu">print</span>(a[<span class="op">-</span><span class="dv">1</span>])</span></code></pre></div>
+<div class="sourceCode" id="cb278"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb278-1"><a href="lists.html#cb278-1"></a>a <span class="op">=</span> (<span class="dv">1</span>, <span class="dv">2</span>, [<span class="dv">3</span>, <span class="dv">4</span>], <span class="dv">5</span>)</span>
+<span id="cb278-2"><a href="lists.html#cb278-2"></a></span>
+<span id="cb278-3"><a href="lists.html#cb278-3"></a><span class="bu">print</span>(a[<span class="dv">2</span>][<span class="dv">1</span>])</span></code></pre></div>
 </div>
 <div id="exercise-2.-debugging" class="section level3">
 <h3><span class="header-section-number">4.7.2</span> Exercise 2. Debugging</h3>
@@ -782,7 +786,7 @@ print(a.keys())</code></pre>
 <li>No error is thrown. By means of <em>tuple assignment</em>, the dictionary has two keys, <code>a</code> and <code>b</code>.</li>
 </ul>
 </div>
-<div id="exercise-3.-mini-programs-1" class="section level3">
+<div id="exercise-3.-mini-programs" class="section level3">
 <h3><span class="header-section-number">4.7.3</span> Exercise 3. Mini programs</h3>
 <p>What is the output of the following mini programs?</p>
 <pre><code>a = {}
@@ -826,51 +830,51 @@ elif &#39;a&#39; in a[1]:
 </div>
 <div id="exercise-4.-shopping-list" class="section level3">
 <h3><span class="header-section-number">4.7.4</span> Exercise 4. Shopping list</h3>
-<pre class="sourceCode python"><code class="sourceCode python">shoppinglist <span class="op">=</span> [<span class="st">&quot;bread&quot;</span>,<span class="st">&quot;cheese&quot;</span>,<span class="st">&quot;jam&quot;</span>,<span class="st">&quot;milk&quot;</span>,<span class="st">&quot;oatmeal&quot;</span>,<span class="st">&quot;blueberries&quot;</span>,<span class="st">&quot;oranges&quot;</span>,<span class="st">&quot;apples&quot;</span>]
-shoppinglist[<span class="dv">0</span>] <span class="op">=</span> <span class="st">&quot;buns&quot;</span>
-shoppinglist <span class="op">=</span> shoppinglist <span class="op">+</span> [<span class="st">&quot;chocolate&quot;</span>]
-<span class="kw">del</span> shoppinglist[<span class="dv">2</span>]
-
-shoppinglist_mum <span class="op">=</span> [<span class="st">&quot;eggs&quot;</span>,<span class="st">&quot;yoghurt&quot;</span>,<span class="st">&quot;potatoes&quot;</span>,<span class="st">&quot;salmon&quot;</span>]
-shoppinglist <span class="op">+=</span> shoppinglist_mum
-<span class="kw">del</span> shoppinglist[<span class="dv">10</span>]
-
-ingredients_muffins <span class="op">=</span> [<span class="st">&quot;icing sugar&quot;</span>,<span class="st">&quot;whipping cream&quot;</span>,<span class="st">&quot;lemons&quot;</span>,<span class="st">&quot;flower&quot;</span>,<span class="st">&quot;vanilla sugar&quot;</span>,<span class="st">&quot;eggs&quot;</span>,<span class="st">&quot;mandarines&quot;</span>,<span class="st">&quot;baking powder&quot;</span>,<span class="st">&quot;sugar&quot;</span>,<span class="st">&quot;margarine&quot;</span>]
-
-shoppinglist.append(ingredients_muffins)
-<span class="kw">del</span> shoppinglist[<span class="dv">11</span>][<span class="dv">6</span>]
-shoppinglist[<span class="dv">8</span>:<span class="dv">11</span>] <span class="op">=</span> [shoppinglist[<span class="dv">8</span>:<span class="dv">11</span>]]
-
-<span class="kw">del</span> ingredients_muffins[<span class="dv">7</span>]</code></pre>
+<div class="sourceCode" id="cb287"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb287-1"><a href="lists.html#cb287-1"></a>shoppinglist <span class="op">=</span> [<span class="st">&quot;bread&quot;</span>,<span class="st">&quot;cheese&quot;</span>,<span class="st">&quot;jam&quot;</span>,<span class="st">&quot;milk&quot;</span>,<span class="st">&quot;oatmeal&quot;</span>,<span class="st">&quot;blueberries&quot;</span>,<span class="st">&quot;oranges&quot;</span>,<span class="st">&quot;apples&quot;</span>]</span>
+<span id="cb287-2"><a href="lists.html#cb287-2"></a>shoppinglist[<span class="dv">0</span>] <span class="op">=</span> <span class="st">&quot;buns&quot;</span></span>
+<span id="cb287-3"><a href="lists.html#cb287-3"></a>shoppinglist <span class="op">=</span> shoppinglist <span class="op">+</span> [<span class="st">&quot;chocolate&quot;</span>]</span>
+<span id="cb287-4"><a href="lists.html#cb287-4"></a><span class="kw">del</span> shoppinglist[<span class="dv">2</span>]</span>
+<span id="cb287-5"><a href="lists.html#cb287-5"></a></span>
+<span id="cb287-6"><a href="lists.html#cb287-6"></a>shoppinglist_mum <span class="op">=</span> [<span class="st">&quot;eggs&quot;</span>,<span class="st">&quot;yoghurt&quot;</span>,<span class="st">&quot;potatoes&quot;</span>,<span class="st">&quot;salmon&quot;</span>]</span>
+<span id="cb287-7"><a href="lists.html#cb287-7"></a>shoppinglist <span class="op">+=</span> shoppinglist_mum</span>
+<span id="cb287-8"><a href="lists.html#cb287-8"></a><span class="kw">del</span> shoppinglist[<span class="dv">10</span>]</span>
+<span id="cb287-9"><a href="lists.html#cb287-9"></a></span>
+<span id="cb287-10"><a href="lists.html#cb287-10"></a>ingredients_muffins <span class="op">=</span> [<span class="st">&quot;icing sugar&quot;</span>,<span class="st">&quot;whipping cream&quot;</span>,<span class="st">&quot;lemons&quot;</span>,<span class="st">&quot;flower&quot;</span>,<span class="st">&quot;vanilla sugar&quot;</span>,<span class="st">&quot;eggs&quot;</span>,<span class="st">&quot;mandarines&quot;</span>,<span class="st">&quot;baking powder&quot;</span>,<span class="st">&quot;sugar&quot;</span>,<span class="st">&quot;margarine&quot;</span>]</span>
+<span id="cb287-11"><a href="lists.html#cb287-11"></a></span>
+<span id="cb287-12"><a href="lists.html#cb287-12"></a>shoppinglist.append(ingredients_muffins)</span>
+<span id="cb287-13"><a href="lists.html#cb287-13"></a><span class="kw">del</span> shoppinglist[<span class="dv">11</span>][<span class="dv">6</span>]</span>
+<span id="cb287-14"><a href="lists.html#cb287-14"></a>shoppinglist[<span class="dv">8</span>:<span class="dv">11</span>] <span class="op">=</span> [shoppinglist[<span class="dv">8</span>:<span class="dv">11</span>]]</span>
+<span id="cb287-15"><a href="lists.html#cb287-15"></a></span>
+<span id="cb287-16"><a href="lists.html#cb287-16"></a><span class="kw">del</span> ingredients_muffins[<span class="dv">7</span>]</span></code></pre></div>
 <p>The above shopping list has been subject to several changes since it has been written. Standing in the supermarket, you want to know the contents of the final shopping list. Which groceries do you have to buy?</p>
 <p>You can check your answer afterwards by running the code.</p>
 </div>
 <div id="exercise-5.-dictionaries" class="section level3">
 <h3><span class="header-section-number">4.7.5</span> Exercise 5. Dictionaries</h3>
-<pre class="sourceCode python"><code class="sourceCode python">famous_psychologists <span class="op">=</span> {<span class="st">&quot;Freud&quot;</span>:(<span class="st">&quot;Sigmund&quot;</span>, <span class="st">&quot;Freud&quot;</span>, (<span class="dv">1856</span>,<span class="dv">1939</span>), <span class="st">&quot;Psychoanalysis&quot;</span>),
-                        <span class="st">&quot;Piaget&quot;</span>:(<span class="st">&quot;Jean&quot;</span>, <span class="st">&quot;Piaget&quot;</span>, (<span class="dv">1896</span>,<span class="dv">1980</span>), <span class="st">&quot;Theory of Cognitive Development&quot;</span>),
-                        <span class="st">&quot;Skinner&quot;</span>:((<span class="st">&quot;Burrhus&quot;</span>, <span class="st">&quot;Frederic&quot;</span>), <span class="st">&quot;Skinner&quot;</span>, (<span class="dv">1904</span>,<span class="dv">1990</span>), <span class="st">&quot;Operant Conditioning&quot;</span>),
-                        }
-                      
-erikson <span class="op">=</span> (<span class="st">&quot;Erik&quot;</span>, <span class="st">&quot;Erikson&quot;</span>, (<span class="dv">1902</span>,<span class="dv">1994</span>), <span class="st">&quot;Theory of Psychological Development&quot;</span>)
-famous_psychologists[<span class="st">&quot;Erikson&quot;</span>] <span class="op">=</span> erikson
-
-more_on_Skinner <span class="op">=</span> {<span class="st">&quot;Schedules of Reinforcement&quot;</span>:(<span class="st">&quot;positive reinforcement&quot;</span>, <span class="st">&quot;negative reinforcement&quot;</span>, <span class="st">&quot;extinction&quot;</span>),
-                   <span class="st">&quot;Skinner Box&quot;</span>:(<span class="st">&quot;pigeon&quot;</span>,<span class="st">&quot;lever&quot;</span>,<span class="st">&quot;food&quot;</span>),
-                  }
-famous_psychologists[<span class="st">&quot;Skinner&quot;</span>] <span class="op">=</span> famous_psychologists[<span class="st">&quot;Skinner&quot;</span>][:<span class="dv">3</span>] <span class="op">+</span> (<span class="st">&quot;Behaviorism&quot;</span>,) <span class="op">+</span>         (famous_psychologists[<span class="st">&quot;Skinner&quot;</span>][<span class="dv">3</span>],) <span class="op">+</span> (more_on_Skinner,)</code></pre>
+<div class="sourceCode" id="cb288"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb288-1"><a href="lists.html#cb288-1"></a>famous_psychologists <span class="op">=</span> {<span class="st">&quot;Freud&quot;</span>:(<span class="st">&quot;Sigmund&quot;</span>, <span class="st">&quot;Freud&quot;</span>, (<span class="dv">1856</span>,<span class="dv">1939</span>), <span class="st">&quot;Psychoanalysis&quot;</span>),</span>
+<span id="cb288-2"><a href="lists.html#cb288-2"></a>                        <span class="st">&quot;Piaget&quot;</span>:(<span class="st">&quot;Jean&quot;</span>, <span class="st">&quot;Piaget&quot;</span>, (<span class="dv">1896</span>,<span class="dv">1980</span>), <span class="st">&quot;Theory of Cognitive Development&quot;</span>),</span>
+<span id="cb288-3"><a href="lists.html#cb288-3"></a>                        <span class="st">&quot;Skinner&quot;</span>:((<span class="st">&quot;Burrhus&quot;</span>, <span class="st">&quot;Frederic&quot;</span>), <span class="st">&quot;Skinner&quot;</span>, (<span class="dv">1904</span>,<span class="dv">1990</span>), <span class="st">&quot;Operant Conditioning&quot;</span>),</span>
+<span id="cb288-4"><a href="lists.html#cb288-4"></a>                        }</span>
+<span id="cb288-5"><a href="lists.html#cb288-5"></a>                      </span>
+<span id="cb288-6"><a href="lists.html#cb288-6"></a>erikson <span class="op">=</span> (<span class="st">&quot;Erik&quot;</span>, <span class="st">&quot;Erikson&quot;</span>, (<span class="dv">1902</span>,<span class="dv">1994</span>), <span class="st">&quot;Theory of Psychological Development&quot;</span>)</span>
+<span id="cb288-7"><a href="lists.html#cb288-7"></a>famous_psychologists[<span class="st">&quot;Erikson&quot;</span>] <span class="op">=</span> erikson</span>
+<span id="cb288-8"><a href="lists.html#cb288-8"></a></span>
+<span id="cb288-9"><a href="lists.html#cb288-9"></a>more_on_Skinner <span class="op">=</span> {<span class="st">&quot;Schedules of Reinforcement&quot;</span>:(<span class="st">&quot;positive reinforcement&quot;</span>, <span class="st">&quot;negative reinforcement&quot;</span>, <span class="st">&quot;extinction&quot;</span>),</span>
+<span id="cb288-10"><a href="lists.html#cb288-10"></a>                   <span class="st">&quot;Skinner Box&quot;</span>:(<span class="st">&quot;pigeon&quot;</span>,<span class="st">&quot;lever&quot;</span>,<span class="st">&quot;food&quot;</span>),</span>
+<span id="cb288-11"><a href="lists.html#cb288-11"></a>                  }</span>
+<span id="cb288-12"><a href="lists.html#cb288-12"></a>famous_psychologists[<span class="st">&quot;Skinner&quot;</span>] <span class="op">=</span> famous_psychologists[<span class="st">&quot;Skinner&quot;</span>][:<span class="dv">3</span>] <span class="op">+</span> (<span class="st">&quot;Behaviorism&quot;</span>,) <span class="op">+</span>         (famous_psychologists[<span class="st">&quot;Skinner&quot;</span>][<span class="dv">3</span>],) <span class="op">+</span> (more_on_Skinner,)</span></code></pre></div>
 <p>Using the dictionary <code>famous psychologists</code> and the above changes made to the dictionary:</p>
 <ul>
 <li>Try to understand the changes made to the original dictionary by writing down the content of the following print statements</li>
 </ul>
-<pre class="sourceCode python"><code class="sourceCode python"><span class="bu">print</span>(famous_psychologists[<span class="st">&quot;Erikson&quot;</span>][:<span class="dv">3</span>])
-<span class="bu">print</span>(famous_psychologists[<span class="st">&quot;Piaget&quot;</span>][<span class="dv">3</span>:])
-<span class="bu">print</span>(famous_psychologists[<span class="st">&quot;Freud&quot;</span>][<span class="dv">2</span>][<span class="dv">0</span>])
-<span class="bu">print</span>(famous_psychologists[<span class="st">&quot;Skinner&quot;</span>][<span class="dv">0</span>][<span class="dv">1</span>])
-<span class="bu">print</span>(famous_psychologists[<span class="st">&quot;Skinner&quot;</span>][<span class="dv">5</span>].keys()[<span class="dv">1</span>])
-
-word <span class="op">=</span> famous_psychologists[<span class="st">&quot;Skinner&quot;</span>][<span class="dv">5</span>].keys()[<span class="dv">0</span>]
-<span class="bu">print</span>(famous_psychologists[<span class="st">&quot;Skinner&quot;</span>][<span class="dv">5</span>][word][<span class="dv">0</span>])</code></pre>
+<div class="sourceCode" id="cb289"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb289-1"><a href="lists.html#cb289-1"></a><span class="bu">print</span>(famous_psychologists[<span class="st">&quot;Erikson&quot;</span>][:<span class="dv">3</span>])</span>
+<span id="cb289-2"><a href="lists.html#cb289-2"></a><span class="bu">print</span>(famous_psychologists[<span class="st">&quot;Piaget&quot;</span>][<span class="dv">3</span>:])</span>
+<span id="cb289-3"><a href="lists.html#cb289-3"></a><span class="bu">print</span>(famous_psychologists[<span class="st">&quot;Freud&quot;</span>][<span class="dv">2</span>][<span class="dv">0</span>])</span>
+<span id="cb289-4"><a href="lists.html#cb289-4"></a><span class="bu">print</span>(famous_psychologists[<span class="st">&quot;Skinner&quot;</span>][<span class="dv">0</span>][<span class="dv">1</span>])</span>
+<span id="cb289-5"><a href="lists.html#cb289-5"></a><span class="bu">print</span>(famous_psychologists[<span class="st">&quot;Skinner&quot;</span>][<span class="dv">5</span>].keys()[<span class="dv">1</span>])</span>
+<span id="cb289-6"><a href="lists.html#cb289-6"></a></span>
+<span id="cb289-7"><a href="lists.html#cb289-7"></a>word <span class="op">=</span> famous_psychologists[<span class="st">&quot;Skinner&quot;</span>][<span class="dv">5</span>].keys()[<span class="dv">0</span>]</span>
+<span id="cb289-8"><a href="lists.html#cb289-8"></a><span class="bu">print</span>(famous_psychologists[<span class="st">&quot;Skinner&quot;</span>][<span class="dv">5</span>][word][<span class="dv">0</span>])</span></code></pre></div>
 <ul>
 <li>Afterwards, you may check your answers by running the code. Pay attention that your own answers match exactly.</li>
 </ul>
@@ -878,16 +882,16 @@ word <span class="op">=</span> famous_psychologists[<span class="st">&quot;Skinn
 <div id="exercise-6.-element-selection" class="section level3">
 <h3><span class="header-section-number">4.7.6</span> Exercise 6. Element selection</h3>
 <p>For the following data structures, give the code by which you can access the specified element.</p>
-<pre class="sourceCode python"><code class="sourceCode python">dinner <span class="op">=</span> [<span class="st">&quot;minced beef&quot;</span>, <span class="st">&quot;tomatoes&quot;</span>, <span class="st">&quot;pasta&quot;</span>, <span class="st">&quot;onions&quot;</span>, <span class="st">&quot;pasta sauce&quot;</span>, <span class="st">&quot;courgette&quot;</span>]
-shoppingList <span class="op">=</span> [dinner, <span class="st">&quot;bread&quot;</span>, <span class="st">&quot;milk&quot;</span>, <span class="st">&quot;cornflakes&quot;</span>, <span class="st">&quot;cheese&quot;</span>]</code></pre>
-<pre class="sourceCode python"><code class="sourceCode python">grades <span class="op">=</span> {<span class="st">&quot;p1&quot;</span>: (<span class="st">&quot;Judith&quot;</span>,<span class="dv">21</span>,<span class="st">&quot;female&quot;</span>,<span class="st">&quot;B-PSY&quot;</span>,(<span class="fl">5.6</span>,<span class="fl">7.7</span>,<span class="fl">7.3</span>)),
-          <span class="st">&quot;p2&quot;</span>: (<span class="st">&quot;Menno&quot;</span>,<span class="dv">19</span>,<span class="st">&quot;male&quot;</span>,<span class="st">&quot;B-CREATE&quot;</span>,(<span class="fl">8.6</span>,<span class="fl">6.9</span>,<span class="fl">7.4</span>)),
-          <span class="st">&quot;p3&quot;</span>: (<span class="st">&quot;Jan&quot;</span>,<span class="dv">19</span>,<span class="st">&quot;male&quot;</span>,<span class="st">&quot;B-CREATE&quot;</span>,(<span class="fl">3.9</span>,<span class="fl">4.5</span>,<span class="fl">8.9</span>)),
-          <span class="st">&quot;p4&quot;</span>: (<span class="st">&quot;Eva&quot;</span>,<span class="dv">20</span>,<span class="st">&quot;female&quot;</span>,<span class="st">&quot;B-MATH&quot;</span>,(<span class="fl">8.0</span>,<span class="fl">7.0</span>,<span class="fl">9.1</span>)),
-          <span class="st">&quot;p5&quot;</span>: (<span class="st">&quot;Sophia&quot;</span>,<span class="dv">22</span>,<span class="st">&quot;female&quot;</span>,<span class="st">&quot;M-PSY&quot;</span>,(<span class="fl">4.9</span>,<span class="fl">6.7</span>,<span class="fl">7.6</span>)),
-          <span class="st">&quot;p6&quot;</span>: (<span class="st">&quot;Jeroen&quot;</span>,<span class="dv">25</span>,<span class="st">&quot;male&quot;</span>,<span class="st">&quot;M-BME&quot;</span>,(<span class="fl">8.5</span>,<span class="fl">8.5</span>,<span class="fl">8.5</span>)),
-          <span class="st">&quot;p7&quot;</span>: (<span class="st">&quot;Max&quot;</span>,<span class="dv">18</span>,<span class="st">&quot;male&quot;</span>,<span class="st">&quot;B-IBA&quot;</span>,(<span class="fl">7.9</span>,<span class="fl">2.0</span>,<span class="fl">6.5</span>))
-         }</code></pre>
+<div class="sourceCode" id="cb290"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb290-1"><a href="lists.html#cb290-1"></a>dinner <span class="op">=</span> [<span class="st">&quot;minced beef&quot;</span>, <span class="st">&quot;tomatoes&quot;</span>, <span class="st">&quot;pasta&quot;</span>, <span class="st">&quot;onions&quot;</span>, <span class="st">&quot;pasta sauce&quot;</span>, <span class="st">&quot;courgette&quot;</span>]</span>
+<span id="cb290-2"><a href="lists.html#cb290-2"></a>shoppingList <span class="op">=</span> [dinner, <span class="st">&quot;bread&quot;</span>, <span class="st">&quot;milk&quot;</span>, <span class="st">&quot;cornflakes&quot;</span>, <span class="st">&quot;cheese&quot;</span>]</span></code></pre></div>
+<div class="sourceCode" id="cb291"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb291-1"><a href="lists.html#cb291-1"></a>grades <span class="op">=</span> {<span class="st">&quot;p1&quot;</span>: (<span class="st">&quot;Judith&quot;</span>,<span class="dv">21</span>,<span class="st">&quot;female&quot;</span>,<span class="st">&quot;B-PSY&quot;</span>,(<span class="fl">5.6</span>,<span class="fl">7.7</span>,<span class="fl">7.3</span>)),</span>
+<span id="cb291-2"><a href="lists.html#cb291-2"></a>          <span class="st">&quot;p2&quot;</span>: (<span class="st">&quot;Menno&quot;</span>,<span class="dv">19</span>,<span class="st">&quot;male&quot;</span>,<span class="st">&quot;B-CREATE&quot;</span>,(<span class="fl">8.6</span>,<span class="fl">6.9</span>,<span class="fl">7.4</span>)),</span>
+<span id="cb291-3"><a href="lists.html#cb291-3"></a>          <span class="st">&quot;p3&quot;</span>: (<span class="st">&quot;Jan&quot;</span>,<span class="dv">19</span>,<span class="st">&quot;male&quot;</span>,<span class="st">&quot;B-CREATE&quot;</span>,(<span class="fl">3.9</span>,<span class="fl">4.5</span>,<span class="fl">8.9</span>)),</span>
+<span id="cb291-4"><a href="lists.html#cb291-4"></a>          <span class="st">&quot;p4&quot;</span>: (<span class="st">&quot;Eva&quot;</span>,<span class="dv">20</span>,<span class="st">&quot;female&quot;</span>,<span class="st">&quot;B-MATH&quot;</span>,(<span class="fl">8.0</span>,<span class="fl">7.0</span>,<span class="fl">9.1</span>)),</span>
+<span id="cb291-5"><a href="lists.html#cb291-5"></a>          <span class="st">&quot;p5&quot;</span>: (<span class="st">&quot;Sophia&quot;</span>,<span class="dv">22</span>,<span class="st">&quot;female&quot;</span>,<span class="st">&quot;M-PSY&quot;</span>,(<span class="fl">4.9</span>,<span class="fl">6.7</span>,<span class="fl">7.6</span>)),</span>
+<span id="cb291-6"><a href="lists.html#cb291-6"></a>          <span class="st">&quot;p6&quot;</span>: (<span class="st">&quot;Jeroen&quot;</span>,<span class="dv">25</span>,<span class="st">&quot;male&quot;</span>,<span class="st">&quot;M-BME&quot;</span>,(<span class="fl">8.5</span>,<span class="fl">8.5</span>,<span class="fl">8.5</span>)),</span>
+<span id="cb291-7"><a href="lists.html#cb291-7"></a>          <span class="st">&quot;p7&quot;</span>: (<span class="st">&quot;Max&quot;</span>,<span class="dv">18</span>,<span class="st">&quot;male&quot;</span>,<span class="st">&quot;B-IBA&quot;</span>,(<span class="fl">7.9</span>,<span class="fl">2.0</span>,<span class="fl">6.5</span>))</span>
+<span id="cb291-8"><a href="lists.html#cb291-8"></a>         }</span></code></pre></div>
 <ol style="list-style-type: decimal">
 <li><code>milk</code> in <code>shoppingList</code></li>
 <li><code>minced beef</code> in <code>shoppingList</code></li>
@@ -902,14 +906,14 @@ shoppingList <span class="op">=</span> [dinner, <span class="st">&quot;bread&quo
 <div id="exercise-7.-adjust-a-dictionary-data-set" class="section level3">
 <h3><span class="header-section-number">4.7.7</span> Exercise 7. Adjust a dictionary data set</h3>
 <p>The data set below originates from a (fictive) language course given at the University of Twente. During the course, the following information was stored about the participants: age, gender, nationality, study programme, for each lesson, whether the participant was present or not (<code>True</code> indicates presence during the lesson and <code>False</code> absence), and the paricipant’s score on the final exam.</p>
-<pre class="sourceCode python"><code class="sourceCode python">dataset <span class="op">=</span> {<span class="st">&#39;p1&#39;</span>:[<span class="dv">21</span>,<span class="st">&quot;Female&quot;</span>,<span class="st">&quot;Dutch&quot;</span>,<span class="st">&quot;B-Psychology&quot;</span>,[<span class="va">True</span>,<span class="va">False</span>,<span class="va">True</span>,<span class="va">False</span>,<span class="va">False</span>],<span class="fl">5.2</span>],
-           <span class="st">&#39;p2&#39;</span>:[<span class="dv">20</span>,<span class="st">&quot;Female&quot;</span>,<span class="st">&quot;Dutch&quot;</span>,<span class="st">&quot;B-Psychology&quot;</span>,[<span class="va">True</span>,<span class="va">True</span>,<span class="va">True</span>,<span class="va">False</span>,<span class="va">True</span>],<span class="fl">8.4</span>],
-           <span class="st">&#39;p3&#39;</span>:[<span class="dv">21</span>,<span class="st">&quot;Female&quot;</span>,<span class="st">&quot;Dutch&quot;</span>,<span class="st">&quot;B-Applied_Mathematics&quot;</span>,[<span class="va">False</span>,<span class="va">True</span>,<span class="va">True</span>,<span class="va">False</span>,<span class="va">True</span>],<span class="fl">7.8</span>],
-           <span class="st">&#39;p4&#39;</span>:[<span class="dv">23</span>,<span class="st">&quot;Male&quot;</span>, <span class="st">&quot;German&quot;</span>,<span class="st">&quot;B-Communication_Science&quot;</span>,[<span class="va">True</span>,<span class="va">True</span>,<span class="st">&quot;n/a&quot;</span>,<span class="st">&quot;n/a&quot;</span>,<span class="va">True</span>],<span class="fl">8.8</span>],
-           <span class="st">&#39;p5&#39;</span>:[<span class="st">&quot;n/a&quot;</span>,<span class="st">&quot;n/a&quot;</span>,<span class="st">&quot;Dutch&quot;</span>,<span class="st">&quot;M-Business_Administration&quot;</span>,[<span class="va">False</span>,<span class="va">False</span>,<span class="va">True</span>,<span class="va">True</span>,<span class="va">True</span>],<span class="fl">7.6</span>],
-           <span class="st">&#39;p6&#39;</span>:[<span class="dv">19</span>,<span class="st">&quot;Male&quot;</span>,<span class="st">&quot;Swedish&quot;</span>,<span class="st">&quot;B-Computer_Science&quot;</span>,[<span class="va">True</span>,<span class="va">False</span>,<span class="va">False</span>,<span class="va">True</span>,<span class="va">False</span>],<span class="fl">7.5</span>],
-           <span class="st">&#39;p7&#39;</span>:[<span class="dv">19</span>,<span class="st">&quot;Male&quot;</span>,<span class="st">&quot;German&quot;</span>,<span class="st">&quot;B-Communication_Science&quot;</span>,[<span class="va">True</span>,<span class="va">True</span>,<span class="va">False</span>,<span class="va">True</span>,<span class="va">True</span>],<span class="fl">5.4</span>]
-           }</code></pre>
+<div class="sourceCode" id="cb292"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb292-1"><a href="lists.html#cb292-1"></a>dataset <span class="op">=</span> {<span class="st">&#39;p1&#39;</span>:[<span class="dv">21</span>,<span class="st">&quot;Female&quot;</span>,<span class="st">&quot;Dutch&quot;</span>,<span class="st">&quot;B-Psychology&quot;</span>,[<span class="va">True</span>,<span class="va">False</span>,<span class="va">True</span>,<span class="va">False</span>,<span class="va">False</span>],<span class="fl">5.2</span>],</span>
+<span id="cb292-2"><a href="lists.html#cb292-2"></a>           <span class="st">&#39;p2&#39;</span>:[<span class="dv">20</span>,<span class="st">&quot;Female&quot;</span>,<span class="st">&quot;Dutch&quot;</span>,<span class="st">&quot;B-Psychology&quot;</span>,[<span class="va">True</span>,<span class="va">True</span>,<span class="va">True</span>,<span class="va">False</span>,<span class="va">True</span>],<span class="fl">8.4</span>],</span>
+<span id="cb292-3"><a href="lists.html#cb292-3"></a>           <span class="st">&#39;p3&#39;</span>:[<span class="dv">21</span>,<span class="st">&quot;Female&quot;</span>,<span class="st">&quot;Dutch&quot;</span>,<span class="st">&quot;B-Applied_Mathematics&quot;</span>,[<span class="va">False</span>,<span class="va">True</span>,<span class="va">True</span>,<span class="va">False</span>,<span class="va">True</span>],<span class="fl">7.8</span>],</span>
+<span id="cb292-4"><a href="lists.html#cb292-4"></a>           <span class="st">&#39;p4&#39;</span>:[<span class="dv">23</span>,<span class="st">&quot;Male&quot;</span>, <span class="st">&quot;German&quot;</span>,<span class="st">&quot;B-Communication_Science&quot;</span>,[<span class="va">True</span>,<span class="va">True</span>,<span class="st">&quot;n/a&quot;</span>,<span class="st">&quot;n/a&quot;</span>,<span class="va">True</span>],<span class="fl">8.8</span>],</span>
+<span id="cb292-5"><a href="lists.html#cb292-5"></a>           <span class="st">&#39;p5&#39;</span>:[<span class="st">&quot;n/a&quot;</span>,<span class="st">&quot;n/a&quot;</span>,<span class="st">&quot;Dutch&quot;</span>,<span class="st">&quot;M-Business_Administration&quot;</span>,[<span class="va">False</span>,<span class="va">False</span>,<span class="va">True</span>,<span class="va">True</span>,<span class="va">True</span>],<span class="fl">7.6</span>],</span>
+<span id="cb292-6"><a href="lists.html#cb292-6"></a>           <span class="st">&#39;p6&#39;</span>:[<span class="dv">19</span>,<span class="st">&quot;Male&quot;</span>,<span class="st">&quot;Swedish&quot;</span>,<span class="st">&quot;B-Computer_Science&quot;</span>,[<span class="va">True</span>,<span class="va">False</span>,<span class="va">False</span>,<span class="va">True</span>,<span class="va">False</span>],<span class="fl">7.5</span>],</span>
+<span id="cb292-7"><a href="lists.html#cb292-7"></a>           <span class="st">&#39;p7&#39;</span>:[<span class="dv">19</span>,<span class="st">&quot;Male&quot;</span>,<span class="st">&quot;German&quot;</span>,<span class="st">&quot;B-Communication_Science&quot;</span>,[<span class="va">True</span>,<span class="va">True</span>,<span class="va">False</span>,<span class="va">True</span>,<span class="va">True</span>],<span class="fl">5.4</span>]</span>
+<span id="cb292-8"><a href="lists.html#cb292-8"></a>           }</span></code></pre></div>
 <p>The lecturer has to perform some last minute changes to the data set before handing it in for statistical examination. Perform the following changes to the data set by accessing the relevant elements.</p>
 <ol style="list-style-type: decimal">
 <li>After taking a resit, participant 1 and participant 7 did pass the course. Participant 1 scored a 6.1 on the resit and participant 7 a 7.4.</li>
@@ -922,7 +926,7 @@ shoppingList <span class="op">=</span> [dinner, <span class="st">&quot;bread&quo
 <div id="exercise-8.-a-dictionary-data-set" class="section level3">
 <h3><span class="header-section-number">4.7.8</span> Exercise 8. A dictionary data set</h3>
 <p>Fill in the participant information given in the table below in a Python dictionary with the following structure:</p>
-<pre class="sourceCode python"><code class="sourceCode python">participants <span class="op">=</span> {participant_no:(gender, age, nationality, profession)}</code></pre>
+<div class="sourceCode" id="cb293"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb293-1"><a href="lists.html#cb293-1"></a>participants <span class="op">=</span> {participant_no:(gender, age, nationality, profession)}</span></code></pre></div>
 <table>
 <thead>
 <tr class="header">
@@ -1088,7 +1092,7 @@ shoppingList <span class="op">=</span> [dinner, <span class="st">&quot;bread&quo
 </ul>
 </div>
 </div>
-<div id="think-further-2" class="section level2">
+<div id="think-further" class="section level2">
 <h2><span class="header-section-number">4.8</span> Think further</h2>
 <ul>
 <li>For more detailed information on <em>lists</em> beyond the scope of this chapter, you are advised to take a look at <a href="http://openbookproject.net/thinkcs/python/english3e/lists.html">Wentworth, P., Elkner, J., Downey, A. B., &amp; Meyer, C. (2015). How to think like a computer scientist: Learning with Python 3. Chapter 11. Lists</a></li>
@@ -1109,11 +1113,13 @@ shoppingList <span class="op">=</span> [dinner, <span class="st">&quot;bread&quo
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
 <script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
 <script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
 <script>
 gitbook.require(["gitbook"], function(gitbook) {
 gitbook.start({
@@ -1121,12 +1127,11 @@ gitbook.start({
 "github": false,
 "facebook": true,
 "twitter": true,
-"google": false,
 "linkedin": false,
 "weibo": false,
 "instapaper": false,
 "vk": false,
-"all": ["facebook", "google", "twitter", "linkedin", "weibo", "instapaper"]
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
 },
 "fontsettings": {
 "theme": "white",
@@ -1138,6 +1143,10 @@ gitbook.start({
 "text": null
 },
 "history": {
+"link": null,
+"text": null
+},
+"view": {
 "link": null,
 "text": null
 },

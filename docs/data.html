@@ -1,39 +1,38 @@
 <!DOCTYPE html>
-<html >
-
+<html lang="" xml:lang="">
 <head>
 
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>7 Working with data | Programming Interaction for Psychologists</title>
-  <meta name="description" content="a book to accompany the course Programming for Psychologists">
-  <meta name="generator" content="bookdown  and GitBook 2.6.7">
+  <meta name="description" content="7 Working with data | Programming Interaction for Psychologists" />
+  <meta name="generator" content="bookdown 0.20 and GitBook 2.6.7" />
 
   <meta property="og:title" content="7 Working with data | Programming Interaction for Psychologists" />
   <meta property="og:type" content="book" />
   
   
-  <meta property="og:description" content="a book to accompany the course Programming for Psychologists" />
+  
   <meta name="github-repo" content="schmettow/PfP_Book" />
 
   <meta name="twitter:card" content="summary" />
   <meta name="twitter:title" content="7 Working with data | Programming Interaction for Psychologists" />
   
-  <meta name="twitter:description" content="a book to accompany the course Programming for Psychologists" />
-  
-
-<meta name="author" content="Martin Schmettow and Lena Brandl">
-
-
-<meta name="date" content="2020-02-26">
-
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="apple-mobile-web-app-capable" content="yes">
-  <meta name="apple-mobile-web-app-status-bar-style" content="black">
   
   
-<link rel="prev" href="functions.html">
-<link rel="next" href="interaction.html">
+
+<meta name="author" content="Martin Schmettow and Lena Brandl" />
+
+
+<meta name="date" content="2020-10-07" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="functions.html"/>
+<link rel="next" href="interaction.html"/>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -41,6 +40,7 @@
 <link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
 
 
 
@@ -48,37 +48,41 @@
 
 
 
-<script src="libs/htmlwidgets-1.3/htmlwidgets.js"></script>
+
+
+<script src="libs/accessible-code-block-0.0.1/empty-anchor.js"></script>
+<script src="libs/htmlwidgets-1.5.1/htmlwidgets.js"></script>
 <script src="libs/d3-3.3.8/d3.min.js"></script>
 <script src="libs/dagre-0.4.0/dagre-d3.min.js"></script>
 <link href="libs/mermaid-0.3.0/dist/mermaid.css" rel="stylesheet" />
 <script src="libs/mermaid-0.3.0/dist/mermaid.slim.min.js"></script>
 <link href="libs/DiagrammeR-styles-0.2/styles.css" rel="stylesheet" />
 <script src="libs/chromatography-0.1/chromatography.js"></script>
-<script src="libs/DiagrammeR-binding-1.0.0/DiagrammeR.js"></script>
+<script src="libs/DiagrammeR-binding-1.0.6.1/DiagrammeR.js"></script>
 
 
 <style type="text/css">
-a.sourceLine { display: inline-block; line-height: 1.25; }
-a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
-a.sourceLine:empty { height: 1.2em; }
+code.sourceCode > span { display: inline-block; line-height: 1.25; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+code.sourceCode > span:empty { height: 1.2em; }
 .sourceCode { overflow: visible; }
 code.sourceCode { white-space: pre; position: relative; }
-div.sourceCode { margin: 1em 0; }
 pre.sourceCode { margin: 0; }
 @media screen {
 div.sourceCode { overflow: auto; }
 }
 @media print {
 code.sourceCode { white-space: pre-wrap; }
-a.sourceLine { text-indent: -1em; padding-left: 1em; }
+code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
 }
-pre.numberSource a.sourceLine
-  { position: relative; left: -4em; }
-pre.numberSource a.sourceLine::before
-  { content: attr(title);
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
     position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; pointer-events: all; display: inline-block;
+    border: none; display: inline-block;
     -webkit-touch-callout: none; -webkit-user-select: none;
     -khtml-user-select: none; -moz-user-select: none;
     -ms-user-select: none; user-select: none;
@@ -87,9 +91,9 @@ pre.numberSource a.sourceLine::before
   }
 pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
 div.sourceCode
-  {  }
+  {   }
 @media screen {
-a.sourceLine::before { text-decoration: underline; }
+code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 code span.al { color: #ff0000; font-weight: bold; } /* Alert */
 code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
@@ -156,7 +160,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="chapter" data-level="2.5" data-path="variables.html"><a href="variables.html#common-errors"><i class="fa fa-check"></i><b>2.5</b> Common errors</a></li>
 <li class="chapter" data-level="2.6" data-path="variables.html"><a href="variables.html#debugging"><i class="fa fa-check"></i><b>2.6</b> Debugging</a></li>
-<li class="chapter" data-level="2.7" data-path="variables.html"><a href="variables.html#exercises-1"><i class="fa fa-check"></i><b>2.7</b> Exercises</a><ul>
+<li class="chapter" data-level="2.7" data-path="intro.html"><a href="intro.html#exercises"><i class="fa fa-check"></i><b>2.7</b> Exercises</a><ul>
 <li class="chapter" data-level="2.7.1" data-path="variables.html"><a href="variables.html#exercise-1.-operators"><i class="fa fa-check"></i><b>2.7.1</b> Exercise 1. Operators</a></li>
 <li class="chapter" data-level="2.7.2" data-path="variables.html"><a href="variables.html#exercise-2.-values"><i class="fa fa-check"></i><b>2.7.2</b> Exercise 2. Values</a></li>
 <li class="chapter" data-level="2.7.3" data-path="variables.html"><a href="variables.html#exercise-3.-mini-programs"><i class="fa fa-check"></i><b>2.7.3</b> Exercise 3. Mini programs</a></li>
@@ -178,9 +182,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="3.4.1" data-path="conditionals.html"><a href="conditionals.html#transition-tables"><i class="fa fa-check"></i><b>3.4.1</b> Transition tables</a></li>
 <li class="chapter" data-level="3.4.2" data-path="conditionals.html"><a href="conditionals.html#state-charts"><i class="fa fa-check"></i><b>3.4.2</b> State charts</a></li>
 </ul></li>
-<li class="chapter" data-level="3.5" data-path="conditionals.html"><a href="conditionals.html#common-errors-1"><i class="fa fa-check"></i><b>3.5</b> Common errors</a></li>
-<li class="chapter" data-level="3.6" data-path="conditionals.html"><a href="conditionals.html#debugging-1"><i class="fa fa-check"></i><b>3.6</b> Debugging</a></li>
-<li class="chapter" data-level="3.7" data-path="conditionals.html"><a href="conditionals.html#exercises-2"><i class="fa fa-check"></i><b>3.7</b> Exercises</a><ul>
+<li class="chapter" data-level="3.5" data-path="variables.html"><a href="variables.html#common-errors"><i class="fa fa-check"></i><b>3.5</b> Common errors</a></li>
+<li class="chapter" data-level="3.6" data-path="variables.html"><a href="variables.html#debugging"><i class="fa fa-check"></i><b>3.6</b> Debugging</a></li>
+<li class="chapter" data-level="3.7" data-path="intro.html"><a href="intro.html#exercises"><i class="fa fa-check"></i><b>3.7</b> Exercises</a><ul>
 <li class="chapter" data-level="3.7.1" data-path="conditionals.html"><a href="conditionals.html#exercise-1.-boolean-logic"><i class="fa fa-check"></i><b>3.7.1</b> Exercise 1. Boolean logic</a></li>
 <li class="chapter" data-level="3.7.2" data-path="conditionals.html"><a href="conditionals.html#exercise-2.-state-charts"><i class="fa fa-check"></i><b>3.7.2</b> Exercise 2. State charts</a></li>
 <li class="chapter" data-level="3.7.3" data-path="conditionals.html"><a href="conditionals.html#exercise-3.-transition-tables"><i class="fa fa-check"></i><b>3.7.3</b> Exercise 3. Transition tables</a></li>
@@ -192,7 +196,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="3.7.9" data-path="conditionals.html"><a href="conditionals.html#exercise-9.-simplify-nested-conditionals"><i class="fa fa-check"></i><b>3.7.9</b> Exercise 9. Simplify nested conditionals</a></li>
 <li class="chapter" data-level="3.7.10" data-path="conditionals.html"><a href="conditionals.html#exercise-10.-flow-chart-conditionals"><i class="fa fa-check"></i><b>3.7.10</b> Exercise 10. Flow chart conditionals</a></li>
 </ul></li>
-<li class="chapter" data-level="3.8" data-path="conditionals.html"><a href="conditionals.html#think-further-1"><i class="fa fa-check"></i><b>3.8</b> Think Further</a></li>
+<li class="chapter" data-level="3.8" data-path="variables.html"><a href="variables.html#think-further"><i class="fa fa-check"></i><b>3.8</b> Think Further</a></li>
 </ul></li>
 <li class="chapter" data-level="4" data-path="lists.html"><a href="lists.html"><i class="fa fa-check"></i><b>4</b> Lists</a><ul>
 <li class="chapter" data-level="4.1" data-path="lists.html"><a href="lists.html#lists-1"><i class="fa fa-check"></i><b>4.1</b> Lists</a><ul>
@@ -201,12 +205,12 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="4.2" data-path="lists.html"><a href="lists.html#tuples"><i class="fa fa-check"></i><b>4.2</b> Tuples</a></li>
 <li class="chapter" data-level="4.3" data-path="lists.html"><a href="lists.html#dictionaries"><i class="fa fa-check"></i><b>4.3</b> Dictionaries</a></li>
 <li class="chapter" data-level="4.4" data-path="lists.html"><a href="lists.html#putting-collections-to-use"><i class="fa fa-check"></i><b>4.4</b> Putting collections to use</a></li>
-<li class="chapter" data-level="4.5" data-path="lists.html"><a href="lists.html#common-errors-2"><i class="fa fa-check"></i><b>4.5</b> Common errors</a></li>
-<li class="chapter" data-level="4.6" data-path="lists.html"><a href="lists.html#debugging-2"><i class="fa fa-check"></i><b>4.6</b> Debugging</a></li>
-<li class="chapter" data-level="4.7" data-path="lists.html"><a href="lists.html#exercises-3"><i class="fa fa-check"></i><b>4.7</b> Exercises</a><ul>
+<li class="chapter" data-level="4.5" data-path="variables.html"><a href="variables.html#common-errors"><i class="fa fa-check"></i><b>4.5</b> Common errors</a></li>
+<li class="chapter" data-level="4.6" data-path="variables.html"><a href="variables.html#debugging"><i class="fa fa-check"></i><b>4.6</b> Debugging</a></li>
+<li class="chapter" data-level="4.7" data-path="intro.html"><a href="intro.html#exercises"><i class="fa fa-check"></i><b>4.7</b> Exercises</a><ul>
 <li class="chapter" data-level="4.7.1" data-path="lists.html"><a href="lists.html#exercise-1.-indexing"><i class="fa fa-check"></i><b>4.7.1</b> Exercise 1. Indexing</a></li>
 <li class="chapter" data-level="4.7.2" data-path="lists.html"><a href="lists.html#exercise-2.-debugging"><i class="fa fa-check"></i><b>4.7.2</b> Exercise 2. Debugging</a></li>
-<li class="chapter" data-level="4.7.3" data-path="lists.html"><a href="lists.html#exercise-3.-mini-programs-1"><i class="fa fa-check"></i><b>4.7.3</b> Exercise 3. Mini programs</a></li>
+<li class="chapter" data-level="4.7.3" data-path="variables.html"><a href="variables.html#exercise-3.-mini-programs"><i class="fa fa-check"></i><b>4.7.3</b> Exercise 3. Mini programs</a></li>
 <li class="chapter" data-level="4.7.4" data-path="lists.html"><a href="lists.html#exercise-4.-shopping-list"><i class="fa fa-check"></i><b>4.7.4</b> Exercise 4. Shopping list</a></li>
 <li class="chapter" data-level="4.7.5" data-path="lists.html"><a href="lists.html#exercise-5.-dictionaries"><i class="fa fa-check"></i><b>4.7.5</b> Exercise 5. Dictionaries</a></li>
 <li class="chapter" data-level="4.7.6" data-path="lists.html"><a href="lists.html#exercise-6.-element-selection"><i class="fa fa-check"></i><b>4.7.6</b> Exercise 6. Element selection</a></li>
@@ -214,7 +218,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="4.7.8" data-path="lists.html"><a href="lists.html#exercise-8.-a-dictionary-data-set"><i class="fa fa-check"></i><b>4.7.8</b> Exercise 8. A dictionary data set</a></li>
 <li class="chapter" data-level="4.7.9" data-path="lists.html"><a href="lists.html#exercise-9.-stroop-extension"><i class="fa fa-check"></i><b>4.7.9</b> Exercise 9. Stroop extension</a></li>
 </ul></li>
-<li class="chapter" data-level="4.8" data-path="lists.html"><a href="lists.html#think-further-2"><i class="fa fa-check"></i><b>4.8</b> Think further</a></li>
+<li class="chapter" data-level="4.8" data-path="variables.html"><a href="variables.html#think-further"><i class="fa fa-check"></i><b>4.8</b> Think further</a></li>
 </ul></li>
 <li class="chapter" data-level="5" data-path="loops.html"><a href="loops.html"><i class="fa fa-check"></i><b>5</b> Loops</a><ul>
 <li class="chapter" data-level="5.1" data-path="loops.html"><a href="loops.html#the-for-loop"><i class="fa fa-check"></i><b>5.1</b> The <code>for</code> loop</a></li>
@@ -223,9 +227,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="chapter" data-level="5.3" data-path="loops.html"><a href="loops.html#the-break-statement"><i class="fa fa-check"></i><b>5.3</b> The <code>break</code> statement</a></li>
 <li class="chapter" data-level="5.4" data-path="loops.html"><a href="loops.html#controlling-the-flow-of-your-program-with-loops"><i class="fa fa-check"></i><b>5.4</b> Controlling the flow of your program with loops</a></li>
-<li class="chapter" data-level="5.5" data-path="loops.html"><a href="loops.html#common-errors-3"><i class="fa fa-check"></i><b>5.5</b> Common errors</a></li>
-<li class="chapter" data-level="5.6" data-path="loops.html"><a href="loops.html#debugging-3"><i class="fa fa-check"></i><b>5.6</b> Debugging</a></li>
-<li class="chapter" data-level="5.7" data-path="loops.html"><a href="loops.html#exercises-4"><i class="fa fa-check"></i><b>5.7</b> Exercises</a><ul>
+<li class="chapter" data-level="5.5" data-path="variables.html"><a href="variables.html#common-errors"><i class="fa fa-check"></i><b>5.5</b> Common errors</a></li>
+<li class="chapter" data-level="5.6" data-path="variables.html"><a href="variables.html#debugging"><i class="fa fa-check"></i><b>5.6</b> Debugging</a></li>
+<li class="chapter" data-level="5.7" data-path="intro.html"><a href="intro.html#exercises"><i class="fa fa-check"></i><b>5.7</b> Exercises</a><ul>
 <li class="chapter" data-level="5.7.1" data-path="loops.html"><a href="loops.html#exercise-1.-following-the-control-flow-i"><i class="fa fa-check"></i><b>5.7.1</b> Exercise 1. Following the control flow I</a></li>
 <li class="chapter" data-level="5.7.2" data-path="loops.html"><a href="loops.html#exercise-2.-debugging-i"><i class="fa fa-check"></i><b>5.7.2</b> Exercise 2. Debugging I</a></li>
 <li class="chapter" data-level="5.7.3" data-path="loops.html"><a href="loops.html#exercise-3.-a-guessing-game"><i class="fa fa-check"></i><b>5.7.3</b> Exercise 3. A guessing game</a></li>
@@ -236,7 +240,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="5.7.8" data-path="loops.html"><a href="loops.html#exercise-8.-data-transformation-using-loops"><i class="fa fa-check"></i><b>5.7.8</b> Exercise 8. Data transformation using loops</a></li>
 <li class="chapter" data-level="5.7.9" data-path="loops.html"><a href="loops.html#exercise-9.-calculating-a-mean"><i class="fa fa-check"></i><b>5.7.9</b> Exercise 9. Calculating a mean</a></li>
 </ul></li>
-<li class="chapter" data-level="5.8" data-path="loops.html"><a href="loops.html#think-further-3"><i class="fa fa-check"></i><b>5.8</b> Think Further</a></li>
+<li class="chapter" data-level="5.8" data-path="variables.html"><a href="variables.html#think-further"><i class="fa fa-check"></i><b>5.8</b> Think Further</a></li>
 </ul></li>
 <li class="chapter" data-level="6" data-path="functions.html"><a href="functions.html"><i class="fa fa-check"></i><b>6</b> Functions</a><ul>
 <li class="chapter" data-level="6.1" data-path="functions.html"><a href="functions.html#defining-and-calling-functions"><i class="fa fa-check"></i><b>6.1</b> Defining and calling functions</a></li>
@@ -246,8 +250,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="6.4.1" data-path="functions.html"><a href="functions.html#a-word-about-recursion"><i class="fa fa-check"></i><b>6.4.1</b> A word about <em>Recursion</em></a></li>
 </ul></li>
 <li class="chapter" data-level="6.5" data-path="functions.html"><a href="functions.html#stroop-functions"><i class="fa fa-check"></i><b>6.5</b> Stroop functions</a></li>
-<li class="chapter" data-level="6.6" data-path="functions.html"><a href="functions.html#common-errors-4"><i class="fa fa-check"></i><b>6.6</b> Common errors</a></li>
-<li class="chapter" data-level="6.7" data-path="functions.html"><a href="functions.html#exercises-5"><i class="fa fa-check"></i><b>6.7</b> Exercises</a><ul>
+<li class="chapter" data-level="6.6" data-path="variables.html"><a href="variables.html#common-errors"><i class="fa fa-check"></i><b>6.6</b> Common errors</a></li>
+<li class="chapter" data-level="6.7" data-path="intro.html"><a href="intro.html#exercises"><i class="fa fa-check"></i><b>6.7</b> Exercises</a><ul>
 <li class="chapter" data-level="6.7.1" data-path="functions.html"><a href="functions.html#exercise-1.-following-the-control-flow"><i class="fa fa-check"></i><b>6.7.1</b> Exercise 1. Following the control flow</a></li>
 <li class="chapter" data-level="6.7.2" data-path="functions.html"><a href="functions.html#exercise-2.-an-imperfect-list-sorting-attempt"><i class="fa fa-check"></i><b>6.7.2</b> Exercise 2. An imperfect list sorting attempt</a></li>
 <li class="chapter" data-level="6.7.3" data-path="functions.html"><a href="functions.html#exercise-3.-an-erroneous-sorting-algorithm"><i class="fa fa-check"></i><b>6.7.3</b> Exercise 3. An erroneous sorting algorithm</a></li>
@@ -255,7 +259,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="6.7.5" data-path="functions.html"><a href="functions.html#exercise-5.-add-functionality-to-the-stroop-task"><i class="fa fa-check"></i><b>6.7.5</b> Exercise 5. Add functionality to the stroop task</a></li>
 <li class="chapter" data-level="6.7.6" data-path="functions.html"><a href="functions.html#exercise-6.-insertion-sort-algorithm"><i class="fa fa-check"></i><b>6.7.6</b> Exercise 6. Insertion sort algorithm</a></li>
 </ul></li>
-<li class="chapter" data-level="6.8" data-path="functions.html"><a href="functions.html#think-further-4"><i class="fa fa-check"></i><b>6.8</b> Think further</a></li>
+<li class="chapter" data-level="6.8" data-path="variables.html"><a href="variables.html#think-further"><i class="fa fa-check"></i><b>6.8</b> Think further</a></li>
 <li class="chapter" data-level="6.9" data-path="functions.html"><a href="functions.html#references"><i class="fa fa-check"></i><b>6.9</b> References</a></li>
 </ul></li>
 <li class="chapter" data-level="7" data-path="data.html"><a href="data.html"><i class="fa fa-check"></i><b>7</b> Working with data</a><ul>
@@ -263,19 +267,19 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="7.2" data-path="data.html"><a href="data.html#data-tables"><i class="fa fa-check"></i><b>7.2</b> Data tables</a></li>
 <li class="chapter" data-level="7.3" data-path="data.html"><a href="data.html#down-the-sink-writing-data-files"><i class="fa fa-check"></i><b>7.3</b> Down the sink: Writing data files</a></li>
 <li class="chapter" data-level="7.4" data-path="data.html"><a href="data.html#may-the-source-reading-data-files"><i class="fa fa-check"></i><b>7.4</b> May the source …: reading data files</a></li>
-<li class="chapter" data-level="7.5" data-path="data.html"><a href="data.html#exercises-6"><i class="fa fa-check"></i><b>7.5</b> Exercises</a><ul>
+<li class="chapter" data-level="7.5" data-path="intro.html"><a href="intro.html#exercises"><i class="fa fa-check"></i><b>7.5</b> Exercises</a><ul>
 <li class="chapter" data-level="7.5.1" data-path="data.html"><a href="data.html#exercise-1"><i class="fa fa-check"></i><b>7.5.1</b> Exercise 1</a></li>
 <li class="chapter" data-level="7.5.2" data-path="data.html"><a href="data.html#exercise-2"><i class="fa fa-check"></i><b>7.5.2</b> Exercise 2</a></li>
 </ul></li>
-<li class="chapter" data-level="7.6" data-path="data.html"><a href="data.html#think-further-5"><i class="fa fa-check"></i><b>7.6</b> Think further</a></li>
-<li class="chapter" data-level="7.7" data-path="data.html"><a href="data.html#references-1"><i class="fa fa-check"></i><b>7.7</b> References</a></li>
+<li class="chapter" data-level="7.6" data-path="variables.html"><a href="variables.html#think-further"><i class="fa fa-check"></i><b>7.6</b> Think further</a></li>
+<li class="chapter" data-level="7.7" data-path="functions.html"><a href="functions.html#references"><i class="fa fa-check"></i><b>7.7</b> References</a></li>
 </ul></li>
 <li class="chapter" data-level="8" data-path="interaction.html"><a href="interaction.html"><i class="fa fa-check"></i><b>8</b> Interaction</a><ul>
 <li class="chapter" data-level="8.1" data-path="interaction.html"><a href="interaction.html#interaction-models"><i class="fa fa-check"></i><b>8.1</b> Interaction models</a><ul>
 <li class="chapter" data-level="8.1.1" data-path="interaction.html"><a href="interaction.html#identifying-states"><i class="fa fa-check"></i><b>8.1.1</b> Identifying states</a></li>
 <li class="chapter" data-level="8.1.2" data-path="interaction.html"><a href="interaction.html#identifying-transitions"><i class="fa fa-check"></i><b>8.1.2</b> Identifying transitions</a></li>
 <li class="chapter" data-level="8.1.3" data-path="interaction.html"><a href="interaction.html#events-user-input-and-internal-conditions"><i class="fa fa-check"></i><b>8.1.3</b> Events: user input and internal conditions</a></li>
-<li class="chapter" data-level="8.1.4" data-path="interaction.html"><a href="interaction.html#exercises-7"><i class="fa fa-check"></i><b>8.1.4</b> Exercises</a></li>
+<li class="chapter" data-level="8.1.4" data-path="intro.html"><a href="intro.html#exercises"><i class="fa fa-check"></i><b>8.1.4</b> Exercises</a></li>
 </ul></li>
 <li class="chapter" data-level="8.2" data-path="interaction.html"><a href="interaction.html#programming-interactive-prototypes"><i class="fa fa-check"></i><b>8.2</b> Programming interactive prototypes</a><ul>
 <li class="chapter" data-level="8.2.1" data-path="interaction.html"><a href="interaction.html#interactive-transitionals"><i class="fa fa-check"></i><b>8.2.1</b> Interactive transitionals</a></li>
@@ -295,42 +299,42 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="8.4.2" data-path="interaction.html"><a href="interaction.html#drawing-figures"><i class="fa fa-check"></i><b>8.4.2</b> Drawing figures</a></li>
 <li class="chapter" data-level="8.4.3" data-path="interaction.html"><a href="interaction.html#placing-text-and-pictures"><i class="fa fa-check"></i><b>8.4.3</b> Placing text and pictures</a></li>
 </ul></li>
-<li class="chapter" data-level="8.5" data-path="interaction.html"><a href="interaction.html#exercises-8"><i class="fa fa-check"></i><b>8.5</b> Exercises</a><ul>
+<li class="chapter" data-level="8.5" data-path="interaction.html"><a href="interaction.html#exercises-1"><i class="fa fa-check"></i><b>8.5</b> Exercises</a><ul>
 <li class="chapter" data-level="8.5.1" data-path="interaction.html"><a href="interaction.html#exercise-c.-transition-tables"><i class="fa fa-check"></i><b>8.5.1</b> Exercise C. Transition tables</a></li>
 </ul></li>
-<li class="chapter" data-level="8.6" data-path="interaction.html"><a href="interaction.html#common-errors-5"><i class="fa fa-check"></i><b>8.6</b> Common errors</a></li>
-<li class="chapter" data-level="8.7" data-path="interaction.html"><a href="interaction.html#think-further-6"><i class="fa fa-check"></i><b>8.7</b> Think Further</a></li>
+<li class="chapter" data-level="8.6" data-path="variables.html"><a href="variables.html#common-errors"><i class="fa fa-check"></i><b>8.6</b> Common errors</a></li>
+<li class="chapter" data-level="8.7" data-path="variables.html"><a href="variables.html#think-further"><i class="fa fa-check"></i><b>8.7</b> Think Further</a></li>
 </ul></li>
 <li class="chapter" data-level="9" data-path="solutions.html"><a href="solutions.html"><i class="fa fa-check"></i><b>9</b> Solutions</a><ul>
 <li class="chapter" data-level="9.1" data-path="solutions.html"><a href="solutions.html#chapter-1.-introduction"><i class="fa fa-check"></i><b>9.1</b> Chapter 1. Introduction</a></li>
 <li class="chapter" data-level="9.2" data-path="solutions.html"><a href="solutions.html#chapter-2.-variables-values-and-types"><i class="fa fa-check"></i><b>9.2</b> Chapter 2. Variables, values and types</a><ul>
-<li class="chapter" data-level="9.2.1" data-path="solutions.html"><a href="solutions.html#exercise-1.-operators-1"><i class="fa fa-check"></i><b>9.2.1</b> Exercise 1. Operators</a></li>
-<li class="chapter" data-level="9.2.2" data-path="solutions.html"><a href="solutions.html#exercise-2.-values-1"><i class="fa fa-check"></i><b>9.2.2</b> Exercise 2. Values</a></li>
-<li class="chapter" data-level="9.2.3" data-path="solutions.html"><a href="solutions.html#exercise-3.-mini-programs-2"><i class="fa fa-check"></i><b>9.2.3</b> Exercise 3. Mini programs</a></li>
-<li class="chapter" data-level="9.2.4" data-path="solutions.html"><a href="solutions.html#exercise-4.-debugging-1"><i class="fa fa-check"></i><b>9.2.4</b> Exercise 4. Debugging</a></li>
-<li class="chapter" data-level="9.2.5" data-path="solutions.html"><a href="solutions.html#exercise-5.-string-concatenation-1"><i class="fa fa-check"></i><b>9.2.5</b> Exercise 5. String concatenation</a></li>
-<li class="chapter" data-level="9.2.6" data-path="solutions.html"><a href="solutions.html#exercise-6.-variable-names-1"><i class="fa fa-check"></i><b>9.2.6</b> Exercise 6. Variable names</a></li>
-<li class="chapter" data-level="9.2.7" data-path="solutions.html"><a href="solutions.html#exercise-7.-stroop-task-welcome-message-1"><i class="fa fa-check"></i><b>9.2.7</b> Exercise 7. Stroop task welcome message</a></li>
-<li class="chapter" data-level="9.2.8" data-path="solutions.html"><a href="solutions.html#exercise-8.-printing-1"><i class="fa fa-check"></i><b>9.2.8</b> Exercise 8. Printing</a></li>
+<li class="chapter" data-level="9.2.1" data-path="variables.html"><a href="variables.html#exercise-1.-operators"><i class="fa fa-check"></i><b>9.2.1</b> Exercise 1. Operators</a></li>
+<li class="chapter" data-level="9.2.2" data-path="variables.html"><a href="variables.html#exercise-2.-values"><i class="fa fa-check"></i><b>9.2.2</b> Exercise 2. Values</a></li>
+<li class="chapter" data-level="9.2.3" data-path="variables.html"><a href="variables.html#exercise-3.-mini-programs"><i class="fa fa-check"></i><b>9.2.3</b> Exercise 3. Mini programs</a></li>
+<li class="chapter" data-level="9.2.4" data-path="variables.html"><a href="variables.html#exercise-4.-debugging"><i class="fa fa-check"></i><b>9.2.4</b> Exercise 4. Debugging</a></li>
+<li class="chapter" data-level="9.2.5" data-path="variables.html"><a href="variables.html#exercise-5.-string-concatenation"><i class="fa fa-check"></i><b>9.2.5</b> Exercise 5. String concatenation</a></li>
+<li class="chapter" data-level="9.2.6" data-path="variables.html"><a href="variables.html#exercise-6.-variable-names"><i class="fa fa-check"></i><b>9.2.6</b> Exercise 6. Variable names</a></li>
+<li class="chapter" data-level="9.2.7" data-path="variables.html"><a href="variables.html#exercise-7.-stroop-task-welcome-message"><i class="fa fa-check"></i><b>9.2.7</b> Exercise 7. Stroop task welcome message</a></li>
+<li class="chapter" data-level="9.2.8" data-path="variables.html"><a href="variables.html#exercise-8.-printing"><i class="fa fa-check"></i><b>9.2.8</b> Exercise 8. Printing</a></li>
 <li class="chapter" data-level="9.2.9" data-path="solutions.html"><a href="solutions.html#exercise-9.-using-python-as-calculator"><i class="fa fa-check"></i><b>9.2.9</b> Exercise 9. Using Python as calculator</a></li>
-<li class="chapter" data-level="9.2.10" data-path="solutions.html"><a href="solutions.html#exercise-10.-a-boolean-puzzle-1"><i class="fa fa-check"></i><b>9.2.10</b> Exercise 10. A Boolean puzzle</a></li>
+<li class="chapter" data-level="9.2.10" data-path="variables.html"><a href="variables.html#exercise-10.-a-boolean-puzzle"><i class="fa fa-check"></i><b>9.2.10</b> Exercise 10. A Boolean puzzle</a></li>
 </ul></li>
 <li class="chapter" data-level="9.3" data-path="solutions.html"><a href="solutions.html#chapter-3.-conditionals"><i class="fa fa-check"></i><b>9.3</b> Chapter 3. Conditionals</a><ul>
-<li class="chapter" data-level="9.3.1" data-path="solutions.html"><a href="solutions.html#exercise-1.-boolean-logic-1"><i class="fa fa-check"></i><b>9.3.1</b> Exercise 1. Boolean logic</a></li>
-<li class="chapter" data-level="9.3.2" data-path="solutions.html"><a href="solutions.html#exercise-2.-state-charts-1"><i class="fa fa-check"></i><b>9.3.2</b> Exercise 2. State charts</a></li>
-<li class="chapter" data-level="9.3.3" data-path="solutions.html"><a href="solutions.html#exercise-3.-transition-tables-1"><i class="fa fa-check"></i><b>9.3.3</b> Exercise 3. Transition tables</a></li>
-<li class="chapter" data-level="9.3.4" data-path="solutions.html"><a href="solutions.html#exercise-4.-mini-programs-1"><i class="fa fa-check"></i><b>9.3.4</b> Exercise 4. Mini programs</a></li>
-<li class="chapter" data-level="9.3.5" data-path="solutions.html"><a href="solutions.html#exercise-5.-following-the-control-flow-1"><i class="fa fa-check"></i><b>9.3.5</b> Exercise 5. Following the control flow</a></li>
-<li class="chapter" data-level="9.3.6" data-path="solutions.html"><a href="solutions.html#exercise-6.-indentation-1"><i class="fa fa-check"></i><b>9.3.6</b> Exercise 6. Indentation</a></li>
-<li class="chapter" data-level="9.3.7" data-path="solutions.html"><a href="solutions.html#exercise-7.-pseudo-code-conditionals-1"><i class="fa fa-check"></i><b>9.3.7</b> Exercise 7. Pseudo code conditionals</a></li>
-<li class="chapter" data-level="9.3.8" data-path="solutions.html"><a href="solutions.html#exercise-8.-modify-stroop-task-1"><i class="fa fa-check"></i><b>9.3.8</b> Exercise 8. Modify Stroop Task</a></li>
-<li class="chapter" data-level="9.3.9" data-path="solutions.html"><a href="solutions.html#exercise-9.-simplify-nested-conditionals-1"><i class="fa fa-check"></i><b>9.3.9</b> Exercise 9. Simplify nested conditionals</a></li>
-<li class="chapter" data-level="9.3.10" data-path="solutions.html"><a href="solutions.html#exercise-10.-flow-chart-conditionals-1"><i class="fa fa-check"></i><b>9.3.10</b> Exercise 10. Flow chart conditionals</a></li>
+<li class="chapter" data-level="9.3.1" data-path="conditionals.html"><a href="conditionals.html#exercise-1.-boolean-logic"><i class="fa fa-check"></i><b>9.3.1</b> Exercise 1. Boolean logic</a></li>
+<li class="chapter" data-level="9.3.2" data-path="conditionals.html"><a href="conditionals.html#exercise-2.-state-charts"><i class="fa fa-check"></i><b>9.3.2</b> Exercise 2. State charts</a></li>
+<li class="chapter" data-level="9.3.3" data-path="conditionals.html"><a href="conditionals.html#exercise-3.-transition-tables"><i class="fa fa-check"></i><b>9.3.3</b> Exercise 3. Transition tables</a></li>
+<li class="chapter" data-level="9.3.4" data-path="conditionals.html"><a href="conditionals.html#exercise-4.-mini-programs"><i class="fa fa-check"></i><b>9.3.4</b> Exercise 4. Mini programs</a></li>
+<li class="chapter" data-level="9.3.5" data-path="conditionals.html"><a href="conditionals.html#exercise-5.-following-the-control-flow"><i class="fa fa-check"></i><b>9.3.5</b> Exercise 5. Following the control flow</a></li>
+<li class="chapter" data-level="9.3.6" data-path="conditionals.html"><a href="conditionals.html#exercise-6.-indentation"><i class="fa fa-check"></i><b>9.3.6</b> Exercise 6. Indentation</a></li>
+<li class="chapter" data-level="9.3.7" data-path="conditionals.html"><a href="conditionals.html#exercise-7.-pseudo-code-conditionals"><i class="fa fa-check"></i><b>9.3.7</b> Exercise 7. Pseudo code conditionals</a></li>
+<li class="chapter" data-level="9.3.8" data-path="conditionals.html"><a href="conditionals.html#exercise-8.-modify-stroop-task"><i class="fa fa-check"></i><b>9.3.8</b> Exercise 8. Modify Stroop Task</a></li>
+<li class="chapter" data-level="9.3.9" data-path="conditionals.html"><a href="conditionals.html#exercise-9.-simplify-nested-conditionals"><i class="fa fa-check"></i><b>9.3.9</b> Exercise 9. Simplify nested conditionals</a></li>
+<li class="chapter" data-level="9.3.10" data-path="conditionals.html"><a href="conditionals.html#exercise-10.-flow-chart-conditionals"><i class="fa fa-check"></i><b>9.3.10</b> Exercise 10. Flow chart conditionals</a></li>
 </ul></li>
 <li class="chapter" data-level="9.4" data-path="solutions.html"><a href="solutions.html#chapter-4.-lists"><i class="fa fa-check"></i><b>9.4</b> Chapter 4. Lists</a><ul>
-<li class="chapter" data-level="9.4.1" data-path="solutions.html"><a href="solutions.html#exercise-1.-indexing-1"><i class="fa fa-check"></i><b>9.4.1</b> Exercise 1. Indexing</a></li>
-<li class="chapter" data-level="9.4.2" data-path="solutions.html"><a href="solutions.html#exercise-2.-debugging-1"><i class="fa fa-check"></i><b>9.4.2</b> Exercise 2. Debugging</a></li>
-<li class="chapter" data-level="9.4.3" data-path="solutions.html"><a href="solutions.html#exercise-3.-mini-programs-3"><i class="fa fa-check"></i><b>9.4.3</b> Exercise 3. Mini programs</a></li>
+<li class="chapter" data-level="9.4.1" data-path="lists.html"><a href="lists.html#exercise-1.-indexing"><i class="fa fa-check"></i><b>9.4.1</b> Exercise 1. Indexing</a></li>
+<li class="chapter" data-level="9.4.2" data-path="lists.html"><a href="lists.html#exercise-2.-debugging"><i class="fa fa-check"></i><b>9.4.2</b> Exercise 2. Debugging</a></li>
+<li class="chapter" data-level="9.4.3" data-path="solutions.html"><a href="solutions.html#exercise-3.-mini-programs-1"><i class="fa fa-check"></i><b>9.4.3</b> Exercise 3. Mini programs</a></li>
 <li class="chapter" data-level="9.4.4" data-path="solutions.html"><a href="solutions.html#exercise-1.-shopping-list"><i class="fa fa-check"></i><b>9.4.4</b> Exercise 1. Shopping list</a></li>
 <li class="chapter" data-level="9.4.5" data-path="solutions.html"><a href="solutions.html#exercise-2.-dictionnaries"><i class="fa fa-check"></i><b>9.4.5</b> Exercise 2. Dictionnaries</a></li>
 <li class="chapter" data-level="9.4.6" data-path="solutions.html"><a href="solutions.html#exercise-3.-selecting-elements"><i class="fa fa-check"></i><b>9.4.6</b> Exercise 3. Selecting elements</a></li>
@@ -339,8 +343,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="9.4.9" data-path="solutions.html"><a href="solutions.html#exercise-6.-stroop-extension"><i class="fa fa-check"></i><b>9.4.9</b> Exercise 6. Stroop extension</a></li>
 </ul></li>
 <li class="chapter" data-level="9.5" data-path="solutions.html"><a href="solutions.html#chapter-5.-loops"><i class="fa fa-check"></i><b>9.5</b> Chapter 5. Loops</a><ul>
-<li class="chapter" data-level="9.5.1" data-path="solutions.html"><a href="solutions.html#exercise-1.-following-the-control-flow-i-1"><i class="fa fa-check"></i><b>9.5.1</b> Exercise 1. Following the control flow I</a></li>
-<li class="chapter" data-level="9.5.2" data-path="solutions.html"><a href="solutions.html#exercise-2.-debugging-i-1"><i class="fa fa-check"></i><b>9.5.2</b> Exercise 2. Debugging I</a></li>
+<li class="chapter" data-level="9.5.1" data-path="loops.html"><a href="loops.html#exercise-1.-following-the-control-flow-i"><i class="fa fa-check"></i><b>9.5.1</b> Exercise 1. Following the control flow I</a></li>
+<li class="chapter" data-level="9.5.2" data-path="loops.html"><a href="loops.html#exercise-2.-debugging-i"><i class="fa fa-check"></i><b>9.5.2</b> Exercise 2. Debugging I</a></li>
 <li class="chapter" data-level="9.5.3" data-path="solutions.html"><a href="solutions.html#exercise-3.-controlling-the-flow"><i class="fa fa-check"></i><b>9.5.3</b> Exercise 3. Controlling the flow</a></li>
 <li class="chapter" data-level="9.5.4" data-path="solutions.html"><a href="solutions.html#exercise-4.-following-the-control-flow-ii"><i class="fa fa-check"></i><b>9.5.4</b> Exercise 4. Following the control flow II</a></li>
 <li class="chapter" data-level="9.5.5" data-path="solutions.html"><a href="solutions.html#exercise-5.-debugging"><i class="fa fa-check"></i><b>9.5.5</b> Exercise 5. Debugging</a></li>
@@ -350,16 +354,16 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="9.5.9" data-path="solutions.html"><a href="solutions.html#exercise-9.-a-guessing-game"><i class="fa fa-check"></i><b>9.5.9</b> Exercise 9. A guessing game</a></li>
 </ul></li>
 <li class="chapter" data-level="9.6" data-path="solutions.html"><a href="solutions.html#chapter-6.-functions"><i class="fa fa-check"></i><b>9.6</b> Chapter 6. Functions</a><ul>
-<li class="chapter" data-level="9.6.1" data-path="solutions.html"><a href="solutions.html#exercise-1.-following-the-control-flow-1"><i class="fa fa-check"></i><b>9.6.1</b> Exercise 1. Following the control flow</a></li>
-<li class="chapter" data-level="9.6.2" data-path="solutions.html"><a href="solutions.html#exercise-2.-an-imperfect-list-sorting-attempt-1"><i class="fa fa-check"></i><b>9.6.2</b> Exercise 2. An imperfect list sorting attempt</a></li>
+<li class="chapter" data-level="9.6.1" data-path="functions.html"><a href="functions.html#exercise-1.-following-the-control-flow"><i class="fa fa-check"></i><b>9.6.1</b> Exercise 1. Following the control flow</a></li>
+<li class="chapter" data-level="9.6.2" data-path="functions.html"><a href="functions.html#exercise-2.-an-imperfect-list-sorting-attempt"><i class="fa fa-check"></i><b>9.6.2</b> Exercise 2. An imperfect list sorting attempt</a></li>
 <li class="chapter" data-level="9.6.3" data-path="solutions.html"><a href="solutions.html#exercise-3.-an-errorneous-sorting-algorithm"><i class="fa fa-check"></i><b>9.6.3</b> Exercise 3. An errorneous sorting algorithm</a></li>
 <li class="chapter" data-level="9.6.4" data-path="solutions.html"><a href="solutions.html#exercise-4."><i class="fa fa-check"></i><b>9.6.4</b> Exercise 4.</a></li>
 <li class="chapter" data-level="9.6.5" data-path="solutions.html"><a href="solutions.html#exercise-5."><i class="fa fa-check"></i><b>9.6.5</b> Exercise 5.</a></li>
-<li class="chapter" data-level="9.6.6" data-path="solutions.html"><a href="solutions.html#exercise-6.-insertion-sort-algorithm-1"><i class="fa fa-check"></i><b>9.6.6</b> Exercise 6. Insertion sort algorithm</a></li>
+<li class="chapter" data-level="9.6.6" data-path="functions.html"><a href="functions.html#exercise-6.-insertion-sort-algorithm"><i class="fa fa-check"></i><b>9.6.6</b> Exercise 6. Insertion sort algorithm</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="10" data-path="debugging-and-good-programming-practices.html"><a href="debugging-and-good-programming-practices.html"><i class="fa fa-check"></i><b>10</b> Debugging and good programming practices</a><ul>
-<li class="chapter" data-level="10.1" data-path="debugging-and-good-programming-practices.html"><a href="debugging-and-good-programming-practices.html#debugging-4"><i class="fa fa-check"></i><b>10.1</b> Debugging</a></li>
+<li class="chapter" data-level="10.1" data-path="variables.html"><a href="variables.html#debugging"><i class="fa fa-check"></i><b>10.1</b> Debugging</a></li>
 <li class="chapter" data-level="10.2" data-path="debugging-and-good-programming-practices.html"><a href="debugging-and-good-programming-practices.html#boosting-your-programming-learning-curve"><i class="fa fa-check"></i><b>10.2</b> Boosting your programming learning curve</a><ul>
 <li class="chapter" data-level="10.2.1" data-path="debugging-and-good-programming-practices.html"><a href="debugging-and-good-programming-practices.html#going-with-the-flow"><i class="fa fa-check"></i><b>10.2.1</b> Going with the flow</a></li>
 <li class="chapter" data-level="10.2.2" data-path="debugging-and-good-programming-practices.html"><a href="debugging-and-good-programming-practices.html#just-do-it"><i class="fa fa-check"></i><b>10.2.2</b> Just do it!</a></li>
@@ -384,44 +388,37 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
             <section class="normal" id="section-">
 <div id="data" class="section level1">
 <h1><span class="header-section-number">7</span> Working with data</h1>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(tidyverse)</code></pre>
-<pre><code>## -- Attaching packages --------------------------------------------------------------------- tidyverse 1.2.1 --</code></pre>
-<pre><code>## v ggplot2 3.1.0       v purrr   0.3.1  
-## v tibble  2.0.1       v dplyr   0.8.0.1
-## v tidyr   0.8.3       v stringr 1.4.0  
-## v readr   1.3.1       v forcats 0.4.0</code></pre>
-<pre><code>## Warning: package &#39;tibble&#39; was built under R version 3.5.2</code></pre>
-<pre><code>## Warning: package &#39;tidyr&#39; was built under R version 3.5.2</code></pre>
-<pre><code>## Warning: package &#39;readr&#39; was built under R version 3.5.2</code></pre>
-<pre><code>## Warning: package &#39;purrr&#39; was built under R version 3.5.2</code></pre>
-<pre><code>## Warning: package &#39;dplyr&#39; was built under R version 3.5.2</code></pre>
-<pre><code>## Warning: package &#39;stringr&#39; was built under R version 3.5.2</code></pre>
-<pre><code>## Warning: package &#39;forcats&#39; was built under R version 3.5.2</code></pre>
-<pre><code>## -- Conflicts ------------------------------------------------------------------------ tidyverse_conflicts() --
+<div class="sourceCode" id="cb409"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb409-1"><a href="data.html#cb409-1"></a><span class="kw">library</span>(tidyverse)</span></code></pre></div>
+<pre><code>## -- Attaching packages -------------------------------- tidyverse 1.3.0 --</code></pre>
+<pre><code>## v ggplot2 3.3.2     v purrr   0.3.4
+## v tibble  3.0.3     v dplyr   1.0.2
+## v tidyr   1.1.2     v stringr 1.4.0
+## v readr   1.3.1     v forcats 0.5.0</code></pre>
+<pre><code>## -- Conflicts ----------------------------------- tidyverse_conflicts() --
 ## x dplyr::filter() masks stats::filter()
 ## x dplyr::lag()    masks stats::lag()</code></pre>
 <div id="elements-of-data-processing" class="section level2">
 <h2><span class="header-section-number">7.1</span> Elements of data processing</h2>
 <p>In the previous chapter we have dealt with functions as reusable pieces of code. There is another common notion of what a function is: <em>a function processes data</em>. The basic model of data processing is the following:</p>
-<div id="htmlwidget-5e03d6fbbf880eab0346" style="width:672px;height:480px;" class="DiagrammeR html-widget"></div>
-<script type="application/json" data-for="htmlwidget-5e03d6fbbf880eab0346">{"x":{"diagram":"graph LR\nIN(Input Data) --> PROC[Function]\nPROC --> OUT(Output Data)"},"evals":[],"jsHooks":[]}</script>
+<div id="htmlwidget-418a1b62e66e645b34f4" style="width:672px;height:480px;" class="DiagrammeR html-widget"></div>
+<script type="application/json" data-for="htmlwidget-418a1b62e66e645b34f4">{"x":{"diagram":"graph LR\nIN(Input Data) --> PROC[Function]\nPROC --> OUT(Output Data)"},"evals":[],"jsHooks":[]}</script>
 <p>So, what is data? As psychologists we are used to think of data as observations from empirical studies that we process by statistical procedures. That precisely matches our above model:</p>
-<div id="htmlwidget-9735860fd25c9e876abb" style="width:672px;height:480px;" class="DiagrammeR html-widget"></div>
-<script type="application/json" data-for="htmlwidget-9735860fd25c9e876abb">{"x":{"diagram":"graph LR\nIN(Observations) --> PROC[t-test]\nPROC --> OUT(p-value)"},"evals":[],"jsHooks":[]}</script>
+<div id="htmlwidget-f34b97a3d54299ee4124" style="width:672px;height:480px;" class="DiagrammeR html-widget"></div>
+<script type="application/json" data-for="htmlwidget-f34b97a3d54299ee4124">{"x":{"diagram":"graph LR\nIN(Observations) --> PROC[t-test]\nPROC --> OUT(p-value)"},"evals":[],"jsHooks":[]}</script>
 <p>In Python, as a general programming language, there exist libraries that implement tables of observations, as well as the t-test (and more modern statistical procedures, luckily). However, we don’t want to bother you with statistics for the moment. Instead, take another look at two function that we have introduced in <a href="functions.html#functions">6</a>:</p>
-<pre class="sourceCode python"><code class="sourceCode python"><span class="kw">def</span> summation(alist):
-    <span class="bu">sum</span> <span class="op">=</span> <span class="fl">0.0</span>
-    <span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="bu">len</span>(alist)):
-        <span class="bu">sum</span> <span class="op">+=</span> alist[i]
-    <span class="bu">print</span>(<span class="st">&quot;Sum of the list is:&quot;</span>, <span class="bu">sum</span>)
-    <span class="cf">return</span> <span class="bu">sum</span>
-
-summation([<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">4</span>])</code></pre>
+<div class="sourceCode" id="cb413"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb413-1"><a href="data.html#cb413-1"></a><span class="kw">def</span> summation(alist):</span>
+<span id="cb413-2"><a href="data.html#cb413-2"></a>    <span class="bu">sum</span> <span class="op">=</span> <span class="fl">0.0</span></span>
+<span id="cb413-3"><a href="data.html#cb413-3"></a>    <span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="bu">len</span>(alist)):</span>
+<span id="cb413-4"><a href="data.html#cb413-4"></a>        <span class="bu">sum</span> <span class="op">+=</span> alist[i]</span>
+<span id="cb413-5"><a href="data.html#cb413-5"></a>    <span class="bu">print</span>(<span class="st">&quot;Sum of the list is:&quot;</span>, <span class="bu">sum</span>)</span>
+<span id="cb413-6"><a href="data.html#cb413-6"></a>    <span class="cf">return</span> <span class="bu">sum</span></span>
+<span id="cb413-7"><a href="data.html#cb413-7"></a></span>
+<span id="cb413-8"><a href="data.html#cb413-8"></a>summation([<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">4</span>])</span></code></pre></div>
 <pre><code>## Sum of the list is: 10.0
 ## 10.0</code></pre>
 <p>The function <code>summation</code> takes a list of values and computes the sum. Again, that satisfies the basic model of data processing:</p>
-<div id="htmlwidget-403398b1a15d34824601" style="width:672px;height:480px;" class="DiagrammeR html-widget"></div>
-<script type="application/json" data-for="htmlwidget-403398b1a15d34824601">{"x":{"diagram":"graph LR\nIN(List of numbers) --> PROC[Summation]\nPROC --> OUT(sum)"},"evals":[],"jsHooks":[]}</script>
+<div id="htmlwidget-de6aaac033adf9ac5374" style="width:672px;height:480px;" class="DiagrammeR html-widget"></div>
+<script type="application/json" data-for="htmlwidget-de6aaac033adf9ac5374">{"x":{"diagram":"graph LR\nIN(List of numbers) --> PROC[Summation]\nPROC --> OUT(sum)"},"evals":[],"jsHooks":[]}</script>
 <p>It is easy to see how input and output are implemented with Python functions:</p>
 <ul>
 <li>function arguments provide the input</li>
@@ -429,72 +426,72 @@ summation([<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">
 <li>the return statement gives the output</li>
 </ul>
 <p>Consequently, every function that takes arguments and has a return statement can be considered data processing. Furthermore, data processing can take place as chains. Let’s take the variance of a list of numbers as an example. The formula for variance, shown below, reveals that the variance statistic is produces in three steps: first, the residuals are computed, these are squared an finally the mean value is taken.</p>
-<div id="htmlwidget-44f8979a646395fc74d6" style="width:672px;height:480px;" class="DiagrammeR html-widget"></div>
-<script type="application/json" data-for="htmlwidget-44f8979a646395fc74d6">{"x":{"diagram":"graph LR\n IN(List of numbers) --> PROC_1[square residuals]\n PROC_1 --> OUT_1(List of squared residuals)\n OUT_1 --> PROC_2[take the mean]\n PROC_2 --> OUT(Variance)"},"evals":[],"jsHooks":[]}</script>
+<div id="htmlwidget-ac9be3dc0bdea70fc342" style="width:672px;height:480px;" class="DiagrammeR html-widget"></div>
+<script type="application/json" data-for="htmlwidget-ac9be3dc0bdea70fc342">{"x":{"diagram":"graph LR\n IN(List of numbers) --> PROC_1[square residuals]\n PROC_1 --> OUT_1(List of squared residuals)\n OUT_1 --> PROC_2[take the mean]\n PROC_2 --> OUT(Variance)"},"evals":[],"jsHooks":[]}</script>
 <p>Let’s see how this is implemnented in Python. For the squared residuals, we create our own function, but resort to the function <code>mean</code> in the <code>numpy</code> library. Note how the two defined functions operate on a dedicated list for output, rather than modifying the original one. Recall that lists are called by reference, which means the original list would otherwise be altered by the function.</p>
-<pre class="sourceCode python"><code class="sourceCode python"><span class="im">from</span> numpy <span class="im">import</span> mean
-
-<span class="kw">def</span> residuals(lon):
-    avg <span class="op">=</span> mean(lon)
-    output <span class="op">=</span> []
-    <span class="cf">for</span> i <span class="kw">in</span> lon:
-          output.append((i <span class="op">-</span> avg))
-    <span class="cf">return</span> output
-
-<span class="kw">def</span> square(lon):
-    output <span class="op">=</span> []
-    <span class="cf">for</span> i <span class="kw">in</span> lon:
-          output.append(i<span class="op">**</span><span class="dv">2</span>)
-    <span class="cf">return</span> output
-
-LON <span class="op">=</span> [<span class="dv">1</span>, <span class="dv">8</span>, <span class="dv">2</span>, <span class="dv">9</span>]
-RES <span class="op">=</span> residuals(LON)
-SQR <span class="op">=</span> square(RES)
-VAR <span class="op">=</span> mean(SQR)
-
-<span class="bu">print</span>(VAR)</code></pre>
+<div class="sourceCode" id="cb415"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb415-1"><a href="data.html#cb415-1"></a><span class="im">from</span> numpy <span class="im">import</span> mean</span>
+<span id="cb415-2"><a href="data.html#cb415-2"></a></span>
+<span id="cb415-3"><a href="data.html#cb415-3"></a><span class="kw">def</span> residuals(lon):</span>
+<span id="cb415-4"><a href="data.html#cb415-4"></a>    avg <span class="op">=</span> mean(lon)</span>
+<span id="cb415-5"><a href="data.html#cb415-5"></a>    output <span class="op">=</span> []</span>
+<span id="cb415-6"><a href="data.html#cb415-6"></a>    <span class="cf">for</span> i <span class="kw">in</span> lon:</span>
+<span id="cb415-7"><a href="data.html#cb415-7"></a>          output.append((i <span class="op">-</span> avg))</span>
+<span id="cb415-8"><a href="data.html#cb415-8"></a>    <span class="cf">return</span> output</span>
+<span id="cb415-9"><a href="data.html#cb415-9"></a></span>
+<span id="cb415-10"><a href="data.html#cb415-10"></a><span class="kw">def</span> square(lon):</span>
+<span id="cb415-11"><a href="data.html#cb415-11"></a>    output <span class="op">=</span> []</span>
+<span id="cb415-12"><a href="data.html#cb415-12"></a>    <span class="cf">for</span> i <span class="kw">in</span> lon:</span>
+<span id="cb415-13"><a href="data.html#cb415-13"></a>          output.append(i<span class="op">**</span><span class="dv">2</span>)</span>
+<span id="cb415-14"><a href="data.html#cb415-14"></a>    <span class="cf">return</span> output</span>
+<span id="cb415-15"><a href="data.html#cb415-15"></a></span>
+<span id="cb415-16"><a href="data.html#cb415-16"></a>LON <span class="op">=</span> [<span class="dv">1</span>, <span class="dv">8</span>, <span class="dv">2</span>, <span class="dv">9</span>]</span>
+<span id="cb415-17"><a href="data.html#cb415-17"></a>RES <span class="op">=</span> residuals(LON)</span>
+<span id="cb415-18"><a href="data.html#cb415-18"></a>SQR <span class="op">=</span> square(RES)</span>
+<span id="cb415-19"><a href="data.html#cb415-19"></a>VAR <span class="op">=</span> mean(SQR)</span>
+<span id="cb415-20"><a href="data.html#cb415-20"></a></span>
+<span id="cb415-21"><a href="data.html#cb415-21"></a><span class="bu">print</span>(VAR)</span></code></pre></div>
 <pre><code>## 12.5</code></pre>
 <p>The above code represents such a data processing in such a way that the intermediate results are stored in dedicated variables (<code>RES</code>, <code>SQR</code>). While this makes the processing chain clear in the code, for longer chains there is the downside of length and cluttering the program with variables that are just used once. A more compact form to write the chain is by <em>nesting function</em>:</p>
-<pre class="sourceCode python"><code class="sourceCode python"><span class="im">from</span> numpy <span class="im">import</span> mean
-
-<span class="kw">def</span> residuals(lon):
-    avg <span class="op">=</span> mean(lon)
-    output <span class="op">=</span> []
-    <span class="cf">for</span> i <span class="kw">in</span> lon:
-          output.append((i <span class="op">-</span> avg))
-    <span class="cf">return</span> output
-
-<span class="kw">def</span> square(lon):
-    output <span class="op">=</span> []
-    <span class="cf">for</span> i <span class="kw">in</span> lon:
-          output.append(i<span class="op">**</span><span class="dv">2</span>)
-    <span class="cf">return</span> output
-
-LON <span class="op">=</span> [<span class="dv">1</span>, <span class="dv">8</span>, <span class="dv">2</span>, <span class="dv">9</span>]
-VAR <span class="op">=</span> mean(square(residuals(LON)))
-<span class="bu">print</span>(VAR)</code></pre>
+<div class="sourceCode" id="cb417"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb417-1"><a href="data.html#cb417-1"></a><span class="im">from</span> numpy <span class="im">import</span> mean</span>
+<span id="cb417-2"><a href="data.html#cb417-2"></a></span>
+<span id="cb417-3"><a href="data.html#cb417-3"></a><span class="kw">def</span> residuals(lon):</span>
+<span id="cb417-4"><a href="data.html#cb417-4"></a>    avg <span class="op">=</span> mean(lon)</span>
+<span id="cb417-5"><a href="data.html#cb417-5"></a>    output <span class="op">=</span> []</span>
+<span id="cb417-6"><a href="data.html#cb417-6"></a>    <span class="cf">for</span> i <span class="kw">in</span> lon:</span>
+<span id="cb417-7"><a href="data.html#cb417-7"></a>          output.append((i <span class="op">-</span> avg))</span>
+<span id="cb417-8"><a href="data.html#cb417-8"></a>    <span class="cf">return</span> output</span>
+<span id="cb417-9"><a href="data.html#cb417-9"></a></span>
+<span id="cb417-10"><a href="data.html#cb417-10"></a><span class="kw">def</span> square(lon):</span>
+<span id="cb417-11"><a href="data.html#cb417-11"></a>    output <span class="op">=</span> []</span>
+<span id="cb417-12"><a href="data.html#cb417-12"></a>    <span class="cf">for</span> i <span class="kw">in</span> lon:</span>
+<span id="cb417-13"><a href="data.html#cb417-13"></a>          output.append(i<span class="op">**</span><span class="dv">2</span>)</span>
+<span id="cb417-14"><a href="data.html#cb417-14"></a>    <span class="cf">return</span> output</span>
+<span id="cb417-15"><a href="data.html#cb417-15"></a></span>
+<span id="cb417-16"><a href="data.html#cb417-16"></a>LON <span class="op">=</span> [<span class="dv">1</span>, <span class="dv">8</span>, <span class="dv">2</span>, <span class="dv">9</span>]</span>
+<span id="cb417-17"><a href="data.html#cb417-17"></a>VAR <span class="op">=</span> mean(square(residuals(LON)))</span>
+<span id="cb417-18"><a href="data.html#cb417-18"></a><span class="bu">print</span>(VAR)</span></code></pre></div>
 <pre><code>## 12.5</code></pre>
 <p>Nested function are evaluated inside-out. Consequently, when setting up such a chain, one begins with the first processing step and builds the subsequent one “around” it. While this is conveniently compact, it lacks the intuition of the data processing chain. Therefore, it is best in many situations, to encapsulate the whole line as a dedicated function:</p>
-<pre class="sourceCode python"><code class="sourceCode python"><span class="im">from</span> numpy <span class="im">import</span> mean
-
-<span class="kw">def</span> residuals(lon):
-    avg <span class="op">=</span> mean(lon)
-    output <span class="op">=</span> []
-    <span class="cf">for</span> i <span class="kw">in</span> lon:
-          output.append((i <span class="op">-</span> avg))
-    <span class="cf">return</span> output
-
-<span class="kw">def</span> square(lon):
-    output <span class="op">=</span> []
-    <span class="cf">for</span> i <span class="kw">in</span> lon:
-          output.append(i<span class="op">**</span><span class="dv">2</span>)
-    <span class="cf">return</span> output
-
-<span class="kw">def</span> variance(lon):
-    <span class="cf">return</span> mean(square(residuals(lon)))
-  
-LON <span class="op">=</span> [<span class="dv">1</span>, <span class="dv">8</span>, <span class="dv">2</span>, <span class="dv">9</span>]
-<span class="bu">print</span>(variance(LON))</code></pre>
+<div class="sourceCode" id="cb419"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb419-1"><a href="data.html#cb419-1"></a><span class="im">from</span> numpy <span class="im">import</span> mean</span>
+<span id="cb419-2"><a href="data.html#cb419-2"></a></span>
+<span id="cb419-3"><a href="data.html#cb419-3"></a><span class="kw">def</span> residuals(lon):</span>
+<span id="cb419-4"><a href="data.html#cb419-4"></a>    avg <span class="op">=</span> mean(lon)</span>
+<span id="cb419-5"><a href="data.html#cb419-5"></a>    output <span class="op">=</span> []</span>
+<span id="cb419-6"><a href="data.html#cb419-6"></a>    <span class="cf">for</span> i <span class="kw">in</span> lon:</span>
+<span id="cb419-7"><a href="data.html#cb419-7"></a>          output.append((i <span class="op">-</span> avg))</span>
+<span id="cb419-8"><a href="data.html#cb419-8"></a>    <span class="cf">return</span> output</span>
+<span id="cb419-9"><a href="data.html#cb419-9"></a></span>
+<span id="cb419-10"><a href="data.html#cb419-10"></a><span class="kw">def</span> square(lon):</span>
+<span id="cb419-11"><a href="data.html#cb419-11"></a>    output <span class="op">=</span> []</span>
+<span id="cb419-12"><a href="data.html#cb419-12"></a>    <span class="cf">for</span> i <span class="kw">in</span> lon:</span>
+<span id="cb419-13"><a href="data.html#cb419-13"></a>          output.append(i<span class="op">**</span><span class="dv">2</span>)</span>
+<span id="cb419-14"><a href="data.html#cb419-14"></a>    <span class="cf">return</span> output</span>
+<span id="cb419-15"><a href="data.html#cb419-15"></a></span>
+<span id="cb419-16"><a href="data.html#cb419-16"></a><span class="kw">def</span> variance(lon):</span>
+<span id="cb419-17"><a href="data.html#cb419-17"></a>    <span class="cf">return</span> mean(square(residuals(lon)))</span>
+<span id="cb419-18"><a href="data.html#cb419-18"></a>  </span>
+<span id="cb419-19"><a href="data.html#cb419-19"></a>LON <span class="op">=</span> [<span class="dv">1</span>, <span class="dv">8</span>, <span class="dv">2</span>, <span class="dv">9</span>]</span>
+<span id="cb419-20"><a href="data.html#cb419-20"></a><span class="bu">print</span>(variance(LON))</span></code></pre></div>
 <pre><code>## 12.5</code></pre>
 <p>This simple example highlights another important aspect about the data processing model: models can be nested. The function variance is itself a data processing chain, but it can take a role in a more global data processing chain. For example, when you prepare a summary statistics table for your report, you use the variance function as part of it. You do care about its required input and know what it will produce, but you don’t worry about the above processing chain, anymore. That is called a <em>black box</em>.</p>
 </div>
@@ -511,12 +508,12 @@ LON <span class="op">=</span> [<span class="dv">1</span>, <span class="dv">8</sp
 </thead>
 <tbody>
 <tr class="odd">
-<td align="left">incongruent</td>
-<td align="left">FALSE</td>
+<td align="left">congruent</td>
+<td align="left">TRUE</td>
 <td align="right">800.9212</td>
 </tr>
 <tr class="even">
-<td align="left">incongruent</td>
+<td align="left">congruent</td>
 <td align="left">FALSE</td>
 <td align="right">696.8643</td>
 </tr>
@@ -526,18 +523,18 @@ LON <span class="op">=</span> [<span class="dv">1</span>, <span class="dv">8</sp
 <td align="right">765.2435</td>
 </tr>
 <tr class="even">
-<td align="left">incongruent</td>
+<td align="left">congruent</td>
 <td align="left">FALSE</td>
 <td align="right">814.3323</td>
 </tr>
 <tr class="odd">
 <td align="left">incongruent</td>
-<td align="left">FALSE</td>
+<td align="left">TRUE</td>
 <td align="right">630.5570</td>
 </tr>
 <tr class="even">
 <td align="left">incongruent</td>
-<td align="left">TRUE</td>
+<td align="left">FALSE</td>
 <td align="right">686.0606</td>
 </tr>
 <tr class="odd">
@@ -546,20 +543,20 @@ LON <span class="op">=</span> [<span class="dv">1</span>, <span class="dv">8</sp
 <td align="right">693.3339</td>
 </tr>
 <tr class="even">
-<td align="left">congruent</td>
-<td align="left">FALSE</td>
+<td align="left">incongruent</td>
+<td align="left">TRUE</td>
 <td align="right">731.7975</td>
 </tr>
 </tbody>
 </table>
 <p>How would you create such a table in Python? The most simple form is to regard every column as a separate list and you would initialize the data gathering by creating three empty lists. In the main part of the program you can then populate the three lists separately, for example:</p>
-<pre class="sourceCode python"><code class="sourceCode python">Condition <span class="op">=</span> []
-Correctness <span class="op">=</span> []
-RT <span class="op">=</span> []
-
-Condition.append(this_condition)
-Correctness.append(this_correctness)
-RT.append(this_reaction_time)</code></pre>
+<div class="sourceCode" id="cb421"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb421-1"><a href="data.html#cb421-1"></a>Condition <span class="op">=</span> []</span>
+<span id="cb421-2"><a href="data.html#cb421-2"></a>Correctness <span class="op">=</span> []</span>
+<span id="cb421-3"><a href="data.html#cb421-3"></a>RT <span class="op">=</span> []</span>
+<span id="cb421-4"><a href="data.html#cb421-4"></a></span>
+<span id="cb421-5"><a href="data.html#cb421-5"></a>Condition.append(this_condition)</span>
+<span id="cb421-6"><a href="data.html#cb421-6"></a>Correctness.append(this_correctness)</span>
+<span id="cb421-7"><a href="data.html#cb421-7"></a>RT.append(this_reaction_time)</span></code></pre></div>
 </div>
 <div id="down-the-sink-writing-data-files" class="section level2">
 <h2><span class="header-section-number">7.3</span> Down the sink: Writing data files</h2>
@@ -569,75 +566,72 @@ RT.append(this_reaction_time)</code></pre>
 <li>all values in a row are separated by commata</li>
 </ul>
 <p>The example data set above would look like the following in CSV:</p>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">write.csv</span>(D_Stroop, <span class="dt">file =</span> <span class="st">&quot;&quot;</span>, <span class="dt">eol =</span> <span class="st">&quot;</span><span class="ch">\n\n</span><span class="st">&quot;</span>)</code></pre>
+<div class="sourceCode" id="cb422"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb422-1"><a href="data.html#cb422-1"></a><span class="kw">write.csv</span>(D_Stroop, <span class="dt">file =</span> <span class="st">&quot;&quot;</span>, <span class="dt">eol =</span> <span class="st">&quot;</span><span class="ch">\n\n</span><span class="st">&quot;</span>)</span></code></pre></div>
 <pre><code>## &quot;&quot;,&quot;Condition&quot;,&quot;Correctness&quot;,&quot;RT&quot;
 ## 
-## &quot;1&quot;,&quot;incongruent&quot;,FALSE,800.921185693852
+## &quot;1&quot;,&quot;congruent&quot;,TRUE,800.921185693852
 ## 
-## &quot;2&quot;,&quot;incongruent&quot;,FALSE,696.864295047379
+## &quot;2&quot;,&quot;congruent&quot;,FALSE,696.864295047379
 ## 
 ## &quot;3&quot;,&quot;congruent&quot;,TRUE,765.243482711174
 ## 
-## &quot;4&quot;,&quot;incongruent&quot;,FALSE,814.332269635055
+## &quot;4&quot;,&quot;congruent&quot;,FALSE,814.332269635055
 ## 
-## &quot;5&quot;,&quot;incongruent&quot;,FALSE,630.556964944383
+## &quot;5&quot;,&quot;incongruent&quot;,TRUE,630.556964944383
 ## 
-## &quot;6&quot;,&quot;incongruent&quot;,TRUE,686.060561659131
+## &quot;6&quot;,&quot;incongruent&quot;,FALSE,686.060561659131
 ## 
 ## &quot;7&quot;,&quot;incongruent&quot;,TRUE,693.333933180317
 ## 
-## &quot;8&quot;,&quot;congruent&quot;,FALSE,731.797519903504</code></pre>
+## &quot;8&quot;,&quot;incongruent&quot;,TRUE,731.797519903504</code></pre>
 <p>In order to write such a file, we could use a loop function, together with string concatenation. Fortunately, the <code>csv</code> library that comes with Python implements CSV export right-away. However, it is not as simple as issueing just one command.
 Dealing with files is an issue on its own. Unlike variables, which are linked to a running program, files are just dumb sinks on the hard disk on your computer. What must not happen is that, for example, two programs modify the file simultaneously, as this would create a mess. Therefore, the operating system takes special care of files and ensures that only one programn can write it at a time (simultaneous reading is less of a problem). To signal the operating system that a file is being written, some decoration is necessary. More specifically, the programmer must first create a <em>fileg handler</em> on the file, which is what the command <code>open</code> does.</p>
 <p>Then the csv library commands operate on the writing handler. This happens by means of a <em>writing handler</em>, which is created by the function <code>csv.writer</code>. Then, the function <code>writerow</code> adds the rows of a table, one by one. That is slightly inconvenient, because our data table is arranged by columns (the three lists) in the first place. For that reason, the <code>for</code> loops first gathers every row of the table as a list <code>this_row</code>.
 And finally, the <code>close</code> command signals the operating system that the file is no longer in use.</p>
-<pre class="sourceCode python"><code class="sourceCode python">Condition <span class="op">=</span> [<span class="st">&quot;incongruent&quot;</span>, <span class="st">&quot;incongruent&quot;</span>, <span class="st">&quot;congruent&quot;</span>]
-Correctness <span class="op">=</span> [<span class="va">False</span>, <span class="va">False</span>, <span class="va">True</span>]
-RT <span class="op">=</span> [<span class="dv">800</span>, <span class="dv">696</span>, <span class="dv">765</span>]
-
-<span class="im">import</span> csv
-myfile <span class="op">=</span>  <span class="bu">open</span>(<span class="st">&quot;Stroop.csv&quot;</span>, mode <span class="op">=</span> <span class="st">&quot;w&quot;</span>)
-writer <span class="op">=</span> csv.writer(myfile)
-<span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">0</span>, <span class="bu">len</span>(Condition)):
-    thisrow <span class="op">=</span> [Condition[i], Correctness[i], RT[i]]
-    writer.writerow(thisrow)</code></pre>
+<div class="sourceCode" id="cb424"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb424-1"><a href="data.html#cb424-1"></a>Condition <span class="op">=</span> [<span class="st">&quot;incongruent&quot;</span>, <span class="st">&quot;incongruent&quot;</span>, <span class="st">&quot;congruent&quot;</span>]</span>
+<span id="cb424-2"><a href="data.html#cb424-2"></a>Correctness <span class="op">=</span> [<span class="va">False</span>, <span class="va">False</span>, <span class="va">True</span>]</span>
+<span id="cb424-3"><a href="data.html#cb424-3"></a>RT <span class="op">=</span> [<span class="dv">800</span>, <span class="dv">696</span>, <span class="dv">765</span>]</span>
+<span id="cb424-4"><a href="data.html#cb424-4"></a></span>
+<span id="cb424-5"><a href="data.html#cb424-5"></a><span class="im">import</span> csv</span>
+<span id="cb424-6"><a href="data.html#cb424-6"></a>myfile <span class="op">=</span>  <span class="bu">open</span>(<span class="st">&quot;Stroop.csv&quot;</span>, mode <span class="op">=</span> <span class="st">&quot;w&quot;</span>)</span>
+<span id="cb424-7"><a href="data.html#cb424-7"></a>writer <span class="op">=</span> csv.writer(myfile)</span>
+<span id="cb424-8"><a href="data.html#cb424-8"></a><span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">0</span>, <span class="bu">len</span>(Condition)):</span>
+<span id="cb424-9"><a href="data.html#cb424-9"></a>    thisrow <span class="op">=</span> [Condition[i], Correctness[i], RT[i]]</span>
+<span id="cb424-10"><a href="data.html#cb424-10"></a>    writer.writerow(thisrow)</span></code></pre></div>
 <pre><code>## 23
 ## 23
 ## 20</code></pre>
-<pre class="sourceCode python"><code class="sourceCode python">myfile.close()</code></pre>
+<div class="sourceCode" id="cb426"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb426-1"><a href="data.html#cb426-1"></a>myfile.close()</span></code></pre></div>
 <p>As a general rule, it is good to keep the period between open and close short. Especially, one should not open the file at the start of the program and close it when it quits. Programs in development (and written by apprentices) tend to crash and that means data loss and potential file corruption. The safest way probably is to open the file after an observation has been gathered, append the observation and close it immediatly.</p>
 <p>So how do we append rows to an existing file? A closer look at the <code>open</code> function reveals that it takes a second parameter, the <code>mode</code>, which is of type string. Three major mode exists (plus a bunch of fine-tuning options):</p>
 <table>
 <thead>
 <tr class="header">
 <th align="left">mode</th>
-<th></th>
+<th align="left"></th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
 <td align="left">r</td>
-<td>reading</td>
+<td align="left">reading</td>
 </tr>
 <tr class="even">
 <td align="left">w</td>
-<td>writing</td>
+<td align="left">writing</td>
 </tr>
 <tr class="odd">
 <td align="left">a</td>
-<td>appending</td>
-</tr>
-<tr class="even">
-<td align="left">Hence,</td>
-<td>the code for writing an observation one-by-one could be:</td>
+<td align="left">appending</td>
 </tr>
 </tbody>
 </table>
-<pre class="sourceCode python"><code class="sourceCode python"><span class="im">import</span> csv
-myfile <span class="op">=</span>  <span class="bu">open</span>(<span class="st">&quot;Stroop.csv&quot;</span>, mode <span class="op">=</span> <span class="st">&quot;a&quot;</span>)
-writer <span class="op">=</span> csv.writer(myfile)
-writer.writerow([thisCondition, thisCorrectness, thisRT])
-myfile.close()</code></pre>
+<p>Hence, the code for writing an observation one-by-one could be:</p>
+<div class="sourceCode" id="cb427"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb427-1"><a href="data.html#cb427-1"></a><span class="im">import</span> csv</span>
+<span id="cb427-2"><a href="data.html#cb427-2"></a>myfile <span class="op">=</span>  <span class="bu">open</span>(<span class="st">&quot;Stroop.csv&quot;</span>, mode <span class="op">=</span> <span class="st">&quot;a&quot;</span>)</span>
+<span id="cb427-3"><a href="data.html#cb427-3"></a>writer <span class="op">=</span> csv.writer(myfile)</span>
+<span id="cb427-4"><a href="data.html#cb427-4"></a>writer.writerow([thisCondition, thisCorrectness, thisRT])</span>
+<span id="cb427-5"><a href="data.html#cb427-5"></a>myfile.close()</span></code></pre></div>
 </div>
 <div id="may-the-source-reading-data-files" class="section level2">
 <h2><span class="header-section-number">7.4</span> May the source …: reading data files</h2>
@@ -650,39 +644,39 @@ myfile.close()</code></pre>
 <p>The first two options we have already covered in this course. In the following we will see how to read in data from files. Files are typically produced by other programs. For tables that could be Excel (or a programming editor, if you like). As we have seen, CVS is a good choice.</p>
 <p>In the Stroop program, we currently use only one external source of data, the user responses. All other data, like the words andf colors are just coded as list, tupels and dictionaries. Reading data from files seems an unncecessary exercise at first, but in fact can make the program more flexibel when used by non-programmers. A possible scenario for the Stroop task is that different experimenters use it, but with their own sets of colors. Here is how one could do it. First, we prepare a table that assigns color words to their respective RGB codes and save it as a CSV file. Any spreadsheet program is suited for the job.</p>
 <p>Lets assume the above table has been created in Excel and saved as <code>Colors.csv</code>. The following Python codes opens the csv file and creates a reader (analog to the writer above). Then four lists are created that will capture the table columns. The for loop walks the reader through the CSV file line-by-line. As the first line of the file (with index 0) typically contains the column names, it is omitted. The result is four lists of the same length which makes a table. By using two integer ramdom numbers, we can select a color word, and the ink color and which we can produce the stimuli.</p>
-<pre class="sourceCode python"><code class="sourceCode python"><span class="im">import</span> csv
-<span class="im">import</span> random
-
-csv_file   <span class="op">=</span> <span class="bu">open</span>(<span class="st">&quot;Colors.csv&quot;</span>)
-csv_reader <span class="op">=</span> csv.reader(csv_file)
-
-Color <span class="op">=</span> []
-R <span class="op">=</span> []
-G <span class="op">=</span> []
-B <span class="op">=</span> []
-
-row_number <span class="op">=</span> <span class="dv">0</span>
-
-<span class="cf">for</span> row <span class="kw">in</span> csv_reader:
-  <span class="cf">if</span> row_number <span class="op">&gt;</span> <span class="dv">0</span>:
-    Color.append(row[<span class="dv">0</span>])
-    R.append(row[<span class="dv">1</span>])
-    G.append(row[<span class="dv">2</span>])
-    B.append(row[<span class="dv">3</span>])
-  row_number <span class="op">+=</span> <span class="dv">1</span>
-  
-csv_file.close()
-
-
-this_word  <span class="op">=</span> random.randint(<span class="dv">0</span>,<span class="dv">2</span>)
-this_color <span class="op">=</span> random.randint(<span class="dv">0</span>,<span class="dv">2</span>)
-
-<span class="bu">print</span>(<span class="st">&quot;Presenting&quot;</span>, 
-Color[this_word], <span class="st">&quot;in color&quot;</span>, Color[this_color], <span class="st">&quot;(&quot;</span>, 
-R[this_color],
-G[this_color],
-B[this_color], <span class="st">&quot;)&quot;</span>)</code></pre>
-<pre><code>## Presenting violet in color violet ( 180 0 180 )</code></pre>
+<div class="sourceCode" id="cb428"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb428-1"><a href="data.html#cb428-1"></a><span class="im">import</span> csv</span>
+<span id="cb428-2"><a href="data.html#cb428-2"></a><span class="im">import</span> random</span>
+<span id="cb428-3"><a href="data.html#cb428-3"></a></span>
+<span id="cb428-4"><a href="data.html#cb428-4"></a>csv_file   <span class="op">=</span> <span class="bu">open</span>(<span class="st">&quot;Colors.csv&quot;</span>)</span>
+<span id="cb428-5"><a href="data.html#cb428-5"></a>csv_reader <span class="op">=</span> csv.reader(csv_file)</span>
+<span id="cb428-6"><a href="data.html#cb428-6"></a></span>
+<span id="cb428-7"><a href="data.html#cb428-7"></a>Color <span class="op">=</span> []</span>
+<span id="cb428-8"><a href="data.html#cb428-8"></a>R <span class="op">=</span> []</span>
+<span id="cb428-9"><a href="data.html#cb428-9"></a>G <span class="op">=</span> []</span>
+<span id="cb428-10"><a href="data.html#cb428-10"></a>B <span class="op">=</span> []</span>
+<span id="cb428-11"><a href="data.html#cb428-11"></a></span>
+<span id="cb428-12"><a href="data.html#cb428-12"></a>row_number <span class="op">=</span> <span class="dv">0</span></span>
+<span id="cb428-13"><a href="data.html#cb428-13"></a></span>
+<span id="cb428-14"><a href="data.html#cb428-14"></a><span class="cf">for</span> row <span class="kw">in</span> csv_reader:</span>
+<span id="cb428-15"><a href="data.html#cb428-15"></a>  <span class="cf">if</span> row_number <span class="op">&gt;</span> <span class="dv">0</span>:</span>
+<span id="cb428-16"><a href="data.html#cb428-16"></a>    Color.append(row[<span class="dv">0</span>])</span>
+<span id="cb428-17"><a href="data.html#cb428-17"></a>    R.append(row[<span class="dv">1</span>])</span>
+<span id="cb428-18"><a href="data.html#cb428-18"></a>    G.append(row[<span class="dv">2</span>])</span>
+<span id="cb428-19"><a href="data.html#cb428-19"></a>    B.append(row[<span class="dv">3</span>])</span>
+<span id="cb428-20"><a href="data.html#cb428-20"></a>  row_number <span class="op">+=</span> <span class="dv">1</span></span>
+<span id="cb428-21"><a href="data.html#cb428-21"></a>  </span>
+<span id="cb428-22"><a href="data.html#cb428-22"></a>csv_file.close()</span>
+<span id="cb428-23"><a href="data.html#cb428-23"></a></span>
+<span id="cb428-24"><a href="data.html#cb428-24"></a></span>
+<span id="cb428-25"><a href="data.html#cb428-25"></a>this_word  <span class="op">=</span> random.randint(<span class="dv">0</span>,<span class="dv">2</span>)</span>
+<span id="cb428-26"><a href="data.html#cb428-26"></a>this_color <span class="op">=</span> random.randint(<span class="dv">0</span>,<span class="dv">2</span>)</span>
+<span id="cb428-27"><a href="data.html#cb428-27"></a></span>
+<span id="cb428-28"><a href="data.html#cb428-28"></a><span class="bu">print</span>(<span class="st">&quot;Presenting&quot;</span>, </span>
+<span id="cb428-29"><a href="data.html#cb428-29"></a>Color[this_word], <span class="st">&quot;in color&quot;</span>, Color[this_color], <span class="st">&quot;(&quot;</span>, </span>
+<span id="cb428-30"><a href="data.html#cb428-30"></a>R[this_color],</span>
+<span id="cb428-31"><a href="data.html#cb428-31"></a>G[this_color],</span>
+<span id="cb428-32"><a href="data.html#cb428-32"></a>B[this_color], <span class="st">&quot;)&quot;</span>)</span></code></pre></div>
+<pre><code>## Presenting violet in color green ( 0 150 150 )</code></pre>
 <!-- To give a more compelling example for when it is useful to load stimuli at runtime: A modified version of the experiment is the primed Stroop task that by which one can assess the strength of certain semantic associations. It differs from the original in that it -->
 <!-- + shows a priming picture upfront (e.g. a wolf) -->
 <!-- + uses no color words, but target words that the participant may associate with the picture (e.g., the word "grandmother") -->
@@ -691,14 +685,16 @@ B[this_color], <span class="st">&quot;)&quot;</span>)</code></pre>
 <!-- + import one table with the filenames of all images -->
 <!-- + read the images in one-by-one -->
 </div>
-<div id="exercises-6" class="section level2">
+<div id="exercises" class="section level2">
 <h2><span class="header-section-number">7.5</span> Exercises</h2>
 <div id="exercise-1" class="section level3">
 <h3><span class="header-section-number">7.5.1</span> Exercise 1</h3>
 <p>Write a simple image presentation program, that takes a table of the following form as input and changes to the following picture on key press.</p>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">data_frame</span>(<span class="dt">File =</span> <span class="kw">c</span>(<span class="st">&quot;Image01.jpg&quot;</span>, <span class="st">&quot;Image02.jpg&quot;</span>, <span class="st">&quot;Image03.jpg&quot;</span>))</code></pre>
-<pre><code>## Warning: `data_frame()` is deprecated, use `tibble()`.
-## This warning is displayed once per session.</code></pre>
+<div class="sourceCode" id="cb430"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb430-1"><a href="data.html#cb430-1"></a><span class="kw">data_frame</span>(<span class="dt">File =</span> <span class="kw">c</span>(<span class="st">&quot;Image01.jpg&quot;</span>, <span class="st">&quot;Image02.jpg&quot;</span>, <span class="st">&quot;Image03.jpg&quot;</span>))</span></code></pre></div>
+<pre><code>## Warning: `data_frame()` is deprecated as of tibble 1.1.0.
+## Please use `tibble()` instead.
+## This warning is displayed once every 8 hours.
+## Call `lifecycle::last_warnings()` to see where this warning was generated.</code></pre>
 <pre><code>## # A tibble: 3 x 1
 ##   File       
 ##   &lt;chr&gt;      
@@ -712,20 +708,20 @@ B[this_color], <span class="st">&quot;)&quot;</span>)</code></pre>
 <p>With the Python library <code>openpyxl</code> you can read and write Excel files, directly. Work through (this tutorial)[<a href="https://automatetheboringstuff.com/chapter12/" class="uri">https://automatetheboringstuff.com/chapter12/</a>]. Now modify your presentation program to use an Excel files as input.</p>
 </div>
 </div>
-<div id="think-further-5" class="section level2">
+<div id="think-further" class="section level2">
 <h2><span class="header-section-number">7.6</span> Think further</h2>
 <p>If you are working with data tables a lot, it may be worth to take a look at the Pandas library. The primary contribution of Pandas is an object class <em>DataFrame</em>, which captures a whole table at once and provides a plethora of useful methods for filtering and manipulation of data. And there are also commands to read and write csv files into a DataFrame.</p>
-<pre class="sourceCode python"><code class="sourceCode python"><span class="im">import</span> pandas
-
-Colors <span class="op">=</span> pandas.read_csv(<span class="st">&quot;colors.csv&quot;</span>)
-
-<span class="bu">print</span>(Colors)</code></pre>
+<div class="sourceCode" id="cb433"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb433-1"><a href="data.html#cb433-1"></a><span class="im">import</span> pandas</span>
+<span id="cb433-2"><a href="data.html#cb433-2"></a></span>
+<span id="cb433-3"><a href="data.html#cb433-3"></a>Colors <span class="op">=</span> pandas.read_csv(<span class="st">&quot;colors.csv&quot;</span>)</span>
+<span id="cb433-4"><a href="data.html#cb433-4"></a></span>
+<span id="cb433-5"><a href="data.html#cb433-5"></a><span class="bu">print</span>(Colors)</span></code></pre></div>
 <pre><code>##     Color    R    G    B
 ## 0  violet  180    0  180
 ## 1   green    0  150  150
 ## 2  orange  255  150    0</code></pre>
 </div>
-<div id="references-1" class="section level2">
+<div id="references" class="section level2">
 <h2><span class="header-section-number">7.7</span> References</h2>
 
 </div>
@@ -741,11 +737,13 @@ Colors <span class="op">=</span> pandas.read_csv(<span class="st">&quot;colors.c
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
 <script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
 <script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
 <script>
 gitbook.require(["gitbook"], function(gitbook) {
 gitbook.start({
@@ -753,12 +751,11 @@ gitbook.start({
 "github": false,
 "facebook": true,
 "twitter": true,
-"google": false,
 "linkedin": false,
 "weibo": false,
 "instapaper": false,
 "vk": false,
-"all": ["facebook", "google", "twitter", "linkedin", "weibo", "instapaper"]
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
 },
 "fontsettings": {
 "theme": "white",
@@ -770,6 +767,10 @@ gitbook.start({
 "text": null
 },
 "history": {
+"link": null,
+"text": null
+},
+"view": {
 "link": null,
 "text": null
 },

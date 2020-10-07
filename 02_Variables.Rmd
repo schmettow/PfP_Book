@@ -6,6 +6,8 @@ library(reticulate)
 #knitr::knit_engines$set(python = reticulate::eng_python)
 ```
 
+
+
 In chapter 1 Introduction, you took a closer look at the Stroop Task program. In doing so, you encountered components of a computer program called *variables*
 
 ```{python eval = FALSE}
