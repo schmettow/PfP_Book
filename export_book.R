@@ -24,9 +24,9 @@ bookdown::render_book("_bookdown.yml",
 
 ### Word
 
-# bookdown::render_book("_bookdown.yml", output_format = "bookdown::word_document2", clean = T,
-#                      output_dir = "DOC/",
-#                     encoding = "UTF-8")
+bookdown::render_book("_bookdown.yml", output_format = "bookdown::word_document2", clean = T,
+                    output_dir = "DOC/",
+                    encoding = "UTF-8")
 
 
 ### PDF

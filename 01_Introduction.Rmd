@@ -19,20 +19,21 @@ The *Anaconda Python* system puts an editor, an interpreter and a huge set of li
 
 ## Windows
 
-1.	From https://www.anaconda.com/download/ download the 64-bit installer  of Python 2.7 
+1.	From https://www.anaconda.com/download/ download the 64-bit installer  of Python 3.x 
 2.	Run the downloaded file and 
     a.	Install for “just me”
     b.	Accept  the proposed destination folder
     c.	Accept default advanced options
 3.	In the start menu find the program Anaconda Prompt
-4.	In the console, type: `conda install –c cogsci pygame` and hit Return. Confirm with y
+4.	In the console, type: `pip install pygame` and hit Return. Confirm anything with `y`.
 
 
 
 ## MacOS
 
 
-Unfortunately, the authors use Windows computers, so the following instructions are less throughly tested, as compared to a Windows installation.
+Follow the analog procedure to Windows.
+Unfortunately, the authors use Windows computers, so this is untested.
 
 
 <!-- 30  -->

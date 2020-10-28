@@ -24,7 +24,7 @@
 <meta name="author" content="Martin Schmettow and Lena Brandl" />
 
 
-<meta name="date" content="2020-10-07" />
+<meta name="date" content="2020-10-28" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -389,22 +389,22 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="data" class="section level1">
 <h1><span class="header-section-number">7</span> Working with data</h1>
 <div class="sourceCode" id="cb409"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb409-1"><a href="data.html#cb409-1"></a><span class="kw">library</span>(tidyverse)</span></code></pre></div>
-<pre><code>## -- Attaching packages -------------------------------- tidyverse 1.3.0 --</code></pre>
+<pre><code>## -- Attaching packages ---------------------------------------------- tidyverse 1.3.0 --</code></pre>
 <pre><code>## v ggplot2 3.3.2     v purrr   0.3.4
 ## v tibble  3.0.3     v dplyr   1.0.2
 ## v tidyr   1.1.2     v stringr 1.4.0
 ## v readr   1.3.1     v forcats 0.5.0</code></pre>
-<pre><code>## -- Conflicts ----------------------------------- tidyverse_conflicts() --
+<pre><code>## -- Conflicts ------------------------------------------------- tidyverse_conflicts() --
 ## x dplyr::filter() masks stats::filter()
 ## x dplyr::lag()    masks stats::lag()</code></pre>
 <div id="elements-of-data-processing" class="section level2">
 <h2><span class="header-section-number">7.1</span> Elements of data processing</h2>
 <p>In the previous chapter we have dealt with functions as reusable pieces of code. There is another common notion of what a function is: <em>a function processes data</em>. The basic model of data processing is the following:</p>
-<div id="htmlwidget-418a1b62e66e645b34f4" style="width:672px;height:480px;" class="DiagrammeR html-widget"></div>
-<script type="application/json" data-for="htmlwidget-418a1b62e66e645b34f4">{"x":{"diagram":"graph LR\nIN(Input Data) --> PROC[Function]\nPROC --> OUT(Output Data)"},"evals":[],"jsHooks":[]}</script>
+<div id="htmlwidget-138ea7ecbc7970c8ec81" style="width:672px;height:480px;" class="DiagrammeR html-widget"></div>
+<script type="application/json" data-for="htmlwidget-138ea7ecbc7970c8ec81">{"x":{"diagram":"graph LR\nIN(Input Data) --> PROC[Function]\nPROC --> OUT(Output Data)"},"evals":[],"jsHooks":[]}</script>
 <p>So, what is data? As psychologists we are used to think of data as observations from empirical studies that we process by statistical procedures. That precisely matches our above model:</p>
-<div id="htmlwidget-f34b97a3d54299ee4124" style="width:672px;height:480px;" class="DiagrammeR html-widget"></div>
-<script type="application/json" data-for="htmlwidget-f34b97a3d54299ee4124">{"x":{"diagram":"graph LR\nIN(Observations) --> PROC[t-test]\nPROC --> OUT(p-value)"},"evals":[],"jsHooks":[]}</script>
+<div id="htmlwidget-b3f2729d4061748740e5" style="width:672px;height:480px;" class="DiagrammeR html-widget"></div>
+<script type="application/json" data-for="htmlwidget-b3f2729d4061748740e5">{"x":{"diagram":"graph LR\nIN(Observations) --> PROC[t-test]\nPROC --> OUT(p-value)"},"evals":[],"jsHooks":[]}</script>
 <p>In Python, as a general programming language, there exist libraries that implement tables of observations, as well as the t-test (and more modern statistical procedures, luckily). However, we don’t want to bother you with statistics for the moment. Instead, take another look at two function that we have introduced in <a href="functions.html#functions">6</a>:</p>
 <div class="sourceCode" id="cb413"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb413-1"><a href="data.html#cb413-1"></a><span class="kw">def</span> summation(alist):</span>
 <span id="cb413-2"><a href="data.html#cb413-2"></a>    <span class="bu">sum</span> <span class="op">=</span> <span class="fl">0.0</span></span>
@@ -417,8 +417,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <pre><code>## Sum of the list is: 10.0
 ## 10.0</code></pre>
 <p>The function <code>summation</code> takes a list of values and computes the sum. Again, that satisfies the basic model of data processing:</p>
-<div id="htmlwidget-de6aaac033adf9ac5374" style="width:672px;height:480px;" class="DiagrammeR html-widget"></div>
-<script type="application/json" data-for="htmlwidget-de6aaac033adf9ac5374">{"x":{"diagram":"graph LR\nIN(List of numbers) --> PROC[Summation]\nPROC --> OUT(sum)"},"evals":[],"jsHooks":[]}</script>
+<div id="htmlwidget-4bfe329618761176692c" style="width:672px;height:480px;" class="DiagrammeR html-widget"></div>
+<script type="application/json" data-for="htmlwidget-4bfe329618761176692c">{"x":{"diagram":"graph LR\nIN(List of numbers) --> PROC[Summation]\nPROC --> OUT(sum)"},"evals":[],"jsHooks":[]}</script>
 <p>It is easy to see how input and output are implemented with Python functions:</p>
 <ul>
 <li>function arguments provide the input</li>
@@ -426,8 +426,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>the return statement gives the output</li>
 </ul>
 <p>Consequently, every function that takes arguments and has a return statement can be considered data processing. Furthermore, data processing can take place as chains. Let’s take the variance of a list of numbers as an example. The formula for variance, shown below, reveals that the variance statistic is produces in three steps: first, the residuals are computed, these are squared an finally the mean value is taken.</p>
-<div id="htmlwidget-ac9be3dc0bdea70fc342" style="width:672px;height:480px;" class="DiagrammeR html-widget"></div>
-<script type="application/json" data-for="htmlwidget-ac9be3dc0bdea70fc342">{"x":{"diagram":"graph LR\n IN(List of numbers) --> PROC_1[square residuals]\n PROC_1 --> OUT_1(List of squared residuals)\n OUT_1 --> PROC_2[take the mean]\n PROC_2 --> OUT(Variance)"},"evals":[],"jsHooks":[]}</script>
+<div id="htmlwidget-41e7bb75a44126ac7fee" style="width:672px;height:480px;" class="DiagrammeR html-widget"></div>
+<script type="application/json" data-for="htmlwidget-41e7bb75a44126ac7fee">{"x":{"diagram":"graph LR\n IN(List of numbers) --> PROC_1[square residuals]\n PROC_1 --> OUT_1(List of squared residuals)\n OUT_1 --> PROC_2[take the mean]\n PROC_2 --> OUT(Variance)"},"evals":[],"jsHooks":[]}</script>
 <p>Let’s see how this is implemnented in Python. For the squared residuals, we create our own function, but resort to the function <code>mean</code> in the <code>numpy</code> library. Note how the two defined functions operate on a dedicated list for output, rather than modifying the original one. Recall that lists are called by reference, which means the original list would otherwise be altered by the function.</p>
 <div class="sourceCode" id="cb415"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb415-1"><a href="data.html#cb415-1"></a><span class="im">from</span> numpy <span class="im">import</span> mean</span>
 <span id="cb415-2"><a href="data.html#cb415-2"></a></span>
@@ -676,7 +676,7 @@ And finally, the <code>close</code> command signals the operating system that th
 <span id="cb428-30"><a href="data.html#cb428-30"></a>R[this_color],</span>
 <span id="cb428-31"><a href="data.html#cb428-31"></a>G[this_color],</span>
 <span id="cb428-32"><a href="data.html#cb428-32"></a>B[this_color], <span class="st">&quot;)&quot;</span>)</span></code></pre></div>
-<pre><code>## Presenting violet in color green ( 0 150 150 )</code></pre>
+<pre><code>## Presenting orange in color green ( 0 150 150 )</code></pre>
 <!-- To give a more compelling example for when it is useful to load stimuli at runtime: A modified version of the experiment is the primed Stroop task that by which one can assess the strength of certain semantic associations. It differs from the original in that it -->
 <!-- + shows a priming picture upfront (e.g. a wolf) -->
 <!-- + uses no color words, but target words that the participant may associate with the picture (e.g., the word "grandmother") -->
@@ -774,7 +774,7 @@ gitbook.start({
 "link": null,
 "text": null
 },
-"download": ["PfP_Book.pdf", "PfP_Book.epub"],
+"download": null,
 "toc": {
 "collapse": "subsection"
 }

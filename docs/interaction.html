@@ -24,7 +24,7 @@
 <meta name="author" content="Martin Schmettow and Lena Brandl" />
 
 
-<meta name="date" content="2020-10-07" />
+<meta name="date" content="2020-10-28" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -433,8 +433,8 @@ G    .    .</code></pre>
 <div id="identifying-transitions" class="section level3">
 <h3><span class="header-section-number">8.1.2</span> Identifying transitions</h3>
 <p>The second step in the analysis is about identifying the <em>transitions</em> between states. The Dutch traffic light knows three transitions:</p>
-<div id="htmlwidget-a68b0ab251e41ed0e104" style="width:672px;height:480px;" class="DiagrammeR html-widget"></div>
-<script type="application/json" data-for="htmlwidget-a68b0ab251e41ed0e104">{"x":{"diagram":"graph LR\n         Go   --> Att\n         Att  --> Stop\n         Stop --> Go"},"evals":[],"jsHooks":[]}</script>
+<div id="htmlwidget-5dcf1e9f73711a840651" style="width:672px;height:480px;" class="DiagrammeR html-widget"></div>
+<script type="application/json" data-for="htmlwidget-5dcf1e9f73711a840651">{"x":{"diagram":"graph LR\n         Go   --> Att\n         Att  --> Stop\n         Stop --> Go"},"evals":[],"jsHooks":[]}</script>
 <p>Cycling through a set of states is the most simple interaction protocol. It is unique, in that states are arrenged in a closed cycle, which implies that every state appears exactly once on the left-hand side (the original state) and the right-hand side (the destination). As we will later see, this is why we also only need one button for a manual traffic light.</p>
 <p>Most of the time it is more complicated and state charts can easily go out-of-hand. We now introduce the method of <em>transition tables</em>, which breaks down the complex analysis into a series of simple questions. All we know afterthe state analysis is the set of states and that, potentially, every state can change into every other. We put this into a square matrix of states. The rows denote the <em>origin</em> state, the columns are <em>target</em> states.</p>
 <pre><code>      Go  Att Stop
@@ -452,8 +452,8 @@ Go          X
 Att             X
 Stop  X</code></pre>
 <p>It is important to understand, that transitions are not symmetric. In the case of a traffic light, you can go from Go to Att, but there is no transition back. In interaction models other than a uni-directional cycle, transitions can well be symmetric, think of the checkout process on webshops. Usually, they guide you through the process in a number of steps (billing address –&gt; delivery address, credit card number), but allow you to go back to the previous step to do corrections.</p>
-<div id="htmlwidget-4fd3eabfc3704c3b9f84" style="width:672px;height:192px;" class="DiagrammeR html-widget"></div>
-<script type="application/json" data-for="htmlwidget-4fd3eabfc3704c3b9f84">{"x":{"diagram":"graph LR\n    Delivery    --> Billing\n    Billing    --> Credit_card\n    Credit_card --> Billing\n    Billing     --> Delivery"},"evals":[],"jsHooks":[]}</script>
+<div id="htmlwidget-a9dea6ae2918fdab2d1c" style="width:672px;height:192px;" class="DiagrammeR html-widget"></div>
+<script type="application/json" data-for="htmlwidget-a9dea6ae2918fdab2d1c">{"x":{"diagram":"graph LR\n    Delivery    --> Billing\n    Billing    --> Credit_card\n    Credit_card --> Billing\n    Billing     --> Delivery"},"evals":[],"jsHooks":[]}</script>
 <pre><code>             Delivery  Billing Credit_card
 Delivery               x
 Billing      x                 x
@@ -1375,7 +1375,7 @@ gitbook.start({
 "link": null,
 "text": null
 },
-"download": ["PfP_Book.pdf", "PfP_Book.epub"],
+"download": null,
 "toc": {
 "collapse": "subsection"
 }
