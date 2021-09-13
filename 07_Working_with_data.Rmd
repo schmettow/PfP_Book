@@ -1,5 +1,7 @@
 # Working with data {#data}
+
 ```{r setup}
+knitr::opts_chunk$set(warning = FALSE, message = FALSE)
 library(tidyverse)
 ```
 
@@ -324,7 +326,7 @@ B[this_color], ")")
 Write a simple image presentation program, that takes a table of the following form as input and changes to the following picture on key press.
 
 ```{r}
-data_frame(File = c("Image01.jpg", "Image02.jpg", "Image03.jpg"))
+tibble(File = c("Image01.jpg", "Image02.jpg", "Image03.jpg"))
 ```
 
 When that works, make the program automatic. Add a column to the table that gives the presentation time for an image in seconds. 
@@ -335,7 +337,7 @@ With the Python library `openpyxl` you can read and write Excel files, directly.
 
 ## Think further
 
-If you are working with data tables a lot, it may be worth to take a look at the Pandas library. The primary contribution of Pandas is an object class *DataFrame*, which captures a whole table at once and provides a plethora of useful methods for filtering and manipulation of data. And there are also commands to read and write csv files into a DataFrame.
+If you are working with data tables a lot, it may be worth to take a look at the Pandas library. The primary contribution of Pandas is an object class *DataFrame*, which captures a whole table at once and provides a plethora of useful methods for filtering and manipulation of data. And there are also commands to read and write csv files into a data frame.
 
 ```{python}
 import pandas
