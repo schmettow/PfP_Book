@@ -1,444 +1,68 @@
 <!DOCTYPE html>
-<html lang="" xml:lang="">
+<html lang="en">
 <head>
-
-<meta charset="utf-8" />
-<meta name="generator" content="pandoc" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
-<meta property="og:title" content="3 Conditionals | Programming Interaction for Psychologists" />
-<meta property="og:type" content="book" />
-
-
-
-<meta name="github-repo" content="schmettow/PfP_Book" />
-
-<meta name="author" content="Martin Schmettow and Lena Brandl" />
-
-<meta name="date" content="2021-11-01" />
-
-
-<meta name="description" content="3 Conditionals | Programming Interaction for Psychologists">
-
-<title>3 Conditionals | Programming Interaction for Psychologists</title>
-
-<script src="libs/header-attrs-2.8/header-attrs.js"></script>
-<script src="libs/jquery-1.11.3/jquery.min.js"></script>
-<meta name="viewport" content="width=device-width, initial-scale=1" />
-<link href="libs/bootstrap-3.3.5/css/bootstrap.min.css" rel="stylesheet" />
-<script src="libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
-<script src="libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
-<script src="libs/bootstrap-3.3.5/shim/respond.min.js"></script>
-<style>h1 {font-size: 34px;}
-       h1.title {font-size: 38px;}
-       h2 {font-size: 30px;}
-       h3 {font-size: 24px;}
-       h4 {font-size: 18px;}
-       h5 {font-size: 16px;}
-       h6 {font-size: 12px;}
-       code {color: inherit; background-color: rgba(0, 0, 0, 0.04);}
-       pre:not([class]) { background-color: white }</style>
-<script src="libs/navigation-1.1/tabsets.js"></script>
-<script src="libs/htmlwidgets-1.5.3/htmlwidgets.js"></script>
-<script src="libs/d3-3.3.8/d3.min.js"></script>
-<script src="libs/dagre-0.4.0/dagre-d3.min.js"></script>
-<link href="libs/mermaid-0.3.0/dist/mermaid.css" rel="stylesheet" />
-<script src="libs/mermaid-0.3.0/dist/mermaid.slim.min.js"></script>
-<link href="libs/DiagrammeR-styles-0.2/styles.css" rel="stylesheet" />
-<script src="libs/chromatography-0.1/chromatography.js"></script>
-<script src="libs/DiagrammeR-binding-1.0.6.1/DiagrammeR.js"></script>
-
-
-<style type="text/css">code{white-space: pre;}</style>
-<style type="text/css">
-pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
-pre > code.sourceCode > span:empty { height: 1.2em; }
-.sourceCode { overflow: visible; }
-code.sourceCode > span { color: inherit; text-decoration: inherit; }
-div.sourceCode { margin: 1em 0; }
-pre.sourceCode { margin: 0; }
-@media screen {
-div.sourceCode { overflow: auto; }
-}
-@media print {
-pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
-}
-pre.numberSource code
-  { counter-reset: source-line 0; }
-pre.numberSource code > span
-  { position: relative; left: -4em; counter-increment: source-line; }
-pre.numberSource code > span > a:first-child::before
-  { content: counter(source-line);
-    position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; display: inline-block;
-    -webkit-touch-callout: none; -webkit-user-select: none;
-    -khtml-user-select: none; -moz-user-select: none;
-    -ms-user-select: none; user-select: none;
-    padding: 0 4px; width: 4em;
-    color: #aaaaaa;
-  }
-pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
-div.sourceCode
-  {   }
-@media screen {
-pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
-}
-code span.al { color: #ff0000; font-weight: bold; } /* Alert */
-code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
-code span.at { color: #7d9029; } /* Attribute */
-code span.bn { color: #40a070; } /* BaseN */
-code span.bu { } /* BuiltIn */
-code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
-code span.ch { color: #4070a0; } /* Char */
-code span.cn { color: #880000; } /* Constant */
-code span.co { color: #60a0b0; font-style: italic; } /* Comment */
-code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
-code span.do { color: #ba2121; font-style: italic; } /* Documentation */
-code span.dt { color: #902000; } /* DataType */
-code span.dv { color: #40a070; } /* DecVal */
-code span.er { color: #ff0000; font-weight: bold; } /* Error */
-code span.ex { } /* Extension */
-code span.fl { color: #40a070; } /* Float */
-code span.fu { color: #06287e; } /* Function */
-code span.im { } /* Import */
-code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
-code span.kw { color: #007020; font-weight: bold; } /* Keyword */
-code span.op { color: #666666; } /* Operator */
-code span.ot { color: #007020; } /* Other */
-code span.pp { color: #bc7a00; } /* Preprocessor */
-code span.sc { color: #4070a0; } /* SpecialChar */
-code span.ss { color: #bb6688; } /* SpecialString */
-code span.st { color: #4070a0; } /* String */
-code span.va { color: #19177c; } /* Variable */
-code span.vs { color: #4070a0; } /* VerbatimString */
-code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
-</style>
-<style type="text/css">
-  pre:not([class]) {
-    background-color: white;
-  }
-</style>
-
-
-
-
-<style type = "text/css">
-.main-container {
-  max-width: 940px;
-  margin-left: auto;
-  margin-right: auto;
-}
-code {
-  color: inherit;
-  background-color: rgba(0, 0, 0, 0.04);
-}
-img {
-  max-width:100%;
-  height: auto;
-}
-/* show arrow before summary tag as in bootstrap
-TODO: remove if boostrap in updated in html_document (rmarkdown#1485) */
-details > summary {
-  display: list-item;
-  cursor: pointer;
-}
-</style>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<title>3 Conditionals | Programming for Psychologists</title>
+<meta name="author" content="Martin Schmettow and Lena Brandl">
+<!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.2"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/header-attrs-2.8/header-attrs.js"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet">
+<script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.2.5.1/tabs.js"></script><script src="libs/bs3compat-0.2.5.1/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
+<script src="libs/bs4_book-1.0.0/bs4_book.js"></script><script src="libs/htmlwidgets-1.5.3/htmlwidgets.js"></script><script src="libs/d3-3.3.8/d3.min.js"></script><script src="libs/dagre-0.4.0/dagre-d3.min.js"></script><link href="libs/mermaid-0.3.0/dist/mermaid.css" rel="stylesheet">
+<script src="libs/mermaid-0.3.0/dist/mermaid.slim.min.js"></script><link href="libs/DiagrammeR-styles-0.2/styles.css" rel="stylesheet">
+<script src="libs/chromatography-0.1/chromatography.js"></script><script src="libs/DiagrammeR-binding-1.0.6.1/DiagrammeR.js"></script><script src="https://cdn.jsdelivr.net/autocomplete.js/0/autocomplete.jquery.min.js"></script><script src="https://cdn.jsdelivr.net/npm/mark.js@8.11.1/dist/mark.min.js"></script><!-- CSS -->
 </head>
+<body data-spy="scroll" data-target="#toc">
 
-<body>
-
-<div class="container-fluid main-container">
-
-
+<div class="container-fluid">
 <div class="row">
-<div class="col-sm-12">
-<div id="TOC">
-<ul>
-<li><a href="index.html#preface">Preface</a></li>
-<li><a href="intro.html#intro"><span class="toc-section-number">1</span> Introduction</a>
-<ul>
-<li><a href="intro.html#installing-a-python-environment"><span class="toc-section-number">1.1</span> Installing a Python environment</a></li>
-<li><a href="intro.html#installing-the-anaconda-python-environment"><span class="toc-section-number">1.2</span> Installing the Anaconda Python environment</a></li>
-<li><a href="intro.html#windows"><span class="toc-section-number">1.3</span> Windows</a></li>
-<li><a href="intro.html#macos"><span class="toc-section-number">1.4</span> MacOS</a></li>
-<li><a href="intro.html#testing-your-environment"><span class="toc-section-number">1.5</span> Testing your environment</a></li>
-<li><a href="intro.html#dumb_computers"><span class="toc-section-number">1.6</span> Computers are dumb</a></li>
-<li><a href="intro.html#dive-in-a-first-example"><span class="toc-section-number">1.7</span> Dive in: a first example</a></li>
-<li><a href="intro.html#batchwork"><span class="toc-section-number">1.8</span> Making an eye tracker</a>
-<ul>
-<li><a href="intro.html#yets-and-yetis"><span class="toc-section-number">1.8.1</span> YETs and Yetis</a></li>
-<li><a href="intro.html#the-eyeballing-exercise"><span class="toc-section-number">1.8.2</span> The Eyeballing exercise</a></li>
-<li><a href="intro.html#dumb-pictures"><span class="toc-section-number">1.8.3</span> Dumb pictures</a></li>
-<li><a href="intro.html#from-pixel-to-eye-tracking"><span class="toc-section-number">1.8.4</span> From pixel to eye tracking</a></li>
-<li><a href="intro.html#into-the-batch"><span class="toc-section-number">1.8.5</span> Into the batch</a></li>
-</ul></li>
-</ul></li>
-<li><a href="variables.html#variables"><span class="toc-section-number">2</span> Variables, values and types</a>
-<ul>
-<li><a href="variables.html#variables-1"><span class="toc-section-number">2.1</span> Variables</a></li>
-<li><a href="variables.html#stroop-task-variables"><span class="toc-section-number">2.2</span> Use of variables in the Stroop Task</a></li>
-<li><a href="variables.html#how-variables-are-used"><span class="toc-section-number">2.3</span> How Variables Are Used</a></li>
-<li><a href="variables.html#data-types"><span class="toc-section-number">2.4</span> Data types</a>
-<ul>
-<li><a href="variables.html#numbers"><span class="toc-section-number">2.4.1</span> Numbers</a></li>
-<li><a href="variables.html#strings"><span class="toc-section-number">2.4.2</span> Strings</a></li>
-<li><a href="variables.html#booleans"><span class="toc-section-number">2.4.3</span> Booleans</a></li>
-</ul></li>
-<li><a href="variables.html#object-variables-in-a-yeti"><span class="toc-section-number">2.5</span> Object variables in a Yeti</a></li>
-<li><a href="variables.html#common-errors"><span class="toc-section-number">2.6</span> Common errors</a></li>
-<li><a href="variables.html#debugging"><span class="toc-section-number">2.7</span> Debugging</a></li>
-<li><a href="variables.html#exercises-1"><span class="toc-section-number">2.8</span> Exercises</a>
-<ul>
-<li><a href="variables.html#exercise-1.-operators"><span class="toc-section-number">2.8.1</span> Exercise 1. Operators</a></li>
-<li><a href="variables.html#exercise-2.-values"><span class="toc-section-number">2.8.2</span> Exercise 2. Values</a></li>
-<li><a href="variables.html#exercise-3.-mini-programs"><span class="toc-section-number">2.8.3</span> Exercise 3. Mini programs</a></li>
-<li><a href="variables.html#exercise-4.-debugging"><span class="toc-section-number">2.8.4</span> Exercise 4. Debugging</a></li>
-<li><a href="variables.html#exercise-5.-string-concatenation"><span class="toc-section-number">2.8.5</span> Exercise 5. String concatenation</a></li>
-<li><a href="variables.html#exercise-6.-variable-names"><span class="toc-section-number">2.8.6</span> Exercise 6. Variable names</a></li>
-<li><a href="variables.html#exercise-7.-stroop-task-welcome-message"><span class="toc-section-number">2.8.7</span> Exercise 7. Stroop task welcome message</a></li>
-<li><a href="variables.html#exercise-8.-printing"><span class="toc-section-number">2.8.8</span> Exercise 8. Printing</a></li>
-<li><a href="variables.html#exercise-9.-using-python-as-a-calculator"><span class="toc-section-number">2.8.9</span> Exercise 9. Using Python as a calculator</a></li>
-<li><a href="variables.html#exercise-10.-a-boolean-puzzle"><span class="toc-section-number">2.8.10</span> Exercise 10. A Boolean puzzle</a></li>
-</ul></li>
-<li><a href="variables.html#think-further-1"><span class="toc-section-number">2.9</span> Think Further</a></li>
-</ul></li>
-<li><a href="conditionals.html#conditionals"><span class="toc-section-number">3</span> Conditionals</a>
-<ul>
-<li><a href="conditionals.html#boolean-logic"><span class="toc-section-number">3.1</span> Boolean logic</a></li>
-<li><a href="conditionals.html#if-then"><span class="toc-section-number">3.2</span> if this is true, then do this</a></li>
-<li><a href="conditionals.html#else-do-that"><span class="toc-section-number">3.3</span> else do that</a></li>
-<li><a href="conditionals.html#bringing-interaction-to-life-conditional-state-transitions"><span class="toc-section-number">3.4</span> Bringing interaction to life: Conditional state transitions</a>
-<ul>
-<li><a href="conditionals.html#transition-tables"><span class="toc-section-number">3.4.1</span> Transition tables</a></li>
-<li><a href="conditionals.html#state-charts"><span class="toc-section-number">3.4.2</span> State charts</a></li>
-</ul></li>
-<li><a href="conditionals.html#common-errors-1"><span class="toc-section-number">3.5</span> Common errors</a></li>
-<li><a href="conditionals.html#debugging-1"><span class="toc-section-number">3.6</span> Debugging</a></li>
-<li><a href="conditionals.html#exercises-2"><span class="toc-section-number">3.7</span> Exercises</a>
-<ul>
-<li><a href="conditionals.html#exercise-1.-boolean-logic"><span class="toc-section-number">3.7.1</span> Exercise 1. Boolean logic</a></li>
-<li><a href="conditionals.html#exercise-2.-state-charts"><span class="toc-section-number">3.7.2</span> Exercise 2. State charts</a></li>
-<li><a href="conditionals.html#exercise-3.-transition-tables"><span class="toc-section-number">3.7.3</span> Exercise 3. Transition tables</a></li>
-<li><a href="conditionals.html#exercise-4.-mini-programs"><span class="toc-section-number">3.7.4</span> Exercise 4. Mini programs</a></li>
-<li><a href="conditionals.html#exercise-5.-following-the-control-flow"><span class="toc-section-number">3.7.5</span> Exercise 5. Following the control flow</a></li>
-<li><a href="conditionals.html#exercise-6.-indentation"><span class="toc-section-number">3.7.6</span> Exercise 6. Indentation</a></li>
-<li><a href="conditionals.html#exercise-7.-pseudo-code-conditionals"><span class="toc-section-number">3.7.7</span> Exercise 7. Pseudo code conditionals</a></li>
-<li><a href="conditionals.html#exercise-8.-modify-stroop-task"><span class="toc-section-number">3.7.8</span> Exercise 8. Modify Stroop Task</a></li>
-<li><a href="conditionals.html#exercise-9.-simplify-nested-conditionals"><span class="toc-section-number">3.7.9</span> Exercise 9. Simplify nested conditionals</a></li>
-<li><a href="conditionals.html#exercise-10.-flow-chart-conditionals"><span class="toc-section-number">3.7.10</span> Exercise 10. Flow chart conditionals</a></li>
-</ul></li>
-<li><a href="conditionals.html#think-further-2"><span class="toc-section-number">3.8</span> Think Further</a></li>
-</ul></li>
-<li><a href="lists.html#lists"><span class="toc-section-number">4</span> Lists</a>
-<ul>
-<li><a href="lists.html#lists-1"><span class="toc-section-number">4.1</span> Lists</a>
-<ul>
-<li><a href="lists.html#lists-are-mutable"><span class="toc-section-number">4.1.1</span> Lists are mutable</a></li>
-</ul></li>
-<li><a href="lists.html#tuples"><span class="toc-section-number">4.2</span> Tuples</a></li>
-<li><a href="lists.html#dictionaries"><span class="toc-section-number">4.3</span> Dictionaries</a></li>
-<li><a href="lists.html#putting-collections-to-use"><span class="toc-section-number">4.4</span> Putting collections to use</a></li>
-<li><a href="lists.html#common-errors-2"><span class="toc-section-number">4.5</span> Common errors</a></li>
-<li><a href="lists.html#debugging-2"><span class="toc-section-number">4.6</span> Debugging</a></li>
-<li><a href="lists.html#exercises-3"><span class="toc-section-number">4.7</span> Exercises</a>
-<ul>
-<li><a href="lists.html#exercise-1.-indexing"><span class="toc-section-number">4.7.1</span> Exercise 1. Indexing</a></li>
-<li><a href="lists.html#exercise-2.-debugging"><span class="toc-section-number">4.7.2</span> Exercise 2. Debugging</a></li>
-<li><a href="lists.html#exercise-3.-mini-programs-1"><span class="toc-section-number">4.7.3</span> Exercise 3. Mini programs</a></li>
-<li><a href="lists.html#exercise-4.-shopping-list"><span class="toc-section-number">4.7.4</span> Exercise 4. Shopping list</a></li>
-<li><a href="lists.html#exercise-5.-dictionaries"><span class="toc-section-number">4.7.5</span> Exercise 5. Dictionaries</a></li>
-<li><a href="lists.html#exercise-6.-element-selection"><span class="toc-section-number">4.7.6</span> Exercise 6. Element selection</a></li>
-<li><a href="lists.html#exercise-7.-adjust-a-dictionary-data-set"><span class="toc-section-number">4.7.7</span> Exercise 7. Adjust a dictionary data set</a></li>
-<li><a href="lists.html#exercise-8.-a-dictionary-data-set"><span class="toc-section-number">4.7.8</span> Exercise 8. A dictionary data set</a></li>
-<li><a href="lists.html#exercise-9.-stroop-extension"><span class="toc-section-number">4.7.9</span> Exercise 9. Stroop extension</a></li>
-</ul></li>
-<li><a href="lists.html#think-further-3"><span class="toc-section-number">4.8</span> Think further</a></li>
-</ul></li>
-<li><a href="loops.html#loops"><span class="toc-section-number">5</span> Loops</a>
-<ul>
-<li><a href="loops.html#the-for-loop"><span class="toc-section-number">5.1</span> The <code>for</code> loop</a></li>
-<li><a href="loops.html#the-while-loop"><span class="toc-section-number">5.2</span> The <code>while</code> loop</a>
-<ul>
-<li><a href="loops.html#for-or-while"><span class="toc-section-number">5.2.1</span> <code>for</code> or <code>while</code>?</a></li>
-</ul></li>
-<li><a href="loops.html#the-break-statement"><span class="toc-section-number">5.3</span> The <code>break</code> statement</a></li>
-<li><a href="loops.html#controlling-the-flow-of-your-program-with-loops"><span class="toc-section-number">5.4</span> Controlling the flow of your program with loops</a></li>
-<li><a href="loops.html#common-errors-3"><span class="toc-section-number">5.5</span> Common errors</a></li>
-<li><a href="loops.html#debugging-3"><span class="toc-section-number">5.6</span> Debugging</a></li>
-<li><a href="loops.html#exercises-4"><span class="toc-section-number">5.7</span> Exercises</a>
-<ul>
-<li><a href="loops.html#exercise-1.-following-the-control-flow-i"><span class="toc-section-number">5.7.1</span> Exercise 1. Following the control flow I</a></li>
-<li><a href="loops.html#exercise-2.-debugging-i"><span class="toc-section-number">5.7.2</span> Exercise 2. Debugging I</a></li>
-<li><a href="loops.html#exercise-3.-a-guessing-game"><span class="toc-section-number">5.7.3</span> Exercise 3. A guessing game</a></li>
-<li><a href="loops.html#exercise-4.-controlling-the-flow"><span class="toc-section-number">5.7.4</span> Exercise 4. Controlling the flow</a></li>
-<li><a href="loops.html#exercise-5.-following-the-control-flow-ii"><span class="toc-section-number">5.7.5</span> Exercise 5. Following the control flow II</a></li>
-<li><a href="loops.html#exercise-6.-debugging-ii"><span class="toc-section-number">5.7.6</span> Exercise 6. Debugging II</a></li>
-<li><a href="loops.html#exercise-7.-nested-loops"><span class="toc-section-number">5.7.7</span> Exercise 7. Nested loops</a></li>
-<li><a href="loops.html#exercise-8.-data-transformation-using-loops"><span class="toc-section-number">5.7.8</span> Exercise 8. Data transformation using loops</a></li>
-<li><a href="loops.html#exercise-9.-calculating-a-mean"><span class="toc-section-number">5.7.9</span> Exercise 9. Calculating a mean</a></li>
-</ul></li>
-<li><a href="loops.html#think-further-4"><span class="toc-section-number">5.8</span> Think Further</a></li>
-</ul></li>
-<li><a href="functions.html#functions"><span class="toc-section-number">6</span> Functions</a>
-<ul>
-<li><a href="functions.html#defining-and-calling-functions"><span class="toc-section-number">6.1</span> Defining and calling functions</a></li>
-<li><a href="functions.html#function-parameters-and-arguments"><span class="toc-section-number">6.2</span> Function parameters and arguments</a></li>
-<li><a href="functions.html#the-return-statement"><span class="toc-section-number">6.3</span> The <code>return</code> statement</a></li>
-<li><a href="functions.html#functions-can-call-other-functions-and-themselves"><span class="toc-section-number">6.4</span> Functions can call other functions, and themselves</a>
-<ul>
-<li><a href="functions.html#a-word-about-recursion"><span class="toc-section-number">6.4.1</span> A word about <em>Recursion</em></a></li>
-</ul></li>
-<li><a href="functions.html#stroop-functions"><span class="toc-section-number">6.5</span> Stroop functions</a></li>
-<li><a href="functions.html#common-errors-4"><span class="toc-section-number">6.6</span> Common errors</a></li>
-<li><a href="functions.html#exercises-5"><span class="toc-section-number">6.7</span> Exercises</a>
-<ul>
-<li><a href="functions.html#exercise-1.-following-the-control-flow"><span class="toc-section-number">6.7.1</span> Exercise 1. Following the control flow</a></li>
-<li><a href="functions.html#exercise-2.-an-imperfect-list-sorting-attempt"><span class="toc-section-number">6.7.2</span> Exercise 2. An imperfect list sorting attempt</a></li>
-<li><a href="functions.html#exercise-3.-an-erroneous-sorting-algorithm"><span class="toc-section-number">6.7.3</span> Exercise 3. An erroneous sorting algorithm</a></li>
-<li><a href="functions.html#exercise-4.-chunking"><span class="toc-section-number">6.7.4</span> Exercise 4. Chunking</a></li>
-<li><a href="functions.html#exercise-5.-add-functionality-to-the-stroop-task"><span class="toc-section-number">6.7.5</span> Exercise 5. Add functionality to the stroop task</a></li>
-<li><a href="functions.html#exercise-6.-insertion-sort-algorithm"><span class="toc-section-number">6.7.6</span> Exercise 6. Insertion sort algorithm</a></li>
-</ul></li>
-<li><a href="functions.html#think-further-5"><span class="toc-section-number">6.8</span> Think further</a></li>
-<li><a href="functions.html#references"><span class="toc-section-number">6.9</span> References</a></li>
-</ul></li>
-<li><a href="data.html#data"><span class="toc-section-number">7</span> Working with data</a>
-<ul>
-<li><a href="data.html#elements-of-data-processing"><span class="toc-section-number">7.1</span> Elements of data processing</a></li>
-<li><a href="data.html#data-tables"><span class="toc-section-number">7.2</span> Data tables</a></li>
-<li><a href="data.html#down-the-sink-writing-data-files"><span class="toc-section-number">7.3</span> Down the sink: Writing data files</a></li>
-<li><a href="data.html#may-the-source-reading-data-files"><span class="toc-section-number">7.4</span> May the source …: reading data files</a></li>
-<li><a href="data.html#exercises-6"><span class="toc-section-number">7.5</span> Exercises</a>
-<ul>
-<li><a href="data.html#exercise-1"><span class="toc-section-number">7.5.1</span> Exercise 1</a></li>
-<li><a href="data.html#exercise-2"><span class="toc-section-number">7.5.2</span> Exercise 2</a></li>
-</ul></li>
-<li><a href="data.html#think-further-6"><span class="toc-section-number">7.6</span> Think further</a></li>
-<li><a href="data.html#references-1"><span class="toc-section-number">7.7</span> References</a></li>
-</ul></li>
-<li><a href="interaction.html#interaction"><span class="toc-section-number">8</span> Interaction</a>
-<ul>
-<li><a href="interaction.html#interaction-models"><span class="toc-section-number">8.1</span> Interaction models</a>
-<ul>
-<li><a href="interaction.html#identifying-states"><span class="toc-section-number">8.1.1</span> Identifying states</a></li>
-<li><a href="interaction.html#identifying-transitions"><span class="toc-section-number">8.1.2</span> Identifying transitions</a></li>
-<li><a href="interaction.html#events-user-input-and-internal-conditions"><span class="toc-section-number">8.1.3</span> Events: user input and internal conditions</a></li>
-<li><a href="interaction.html#exercises-7"><span class="toc-section-number">8.1.4</span> Exercises</a></li>
-</ul></li>
-<li><a href="interaction.html#programming-interactive-prototypes"><span class="toc-section-number">8.2</span> Programming interactive prototypes</a>
-<ul>
-<li><a href="interaction.html#interactive-transitionals"><span class="toc-section-number">8.2.1</span> Interactive transitionals</a></li>
-<li><a href="interaction.html#automatic-transitions"><span class="toc-section-number">8.2.2</span> Automatic transitions</a></li>
-<li><a href="interaction.html#the-timestamp-method"><span class="toc-section-number">8.2.3</span> The timestamp method</a></li>
-<li><a href="interaction.html#presentation-conditionals"><span class="toc-section-number">8.2.4</span> Presentation conditionals</a></li>
-</ul></li>
-<li><a href="interaction.html#interactions-in-pygame"><span class="toc-section-number">8.3</span> Interactions in Pygame</a>
-<ul>
-<li><a href="interaction.html#overall-structure"><span class="toc-section-number">8.3.1</span> Overall structure</a></li>
-<li><a href="interaction.html#the-screen-and-the-refresh-loop."><span class="toc-section-number">8.3.2</span> The screen and the refresh loop.</a></li>
-<li><a href="interaction.html#handling-user-input"><span class="toc-section-number">8.3.3</span> Handling user input</a></li>
-<li><a href="interaction.html#transitionals"><span class="toc-section-number">8.3.4</span> Transitionals</a></li>
-<li><a href="interaction.html#pygame-events"><span class="toc-section-number">8.3.5</span> Pygame events</a></li>
-</ul></li>
-<li><a href="interaction.html#presentitionals"><span class="toc-section-number">8.4</span> Presentitionals in Pygame</a>
-<ul>
-<li><a href="interaction.html#display-and-surface"><span class="toc-section-number">8.4.1</span> Display and surface</a></li>
-<li><a href="interaction.html#drawing-figures"><span class="toc-section-number">8.4.2</span> Drawing figures</a></li>
-<li><a href="interaction.html#placing-text-and-pictures"><span class="toc-section-number">8.4.3</span> Placing text and pictures</a></li>
-</ul></li>
-<li><a href="interaction.html#exercises-8"><span class="toc-section-number">8.5</span> Exercises</a>
-<ul>
-<li><a href="interaction.html#exercise-c.-transition-tables"><span class="toc-section-number">8.5.1</span> Exercise C. Transition tables</a></li>
-</ul></li>
-<li><a href="interaction.html#common-errors-5"><span class="toc-section-number">8.6</span> Common errors</a></li>
-<li><a href="interaction.html#think-further-7"><span class="toc-section-number">8.7</span> Think Further</a></li>
-</ul></li>
-<li><a href="solutions.html#solutions"><span class="toc-section-number">9</span> Solutions</a>
-<ul>
-<li><a href="solutions.html#chapter-1.-introduction"><span class="toc-section-number">9.1</span> Chapter 1. Introduction</a></li>
-<li><a href="solutions.html#chapter-2.-variables-values-and-types"><span class="toc-section-number">9.2</span> Chapter 2. Variables, values and types</a>
-<ul>
-<li><a href="solutions.html#exercise-1.-operators-1"><span class="toc-section-number">9.2.1</span> Exercise 1. Operators</a></li>
-<li><a href="solutions.html#exercise-2.-values-1"><span class="toc-section-number">9.2.2</span> Exercise 2. Values</a></li>
-<li><a href="solutions.html#exercise-3.-mini-programs-2"><span class="toc-section-number">9.2.3</span> Exercise 3. Mini programs</a></li>
-<li><a href="solutions.html#exercise-4.-debugging-1"><span class="toc-section-number">9.2.4</span> Exercise 4. Debugging</a></li>
-<li><a href="solutions.html#exercise-5.-string-concatenation-1"><span class="toc-section-number">9.2.5</span> Exercise 5. String concatenation</a></li>
-<li><a href="solutions.html#exercise-6.-variable-names-1"><span class="toc-section-number">9.2.6</span> Exercise 6. Variable names</a></li>
-<li><a href="solutions.html#exercise-7.-stroop-task-welcome-message-1"><span class="toc-section-number">9.2.7</span> Exercise 7. Stroop task welcome message</a></li>
-<li><a href="solutions.html#exercise-8.-printing-1"><span class="toc-section-number">9.2.8</span> Exercise 8. Printing</a></li>
-<li><a href="solutions.html#exercise-9.-using-python-as-calculator"><span class="toc-section-number">9.2.9</span> Exercise 9. Using Python as calculator</a></li>
-<li><a href="solutions.html#exercise-10.-a-boolean-puzzle-1"><span class="toc-section-number">9.2.10</span> Exercise 10. A Boolean puzzle</a></li>
-</ul></li>
-<li><a href="solutions.html#chapter-3.-conditionals"><span class="toc-section-number">9.3</span> Chapter 3. Conditionals</a>
-<ul>
-<li><a href="solutions.html#exercise-1.-boolean-logic-1"><span class="toc-section-number">9.3.1</span> Exercise 1. Boolean logic</a></li>
-<li><a href="solutions.html#exercise-2.-state-charts-1"><span class="toc-section-number">9.3.2</span> Exercise 2. State charts</a></li>
-<li><a href="solutions.html#exercise-3.-transition-tables-1"><span class="toc-section-number">9.3.3</span> Exercise 3. Transition tables</a></li>
-<li><a href="solutions.html#exercise-4.-mini-programs-1"><span class="toc-section-number">9.3.4</span> Exercise 4. Mini programs</a></li>
-<li><a href="solutions.html#exercise-5.-following-the-control-flow-1"><span class="toc-section-number">9.3.5</span> Exercise 5. Following the control flow</a></li>
-<li><a href="solutions.html#exercise-6.-indentation-1"><span class="toc-section-number">9.3.6</span> Exercise 6. Indentation</a></li>
-<li><a href="solutions.html#exercise-7.-pseudo-code-conditionals-1"><span class="toc-section-number">9.3.7</span> Exercise 7. Pseudo code conditionals</a></li>
-<li><a href="solutions.html#exercise-8.-modify-stroop-task-1"><span class="toc-section-number">9.3.8</span> Exercise 8. Modify Stroop Task</a></li>
-<li><a href="solutions.html#exercise-9.-simplify-nested-conditionals-1"><span class="toc-section-number">9.3.9</span> Exercise 9. Simplify nested conditionals</a></li>
-<li><a href="solutions.html#exercise-10.-flow-chart-conditionals-1"><span class="toc-section-number">9.3.10</span> Exercise 10. Flow chart conditionals</a></li>
-</ul></li>
-<li><a href="solutions.html#chapter-4.-lists"><span class="toc-section-number">9.4</span> Chapter 4. Lists</a>
-<ul>
-<li><a href="solutions.html#exercise-1.-indexing-1"><span class="toc-section-number">9.4.1</span> Exercise 1. Indexing</a></li>
-<li><a href="solutions.html#exercise-2.-debugging-1"><span class="toc-section-number">9.4.2</span> Exercise 2. Debugging</a></li>
-<li><a href="solutions.html#exercise-3.-mini-programs-3"><span class="toc-section-number">9.4.3</span> Exercise 3. Mini programs</a></li>
-<li><a href="solutions.html#exercise-1.-shopping-list"><span class="toc-section-number">9.4.4</span> Exercise 1. Shopping list</a></li>
-<li><a href="solutions.html#exercise-2.-dictionnaries"><span class="toc-section-number">9.4.5</span> Exercise 2. Dictionnaries</a></li>
-<li><a href="solutions.html#exercise-3.-selecting-elements"><span class="toc-section-number">9.4.6</span> Exercise 3. Selecting elements</a></li>
-<li><a href="solutions.html#exercise-4.-adjust-a-dictionnary-data-set"><span class="toc-section-number">9.4.7</span> Exercise 4. Adjust a dictionnary data set</a></li>
-<li><a href="solutions.html#exercise-5.-a-dictionnary-data-set"><span class="toc-section-number">9.4.8</span> Exercise 5. A dictionnary data set</a></li>
-<li><a href="solutions.html#exercise-6.-stroop-extension"><span class="toc-section-number">9.4.9</span> Exercise 6. Stroop extension</a></li>
-</ul></li>
-<li><a href="solutions.html#chapter-5.-loops"><span class="toc-section-number">9.5</span> Chapter 5. Loops</a>
-<ul>
-<li><a href="solutions.html#exercise-1.-following-the-control-flow-i-1"><span class="toc-section-number">9.5.1</span> Exercise 1. Following the control flow I</a></li>
-<li><a href="solutions.html#exercise-2.-debugging-i-1"><span class="toc-section-number">9.5.2</span> Exercise 2. Debugging I</a></li>
-<li><a href="solutions.html#exercise-3.-controlling-the-flow"><span class="toc-section-number">9.5.3</span> Exercise 3. Controlling the flow</a></li>
-<li><a href="solutions.html#exercise-4.-following-the-control-flow-ii"><span class="toc-section-number">9.5.4</span> Exercise 4. Following the control flow II</a></li>
-<li><a href="solutions.html#exercise-5.-debugging"><span class="toc-section-number">9.5.5</span> Exercise 5. Debugging</a></li>
-<li><a href="solutions.html#exercise-6.-nested-loops"><span class="toc-section-number">9.5.6</span> Exercise 6. Nested loops</a></li>
-<li><a href="solutions.html#exercise-7.-data-transformation-using-loops"><span class="toc-section-number">9.5.7</span> Exercise 7. Data transformation using loops</a></li>
-<li><a href="solutions.html#exercise-8.-calculating-a-mean"><span class="toc-section-number">9.5.8</span> Exercise 8. Calculating a mean</a></li>
-<li><a href="solutions.html#exercise-9.-a-guessing-game"><span class="toc-section-number">9.5.9</span> Exercise 9. A guessing game</a></li>
-</ul></li>
-<li><a href="solutions.html#chapter-6.-functions"><span class="toc-section-number">9.6</span> Chapter 6. Functions</a>
-<ul>
-<li><a href="solutions.html#exercise-1.-following-the-control-flow-1"><span class="toc-section-number">9.6.1</span> Exercise 1. Following the control flow</a></li>
-<li><a href="solutions.html#exercise-2.-an-imperfect-list-sorting-attempt-1"><span class="toc-section-number">9.6.2</span> Exercise 2. An imperfect list sorting attempt</a></li>
-<li><a href="solutions.html#exercise-3.-an-errorneous-sorting-algorithm"><span class="toc-section-number">9.6.3</span> Exercise 3. An errorneous sorting algorithm</a></li>
-<li><a href="solutions.html#exercise-4."><span class="toc-section-number">9.6.4</span> Exercise 4.</a></li>
-<li><a href="solutions.html#exercise-5."><span class="toc-section-number">9.6.5</span> Exercise 5.</a></li>
-<li><a href="solutions.html#exercise-6.-insertion-sort-algorithm-1"><span class="toc-section-number">9.6.6</span> Exercise 6. Insertion sort algorithm</a></li>
-</ul></li>
-</ul></li>
-<li><a href="debugging-and-good-programming-practices.html#debugging-and-good-programming-practices"><span class="toc-section-number">10</span> Debugging and good programming practices</a>
-<ul>
-<li><a href="debugging-and-good-programming-practices.html#debugging-4"><span class="toc-section-number">10.1</span> Debugging</a></li>
-<li><a href="debugging-and-good-programming-practices.html#boosting-your-programming-learning-curve"><span class="toc-section-number">10.2</span> Boosting your programming learning curve</a>
-<ul>
-<li><a href="debugging-and-good-programming-practices.html#going-with-the-flow"><span class="toc-section-number">10.2.1</span> Going with the flow</a></li>
-<li><a href="debugging-and-good-programming-practices.html#just-do-it"><span class="toc-section-number">10.2.2</span> Just do it!</a></li>
-</ul></li>
-</ul></li>
+  <header class="col-sm-12 col-lg-3 sidebar sidebar-book"><a class="sr-only sr-only-focusable" href="#content">Skip to main content</a>
+
+    <div class="d-flex align-items-start justify-content-between">
+      <h1>
+        <a href="index.html" title="A course in Python">Programming for Psychologists</a>:
+        <small class="text-muted">A course in Python</small>
+      </h1>
+      <button class="btn btn-outline-primary d-lg-none ml-2 mt-1" type="button" data-toggle="collapse" data-target="#main-nav" aria-expanded="true" aria-controls="main-nav"><i class="fas fa-bars"></i><span class="sr-only">Show table of contents</span></button>
+    </div>
+
+    <div id="main-nav" class="collapse-lg">
+      <form role="search">
+        <input id="search" class="form-control" type="search" placeholder="Search" aria-label="Search">
+</form>
+
+      <nav aria-label="Table of contents"><h2>Table of contents</h2>
+        <ul class="book-toc list-unstyled">
+<li><a class="" href="index.html">Preface</a></li>
+<li><a class="" href="intro.html"><span class="header-section-number">1</span> Introduction</a></li>
+<li><a class="" href="variables.html"><span class="header-section-number">2</span> Variables, values and types</a></li>
+<li><a class="active" href="conditionals.html"><span class="header-section-number">3</span> Conditionals</a></li>
+<li><a class="" href="lists.html"><span class="header-section-number">4</span> Lists</a></li>
+<li><a class="" href="loops.html"><span class="header-section-number">5</span> Loops</a></li>
+<li><a class="" href="functions.html"><span class="header-section-number">6</span> Functions</a></li>
+<li><a class="" href="data.html"><span class="header-section-number">7</span> Working with data</a></li>
+<li><a class="" href="interaction.html"><span class="header-section-number">8</span> Interaction</a></li>
+<li><a class="" href="solutions.html"><span class="header-section-number">9</span> Solutions</a></li>
+<li><a class="" href="debugging-and-good-programming-practices.html"><span class="header-section-number">10</span> Debugging and good programming practices</a></li>
 </ul>
+
+        <div class="book-extra">
+          
+        </div>
+      </nav>
 </div>
-</div>
-</div>
-<div class="row">
-<div class="col-sm-12">
-<div id="conditionals" class="section level1" number="3">
-<h1><span class="header-section-number">3</span> Conditionals</h1>
+  </header><main class="col-sm-12 col-md-9 col-lg-7" id="content"><div id="conditionals" class="section level1" number="3">
+<h1>
+<span class="header-section-number">3</span> Conditionals<a class="anchor" aria-label="anchor" href="#conditionals"><i class="fas fa-link"></i></a>
+</h1>
 <div class="sourceCode" id="cb119"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb119-1"><a href="conditionals.html#cb119-1" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> <span class="dv">1</span> <span class="op">==</span> <span class="dv">1</span>:</span>
-<span id="cb119-2"><a href="conditionals.html#cb119-2" aria-hidden="true" tabindex="-1"></a>  <span class="bu">print</span>(<span class="st">&#39;Hello World&#39;</span>)</span></code></pre></div>
+<span id="cb119-2"><a href="conditionals.html#cb119-2" aria-hidden="true" tabindex="-1"></a>  <span class="bu">print</span>(<span class="st">'Hello World'</span>)</span></code></pre></div>
 <pre><code>## Hello World</code></pre>
 <div id="boolean-logic" class="section level2" number="3.1">
-<h2><span class="header-section-number">3.1</span> Boolean logic</h2>
+<h2>
+<span class="header-section-number">3.1</span> Boolean logic<a class="anchor" aria-label="anchor" href="#boolean-logic"><i class="fas fa-link"></i></a>
+</h2>
 <p>In Chapter 2 Variables, you read about simple <em>Boolean expressions</em> that produce <em>Boolean values</em> (<code>True</code>, <code>False</code>) with the help of <em>comparative operators</em> (<code>==</code>,<code>!=</code>,<code>&gt;</code>,<code>&lt;</code>,<code>&gt;=</code>,<code>&lt;=</code>). In this chapter, we will first take a closer look at Boolean expressions as we work towards introducing the main actor in regulating the flow of a computer program, <em>conditionals</em>. In chapter 1 <a href="intro.html#intro">Introduction</a> you took a closer look at the Stroop Task program. You saw that the program shifts between different stages of the Stroop experiment, among which preparing a trial and waiting for the participant’s response. These experimental stages are mirrored in the different <em>states</em> of the Stroop Task program. A simple lamp, for example, can be regarded as having two possible states, namely being either switched <em>on</em> or <em>off</em>. The Stroop Task program knows more states than simply being switched on or off, but just as a simple lamp, it needs some kind of switch to transit from one state to another. This is were <em>conditionals</em> come in handy as you will see at the end of this chapter. But first things first, let’s take a look at the following two examples:</p>
 <div class="sourceCode" id="cb121"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb121-1"><a href="conditionals.html#cb121-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="dv">10</span> <span class="op">&gt;</span> <span class="dv">5</span> <span class="kw">and</span> <span class="dv">5</span> <span class="op">&gt;</span> <span class="dv">2</span>)</span></code></pre></div>
 <pre><code>## True</code></pre>
@@ -449,17 +73,15 @@ details > summary {
 <div class="sourceCode" id="cb127"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb127-1"><a href="conditionals.html#cb127-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="kw">not</span> <span class="va">True</span> <span class="kw">and</span> <span class="va">False</span>)</span></code></pre></div>
 <pre><code>## False</code></pre>
 <p><code>and</code>, <code>or</code>, and <code>not</code> are the three <em>logical operators</em> used in Python. They allow us to build more complex Boolean expressions from simpler ones. Sometimes these operators confuse people because they are used differently in informal language. Therefore, it is important to understand what they formally mean in Python (and math and all other programming languages). The following <em>truth table</em> displays what these operators exactly mean for two variables <code>a</code> and <code>b</code> for all combinations of values:</p>
-<table>
-<thead>
-<tr class="header">
+<div class="inline-table"><table class="table table-sm">
+<thead><tr class="header">
 <th>a</th>
 <th>b</th>
 <th>not a</th>
 <th>a and b</th>
 <th>a or b</th>
 <th>not a or b</th>
-</tr>
-</thead>
+</tr></thead>
 <tbody>
 <tr class="odd">
 <td>True</td>
@@ -494,7 +116,7 @@ details > summary {
 <td>True</td>
 </tr>
 </tbody>
-</table>
+</table></div>
 <p>There exists a set of rules for working with Boolean values, much like highschool mathematical algebra. First of all, the logical operators <code>and</code>, <code>or</code>, and <code>not</code> differ in their priority. In highschool, you learned that given a formula <code>a + b * c</code>, you first multiply <code>b</code> and <code>c</code> before adding <code>a</code>. This is the same as saying that <code>*</code> has a higher <em>precedence</em> than <code>+</code>. From highest to lowest the precedence ranking for the three logical operators is: <code>not</code>, <code>and</code>, <code>or</code>. In addition, the six <em>comparative</em> operators (<code>==</code>,<code>!=</code>,<code>&gt;</code>,<code>&lt;</code>,<code>&gt;=</code>,<code>&lt;=</code>) precede all logical operators.</p>
 <p>As in mathematics, brackets can be used to change the order of operations.</p>
 <div class="sourceCode" id="cb129"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb129-1"><a href="conditionals.html#cb129-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="kw">not</span> <span class="va">True</span> <span class="kw">or</span> <span class="dv">1</span> <span class="op">==</span> <span class="dv">1</span>)</span></code></pre></div>
@@ -527,29 +149,33 @@ details > summary {
 <pre><code>## True</code></pre>
 </div>
 <div id="if-then" class="section level2" number="3.2">
-<h2><span class="header-section-number">3.2</span> if this is true, then do this</h2>
+<h2>
+<span class="header-section-number">3.2</span> if this is true, then do this<a class="anchor" aria-label="anchor" href="#if-then"><i class="fas fa-link"></i></a>
+</h2>
 <p>Boolean values are essential for regulating the flow of a computer program as they provide the conditions under which certain blocks of code are executed. The simplest form of a <em>conditional</em> is the <em>if statement</em>.</p>
 <div class="sourceCode" id="cb143"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb143-1"><a href="conditionals.html#cb143-1" aria-hidden="true" tabindex="-1"></a>a <span class="op">=</span> <span class="dv">0</span></span>
 <span id="cb143-2"><a href="conditionals.html#cb143-2" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> (a <span class="op">&lt;</span> <span class="dv">0</span>):</span>
-<span id="cb143-3"><a href="conditionals.html#cb143-3" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">&quot;a is smaller than 0&quot;</span>)</span>
+<span id="cb143-3"><a href="conditionals.html#cb143-3" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">"a is smaller than 0"</span>)</span>
 <span id="cb143-4"><a href="conditionals.html#cb143-4" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> (a <span class="op">&gt;=</span> <span class="dv">0</span>):</span>
-<span id="cb143-5"><a href="conditionals.html#cb143-5" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">&quot;a is larger than, or equal to 0&quot;</span>)</span></code></pre></div>
+<span id="cb143-5"><a href="conditionals.html#cb143-5" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">"a is larger than, or equal to 0"</span>)</span></code></pre></div>
 <pre><code>## a is larger than, or equal to 0</code></pre>
 <p>You can read <em>if statements</em> as</p>
 <blockquote>
-<p>If whatever is written within the curved brackets equals <code>True</code>,<br />
+<p>If whatever is written within the curved brackets equals <code>True</code>,<br>
 then, and only then, the intended (from intendation, not intention!) code within the statement is evaluated.</p>
 </blockquote>
 <p>An <code>if statement</code> consists of a <em>header</em> and a <em>body</em>. The header begins with the <em>keyword</em> <code>if</code>, followed by a <em>Boolean expression</em> (the <em>condition</em>) and ends with a colon (<code>:</code>). The brackets around the condition are optional, but recommended to facilitate readability. Only if the given condition in the <em>head</em> is met, the program will read and execute the code written in the statement’s <em>body</em>. Note that Python requires that the statements written in the body of an <code>if statement</code> are indended consistently (commonly by four spaces). The intended statements are called a <em>block</em> and the first unintended statement designates the end of the block. The usefulness of intendation may at first not be apparent to you, but trust me, it facilitates reading complex programs enormously.</p>
 </div>
 <div id="else-do-that" class="section level2" number="3.3">
-<h2><span class="header-section-number">3.3</span> else do that</h2>
+<h2>
+<span class="header-section-number">3.3</span> else do that<a class="anchor" aria-label="anchor" href="#else-do-that"><i class="fas fa-link"></i></a>
+</h2>
 <p>Actually, you can simplify the code above by using an <em>else clause</em>:</p>
 <div class="sourceCode" id="cb145"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb145-1"><a href="conditionals.html#cb145-1" aria-hidden="true" tabindex="-1"></a>a <span class="op">=</span> <span class="dv">0</span></span>
 <span id="cb145-2"><a href="conditionals.html#cb145-2" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> (a <span class="op">&lt;</span> <span class="dv">0</span>):</span>
-<span id="cb145-3"><a href="conditionals.html#cb145-3" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">&quot;a is smaller than 0&quot;</span>)</span>
+<span id="cb145-3"><a href="conditionals.html#cb145-3" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">"a is smaller than 0"</span>)</span>
 <span id="cb145-4"><a href="conditionals.html#cb145-4" aria-hidden="true" tabindex="-1"></a><span class="cf">else</span>:</span>
-<span id="cb145-5"><a href="conditionals.html#cb145-5" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">&quot;a is larger than, or equal to 0&quot;</span>)</span></code></pre></div>
+<span id="cb145-5"><a href="conditionals.html#cb145-5" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">"a is larger than, or equal to 0"</span>)</span></code></pre></div>
 <pre><code>## a is larger than, or equal to 0</code></pre>
 <p>But, take great care: the conditions <code>a &lt; 0</code> and <code>a &gt;= 0</code> are special in that they are:</p>
 <ul>
@@ -559,57 +185,60 @@ then, and only then, the intended (from intendation, not intention!) code within
 <p><em>else clauses</em> are optional, but they often simplify your code. If you are dealing with two complete, mutually exclusive conditions, then using an <code>if/else clause</code> is the way to go. If there are more than two choices, you can either use <em>nested</em> conditionals or <code>if ... elif ... else</code>:</p>
 <div class="sourceCode" id="cb147"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb147-1"><a href="conditionals.html#cb147-1" aria-hidden="true" tabindex="-1"></a>a <span class="op">=</span> <span class="dv">0</span></span>
 <span id="cb147-2"><a href="conditionals.html#cb147-2" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> (a <span class="op">&lt;</span> <span class="dv">0</span>):</span>
-<span id="cb147-3"><a href="conditionals.html#cb147-3" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">&quot;a is smaller than 0&quot;</span>)</span>
+<span id="cb147-3"><a href="conditionals.html#cb147-3" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">"a is smaller than 0"</span>)</span>
 <span id="cb147-4"><a href="conditionals.html#cb147-4" aria-hidden="true" tabindex="-1"></a><span class="cf">else</span>:</span>
 <span id="cb147-5"><a href="conditionals.html#cb147-5" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> (a <span class="op">==</span> <span class="dv">0</span>):</span>
-<span id="cb147-6"><a href="conditionals.html#cb147-6" aria-hidden="true" tabindex="-1"></a>        <span class="bu">print</span>(<span class="st">&quot;a equals 0&quot;</span>)</span>
+<span id="cb147-6"><a href="conditionals.html#cb147-6" aria-hidden="true" tabindex="-1"></a>        <span class="bu">print</span>(<span class="st">"a equals 0"</span>)</span>
 <span id="cb147-7"><a href="conditionals.html#cb147-7" aria-hidden="true" tabindex="-1"></a>    <span class="cf">else</span>:</span>
-<span id="cb147-8"><a href="conditionals.html#cb147-8" aria-hidden="true" tabindex="-1"></a>        <span class="bu">print</span>(<span class="st">&quot;a is larger than 0&quot;</span>)</span></code></pre></div>
+<span id="cb147-8"><a href="conditionals.html#cb147-8" aria-hidden="true" tabindex="-1"></a>        <span class="bu">print</span>(<span class="st">"a is larger than 0"</span>)</span></code></pre></div>
 <pre><code>## a equals 0</code></pre>
 <p>The indentation makes the structure of the program visible. However, most of the time, nested conditionals complicate your code unecessarily, making it more difficult to read. It is commonly regarded as good practice to keep the usage of nested conditionals to a minimum.</p>
 <p>Then again, how do you implement more than two execution branches, without resorting to nested conditionals? Let’s pretend that it is incredibly important to your program that it does make a difference between the case that <code>a</code> is larger than 0, compared to when <code>a</code> equals 0.</p>
 <div class="sourceCode" id="cb149"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb149-1"><a href="conditionals.html#cb149-1" aria-hidden="true" tabindex="-1"></a>a <span class="op">=</span> <span class="dv">0</span></span>
 <span id="cb149-2"><a href="conditionals.html#cb149-2" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> (a <span class="op">&lt;</span> <span class="dv">0</span>):</span>
-<span id="cb149-3"><a href="conditionals.html#cb149-3" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">&quot;a is smaller than 0&quot;</span>)</span>
+<span id="cb149-3"><a href="conditionals.html#cb149-3" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">"a is smaller than 0"</span>)</span>
 <span id="cb149-4"><a href="conditionals.html#cb149-4" aria-hidden="true" tabindex="-1"></a><span class="cf">elif</span> (a <span class="op">==</span> <span class="dv">0</span>):</span>
-<span id="cb149-5"><a href="conditionals.html#cb149-5" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">&quot;a equals 0&quot;</span>)</span>
+<span id="cb149-5"><a href="conditionals.html#cb149-5" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">"a equals 0"</span>)</span>
 <span id="cb149-6"><a href="conditionals.html#cb149-6" aria-hidden="true" tabindex="-1"></a><span class="cf">else</span>:</span>
-<span id="cb149-7"><a href="conditionals.html#cb149-7" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">&quot;a is larger than 0&quot;</span>)</span></code></pre></div>
+<span id="cb149-7"><a href="conditionals.html#cb149-7" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">"a is larger than 0"</span>)</span></code></pre></div>
 <pre><code>## a equals 0</code></pre>
 <p>The <em>elif statement</em> (short for <code>else if statement</code>) allows you to include more than two alternative conditions. In theory, you can build an endless chain of alternative conditions using <code>elif</code>. Whether it is useful to do so, is, of course, a different question. Whenever <code>elif</code> is included in a train of conditions, the whole structure is called a <em>chained conditional</em>. Note that when using an <em>else clause</em> in a chain of conditionals, it always marks the end of the chain. Furthermore, each condition is checked in order. If the first is <code>False</code>, the next is checked, and so on. Note that only the first <code>True</code> branch is executed, even if more than one condition is <code>True</code>. There is nothing like “more true” in Boolean logic.</p>
 <div class="sourceCode" id="cb151"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb151-1"><a href="conditionals.html#cb151-1" aria-hidden="true" tabindex="-1"></a>a <span class="op">=</span> <span class="dv">1</span></span>
 <span id="cb151-2"><a href="conditionals.html#cb151-2" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> (a <span class="op">&gt;=</span> <span class="dv">0</span>):</span>
-<span id="cb151-3"><a href="conditionals.html#cb151-3" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">&quot;a is greater than or equals 0&quot;</span>)</span>
+<span id="cb151-3"><a href="conditionals.html#cb151-3" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">"a is greater than or equals 0"</span>)</span>
 <span id="cb151-4"><a href="conditionals.html#cb151-4" aria-hidden="true" tabindex="-1"></a><span class="cf">elif</span> (a <span class="op">==</span> <span class="dv">1</span>):</span>
-<span id="cb151-5"><a href="conditionals.html#cb151-5" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">&quot;a equals 1&quot;</span>)</span>
+<span id="cb151-5"><a href="conditionals.html#cb151-5" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">"a equals 1"</span>)</span>
 <span id="cb151-6"><a href="conditionals.html#cb151-6" aria-hidden="true" tabindex="-1"></a><span class="cf">else</span>:</span>
-<span id="cb151-7"><a href="conditionals.html#cb151-7" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">&quot;a is smaller than 0&quot;</span>)</span></code></pre></div>
+<span id="cb151-7"><a href="conditionals.html#cb151-7" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">"a is smaller than 0"</span>)</span></code></pre></div>
 <pre><code>## a is greater than or equals 0</code></pre>
 <p>Alternatively, nesting can often be circumvented by combining simple Boolean expressions using <em>logical operators</em>:</p>
 <div class="sourceCode" id="cb153"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb153-1"><a href="conditionals.html#cb153-1" aria-hidden="true" tabindex="-1"></a>a <span class="op">=</span> <span class="dv">5</span></span>
 <span id="cb153-2"><a href="conditionals.html#cb153-2" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> (a <span class="op">&gt;</span> <span class="op">-</span><span class="dv">5</span>):</span>
 <span id="cb153-3"><a href="conditionals.html#cb153-3" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> (a <span class="op">&gt;=</span> <span class="dv">0</span>):</span>
-<span id="cb153-4"><a href="conditionals.html#cb153-4" aria-hidden="true" tabindex="-1"></a>        <span class="bu">print</span>(<span class="st">&quot;a is a positive digit&quot;</span>)</span></code></pre></div>
+<span id="cb153-4"><a href="conditionals.html#cb153-4" aria-hidden="true" tabindex="-1"></a>        <span class="bu">print</span>(<span class="st">"a is a positive digit"</span>)</span></code></pre></div>
 <div class="sourceCode" id="cb154"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb154-1"><a href="conditionals.html#cb154-1" aria-hidden="true" tabindex="-1"></a>a <span class="op">=</span> <span class="dv">5</span></span>
 <span id="cb154-2"><a href="conditionals.html#cb154-2" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> (a <span class="op">&gt;</span> <span class="op">-</span><span class="dv">5</span> <span class="kw">and</span> a <span class="op">&gt;=</span> <span class="dv">0</span>):</span>
-<span id="cb154-3"><a href="conditionals.html#cb154-3" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">&quot;a is a positive digit&quot;</span>)</span></code></pre></div>
+<span id="cb154-3"><a href="conditionals.html#cb154-3" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">"a is a positive digit"</span>)</span></code></pre></div>
 </div>
 <div id="bringing-interaction-to-life-conditional-state-transitions" class="section level2" number="3.4">
-<h2><span class="header-section-number">3.4</span> Bringing interaction to life: Conditional state transitions</h2>
+<h2>
+<span class="header-section-number">3.4</span> Bringing interaction to life: Conditional state transitions<a class="anchor" aria-label="anchor" href="#bringing-interaction-to-life-conditional-state-transitions"><i class="fas fa-link"></i></a>
+</h2>
 <p>In programming interactive software, such as the Stroop experiment, conditionals are essential to control the flow of the program. By controlling the <em>flow</em>, we mean how the program changes states in reaction to the input of the user. Without the programmer’s intervention, a program is executed from top to bottom. You can imagine that the Stroop Task program needs to be more flexible than that, depending on the actions of the participant. Take a closer look at how the Stroop Task program transits from the welcome screen to the first trial:</p>
-<div class="sourceCode" id="cb155"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb155-1"><a href="conditionals.html#cb155-1" aria-hidden="true" tabindex="-1"></a>STATE <span class="op">=</span> <span class="st">&quot;welcome&quot;</span>    </span>
+<div class="sourceCode" id="cb155"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb155-1"><a href="conditionals.html#cb155-1" aria-hidden="true" tabindex="-1"></a>STATE <span class="op">=</span> <span class="st">"welcome"</span>    </span>
 <span id="cb155-2"><a href="conditionals.html#cb155-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb155-3"><a href="conditionals.html#cb155-3" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> STATE <span class="op">==</span> <span class="st">&quot;welcome&quot;</span>:</span>
+<span id="cb155-3"><a href="conditionals.html#cb155-3" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> STATE <span class="op">==</span> <span class="st">"welcome"</span>:</span>
 <span id="cb155-4"><a href="conditionals.html#cb155-4" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> event.<span class="bu">type</span> <span class="op">==</span> KEYDOWN <span class="kw">and</span> event.key <span class="op">==</span> K_SPACE:</span>
-<span id="cb155-5"><a href="conditionals.html#cb155-5" aria-hidden="true" tabindex="-1"></a>        STATE <span class="op">=</span> <span class="st">&quot;prepare_next_trial&quot;</span></span>
+<span id="cb155-5"><a href="conditionals.html#cb155-5" aria-hidden="true" tabindex="-1"></a>        STATE <span class="op">=</span> <span class="st">"prepare_next_trial"</span></span>
 <span id="cb155-6"><a href="conditionals.html#cb155-6" aria-hidden="true" tabindex="-1"></a>        <span class="bu">print</span>(STATE)</span></code></pre></div>
 <p>In plain English, this would be the same as telling the program to switch from state <code>"welcome"</code> to state <code>"prepare_next_trial"</code> upon pressing the <code>SPACE</code> key. To see this in action, run the Stroop Task program, and watch closely what is printed to the console. You will see that whenever the program transits into a new state, the state of the program is printed to the console.</p>
 <div id="transition-tables" class="section level3" number="3.4.1">
-<h3><span class="header-section-number">3.4.1</span> Transition tables</h3>
+<h3>
+<span class="header-section-number">3.4.1</span> Transition tables<a class="anchor" aria-label="anchor" href="#transition-tables"><i class="fas fa-link"></i></a>
+</h3>
 <p>In the previous section, you saw how conditionals regulate the flow of a computer program. Depending on specific user actions, the state of the program transits into another state. When you first encounter the code of an interactive program such as the Stroop Task program, writing out all possible state transitions in a <em>transition table</em> helps to understand the structure of the program. A transition table lists all states against each other in a table and documents how the program transits from one state to another. The empty transition table for the Stroop Task program is shown below.</p>
-<table>
-<thead>
-<tr class="header">
+<div class="inline-table"><table class="table table-sm">
+<thead><tr class="header">
 <th align="center"></th>
 <th align="center"></th>
 <th align="center">welcome</th>
@@ -618,8 +247,7 @@ then, and only then, the intended (from intendation, not intention!) code within
 <th align="center">feedback</th>
 <th align="center">goodbye</th>
 <th align="center">quit</th>
-</tr>
-</thead>
+</tr></thead>
 <tbody>
 <tr class="odd">
 <td align="center">FROM</td>
@@ -682,49 +310,48 @@ then, and only then, the intended (from intendation, not intention!) code within
 <td align="center"></td>
 </tr>
 </tbody>
-</table>
+</table></div>
 <p>By taking a close look at how the Stroop Task program transits from one state to another, the transition table can be filled in. The changing state part of the Stroop Task program is displayed below, together with the completed transition table for the Stroop Task program.</p>
-<div class="sourceCode" id="cb156"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb156-1"><a href="conditionals.html#cb156-1" aria-hidden="true" tabindex="-1"></a>KEYS     <span class="op">=</span> {<span class="st">&quot;red&quot;</span>: K_b,</span>
-<span id="cb156-2"><a href="conditionals.html#cb156-2" aria-hidden="true" tabindex="-1"></a>            <span class="st">&quot;green&quot;</span>: K_n,</span>
-<span id="cb156-3"><a href="conditionals.html#cb156-3" aria-hidden="true" tabindex="-1"></a>            <span class="st">&quot;blue&quot;</span>: K_m}</span>
+<div class="sourceCode" id="cb156"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb156-1"><a href="conditionals.html#cb156-1" aria-hidden="true" tabindex="-1"></a>KEYS     <span class="op">=</span> {<span class="st">"red"</span>: K_b,</span>
+<span id="cb156-2"><a href="conditionals.html#cb156-2" aria-hidden="true" tabindex="-1"></a>            <span class="st">"green"</span>: K_n,</span>
+<span id="cb156-3"><a href="conditionals.html#cb156-3" aria-hidden="true" tabindex="-1"></a>            <span class="st">"blue"</span>: K_m}</span>
 <span id="cb156-4"><a href="conditionals.html#cb156-4" aria-hidden="true" tabindex="-1"></a>            </span>
 <span id="cb156-5"><a href="conditionals.html#cb156-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Changing states</span></span>
 <span id="cb156-6"><a href="conditionals.html#cb156-6" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> event <span class="kw">in</span> pygame.event.get():                        </span>
-<span id="cb156-7"><a href="conditionals.html#cb156-7" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> STATE <span class="op">==</span> <span class="st">&quot;welcome&quot;</span>:</span>
+<span id="cb156-7"><a href="conditionals.html#cb156-7" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> STATE <span class="op">==</span> <span class="st">"welcome"</span>:</span>
 <span id="cb156-8"><a href="conditionals.html#cb156-8" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> event.<span class="bu">type</span> <span class="op">==</span> KEYDOWN <span class="kw">and</span> event.key <span class="op">==</span> K_SPACE:</span>
-<span id="cb156-9"><a href="conditionals.html#cb156-9" aria-hidden="true" tabindex="-1"></a>            STATE <span class="op">=</span> <span class="st">&quot;present_trial&quot;</span></span>
+<span id="cb156-9"><a href="conditionals.html#cb156-9" aria-hidden="true" tabindex="-1"></a>            STATE <span class="op">=</span> <span class="st">"present_trial"</span></span>
 <span id="cb156-10"><a href="conditionals.html#cb156-10" aria-hidden="true" tabindex="-1"></a>            <span class="bu">print</span>(STATE)</span>
 <span id="cb156-11"><a href="conditionals.html#cb156-11" aria-hidden="true" tabindex="-1"></a>                    </span>
-<span id="cb156-12"><a href="conditionals.html#cb156-12" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> STATE <span class="op">==</span> <span class="st">&quot;present_trial&quot;</span>:</span>
+<span id="cb156-12"><a href="conditionals.html#cb156-12" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> STATE <span class="op">==</span> <span class="st">"present_trial"</span>:</span>
 <span id="cb156-13"><a href="conditionals.html#cb156-13" aria-hidden="true" tabindex="-1"></a>        trial_number <span class="op">=</span> trial_number <span class="op">+</span> <span class="dv">1</span></span>
 <span id="cb156-14"><a href="conditionals.html#cb156-14" aria-hidden="true" tabindex="-1"></a>        this_word  <span class="op">=</span> pick_color()</span>
 <span id="cb156-15"><a href="conditionals.html#cb156-15" aria-hidden="true" tabindex="-1"></a>        this_color <span class="op">=</span> pick_color()</span>
 <span id="cb156-16"><a href="conditionals.html#cb156-16" aria-hidden="true" tabindex="-1"></a>        time_when_presented <span class="op">=</span> time()</span>
-<span id="cb156-17"><a href="conditionals.html#cb156-17" aria-hidden="true" tabindex="-1"></a>        STATE <span class="op">=</span> <span class="st">&quot;wait_for_response&quot;</span></span>
+<span id="cb156-17"><a href="conditionals.html#cb156-17" aria-hidden="true" tabindex="-1"></a>        STATE <span class="op">=</span> <span class="st">"wait_for_response"</span></span>
 <span id="cb156-18"><a href="conditionals.html#cb156-18" aria-hidden="true" tabindex="-1"></a>        <span class="bu">print</span>(STATE)</span>
 <span id="cb156-19"><a href="conditionals.html#cb156-19" aria-hidden="true" tabindex="-1"></a>                    </span>
-<span id="cb156-20"><a href="conditionals.html#cb156-20" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> STATE <span class="op">==</span> <span class="st">&quot;wait_for_response&quot;</span>:</span>
+<span id="cb156-20"><a href="conditionals.html#cb156-20" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> STATE <span class="op">==</span> <span class="st">"wait_for_response"</span>:</span>
 <span id="cb156-21"><a href="conditionals.html#cb156-21" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> event.<span class="bu">type</span> <span class="op">==</span> KEYDOWN <span class="kw">and</span> event.key <span class="kw">in</span> KEYS.values():</span>
 <span id="cb156-22"><a href="conditionals.html#cb156-22" aria-hidden="true" tabindex="-1"></a>            time_when_reacted <span class="op">=</span> time()</span>
 <span id="cb156-23"><a href="conditionals.html#cb156-23" aria-hidden="true" tabindex="-1"></a>            this_reaction_time <span class="op">=</span> time_when_reacted <span class="op">-</span> time_when_presented</span>
 <span id="cb156-24"><a href="conditionals.html#cb156-24" aria-hidden="true" tabindex="-1"></a>            this_correctness <span class="op">=</span> (event.key <span class="op">==</span> KEYS[this_color])</span>
-<span id="cb156-25"><a href="conditionals.html#cb156-25" aria-hidden="true" tabindex="-1"></a>            STATE <span class="op">=</span> <span class="st">&quot;feedback&quot;</span></span>
+<span id="cb156-25"><a href="conditionals.html#cb156-25" aria-hidden="true" tabindex="-1"></a>            STATE <span class="op">=</span> <span class="st">"feedback"</span></span>
 <span id="cb156-26"><a href="conditionals.html#cb156-26" aria-hidden="true" tabindex="-1"></a>            <span class="bu">print</span>(STATE)</span>
 <span id="cb156-27"><a href="conditionals.html#cb156-27" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb156-28"><a href="conditionals.html#cb156-28" aria-hidden="true" tabindex="-1"></a>                </span>
-<span id="cb156-29"><a href="conditionals.html#cb156-29" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> STATE <span class="op">==</span> <span class="st">&quot;feedback&quot;</span>:</span>
+<span id="cb156-29"><a href="conditionals.html#cb156-29" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> STATE <span class="op">==</span> <span class="st">"feedback"</span>:</span>
 <span id="cb156-30"><a href="conditionals.html#cb156-30" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> event.<span class="bu">type</span> <span class="op">==</span> KEYDOWN <span class="kw">and</span> event.key <span class="op">==</span> K_SPACE:</span>
 <span id="cb156-31"><a href="conditionals.html#cb156-31" aria-hidden="true" tabindex="-1"></a>            <span class="cf">if</span> trial_number <span class="op">&lt;</span> <span class="dv">20</span>:</span>
-<span id="cb156-32"><a href="conditionals.html#cb156-32" aria-hidden="true" tabindex="-1"></a>                STATE <span class="op">=</span> <span class="st">&quot;present_trial&quot;</span></span>
+<span id="cb156-32"><a href="conditionals.html#cb156-32" aria-hidden="true" tabindex="-1"></a>                STATE <span class="op">=</span> <span class="st">"present_trial"</span></span>
 <span id="cb156-33"><a href="conditionals.html#cb156-33" aria-hidden="true" tabindex="-1"></a>            <span class="cf">else</span>:</span>
-<span id="cb156-34"><a href="conditionals.html#cb156-34" aria-hidden="true" tabindex="-1"></a>                STATE <span class="op">=</span> <span class="st">&quot;goodbye&quot;</span></span>
+<span id="cb156-34"><a href="conditionals.html#cb156-34" aria-hidden="true" tabindex="-1"></a>                STATE <span class="op">=</span> <span class="st">"goodbye"</span></span>
 <span id="cb156-35"><a href="conditionals.html#cb156-35" aria-hidden="true" tabindex="-1"></a>            <span class="bu">print</span>(STATE)</span>
 <span id="cb156-36"><a href="conditionals.html#cb156-36" aria-hidden="true" tabindex="-1"></a>            </span>
 <span id="cb156-37"><a href="conditionals.html#cb156-37" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> event.<span class="bu">type</span> <span class="op">==</span> QUIT:</span>
-<span id="cb156-38"><a href="conditionals.html#cb156-38" aria-hidden="true" tabindex="-1"></a>        STATE <span class="op">=</span> <span class="st">&quot;quit&quot;</span></span></code></pre></div>
-<table>
-<thead>
-<tr class="header">
+<span id="cb156-38"><a href="conditionals.html#cb156-38" aria-hidden="true" tabindex="-1"></a>        STATE <span class="op">=</span> <span class="st">"quit"</span></span></code></pre></div>
+<div class="inline-table"><table class="table table-sm">
+<thead><tr class="header">
 <th align="center"></th>
 <th align="center"></th>
 <th align="center">welcome</th>
@@ -733,8 +360,7 @@ then, and only then, the intended (from intendation, not intention!) code within
 <th align="center">feedback</th>
 <th align="center">goodbye</th>
 <th align="center">quit</th>
-</tr>
-</thead>
+</tr></thead>
 <tbody>
 <tr class="odd">
 <td align="center">FROM</td>
@@ -797,61 +423,67 @@ then, and only then, the intended (from intendation, not intention!) code within
 <td align="center"></td>
 </tr>
 </tbody>
-</table>
+</table></div>
 <p>The transition from state <code>present_trial</code> to state <code>wait_for_response</code> occurs automatically once all preparations for the trial are finished. Generally, we distinguish between two types of transitions, <em>interactive changes</em> (ITC) and <em>automatic changes</em> (ATC). While an input from the user is required in interactive state transitions, the program changes from one state to another on its own in automatic transitions. It is generally a good idea to separate ITCs from ATCs in your code to make the structure of your program more apparent.</p>
 <p>Apart from understanding another’s code, transition tables are also useful when you conceive your own program. They serve as an interaction skeleton to which you gradually add functionality as you develop your program.</p>
 </div>
 <div id="state-charts" class="section level3" number="3.4.2">
-<h3><span class="header-section-number">3.4.2</span> State charts</h3>
+<h3>
+<span class="header-section-number">3.4.2</span> State charts<a class="anchor" aria-label="anchor" href="#state-charts"><i class="fas fa-link"></i></a>
+</h3>
 <p>State charts are another tool for representing the interaction of a program. They are especially useful for developing your own programs. State charts serve as a blueprint. They depict the basic structure of your program to which you gradually add functionality. It helps to keep the basic functionality in sight while developing. You can easily get lost in small, optional features while the basic structure of your program is still unfinished. Below you see a state chart of the interaction in the Stroop Task program. States are shown as squares and conditions as diamonds. Arrows indicate the flow of the program, their labels give more information about state transition changes. Note how the state transition from <code>present_trial</code> to <code>wait_for_response</code> has no label. When you look into the code of the Stroop Task program, you will notice that the transition between these states is automatic with no further condition to be fulfilled.</p>
-<p><img src="figures/ch3statechart.png" /></p>
+<div class="inline-figure"><img src="figures/ch3statechart.png"></div>
 </div>
 </div>
 <div id="common-errors-1" class="section level2" number="3.5">
-<h2><span class="header-section-number">3.5</span> Common errors</h2>
+<h2>
+<span class="header-section-number">3.5</span> Common errors<a class="anchor" aria-label="anchor" href="#common-errors-1"><i class="fas fa-link"></i></a>
+</h2>
 <ol style="list-style-type: decimal">
 <li>Confusing the <em>assignment operator</em> (<code>=</code>) with the comparative <em>equals operator</em> (<code>==</code>).</li>
 </ol>
 <div class="sourceCode" id="cb157"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb157-1"><a href="conditionals.html#cb157-1" aria-hidden="true" tabindex="-1"></a>a <span class="op">=</span> <span class="dv">5</span></span>
 <span id="cb157-2"><a href="conditionals.html#cb157-2" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> (a <span class="op">=</span> <span class="dv">5</span>):</span>
-<span id="cb157-3"><a href="conditionals.html#cb157-3" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">&quot;Yes, a is indeed equal to 5!&quot;</span>)</span></code></pre></div>
-<div class="sourceCode" id="cb158"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb158-1"><a href="conditionals.html#cb158-1" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(<span class="st">&quot;Error: invalid syntax (&lt;string&gt;, line 2)&quot;</span>)</span></code></pre></div>
-<pre><code>## [1] &quot;Error: invalid syntax (&lt;string&gt;, line 2)&quot;</code></pre>
+<span id="cb157-3"><a href="conditionals.html#cb157-3" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">"Yes, a is indeed equal to 5!"</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb158"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/base/print.html">print</a></span><span class="op">(</span><span class="st">"Error: invalid syntax (&lt;string&gt;, line 2)"</span><span class="op">)</span></code></pre></div>
+<pre><code>## [1] "Error: invalid syntax (&lt;string&gt;, line 2)"</code></pre>
 <p>Yes, confusing the assignment operator with the comparative equals operator will be a re-occuring issue. For human beings it is just too easy to type <code>=</code> when they actually mean <code>==</code> in Python. Being a psychologist, go figure.</p>
 <ol start="2" style="list-style-type: decimal">
 <li>The most common syntax error involving <em>conditionals</em> is probably forgetting the colon at the end of the <em>head</em> of the <code>if statement</code>.</li>
 </ol>
 <div class="sourceCode" id="cb160"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb160-1"><a href="conditionals.html#cb160-1" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> (<span class="dv">1</span> <span class="op">==</span> <span class="dv">1</span>)</span>
-<span id="cb160-2"><a href="conditionals.html#cb160-2" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">&quot;Hello, World!&quot;</span>)</span></code></pre></div>
-<div class="sourceCode" id="cb161"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb161-1"><a href="conditionals.html#cb161-1" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(<span class="st">&quot;Error: invalid syntax (&lt;string&gt;, line 2)&quot;</span>)</span></code></pre></div>
-<pre><code>## [1] &quot;Error: invalid syntax (&lt;string&gt;, line 2)&quot;</code></pre>
+<span id="cb160-2"><a href="conditionals.html#cb160-2" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">"Hello, World!"</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb161"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/base/print.html">print</a></span><span class="op">(</span><span class="st">"Error: invalid syntax (&lt;string&gt;, line 2)"</span><span class="op">)</span></code></pre></div>
+<pre><code>## [1] "Error: invalid syntax (&lt;string&gt;, line 2)"</code></pre>
 <p>Whenever you encounter a syntax error in your conditionals, you should first check whether you forgot a colon.</p>
 <div class="sourceCode" id="cb163"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb163-1"><a href="conditionals.html#cb163-1" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> (<span class="dv">1</span> <span class="op">==</span> <span class="dv">1</span>):</span>
-<span id="cb163-2"><a href="conditionals.html#cb163-2" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">&quot;Hello, World!&quot;</span>)</span></code></pre></div>
+<span id="cb163-2"><a href="conditionals.html#cb163-2" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">"Hello, World!"</span>)</span></code></pre></div>
 <ol start="3" style="list-style-type: decimal">
 <li>Exclusively using <code>if clauses</code> in a chain of conditionals. This is a tricky one because the consequences may not immediately be apparent. Plus, no error is necessarily thrown. Still, you program somehow does not do what you expect it to do. In truth, exclusively using <code>if clauses</code> is not wrong in itself; but chances are high that you intended to use a chain of <code>if/elif clauses</code> instead. Let’s take a look at the following two code snippets to illustrate the difference between a chain of <code>if clauses</code> and a chain of <code>if/elif clauses</code>.</li>
 </ol>
 <div class="sourceCode" id="cb164"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb164-1"><a href="conditionals.html#cb164-1" aria-hidden="true" tabindex="-1"></a>a <span class="op">=</span> <span class="dv">6</span></span>
 <span id="cb164-2"><a href="conditionals.html#cb164-2" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> (a <span class="op">%</span> <span class="dv">2</span> <span class="op">==</span> <span class="dv">0</span>):</span>
-<span id="cb164-3"><a href="conditionals.html#cb164-3" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">&quot;a is divisible by 2&quot;</span>)</span>
+<span id="cb164-3"><a href="conditionals.html#cb164-3" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">"a is divisible by 2"</span>)</span>
 <span id="cb164-4"><a href="conditionals.html#cb164-4" aria-hidden="true" tabindex="-1"></a><span class="cf">elif</span> (a <span class="op">%</span> <span class="dv">3</span> <span class="op">==</span> <span class="dv">0</span>):</span>
-<span id="cb164-5"><a href="conditionals.html#cb164-5" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">&quot;a is divisible by 3&quot;</span>)</span>
+<span id="cb164-5"><a href="conditionals.html#cb164-5" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">"a is divisible by 3"</span>)</span>
 <span id="cb164-6"><a href="conditionals.html#cb164-6" aria-hidden="true" tabindex="-1"></a><span class="cf">elif</span> (a <span class="op">%</span> <span class="dv">6</span> <span class="op">==</span> <span class="dv">0</span>):</span>
-<span id="cb164-7"><a href="conditionals.html#cb164-7" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">&quot;a is divisible by 6&quot;</span>)</span>
+<span id="cb164-7"><a href="conditionals.html#cb164-7" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">"a is divisible by 6"</span>)</span>
 <span id="cb164-8"><a href="conditionals.html#cb164-8" aria-hidden="true" tabindex="-1"></a><span class="cf">else</span>:</span>
-<span id="cb164-9"><a href="conditionals.html#cb164-9" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">&quot;a is not divisible by 2, 3 or 6&quot;</span>)</span></code></pre></div>
+<span id="cb164-9"><a href="conditionals.html#cb164-9" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">"a is not divisible by 2, 3 or 6"</span>)</span></code></pre></div>
 <pre><code>## a is divisible by 2</code></pre>
 <div class="sourceCode" id="cb166"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb166-1"><a href="conditionals.html#cb166-1" aria-hidden="true" tabindex="-1"></a>a <span class="op">=</span> <span class="dv">6</span></span>
 <span id="cb166-2"><a href="conditionals.html#cb166-2" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> (a <span class="op">%</span> <span class="dv">2</span> <span class="op">==</span> <span class="dv">0</span>):</span>
-<span id="cb166-3"><a href="conditionals.html#cb166-3" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">&quot;a is divisible by 2&quot;</span>)</span></code></pre></div>
+<span id="cb166-3"><a href="conditionals.html#cb166-3" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">"a is divisible by 2"</span>)</span></code></pre></div>
 <pre><code>## a is divisible by 2</code></pre>
 <div class="sourceCode" id="cb168"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb168-1"><a href="conditionals.html#cb168-1" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> (a <span class="op">%</span> <span class="dv">3</span> <span class="op">==</span> <span class="dv">0</span>):</span>
-<span id="cb168-2"><a href="conditionals.html#cb168-2" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">&quot;a is divisible by 3&quot;</span>)</span></code></pre></div>
+<span id="cb168-2"><a href="conditionals.html#cb168-2" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">"a is divisible by 3"</span>)</span></code></pre></div>
 <pre><code>## a is divisible by 3</code></pre>
 <div class="sourceCode" id="cb170"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb170-1"><a href="conditionals.html#cb170-1" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> (a <span class="op">%</span> <span class="dv">6</span> <span class="op">==</span> <span class="dv">0</span>):</span>
-<span id="cb170-2"><a href="conditionals.html#cb170-2" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">&quot;a is divisible by 6&quot;</span>)</span>
+<span id="cb170-2"><a href="conditionals.html#cb170-2" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">"a is divisible by 6"</span>)</span>
 <span id="cb170-3"><a href="conditionals.html#cb170-3" aria-hidden="true" tabindex="-1"></a><span class="cf">else</span>:</span>
-<span id="cb170-4"><a href="conditionals.html#cb170-4" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">&quot;a is not divisible by 2, 3 or 6&quot;</span>)</span></code></pre></div>
+<span id="cb170-4"><a href="conditionals.html#cb170-4" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">"a is not divisible by 2, 3 or 6"</span>)</span></code></pre></div>
 <pre><code>## a is divisible by 6</code></pre>
 <p>As you can see, in the first code snippet, only the first <code>True</code> conditional branch is executed, although <code>6</code> is obviously not only divisible by <code>2</code>, but also by <code>3</code> and <code>6</code>. In the second code snippet, however, all <code>True</code> conditions are executed consecutively. Why is that?
 Well, in the first code snippet we are dealing with one single <code>if statement</code> or conditional with several subclauses ( the <code>elif</code> and <code>else</code> clauses), while the second code snippet strictly speaking consists of three individual <code>if statements</code>. These three conditionals are independent from each other and as such, are executed independently from each other. The first code snippet is read as “if <code>a</code> modulo 2 equals 0 (which is the same as saying ‘if <code>a</code> is divisible by 2’), then print this or that; however, if (and only if) <code>a</code> is not divisible by 2, then look for a different <code>True</code> condition”. In contrast, the second code snippet reads as “if <code>a</code> is divisible by 2, print this or that. Full stop. If <code>a</code> is divisible by 3, print this or that. Full stop. If <code>a</code> is divisible by 6, print this, else print that”. In a chain of <code>if clauses</code> the individual clauses are disconnected, which is why they are read as a summation of individual clauses rather than one coherent statement.</p>
@@ -866,7 +498,9 @@ Well, in the first code snippet we are dealing with one single <code>if statemen
 </ul>
 </div>
 <div id="debugging-1" class="section level2" number="3.6">
-<h2><span class="header-section-number">3.6</span> Debugging</h2>
+<h2>
+<span class="header-section-number">3.6</span> Debugging<a class="anchor" aria-label="anchor" href="#debugging-1"><i class="fas fa-link"></i></a>
+</h2>
 <p>In addition to some general good debugging practices summarized in the chapter on <a href="debugging-and-good-programming-practices.html#debugging-4">Debugging</a>, there are some strategies that are especially useful when dealing with errors originating from conditionals in your program.</p>
 <ol style="list-style-type: decimal">
 <li><p>Again, checking your assignment <code>=</code> and equals <code>==</code> operators is a good starting point when you encounter an error that you suspect to originate from your conditionals. Using an assignment <code>=</code> operator where an equals <code>==</code> operator is needed will throw a syntax error and vice versa. While you are busy checking your assignment and equals operators, also check whether you forgot any colons <code>:</code> at the end of the first line of your if statements. This will also throw a syntax error.</p></li>
@@ -875,9 +509,13 @@ Well, in the first code snippet we are dealing with one single <code>if statemen
 </ol>
 </div>
 <div id="exercises-2" class="section level2" number="3.7">
-<h2><span class="header-section-number">3.7</span> Exercises</h2>
+<h2>
+<span class="header-section-number">3.7</span> Exercises<a class="anchor" aria-label="anchor" href="#exercises-2"><i class="fas fa-link"></i></a>
+</h2>
 <div id="exercise-1.-boolean-logic" class="section level3" number="3.7.1">
-<h3><span class="header-section-number">3.7.1</span> Exercise 1. Boolean logic</h3>
+<h3>
+<span class="header-section-number">3.7.1</span> Exercise 1. Boolean logic<a class="anchor" aria-label="anchor" href="#exercise-1.-boolean-logic"><i class="fas fa-link"></i></a>
+</h3>
 <p>What is the output of the following code snippets?</p>
 <div class="sourceCode" id="cb172"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb172-1"><a href="conditionals.html#cb172-1" aria-hidden="true" tabindex="-1"></a>a <span class="op">=</span> <span class="va">True</span></span>
 <span id="cb172-2"><a href="conditionals.html#cb172-2" aria-hidden="true" tabindex="-1"></a>b <span class="op">=</span> <span class="va">False</span></span>
@@ -909,126 +547,132 @@ Well, in the first code snippet we are dealing with one single <code>if statemen
 <span id="cb178-5"><a href="conditionals.html#cb178-5" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(b <span class="op">%</span> a <span class="op">&gt;=</span> c <span class="op">-</span> (a <span class="op">+</span> b))</span></code></pre></div>
 </div>
 <div id="exercise-2.-state-charts" class="section level3" number="3.7.2">
-<h3><span class="header-section-number">3.7.2</span> Exercise 2. State charts</h3>
+<h3>
+<span class="header-section-number">3.7.2</span> Exercise 2. State charts<a class="anchor" aria-label="anchor" href="#exercise-2.-state-charts"><i class="fas fa-link"></i></a>
+</h3>
 <p>A state chart visualizes the interaction of a program. Which of the code snippets matches the state chart?</p>
-<p><img src="figures/ch3exB.png" /></p>
+<div class="inline-figure"><img src="figures/ch3exB.png"></div>
 <div class="sourceCode" id="cb179"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb179-1"><a href="conditionals.html#cb179-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Variables</span></span>
-<span id="cb179-2"><a href="conditionals.html#cb179-2" aria-hidden="true" tabindex="-1"></a>STATE <span class="op">=</span> <span class="st">&quot;A&quot;</span></span>
+<span id="cb179-2"><a href="conditionals.html#cb179-2" aria-hidden="true" tabindex="-1"></a>STATE <span class="op">=</span> <span class="st">"A"</span></span>
 <span id="cb179-3"><a href="conditionals.html#cb179-3" aria-hidden="true" tabindex="-1"></a>number_of_trials <span class="op">=</span> <span class="dv">0</span></span>
 <span id="cb179-4"><a href="conditionals.html#cb179-4" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb179-5"><a href="conditionals.html#cb179-5" aria-hidden="true" tabindex="-1"></a><span class="cf">while</span> <span class="va">True</span>:</span>
 <span id="cb179-6"><a href="conditionals.html#cb179-6" aria-hidden="true" tabindex="-1"></a>  <span class="co">#ITC</span></span>
 <span id="cb179-7"><a href="conditionals.html#cb179-7" aria-hidden="true" tabindex="-1"></a>  <span class="cf">for</span> event <span class="kw">in</span> pygame.event.get():</span>
-<span id="cb179-8"><a href="conditionals.html#cb179-8" aria-hidden="true" tabindex="-1"></a>      <span class="cf">if</span> STATE <span class="op">==</span> <span class="st">&quot;A&quot;</span>:</span>
+<span id="cb179-8"><a href="conditionals.html#cb179-8" aria-hidden="true" tabindex="-1"></a>      <span class="cf">if</span> STATE <span class="op">==</span> <span class="st">"A"</span>:</span>
 <span id="cb179-9"><a href="conditionals.html#cb179-9" aria-hidden="true" tabindex="-1"></a>          number_of_trials <span class="op">=</span> number_of_trials <span class="op">+</span> <span class="dv">1</span></span>
 <span id="cb179-10"><a href="conditionals.html#cb179-10" aria-hidden="true" tabindex="-1"></a>          <span class="cf">if</span> event.<span class="bu">type</span><span class="op">==</span>KEYDOWN <span class="kw">and</span> event.key <span class="op">==</span> K_SPACE:</span>
-<span id="cb179-11"><a href="conditionals.html#cb179-11" aria-hidden="true" tabindex="-1"></a>              STATE <span class="op">=</span> <span class="st">&quot;C&quot;</span></span>
-<span id="cb179-12"><a href="conditionals.html#cb179-12" aria-hidden="true" tabindex="-1"></a>      <span class="cf">elif</span> STATE <span class="op">==</span> <span class="st">&quot;C&quot;</span>:</span>
+<span id="cb179-11"><a href="conditionals.html#cb179-11" aria-hidden="true" tabindex="-1"></a>              STATE <span class="op">=</span> <span class="st">"C"</span></span>
+<span id="cb179-12"><a href="conditionals.html#cb179-12" aria-hidden="true" tabindex="-1"></a>      <span class="cf">elif</span> STATE <span class="op">==</span> <span class="st">"C"</span>:</span>
 <span id="cb179-13"><a href="conditionals.html#cb179-13" aria-hidden="true" tabindex="-1"></a>          <span class="cf">if</span> event.<span class="bu">type</span><span class="op">==</span>KEYDOWN <span class="kw">and</span> event.key <span class="op">==</span> K_A <span class="kw">or</span> event.key <span class="op">==</span> K_D:</span>
 <span id="cb179-14"><a href="conditionals.html#cb179-14" aria-hidden="true" tabindex="-1"></a>              arrival_at_B <span class="op">=</span> time()</span>
-<span id="cb179-15"><a href="conditionals.html#cb179-15" aria-hidden="true" tabindex="-1"></a>              STATE <span class="op">=</span> <span class="st">&quot;B&quot;</span></span>
+<span id="cb179-15"><a href="conditionals.html#cb179-15" aria-hidden="true" tabindex="-1"></a>              STATE <span class="op">=</span> <span class="st">"B"</span></span>
 <span id="cb179-16"><a href="conditionals.html#cb179-16" aria-hidden="true" tabindex="-1"></a>            </span>
 <span id="cb179-17"><a href="conditionals.html#cb179-17" aria-hidden="true" tabindex="-1"></a>  <span class="co">#ATC</span></span>
-<span id="cb179-18"><a href="conditionals.html#cb179-18" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span> STATE <span class="op">==</span> <span class="st">&quot;B&quot;</span>:</span>
+<span id="cb179-18"><a href="conditionals.html#cb179-18" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span> STATE <span class="op">==</span> <span class="st">"B"</span>:</span>
 <span id="cb179-19"><a href="conditionals.html#cb179-19" aria-hidden="true" tabindex="-1"></a>      <span class="cf">if</span> time() <span class="op">-</span> arrival_at_B <span class="op">&gt;</span> <span class="dv">3</span>:</span>
-<span id="cb179-20"><a href="conditionals.html#cb179-20" aria-hidden="true" tabindex="-1"></a>          STATE <span class="op">=</span> <span class="st">&quot;number_of_trials&quot;</span></span>
-<span id="cb179-21"><a href="conditionals.html#cb179-21" aria-hidden="true" tabindex="-1"></a>  <span class="cf">elif</span> STATE <span class="op">==</span> <span class="st">&quot;number_of_trials&quot;</span>:</span>
+<span id="cb179-20"><a href="conditionals.html#cb179-20" aria-hidden="true" tabindex="-1"></a>          STATE <span class="op">=</span> <span class="st">"number_of_trials"</span></span>
+<span id="cb179-21"><a href="conditionals.html#cb179-21" aria-hidden="true" tabindex="-1"></a>  <span class="cf">elif</span> STATE <span class="op">==</span> <span class="st">"number_of_trials"</span>:</span>
 <span id="cb179-22"><a href="conditionals.html#cb179-22" aria-hidden="true" tabindex="-1"></a>      <span class="cf">if</span> number_of_trials <span class="op">&lt;</span> <span class="dv">15</span>:</span>
-<span id="cb179-23"><a href="conditionals.html#cb179-23" aria-hidden="true" tabindex="-1"></a>          STATE <span class="op">=</span> <span class="st">&quot;A&quot;</span></span>
+<span id="cb179-23"><a href="conditionals.html#cb179-23" aria-hidden="true" tabindex="-1"></a>          STATE <span class="op">=</span> <span class="st">"A"</span></span>
 <span id="cb179-24"><a href="conditionals.html#cb179-24" aria-hidden="true" tabindex="-1"></a>      <span class="cf">else</span>:</span>
 <span id="cb179-25"><a href="conditionals.html#cb179-25" aria-hidden="true" tabindex="-1"></a>          pygame.quit()</span>
 <span id="cb179-26"><a href="conditionals.html#cb179-26" aria-hidden="true" tabindex="-1"></a>          sys.exit()</span></code></pre></div>
 <div class="sourceCode" id="cb180"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb180-1"><a href="conditionals.html#cb180-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Variables</span></span>
-<span id="cb180-2"><a href="conditionals.html#cb180-2" aria-hidden="true" tabindex="-1"></a>STATE <span class="op">=</span> <span class="st">&quot;A&quot;</span></span>
+<span id="cb180-2"><a href="conditionals.html#cb180-2" aria-hidden="true" tabindex="-1"></a>STATE <span class="op">=</span> <span class="st">"A"</span></span>
 <span id="cb180-3"><a href="conditionals.html#cb180-3" aria-hidden="true" tabindex="-1"></a>number_of_trials <span class="op">=</span> <span class="dv">0</span></span>
 <span id="cb180-4"><a href="conditionals.html#cb180-4" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb180-5"><a href="conditionals.html#cb180-5" aria-hidden="true" tabindex="-1"></a><span class="cf">while</span> <span class="va">True</span>:</span>
 <span id="cb180-6"><a href="conditionals.html#cb180-6" aria-hidden="true" tabindex="-1"></a>  <span class="co">#ITC</span></span>
 <span id="cb180-7"><a href="conditionals.html#cb180-7" aria-hidden="true" tabindex="-1"></a>  <span class="cf">for</span> event <span class="kw">in</span> pygame.event.get():</span>
-<span id="cb180-8"><a href="conditionals.html#cb180-8" aria-hidden="true" tabindex="-1"></a>      <span class="cf">if</span> STATE <span class="op">==</span> <span class="st">&quot;A&quot;</span>:</span>
+<span id="cb180-8"><a href="conditionals.html#cb180-8" aria-hidden="true" tabindex="-1"></a>      <span class="cf">if</span> STATE <span class="op">==</span> <span class="st">"A"</span>:</span>
 <span id="cb180-9"><a href="conditionals.html#cb180-9" aria-hidden="true" tabindex="-1"></a>          number_of_trials <span class="op">=</span> number_of_trials <span class="op">+</span> <span class="dv">1</span></span>
 <span id="cb180-10"><a href="conditionals.html#cb180-10" aria-hidden="true" tabindex="-1"></a>          <span class="cf">if</span> event.<span class="bu">type</span><span class="op">==</span>KEYDOWN <span class="kw">and</span> event.key <span class="op">==</span> K_SPACE:</span>
-<span id="cb180-11"><a href="conditionals.html#cb180-11" aria-hidden="true" tabindex="-1"></a>              STATE <span class="op">=</span> <span class="st">&quot;C&quot;</span></span>
-<span id="cb180-12"><a href="conditionals.html#cb180-12" aria-hidden="true" tabindex="-1"></a>      <span class="cf">elif</span> STATE <span class="op">==</span> <span class="st">&quot;C&quot;</span>:</span>
+<span id="cb180-11"><a href="conditionals.html#cb180-11" aria-hidden="true" tabindex="-1"></a>              STATE <span class="op">=</span> <span class="st">"C"</span></span>
+<span id="cb180-12"><a href="conditionals.html#cb180-12" aria-hidden="true" tabindex="-1"></a>      <span class="cf">elif</span> STATE <span class="op">==</span> <span class="st">"C"</span>:</span>
 <span id="cb180-13"><a href="conditionals.html#cb180-13" aria-hidden="true" tabindex="-1"></a>          <span class="cf">if</span> event.<span class="bu">type</span><span class="op">==</span>KEYDOWN <span class="kw">and</span> event.key <span class="op">==</span> K_A <span class="kw">and</span> event.key <span class="op">==</span> K_D:</span>
 <span id="cb180-14"><a href="conditionals.html#cb180-14" aria-hidden="true" tabindex="-1"></a>              arrival_at_B <span class="op">=</span> time()</span>
-<span id="cb180-15"><a href="conditionals.html#cb180-15" aria-hidden="true" tabindex="-1"></a>              STATE <span class="op">=</span> <span class="st">&quot;B&quot;</span></span>
+<span id="cb180-15"><a href="conditionals.html#cb180-15" aria-hidden="true" tabindex="-1"></a>              STATE <span class="op">=</span> <span class="st">"B"</span></span>
 <span id="cb180-16"><a href="conditionals.html#cb180-16" aria-hidden="true" tabindex="-1"></a>          <span class="cf">else</span>:</span>
 <span id="cb180-17"><a href="conditionals.html#cb180-17" aria-hidden="true" tabindex="-1"></a>              arrival_at_B <span class="op">=</span> time()</span>
-<span id="cb180-18"><a href="conditionals.html#cb180-18" aria-hidden="true" tabindex="-1"></a>              STATE <span class="op">=</span> <span class="st">&quot;B&quot;</span></span>
+<span id="cb180-18"><a href="conditionals.html#cb180-18" aria-hidden="true" tabindex="-1"></a>              STATE <span class="op">=</span> <span class="st">"B"</span></span>
 <span id="cb180-19"><a href="conditionals.html#cb180-19" aria-hidden="true" tabindex="-1"></a>            </span>
 <span id="cb180-20"><a href="conditionals.html#cb180-20" aria-hidden="true" tabindex="-1"></a>  <span class="co">#ATC</span></span>
-<span id="cb180-21"><a href="conditionals.html#cb180-21" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span> STATE <span class="op">==</span> <span class="st">&quot;B&quot;</span>:</span>
+<span id="cb180-21"><a href="conditionals.html#cb180-21" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span> STATE <span class="op">==</span> <span class="st">"B"</span>:</span>
 <span id="cb180-22"><a href="conditionals.html#cb180-22" aria-hidden="true" tabindex="-1"></a>      <span class="cf">if</span> time() <span class="op">-</span> arrival_at_B <span class="op">&gt;</span> <span class="dv">3</span>:</span>
 <span id="cb180-23"><a href="conditionals.html#cb180-23" aria-hidden="true" tabindex="-1"></a>          <span class="cf">if</span> number_of_trials <span class="op">&lt;</span> <span class="dv">15</span>:</span>
-<span id="cb180-24"><a href="conditionals.html#cb180-24" aria-hidden="true" tabindex="-1"></a>              STATE <span class="op">=</span> <span class="st">&quot;A&quot;</span></span>
+<span id="cb180-24"><a href="conditionals.html#cb180-24" aria-hidden="true" tabindex="-1"></a>              STATE <span class="op">=</span> <span class="st">"A"</span></span>
 <span id="cb180-25"><a href="conditionals.html#cb180-25" aria-hidden="true" tabindex="-1"></a>          <span class="cf">else</span>:</span>
 <span id="cb180-26"><a href="conditionals.html#cb180-26" aria-hidden="true" tabindex="-1"></a>              pygame.quit()</span>
 <span id="cb180-27"><a href="conditionals.html#cb180-27" aria-hidden="true" tabindex="-1"></a>              sys.exit()</span></code></pre></div>
 <div class="sourceCode" id="cb181"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb181-1"><a href="conditionals.html#cb181-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Variables</span></span>
-<span id="cb181-2"><a href="conditionals.html#cb181-2" aria-hidden="true" tabindex="-1"></a>STATE <span class="op">=</span> <span class="st">&quot;A&quot;</span></span>
+<span id="cb181-2"><a href="conditionals.html#cb181-2" aria-hidden="true" tabindex="-1"></a>STATE <span class="op">=</span> <span class="st">"A"</span></span>
 <span id="cb181-3"><a href="conditionals.html#cb181-3" aria-hidden="true" tabindex="-1"></a>number_of_trials <span class="op">=</span> <span class="dv">0</span></span>
 <span id="cb181-4"><a href="conditionals.html#cb181-4" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb181-5"><a href="conditionals.html#cb181-5" aria-hidden="true" tabindex="-1"></a><span class="cf">while</span> <span class="va">True</span>:</span>
 <span id="cb181-6"><a href="conditionals.html#cb181-6" aria-hidden="true" tabindex="-1"></a>  <span class="co">#ITC</span></span>
 <span id="cb181-7"><a href="conditionals.html#cb181-7" aria-hidden="true" tabindex="-1"></a>  <span class="cf">for</span> event <span class="kw">in</span> pygame.event.get():</span>
-<span id="cb181-8"><a href="conditionals.html#cb181-8" aria-hidden="true" tabindex="-1"></a>      <span class="cf">if</span> STATE <span class="op">==</span> <span class="st">&quot;A&quot;</span>:</span>
+<span id="cb181-8"><a href="conditionals.html#cb181-8" aria-hidden="true" tabindex="-1"></a>      <span class="cf">if</span> STATE <span class="op">==</span> <span class="st">"A"</span>:</span>
 <span id="cb181-9"><a href="conditionals.html#cb181-9" aria-hidden="true" tabindex="-1"></a>          number_of_trials <span class="op">=</span> number_of_trials <span class="op">+</span> <span class="dv">1</span></span>
 <span id="cb181-10"><a href="conditionals.html#cb181-10" aria-hidden="true" tabindex="-1"></a>          <span class="cf">if</span> event.<span class="bu">type</span><span class="op">==</span>KEYDOWN <span class="kw">and</span> event.key <span class="op">==</span> K_SPACE:</span>
-<span id="cb181-11"><a href="conditionals.html#cb181-11" aria-hidden="true" tabindex="-1"></a>              STATE <span class="op">=</span> <span class="st">&quot;C&quot;</span></span>
-<span id="cb181-12"><a href="conditionals.html#cb181-12" aria-hidden="true" tabindex="-1"></a>      <span class="cf">elif</span> STATE <span class="op">==</span> <span class="st">&quot;C&quot;</span>:</span>
+<span id="cb181-11"><a href="conditionals.html#cb181-11" aria-hidden="true" tabindex="-1"></a>              STATE <span class="op">=</span> <span class="st">"C"</span></span>
+<span id="cb181-12"><a href="conditionals.html#cb181-12" aria-hidden="true" tabindex="-1"></a>      <span class="cf">elif</span> STATE <span class="op">==</span> <span class="st">"C"</span>:</span>
 <span id="cb181-13"><a href="conditionals.html#cb181-13" aria-hidden="true" tabindex="-1"></a>          <span class="cf">if</span> event.<span class="bu">type</span><span class="op">==</span>KEYDOWN <span class="kw">and</span> event.key <span class="op">==</span> K_A <span class="kw">or</span> event.key <span class="op">==</span> K_D:</span>
 <span id="cb181-14"><a href="conditionals.html#cb181-14" aria-hidden="true" tabindex="-1"></a>              arrival_at_B <span class="op">=</span> time()</span>
-<span id="cb181-15"><a href="conditionals.html#cb181-15" aria-hidden="true" tabindex="-1"></a>              STATE <span class="op">=</span> <span class="st">&quot;B&quot;</span></span>
+<span id="cb181-15"><a href="conditionals.html#cb181-15" aria-hidden="true" tabindex="-1"></a>              STATE <span class="op">=</span> <span class="st">"B"</span></span>
 <span id="cb181-16"><a href="conditionals.html#cb181-16" aria-hidden="true" tabindex="-1"></a>            </span>
 <span id="cb181-17"><a href="conditionals.html#cb181-17" aria-hidden="true" tabindex="-1"></a>  <span class="co">#ATC</span></span>
-<span id="cb181-18"><a href="conditionals.html#cb181-18" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span> STATE <span class="op">==</span> <span class="st">&quot;B&quot;</span>:</span>
+<span id="cb181-18"><a href="conditionals.html#cb181-18" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span> STATE <span class="op">==</span> <span class="st">"B"</span>:</span>
 <span id="cb181-19"><a href="conditionals.html#cb181-19" aria-hidden="true" tabindex="-1"></a>      <span class="cf">if</span> time() <span class="op">-</span> arrival_at_B <span class="op">&gt;</span> <span class="dv">3</span>:</span>
 <span id="cb181-20"><a href="conditionals.html#cb181-20" aria-hidden="true" tabindex="-1"></a>          <span class="cf">if</span> number_of_trials <span class="op">&lt;</span> <span class="dv">15</span>:</span>
-<span id="cb181-21"><a href="conditionals.html#cb181-21" aria-hidden="true" tabindex="-1"></a>              STATE <span class="op">=</span> <span class="st">&quot;A&quot;</span></span>
+<span id="cb181-21"><a href="conditionals.html#cb181-21" aria-hidden="true" tabindex="-1"></a>              STATE <span class="op">=</span> <span class="st">"A"</span></span>
 <span id="cb181-22"><a href="conditionals.html#cb181-22" aria-hidden="true" tabindex="-1"></a>          <span class="cf">else</span>:</span>
 <span id="cb181-23"><a href="conditionals.html#cb181-23" aria-hidden="true" tabindex="-1"></a>              pygame.quit()</span>
 <span id="cb181-24"><a href="conditionals.html#cb181-24" aria-hidden="true" tabindex="-1"></a>              sys.exit()</span></code></pre></div>
 </div>
 <div id="exercise-3.-transition-tables" class="section level3" number="3.7.3">
-<h3><span class="header-section-number">3.7.3</span> Exercise 3. Transition tables</h3>
+<h3>
+<span class="header-section-number">3.7.3</span> Exercise 3. Transition tables<a class="anchor" aria-label="anchor" href="#exercise-3.-transition-tables"><i class="fas fa-link"></i></a>
+</h3>
 <p>For the following code snippet, make a transition table.</p>
-<div class="sourceCode" id="cb182"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb182-1"><a href="conditionals.html#cb182-1" aria-hidden="true" tabindex="-1"></a>STATE <span class="op">=</span> <span class="st">&quot;A&quot;</span></span>
+<div class="sourceCode" id="cb182"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb182-1"><a href="conditionals.html#cb182-1" aria-hidden="true" tabindex="-1"></a>STATE <span class="op">=</span> <span class="st">"A"</span></span>
 <span id="cb182-2"><a href="conditionals.html#cb182-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb182-3"><a href="conditionals.html#cb182-3" aria-hidden="true" tabindex="-1"></a><span class="cf">while</span> <span class="va">True</span>:</span>
 <span id="cb182-4"><a href="conditionals.html#cb182-4" aria-hidden="true" tabindex="-1"></a>    <span class="co">#ITC</span></span>
 <span id="cb182-5"><a href="conditionals.html#cb182-5" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> event <span class="kw">in</span> pygame.event.get():                        </span>
-<span id="cb182-6"><a href="conditionals.html#cb182-6" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> STATE <span class="op">==</span> <span class="st">&quot;A&quot;</span>:</span>
+<span id="cb182-6"><a href="conditionals.html#cb182-6" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> STATE <span class="op">==</span> <span class="st">"A"</span>:</span>
 <span id="cb182-7"><a href="conditionals.html#cb182-7" aria-hidden="true" tabindex="-1"></a>            count <span class="op">=</span> <span class="dv">0</span></span>
 <span id="cb182-8"><a href="conditionals.html#cb182-8" aria-hidden="true" tabindex="-1"></a>            <span class="cf">if</span> event.<span class="bu">type</span> <span class="op">==</span> KEYDOWN <span class="kw">and</span> event.key <span class="op">==</span> K_w:</span>
-<span id="cb182-9"><a href="conditionals.html#cb182-9" aria-hidden="true" tabindex="-1"></a>                STATE <span class="op">=</span> <span class="st">&quot;B&quot;</span></span>
+<span id="cb182-9"><a href="conditionals.html#cb182-9" aria-hidden="true" tabindex="-1"></a>                STATE <span class="op">=</span> <span class="st">"B"</span></span>
 <span id="cb182-10"><a href="conditionals.html#cb182-10" aria-hidden="true" tabindex="-1"></a>                <span class="bu">print</span>(STATE)</span>
-<span id="cb182-11"><a href="conditionals.html#cb182-11" aria-hidden="true" tabindex="-1"></a>        <span class="cf">elif</span> STATE <span class="op">==</span> <span class="st">&quot;B&quot;</span>:</span>
+<span id="cb182-11"><a href="conditionals.html#cb182-11" aria-hidden="true" tabindex="-1"></a>        <span class="cf">elif</span> STATE <span class="op">==</span> <span class="st">"B"</span>:</span>
 <span id="cb182-12"><a href="conditionals.html#cb182-12" aria-hidden="true" tabindex="-1"></a>            count <span class="op">=</span> count <span class="op">+</span> <span class="dv">1</span></span>
 <span id="cb182-13"><a href="conditionals.html#cb182-13" aria-hidden="true" tabindex="-1"></a>            <span class="cf">if</span> event.<span class="bu">type</span> <span class="op">==</span> KEYDOWN <span class="kw">and</span> event.key <span class="op">==</span> K_a:</span>
 <span id="cb182-14"><a href="conditionals.html#cb182-14" aria-hidden="true" tabindex="-1"></a>                timer <span class="op">=</span> time()</span>
-<span id="cb182-15"><a href="conditionals.html#cb182-15" aria-hidden="true" tabindex="-1"></a>                STATE <span class="op">=</span> <span class="st">&quot;C&quot;</span></span>
+<span id="cb182-15"><a href="conditionals.html#cb182-15" aria-hidden="true" tabindex="-1"></a>                STATE <span class="op">=</span> <span class="st">"C"</span></span>
 <span id="cb182-16"><a href="conditionals.html#cb182-16" aria-hidden="true" tabindex="-1"></a>                <span class="bu">print</span>(STATE)</span>
-<span id="cb182-17"><a href="conditionals.html#cb182-17" aria-hidden="true" tabindex="-1"></a>        <span class="cf">elif</span> STATE <span class="op">==</span> <span class="st">&quot;D&quot;</span>:</span>
+<span id="cb182-17"><a href="conditionals.html#cb182-17" aria-hidden="true" tabindex="-1"></a>        <span class="cf">elif</span> STATE <span class="op">==</span> <span class="st">"D"</span>:</span>
 <span id="cb182-18"><a href="conditionals.html#cb182-18" aria-hidden="true" tabindex="-1"></a>            <span class="cf">if</span> event.<span class="bu">type</span> <span class="op">==</span> KEYDOWN <span class="kw">and</span> event.key <span class="op">==</span> K_SPACE:</span>
 <span id="cb182-19"><a href="conditionals.html#cb182-19" aria-hidden="true" tabindex="-1"></a>                <span class="cf">if</span> count <span class="op">&lt;</span> <span class="dv">10</span>:</span>
-<span id="cb182-20"><a href="conditionals.html#cb182-20" aria-hidden="true" tabindex="-1"></a>                    STATE <span class="op">=</span> <span class="st">&quot;B&quot;</span></span>
+<span id="cb182-20"><a href="conditionals.html#cb182-20" aria-hidden="true" tabindex="-1"></a>                    STATE <span class="op">=</span> <span class="st">"B"</span></span>
 <span id="cb182-21"><a href="conditionals.html#cb182-21" aria-hidden="true" tabindex="-1"></a>                <span class="cf">else</span>:</span>
-<span id="cb182-22"><a href="conditionals.html#cb182-22" aria-hidden="true" tabindex="-1"></a>                    STATE <span class="op">=</span> <span class="st">&quot;quit&quot;</span></span>
+<span id="cb182-22"><a href="conditionals.html#cb182-22" aria-hidden="true" tabindex="-1"></a>                    STATE <span class="op">=</span> <span class="st">"quit"</span></span>
 <span id="cb182-23"><a href="conditionals.html#cb182-23" aria-hidden="true" tabindex="-1"></a>                <span class="bu">print</span>(STATE)</span>
 <span id="cb182-24"><a href="conditionals.html#cb182-24" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb182-25"><a href="conditionals.html#cb182-25" aria-hidden="true" tabindex="-1"></a>    <span class="co">#ATC</span></span>
-<span id="cb182-26"><a href="conditionals.html#cb182-26" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> STATE <span class="op">==</span> <span class="st">&quot;C&quot;</span>:</span>
+<span id="cb182-26"><a href="conditionals.html#cb182-26" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> STATE <span class="op">==</span> <span class="st">"C"</span>:</span>
 <span id="cb182-27"><a href="conditionals.html#cb182-27" aria-hidden="true" tabindex="-1"></a>        present_picture()</span>
 <span id="cb182-28"><a href="conditionals.html#cb182-28" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> time() <span class="op">-</span> timer <span class="op">&gt;</span> <span class="dv">3</span>:</span>
-<span id="cb182-29"><a href="conditionals.html#cb182-29" aria-hidden="true" tabindex="-1"></a>            STATE <span class="op">=</span> <span class="st">&quot;D&quot;</span></span>
+<span id="cb182-29"><a href="conditionals.html#cb182-29" aria-hidden="true" tabindex="-1"></a>            STATE <span class="op">=</span> <span class="st">"D"</span></span>
 <span id="cb182-30"><a href="conditionals.html#cb182-30" aria-hidden="true" tabindex="-1"></a>        <span class="bu">print</span>(STATE)</span>
-<span id="cb182-31"><a href="conditionals.html#cb182-31" aria-hidden="true" tabindex="-1"></a>    <span class="cf">elif</span> STATE <span class="op">==</span> <span class="st">&quot;quit&quot;</span>:</span>
+<span id="cb182-31"><a href="conditionals.html#cb182-31" aria-hidden="true" tabindex="-1"></a>    <span class="cf">elif</span> STATE <span class="op">==</span> <span class="st">"quit"</span>:</span>
 <span id="cb182-32"><a href="conditionals.html#cb182-32" aria-hidden="true" tabindex="-1"></a>        pygame.quit()</span>
 <span id="cb182-33"><a href="conditionals.html#cb182-33" aria-hidden="true" tabindex="-1"></a>        sys.exit()</span></code></pre></div>
 </div>
 <div id="exercise-4.-mini-programs" class="section level3" number="3.7.4">
-<h3><span class="header-section-number">3.7.4</span> Exercise 4. Mini programs</h3>
+<h3>
+<span class="header-section-number">3.7.4</span> Exercise 4. Mini programs<a class="anchor" aria-label="anchor" href="#exercise-4.-mini-programs"><i class="fas fa-link"></i></a>
+</h3>
 <p>What is the output of the following mini programs?</p>
 <pre><code>x = 5
 y = 0
@@ -1044,13 +688,14 @@ if x &gt;= 5 and y != False:
 <pre><code>x = 12
 
 if x%3 == 0:
-    print(&quot;x is divisible by 3&quot;)
+    print("x is divisible by 3")
 elif x%4 == 0:
-    print(&quot;x is divisible by 4&quot;)</code></pre>
+    print("x is divisible by 4")</code></pre>
 <ul>
 <li><code>x is divisible by 4</code></li>
-<li><code>x is divisible by 3</code><br />
-<code>x is divisible by 4</code></li>
+<li>
+<code>x is divisible by 3</code><br><code>x is divisible by 4</code>
+</li>
 <li><code>x is divisible by 3</code></li>
 </ul>
 <pre><code>x = 2
@@ -1065,39 +710,43 @@ if y + 1 == x or not x * 1 &lt;= y:
 </ul>
 </div>
 <div id="exercise-5.-following-the-control-flow" class="section level3" number="3.7.5">
-<h3><span class="header-section-number">3.7.5</span> Exercise 5. Following the control flow</h3>
+<h3>
+<span class="header-section-number">3.7.5</span> Exercise 5. Following the control flow<a class="anchor" aria-label="anchor" href="#exercise-5.-following-the-control-flow"><i class="fas fa-link"></i></a>
+</h3>
 <p>Read the following program code and try to follow its control flow. Write down the content of each <code>print statement</code>. Check your answers with the help of your python editor. <em>Hint</em>: spaces also add to the length of a string (as measured by the <code>len()</code> <em>method</em>)!</p>
-<div class="sourceCode" id="cb186"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb186-1"><a href="conditionals.html#cb186-1" aria-hidden="true" tabindex="-1"></a>myString <span class="op">=</span> <span class="st">&quot;Hello, World!&quot;</span></span>
-<span id="cb186-2"><a href="conditionals.html#cb186-2" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> <span class="bu">len</span>(myString) <span class="op">&gt;=</span> <span class="dv">13</span> <span class="kw">or</span> <span class="st">&quot;ello&quot;</span> <span class="kw">in</span> myString:</span>
-<span id="cb186-3"><a href="conditionals.html#cb186-3" aria-hidden="true" tabindex="-1"></a>    myString <span class="op">=</span> <span class="st">&quot;Hi, programming aspirant!&quot;</span></span>
-<span id="cb186-4"><a href="conditionals.html#cb186-4" aria-hidden="true" tabindex="-1"></a><span class="cf">elif</span> <span class="bu">len</span>(myString) <span class="op">&lt;=</span> <span class="dv">12</span> <span class="kw">and</span> <span class="st">&quot;ello&quot;</span> <span class="kw">in</span> myString:</span>
-<span id="cb186-5"><a href="conditionals.html#cb186-5" aria-hidden="true" tabindex="-1"></a>    myString <span class="op">=</span> <span class="st">&quot;Hello, from the other side.&quot;</span></span>
+<div class="sourceCode" id="cb186"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb186-1"><a href="conditionals.html#cb186-1" aria-hidden="true" tabindex="-1"></a>myString <span class="op">=</span> <span class="st">"Hello, World!"</span></span>
+<span id="cb186-2"><a href="conditionals.html#cb186-2" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> <span class="bu">len</span>(myString) <span class="op">&gt;=</span> <span class="dv">13</span> <span class="kw">or</span> <span class="st">"ello"</span> <span class="kw">in</span> myString:</span>
+<span id="cb186-3"><a href="conditionals.html#cb186-3" aria-hidden="true" tabindex="-1"></a>    myString <span class="op">=</span> <span class="st">"Hi, programming aspirant!"</span></span>
+<span id="cb186-4"><a href="conditionals.html#cb186-4" aria-hidden="true" tabindex="-1"></a><span class="cf">elif</span> <span class="bu">len</span>(myString) <span class="op">&lt;=</span> <span class="dv">12</span> <span class="kw">and</span> <span class="st">"ello"</span> <span class="kw">in</span> myString:</span>
+<span id="cb186-5"><a href="conditionals.html#cb186-5" aria-hidden="true" tabindex="-1"></a>    myString <span class="op">=</span> <span class="st">"Hello, from the other side."</span></span>
 <span id="cb186-6"><a href="conditionals.html#cb186-6" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(myString)</span>
 <span id="cb186-7"><a href="conditionals.html#cb186-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb186-8"><a href="conditionals.html#cb186-8" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> <span class="st">&quot;Hi&quot;</span> <span class="kw">in</span> myString:</span>
+<span id="cb186-8"><a href="conditionals.html#cb186-8" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> <span class="st">"Hi"</span> <span class="kw">in</span> myString:</span>
 <span id="cb186-9"><a href="conditionals.html#cb186-9" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> <span class="bu">len</span>(myString) <span class="op">&lt;</span> <span class="dv">25</span>:</span>
-<span id="cb186-10"><a href="conditionals.html#cb186-10" aria-hidden="true" tabindex="-1"></a>        myString <span class="op">=</span> <span class="st">&quot;Wow, my computer seems to answer!&quot;</span></span>
+<span id="cb186-10"><a href="conditionals.html#cb186-10" aria-hidden="true" tabindex="-1"></a>        myString <span class="op">=</span> <span class="st">"Wow, my computer seems to answer!"</span></span>
 <span id="cb186-11"><a href="conditionals.html#cb186-11" aria-hidden="true" tabindex="-1"></a>    <span class="cf">elif</span> <span class="bu">len</span>(myString) <span class="op">&gt;</span> <span class="dv">25</span>:</span>
-<span id="cb186-12"><a href="conditionals.html#cb186-12" aria-hidden="true" tabindex="-1"></a>        myString <span class="op">=</span> myString <span class="op">+</span> <span class="st">&quot; -- Your computer&quot;</span></span>
+<span id="cb186-12"><a href="conditionals.html#cb186-12" aria-hidden="true" tabindex="-1"></a>        myString <span class="op">=</span> myString <span class="op">+</span> <span class="st">" -- Your computer"</span></span>
 <span id="cb186-13"><a href="conditionals.html#cb186-13" aria-hidden="true" tabindex="-1"></a>    <span class="cf">else</span>:</span>
-<span id="cb186-14"><a href="conditionals.html#cb186-14" aria-hidden="true" tabindex="-1"></a>        myString <span class="op">=</span> myString <span class="op">+</span> <span class="st">&quot; How are you?&quot;</span></span>
+<span id="cb186-14"><a href="conditionals.html#cb186-14" aria-hidden="true" tabindex="-1"></a>        myString <span class="op">=</span> myString <span class="op">+</span> <span class="st">" How are you?"</span></span>
 <span id="cb186-15"><a href="conditionals.html#cb186-15" aria-hidden="true" tabindex="-1"></a><span class="cf">else</span>:</span>
 <span id="cb186-16"><a href="conditionals.html#cb186-16" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> <span class="bu">len</span>(myString) <span class="op">&lt;=</span> <span class="dv">29</span>:</span>
-<span id="cb186-17"><a href="conditionals.html#cb186-17" aria-hidden="true" tabindex="-1"></a>        myString <span class="op">=</span> <span class="st">&quot;How are you, my computer?&quot;</span></span>
-<span id="cb186-18"><a href="conditionals.html#cb186-18" aria-hidden="true" tabindex="-1"></a>    <span class="cf">elif</span> <span class="bu">len</span>(myString) <span class="op">==</span> <span class="dv">27</span> <span class="kw">and</span> <span class="st">&quot;Hello&quot;</span> <span class="kw">in</span> myString:</span>
-<span id="cb186-19"><a href="conditionals.html#cb186-19" aria-hidden="true" tabindex="-1"></a>        myString <span class="op">=</span> myString <span class="op">+</span> <span class="st">&quot; I must have called a thousand times.&quot;</span></span>
+<span id="cb186-17"><a href="conditionals.html#cb186-17" aria-hidden="true" tabindex="-1"></a>        myString <span class="op">=</span> <span class="st">"How are you, my computer?"</span></span>
+<span id="cb186-18"><a href="conditionals.html#cb186-18" aria-hidden="true" tabindex="-1"></a>    <span class="cf">elif</span> <span class="bu">len</span>(myString) <span class="op">==</span> <span class="dv">27</span> <span class="kw">and</span> <span class="st">"Hello"</span> <span class="kw">in</span> myString:</span>
+<span id="cb186-19"><a href="conditionals.html#cb186-19" aria-hidden="true" tabindex="-1"></a>        myString <span class="op">=</span> myString <span class="op">+</span> <span class="st">" I must have called a thousand times."</span></span>
 <span id="cb186-20"><a href="conditionals.html#cb186-20" aria-hidden="true" tabindex="-1"></a>    <span class="cf">else</span>:</span>
-<span id="cb186-21"><a href="conditionals.html#cb186-21" aria-hidden="true" tabindex="-1"></a>        myString <span class="op">=</span> myString <span class="op">+</span> <span class="st">&quot; -- Adele&quot;</span></span>
+<span id="cb186-21"><a href="conditionals.html#cb186-21" aria-hidden="true" tabindex="-1"></a>        myString <span class="op">=</span> myString <span class="op">+</span> <span class="st">" -- Adele"</span></span>
 <span id="cb186-22"><a href="conditionals.html#cb186-22" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(myString)</span>
 <span id="cb186-23"><a href="conditionals.html#cb186-23" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb186-24"><a href="conditionals.html#cb186-24" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> <span class="st">&quot;computer&quot;</span> <span class="kw">in</span> myString <span class="kw">or</span> <span class="bu">len</span>(myString) <span class="op">==</span> <span class="dv">38</span> <span class="kw">or</span> <span class="st">&quot;HI&quot;</span> <span class="kw">in</span> myString:</span>
-<span id="cb186-25"><a href="conditionals.html#cb186-25" aria-hidden="true" tabindex="-1"></a>    myString <span class="op">=</span> myString <span class="op">+</span> <span class="st">&quot; I myself am doing fine.&quot;</span></span>
+<span id="cb186-24"><a href="conditionals.html#cb186-24" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> <span class="st">"computer"</span> <span class="kw">in</span> myString <span class="kw">or</span> <span class="bu">len</span>(myString) <span class="op">==</span> <span class="dv">38</span> <span class="kw">or</span> <span class="st">"HI"</span> <span class="kw">in</span> myString:</span>
+<span id="cb186-25"><a href="conditionals.html#cb186-25" aria-hidden="true" tabindex="-1"></a>    myString <span class="op">=</span> myString <span class="op">+</span> <span class="st">" I myself am doing fine."</span></span>
 <span id="cb186-26"><a href="conditionals.html#cb186-26" aria-hidden="true" tabindex="-1"></a><span class="cf">else</span>:</span>
-<span id="cb186-27"><a href="conditionals.html#cb186-27" aria-hidden="true" tabindex="-1"></a>    myString <span class="op">=</span> myString <span class="op">+</span> <span class="st">&quot; I am doing just fine.&quot;</span></span>
+<span id="cb186-27"><a href="conditionals.html#cb186-27" aria-hidden="true" tabindex="-1"></a>    myString <span class="op">=</span> myString <span class="op">+</span> <span class="st">" I am doing just fine."</span></span>
 <span id="cb186-28"><a href="conditionals.html#cb186-28" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(myString)</span></code></pre></div>
 </div>
 <div id="exercise-6.-indentation" class="section level3" number="3.7.6">
-<h3><span class="header-section-number">3.7.6</span> Exercise 6. Indentation</h3>
+<h3>
+<span class="header-section-number">3.7.6</span> Exercise 6. Indentation<a class="anchor" aria-label="anchor" href="#exercise-6.-indentation"><i class="fas fa-link"></i></a>
+</h3>
 <p>Copy the following piece of code and run it. Correct all indentation errors until the code runs error-free.</p>
 <pre><code>a = 4
 if a &lt; 20 and a &gt; 0:
@@ -1105,14 +754,16 @@ if a &lt; 20 and a &gt; 0:
     a = a + 3
     else:
        a = a - 3
-        print(&quot;This is a dead end statement.&quot;)
+        print("This is a dead end statement.")
 elif a &gt; 20:
-print(&quot;This should only be printed if a exceeds 20!&quot;)
+print("This should only be printed if a exceeds 20!")
 else:
     a = 17</code></pre>
 </div>
 <div id="exercise-7.-pseudo-code-conditionals" class="section level3" number="3.7.7">
-<h3><span class="header-section-number">3.7.7</span> Exercise 7. Pseudo code conditionals</h3>
+<h3>
+<span class="header-section-number">3.7.7</span> Exercise 7. Pseudo code conditionals<a class="anchor" aria-label="anchor" href="#exercise-7.-pseudo-code-conditionals"><i class="fas fa-link"></i></a>
+</h3>
 <p>Translate the following common language sentences into <em>pseudo code</em> conditionals as in</p>
 <ul>
 <li>If it rains tomorrow, I will take an umbrella with me.</li>
@@ -1128,7 +779,9 @@ else:
 </ol>
 </div>
 <div id="exercise-8.-modify-stroop-task" class="section level3" number="3.7.8">
-<h3><span class="header-section-number">3.7.8</span> Exercise 8. Modify Stroop Task</h3>
+<h3>
+<span class="header-section-number">3.7.8</span> Exercise 8. Modify Stroop Task<a class="anchor" aria-label="anchor" href="#exercise-8.-modify-stroop-task"><i class="fas fa-link"></i></a>
+</h3>
 <p>Add a conditional to the interactive Stroop experiment so that in case the participant’s reaction time exceeds 5 milliseconds, “Come on, you can be faster!” is printed to the screen</p>
 <p>Hints:</p>
 <ul>
@@ -1138,100 +791,147 @@ else:
 </ul>
 </div>
 <div id="exercise-9.-simplify-nested-conditionals" class="section level3" number="3.7.9">
-<h3><span class="header-section-number">3.7.9</span> Exercise 9. Simplify nested conditionals</h3>
+<h3>
+<span class="header-section-number">3.7.9</span> Exercise 9. Simplify nested conditionals<a class="anchor" aria-label="anchor" href="#exercise-9.-simplify-nested-conditionals"><i class="fas fa-link"></i></a>
+</h3>
 <p>For a research project, you want to examine to what extent gender affects the influence of coffee on a person’s performance on a vigilance task. You perform matching during sampling. All females will be grouped together, and all males will form one condition.</p>
 <p>The code below represents a decision tree that matches a candidate participant on the basis of their personal details with either condition A (for females) or condition B (for males). In addition, the decision tree raises a warning if the candidate does not meet at least one of the requirements for participation.</p>
 <p>As is, the code is quite complex, including a lot of redundant lines and unneccessary nested conditionals. First, read the code carefully to figure out the requirements a candidate participant has to meet in order to participate in the study. Then, simplify the code while maintaining its functionality.</p>
 <div class="sourceCode" id="cb189"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb189-1"><a href="conditionals.html#cb189-1" aria-hidden="true" tabindex="-1"></a><span class="co">### participant details </span><span class="al">###</span></span>
 <span id="cb189-2"><a href="conditionals.html#cb189-2" aria-hidden="true" tabindex="-1"></a>age <span class="op">=</span> <span class="dv">20</span></span>
-<span id="cb189-3"><a href="conditionals.html#cb189-3" aria-hidden="true" tabindex="-1"></a>gender <span class="op">=</span> <span class="st">&quot;Male&quot;</span></span>
-<span id="cb189-4"><a href="conditionals.html#cb189-4" aria-hidden="true" tabindex="-1"></a>study <span class="op">=</span> <span class="st">&quot;Psychology&quot;</span></span>
+<span id="cb189-3"><a href="conditionals.html#cb189-3" aria-hidden="true" tabindex="-1"></a>gender <span class="op">=</span> <span class="st">"Male"</span></span>
+<span id="cb189-4"><a href="conditionals.html#cb189-4" aria-hidden="true" tabindex="-1"></a>study <span class="op">=</span> <span class="st">"Psychology"</span></span>
 <span id="cb189-5"><a href="conditionals.html#cb189-5" aria-hidden="true" tabindex="-1"></a>speaks_Dutch <span class="op">=</span> <span class="va">True</span></span>
 <span id="cb189-6"><a href="conditionals.html#cb189-6" aria-hidden="true" tabindex="-1"></a>coffee <span class="op">=</span> <span class="va">True</span></span>
-<span id="cb189-7"><a href="conditionals.html#cb189-7" aria-hidden="true" tabindex="-1"></a>condition <span class="op">=</span> <span class="st">&quot;not eligible for the experiment&quot;</span></span>
+<span id="cb189-7"><a href="conditionals.html#cb189-7" aria-hidden="true" tabindex="-1"></a>condition <span class="op">=</span> <span class="st">"not eligible for the experiment"</span></span>
 <span id="cb189-8"><a href="conditionals.html#cb189-8" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb189-9"><a href="conditionals.html#cb189-9" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> age <span class="op">&gt;=</span> <span class="dv">18</span>:</span>
 <span id="cb189-10"><a href="conditionals.html#cb189-10" aria-hidden="true" tabindex="-1"></a>    </span>
-<span id="cb189-11"><a href="conditionals.html#cb189-11" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> gender <span class="op">==</span> <span class="st">&quot;Female&quot;</span>:</span>
-<span id="cb189-12"><a href="conditionals.html#cb189-12" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> study <span class="op">==</span> <span class="st">&quot;Communication Sciences&quot;</span>:</span>
+<span id="cb189-11"><a href="conditionals.html#cb189-11" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> gender <span class="op">==</span> <span class="st">"Female"</span>:</span>
+<span id="cb189-12"><a href="conditionals.html#cb189-12" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> study <span class="op">==</span> <span class="st">"Communication Sciences"</span>:</span>
 <span id="cb189-13"><a href="conditionals.html#cb189-13" aria-hidden="true" tabindex="-1"></a>            <span class="cf">if</span> speaks_Dutch <span class="op">==</span> <span class="va">True</span>:</span>
 <span id="cb189-14"><a href="conditionals.html#cb189-14" aria-hidden="true" tabindex="-1"></a>                <span class="cf">if</span> coffee <span class="op">==</span> <span class="va">True</span>:</span>
-<span id="cb189-15"><a href="conditionals.html#cb189-15" aria-hidden="true" tabindex="-1"></a>                    condition <span class="op">=</span> <span class="st">&quot;A&quot;</span></span>
+<span id="cb189-15"><a href="conditionals.html#cb189-15" aria-hidden="true" tabindex="-1"></a>                    condition <span class="op">=</span> <span class="st">"A"</span></span>
 <span id="cb189-16"><a href="conditionals.html#cb189-16" aria-hidden="true" tabindex="-1"></a>                <span class="cf">elif</span> coffee <span class="op">==</span> <span class="va">False</span>:</span>
-<span id="cb189-17"><a href="conditionals.html#cb189-17" aria-hidden="true" tabindex="-1"></a>                    <span class="bu">print</span>(<span class="st">&quot;Participant is not eligible to take part in the experiment.&quot;</span>)                   </span>
+<span id="cb189-17"><a href="conditionals.html#cb189-17" aria-hidden="true" tabindex="-1"></a>                    <span class="bu">print</span>(<span class="st">"Participant is not eligible to take part in the experiment."</span>)                   </span>
 <span id="cb189-18"><a href="conditionals.html#cb189-18" aria-hidden="true" tabindex="-1"></a>            <span class="cf">elif</span> speaks_Dutch <span class="op">==</span> <span class="va">False</span>:</span>
-<span id="cb189-19"><a href="conditionals.html#cb189-19" aria-hidden="true" tabindex="-1"></a>                <span class="bu">print</span>(<span class="st">&quot;Participant is not eligible to take part in the experiment.&quot;</span>)</span>
+<span id="cb189-19"><a href="conditionals.html#cb189-19" aria-hidden="true" tabindex="-1"></a>                <span class="bu">print</span>(<span class="st">"Participant is not eligible to take part in the experiment."</span>)</span>
 <span id="cb189-20"><a href="conditionals.html#cb189-20" aria-hidden="true" tabindex="-1"></a>                </span>
-<span id="cb189-21"><a href="conditionals.html#cb189-21" aria-hidden="true" tabindex="-1"></a>        <span class="cf">elif</span> study <span class="op">==</span> <span class="st">&quot;Psychology&quot;</span>:</span>
+<span id="cb189-21"><a href="conditionals.html#cb189-21" aria-hidden="true" tabindex="-1"></a>        <span class="cf">elif</span> study <span class="op">==</span> <span class="st">"Psychology"</span>:</span>
 <span id="cb189-22"><a href="conditionals.html#cb189-22" aria-hidden="true" tabindex="-1"></a>            <span class="cf">if</span> speaks_Dutch <span class="op">==</span> <span class="va">True</span>:</span>
 <span id="cb189-23"><a href="conditionals.html#cb189-23" aria-hidden="true" tabindex="-1"></a>                <span class="cf">if</span> coffee <span class="op">==</span> <span class="va">True</span>:</span>
-<span id="cb189-24"><a href="conditionals.html#cb189-24" aria-hidden="true" tabindex="-1"></a>                    condition <span class="op">=</span> <span class="st">&quot;A&quot;</span></span>
+<span id="cb189-24"><a href="conditionals.html#cb189-24" aria-hidden="true" tabindex="-1"></a>                    condition <span class="op">=</span> <span class="st">"A"</span></span>
 <span id="cb189-25"><a href="conditionals.html#cb189-25" aria-hidden="true" tabindex="-1"></a>                <span class="cf">elif</span> coffee <span class="op">==</span> <span class="va">False</span>:</span>
-<span id="cb189-26"><a href="conditionals.html#cb189-26" aria-hidden="true" tabindex="-1"></a>                    <span class="bu">print</span>(<span class="st">&quot;Participant is not eligible to take part in the experiment.&quot;</span>)                   </span>
+<span id="cb189-26"><a href="conditionals.html#cb189-26" aria-hidden="true" tabindex="-1"></a>                    <span class="bu">print</span>(<span class="st">"Participant is not eligible to take part in the experiment."</span>)                   </span>
 <span id="cb189-27"><a href="conditionals.html#cb189-27" aria-hidden="true" tabindex="-1"></a>            <span class="cf">elif</span> speaks_Dutch <span class="op">==</span> <span class="va">False</span>:</span>
-<span id="cb189-28"><a href="conditionals.html#cb189-28" aria-hidden="true" tabindex="-1"></a>                <span class="bu">print</span>(<span class="st">&quot;Participant is not eligible to take part in the experiment.&quot;</span>)</span>
+<span id="cb189-28"><a href="conditionals.html#cb189-28" aria-hidden="true" tabindex="-1"></a>                <span class="bu">print</span>(<span class="st">"Participant is not eligible to take part in the experiment."</span>)</span>
 <span id="cb189-29"><a href="conditionals.html#cb189-29" aria-hidden="true" tabindex="-1"></a>        </span>
-<span id="cb189-30"><a href="conditionals.html#cb189-30" aria-hidden="true" tabindex="-1"></a>        <span class="cf">elif</span> study <span class="op">!=</span> <span class="st">&quot;Communication Sciences&quot;</span> <span class="kw">and</span> study <span class="op">!=</span> <span class="st">&quot;Psychology&quot;</span>:</span>
-<span id="cb189-31"><a href="conditionals.html#cb189-31" aria-hidden="true" tabindex="-1"></a>             <span class="bu">print</span>(<span class="st">&quot;Participant is not eligible to take part in the experiment.&quot;</span>)</span>
+<span id="cb189-30"><a href="conditionals.html#cb189-30" aria-hidden="true" tabindex="-1"></a>        <span class="cf">elif</span> study <span class="op">!=</span> <span class="st">"Communication Sciences"</span> <span class="kw">and</span> study <span class="op">!=</span> <span class="st">"Psychology"</span>:</span>
+<span id="cb189-31"><a href="conditionals.html#cb189-31" aria-hidden="true" tabindex="-1"></a>             <span class="bu">print</span>(<span class="st">"Participant is not eligible to take part in the experiment."</span>)</span>
 <span id="cb189-32"><a href="conditionals.html#cb189-32" aria-hidden="true" tabindex="-1"></a>                    </span>
-<span id="cb189-33"><a href="conditionals.html#cb189-33" aria-hidden="true" tabindex="-1"></a>    <span class="cf">elif</span> gender <span class="op">==</span> <span class="st">&quot;Male&quot;</span>:</span>
-<span id="cb189-34"><a href="conditionals.html#cb189-34" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> study <span class="op">==</span> <span class="st">&quot;Communication Sciences&quot;</span>:</span>
+<span id="cb189-33"><a href="conditionals.html#cb189-33" aria-hidden="true" tabindex="-1"></a>    <span class="cf">elif</span> gender <span class="op">==</span> <span class="st">"Male"</span>:</span>
+<span id="cb189-34"><a href="conditionals.html#cb189-34" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> study <span class="op">==</span> <span class="st">"Communication Sciences"</span>:</span>
 <span id="cb189-35"><a href="conditionals.html#cb189-35" aria-hidden="true" tabindex="-1"></a>            <span class="cf">if</span> speaks_Dutch <span class="op">==</span> <span class="va">True</span>:</span>
 <span id="cb189-36"><a href="conditionals.html#cb189-36" aria-hidden="true" tabindex="-1"></a>                <span class="cf">if</span> coffee <span class="op">==</span> <span class="va">True</span>:</span>
-<span id="cb189-37"><a href="conditionals.html#cb189-37" aria-hidden="true" tabindex="-1"></a>                    condition <span class="op">=</span> <span class="st">&quot;B&quot;</span></span>
+<span id="cb189-37"><a href="conditionals.html#cb189-37" aria-hidden="true" tabindex="-1"></a>                    condition <span class="op">=</span> <span class="st">"B"</span></span>
 <span id="cb189-38"><a href="conditionals.html#cb189-38" aria-hidden="true" tabindex="-1"></a>                <span class="cf">elif</span> coffee <span class="op">==</span> <span class="va">False</span>:</span>
-<span id="cb189-39"><a href="conditionals.html#cb189-39" aria-hidden="true" tabindex="-1"></a>                    <span class="bu">print</span>(<span class="st">&quot;Participant is not eligible to take part in the experiment.&quot;</span>)                   </span>
+<span id="cb189-39"><a href="conditionals.html#cb189-39" aria-hidden="true" tabindex="-1"></a>                    <span class="bu">print</span>(<span class="st">"Participant is not eligible to take part in the experiment."</span>)                   </span>
 <span id="cb189-40"><a href="conditionals.html#cb189-40" aria-hidden="true" tabindex="-1"></a>            <span class="cf">elif</span> speaks_Dutch <span class="op">==</span> <span class="va">False</span>:</span>
-<span id="cb189-41"><a href="conditionals.html#cb189-41" aria-hidden="true" tabindex="-1"></a>                <span class="bu">print</span>(<span class="st">&quot;Participant is not eligible to take part in the experiment.&quot;</span>)</span>
+<span id="cb189-41"><a href="conditionals.html#cb189-41" aria-hidden="true" tabindex="-1"></a>                <span class="bu">print</span>(<span class="st">"Participant is not eligible to take part in the experiment."</span>)</span>
 <span id="cb189-42"><a href="conditionals.html#cb189-42" aria-hidden="true" tabindex="-1"></a>                </span>
-<span id="cb189-43"><a href="conditionals.html#cb189-43" aria-hidden="true" tabindex="-1"></a>        <span class="cf">elif</span> study <span class="op">==</span> <span class="st">&quot;Psychology&quot;</span>:</span>
+<span id="cb189-43"><a href="conditionals.html#cb189-43" aria-hidden="true" tabindex="-1"></a>        <span class="cf">elif</span> study <span class="op">==</span> <span class="st">"Psychology"</span>:</span>
 <span id="cb189-44"><a href="conditionals.html#cb189-44" aria-hidden="true" tabindex="-1"></a>            <span class="cf">if</span> speaks_Dutch <span class="op">==</span> <span class="va">True</span>:</span>
 <span id="cb189-45"><a href="conditionals.html#cb189-45" aria-hidden="true" tabindex="-1"></a>                <span class="cf">if</span> coffee <span class="op">==</span> <span class="va">True</span>:</span>
-<span id="cb189-46"><a href="conditionals.html#cb189-46" aria-hidden="true" tabindex="-1"></a>                    condition <span class="op">=</span> <span class="st">&quot;B&quot;</span></span>
+<span id="cb189-46"><a href="conditionals.html#cb189-46" aria-hidden="true" tabindex="-1"></a>                    condition <span class="op">=</span> <span class="st">"B"</span></span>
 <span id="cb189-47"><a href="conditionals.html#cb189-47" aria-hidden="true" tabindex="-1"></a>                <span class="cf">elif</span> coffee <span class="op">==</span> <span class="va">False</span>:</span>
-<span id="cb189-48"><a href="conditionals.html#cb189-48" aria-hidden="true" tabindex="-1"></a>                    <span class="bu">print</span>(<span class="st">&quot;Participant is not eligible to take part in the experiment.&quot;</span>)                   </span>
+<span id="cb189-48"><a href="conditionals.html#cb189-48" aria-hidden="true" tabindex="-1"></a>                    <span class="bu">print</span>(<span class="st">"Participant is not eligible to take part in the experiment."</span>)                   </span>
 <span id="cb189-49"><a href="conditionals.html#cb189-49" aria-hidden="true" tabindex="-1"></a>            <span class="cf">elif</span> speaks_Dutch <span class="op">==</span> <span class="va">False</span>:</span>
-<span id="cb189-50"><a href="conditionals.html#cb189-50" aria-hidden="true" tabindex="-1"></a>                <span class="bu">print</span>(<span class="st">&quot;Participant is not eligible to take part in the experiment.&quot;</span>)</span>
+<span id="cb189-50"><a href="conditionals.html#cb189-50" aria-hidden="true" tabindex="-1"></a>                <span class="bu">print</span>(<span class="st">"Participant is not eligible to take part in the experiment."</span>)</span>
 <span id="cb189-51"><a href="conditionals.html#cb189-51" aria-hidden="true" tabindex="-1"></a>                </span>
-<span id="cb189-52"><a href="conditionals.html#cb189-52" aria-hidden="true" tabindex="-1"></a>        <span class="cf">elif</span> study <span class="op">!=</span> <span class="st">&quot;Communication Sciences&quot;</span> <span class="kw">and</span> study <span class="op">!=</span> <span class="st">&quot;Psychology&quot;</span>:</span>
-<span id="cb189-53"><a href="conditionals.html#cb189-53" aria-hidden="true" tabindex="-1"></a>            <span class="bu">print</span>(<span class="st">&quot;Participant is not eligible to take part in the experiment.&quot;</span>)</span>
+<span id="cb189-52"><a href="conditionals.html#cb189-52" aria-hidden="true" tabindex="-1"></a>        <span class="cf">elif</span> study <span class="op">!=</span> <span class="st">"Communication Sciences"</span> <span class="kw">and</span> study <span class="op">!=</span> <span class="st">"Psychology"</span>:</span>
+<span id="cb189-53"><a href="conditionals.html#cb189-53" aria-hidden="true" tabindex="-1"></a>            <span class="bu">print</span>(<span class="st">"Participant is not eligible to take part in the experiment."</span>)</span>
 <span id="cb189-54"><a href="conditionals.html#cb189-54" aria-hidden="true" tabindex="-1"></a><span class="cf">else</span>:</span>
-<span id="cb189-55"><a href="conditionals.html#cb189-55" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">&quot;Participant is not eligible to take part in the experiment.&quot;</span>)</span></code></pre></div>
+<span id="cb189-55"><a href="conditionals.html#cb189-55" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">"Participant is not eligible to take part in the experiment."</span>)</span></code></pre></div>
 </div>
 <div id="exercise-10.-flow-chart-conditionals" class="section level3" number="3.7.10">
-<h3><span class="header-section-number">3.7.10</span> Exercise 10. Flow chart conditionals</h3>
+<h3>
+<span class="header-section-number">3.7.10</span> Exercise 10. Flow chart conditionals<a class="anchor" aria-label="anchor" href="#exercise-10.-flow-chart-conditionals"><i class="fas fa-link"></i></a>
+</h3>
 <p>Turn the following flow chart into a python script and run it. Given that the initial value of <code>n</code> is <code>-1</code>, what is the final value of <code>n</code>?</p>
-<p><img src="figures/Ch3Ex4.png" /></p>
+<div class="inline-figure"><img src="figures/Ch3Ex4.png"></div>
 </div>
 </div>
 <div id="think-further-2" class="section level2" number="3.8">
-<h2><span class="header-section-number">3.8</span> Think Further</h2>
+<h2>
+<span class="header-section-number">3.8</span> Think Further<a class="anchor" aria-label="anchor" href="#think-further-2"><i class="fas fa-link"></i></a>
+</h2>
 <ul>
-<li>For a complete list of all operator precedences in Python feel free to consult the following summary: <a href="https://docs.python.org/2/reference/expressions.html#operator-precedence">Official Python Documentation: 5.15 Operator precedence</a></li>
-<li>For an alternative explanation of the contents of this chapter, consult <a href="http://files.swaroopch.com/python/byte_of_python.pdf">A Byte of Python: Chapter 6. Operators and Expressions and Chapter 7. Control Flow</a></li>
-<li>For more detail on Conditionals, Boolean algebra and related topics, you are invited to take a look at <a href="http://openbookproject.net/thinkcs/python/english3e/conditionals.html">How to Think Like a Computer Scientist: Learning with Python 3: 5. Conditionals</a></li>
+<li>For a complete list of all operator precedences in Python feel free to consult the following summary: <a href="https://docs.python.org/2/reference/expressions.html#operator-precedence">Official Python Documentation: 5.15 Operator precedence</a>
+</li>
+<li>For an alternative explanation of the contents of this chapter, consult <a href="http://files.swaroopch.com/python/byte_of_python.pdf">A Byte of Python: Chapter 6. Operators and Expressions and Chapter 7. Control Flow</a>
+</li>
+<li>For more detail on Conditionals, Boolean algebra and related topics, you are invited to take a look at <a href="http://openbookproject.net/thinkcs/python/english3e/conditionals.html">How to Think Like a Computer Scientist: Learning with Python 3: 5. Conditionals</a>
+</li>
+</ul>
+</div>
+</div>
+  <div class="chapter-nav">
+<div class="prev"><a href="variables.html"><span class="header-section-number">2</span> Variables, values and types</a></div>
+<div class="next"><a href="lists.html"><span class="header-section-number">4</span> Lists</a></div>
+</div></main><div class="col-md-3 col-lg-2 d-none d-md-block sidebar sidebar-chapter">
+    <nav id="toc" data-toggle="toc" aria-label="On this page"><h2>On this page</h2>
+      <ul class="nav navbar-nav">
+<li><a class="nav-link" href="#conditionals"><span class="header-section-number">3</span> Conditionals</a></li>
+<li><a class="nav-link" href="#boolean-logic"><span class="header-section-number">3.1</span> Boolean logic</a></li>
+<li><a class="nav-link" href="#if-then"><span class="header-section-number">3.2</span> if this is true, then do this</a></li>
+<li><a class="nav-link" href="#else-do-that"><span class="header-section-number">3.3</span> else do that</a></li>
+<li>
+<a class="nav-link" href="#bringing-interaction-to-life-conditional-state-transitions"><span class="header-section-number">3.4</span> Bringing interaction to life: Conditional state transitions</a><ul class="nav navbar-nav">
+<li><a class="nav-link" href="#transition-tables"><span class="header-section-number">3.4.1</span> Transition tables</a></li>
+<li><a class="nav-link" href="#state-charts"><span class="header-section-number">3.4.2</span> State charts</a></li>
+</ul>
+</li>
+<li><a class="nav-link" href="#common-errors-1"><span class="header-section-number">3.5</span> Common errors</a></li>
+<li><a class="nav-link" href="#debugging-1"><span class="header-section-number">3.6</span> Debugging</a></li>
+<li>
+<a class="nav-link" href="#exercises-2"><span class="header-section-number">3.7</span> Exercises</a><ul class="nav navbar-nav">
+<li><a class="nav-link" href="#exercise-1.-boolean-logic"><span class="header-section-number">3.7.1</span> Exercise 1. Boolean logic</a></li>
+<li><a class="nav-link" href="#exercise-2.-state-charts"><span class="header-section-number">3.7.2</span> Exercise 2. State charts</a></li>
+<li><a class="nav-link" href="#exercise-3.-transition-tables"><span class="header-section-number">3.7.3</span> Exercise 3. Transition tables</a></li>
+<li><a class="nav-link" href="#exercise-4.-mini-programs"><span class="header-section-number">3.7.4</span> Exercise 4. Mini programs</a></li>
+<li><a class="nav-link" href="#exercise-5.-following-the-control-flow"><span class="header-section-number">3.7.5</span> Exercise 5. Following the control flow</a></li>
+<li><a class="nav-link" href="#exercise-6.-indentation"><span class="header-section-number">3.7.6</span> Exercise 6. Indentation</a></li>
+<li><a class="nav-link" href="#exercise-7.-pseudo-code-conditionals"><span class="header-section-number">3.7.7</span> Exercise 7. Pseudo code conditionals</a></li>
+<li><a class="nav-link" href="#exercise-8.-modify-stroop-task"><span class="header-section-number">3.7.8</span> Exercise 8. Modify Stroop Task</a></li>
+<li><a class="nav-link" href="#exercise-9.-simplify-nested-conditionals"><span class="header-section-number">3.7.9</span> Exercise 9. Simplify nested conditionals</a></li>
+<li><a class="nav-link" href="#exercise-10.-flow-chart-conditionals"><span class="header-section-number">3.7.10</span> Exercise 10. Flow chart conditionals</a></li>
+</ul>
+</li>
+<li><a class="nav-link" href="#think-further-2"><span class="header-section-number">3.8</span> Think Further</a></li>
 </ul>
 
+      <div class="book-extra">
+        <ul class="list-unstyled">
+          
+        </ul>
 </div>
-</div>
-<p style="text-align: center;">
-<a href="variables.html"><button class="btn btn-default">Previous</button></a>
-<a href="lists.html"><button class="btn btn-default">Next</button></a>
-</p>
-</div>
-</div>
-
-
+    </nav>
 </div>
 
-<script>
+</div>
+</div> <!-- .container -->
 
-// add bootstrap table styles to pandoc tables
-$(document).ready(function () {
-  $('tr.header').parent('thead').parent('table').addClass('table table-condensed');
-});
+<footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
 
-</script>
+  <div class="col-12 col-md-6 mt-3">
+    <p>"<strong>Programming for Psychologists</strong>: A course in Python" was written by Martin Schmettow and Lena Brandl. It was last built on 2021-11-01.</p>
+  </div>
 
+  <div class="col-12 col-md-6 mt-3">
+    <p>This book was built by the <a class="text-light" href="https://bookdown.org">bookdown</a> R package.</p>
+  </div>
+
+</div></div>
+</footer>
 </body>
 </html>

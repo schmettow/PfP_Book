@@ -1,488 +1,126 @@
 <!DOCTYPE html>
-<html lang="" xml:lang="">
+<html lang="en">
 <head>
-
-<meta charset="utf-8" />
-<meta name="generator" content="pandoc" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
-<meta property="og:title" content="1 Introduction | Programming Interaction for Psychologists" />
-<meta property="og:type" content="book" />
-
-
-
-<meta name="github-repo" content="schmettow/PfP_Book" />
-
-<meta name="author" content="Martin Schmettow and Lena Brandl" />
-
-<meta name="date" content="2021-11-01" />
-
-
-<meta name="description" content="1 Introduction | Programming Interaction for Psychologists">
-
-<title>1 Introduction | Programming Interaction for Psychologists</title>
-
-<script src="libs/header-attrs-2.8/header-attrs.js"></script>
-<script src="libs/jquery-1.11.3/jquery.min.js"></script>
-<meta name="viewport" content="width=device-width, initial-scale=1" />
-<link href="libs/bootstrap-3.3.5/css/bootstrap.min.css" rel="stylesheet" />
-<script src="libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
-<script src="libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
-<script src="libs/bootstrap-3.3.5/shim/respond.min.js"></script>
-<style>h1 {font-size: 34px;}
-       h1.title {font-size: 38px;}
-       h2 {font-size: 30px;}
-       h3 {font-size: 24px;}
-       h4 {font-size: 18px;}
-       h5 {font-size: 16px;}
-       h6 {font-size: 12px;}
-       code {color: inherit; background-color: rgba(0, 0, 0, 0.04);}
-       pre:not([class]) { background-color: white }</style>
-<script src="libs/navigation-1.1/tabsets.js"></script>
-<script src="libs/htmlwidgets-1.5.3/htmlwidgets.js"></script>
-<script src="libs/d3-3.3.8/d3.min.js"></script>
-<script src="libs/dagre-0.4.0/dagre-d3.min.js"></script>
-<link href="libs/mermaid-0.3.0/dist/mermaid.css" rel="stylesheet" />
-<script src="libs/mermaid-0.3.0/dist/mermaid.slim.min.js"></script>
-<link href="libs/DiagrammeR-styles-0.2/styles.css" rel="stylesheet" />
-<script src="libs/chromatography-0.1/chromatography.js"></script>
-<script src="libs/DiagrammeR-binding-1.0.6.1/DiagrammeR.js"></script>
-
-
-<style type="text/css">code{white-space: pre;}</style>
-<style type="text/css">
-pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
-pre > code.sourceCode > span:empty { height: 1.2em; }
-.sourceCode { overflow: visible; }
-code.sourceCode > span { color: inherit; text-decoration: inherit; }
-div.sourceCode { margin: 1em 0; }
-pre.sourceCode { margin: 0; }
-@media screen {
-div.sourceCode { overflow: auto; }
-}
-@media print {
-pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
-}
-pre.numberSource code
-  { counter-reset: source-line 0; }
-pre.numberSource code > span
-  { position: relative; left: -4em; counter-increment: source-line; }
-pre.numberSource code > span > a:first-child::before
-  { content: counter(source-line);
-    position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; display: inline-block;
-    -webkit-touch-callout: none; -webkit-user-select: none;
-    -khtml-user-select: none; -moz-user-select: none;
-    -ms-user-select: none; user-select: none;
-    padding: 0 4px; width: 4em;
-    color: #aaaaaa;
-  }
-pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
-div.sourceCode
-  {   }
-@media screen {
-pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
-}
-code span.al { color: #ff0000; font-weight: bold; } /* Alert */
-code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
-code span.at { color: #7d9029; } /* Attribute */
-code span.bn { color: #40a070; } /* BaseN */
-code span.bu { } /* BuiltIn */
-code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
-code span.ch { color: #4070a0; } /* Char */
-code span.cn { color: #880000; } /* Constant */
-code span.co { color: #60a0b0; font-style: italic; } /* Comment */
-code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
-code span.do { color: #ba2121; font-style: italic; } /* Documentation */
-code span.dt { color: #902000; } /* DataType */
-code span.dv { color: #40a070; } /* DecVal */
-code span.er { color: #ff0000; font-weight: bold; } /* Error */
-code span.ex { } /* Extension */
-code span.fl { color: #40a070; } /* Float */
-code span.fu { color: #06287e; } /* Function */
-code span.im { } /* Import */
-code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
-code span.kw { color: #007020; font-weight: bold; } /* Keyword */
-code span.op { color: #666666; } /* Operator */
-code span.ot { color: #007020; } /* Other */
-code span.pp { color: #bc7a00; } /* Preprocessor */
-code span.sc { color: #4070a0; } /* SpecialChar */
-code span.ss { color: #bb6688; } /* SpecialString */
-code span.st { color: #4070a0; } /* String */
-code span.va { color: #19177c; } /* Variable */
-code span.vs { color: #4070a0; } /* VerbatimString */
-code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
-</style>
-<style type="text/css">
-  pre:not([class]) {
-    background-color: white;
-  }
-</style>
-
-
-
-
-<style type = "text/css">
-.main-container {
-  max-width: 940px;
-  margin-left: auto;
-  margin-right: auto;
-}
-code {
-  color: inherit;
-  background-color: rgba(0, 0, 0, 0.04);
-}
-img {
-  max-width:100%;
-  height: auto;
-}
-/* show arrow before summary tag as in bootstrap
-TODO: remove if boostrap in updated in html_document (rmarkdown#1485) */
-details > summary {
-  display: list-item;
-  cursor: pointer;
-}
-</style>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<title>1 Introduction | Programming for Psychologists</title>
+<meta name="author" content="Martin Schmettow and Lena Brandl">
+<!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.2"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/header-attrs-2.8/header-attrs.js"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet">
+<script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.2.5.1/tabs.js"></script><script src="libs/bs3compat-0.2.5.1/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
+<script src="libs/bs4_book-1.0.0/bs4_book.js"></script><script src="libs/htmlwidgets-1.5.3/htmlwidgets.js"></script><script src="libs/d3-3.3.8/d3.min.js"></script><script src="libs/dagre-0.4.0/dagre-d3.min.js"></script><link href="libs/mermaid-0.3.0/dist/mermaid.css" rel="stylesheet">
+<script src="libs/mermaid-0.3.0/dist/mermaid.slim.min.js"></script><link href="libs/DiagrammeR-styles-0.2/styles.css" rel="stylesheet">
+<script src="libs/chromatography-0.1/chromatography.js"></script><script src="libs/DiagrammeR-binding-1.0.6.1/DiagrammeR.js"></script><script src="https://cdn.jsdelivr.net/autocomplete.js/0/autocomplete.jquery.min.js"></script><script src="https://cdn.jsdelivr.net/npm/mark.js@8.11.1/dist/mark.min.js"></script><!-- CSS -->
 </head>
+<body data-spy="scroll" data-target="#toc">
 
-<body>
-
-<div class="container-fluid main-container">
-
-
+<div class="container-fluid">
 <div class="row">
-<div class="col-sm-12">
-<div id="TOC">
-<ul>
-<li><a href="index.html#preface">Preface</a></li>
-<li><a href="intro.html#intro"><span class="toc-section-number">1</span> Introduction</a>
-<ul>
-<li><a href="intro.html#installing-a-python-environment"><span class="toc-section-number">1.1</span> Installing a Python environment</a></li>
-<li><a href="intro.html#installing-the-anaconda-python-environment"><span class="toc-section-number">1.2</span> Installing the Anaconda Python environment</a></li>
-<li><a href="intro.html#windows"><span class="toc-section-number">1.3</span> Windows</a></li>
-<li><a href="intro.html#macos"><span class="toc-section-number">1.4</span> MacOS</a></li>
-<li><a href="intro.html#testing-your-environment"><span class="toc-section-number">1.5</span> Testing your environment</a></li>
-<li><a href="intro.html#dumb_computers"><span class="toc-section-number">1.6</span> Computers are dumb</a></li>
-<li><a href="intro.html#dive-in-a-first-example"><span class="toc-section-number">1.7</span> Dive in: a first example</a></li>
-<li><a href="intro.html#batchwork"><span class="toc-section-number">1.8</span> Making an eye tracker</a>
-<ul>
-<li><a href="intro.html#yets-and-yetis"><span class="toc-section-number">1.8.1</span> YETs and Yetis</a></li>
-<li><a href="intro.html#the-eyeballing-exercise"><span class="toc-section-number">1.8.2</span> The Eyeballing exercise</a></li>
-<li><a href="intro.html#dumb-pictures"><span class="toc-section-number">1.8.3</span> Dumb pictures</a></li>
-<li><a href="intro.html#from-pixel-to-eye-tracking"><span class="toc-section-number">1.8.4</span> From pixel to eye tracking</a></li>
-<li><a href="intro.html#into-the-batch"><span class="toc-section-number">1.8.5</span> Into the batch</a></li>
-</ul></li>
-</ul></li>
-<li><a href="variables.html#variables"><span class="toc-section-number">2</span> Variables, values and types</a>
-<ul>
-<li><a href="variables.html#variables-1"><span class="toc-section-number">2.1</span> Variables</a></li>
-<li><a href="variables.html#stroop-task-variables"><span class="toc-section-number">2.2</span> Use of variables in the Stroop Task</a></li>
-<li><a href="variables.html#how-variables-are-used"><span class="toc-section-number">2.3</span> How Variables Are Used</a></li>
-<li><a href="variables.html#data-types"><span class="toc-section-number">2.4</span> Data types</a>
-<ul>
-<li><a href="variables.html#numbers"><span class="toc-section-number">2.4.1</span> Numbers</a></li>
-<li><a href="variables.html#strings"><span class="toc-section-number">2.4.2</span> Strings</a></li>
-<li><a href="variables.html#booleans"><span class="toc-section-number">2.4.3</span> Booleans</a></li>
-</ul></li>
-<li><a href="variables.html#object-variables-in-a-yeti"><span class="toc-section-number">2.5</span> Object variables in a Yeti</a></li>
-<li><a href="variables.html#common-errors"><span class="toc-section-number">2.6</span> Common errors</a></li>
-<li><a href="variables.html#debugging"><span class="toc-section-number">2.7</span> Debugging</a></li>
-<li><a href="variables.html#exercises-1"><span class="toc-section-number">2.8</span> Exercises</a>
-<ul>
-<li><a href="variables.html#exercise-1.-operators"><span class="toc-section-number">2.8.1</span> Exercise 1. Operators</a></li>
-<li><a href="variables.html#exercise-2.-values"><span class="toc-section-number">2.8.2</span> Exercise 2. Values</a></li>
-<li><a href="variables.html#exercise-3.-mini-programs"><span class="toc-section-number">2.8.3</span> Exercise 3. Mini programs</a></li>
-<li><a href="variables.html#exercise-4.-debugging"><span class="toc-section-number">2.8.4</span> Exercise 4. Debugging</a></li>
-<li><a href="variables.html#exercise-5.-string-concatenation"><span class="toc-section-number">2.8.5</span> Exercise 5. String concatenation</a></li>
-<li><a href="variables.html#exercise-6.-variable-names"><span class="toc-section-number">2.8.6</span> Exercise 6. Variable names</a></li>
-<li><a href="variables.html#exercise-7.-stroop-task-welcome-message"><span class="toc-section-number">2.8.7</span> Exercise 7. Stroop task welcome message</a></li>
-<li><a href="variables.html#exercise-8.-printing"><span class="toc-section-number">2.8.8</span> Exercise 8. Printing</a></li>
-<li><a href="variables.html#exercise-9.-using-python-as-a-calculator"><span class="toc-section-number">2.8.9</span> Exercise 9. Using Python as a calculator</a></li>
-<li><a href="variables.html#exercise-10.-a-boolean-puzzle"><span class="toc-section-number">2.8.10</span> Exercise 10. A Boolean puzzle</a></li>
-</ul></li>
-<li><a href="variables.html#think-further-1"><span class="toc-section-number">2.9</span> Think Further</a></li>
-</ul></li>
-<li><a href="conditionals.html#conditionals"><span class="toc-section-number">3</span> Conditionals</a>
-<ul>
-<li><a href="conditionals.html#boolean-logic"><span class="toc-section-number">3.1</span> Boolean logic</a></li>
-<li><a href="conditionals.html#if-then"><span class="toc-section-number">3.2</span> if this is true, then do this</a></li>
-<li><a href="conditionals.html#else-do-that"><span class="toc-section-number">3.3</span> else do that</a></li>
-<li><a href="conditionals.html#bringing-interaction-to-life-conditional-state-transitions"><span class="toc-section-number">3.4</span> Bringing interaction to life: Conditional state transitions</a>
-<ul>
-<li><a href="conditionals.html#transition-tables"><span class="toc-section-number">3.4.1</span> Transition tables</a></li>
-<li><a href="conditionals.html#state-charts"><span class="toc-section-number">3.4.2</span> State charts</a></li>
-</ul></li>
-<li><a href="conditionals.html#common-errors-1"><span class="toc-section-number">3.5</span> Common errors</a></li>
-<li><a href="conditionals.html#debugging-1"><span class="toc-section-number">3.6</span> Debugging</a></li>
-<li><a href="conditionals.html#exercises-2"><span class="toc-section-number">3.7</span> Exercises</a>
-<ul>
-<li><a href="conditionals.html#exercise-1.-boolean-logic"><span class="toc-section-number">3.7.1</span> Exercise 1. Boolean logic</a></li>
-<li><a href="conditionals.html#exercise-2.-state-charts"><span class="toc-section-number">3.7.2</span> Exercise 2. State charts</a></li>
-<li><a href="conditionals.html#exercise-3.-transition-tables"><span class="toc-section-number">3.7.3</span> Exercise 3. Transition tables</a></li>
-<li><a href="conditionals.html#exercise-4.-mini-programs"><span class="toc-section-number">3.7.4</span> Exercise 4. Mini programs</a></li>
-<li><a href="conditionals.html#exercise-5.-following-the-control-flow"><span class="toc-section-number">3.7.5</span> Exercise 5. Following the control flow</a></li>
-<li><a href="conditionals.html#exercise-6.-indentation"><span class="toc-section-number">3.7.6</span> Exercise 6. Indentation</a></li>
-<li><a href="conditionals.html#exercise-7.-pseudo-code-conditionals"><span class="toc-section-number">3.7.7</span> Exercise 7. Pseudo code conditionals</a></li>
-<li><a href="conditionals.html#exercise-8.-modify-stroop-task"><span class="toc-section-number">3.7.8</span> Exercise 8. Modify Stroop Task</a></li>
-<li><a href="conditionals.html#exercise-9.-simplify-nested-conditionals"><span class="toc-section-number">3.7.9</span> Exercise 9. Simplify nested conditionals</a></li>
-<li><a href="conditionals.html#exercise-10.-flow-chart-conditionals"><span class="toc-section-number">3.7.10</span> Exercise 10. Flow chart conditionals</a></li>
-</ul></li>
-<li><a href="conditionals.html#think-further-2"><span class="toc-section-number">3.8</span> Think Further</a></li>
-</ul></li>
-<li><a href="lists.html#lists"><span class="toc-section-number">4</span> Lists</a>
-<ul>
-<li><a href="lists.html#lists-1"><span class="toc-section-number">4.1</span> Lists</a>
-<ul>
-<li><a href="lists.html#lists-are-mutable"><span class="toc-section-number">4.1.1</span> Lists are mutable</a></li>
-</ul></li>
-<li><a href="lists.html#tuples"><span class="toc-section-number">4.2</span> Tuples</a></li>
-<li><a href="lists.html#dictionaries"><span class="toc-section-number">4.3</span> Dictionaries</a></li>
-<li><a href="lists.html#putting-collections-to-use"><span class="toc-section-number">4.4</span> Putting collections to use</a></li>
-<li><a href="lists.html#common-errors-2"><span class="toc-section-number">4.5</span> Common errors</a></li>
-<li><a href="lists.html#debugging-2"><span class="toc-section-number">4.6</span> Debugging</a></li>
-<li><a href="lists.html#exercises-3"><span class="toc-section-number">4.7</span> Exercises</a>
-<ul>
-<li><a href="lists.html#exercise-1.-indexing"><span class="toc-section-number">4.7.1</span> Exercise 1. Indexing</a></li>
-<li><a href="lists.html#exercise-2.-debugging"><span class="toc-section-number">4.7.2</span> Exercise 2. Debugging</a></li>
-<li><a href="lists.html#exercise-3.-mini-programs-1"><span class="toc-section-number">4.7.3</span> Exercise 3. Mini programs</a></li>
-<li><a href="lists.html#exercise-4.-shopping-list"><span class="toc-section-number">4.7.4</span> Exercise 4. Shopping list</a></li>
-<li><a href="lists.html#exercise-5.-dictionaries"><span class="toc-section-number">4.7.5</span> Exercise 5. Dictionaries</a></li>
-<li><a href="lists.html#exercise-6.-element-selection"><span class="toc-section-number">4.7.6</span> Exercise 6. Element selection</a></li>
-<li><a href="lists.html#exercise-7.-adjust-a-dictionary-data-set"><span class="toc-section-number">4.7.7</span> Exercise 7. Adjust a dictionary data set</a></li>
-<li><a href="lists.html#exercise-8.-a-dictionary-data-set"><span class="toc-section-number">4.7.8</span> Exercise 8. A dictionary data set</a></li>
-<li><a href="lists.html#exercise-9.-stroop-extension"><span class="toc-section-number">4.7.9</span> Exercise 9. Stroop extension</a></li>
-</ul></li>
-<li><a href="lists.html#think-further-3"><span class="toc-section-number">4.8</span> Think further</a></li>
-</ul></li>
-<li><a href="loops.html#loops"><span class="toc-section-number">5</span> Loops</a>
-<ul>
-<li><a href="loops.html#the-for-loop"><span class="toc-section-number">5.1</span> The <code>for</code> loop</a></li>
-<li><a href="loops.html#the-while-loop"><span class="toc-section-number">5.2</span> The <code>while</code> loop</a>
-<ul>
-<li><a href="loops.html#for-or-while"><span class="toc-section-number">5.2.1</span> <code>for</code> or <code>while</code>?</a></li>
-</ul></li>
-<li><a href="loops.html#the-break-statement"><span class="toc-section-number">5.3</span> The <code>break</code> statement</a></li>
-<li><a href="loops.html#controlling-the-flow-of-your-program-with-loops"><span class="toc-section-number">5.4</span> Controlling the flow of your program with loops</a></li>
-<li><a href="loops.html#common-errors-3"><span class="toc-section-number">5.5</span> Common errors</a></li>
-<li><a href="loops.html#debugging-3"><span class="toc-section-number">5.6</span> Debugging</a></li>
-<li><a href="loops.html#exercises-4"><span class="toc-section-number">5.7</span> Exercises</a>
-<ul>
-<li><a href="loops.html#exercise-1.-following-the-control-flow-i"><span class="toc-section-number">5.7.1</span> Exercise 1. Following the control flow I</a></li>
-<li><a href="loops.html#exercise-2.-debugging-i"><span class="toc-section-number">5.7.2</span> Exercise 2. Debugging I</a></li>
-<li><a href="loops.html#exercise-3.-a-guessing-game"><span class="toc-section-number">5.7.3</span> Exercise 3. A guessing game</a></li>
-<li><a href="loops.html#exercise-4.-controlling-the-flow"><span class="toc-section-number">5.7.4</span> Exercise 4. Controlling the flow</a></li>
-<li><a href="loops.html#exercise-5.-following-the-control-flow-ii"><span class="toc-section-number">5.7.5</span> Exercise 5. Following the control flow II</a></li>
-<li><a href="loops.html#exercise-6.-debugging-ii"><span class="toc-section-number">5.7.6</span> Exercise 6. Debugging II</a></li>
-<li><a href="loops.html#exercise-7.-nested-loops"><span class="toc-section-number">5.7.7</span> Exercise 7. Nested loops</a></li>
-<li><a href="loops.html#exercise-8.-data-transformation-using-loops"><span class="toc-section-number">5.7.8</span> Exercise 8. Data transformation using loops</a></li>
-<li><a href="loops.html#exercise-9.-calculating-a-mean"><span class="toc-section-number">5.7.9</span> Exercise 9. Calculating a mean</a></li>
-</ul></li>
-<li><a href="loops.html#think-further-4"><span class="toc-section-number">5.8</span> Think Further</a></li>
-</ul></li>
-<li><a href="functions.html#functions"><span class="toc-section-number">6</span> Functions</a>
-<ul>
-<li><a href="functions.html#defining-and-calling-functions"><span class="toc-section-number">6.1</span> Defining and calling functions</a></li>
-<li><a href="functions.html#function-parameters-and-arguments"><span class="toc-section-number">6.2</span> Function parameters and arguments</a></li>
-<li><a href="functions.html#the-return-statement"><span class="toc-section-number">6.3</span> The <code>return</code> statement</a></li>
-<li><a href="functions.html#functions-can-call-other-functions-and-themselves"><span class="toc-section-number">6.4</span> Functions can call other functions, and themselves</a>
-<ul>
-<li><a href="functions.html#a-word-about-recursion"><span class="toc-section-number">6.4.1</span> A word about <em>Recursion</em></a></li>
-</ul></li>
-<li><a href="functions.html#stroop-functions"><span class="toc-section-number">6.5</span> Stroop functions</a></li>
-<li><a href="functions.html#common-errors-4"><span class="toc-section-number">6.6</span> Common errors</a></li>
-<li><a href="functions.html#exercises-5"><span class="toc-section-number">6.7</span> Exercises</a>
-<ul>
-<li><a href="functions.html#exercise-1.-following-the-control-flow"><span class="toc-section-number">6.7.1</span> Exercise 1. Following the control flow</a></li>
-<li><a href="functions.html#exercise-2.-an-imperfect-list-sorting-attempt"><span class="toc-section-number">6.7.2</span> Exercise 2. An imperfect list sorting attempt</a></li>
-<li><a href="functions.html#exercise-3.-an-erroneous-sorting-algorithm"><span class="toc-section-number">6.7.3</span> Exercise 3. An erroneous sorting algorithm</a></li>
-<li><a href="functions.html#exercise-4.-chunking"><span class="toc-section-number">6.7.4</span> Exercise 4. Chunking</a></li>
-<li><a href="functions.html#exercise-5.-add-functionality-to-the-stroop-task"><span class="toc-section-number">6.7.5</span> Exercise 5. Add functionality to the stroop task</a></li>
-<li><a href="functions.html#exercise-6.-insertion-sort-algorithm"><span class="toc-section-number">6.7.6</span> Exercise 6. Insertion sort algorithm</a></li>
-</ul></li>
-<li><a href="functions.html#think-further-5"><span class="toc-section-number">6.8</span> Think further</a></li>
-<li><a href="functions.html#references"><span class="toc-section-number">6.9</span> References</a></li>
-</ul></li>
-<li><a href="data.html#data"><span class="toc-section-number">7</span> Working with data</a>
-<ul>
-<li><a href="data.html#elements-of-data-processing"><span class="toc-section-number">7.1</span> Elements of data processing</a></li>
-<li><a href="data.html#data-tables"><span class="toc-section-number">7.2</span> Data tables</a></li>
-<li><a href="data.html#down-the-sink-writing-data-files"><span class="toc-section-number">7.3</span> Down the sink: Writing data files</a></li>
-<li><a href="data.html#may-the-source-reading-data-files"><span class="toc-section-number">7.4</span> May the source …: reading data files</a></li>
-<li><a href="data.html#exercises-6"><span class="toc-section-number">7.5</span> Exercises</a>
-<ul>
-<li><a href="data.html#exercise-1"><span class="toc-section-number">7.5.1</span> Exercise 1</a></li>
-<li><a href="data.html#exercise-2"><span class="toc-section-number">7.5.2</span> Exercise 2</a></li>
-</ul></li>
-<li><a href="data.html#think-further-6"><span class="toc-section-number">7.6</span> Think further</a></li>
-<li><a href="data.html#references-1"><span class="toc-section-number">7.7</span> References</a></li>
-</ul></li>
-<li><a href="interaction.html#interaction"><span class="toc-section-number">8</span> Interaction</a>
-<ul>
-<li><a href="interaction.html#interaction-models"><span class="toc-section-number">8.1</span> Interaction models</a>
-<ul>
-<li><a href="interaction.html#identifying-states"><span class="toc-section-number">8.1.1</span> Identifying states</a></li>
-<li><a href="interaction.html#identifying-transitions"><span class="toc-section-number">8.1.2</span> Identifying transitions</a></li>
-<li><a href="interaction.html#events-user-input-and-internal-conditions"><span class="toc-section-number">8.1.3</span> Events: user input and internal conditions</a></li>
-<li><a href="interaction.html#exercises-7"><span class="toc-section-number">8.1.4</span> Exercises</a></li>
-</ul></li>
-<li><a href="interaction.html#programming-interactive-prototypes"><span class="toc-section-number">8.2</span> Programming interactive prototypes</a>
-<ul>
-<li><a href="interaction.html#interactive-transitionals"><span class="toc-section-number">8.2.1</span> Interactive transitionals</a></li>
-<li><a href="interaction.html#automatic-transitions"><span class="toc-section-number">8.2.2</span> Automatic transitions</a></li>
-<li><a href="interaction.html#the-timestamp-method"><span class="toc-section-number">8.2.3</span> The timestamp method</a></li>
-<li><a href="interaction.html#presentation-conditionals"><span class="toc-section-number">8.2.4</span> Presentation conditionals</a></li>
-</ul></li>
-<li><a href="interaction.html#interactions-in-pygame"><span class="toc-section-number">8.3</span> Interactions in Pygame</a>
-<ul>
-<li><a href="interaction.html#overall-structure"><span class="toc-section-number">8.3.1</span> Overall structure</a></li>
-<li><a href="interaction.html#the-screen-and-the-refresh-loop."><span class="toc-section-number">8.3.2</span> The screen and the refresh loop.</a></li>
-<li><a href="interaction.html#handling-user-input"><span class="toc-section-number">8.3.3</span> Handling user input</a></li>
-<li><a href="interaction.html#transitionals"><span class="toc-section-number">8.3.4</span> Transitionals</a></li>
-<li><a href="interaction.html#pygame-events"><span class="toc-section-number">8.3.5</span> Pygame events</a></li>
-</ul></li>
-<li><a href="interaction.html#presentitionals"><span class="toc-section-number">8.4</span> Presentitionals in Pygame</a>
-<ul>
-<li><a href="interaction.html#display-and-surface"><span class="toc-section-number">8.4.1</span> Display and surface</a></li>
-<li><a href="interaction.html#drawing-figures"><span class="toc-section-number">8.4.2</span> Drawing figures</a></li>
-<li><a href="interaction.html#placing-text-and-pictures"><span class="toc-section-number">8.4.3</span> Placing text and pictures</a></li>
-</ul></li>
-<li><a href="interaction.html#exercises-8"><span class="toc-section-number">8.5</span> Exercises</a>
-<ul>
-<li><a href="interaction.html#exercise-c.-transition-tables"><span class="toc-section-number">8.5.1</span> Exercise C. Transition tables</a></li>
-</ul></li>
-<li><a href="interaction.html#common-errors-5"><span class="toc-section-number">8.6</span> Common errors</a></li>
-<li><a href="interaction.html#think-further-7"><span class="toc-section-number">8.7</span> Think Further</a></li>
-</ul></li>
-<li><a href="solutions.html#solutions"><span class="toc-section-number">9</span> Solutions</a>
-<ul>
-<li><a href="solutions.html#chapter-1.-introduction"><span class="toc-section-number">9.1</span> Chapter 1. Introduction</a></li>
-<li><a href="solutions.html#chapter-2.-variables-values-and-types"><span class="toc-section-number">9.2</span> Chapter 2. Variables, values and types</a>
-<ul>
-<li><a href="solutions.html#exercise-1.-operators-1"><span class="toc-section-number">9.2.1</span> Exercise 1. Operators</a></li>
-<li><a href="solutions.html#exercise-2.-values-1"><span class="toc-section-number">9.2.2</span> Exercise 2. Values</a></li>
-<li><a href="solutions.html#exercise-3.-mini-programs-2"><span class="toc-section-number">9.2.3</span> Exercise 3. Mini programs</a></li>
-<li><a href="solutions.html#exercise-4.-debugging-1"><span class="toc-section-number">9.2.4</span> Exercise 4. Debugging</a></li>
-<li><a href="solutions.html#exercise-5.-string-concatenation-1"><span class="toc-section-number">9.2.5</span> Exercise 5. String concatenation</a></li>
-<li><a href="solutions.html#exercise-6.-variable-names-1"><span class="toc-section-number">9.2.6</span> Exercise 6. Variable names</a></li>
-<li><a href="solutions.html#exercise-7.-stroop-task-welcome-message-1"><span class="toc-section-number">9.2.7</span> Exercise 7. Stroop task welcome message</a></li>
-<li><a href="solutions.html#exercise-8.-printing-1"><span class="toc-section-number">9.2.8</span> Exercise 8. Printing</a></li>
-<li><a href="solutions.html#exercise-9.-using-python-as-calculator"><span class="toc-section-number">9.2.9</span> Exercise 9. Using Python as calculator</a></li>
-<li><a href="solutions.html#exercise-10.-a-boolean-puzzle-1"><span class="toc-section-number">9.2.10</span> Exercise 10. A Boolean puzzle</a></li>
-</ul></li>
-<li><a href="solutions.html#chapter-3.-conditionals"><span class="toc-section-number">9.3</span> Chapter 3. Conditionals</a>
-<ul>
-<li><a href="solutions.html#exercise-1.-boolean-logic-1"><span class="toc-section-number">9.3.1</span> Exercise 1. Boolean logic</a></li>
-<li><a href="solutions.html#exercise-2.-state-charts-1"><span class="toc-section-number">9.3.2</span> Exercise 2. State charts</a></li>
-<li><a href="solutions.html#exercise-3.-transition-tables-1"><span class="toc-section-number">9.3.3</span> Exercise 3. Transition tables</a></li>
-<li><a href="solutions.html#exercise-4.-mini-programs-1"><span class="toc-section-number">9.3.4</span> Exercise 4. Mini programs</a></li>
-<li><a href="solutions.html#exercise-5.-following-the-control-flow-1"><span class="toc-section-number">9.3.5</span> Exercise 5. Following the control flow</a></li>
-<li><a href="solutions.html#exercise-6.-indentation-1"><span class="toc-section-number">9.3.6</span> Exercise 6. Indentation</a></li>
-<li><a href="solutions.html#exercise-7.-pseudo-code-conditionals-1"><span class="toc-section-number">9.3.7</span> Exercise 7. Pseudo code conditionals</a></li>
-<li><a href="solutions.html#exercise-8.-modify-stroop-task-1"><span class="toc-section-number">9.3.8</span> Exercise 8. Modify Stroop Task</a></li>
-<li><a href="solutions.html#exercise-9.-simplify-nested-conditionals-1"><span class="toc-section-number">9.3.9</span> Exercise 9. Simplify nested conditionals</a></li>
-<li><a href="solutions.html#exercise-10.-flow-chart-conditionals-1"><span class="toc-section-number">9.3.10</span> Exercise 10. Flow chart conditionals</a></li>
-</ul></li>
-<li><a href="solutions.html#chapter-4.-lists"><span class="toc-section-number">9.4</span> Chapter 4. Lists</a>
-<ul>
-<li><a href="solutions.html#exercise-1.-indexing-1"><span class="toc-section-number">9.4.1</span> Exercise 1. Indexing</a></li>
-<li><a href="solutions.html#exercise-2.-debugging-1"><span class="toc-section-number">9.4.2</span> Exercise 2. Debugging</a></li>
-<li><a href="solutions.html#exercise-3.-mini-programs-3"><span class="toc-section-number">9.4.3</span> Exercise 3. Mini programs</a></li>
-<li><a href="solutions.html#exercise-1.-shopping-list"><span class="toc-section-number">9.4.4</span> Exercise 1. Shopping list</a></li>
-<li><a href="solutions.html#exercise-2.-dictionnaries"><span class="toc-section-number">9.4.5</span> Exercise 2. Dictionnaries</a></li>
-<li><a href="solutions.html#exercise-3.-selecting-elements"><span class="toc-section-number">9.4.6</span> Exercise 3. Selecting elements</a></li>
-<li><a href="solutions.html#exercise-4.-adjust-a-dictionnary-data-set"><span class="toc-section-number">9.4.7</span> Exercise 4. Adjust a dictionnary data set</a></li>
-<li><a href="solutions.html#exercise-5.-a-dictionnary-data-set"><span class="toc-section-number">9.4.8</span> Exercise 5. A dictionnary data set</a></li>
-<li><a href="solutions.html#exercise-6.-stroop-extension"><span class="toc-section-number">9.4.9</span> Exercise 6. Stroop extension</a></li>
-</ul></li>
-<li><a href="solutions.html#chapter-5.-loops"><span class="toc-section-number">9.5</span> Chapter 5. Loops</a>
-<ul>
-<li><a href="solutions.html#exercise-1.-following-the-control-flow-i-1"><span class="toc-section-number">9.5.1</span> Exercise 1. Following the control flow I</a></li>
-<li><a href="solutions.html#exercise-2.-debugging-i-1"><span class="toc-section-number">9.5.2</span> Exercise 2. Debugging I</a></li>
-<li><a href="solutions.html#exercise-3.-controlling-the-flow"><span class="toc-section-number">9.5.3</span> Exercise 3. Controlling the flow</a></li>
-<li><a href="solutions.html#exercise-4.-following-the-control-flow-ii"><span class="toc-section-number">9.5.4</span> Exercise 4. Following the control flow II</a></li>
-<li><a href="solutions.html#exercise-5.-debugging"><span class="toc-section-number">9.5.5</span> Exercise 5. Debugging</a></li>
-<li><a href="solutions.html#exercise-6.-nested-loops"><span class="toc-section-number">9.5.6</span> Exercise 6. Nested loops</a></li>
-<li><a href="solutions.html#exercise-7.-data-transformation-using-loops"><span class="toc-section-number">9.5.7</span> Exercise 7. Data transformation using loops</a></li>
-<li><a href="solutions.html#exercise-8.-calculating-a-mean"><span class="toc-section-number">9.5.8</span> Exercise 8. Calculating a mean</a></li>
-<li><a href="solutions.html#exercise-9.-a-guessing-game"><span class="toc-section-number">9.5.9</span> Exercise 9. A guessing game</a></li>
-</ul></li>
-<li><a href="solutions.html#chapter-6.-functions"><span class="toc-section-number">9.6</span> Chapter 6. Functions</a>
-<ul>
-<li><a href="solutions.html#exercise-1.-following-the-control-flow-1"><span class="toc-section-number">9.6.1</span> Exercise 1. Following the control flow</a></li>
-<li><a href="solutions.html#exercise-2.-an-imperfect-list-sorting-attempt-1"><span class="toc-section-number">9.6.2</span> Exercise 2. An imperfect list sorting attempt</a></li>
-<li><a href="solutions.html#exercise-3.-an-errorneous-sorting-algorithm"><span class="toc-section-number">9.6.3</span> Exercise 3. An errorneous sorting algorithm</a></li>
-<li><a href="solutions.html#exercise-4."><span class="toc-section-number">9.6.4</span> Exercise 4.</a></li>
-<li><a href="solutions.html#exercise-5."><span class="toc-section-number">9.6.5</span> Exercise 5.</a></li>
-<li><a href="solutions.html#exercise-6.-insertion-sort-algorithm-1"><span class="toc-section-number">9.6.6</span> Exercise 6. Insertion sort algorithm</a></li>
-</ul></li>
-</ul></li>
-<li><a href="debugging-and-good-programming-practices.html#debugging-and-good-programming-practices"><span class="toc-section-number">10</span> Debugging and good programming practices</a>
-<ul>
-<li><a href="debugging-and-good-programming-practices.html#debugging-4"><span class="toc-section-number">10.1</span> Debugging</a></li>
-<li><a href="debugging-and-good-programming-practices.html#boosting-your-programming-learning-curve"><span class="toc-section-number">10.2</span> Boosting your programming learning curve</a>
-<ul>
-<li><a href="debugging-and-good-programming-practices.html#going-with-the-flow"><span class="toc-section-number">10.2.1</span> Going with the flow</a></li>
-<li><a href="debugging-and-good-programming-practices.html#just-do-it"><span class="toc-section-number">10.2.2</span> Just do it!</a></li>
-</ul></li>
-</ul></li>
+  <header class="col-sm-12 col-lg-3 sidebar sidebar-book"><a class="sr-only sr-only-focusable" href="#content">Skip to main content</a>
+
+    <div class="d-flex align-items-start justify-content-between">
+      <h1>
+        <a href="index.html" title="A course in Python">Programming for Psychologists</a>:
+        <small class="text-muted">A course in Python</small>
+      </h1>
+      <button class="btn btn-outline-primary d-lg-none ml-2 mt-1" type="button" data-toggle="collapse" data-target="#main-nav" aria-expanded="true" aria-controls="main-nav"><i class="fas fa-bars"></i><span class="sr-only">Show table of contents</span></button>
+    </div>
+
+    <div id="main-nav" class="collapse-lg">
+      <form role="search">
+        <input id="search" class="form-control" type="search" placeholder="Search" aria-label="Search">
+</form>
+
+      <nav aria-label="Table of contents"><h2>Table of contents</h2>
+        <ul class="book-toc list-unstyled">
+<li><a class="" href="index.html">Preface</a></li>
+<li><a class="active" href="intro.html"><span class="header-section-number">1</span> Introduction</a></li>
+<li><a class="" href="variables.html"><span class="header-section-number">2</span> Variables, values and types</a></li>
+<li><a class="" href="conditionals.html"><span class="header-section-number">3</span> Conditionals</a></li>
+<li><a class="" href="lists.html"><span class="header-section-number">4</span> Lists</a></li>
+<li><a class="" href="loops.html"><span class="header-section-number">5</span> Loops</a></li>
+<li><a class="" href="functions.html"><span class="header-section-number">6</span> Functions</a></li>
+<li><a class="" href="data.html"><span class="header-section-number">7</span> Working with data</a></li>
+<li><a class="" href="interaction.html"><span class="header-section-number">8</span> Interaction</a></li>
+<li><a class="" href="solutions.html"><span class="header-section-number">9</span> Solutions</a></li>
+<li><a class="" href="debugging-and-good-programming-practices.html"><span class="header-section-number">10</span> Debugging and good programming practices</a></li>
 </ul>
+
+        <div class="book-extra">
+          
+        </div>
+      </nav>
 </div>
-</div>
-</div>
-<div class="row">
-<div class="col-sm-12">
-<div id="intro" class="section level1" number="1">
-<h1><span class="header-section-number">1</span> Introduction</h1>
+  </header><main class="col-sm-12 col-md-9 col-lg-7" id="content"><div id="intro" class="section level1" number="1">
+<h1>
+<span class="header-section-number">1</span> Introduction<a class="anchor" aria-label="anchor" href="#intro"><i class="fas fa-link"></i></a>
+</h1>
 <div id="installing-a-python-environment" class="section level2" number="1.1">
-<h2><span class="header-section-number">1.1</span> Installing a Python environment</h2>
+<h2>
+<span class="header-section-number">1.1</span> Installing a Python environment<a class="anchor" aria-label="anchor" href="#installing-a-python-environment"><i class="fas fa-link"></i></a>
+</h2>
 <p>This course teaches the programming language Python. In order to write Python programs, you need a set of general tools, referred to as the <em>Python environment</em>:</p>
 <ol style="list-style-type: decimal">
 <li>a <em>Python editor</em>, where you write your code</li>
 <li>a <em>Python interpreter</em>, which runs your code</li>
-<li><em>Python libraries</em>, that provide specialized functionality for the task at hand</li>
+<li>
+<em>Python libraries</em>, that provide specialized functionality for the task at hand</li>
 </ol>
 <p>The <em>Anaconda Python</em> system puts an editor, an interpreter and a huge set of libraries on your computer. There is just one library that you have to install separately. The <em>Pygame</em> library provides specialized functionality for developing arcade games (Ping Pong, Super Mario, etc.), which is almost perfect for writing programs that do psychological experiments.</p>
 </div>
 <div id="installing-the-anaconda-python-environment" class="section level2" number="1.2">
-<h2><span class="header-section-number">1.2</span> Installing the Anaconda Python environment</h2>
+<h2>
+<span class="header-section-number">1.2</span> Installing the Anaconda Python environment<a class="anchor" aria-label="anchor" href="#installing-the-anaconda-python-environment"><i class="fas fa-link"></i></a>
+</h2>
 <!-- #9 use conda environments -->
 </div>
 <div id="windows" class="section level2" number="1.3">
-<h2><span class="header-section-number">1.3</span> Windows</h2>
+<h2>
+<span class="header-section-number">1.3</span> Windows<a class="anchor" aria-label="anchor" href="#windows"><i class="fas fa-link"></i></a>
+</h2>
 <ol style="list-style-type: decimal">
 <li><p>From <a href="https://www.anaconda.com/download/" class="uri">https://www.anaconda.com/download/</a> download the 64-bit installer of Python 3.x</p></li>
-<li><p>Run the downloaded file and</p>
+<li>
+<p>Run the downloaded file and</p>
 <ol style="list-style-type: lower-alpha">
 <li>Install for “just me”</li>
 <li>Accept the proposed destination folder</li>
 <li>Accept default advanced options</li>
-</ol></li>
+</ol>
+</li>
 <li><p>In the start menu find the program Anaconda Prompt</p></li>
 <li><p>In the console, type: <code>pip install pygame</code> and hit Return. Confirm anything with <code>y</code>.</p></li>
 </ol>
 </div>
 <div id="macos" class="section level2" number="1.4">
-<h2><span class="header-section-number">1.4</span> MacOS</h2>
+<h2>
+<span class="header-section-number">1.4</span> MacOS<a class="anchor" aria-label="anchor" href="#macos"><i class="fas fa-link"></i></a>
+</h2>
 <p>Follow the analog procedure to Windows. Unfortunately, the authors use Windows computers, so this is untested.</p>
 <!-- 30  -->
 </div>
 <div id="testing-your-environment" class="section level2" number="1.5">
-<h2><span class="header-section-number">1.5</span> Testing your environment</h2>
+<h2>
+<span class="header-section-number">1.5</span> Testing your environment<a class="anchor" aria-label="anchor" href="#testing-your-environment"><i class="fas fa-link"></i></a>
+</h2>
 <p>For testing your Anaconda environment, follow these steps:</p>
 <ol style="list-style-type: decimal">
 <li>From the Start menu start Anaconda Navigator</li>
 <li>From the Home screen launch Spyder</li>
-<li>Download the Python file <code>PIP_Stroop_interaction.py</code> from the folder Week 1 on Google Drive <a href="https://goo.gl/UmBsil" class="uri">https://goo.gl/UmBsil</a></li>
+<li>Download the Python file <code>PIP_Stroop_interaction.py</code> from the folder Week 1 on Google Drive <a href="https://goo.gl/UmBsil" class="uri">https://goo.gl/UmBsil</a>
+</li>
 <li>Open this file in Spyder (File –&gt; Open).</li>
 <li>Run the program by clicking the green play button. You should see a window popping up, which greets you to the Stroop experiment.</li>
 </ol>
 <p>And finally, it is a dear tradition to greet the world with your first program. Create a new file in Spyder and copy-paste the following lines into it. Then hit the play button once again.</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1-1"><a href="intro.html#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">&#39;Hello world!&#39;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb1"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1-1"><a href="intro.html#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">'Hello world!'</span>)</span></code></pre></div>
 <pre><code>## Hello world!</code></pre>
 </div>
 <div id="dumb_computers" class="section level2" number="1.6">
-<h2><span class="header-section-number">1.6</span> Computers are dumb</h2>
+<h2>
+<span class="header-section-number">1.6</span> Computers are dumb<a class="anchor" aria-label="anchor" href="#dumb_computers"><i class="fas fa-link"></i></a>
+</h2>
 <p>Programming is the process of giving instructions to a computer. The problem is … computers are incredibly dumb. In order to get used to instructing dumb computers, in the following exercise YOU will become the computer yourself. You will not just be the computer, you first have to program it, complying to some debilitating set of communication rules.</p>
 <p>Your task is to create a theater play that resembles a computer to execute a program that Psychology researchers have used a thousand times in their labs. In the <em>Stroop task</em>, participants are shown a word that is written to the screen in one of three ink colors (red, blue, green). They are asked to name the ink color as quick as possible, usually by pressing one of four assigned keys (e.g., Y = red, X = blue, N = green). The task has a twist: the presented words are themselves color words. It can happen that the word “RED” appears in red ink, which we call the <em>congruent condition</em>, but it can also happen that the word “BLUE” appears in green letters, which is <em>incongruent</em>. Hundreds of experiments have shown, that in the incongruent condition people respond noticably slower. This observation is called the <em>Stroop effect</em> and dozens of theories have spawned from this observation. Discussing them is beyond the scope, but to not let you completely dissatisfied: people seem to always read the words, although they were not asked to do so and we can conclude:</p>
 <ol style="list-style-type: decimal">
@@ -494,23 +132,30 @@ details > summary {
 <ol style="list-style-type: decimal">
 <li><p>every actor (except the looper, see below) can only perform one simple action</p></li>
 <li><p>actors can only talk to the looper, but not to each other</p></li>
-<li><p>every actor can</p>
+<li>
+<p>every actor can</p>
 <ol style="list-style-type: lower-alpha">
 <li>either do something on command</li>
 <li>or answer a question</li>
-</ol></li>
-<li><p>actors which take commands</p>
+</ol>
+</li>
+<li>
+<p>actors which take commands</p>
 <ol style="list-style-type: lower-alpha">
 <li><p>only understand one command, like “pick a color”</p></li>
-<li><p>can only do one thing, like</p>
+<li>
+<p>can only do one thing, like</p>
 <ul>
 <li>picking an object</li>
 <li>showing an object</li>
 <li>making a particular change to an object</li>
-</ul></li>
+</ul>
+</li>
 <li><p>in addition they can give and receive objects from the looper</p></li>
-</ol></li>
-<li><p>actors who answer questions</p>
+</ol>
+</li>
+<li>
+<p>actors who answer questions</p>
 <ol style="list-style-type: lower-alpha">
 <li>only understand one question type, for example: “What time is it now?”</li>
 <li>can only give a one-word answer, for example:</li>
@@ -519,15 +164,18 @@ details > summary {
 <li>a word from a predefined set of words</li>
 <li>a number</li>
 <li>yes or no (as a special case of a pedefined set)</li>
-</ul></li>
-<li><p>The <em>looper</em> is a special actor who</p>
+</ul>
+</li>
+<li>
+<p>The <em>looper</em> is a special actor who</p>
 <ol style="list-style-type: lower-alpha">
 <li>is the only one can interact with other actors (speak, listen, exchange objects) and knows all the possible questions, answers and actions the other actors can perform.</li>
 <li>is slightly more intelligent than the other actors in that he/she can make decisions by combining information from various sources.</li>
 <li>can do simple calculations (like subtracting a number) and comparisons (like comparing two colors).</li>
 <li>unfortunately has no senses, but relies completely on what the actors tell</li>
 <li>speaks a continuous monologue to the audience, explaining all actions to the audience.</li>
-</ol></li>
+</ol>
+</li>
 <li><p>the <em>drawer</em> is a special actor whose task it is to present output to the user.</p></li>
 <li><p>the <em>event handler</em> is a special actor whose task it is to take input from the user</p></li>
 <li><p>the <em>user</em> is a special actor who only interacts with <em>drawer</em> and <em>event handler</em>.</p></li>
@@ -545,7 +193,9 @@ details > summary {
 <p>Have fun and do not let your intuition come between you and the task!</p>
 </div>
 <div id="dive-in-a-first-example" class="section level2" number="1.7">
-<h2><span class="header-section-number">1.7</span> Dive in: a first example</h2>
+<h2>
+<span class="header-section-number">1.7</span> Dive in: a first example<a class="anchor" aria-label="anchor" href="#dive-in-a-first-example"><i class="fas fa-link"></i></a>
+</h2>
 <p>In section 1.2 <a href="intro.html#dumb_computers">Computers are dumb</a>, you have seen how debilitating it can be to program a computer to do the simplest things. Talking to a computer (as a programmer) requires to understand some fundamental ways of how computers work and learn their language. A good way to get started learning a language is just go there and expose yourself to native speakers. Let’s do that! The following text is a program the performs the Stroop task, just as in the theater play.</p>
 <div class="sourceCode" id="cb3"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb3-1"><a href="intro.html#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pygame</span>
 <span id="cb3-2"><a href="intro.html#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> sys</span>
@@ -573,15 +223,15 @@ details > summary {
 <span id="cb3-24"><a href="intro.html#cb3-24" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb3-25"><a href="intro.html#cb3-25" aria-hidden="true" tabindex="-1"></a>n_trials <span class="op">=</span> <span class="dv">5</span></span>
 <span id="cb3-26"><a href="intro.html#cb3-26" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-27"><a href="intro.html#cb3-27" aria-hidden="true" tabindex="-1"></a>WORDS    <span class="op">=</span> (<span class="st">&quot;red&quot;</span>, <span class="st">&quot;green&quot;</span>, <span class="st">&quot;blue&quot;</span>)</span>
+<span id="cb3-27"><a href="intro.html#cb3-27" aria-hidden="true" tabindex="-1"></a>WORDS    <span class="op">=</span> (<span class="st">"red"</span>, <span class="st">"green"</span>, <span class="st">"blue"</span>)</span>
 <span id="cb3-28"><a href="intro.html#cb3-28" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-29"><a href="intro.html#cb3-29" aria-hidden="true" tabindex="-1"></a>COLORS   <span class="op">=</span> {<span class="st">&quot;red&quot;</span>: col_red,</span>
-<span id="cb3-30"><a href="intro.html#cb3-30" aria-hidden="true" tabindex="-1"></a>            <span class="st">&quot;green&quot;</span>: col_green,</span>
-<span id="cb3-31"><a href="intro.html#cb3-31" aria-hidden="true" tabindex="-1"></a>            <span class="st">&quot;blue&quot;</span>: col_blue}</span>
+<span id="cb3-29"><a href="intro.html#cb3-29" aria-hidden="true" tabindex="-1"></a>COLORS   <span class="op">=</span> {<span class="st">"red"</span>: col_red,</span>
+<span id="cb3-30"><a href="intro.html#cb3-30" aria-hidden="true" tabindex="-1"></a>            <span class="st">"green"</span>: col_green,</span>
+<span id="cb3-31"><a href="intro.html#cb3-31" aria-hidden="true" tabindex="-1"></a>            <span class="st">"blue"</span>: col_blue}</span>
 <span id="cb3-32"><a href="intro.html#cb3-32" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-33"><a href="intro.html#cb3-33" aria-hidden="true" tabindex="-1"></a>KEYS     <span class="op">=</span> {<span class="st">&quot;red&quot;</span>: K_b,</span>
-<span id="cb3-34"><a href="intro.html#cb3-34" aria-hidden="true" tabindex="-1"></a>            <span class="st">&quot;green&quot;</span>: K_n,</span>
-<span id="cb3-35"><a href="intro.html#cb3-35" aria-hidden="true" tabindex="-1"></a>            <span class="st">&quot;blue&quot;</span>: K_m}</span>
+<span id="cb3-33"><a href="intro.html#cb3-33" aria-hidden="true" tabindex="-1"></a>KEYS     <span class="op">=</span> {<span class="st">"red"</span>: K_b,</span>
+<span id="cb3-34"><a href="intro.html#cb3-34" aria-hidden="true" tabindex="-1"></a>            <span class="st">"green"</span>: K_n,</span>
+<span id="cb3-35"><a href="intro.html#cb3-35" aria-hidden="true" tabindex="-1"></a>            <span class="st">"blue"</span>: K_m}</span>
 <span id="cb3-36"><a href="intro.html#cb3-36" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb3-37"><a href="intro.html#cb3-37" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb3-38"><a href="intro.html#cb3-38" aria-hidden="true" tabindex="-1"></a></span>
@@ -589,7 +239,7 @@ details > summary {
 <span id="cb3-40"><a href="intro.html#cb3-40" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb3-41"><a href="intro.html#cb3-41" aria-hidden="true" tabindex="-1"></a>pygame.init()</span>
 <span id="cb3-42"><a href="intro.html#cb3-42" aria-hidden="true" tabindex="-1"></a>pygame.display.set_mode(SCREEN_SIZE) </span>
-<span id="cb3-43"><a href="intro.html#cb3-43" aria-hidden="true" tabindex="-1"></a>pygame.display.set_caption(<span class="st">&quot;Stroop Test&quot;</span>)</span>
+<span id="cb3-43"><a href="intro.html#cb3-43" aria-hidden="true" tabindex="-1"></a>pygame.display.set_caption(<span class="st">"Stroop Test"</span>)</span>
 <span id="cb3-44"><a href="intro.html#cb3-44" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb3-45"><a href="intro.html#cb3-45" aria-hidden="true" tabindex="-1"></a>screen <span class="op">=</span> pygame.display.get_surface()</span>
 <span id="cb3-46"><a href="intro.html#cb3-46" aria-hidden="true" tabindex="-1"></a><span class="co"># screen.fill(BACKGR_COL)</span></span>
@@ -602,7 +252,7 @@ details > summary {
 <span id="cb3-53"><a href="intro.html#cb3-53" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb3-54"><a href="intro.html#cb3-54" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> main():</span>
 <span id="cb3-55"><a href="intro.html#cb3-55" aria-hidden="true" tabindex="-1"></a>    </span>
-<span id="cb3-56"><a href="intro.html#cb3-56" aria-hidden="true" tabindex="-1"></a>    STATE <span class="op">=</span> <span class="st">&quot;welcome&quot;</span>    </span>
+<span id="cb3-56"><a href="intro.html#cb3-56" aria-hidden="true" tabindex="-1"></a>    STATE <span class="op">=</span> <span class="st">"welcome"</span>    </span>
 <span id="cb3-57"><a href="intro.html#cb3-57" aria-hidden="true" tabindex="-1"></a>    trial_number <span class="op">=</span> <span class="dv">0</span>    </span>
 <span id="cb3-58"><a href="intro.html#cb3-58" aria-hidden="true" tabindex="-1"></a>    </span>
 <span id="cb3-59"><a href="intro.html#cb3-59" aria-hidden="true" tabindex="-1"></a>    <span class="cf">while</span> <span class="va">True</span>:</span>
@@ -614,68 +264,68 @@ details > summary {
 <span id="cb3-65"><a href="intro.html#cb3-65" aria-hidden="true" tabindex="-1"></a>        <span class="cf">for</span> event <span class="kw">in</span> pygame.event.get():</span>
 <span id="cb3-66"><a href="intro.html#cb3-66" aria-hidden="true" tabindex="-1"></a>            </span>
 <span id="cb3-67"><a href="intro.html#cb3-67" aria-hidden="true" tabindex="-1"></a>            <span class="co"># interactive transitionals                     </span></span>
-<span id="cb3-68"><a href="intro.html#cb3-68" aria-hidden="true" tabindex="-1"></a>            <span class="cf">if</span> STATE <span class="op">==</span> <span class="st">&quot;welcome&quot;</span>:</span>
+<span id="cb3-68"><a href="intro.html#cb3-68" aria-hidden="true" tabindex="-1"></a>            <span class="cf">if</span> STATE <span class="op">==</span> <span class="st">"welcome"</span>:</span>
 <span id="cb3-69"><a href="intro.html#cb3-69" aria-hidden="true" tabindex="-1"></a>                <span class="cf">if</span> event.<span class="bu">type</span> <span class="op">==</span> KEYDOWN <span class="kw">and</span> event.key <span class="op">==</span> K_SPACE:</span>
-<span id="cb3-70"><a href="intro.html#cb3-70" aria-hidden="true" tabindex="-1"></a>                    STATE <span class="op">=</span> <span class="st">&quot;prepare_trial&quot;</span></span>
+<span id="cb3-70"><a href="intro.html#cb3-70" aria-hidden="true" tabindex="-1"></a>                    STATE <span class="op">=</span> <span class="st">"prepare_trial"</span></span>
 <span id="cb3-71"><a href="intro.html#cb3-71" aria-hidden="true" tabindex="-1"></a>                    <span class="bu">print</span>(STATE)</span>
 <span id="cb3-72"><a href="intro.html#cb3-72" aria-hidden="true" tabindex="-1"></a>                    <span class="cf">continue</span></span>
 <span id="cb3-73"><a href="intro.html#cb3-73" aria-hidden="true" tabindex="-1"></a>                    </span>
-<span id="cb3-74"><a href="intro.html#cb3-74" aria-hidden="true" tabindex="-1"></a>            <span class="cf">if</span> STATE <span class="op">==</span> <span class="st">&quot;trial&quot;</span>:</span>
+<span id="cb3-74"><a href="intro.html#cb3-74" aria-hidden="true" tabindex="-1"></a>            <span class="cf">if</span> STATE <span class="op">==</span> <span class="st">"trial"</span>:</span>
 <span id="cb3-75"><a href="intro.html#cb3-75" aria-hidden="true" tabindex="-1"></a>                <span class="cf">if</span> event.<span class="bu">type</span> <span class="op">==</span> KEYDOWN <span class="kw">and</span> event.key <span class="kw">in</span> KEYS.values():</span>
 <span id="cb3-76"><a href="intro.html#cb3-76" aria-hidden="true" tabindex="-1"></a>                    time_when_reacted <span class="op">=</span> time()</span>
 <span id="cb3-77"><a href="intro.html#cb3-77" aria-hidden="true" tabindex="-1"></a>                    this_reaction_time <span class="op">=</span> time_when_reacted <span class="op">-</span> time_when_presented</span>
 <span id="cb3-78"><a href="intro.html#cb3-78" aria-hidden="true" tabindex="-1"></a>                    this_correctness <span class="op">=</span> (event.key <span class="op">==</span> KEYS[this_color])</span>
-<span id="cb3-79"><a href="intro.html#cb3-79" aria-hidden="true" tabindex="-1"></a>                    STATE <span class="op">=</span> <span class="st">&quot;feedback&quot;</span></span>
+<span id="cb3-79"><a href="intro.html#cb3-79" aria-hidden="true" tabindex="-1"></a>                    STATE <span class="op">=</span> <span class="st">"feedback"</span></span>
 <span id="cb3-80"><a href="intro.html#cb3-80" aria-hidden="true" tabindex="-1"></a>                    <span class="bu">print</span>(STATE)</span>
 <span id="cb3-81"><a href="intro.html#cb3-81" aria-hidden="true" tabindex="-1"></a>                    <span class="cf">continue</span></span>
 <span id="cb3-82"><a href="intro.html#cb3-82" aria-hidden="true" tabindex="-1"></a>    </span>
-<span id="cb3-83"><a href="intro.html#cb3-83" aria-hidden="true" tabindex="-1"></a>            <span class="cf">if</span> STATE <span class="op">==</span> <span class="st">&quot;feedback&quot;</span>:</span>
+<span id="cb3-83"><a href="intro.html#cb3-83" aria-hidden="true" tabindex="-1"></a>            <span class="cf">if</span> STATE <span class="op">==</span> <span class="st">"feedback"</span>:</span>
 <span id="cb3-84"><a href="intro.html#cb3-84" aria-hidden="true" tabindex="-1"></a>                <span class="cf">if</span> event.<span class="bu">type</span> <span class="op">==</span> KEYDOWN <span class="kw">and</span> event.key <span class="op">==</span> K_SPACE:</span>
 <span id="cb3-85"><a href="intro.html#cb3-85" aria-hidden="true" tabindex="-1"></a>                    <span class="cf">if</span> trial_number <span class="op">&lt;</span> n_trials:</span>
-<span id="cb3-86"><a href="intro.html#cb3-86" aria-hidden="true" tabindex="-1"></a>                        STATE <span class="op">=</span> <span class="st">&quot;prepare_trial&quot;</span></span>
+<span id="cb3-86"><a href="intro.html#cb3-86" aria-hidden="true" tabindex="-1"></a>                        STATE <span class="op">=</span> <span class="st">"prepare_trial"</span></span>
 <span id="cb3-87"><a href="intro.html#cb3-87" aria-hidden="true" tabindex="-1"></a>                    <span class="cf">else</span>:</span>
-<span id="cb3-88"><a href="intro.html#cb3-88" aria-hidden="true" tabindex="-1"></a>                        STATE <span class="op">=</span> <span class="st">&quot;goodbye&quot;</span></span>
+<span id="cb3-88"><a href="intro.html#cb3-88" aria-hidden="true" tabindex="-1"></a>                        STATE <span class="op">=</span> <span class="st">"goodbye"</span></span>
 <span id="cb3-89"><a href="intro.html#cb3-89" aria-hidden="true" tabindex="-1"></a>                    <span class="bu">print</span>(STATE)</span>
 <span id="cb3-90"><a href="intro.html#cb3-90" aria-hidden="true" tabindex="-1"></a>                    <span class="cf">continue</span></span>
 <span id="cb3-91"><a href="intro.html#cb3-91" aria-hidden="true" tabindex="-1"></a>                    </span>
 <span id="cb3-92"><a href="intro.html#cb3-92" aria-hidden="true" tabindex="-1"></a>            </span>
 <span id="cb3-93"><a href="intro.html#cb3-93" aria-hidden="true" tabindex="-1"></a>            <span class="cf">if</span> event.<span class="bu">type</span> <span class="op">==</span> QUIT:</span>
-<span id="cb3-94"><a href="intro.html#cb3-94" aria-hidden="true" tabindex="-1"></a>                STATE <span class="op">=</span> <span class="st">&quot;quit&quot;</span></span>
+<span id="cb3-94"><a href="intro.html#cb3-94" aria-hidden="true" tabindex="-1"></a>                STATE <span class="op">=</span> <span class="st">"quit"</span></span>
 <span id="cb3-95"><a href="intro.html#cb3-95" aria-hidden="true" tabindex="-1"></a>                <span class="bu">print</span>(STATE)</span>
 <span id="cb3-96"><a href="intro.html#cb3-96" aria-hidden="true" tabindex="-1"></a>                <span class="cf">break</span></span>
 <span id="cb3-97"><a href="intro.html#cb3-97" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb3-98"><a href="intro.html#cb3-98" aria-hidden="true" tabindex="-1"></a>        </span>
 <span id="cb3-99"><a href="intro.html#cb3-99" aria-hidden="true" tabindex="-1"></a>        <span class="co"># automatic transitionals</span></span>
-<span id="cb3-100"><a href="intro.html#cb3-100" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> STATE <span class="op">==</span> <span class="st">&quot;prepare_trial&quot;</span>:</span>
+<span id="cb3-100"><a href="intro.html#cb3-100" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> STATE <span class="op">==</span> <span class="st">"prepare_trial"</span>:</span>
 <span id="cb3-101"><a href="intro.html#cb3-101" aria-hidden="true" tabindex="-1"></a>                trial_number <span class="op">=</span> trial_number <span class="op">+</span> <span class="dv">1</span></span>
 <span id="cb3-102"><a href="intro.html#cb3-102" aria-hidden="true" tabindex="-1"></a>                this_word  <span class="op">=</span> pick_color()</span>
 <span id="cb3-103"><a href="intro.html#cb3-103" aria-hidden="true" tabindex="-1"></a>                this_color <span class="op">=</span> pick_color()</span>
 <span id="cb3-104"><a href="intro.html#cb3-104" aria-hidden="true" tabindex="-1"></a>                time_when_presented <span class="op">=</span> time()</span>
-<span id="cb3-105"><a href="intro.html#cb3-105" aria-hidden="true" tabindex="-1"></a>                STATE <span class="op">=</span> <span class="st">&quot;show_trial&quot;</span></span>
+<span id="cb3-105"><a href="intro.html#cb3-105" aria-hidden="true" tabindex="-1"></a>                STATE <span class="op">=</span> <span class="st">"show_trial"</span></span>
 <span id="cb3-106"><a href="intro.html#cb3-106" aria-hidden="true" tabindex="-1"></a>                <span class="bu">print</span>(STATE)    </span>
 <span id="cb3-107"><a href="intro.html#cb3-107" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb3-108"><a href="intro.html#cb3-108" aria-hidden="true" tabindex="-1"></a>        </span>
 <span id="cb3-109"><a href="intro.html#cb3-109" aria-hidden="true" tabindex="-1"></a>        </span>
 <span id="cb3-110"><a href="intro.html#cb3-110" aria-hidden="true" tabindex="-1"></a>        <span class="co"># Presentitionals</span></span>
-<span id="cb3-111"><a href="intro.html#cb3-111" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> STATE <span class="op">==</span> <span class="st">&quot;welcome&quot;</span>:</span>
+<span id="cb3-111"><a href="intro.html#cb3-111" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> STATE <span class="op">==</span> <span class="st">"welcome"</span>:</span>
 <span id="cb3-112"><a href="intro.html#cb3-112" aria-hidden="true" tabindex="-1"></a>            draw_welcome()</span>
-<span id="cb3-113"><a href="intro.html#cb3-113" aria-hidden="true" tabindex="-1"></a>            draw_button(SCREEN_SIZE[<span class="dv">0</span>]<span class="op">*</span><span class="dv">1</span><span class="op">/</span><span class="dv">5</span>, <span class="dv">450</span>, <span class="st">&quot;Red: B&quot;</span>, col_red)</span>
-<span id="cb3-114"><a href="intro.html#cb3-114" aria-hidden="true" tabindex="-1"></a>            draw_button(SCREEN_SIZE[<span class="dv">0</span>]<span class="op">*</span><span class="dv">3</span><span class="op">/</span><span class="dv">5</span>, <span class="dv">450</span>, <span class="st">&quot;Green: N&quot;</span>, col_green)</span>
-<span id="cb3-115"><a href="intro.html#cb3-115" aria-hidden="true" tabindex="-1"></a>            draw_button(SCREEN_SIZE[<span class="dv">0</span>]<span class="op">*</span><span class="dv">4</span><span class="op">/</span><span class="dv">5</span>, <span class="dv">450</span>, <span class="st">&quot;Blue: M&quot;</span>, col_blue)</span>
+<span id="cb3-113"><a href="intro.html#cb3-113" aria-hidden="true" tabindex="-1"></a>            draw_button(SCREEN_SIZE[<span class="dv">0</span>]<span class="op">*</span><span class="dv">1</span><span class="op">/</span><span class="dv">5</span>, <span class="dv">450</span>, <span class="st">"Red: B"</span>, col_red)</span>
+<span id="cb3-114"><a href="intro.html#cb3-114" aria-hidden="true" tabindex="-1"></a>            draw_button(SCREEN_SIZE[<span class="dv">0</span>]<span class="op">*</span><span class="dv">3</span><span class="op">/</span><span class="dv">5</span>, <span class="dv">450</span>, <span class="st">"Green: N"</span>, col_green)</span>
+<span id="cb3-115"><a href="intro.html#cb3-115" aria-hidden="true" tabindex="-1"></a>            draw_button(SCREEN_SIZE[<span class="dv">0</span>]<span class="op">*</span><span class="dv">4</span><span class="op">/</span><span class="dv">5</span>, <span class="dv">450</span>, <span class="st">"Blue: M"</span>, col_blue)</span>
 <span id="cb3-116"><a href="intro.html#cb3-116" aria-hidden="true" tabindex="-1"></a>        </span>
-<span id="cb3-117"><a href="intro.html#cb3-117" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> STATE <span class="op">==</span> <span class="st">&quot;trial&quot;</span>:</span>
+<span id="cb3-117"><a href="intro.html#cb3-117" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> STATE <span class="op">==</span> <span class="st">"trial"</span>:</span>
 <span id="cb3-118"><a href="intro.html#cb3-118" aria-hidden="true" tabindex="-1"></a>            draw_stimulus(this_color, this_word)</span>
-<span id="cb3-119"><a href="intro.html#cb3-119" aria-hidden="true" tabindex="-1"></a>            draw_button(SCREEN_SIZE[<span class="dv">0</span>]<span class="op">*</span><span class="dv">1</span><span class="op">/</span><span class="dv">5</span>, <span class="dv">450</span>, <span class="st">&quot;Red: B&quot;</span>, col_red)</span>
-<span id="cb3-120"><a href="intro.html#cb3-120" aria-hidden="true" tabindex="-1"></a>            draw_button(SCREEN_SIZE[<span class="dv">0</span>]<span class="op">*</span><span class="dv">3</span><span class="op">/</span><span class="dv">5</span>, <span class="dv">450</span>, <span class="st">&quot;Green: N&quot;</span>, col_green)</span>
-<span id="cb3-121"><a href="intro.html#cb3-121" aria-hidden="true" tabindex="-1"></a>            draw_button(SCREEN_SIZE[<span class="dv">0</span>]<span class="op">*</span><span class="dv">4</span><span class="op">/</span><span class="dv">5</span>, <span class="dv">450</span>, <span class="st">&quot;Blue: M&quot;</span>, col_blue)</span>
+<span id="cb3-119"><a href="intro.html#cb3-119" aria-hidden="true" tabindex="-1"></a>            draw_button(SCREEN_SIZE[<span class="dv">0</span>]<span class="op">*</span><span class="dv">1</span><span class="op">/</span><span class="dv">5</span>, <span class="dv">450</span>, <span class="st">"Red: B"</span>, col_red)</span>
+<span id="cb3-120"><a href="intro.html#cb3-120" aria-hidden="true" tabindex="-1"></a>            draw_button(SCREEN_SIZE[<span class="dv">0</span>]<span class="op">*</span><span class="dv">3</span><span class="op">/</span><span class="dv">5</span>, <span class="dv">450</span>, <span class="st">"Green: N"</span>, col_green)</span>
+<span id="cb3-121"><a href="intro.html#cb3-121" aria-hidden="true" tabindex="-1"></a>            draw_button(SCREEN_SIZE[<span class="dv">0</span>]<span class="op">*</span><span class="dv">4</span><span class="op">/</span><span class="dv">5</span>, <span class="dv">450</span>, <span class="st">"Blue: M"</span>, col_blue)</span>
 <span id="cb3-122"><a href="intro.html#cb3-122" aria-hidden="true" tabindex="-1"></a>        </span>
-<span id="cb3-123"><a href="intro.html#cb3-123" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> STATE <span class="op">==</span> <span class="st">&quot;feedback&quot;</span>:</span>
+<span id="cb3-123"><a href="intro.html#cb3-123" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> STATE <span class="op">==</span> <span class="st">"feedback"</span>:</span>
 <span id="cb3-124"><a href="intro.html#cb3-124" aria-hidden="true" tabindex="-1"></a>            draw_feedback(this_correctness, this_reaction_time)</span>
 <span id="cb3-125"><a href="intro.html#cb3-125" aria-hidden="true" tabindex="-1"></a>        </span>
-<span id="cb3-126"><a href="intro.html#cb3-126" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> STATE <span class="op">==</span> <span class="st">&quot;goodbye&quot;</span>:</span>
+<span id="cb3-126"><a href="intro.html#cb3-126" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> STATE <span class="op">==</span> <span class="st">"goodbye"</span>:</span>
 <span id="cb3-127"><a href="intro.html#cb3-127" aria-hidden="true" tabindex="-1"></a>            draw_goodbye()</span>
 <span id="cb3-128"><a href="intro.html#cb3-128" aria-hidden="true" tabindex="-1"></a>        </span>
-<span id="cb3-129"><a href="intro.html#cb3-129" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> STATE <span class="op">==</span> <span class="st">&quot;quit&quot;</span>:</span>
+<span id="cb3-129"><a href="intro.html#cb3-129" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> STATE <span class="op">==</span> <span class="st">"quit"</span>:</span>
 <span id="cb3-130"><a href="intro.html#cb3-130" aria-hidden="true" tabindex="-1"></a>            pygame.quit()</span>
 <span id="cb3-131"><a href="intro.html#cb3-131" aria-hidden="true" tabindex="-1"></a>            sys.exit()</span>
 <span id="cb3-132"><a href="intro.html#cb3-132" aria-hidden="true" tabindex="-1"></a>        </span>
@@ -686,8 +336,8 @@ details > summary {
 <span id="cb3-137"><a href="intro.html#cb3-137" aria-hidden="true" tabindex="-1"></a><span class="co"># Function definitions</span></span>
 <span id="cb3-138"><a href="intro.html#cb3-138" aria-hidden="true" tabindex="-1"></a>        </span>
 <span id="cb3-139"><a href="intro.html#cb3-139" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> pick_color():</span>
-<span id="cb3-140"><a href="intro.html#cb3-140" aria-hidden="true" tabindex="-1"></a>    <span class="co">&quot;&quot;&quot; Return a random word.</span></span>
-<span id="cb3-141"><a href="intro.html#cb3-141" aria-hidden="true" tabindex="-1"></a><span class="co">    &quot;&quot;&quot;</span></span>
+<span id="cb3-140"><a href="intro.html#cb3-140" aria-hidden="true" tabindex="-1"></a>    <span class="co">""" Return a random word.</span></span>
+<span id="cb3-141"><a href="intro.html#cb3-141" aria-hidden="true" tabindex="-1"></a><span class="co">    """</span></span>
 <span id="cb3-142"><a href="intro.html#cb3-142" aria-hidden="true" tabindex="-1"></a>    random_number <span class="op">=</span> random.randint(<span class="dv">0</span>,<span class="dv">2</span>)</span>
 <span id="cb3-143"><a href="intro.html#cb3-143" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> WORDS[random_number]</span>
 <span id="cb3-144"><a href="intro.html#cb3-144" aria-hidden="true" tabindex="-1"></a></span>
@@ -698,11 +348,11 @@ details > summary {
 <span id="cb3-149"><a href="intro.html#cb3-149" aria-hidden="true" tabindex="-1"></a>    screen.blit(text, text_rectangle)</span>
 <span id="cb3-150"><a href="intro.html#cb3-150" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb3-151"><a href="intro.html#cb3-151" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> draw_welcome():</span>
-<span id="cb3-152"><a href="intro.html#cb3-152" aria-hidden="true" tabindex="-1"></a>    text_surface <span class="op">=</span> font.render(<span class="st">&quot;STROOP Experiment&quot;</span>, <span class="va">True</span>, col_black, BACKGR_COL)</span>
+<span id="cb3-152"><a href="intro.html#cb3-152" aria-hidden="true" tabindex="-1"></a>    text_surface <span class="op">=</span> font.render(<span class="st">"STROOP Experiment"</span>, <span class="va">True</span>, col_black, BACKGR_COL)</span>
 <span id="cb3-153"><a href="intro.html#cb3-153" aria-hidden="true" tabindex="-1"></a>    text_rectangle <span class="op">=</span> text_surface.get_rect()</span>
 <span id="cb3-154"><a href="intro.html#cb3-154" aria-hidden="true" tabindex="-1"></a>    text_rectangle.center <span class="op">=</span> (SCREEN_SIZE[<span class="dv">0</span>]<span class="op">/</span><span class="fl">2.0</span>,<span class="dv">150</span>)</span>
 <span id="cb3-155"><a href="intro.html#cb3-155" aria-hidden="true" tabindex="-1"></a>    screen.blit(text_surface, text_rectangle)</span>
-<span id="cb3-156"><a href="intro.html#cb3-156" aria-hidden="true" tabindex="-1"></a>    text_surface <span class="op">=</span> font_small.render(<span class="st">&quot;Press Spacebar to continue&quot;</span>, <span class="va">True</span>, col_black, BACKGR_COL)</span>
+<span id="cb3-156"><a href="intro.html#cb3-156" aria-hidden="true" tabindex="-1"></a>    text_surface <span class="op">=</span> font_small.render(<span class="st">"Press Spacebar to continue"</span>, <span class="va">True</span>, col_black, BACKGR_COL)</span>
 <span id="cb3-157"><a href="intro.html#cb3-157" aria-hidden="true" tabindex="-1"></a>    text_rectangle <span class="op">=</span> text_surface.get_rect()</span>
 <span id="cb3-158"><a href="intro.html#cb3-158" aria-hidden="true" tabindex="-1"></a>    text_rectangle.center <span class="op">=</span> (SCREEN_SIZE[<span class="dv">0</span>]<span class="op">/</span><span class="fl">2.0</span>,<span class="dv">300</span>)</span>
 <span id="cb3-159"><a href="intro.html#cb3-159" aria-hidden="true" tabindex="-1"></a>    screen.blit(text_surface, text_rectangle)</span>
@@ -715,30 +365,30 @@ details > summary {
 <span id="cb3-166"><a href="intro.html#cb3-166" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb3-167"><a href="intro.html#cb3-167" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> draw_feedback(correct, reaction_time):</span>
 <span id="cb3-168"><a href="intro.html#cb3-168" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> correct:</span>
-<span id="cb3-169"><a href="intro.html#cb3-169" aria-hidden="true" tabindex="-1"></a>        text_surface <span class="op">=</span> font_small.render(<span class="st">&quot;correct&quot;</span>, <span class="va">True</span>, col_black, BACKGR_COL)</span>
+<span id="cb3-169"><a href="intro.html#cb3-169" aria-hidden="true" tabindex="-1"></a>        text_surface <span class="op">=</span> font_small.render(<span class="st">"correct"</span>, <span class="va">True</span>, col_black, BACKGR_COL)</span>
 <span id="cb3-170"><a href="intro.html#cb3-170" aria-hidden="true" tabindex="-1"></a>        text_rectangle <span class="op">=</span> text_surface.get_rect()</span>
 <span id="cb3-171"><a href="intro.html#cb3-171" aria-hidden="true" tabindex="-1"></a>        text_rectangle.center <span class="op">=</span> (SCREEN_SIZE[<span class="dv">0</span>]<span class="op">/</span><span class="fl">2.0</span>,<span class="dv">150</span>)</span>
 <span id="cb3-172"><a href="intro.html#cb3-172" aria-hidden="true" tabindex="-1"></a>        screen.blit(text_surface, text_rectangle)</span>
-<span id="cb3-173"><a href="intro.html#cb3-173" aria-hidden="true" tabindex="-1"></a>        text_surface <span class="op">=</span> font_small.render(<span class="bu">str</span>(<span class="bu">int</span>(reaction_time <span class="op">*</span> <span class="dv">1000</span>)) <span class="op">+</span> <span class="st">&quot;ms&quot;</span>, <span class="va">True</span>, col_black, BACKGR_COL)</span>
+<span id="cb3-173"><a href="intro.html#cb3-173" aria-hidden="true" tabindex="-1"></a>        text_surface <span class="op">=</span> font_small.render(<span class="bu">str</span>(<span class="bu">int</span>(reaction_time <span class="op">*</span> <span class="dv">1000</span>)) <span class="op">+</span> <span class="st">"ms"</span>, <span class="va">True</span>, col_black, BACKGR_COL)</span>
 <span id="cb3-174"><a href="intro.html#cb3-174" aria-hidden="true" tabindex="-1"></a>        text_rectangle <span class="op">=</span> text_surface.get_rect()</span>
 <span id="cb3-175"><a href="intro.html#cb3-175" aria-hidden="true" tabindex="-1"></a>        text_rectangle.center <span class="op">=</span> (SCREEN_SIZE[<span class="dv">0</span>]<span class="op">/</span><span class="fl">2.0</span>,<span class="dv">200</span>)</span>
 <span id="cb3-176"><a href="intro.html#cb3-176" aria-hidden="true" tabindex="-1"></a>        screen.blit(text_surface, text_rectangle)</span>
 <span id="cb3-177"><a href="intro.html#cb3-177" aria-hidden="true" tabindex="-1"></a>    <span class="cf">else</span>:</span>
-<span id="cb3-178"><a href="intro.html#cb3-178" aria-hidden="true" tabindex="-1"></a>        text_surface <span class="op">=</span> font_small.render(<span class="st">&quot;Wrong key!&quot;</span>, <span class="va">True</span>, col_red, BACKGR_COL)</span>
+<span id="cb3-178"><a href="intro.html#cb3-178" aria-hidden="true" tabindex="-1"></a>        text_surface <span class="op">=</span> font_small.render(<span class="st">"Wrong key!"</span>, <span class="va">True</span>, col_red, BACKGR_COL)</span>
 <span id="cb3-179"><a href="intro.html#cb3-179" aria-hidden="true" tabindex="-1"></a>        text_rectangle <span class="op">=</span> text_surface.get_rect()</span>
 <span id="cb3-180"><a href="intro.html#cb3-180" aria-hidden="true" tabindex="-1"></a>        text_rectangle.center <span class="op">=</span> (SCREEN_SIZE[<span class="dv">0</span>]<span class="op">/</span><span class="fl">2.0</span>,<span class="dv">150</span>)</span>
 <span id="cb3-181"><a href="intro.html#cb3-181" aria-hidden="true" tabindex="-1"></a>        screen.blit(text_surface, text_rectangle)</span>
-<span id="cb3-182"><a href="intro.html#cb3-182" aria-hidden="true" tabindex="-1"></a>    text_surface <span class="op">=</span> font_small.render(<span class="st">&quot;Press Spacebar to continue&quot;</span>, <span class="va">True</span>, col_black, BACKGR_COL)</span>
+<span id="cb3-182"><a href="intro.html#cb3-182" aria-hidden="true" tabindex="-1"></a>    text_surface <span class="op">=</span> font_small.render(<span class="st">"Press Spacebar to continue"</span>, <span class="va">True</span>, col_black, BACKGR_COL)</span>
 <span id="cb3-183"><a href="intro.html#cb3-183" aria-hidden="true" tabindex="-1"></a>    text_rectangle <span class="op">=</span> text_surface.get_rect()</span>
 <span id="cb3-184"><a href="intro.html#cb3-184" aria-hidden="true" tabindex="-1"></a>    text_rectangle.center <span class="op">=</span> (SCREEN_SIZE[<span class="dv">0</span>]<span class="op">/</span><span class="fl">2.0</span>,<span class="dv">300</span>)</span>
 <span id="cb3-185"><a href="intro.html#cb3-185" aria-hidden="true" tabindex="-1"></a>    screen.blit(text_surface, text_rectangle)</span>
 <span id="cb3-186"><a href="intro.html#cb3-186" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb3-187"><a href="intro.html#cb3-187" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> draw_goodbye():</span>
-<span id="cb3-188"><a href="intro.html#cb3-188" aria-hidden="true" tabindex="-1"></a>    text_surface <span class="op">=</span> font_small.render(<span class="st">&quot;END OF THE EXPERIMENT&quot;</span>, <span class="va">True</span>, col_black, BACKGR_COL)</span>
+<span id="cb3-188"><a href="intro.html#cb3-188" aria-hidden="true" tabindex="-1"></a>    text_surface <span class="op">=</span> font_small.render(<span class="st">"END OF THE EXPERIMENT"</span>, <span class="va">True</span>, col_black, BACKGR_COL)</span>
 <span id="cb3-189"><a href="intro.html#cb3-189" aria-hidden="true" tabindex="-1"></a>    text_rectangle <span class="op">=</span> text_surface.get_rect()</span>
 <span id="cb3-190"><a href="intro.html#cb3-190" aria-hidden="true" tabindex="-1"></a>    text_rectangle.center <span class="op">=</span> (SCREEN_SIZE[<span class="dv">0</span>]<span class="op">/</span><span class="fl">2.0</span>,<span class="dv">150</span>)</span>
 <span id="cb3-191"><a href="intro.html#cb3-191" aria-hidden="true" tabindex="-1"></a>    screen.blit(text_surface, text_rectangle)</span>
-<span id="cb3-192"><a href="intro.html#cb3-192" aria-hidden="true" tabindex="-1"></a>    text_surface <span class="op">=</span> font_small.render(<span class="st">&quot;Close the application.&quot;</span>, <span class="va">True</span>, col_black, BACKGR_COL)</span>
+<span id="cb3-192"><a href="intro.html#cb3-192" aria-hidden="true" tabindex="-1"></a>    text_surface <span class="op">=</span> font_small.render(<span class="st">"Close the application."</span>, <span class="va">True</span>, col_black, BACKGR_COL)</span>
 <span id="cb3-193"><a href="intro.html#cb3-193" aria-hidden="true" tabindex="-1"></a>    text_rectangle <span class="op">=</span> text_surface.get_rect()</span>
 <span id="cb3-194"><a href="intro.html#cb3-194" aria-hidden="true" tabindex="-1"></a>    text_rectangle.center <span class="op">=</span> (SCREEN_SIZE[<span class="dv">0</span>]<span class="op">/</span><span class="fl">2.0</span>,<span class="dv">200</span>)</span>
 <span id="cb3-195"><a href="intro.html#cb3-195" aria-hidden="true" tabindex="-1"></a>    screen.blit(text_surface, text_rectangle)</span>
@@ -752,11 +402,11 @@ details > summary {
 <span id="cb4-5"><a href="intro.html#cb4-5" aria-hidden="true" tabindex="-1"></a>col_green <span class="op">=</span> (<span class="dv">0</span>, <span class="dv">200</span>, <span class="dv">0</span>)</span>
 <span id="cb4-6"><a href="intro.html#cb4-6" aria-hidden="true" tabindex="-1"></a>col_blue <span class="op">=</span> (<span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">250</span>)</span>
 <span id="cb4-7"><a href="intro.html#cb4-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-8"><a href="intro.html#cb4-8" aria-hidden="true" tabindex="-1"></a>COLORS   <span class="op">=</span> {<span class="st">&quot;red&quot;</span>: col_red,</span>
-<span id="cb4-9"><a href="intro.html#cb4-9" aria-hidden="true" tabindex="-1"></a>            <span class="st">&quot;green&quot;</span>: col_green,</span>
-<span id="cb4-10"><a href="intro.html#cb4-10" aria-hidden="true" tabindex="-1"></a>            <span class="st">&quot;blue&quot;</span>: col_blue}</span>
+<span id="cb4-8"><a href="intro.html#cb4-8" aria-hidden="true" tabindex="-1"></a>COLORS   <span class="op">=</span> {<span class="st">"red"</span>: col_red,</span>
+<span id="cb4-9"><a href="intro.html#cb4-9" aria-hidden="true" tabindex="-1"></a>            <span class="st">"green"</span>: col_green,</span>
+<span id="cb4-10"><a href="intro.html#cb4-10" aria-hidden="true" tabindex="-1"></a>            <span class="st">"blue"</span>: col_blue}</span>
 <span id="cb4-11"><a href="intro.html#cb4-11" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-12"><a href="intro.html#cb4-12" aria-hidden="true" tabindex="-1"></a>WORDS    <span class="op">=</span> (<span class="st">&quot;red&quot;</span>, <span class="st">&quot;green&quot;</span>, <span class="st">&quot;blue&quot;</span>)</span></code></pre></div>
+<span id="cb4-12"><a href="intro.html#cb4-12" aria-hidden="true" tabindex="-1"></a>WORDS    <span class="op">=</span> (<span class="st">"red"</span>, <span class="st">"green"</span>, <span class="st">"blue"</span>)</span></code></pre></div>
 <p>The first paragraph defines each color used throughout the program as three numbers. This is because computer screens produce all colors by mixture of red, blue and green, which not coincidentily matches the three types of color vision sensors in our eyes. For example, black just means that all lights are out, hence the three zeroes. Red means that only the red channel is firing photons.</p>
 <p>Whenever you see a single <code>=</code> character, that means that what is given to the right is stored in a <em>variable</em> to the left. The second paragraph just collects the three colors in one compound variable, which you will later learn to be a <em>dictionary</em>. Search for <code>COLOR</code> in the following code to see, how it is being used:</p>
 <div class="sourceCode" id="cb5"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb5-1"><a href="intro.html#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> draw_stimulus(color, word):</span>
@@ -765,45 +415,47 @@ details > summary {
 <span id="cb5-4"><a href="intro.html#cb5-4" aria-hidden="true" tabindex="-1"></a>    text_rectangle.center <span class="op">=</span> (SCREEN_SIZE[<span class="dv">0</span>]<span class="op">/</span><span class="fl">2.0</span>,<span class="dv">150</span>)</span>
 <span id="cb5-5"><a href="intro.html#cb5-5" aria-hidden="true" tabindex="-1"></a>    screen.blit(text_surface, text_rectangle)</span></code></pre></div>
 <p>This code block is called a <em>function definition</em>. This function almost exactly represents what one of the actors did in the play: receiving a color word and a color, combine it into one Stroop trial and show it to the user. We can follow up how this function is used, by searching for “draw_stimulus” in the code:</p>
-<div class="sourceCode" id="cb6"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb6-1"><a href="intro.html#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> STATE <span class="op">==</span> <span class="st">&quot;present_trial&quot;</span>:</span>
+<div class="sourceCode" id="cb6"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb6-1"><a href="intro.html#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> STATE <span class="op">==</span> <span class="st">"present_trial"</span>:</span>
 <span id="cb6-2"><a href="intro.html#cb6-2" aria-hidden="true" tabindex="-1"></a>            draw_stimulus(this_color, this_word)</span>
-<span id="cb6-3"><a href="intro.html#cb6-3" aria-hidden="true" tabindex="-1"></a>            draw_button(SCREEN_SIZE[<span class="dv">0</span>]<span class="op">*</span><span class="dv">1</span><span class="op">/</span><span class="dv">5</span>, <span class="dv">450</span>, <span class="st">&quot;Red: X&quot;</span>, col_red)</span>
-<span id="cb6-4"><a href="intro.html#cb6-4" aria-hidden="true" tabindex="-1"></a>            draw_button(SCREEN_SIZE[<span class="dv">0</span>]<span class="op">*</span><span class="dv">3</span><span class="op">/</span><span class="dv">5</span>, <span class="dv">450</span>, <span class="st">&quot;Green: N&quot;</span>, col_green)</span>
-<span id="cb6-5"><a href="intro.html#cb6-5" aria-hidden="true" tabindex="-1"></a>            draw_button(SCREEN_SIZE[<span class="dv">0</span>]<span class="op">*</span><span class="dv">4</span><span class="op">/</span><span class="dv">5</span>, <span class="dv">450</span>, <span class="st">&quot;Blue: M&quot;</span>, col_blue)</span></code></pre></div>
+<span id="cb6-3"><a href="intro.html#cb6-3" aria-hidden="true" tabindex="-1"></a>            draw_button(SCREEN_SIZE[<span class="dv">0</span>]<span class="op">*</span><span class="dv">1</span><span class="op">/</span><span class="dv">5</span>, <span class="dv">450</span>, <span class="st">"Red: X"</span>, col_red)</span>
+<span id="cb6-4"><a href="intro.html#cb6-4" aria-hidden="true" tabindex="-1"></a>            draw_button(SCREEN_SIZE[<span class="dv">0</span>]<span class="op">*</span><span class="dv">3</span><span class="op">/</span><span class="dv">5</span>, <span class="dv">450</span>, <span class="st">"Green: N"</span>, col_green)</span>
+<span id="cb6-5"><a href="intro.html#cb6-5" aria-hidden="true" tabindex="-1"></a>            draw_button(SCREEN_SIZE[<span class="dv">0</span>]<span class="op">*</span><span class="dv">4</span><span class="op">/</span><span class="dv">5</span>, <span class="dv">450</span>, <span class="st">"Blue: M"</span>, col_blue)</span></code></pre></div>
 <p>What you see here is a so-called <em>conditional</em>. Only the most simple program are just a sequence of procedures. All “real” programs, and especially <em>interactive programs</em>, do certain things only when certain conditions are satisfied. Here the condition is that the current <em>state</em> of the program is to present a trial. If you look further around you will immediatly see that the variable <code>STATE</code> is used all over the place and it happens to always occur in one of two patterns in the code:</p>
 <ol style="list-style-type: decimal">
 <li>as a condition (<code>STATE == ...</code>)</li>
 <li>as an assignment of new values (<code>STATE = ...</code>)</li>
 </ol>
 <p>Note the difference between <code>=</code>, which stores a new value in a variable and <code>==</code> which means <em>equals</em>. Let’s discover where the variable <code>STATE</code> actually gets such a value: <code>"present_trial"</code>:</p>
-<div class="sourceCode" id="cb7"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb7-1"><a href="intro.html#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> STATE <span class="op">==</span> <span class="st">&quot;feedback&quot;</span>:</span>
+<div class="sourceCode" id="cb7"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb7-1"><a href="intro.html#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> STATE <span class="op">==</span> <span class="st">"feedback"</span>:</span>
 <span id="cb7-2"><a href="intro.html#cb7-2" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> event.<span class="bu">type</span> <span class="op">==</span> KEYDOWN <span class="kw">and</span> event.key <span class="op">==</span> K_SPACE:</span>
 <span id="cb7-3"><a href="intro.html#cb7-3" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> trial_number <span class="op">&lt;</span> <span class="dv">20</span>:</span>
-<span id="cb7-4"><a href="intro.html#cb7-4" aria-hidden="true" tabindex="-1"></a>            STATE <span class="op">=</span> <span class="st">&quot;present_trial&quot;</span></span>
+<span id="cb7-4"><a href="intro.html#cb7-4" aria-hidden="true" tabindex="-1"></a>            STATE <span class="op">=</span> <span class="st">"present_trial"</span></span>
 <span id="cb7-5"><a href="intro.html#cb7-5" aria-hidden="true" tabindex="-1"></a>        <span class="cf">else</span>:</span>
-<span id="cb7-6"><a href="intro.html#cb7-6" aria-hidden="true" tabindex="-1"></a>            STATE <span class="op">=</span> <span class="st">&quot;goodbye&quot;</span></span>
+<span id="cb7-6"><a href="intro.html#cb7-6" aria-hidden="true" tabindex="-1"></a>            STATE <span class="op">=</span> <span class="st">"goodbye"</span></span>
 <span id="cb7-7"><a href="intro.html#cb7-7" aria-hidden="true" tabindex="-1"></a>        <span class="bu">print</span>(STATE)</span></code></pre></div>
 <p>Literally, this reads as: “If we are in state ‘feedback’ (where the participant is shown the results of the previous trial), and if the space key is pressed, and if we have not yet reached the maximum number of trials, then present the next trial (otherwise say good bye)”</p>
 <p>These are precisely the rules the Looper in our play had to have on her mind. If you look closely, you will find more of similar constructions, that change the state under certain conditions. These statements we later call <em>interaction conditionals</em>, and they control the flow of the program. This is why they are more complicated than the rest.</p>
 <p>As a final endeavor, we try to find some clues how the measurement of <em>response time</em> is handled in the program. If you search for “time”, the first occurrence is right at the top:</p>
 <div class="sourceCode" id="cb8"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb8-1"><a href="intro.html#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> time <span class="im">import</span> time</span></code></pre></div>
 <p>Just as programmers can define functions, they can also make use of functions other programmers are already providing. Usually, they do so in larger packages of related functions, which are called <em>libraries</em>. This line of code means: from the library time, make available the function time. Where is this function used?</p>
-<div class="sourceCode" id="cb9"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb9-1"><a href="intro.html#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> STATE <span class="op">==</span> <span class="st">&quot;present_trial&quot;</span>:</span>
+<div class="sourceCode" id="cb9"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb9-1"><a href="intro.html#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> STATE <span class="op">==</span> <span class="st">"present_trial"</span>:</span>
 <span id="cb9-2"><a href="intro.html#cb9-2" aria-hidden="true" tabindex="-1"></a>    trial_number <span class="op">=</span> trial_number <span class="op">+</span> <span class="dv">1</span></span>
 <span id="cb9-3"><a href="intro.html#cb9-3" aria-hidden="true" tabindex="-1"></a>    this_word  <span class="op">=</span> pick_color()</span>
 <span id="cb9-4"><a href="intro.html#cb9-4" aria-hidden="true" tabindex="-1"></a>    this_color <span class="op">=</span> pick_color()</span>
 <span id="cb9-5"><a href="intro.html#cb9-5" aria-hidden="true" tabindex="-1"></a>    time_when_presented <span class="op">=</span> time()</span>
-<span id="cb9-6"><a href="intro.html#cb9-6" aria-hidden="true" tabindex="-1"></a>    STATE <span class="op">=</span> <span class="st">&quot;wait_for_response&quot;</span></span></code></pre></div>
+<span id="cb9-6"><a href="intro.html#cb9-6" aria-hidden="true" tabindex="-1"></a>    STATE <span class="op">=</span> <span class="st">"wait_for_response"</span></span></code></pre></div>
 <p>The only thing that happens here, is that in the moment where the trial is presented, the current absolute time is recorded in a variable <code>time_when_presented</code>. How is that used further down?</p>
-<div class="sourceCode" id="cb10"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb10-1"><a href="intro.html#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> STATE <span class="op">==</span> <span class="st">&quot;wait_for_response&quot;</span>:</span>
+<div class="sourceCode" id="cb10"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb10-1"><a href="intro.html#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> STATE <span class="op">==</span> <span class="st">"wait_for_response"</span>:</span>
 <span id="cb10-2"><a href="intro.html#cb10-2" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> event.<span class="bu">type</span> <span class="op">==</span> KEYDOWN <span class="kw">and</span> event.key <span class="kw">in</span> KEYS.values():</span>
 <span id="cb10-3"><a href="intro.html#cb10-3" aria-hidden="true" tabindex="-1"></a>        time_when_reacted <span class="op">=</span> time()</span>
 <span id="cb10-4"><a href="intro.html#cb10-4" aria-hidden="true" tabindex="-1"></a>        this_reaction_time <span class="op">=</span> time_when_reacted <span class="op">-</span> time_when_presented</span>
 <span id="cb10-5"><a href="intro.html#cb10-5" aria-hidden="true" tabindex="-1"></a>        this_correctness <span class="op">=</span> (event.key <span class="op">==</span> KEYS[this_color])</span>
-<span id="cb10-6"><a href="intro.html#cb10-6" aria-hidden="true" tabindex="-1"></a>        STATE <span class="op">=</span> <span class="st">&quot;feedback&quot;</span></span></code></pre></div>
+<span id="cb10-6"><a href="intro.html#cb10-6" aria-hidden="true" tabindex="-1"></a>        STATE <span class="op">=</span> <span class="st">"feedback"</span></span></code></pre></div>
 <p>When the user responds by pressing a button, that moment in time is recorded in another variable <code>time_when_reacted</code> and the current reaction time is computed as the time difference between reaction and presentation.</p>
 <div id="exercises" class="section level4" number="1.7.0.1">
-<h4><span class="header-section-number">1.7.0.1</span> Exercises</h4>
+<h4>
+<span class="header-section-number">1.7.0.1</span> Exercises<a class="anchor" aria-label="anchor" href="#exercises"><i class="fas fa-link"></i></a>
+</h4>
 <ol style="list-style-type: decimal">
 <li>Load the Stroop program into your Python editor and run it yourself.</li>
 <li>Find further function definitions that resemble one of the actors in the play</li>
@@ -816,9 +468,13 @@ details > summary {
 </div>
 </div>
 <div id="batchwork" class="section level2" number="1.8">
-<h2><span class="header-section-number">1.8</span> Making an eye tracker</h2>
+<h2>
+<span class="header-section-number">1.8</span> Making an eye tracker<a class="anchor" aria-label="anchor" href="#batchwork"><i class="fas fa-link"></i></a>
+</h2>
 <div id="yets-and-yetis" class="section level3" number="1.8.1">
-<h3><span class="header-section-number">1.8.1</span> YETs and Yetis</h3>
+<h3>
+<span class="header-section-number">1.8.1</span> YETs and Yetis<a class="anchor" aria-label="anchor" href="#yets-and-yetis"><i class="fas fa-link"></i></a>
+</h3>
 <p>An eye tracker is a device that tells, where a person is looking at from moment to moment. Modern eye trackers are highly sophisticated systems, very precise and multiple purpose. They are very costly, too. Too costly that every student could have one.</p>
 <p>Even an eye tracking system with a 10.000 EUR price tag operates by a very simple principle: A camera device is pointed to the eye and the eye ball coordinates are estimated and recorded by a piece of software.</p>
 <p>A YET is an camera device that is pointed to the eye, but costs almost nothing. It is so cheap to make that every student can own one, hence <em>Your Eye Tracker</em>.</p>
@@ -835,7 +491,9 @@ details > summary {
 <p>For using a Yeti with YET, you first have to download it from the <a href="https://github.com/schmettow/YET/tree/main/yeti">YET Github repository</a></p>
 </div>
 <div id="the-eyeballing-exercise" class="section level3" number="1.8.2">
-<h3><span class="header-section-number">1.8.2</span> The Eyeballing exercise</h3>
+<h3>
+<span class="header-section-number">1.8.2</span> The Eyeballing exercise<a class="anchor" aria-label="anchor" href="#the-eyeballing-exercise"><i class="fas fa-link"></i></a>
+</h3>
 <p>The Stroop task is an example of an <em>interactive program.</em> Interactive programs have an interface to the user and should react to the user input in a useful manner. That’s a hard problem for computers, hence for programmers.</p>
 <p>Like all machines, computers are much better at monotonic tasks. Programming an interactive stop watch can be much harder than programming a computer to stoically perform the same procedure at 60 times per second.</p>
 <p>In the following exercise, we are playing a similar game as in @ref(dumb_computers). You will write a script for a simple eye tracking device. An eye tracking device is composed of</p>
@@ -853,7 +511,9 @@ details > summary {
 <p>Now, inspect your pictures in a group. Start with the portraits. Describe the visual features of vertical and horizontal gaze directions? Then turn to the eyeball pictures and repeat the visual analysis.</p>
 </div>
 <div id="dumb-pictures" class="section level3" number="1.8.3">
-<h3><span class="header-section-number">1.8.3</span> Dumb pictures</h3>
+<h3>
+<span class="header-section-number">1.8.3</span> Dumb pictures<a class="anchor" aria-label="anchor" href="#dumb-pictures"><i class="fas fa-link"></i></a>
+</h3>
 <p>When you were eye-balling eyeballs, a lot of messy, but surprisingly effective, biological stuff was going on between your eyeball and your mind, most of which you are unaware of. For example, that you immediately recognize an eyeball as such.</p>
 <p>Let’s explore how computers see:</p>
 <ol style="list-style-type: decimal">
@@ -865,38 +525,52 @@ details > summary {
 <p>Sometimes, a computer doesn’t need to see color, but only brightness levels, where all points emit light on scale from 0 (black) to 255 (white). This is called a <em>grayscale</em> frame. The most simple form of representing a picture is a black-and-white mode, where all points are either off or at full brightness (0 or 1). This is called a <em>bitmap</em> frame, because it is composed <em>binary</em> pixel. in computer jargon a binary switch is called a <em>bit</em>.</p>
 </div>
 <div id="from-pixel-to-eye-tracking" class="section level3" number="1.8.4">
-<h3><span class="header-section-number">1.8.4</span> From pixel to eye tracking</h3>
+<h3>
+<span class="header-section-number">1.8.4</span> From pixel to eye tracking<a class="anchor" aria-label="anchor" href="#from-pixel-to-eye-tracking"><i class="fas fa-link"></i></a>
+</h3>
 <p>Now that you have the basics, your task is to design a computer program that takes in a grid of pixels (also called a <em>frame</em>) and produces an estimate of the direction the eyeball is pointed at. Again, you will decompose a complex task into smaller parts. However, as there is no nasty user input involved, you don’t describe actors, but design a <em>sequence of functions</em>, where the first function takes in the frame and the last returns the eyeball position in horizontal and vertical direction.</p>
 <p>Here are some functions that can be helpful:</p>
 <ul>
-<li><p><em>Frame.grab</em> always is the first in line.</p>
+<li>
+<p><em>Frame.grab</em> always is the first in line.</p>
 <ul>
 <li>Is there a new frame?</li>
 <li>Hand out the new frame</li>
-</ul></li>
-<li><p><em>Frame.dim</em> takes in a frame and produces width and height of the frame, e.g.</p>
+</ul>
+</li>
+<li>
+<p><em>Frame.dim</em> takes in a frame and produces width and height of the frame, e.g.</p>
 <ul>
 <li>Give the height of the frame!</li>
 <li>Give the width of the frame!</li>
-</ul></li>
-<li><p><em>Frame.split</em> splits a frame in two horizontal or two vertical parts and return both parts</p>
+</ul>
+</li>
+<li>
+<p><em>Frame.split</em> splits a frame in two horizontal or two vertical parts and return both parts</p>
 <ul>
 <li>Split frame horizontally at position width/2!</li>
-</ul></li>
-<li><p><em>Frame.bitmap</em> takes a grayscale frame and turns it into a bitmap, using a threshold.</p>
+</ul>
+</li>
+<li>
+<p><em>Frame.bitmap</em> takes a grayscale frame and turns it into a bitmap, using a threshold.</p>
 <ul>
 <li>Make bitmap with threshold value 127!</li>
-</ul></li>
-<li><p><em>Frame.eye</em> detects an eye in a face and returns the enclosing frame.</p>
+</ul>
+</li>
+<li>
+<p><em>Frame.eye</em> detects an eye in a face and returns the enclosing frame.</p>
 <ul>
 <li>Was an eye detected?</li>
 <li>Frame the detected eye!</li>
-</ul></li>
+</ul>
+</li>
 <li><p><em>Frame.avg_bright</em> calculates an average brightness value of an input frame</p></li>
 </ul>
 </div>
 <div id="into-the-batch" class="section level3" number="1.8.5">
-<h3><span class="header-section-number">1.8.5</span> Into the batch</h3>
+<h3>
+<span class="header-section-number">1.8.5</span> Into the batch<a class="anchor" aria-label="anchor" href="#into-the-batch"><i class="fas fa-link"></i></a>
+</h3>
 <p>Up-down. left-right! Have you found a solution to the problem? You can a solution in chapter <a href="solutions.html#solutions">9</a>. The following code is extracted from Yeti2, a simple program, that detects the horizontal position (left, center, right).</p>
 <p>The code of Yeti2 starts a preamble, which is mostly the same for all Yetis. The interesting part begins with another fast loop. Remember the Looper in <a href="intro.html#dive-in-a-first-example">1.7</a>? It is the same principle here. The Looper doesn’t know when the next video frame arrives, so every loop starts with an interrogation to collect the next frame. The frame is subsequently turned into a grayscale image, because the subsequent analysis is purely based on brightness information.</p>
 <div class="sourceCode" id="cb11"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb11-1"><a href="intro.html#cb11-1" aria-hidden="true" tabindex="-1"></a>Detected <span class="op">=</span> <span class="va">False</span></span>
@@ -907,7 +581,7 @@ details > summary {
 <span id="cb11-6"><a href="intro.html#cb11-6" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Capture frame-by-frame</span></span>
 <span id="cb11-7"><a href="intro.html#cb11-7" aria-hidden="true" tabindex="-1"></a>    ret, frame <span class="op">=</span> video_capture.read()</span>
 <span id="cb11-8"><a href="intro.html#cb11-8" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> <span class="kw">not</span> ret:</span>
-<span id="cb11-9"><a href="intro.html#cb11-9" aria-hidden="true" tabindex="-1"></a>        <span class="bu">print</span>(<span class="st">&quot;Can&#39;t receive frame (stream end?). Exiting ...&quot;</span>)</span>
+<span id="cb11-9"><a href="intro.html#cb11-9" aria-hidden="true" tabindex="-1"></a>        <span class="bu">print</span>(<span class="st">"Can't receive frame (stream end?). Exiting ..."</span>)</span>
 <span id="cb11-10"><a href="intro.html#cb11-10" aria-hidden="true" tabindex="-1"></a>        <span class="cf">break</span></span>
 <span id="cb11-11"><a href="intro.html#cb11-11" aria-hidden="true" tabindex="-1"></a>    </span>
 <span id="cb11-12"><a href="intro.html#cb11-12" aria-hidden="true" tabindex="-1"></a>    <span class="co"># FRAME PROCESSING</span></span>
@@ -922,7 +596,7 @@ details > summary {
 <span id="cb12-7"><a href="intro.html#cb12-7" aria-hidden="true" tabindex="-1"></a>        <span class="co"># AUTOMATIC TRANSITIONAL</span></span>
 <span id="cb12-8"><a href="intro.html#cb12-8" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> <span class="bu">len</span>(eyes) <span class="op">&gt;</span> <span class="dv">0</span>:</span>
 <span id="cb12-9"><a href="intro.html#cb12-9" aria-hidden="true" tabindex="-1"></a>            eye <span class="op">=</span> eyes[<span class="dv">0</span>]</span>
-<span id="cb12-10"><a href="intro.html#cb12-10" aria-hidden="true" tabindex="-1"></a>            <span class="bu">print</span>(<span class="st">&quot;Eye detected&quot;</span>)</span>
+<span id="cb12-10"><a href="intro.html#cb12-10" aria-hidden="true" tabindex="-1"></a>            <span class="bu">print</span>(<span class="st">"Eye detected"</span>)</span>
 <span id="cb12-11"><a href="intro.html#cb12-11" aria-hidden="true" tabindex="-1"></a>            Detected <span class="op">=</span> <span class="va">True</span></span>
 <span id="cb12-12"><a href="intro.html#cb12-12" aria-hidden="true" tabindex="-1"></a>        <span class="co"># once eye is detected, yeti stays there</span></span></code></pre></div>
 <p>This function returns a list of detected eyes, which it it is empty has zero length. When this list contains detected eyes, the first detected eye is selected and Yeti2 changes its status to Detected. If you inspect the code further, you will notice that Yeti2 never returns to undetected state. That means, it continues to measure eye position, even if no eye is present in the frame. That is a compromise to keep the program simple.</p>
@@ -941,49 +615,83 @@ details > summary {
 <span id="cb13-11"><a href="intro.html#cb13-11" aria-hidden="true" tabindex="-1"></a>        LR_ratio <span class="op">=</span> left_sum<span class="op">/</span>right_sum</span>
 <span id="cb13-12"><a href="intro.html#cb13-12" aria-hidden="true" tabindex="-1"></a>        </span>
 <span id="cb13-13"><a href="intro.html#cb13-13" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> LR_ratio <span class="op">&lt;</span> center_ratio <span class="op">-</span> threshold:</span>
-<span id="cb13-14"><a href="intro.html#cb13-14" aria-hidden="true" tabindex="-1"></a>            Position <span class="op">=</span> <span class="st">&quot;right&quot;</span></span>
+<span id="cb13-14"><a href="intro.html#cb13-14" aria-hidden="true" tabindex="-1"></a>            Position <span class="op">=</span> <span class="st">"right"</span></span>
 <span id="cb13-15"><a href="intro.html#cb13-15" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> LR_ratio <span class="op">&gt;</span> center_ratio <span class="op">+</span> threshold:</span>
-<span id="cb13-16"><a href="intro.html#cb13-16" aria-hidden="true" tabindex="-1"></a>            Position <span class="op">=</span> <span class="st">&quot;left&quot;</span></span>
-<span id="cb13-17"><a href="intro.html#cb13-17" aria-hidden="true" tabindex="-1"></a>        <span class="cf">else</span> Position <span class="op">=</span> <span class="st">&quot;center&quot;</span></span></code></pre></div>
+<span id="cb13-16"><a href="intro.html#cb13-16" aria-hidden="true" tabindex="-1"></a>            Position <span class="op">=</span> <span class="st">"left"</span></span>
+<span id="cb13-17"><a href="intro.html#cb13-17" aria-hidden="true" tabindex="-1"></a>        <span class="cf">else</span> Position <span class="op">=</span> <span class="st">"center"</span></span></code></pre></div>
 <div id="further-readings" class="section level4" number="1.8.5.1">
-<h4><span class="header-section-number">1.8.5.1</span> Further readings</h4>
+<h4>
+<span class="header-section-number">1.8.5.1</span> Further readings<a class="anchor" aria-label="anchor" href="#further-readings"><i class="fas fa-link"></i></a>
+</h4>
 <p><a href="https://www.pyimagesearch.com/2021/01/20/opencv-getting-and-setting-pixels/">OpenCV Getting and Setting Pixels</a></p>
 </div>
 <div id="think-further" class="section level4" number="1.8.5.2">
-<h4><span class="header-section-number">1.8.5.2</span> Think further</h4>
+<h4>
+<span class="header-section-number">1.8.5.2</span> Think further<a class="anchor" aria-label="anchor" href="#think-further"><i class="fas fa-link"></i></a>
+</h4>
 <ol style="list-style-type: decimal">
-<li><p>Think about another device you could build around YET. The famous physicist Stephen Hawking used a device registering his eye blinks to communicate. A similar device is used in the novel <em>Butterfly and divers bell</em> for writing the same novel.</p>
+<li>
+<p>Think about another device you could build around YET. The famous physicist Stephen Hawking used a device registering his eye blinks to communicate. A similar device is used in the novel <em>Butterfly and divers bell</em> for writing the same novel.</p>
 <ol style="list-style-type: lower-alpha">
 <li><p>Use YET to record pictures of your closed eye and perform an analysis of visual features to discern an open eye from a closed eye, for example the distribution of brightness. Propose a sequence of functions, that take in a raw frame and return <em>True</em> when the eye is closed, <em>False</em> otherwise.</p></li>
 <li><p>Design an interactive program around the blink detection, by adding actors like in @ref(dumb_computers).</p></li>
 <li><p>Inspect Yeti6 for how it is done there.</p></li>
-</ol></li>
+</ol>
+</li>
 <li><p>When the eyeball jumps from object to object in the visual field, it makes <em>saccades</em>. Saccades are extremely fast. If the average eyeball could make full spins at the speed of a saccade, it would make a 360 in 720 milliseconds (84 rpm). Think about how you could use YET to measure your own speed-of-eyeball.</p></li>
 <li><p>In psychological experiments, reaction time is frequently measured as the interval between stimulus presentation and keypress. Compared to saccades, fingers are sluggish. Combine your results from @ref(dumb_computers) and <a href="intro.html#batchwork">1.8</a> to create a Stroop task where the response is measured by eye tracking.</p></li>
 </ol>
-
 </div>
 </div>
 </div>
 </div>
-<p style="text-align: center;">
-<a href="index.html"><button class="btn btn-default">Previous</button></a>
-<a href="variables.html"><button class="btn btn-default">Next</button></a>
-</p>
+  <div class="chapter-nav">
+<div class="prev"><a href="index.html">Preface</a></div>
+<div class="next"><a href="variables.html"><span class="header-section-number">2</span> Variables, values and types</a></div>
+</div></main><div class="col-md-3 col-lg-2 d-none d-md-block sidebar sidebar-chapter">
+    <nav id="toc" data-toggle="toc" aria-label="On this page"><h2>On this page</h2>
+      <ul class="nav navbar-nav">
+<li><a class="nav-link" href="#intro"><span class="header-section-number">1</span> Introduction</a></li>
+<li><a class="nav-link" href="#installing-a-python-environment"><span class="header-section-number">1.1</span> Installing a Python environment</a></li>
+<li><a class="nav-link" href="#installing-the-anaconda-python-environment"><span class="header-section-number">1.2</span> Installing the Anaconda Python environment</a></li>
+<li><a class="nav-link" href="#windows"><span class="header-section-number">1.3</span> Windows</a></li>
+<li><a class="nav-link" href="#macos"><span class="header-section-number">1.4</span> MacOS</a></li>
+<li><a class="nav-link" href="#testing-your-environment"><span class="header-section-number">1.5</span> Testing your environment</a></li>
+<li><a class="nav-link" href="#dumb_computers"><span class="header-section-number">1.6</span> Computers are dumb</a></li>
+<li><a class="nav-link" href="#dive-in-a-first-example"><span class="header-section-number">1.7</span> Dive in: a first example</a></li>
+<li>
+<a class="nav-link" href="#batchwork"><span class="header-section-number">1.8</span> Making an eye tracker</a><ul class="nav navbar-nav">
+<li><a class="nav-link" href="#yets-and-yetis"><span class="header-section-number">1.8.1</span> YETs and Yetis</a></li>
+<li><a class="nav-link" href="#the-eyeballing-exercise"><span class="header-section-number">1.8.2</span> The Eyeballing exercise</a></li>
+<li><a class="nav-link" href="#dumb-pictures"><span class="header-section-number">1.8.3</span> Dumb pictures</a></li>
+<li><a class="nav-link" href="#from-pixel-to-eye-tracking"><span class="header-section-number">1.8.4</span> From pixel to eye tracking</a></li>
+<li><a class="nav-link" href="#into-the-batch"><span class="header-section-number">1.8.5</span> Into the batch</a></li>
+</ul>
+</li>
+</ul>
+
+      <div class="book-extra">
+        <ul class="list-unstyled">
+          
+        </ul>
 </div>
+    </nav>
 </div>
 
-
 </div>
+</div> <!-- .container -->
 
-<script>
+<footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
 
-// add bootstrap table styles to pandoc tables
-$(document).ready(function () {
-  $('tr.header').parent('thead').parent('table').addClass('table table-condensed');
-});
+  <div class="col-12 col-md-6 mt-3">
+    <p>"<strong>Programming for Psychologists</strong>: A course in Python" was written by Martin Schmettow and Lena Brandl. It was last built on 2021-11-01.</p>
+  </div>
 
-</script>
+  <div class="col-12 col-md-6 mt-3">
+    <p>This book was built by the <a class="text-light" href="https://bookdown.org">bookdown</a> R package.</p>
+  </div>
 
+</div></div>
+</footer>
 </body>
 </html>

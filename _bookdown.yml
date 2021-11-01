@@ -1,7 +1,8 @@
 book_filename: "PfP_Book"
 output_dir: docs
-rmd_files: ["index.Rmd", "01_Introduction.Rmd", "02_Variables.Rmd", 
-"03_Conditionals.Rmd", "04_Lists.Rmd", 
+rmd_files: ["index.Rmd", "01_Introduction.Rmd", "02_Variables.Rmd",
+"03_Conditionals.Rmd", "04_Lists.Rmd",
 "05_Loops.Rmd", "06_Functions.Rmd", "07_Working_with_data.Rmd",
 "0x_Interaction.Rmd", "08_Solutions.Rmd", "09_Debugging.Rmd"]
+# rmd_files: ["index.Rmd", "01_Introduction.Rmd", "02_Variables.Rmd"]
 new_session: yes

@@ -1,16 +1,14 @@
 ---
-title: "Programming Interaction for Psychologists"
+title: "Programming for Psychologists"
 subtitle: "A course in Python"
 author: "Martin Schmettow and Lena Brandl"
 date: "`r Sys.Date()`"
 site: bookdown::bookdown_site
 repo: https://schmettow.github.io/PfP_Book/
 github-repo: schmettow/PfP_Book
-description: ""
+description: "A primer for psychology students who want to learn the art of coding. The focus of the course is on programming psychological experiments."
 always_allow_html: true
-
 chapter_name: "Chapter "
-
 documentclass: scrbook
 ---
 

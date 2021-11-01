@@ -1,449 +1,73 @@
 <!DOCTYPE html>
-<html lang="" xml:lang="">
+<html lang="en">
 <head>
-
-<meta charset="utf-8" />
-<meta name="generator" content="pandoc" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
-<meta property="og:title" content="6 Functions | Programming Interaction for Psychologists" />
-<meta property="og:type" content="book" />
-
-
-
-<meta name="github-repo" content="schmettow/PfP_Book" />
-
-<meta name="author" content="Martin Schmettow and Lena Brandl" />
-
-<meta name="date" content="2021-11-01" />
-
-
-<meta name="description" content="6 Functions | Programming Interaction for Psychologists">
-
-<title>6 Functions | Programming Interaction for Psychologists</title>
-
-<script src="libs/header-attrs-2.8/header-attrs.js"></script>
-<script src="libs/jquery-1.11.3/jquery.min.js"></script>
-<meta name="viewport" content="width=device-width, initial-scale=1" />
-<link href="libs/bootstrap-3.3.5/css/bootstrap.min.css" rel="stylesheet" />
-<script src="libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
-<script src="libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
-<script src="libs/bootstrap-3.3.5/shim/respond.min.js"></script>
-<style>h1 {font-size: 34px;}
-       h1.title {font-size: 38px;}
-       h2 {font-size: 30px;}
-       h3 {font-size: 24px;}
-       h4 {font-size: 18px;}
-       h5 {font-size: 16px;}
-       h6 {font-size: 12px;}
-       code {color: inherit; background-color: rgba(0, 0, 0, 0.04);}
-       pre:not([class]) { background-color: white }</style>
-<script src="libs/navigation-1.1/tabsets.js"></script>
-<script src="libs/htmlwidgets-1.5.3/htmlwidgets.js"></script>
-<script src="libs/d3-3.3.8/d3.min.js"></script>
-<script src="libs/dagre-0.4.0/dagre-d3.min.js"></script>
-<link href="libs/mermaid-0.3.0/dist/mermaid.css" rel="stylesheet" />
-<script src="libs/mermaid-0.3.0/dist/mermaid.slim.min.js"></script>
-<link href="libs/DiagrammeR-styles-0.2/styles.css" rel="stylesheet" />
-<script src="libs/chromatography-0.1/chromatography.js"></script>
-<script src="libs/DiagrammeR-binding-1.0.6.1/DiagrammeR.js"></script>
-
-
-<style type="text/css">code{white-space: pre;}</style>
-<style type="text/css">
-pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
-pre > code.sourceCode > span:empty { height: 1.2em; }
-.sourceCode { overflow: visible; }
-code.sourceCode > span { color: inherit; text-decoration: inherit; }
-div.sourceCode { margin: 1em 0; }
-pre.sourceCode { margin: 0; }
-@media screen {
-div.sourceCode { overflow: auto; }
-}
-@media print {
-pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
-}
-pre.numberSource code
-  { counter-reset: source-line 0; }
-pre.numberSource code > span
-  { position: relative; left: -4em; counter-increment: source-line; }
-pre.numberSource code > span > a:first-child::before
-  { content: counter(source-line);
-    position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; display: inline-block;
-    -webkit-touch-callout: none; -webkit-user-select: none;
-    -khtml-user-select: none; -moz-user-select: none;
-    -ms-user-select: none; user-select: none;
-    padding: 0 4px; width: 4em;
-    color: #aaaaaa;
-  }
-pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
-div.sourceCode
-  {   }
-@media screen {
-pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
-}
-code span.al { color: #ff0000; font-weight: bold; } /* Alert */
-code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
-code span.at { color: #7d9029; } /* Attribute */
-code span.bn { color: #40a070; } /* BaseN */
-code span.bu { } /* BuiltIn */
-code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
-code span.ch { color: #4070a0; } /* Char */
-code span.cn { color: #880000; } /* Constant */
-code span.co { color: #60a0b0; font-style: italic; } /* Comment */
-code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
-code span.do { color: #ba2121; font-style: italic; } /* Documentation */
-code span.dt { color: #902000; } /* DataType */
-code span.dv { color: #40a070; } /* DecVal */
-code span.er { color: #ff0000; font-weight: bold; } /* Error */
-code span.ex { } /* Extension */
-code span.fl { color: #40a070; } /* Float */
-code span.fu { color: #06287e; } /* Function */
-code span.im { } /* Import */
-code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
-code span.kw { color: #007020; font-weight: bold; } /* Keyword */
-code span.op { color: #666666; } /* Operator */
-code span.ot { color: #007020; } /* Other */
-code span.pp { color: #bc7a00; } /* Preprocessor */
-code span.sc { color: #4070a0; } /* SpecialChar */
-code span.ss { color: #bb6688; } /* SpecialString */
-code span.st { color: #4070a0; } /* String */
-code span.va { color: #19177c; } /* Variable */
-code span.vs { color: #4070a0; } /* VerbatimString */
-code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
-</style>
-<style type="text/css">
-  pre:not([class]) {
-    background-color: white;
-  }
-</style>
-
-
-
-
-<style type = "text/css">
-.main-container {
-  max-width: 940px;
-  margin-left: auto;
-  margin-right: auto;
-}
-code {
-  color: inherit;
-  background-color: rgba(0, 0, 0, 0.04);
-}
-img {
-  max-width:100%;
-  height: auto;
-}
-/* show arrow before summary tag as in bootstrap
-TODO: remove if boostrap in updated in html_document (rmarkdown#1485) */
-details > summary {
-  display: list-item;
-  cursor: pointer;
-}
-</style>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<title>6 Functions | Programming for Psychologists</title>
+<meta name="author" content="Martin Schmettow and Lena Brandl">
+<!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.2"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/header-attrs-2.8/header-attrs.js"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet">
+<script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.2.5.1/tabs.js"></script><script src="libs/bs3compat-0.2.5.1/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
+<script src="libs/bs4_book-1.0.0/bs4_book.js"></script><script src="libs/htmlwidgets-1.5.3/htmlwidgets.js"></script><script src="libs/d3-3.3.8/d3.min.js"></script><script src="libs/dagre-0.4.0/dagre-d3.min.js"></script><link href="libs/mermaid-0.3.0/dist/mermaid.css" rel="stylesheet">
+<script src="libs/mermaid-0.3.0/dist/mermaid.slim.min.js"></script><link href="libs/DiagrammeR-styles-0.2/styles.css" rel="stylesheet">
+<script src="libs/chromatography-0.1/chromatography.js"></script><script src="libs/DiagrammeR-binding-1.0.6.1/DiagrammeR.js"></script><script src="https://cdn.jsdelivr.net/autocomplete.js/0/autocomplete.jquery.min.js"></script><script src="https://cdn.jsdelivr.net/npm/mark.js@8.11.1/dist/mark.min.js"></script><!-- CSS -->
 </head>
+<body data-spy="scroll" data-target="#toc">
 
-<body>
-
-<div class="container-fluid main-container">
-
-
+<div class="container-fluid">
 <div class="row">
-<div class="col-sm-12">
-<div id="TOC">
-<ul>
-<li><a href="index.html#preface">Preface</a></li>
-<li><a href="intro.html#intro"><span class="toc-section-number">1</span> Introduction</a>
-<ul>
-<li><a href="intro.html#installing-a-python-environment"><span class="toc-section-number">1.1</span> Installing a Python environment</a></li>
-<li><a href="intro.html#installing-the-anaconda-python-environment"><span class="toc-section-number">1.2</span> Installing the Anaconda Python environment</a></li>
-<li><a href="intro.html#windows"><span class="toc-section-number">1.3</span> Windows</a></li>
-<li><a href="intro.html#macos"><span class="toc-section-number">1.4</span> MacOS</a></li>
-<li><a href="intro.html#testing-your-environment"><span class="toc-section-number">1.5</span> Testing your environment</a></li>
-<li><a href="intro.html#dumb_computers"><span class="toc-section-number">1.6</span> Computers are dumb</a></li>
-<li><a href="intro.html#dive-in-a-first-example"><span class="toc-section-number">1.7</span> Dive in: a first example</a></li>
-<li><a href="intro.html#batchwork"><span class="toc-section-number">1.8</span> Making an eye tracker</a>
-<ul>
-<li><a href="intro.html#yets-and-yetis"><span class="toc-section-number">1.8.1</span> YETs and Yetis</a></li>
-<li><a href="intro.html#the-eyeballing-exercise"><span class="toc-section-number">1.8.2</span> The Eyeballing exercise</a></li>
-<li><a href="intro.html#dumb-pictures"><span class="toc-section-number">1.8.3</span> Dumb pictures</a></li>
-<li><a href="intro.html#from-pixel-to-eye-tracking"><span class="toc-section-number">1.8.4</span> From pixel to eye tracking</a></li>
-<li><a href="intro.html#into-the-batch"><span class="toc-section-number">1.8.5</span> Into the batch</a></li>
-</ul></li>
-</ul></li>
-<li><a href="variables.html#variables"><span class="toc-section-number">2</span> Variables, values and types</a>
-<ul>
-<li><a href="variables.html#variables-1"><span class="toc-section-number">2.1</span> Variables</a></li>
-<li><a href="variables.html#stroop-task-variables"><span class="toc-section-number">2.2</span> Use of variables in the Stroop Task</a></li>
-<li><a href="variables.html#how-variables-are-used"><span class="toc-section-number">2.3</span> How Variables Are Used</a></li>
-<li><a href="variables.html#data-types"><span class="toc-section-number">2.4</span> Data types</a>
-<ul>
-<li><a href="variables.html#numbers"><span class="toc-section-number">2.4.1</span> Numbers</a></li>
-<li><a href="variables.html#strings"><span class="toc-section-number">2.4.2</span> Strings</a></li>
-<li><a href="variables.html#booleans"><span class="toc-section-number">2.4.3</span> Booleans</a></li>
-</ul></li>
-<li><a href="variables.html#object-variables-in-a-yeti"><span class="toc-section-number">2.5</span> Object variables in a Yeti</a></li>
-<li><a href="variables.html#common-errors"><span class="toc-section-number">2.6</span> Common errors</a></li>
-<li><a href="variables.html#debugging"><span class="toc-section-number">2.7</span> Debugging</a></li>
-<li><a href="variables.html#exercises-1"><span class="toc-section-number">2.8</span> Exercises</a>
-<ul>
-<li><a href="variables.html#exercise-1.-operators"><span class="toc-section-number">2.8.1</span> Exercise 1. Operators</a></li>
-<li><a href="variables.html#exercise-2.-values"><span class="toc-section-number">2.8.2</span> Exercise 2. Values</a></li>
-<li><a href="variables.html#exercise-3.-mini-programs"><span class="toc-section-number">2.8.3</span> Exercise 3. Mini programs</a></li>
-<li><a href="variables.html#exercise-4.-debugging"><span class="toc-section-number">2.8.4</span> Exercise 4. Debugging</a></li>
-<li><a href="variables.html#exercise-5.-string-concatenation"><span class="toc-section-number">2.8.5</span> Exercise 5. String concatenation</a></li>
-<li><a href="variables.html#exercise-6.-variable-names"><span class="toc-section-number">2.8.6</span> Exercise 6. Variable names</a></li>
-<li><a href="variables.html#exercise-7.-stroop-task-welcome-message"><span class="toc-section-number">2.8.7</span> Exercise 7. Stroop task welcome message</a></li>
-<li><a href="variables.html#exercise-8.-printing"><span class="toc-section-number">2.8.8</span> Exercise 8. Printing</a></li>
-<li><a href="variables.html#exercise-9.-using-python-as-a-calculator"><span class="toc-section-number">2.8.9</span> Exercise 9. Using Python as a calculator</a></li>
-<li><a href="variables.html#exercise-10.-a-boolean-puzzle"><span class="toc-section-number">2.8.10</span> Exercise 10. A Boolean puzzle</a></li>
-</ul></li>
-<li><a href="variables.html#think-further-1"><span class="toc-section-number">2.9</span> Think Further</a></li>
-</ul></li>
-<li><a href="conditionals.html#conditionals"><span class="toc-section-number">3</span> Conditionals</a>
-<ul>
-<li><a href="conditionals.html#boolean-logic"><span class="toc-section-number">3.1</span> Boolean logic</a></li>
-<li><a href="conditionals.html#if-then"><span class="toc-section-number">3.2</span> if this is true, then do this</a></li>
-<li><a href="conditionals.html#else-do-that"><span class="toc-section-number">3.3</span> else do that</a></li>
-<li><a href="conditionals.html#bringing-interaction-to-life-conditional-state-transitions"><span class="toc-section-number">3.4</span> Bringing interaction to life: Conditional state transitions</a>
-<ul>
-<li><a href="conditionals.html#transition-tables"><span class="toc-section-number">3.4.1</span> Transition tables</a></li>
-<li><a href="conditionals.html#state-charts"><span class="toc-section-number">3.4.2</span> State charts</a></li>
-</ul></li>
-<li><a href="conditionals.html#common-errors-1"><span class="toc-section-number">3.5</span> Common errors</a></li>
-<li><a href="conditionals.html#debugging-1"><span class="toc-section-number">3.6</span> Debugging</a></li>
-<li><a href="conditionals.html#exercises-2"><span class="toc-section-number">3.7</span> Exercises</a>
-<ul>
-<li><a href="conditionals.html#exercise-1.-boolean-logic"><span class="toc-section-number">3.7.1</span> Exercise 1. Boolean logic</a></li>
-<li><a href="conditionals.html#exercise-2.-state-charts"><span class="toc-section-number">3.7.2</span> Exercise 2. State charts</a></li>
-<li><a href="conditionals.html#exercise-3.-transition-tables"><span class="toc-section-number">3.7.3</span> Exercise 3. Transition tables</a></li>
-<li><a href="conditionals.html#exercise-4.-mini-programs"><span class="toc-section-number">3.7.4</span> Exercise 4. Mini programs</a></li>
-<li><a href="conditionals.html#exercise-5.-following-the-control-flow"><span class="toc-section-number">3.7.5</span> Exercise 5. Following the control flow</a></li>
-<li><a href="conditionals.html#exercise-6.-indentation"><span class="toc-section-number">3.7.6</span> Exercise 6. Indentation</a></li>
-<li><a href="conditionals.html#exercise-7.-pseudo-code-conditionals"><span class="toc-section-number">3.7.7</span> Exercise 7. Pseudo code conditionals</a></li>
-<li><a href="conditionals.html#exercise-8.-modify-stroop-task"><span class="toc-section-number">3.7.8</span> Exercise 8. Modify Stroop Task</a></li>
-<li><a href="conditionals.html#exercise-9.-simplify-nested-conditionals"><span class="toc-section-number">3.7.9</span> Exercise 9. Simplify nested conditionals</a></li>
-<li><a href="conditionals.html#exercise-10.-flow-chart-conditionals"><span class="toc-section-number">3.7.10</span> Exercise 10. Flow chart conditionals</a></li>
-</ul></li>
-<li><a href="conditionals.html#think-further-2"><span class="toc-section-number">3.8</span> Think Further</a></li>
-</ul></li>
-<li><a href="lists.html#lists"><span class="toc-section-number">4</span> Lists</a>
-<ul>
-<li><a href="lists.html#lists-1"><span class="toc-section-number">4.1</span> Lists</a>
-<ul>
-<li><a href="lists.html#lists-are-mutable"><span class="toc-section-number">4.1.1</span> Lists are mutable</a></li>
-</ul></li>
-<li><a href="lists.html#tuples"><span class="toc-section-number">4.2</span> Tuples</a></li>
-<li><a href="lists.html#dictionaries"><span class="toc-section-number">4.3</span> Dictionaries</a></li>
-<li><a href="lists.html#putting-collections-to-use"><span class="toc-section-number">4.4</span> Putting collections to use</a></li>
-<li><a href="lists.html#common-errors-2"><span class="toc-section-number">4.5</span> Common errors</a></li>
-<li><a href="lists.html#debugging-2"><span class="toc-section-number">4.6</span> Debugging</a></li>
-<li><a href="lists.html#exercises-3"><span class="toc-section-number">4.7</span> Exercises</a>
-<ul>
-<li><a href="lists.html#exercise-1.-indexing"><span class="toc-section-number">4.7.1</span> Exercise 1. Indexing</a></li>
-<li><a href="lists.html#exercise-2.-debugging"><span class="toc-section-number">4.7.2</span> Exercise 2. Debugging</a></li>
-<li><a href="lists.html#exercise-3.-mini-programs-1"><span class="toc-section-number">4.7.3</span> Exercise 3. Mini programs</a></li>
-<li><a href="lists.html#exercise-4.-shopping-list"><span class="toc-section-number">4.7.4</span> Exercise 4. Shopping list</a></li>
-<li><a href="lists.html#exercise-5.-dictionaries"><span class="toc-section-number">4.7.5</span> Exercise 5. Dictionaries</a></li>
-<li><a href="lists.html#exercise-6.-element-selection"><span class="toc-section-number">4.7.6</span> Exercise 6. Element selection</a></li>
-<li><a href="lists.html#exercise-7.-adjust-a-dictionary-data-set"><span class="toc-section-number">4.7.7</span> Exercise 7. Adjust a dictionary data set</a></li>
-<li><a href="lists.html#exercise-8.-a-dictionary-data-set"><span class="toc-section-number">4.7.8</span> Exercise 8. A dictionary data set</a></li>
-<li><a href="lists.html#exercise-9.-stroop-extension"><span class="toc-section-number">4.7.9</span> Exercise 9. Stroop extension</a></li>
-</ul></li>
-<li><a href="lists.html#think-further-3"><span class="toc-section-number">4.8</span> Think further</a></li>
-</ul></li>
-<li><a href="loops.html#loops"><span class="toc-section-number">5</span> Loops</a>
-<ul>
-<li><a href="loops.html#the-for-loop"><span class="toc-section-number">5.1</span> The <code>for</code> loop</a></li>
-<li><a href="loops.html#the-while-loop"><span class="toc-section-number">5.2</span> The <code>while</code> loop</a>
-<ul>
-<li><a href="loops.html#for-or-while"><span class="toc-section-number">5.2.1</span> <code>for</code> or <code>while</code>?</a></li>
-</ul></li>
-<li><a href="loops.html#the-break-statement"><span class="toc-section-number">5.3</span> The <code>break</code> statement</a></li>
-<li><a href="loops.html#controlling-the-flow-of-your-program-with-loops"><span class="toc-section-number">5.4</span> Controlling the flow of your program with loops</a></li>
-<li><a href="loops.html#common-errors-3"><span class="toc-section-number">5.5</span> Common errors</a></li>
-<li><a href="loops.html#debugging-3"><span class="toc-section-number">5.6</span> Debugging</a></li>
-<li><a href="loops.html#exercises-4"><span class="toc-section-number">5.7</span> Exercises</a>
-<ul>
-<li><a href="loops.html#exercise-1.-following-the-control-flow-i"><span class="toc-section-number">5.7.1</span> Exercise 1. Following the control flow I</a></li>
-<li><a href="loops.html#exercise-2.-debugging-i"><span class="toc-section-number">5.7.2</span> Exercise 2. Debugging I</a></li>
-<li><a href="loops.html#exercise-3.-a-guessing-game"><span class="toc-section-number">5.7.3</span> Exercise 3. A guessing game</a></li>
-<li><a href="loops.html#exercise-4.-controlling-the-flow"><span class="toc-section-number">5.7.4</span> Exercise 4. Controlling the flow</a></li>
-<li><a href="loops.html#exercise-5.-following-the-control-flow-ii"><span class="toc-section-number">5.7.5</span> Exercise 5. Following the control flow II</a></li>
-<li><a href="loops.html#exercise-6.-debugging-ii"><span class="toc-section-number">5.7.6</span> Exercise 6. Debugging II</a></li>
-<li><a href="loops.html#exercise-7.-nested-loops"><span class="toc-section-number">5.7.7</span> Exercise 7. Nested loops</a></li>
-<li><a href="loops.html#exercise-8.-data-transformation-using-loops"><span class="toc-section-number">5.7.8</span> Exercise 8. Data transformation using loops</a></li>
-<li><a href="loops.html#exercise-9.-calculating-a-mean"><span class="toc-section-number">5.7.9</span> Exercise 9. Calculating a mean</a></li>
-</ul></li>
-<li><a href="loops.html#think-further-4"><span class="toc-section-number">5.8</span> Think Further</a></li>
-</ul></li>
-<li><a href="functions.html#functions"><span class="toc-section-number">6</span> Functions</a>
-<ul>
-<li><a href="functions.html#defining-and-calling-functions"><span class="toc-section-number">6.1</span> Defining and calling functions</a></li>
-<li><a href="functions.html#function-parameters-and-arguments"><span class="toc-section-number">6.2</span> Function parameters and arguments</a></li>
-<li><a href="functions.html#the-return-statement"><span class="toc-section-number">6.3</span> The <code>return</code> statement</a></li>
-<li><a href="functions.html#functions-can-call-other-functions-and-themselves"><span class="toc-section-number">6.4</span> Functions can call other functions, and themselves</a>
-<ul>
-<li><a href="functions.html#a-word-about-recursion"><span class="toc-section-number">6.4.1</span> A word about <em>Recursion</em></a></li>
-</ul></li>
-<li><a href="functions.html#stroop-functions"><span class="toc-section-number">6.5</span> Stroop functions</a></li>
-<li><a href="functions.html#common-errors-4"><span class="toc-section-number">6.6</span> Common errors</a></li>
-<li><a href="functions.html#exercises-5"><span class="toc-section-number">6.7</span> Exercises</a>
-<ul>
-<li><a href="functions.html#exercise-1.-following-the-control-flow"><span class="toc-section-number">6.7.1</span> Exercise 1. Following the control flow</a></li>
-<li><a href="functions.html#exercise-2.-an-imperfect-list-sorting-attempt"><span class="toc-section-number">6.7.2</span> Exercise 2. An imperfect list sorting attempt</a></li>
-<li><a href="functions.html#exercise-3.-an-erroneous-sorting-algorithm"><span class="toc-section-number">6.7.3</span> Exercise 3. An erroneous sorting algorithm</a></li>
-<li><a href="functions.html#exercise-4.-chunking"><span class="toc-section-number">6.7.4</span> Exercise 4. Chunking</a></li>
-<li><a href="functions.html#exercise-5.-add-functionality-to-the-stroop-task"><span class="toc-section-number">6.7.5</span> Exercise 5. Add functionality to the stroop task</a></li>
-<li><a href="functions.html#exercise-6.-insertion-sort-algorithm"><span class="toc-section-number">6.7.6</span> Exercise 6. Insertion sort algorithm</a></li>
-</ul></li>
-<li><a href="functions.html#think-further-5"><span class="toc-section-number">6.8</span> Think further</a></li>
-<li><a href="functions.html#references"><span class="toc-section-number">6.9</span> References</a></li>
-</ul></li>
-<li><a href="data.html#data"><span class="toc-section-number">7</span> Working with data</a>
-<ul>
-<li><a href="data.html#elements-of-data-processing"><span class="toc-section-number">7.1</span> Elements of data processing</a></li>
-<li><a href="data.html#data-tables"><span class="toc-section-number">7.2</span> Data tables</a></li>
-<li><a href="data.html#down-the-sink-writing-data-files"><span class="toc-section-number">7.3</span> Down the sink: Writing data files</a></li>
-<li><a href="data.html#may-the-source-reading-data-files"><span class="toc-section-number">7.4</span> May the source …: reading data files</a></li>
-<li><a href="data.html#exercises-6"><span class="toc-section-number">7.5</span> Exercises</a>
-<ul>
-<li><a href="data.html#exercise-1"><span class="toc-section-number">7.5.1</span> Exercise 1</a></li>
-<li><a href="data.html#exercise-2"><span class="toc-section-number">7.5.2</span> Exercise 2</a></li>
-</ul></li>
-<li><a href="data.html#think-further-6"><span class="toc-section-number">7.6</span> Think further</a></li>
-<li><a href="data.html#references-1"><span class="toc-section-number">7.7</span> References</a></li>
-</ul></li>
-<li><a href="interaction.html#interaction"><span class="toc-section-number">8</span> Interaction</a>
-<ul>
-<li><a href="interaction.html#interaction-models"><span class="toc-section-number">8.1</span> Interaction models</a>
-<ul>
-<li><a href="interaction.html#identifying-states"><span class="toc-section-number">8.1.1</span> Identifying states</a></li>
-<li><a href="interaction.html#identifying-transitions"><span class="toc-section-number">8.1.2</span> Identifying transitions</a></li>
-<li><a href="interaction.html#events-user-input-and-internal-conditions"><span class="toc-section-number">8.1.3</span> Events: user input and internal conditions</a></li>
-<li><a href="interaction.html#exercises-7"><span class="toc-section-number">8.1.4</span> Exercises</a></li>
-</ul></li>
-<li><a href="interaction.html#programming-interactive-prototypes"><span class="toc-section-number">8.2</span> Programming interactive prototypes</a>
-<ul>
-<li><a href="interaction.html#interactive-transitionals"><span class="toc-section-number">8.2.1</span> Interactive transitionals</a></li>
-<li><a href="interaction.html#automatic-transitions"><span class="toc-section-number">8.2.2</span> Automatic transitions</a></li>
-<li><a href="interaction.html#the-timestamp-method"><span class="toc-section-number">8.2.3</span> The timestamp method</a></li>
-<li><a href="interaction.html#presentation-conditionals"><span class="toc-section-number">8.2.4</span> Presentation conditionals</a></li>
-</ul></li>
-<li><a href="interaction.html#interactions-in-pygame"><span class="toc-section-number">8.3</span> Interactions in Pygame</a>
-<ul>
-<li><a href="interaction.html#overall-structure"><span class="toc-section-number">8.3.1</span> Overall structure</a></li>
-<li><a href="interaction.html#the-screen-and-the-refresh-loop."><span class="toc-section-number">8.3.2</span> The screen and the refresh loop.</a></li>
-<li><a href="interaction.html#handling-user-input"><span class="toc-section-number">8.3.3</span> Handling user input</a></li>
-<li><a href="interaction.html#transitionals"><span class="toc-section-number">8.3.4</span> Transitionals</a></li>
-<li><a href="interaction.html#pygame-events"><span class="toc-section-number">8.3.5</span> Pygame events</a></li>
-</ul></li>
-<li><a href="interaction.html#presentitionals"><span class="toc-section-number">8.4</span> Presentitionals in Pygame</a>
-<ul>
-<li><a href="interaction.html#display-and-surface"><span class="toc-section-number">8.4.1</span> Display and surface</a></li>
-<li><a href="interaction.html#drawing-figures"><span class="toc-section-number">8.4.2</span> Drawing figures</a></li>
-<li><a href="interaction.html#placing-text-and-pictures"><span class="toc-section-number">8.4.3</span> Placing text and pictures</a></li>
-</ul></li>
-<li><a href="interaction.html#exercises-8"><span class="toc-section-number">8.5</span> Exercises</a>
-<ul>
-<li><a href="interaction.html#exercise-c.-transition-tables"><span class="toc-section-number">8.5.1</span> Exercise C. Transition tables</a></li>
-</ul></li>
-<li><a href="interaction.html#common-errors-5"><span class="toc-section-number">8.6</span> Common errors</a></li>
-<li><a href="interaction.html#think-further-7"><span class="toc-section-number">8.7</span> Think Further</a></li>
-</ul></li>
-<li><a href="solutions.html#solutions"><span class="toc-section-number">9</span> Solutions</a>
-<ul>
-<li><a href="solutions.html#chapter-1.-introduction"><span class="toc-section-number">9.1</span> Chapter 1. Introduction</a></li>
-<li><a href="solutions.html#chapter-2.-variables-values-and-types"><span class="toc-section-number">9.2</span> Chapter 2. Variables, values and types</a>
-<ul>
-<li><a href="solutions.html#exercise-1.-operators-1"><span class="toc-section-number">9.2.1</span> Exercise 1. Operators</a></li>
-<li><a href="solutions.html#exercise-2.-values-1"><span class="toc-section-number">9.2.2</span> Exercise 2. Values</a></li>
-<li><a href="solutions.html#exercise-3.-mini-programs-2"><span class="toc-section-number">9.2.3</span> Exercise 3. Mini programs</a></li>
-<li><a href="solutions.html#exercise-4.-debugging-1"><span class="toc-section-number">9.2.4</span> Exercise 4. Debugging</a></li>
-<li><a href="solutions.html#exercise-5.-string-concatenation-1"><span class="toc-section-number">9.2.5</span> Exercise 5. String concatenation</a></li>
-<li><a href="solutions.html#exercise-6.-variable-names-1"><span class="toc-section-number">9.2.6</span> Exercise 6. Variable names</a></li>
-<li><a href="solutions.html#exercise-7.-stroop-task-welcome-message-1"><span class="toc-section-number">9.2.7</span> Exercise 7. Stroop task welcome message</a></li>
-<li><a href="solutions.html#exercise-8.-printing-1"><span class="toc-section-number">9.2.8</span> Exercise 8. Printing</a></li>
-<li><a href="solutions.html#exercise-9.-using-python-as-calculator"><span class="toc-section-number">9.2.9</span> Exercise 9. Using Python as calculator</a></li>
-<li><a href="solutions.html#exercise-10.-a-boolean-puzzle-1"><span class="toc-section-number">9.2.10</span> Exercise 10. A Boolean puzzle</a></li>
-</ul></li>
-<li><a href="solutions.html#chapter-3.-conditionals"><span class="toc-section-number">9.3</span> Chapter 3. Conditionals</a>
-<ul>
-<li><a href="solutions.html#exercise-1.-boolean-logic-1"><span class="toc-section-number">9.3.1</span> Exercise 1. Boolean logic</a></li>
-<li><a href="solutions.html#exercise-2.-state-charts-1"><span class="toc-section-number">9.3.2</span> Exercise 2. State charts</a></li>
-<li><a href="solutions.html#exercise-3.-transition-tables-1"><span class="toc-section-number">9.3.3</span> Exercise 3. Transition tables</a></li>
-<li><a href="solutions.html#exercise-4.-mini-programs-1"><span class="toc-section-number">9.3.4</span> Exercise 4. Mini programs</a></li>
-<li><a href="solutions.html#exercise-5.-following-the-control-flow-1"><span class="toc-section-number">9.3.5</span> Exercise 5. Following the control flow</a></li>
-<li><a href="solutions.html#exercise-6.-indentation-1"><span class="toc-section-number">9.3.6</span> Exercise 6. Indentation</a></li>
-<li><a href="solutions.html#exercise-7.-pseudo-code-conditionals-1"><span class="toc-section-number">9.3.7</span> Exercise 7. Pseudo code conditionals</a></li>
-<li><a href="solutions.html#exercise-8.-modify-stroop-task-1"><span class="toc-section-number">9.3.8</span> Exercise 8. Modify Stroop Task</a></li>
-<li><a href="solutions.html#exercise-9.-simplify-nested-conditionals-1"><span class="toc-section-number">9.3.9</span> Exercise 9. Simplify nested conditionals</a></li>
-<li><a href="solutions.html#exercise-10.-flow-chart-conditionals-1"><span class="toc-section-number">9.3.10</span> Exercise 10. Flow chart conditionals</a></li>
-</ul></li>
-<li><a href="solutions.html#chapter-4.-lists"><span class="toc-section-number">9.4</span> Chapter 4. Lists</a>
-<ul>
-<li><a href="solutions.html#exercise-1.-indexing-1"><span class="toc-section-number">9.4.1</span> Exercise 1. Indexing</a></li>
-<li><a href="solutions.html#exercise-2.-debugging-1"><span class="toc-section-number">9.4.2</span> Exercise 2. Debugging</a></li>
-<li><a href="solutions.html#exercise-3.-mini-programs-3"><span class="toc-section-number">9.4.3</span> Exercise 3. Mini programs</a></li>
-<li><a href="solutions.html#exercise-1.-shopping-list"><span class="toc-section-number">9.4.4</span> Exercise 1. Shopping list</a></li>
-<li><a href="solutions.html#exercise-2.-dictionnaries"><span class="toc-section-number">9.4.5</span> Exercise 2. Dictionnaries</a></li>
-<li><a href="solutions.html#exercise-3.-selecting-elements"><span class="toc-section-number">9.4.6</span> Exercise 3. Selecting elements</a></li>
-<li><a href="solutions.html#exercise-4.-adjust-a-dictionnary-data-set"><span class="toc-section-number">9.4.7</span> Exercise 4. Adjust a dictionnary data set</a></li>
-<li><a href="solutions.html#exercise-5.-a-dictionnary-data-set"><span class="toc-section-number">9.4.8</span> Exercise 5. A dictionnary data set</a></li>
-<li><a href="solutions.html#exercise-6.-stroop-extension"><span class="toc-section-number">9.4.9</span> Exercise 6. Stroop extension</a></li>
-</ul></li>
-<li><a href="solutions.html#chapter-5.-loops"><span class="toc-section-number">9.5</span> Chapter 5. Loops</a>
-<ul>
-<li><a href="solutions.html#exercise-1.-following-the-control-flow-i-1"><span class="toc-section-number">9.5.1</span> Exercise 1. Following the control flow I</a></li>
-<li><a href="solutions.html#exercise-2.-debugging-i-1"><span class="toc-section-number">9.5.2</span> Exercise 2. Debugging I</a></li>
-<li><a href="solutions.html#exercise-3.-controlling-the-flow"><span class="toc-section-number">9.5.3</span> Exercise 3. Controlling the flow</a></li>
-<li><a href="solutions.html#exercise-4.-following-the-control-flow-ii"><span class="toc-section-number">9.5.4</span> Exercise 4. Following the control flow II</a></li>
-<li><a href="solutions.html#exercise-5.-debugging"><span class="toc-section-number">9.5.5</span> Exercise 5. Debugging</a></li>
-<li><a href="solutions.html#exercise-6.-nested-loops"><span class="toc-section-number">9.5.6</span> Exercise 6. Nested loops</a></li>
-<li><a href="solutions.html#exercise-7.-data-transformation-using-loops"><span class="toc-section-number">9.5.7</span> Exercise 7. Data transformation using loops</a></li>
-<li><a href="solutions.html#exercise-8.-calculating-a-mean"><span class="toc-section-number">9.5.8</span> Exercise 8. Calculating a mean</a></li>
-<li><a href="solutions.html#exercise-9.-a-guessing-game"><span class="toc-section-number">9.5.9</span> Exercise 9. A guessing game</a></li>
-</ul></li>
-<li><a href="solutions.html#chapter-6.-functions"><span class="toc-section-number">9.6</span> Chapter 6. Functions</a>
-<ul>
-<li><a href="solutions.html#exercise-1.-following-the-control-flow-1"><span class="toc-section-number">9.6.1</span> Exercise 1. Following the control flow</a></li>
-<li><a href="solutions.html#exercise-2.-an-imperfect-list-sorting-attempt-1"><span class="toc-section-number">9.6.2</span> Exercise 2. An imperfect list sorting attempt</a></li>
-<li><a href="solutions.html#exercise-3.-an-errorneous-sorting-algorithm"><span class="toc-section-number">9.6.3</span> Exercise 3. An errorneous sorting algorithm</a></li>
-<li><a href="solutions.html#exercise-4."><span class="toc-section-number">9.6.4</span> Exercise 4.</a></li>
-<li><a href="solutions.html#exercise-5."><span class="toc-section-number">9.6.5</span> Exercise 5.</a></li>
-<li><a href="solutions.html#exercise-6.-insertion-sort-algorithm-1"><span class="toc-section-number">9.6.6</span> Exercise 6. Insertion sort algorithm</a></li>
-</ul></li>
-</ul></li>
-<li><a href="debugging-and-good-programming-practices.html#debugging-and-good-programming-practices"><span class="toc-section-number">10</span> Debugging and good programming practices</a>
-<ul>
-<li><a href="debugging-and-good-programming-practices.html#debugging-4"><span class="toc-section-number">10.1</span> Debugging</a></li>
-<li><a href="debugging-and-good-programming-practices.html#boosting-your-programming-learning-curve"><span class="toc-section-number">10.2</span> Boosting your programming learning curve</a>
-<ul>
-<li><a href="debugging-and-good-programming-practices.html#going-with-the-flow"><span class="toc-section-number">10.2.1</span> Going with the flow</a></li>
-<li><a href="debugging-and-good-programming-practices.html#just-do-it"><span class="toc-section-number">10.2.2</span> Just do it!</a></li>
-</ul></li>
-</ul></li>
+  <header class="col-sm-12 col-lg-3 sidebar sidebar-book"><a class="sr-only sr-only-focusable" href="#content">Skip to main content</a>
+
+    <div class="d-flex align-items-start justify-content-between">
+      <h1>
+        <a href="index.html" title="A course in Python">Programming for Psychologists</a>:
+        <small class="text-muted">A course in Python</small>
+      </h1>
+      <button class="btn btn-outline-primary d-lg-none ml-2 mt-1" type="button" data-toggle="collapse" data-target="#main-nav" aria-expanded="true" aria-controls="main-nav"><i class="fas fa-bars"></i><span class="sr-only">Show table of contents</span></button>
+    </div>
+
+    <div id="main-nav" class="collapse-lg">
+      <form role="search">
+        <input id="search" class="form-control" type="search" placeholder="Search" aria-label="Search">
+</form>
+
+      <nav aria-label="Table of contents"><h2>Table of contents</h2>
+        <ul class="book-toc list-unstyled">
+<li><a class="" href="index.html">Preface</a></li>
+<li><a class="" href="intro.html"><span class="header-section-number">1</span> Introduction</a></li>
+<li><a class="" href="variables.html"><span class="header-section-number">2</span> Variables, values and types</a></li>
+<li><a class="" href="conditionals.html"><span class="header-section-number">3</span> Conditionals</a></li>
+<li><a class="" href="lists.html"><span class="header-section-number">4</span> Lists</a></li>
+<li><a class="" href="loops.html"><span class="header-section-number">5</span> Loops</a></li>
+<li><a class="active" href="functions.html"><span class="header-section-number">6</span> Functions</a></li>
+<li><a class="" href="data.html"><span class="header-section-number">7</span> Working with data</a></li>
+<li><a class="" href="interaction.html"><span class="header-section-number">8</span> Interaction</a></li>
+<li><a class="" href="solutions.html"><span class="header-section-number">9</span> Solutions</a></li>
+<li><a class="" href="debugging-and-good-programming-practices.html"><span class="header-section-number">10</span> Debugging and good programming practices</a></li>
 </ul>
+
+        <div class="book-extra">
+          
+        </div>
+      </nav>
 </div>
-</div>
-</div>
-<div class="row">
-<div class="col-sm-12">
-<div id="functions" class="section level1" number="6">
-<h1><span class="header-section-number">6</span> Functions</h1>
+  </header><main class="col-sm-12 col-md-9 col-lg-7" id="content"><div id="functions" class="section level1" number="6">
+<h1>
+<span class="header-section-number">6</span> Functions<a class="anchor" aria-label="anchor" href="#functions"><i class="fas fa-link"></i></a>
+</h1>
 <div class="sourceCode" id="cb369"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb369-1"><a href="functions.html#cb369-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> hello(repetitions):</span>
 <span id="cb369-2"><a href="functions.html#cb369-2" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(repetitions):</span>
-<span id="cb369-3"><a href="functions.html#cb369-3" aria-hidden="true" tabindex="-1"></a>        <span class="bu">print</span>(<span class="st">&quot;Hello, World!&quot;</span>)</span>
+<span id="cb369-3"><a href="functions.html#cb369-3" aria-hidden="true" tabindex="-1"></a>        <span class="bu">print</span>(<span class="st">"Hello, World!"</span>)</span>
 <span id="cb369-4"><a href="functions.html#cb369-4" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb369-5"><a href="functions.html#cb369-5" aria-hidden="true" tabindex="-1"></a>hello(<span class="dv">2</span>)</span></code></pre></div>
 <pre><code>## Hello, World!
 ## Hello, World!</code></pre>
-<p>Functions are reusable pieces of code. By giving a block of statements a name, functions allow you to make use of that block anywhere in your program and as many times as you want. You can use the block of statements without having to write out the actual code contained in the block. This makes your code a lot easier to read and it eliminates a great deal of repetitive code. If you want to make a change later, you only have to do so in one place. We have already seen and used many built-in functions of Python, such as <code>len()</code> and <code>range()</code>. In this chapter, you will learn how to <em>define</em> and <em>call</em> your own functions.</p>
+<p>Functions are reusable pieces of code. By giving a block of statements a name, functions allow you to make use of that block anywhere in your program and as many times as you want. You can use the block of statements without having to write out the actual code contained in the block. This makes your code a lot easier to read and it eliminates a great deal of repetitive code. If you want to make a change later, you only have to do so in one place. We have already seen and used many built-in functions of Python, such as <code>len()</code> and <code><a href="https://rdrr.io/r/base/range.html">range()</a></code>. In this chapter, you will learn how to <em>define</em> and <em>call</em> your own functions.</p>
 <div id="defining-and-calling-functions" class="section level2" number="6.1">
-<h2><span class="header-section-number">6.1</span> Defining and calling functions</h2>
+<h2>
+<span class="header-section-number">6.1</span> Defining and calling functions<a class="anchor" aria-label="anchor" href="#defining-and-calling-functions"><i class="fas fa-link"></i></a>
+</h2>
 <p>Before you can use a function, it has to be defined in your program.</p>
 <div class="sourceCode" id="cb371"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb371-1"><a href="functions.html#cb371-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> echo(text):</span>
 <span id="cb371-2"><a href="functions.html#cb371-2" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(text)</span></code></pre></div>
@@ -452,12 +76,14 @@ details > summary {
 <p>Defining a function does not make the function run. To run a function, you need to <em>call</em> it.</p>
 <div class="sourceCode" id="cb372"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb372-1"><a href="functions.html#cb372-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> echo(text):</span>
 <span id="cb372-2"><a href="functions.html#cb372-2" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(text)</span>
-<span id="cb372-3"><a href="functions.html#cb372-3" aria-hidden="true" tabindex="-1"></a>echo(<span class="st">&quot;Hello there, programming aspirant!&quot;</span>)</span></code></pre></div>
+<span id="cb372-3"><a href="functions.html#cb372-3" aria-hidden="true" tabindex="-1"></a>echo(<span class="st">"Hello there, programming aspirant!"</span>)</span></code></pre></div>
 <pre><code>## Hello there, programming aspirant!</code></pre>
 <p>Function calls consist of the name of the function, and if the function takes one or more arguments, some values are included in the parentheses following the function name.</p>
 </div>
 <div id="function-parameters-and-arguments" class="section level2" number="6.2">
-<h2><span class="header-section-number">6.2</span> Function parameters and arguments</h2>
+<h2>
+<span class="header-section-number">6.2</span> Function parameters and arguments<a class="anchor" aria-label="anchor" href="#function-parameters-and-arguments"><i class="fas fa-link"></i></a>
+</h2>
 <p>When calling a function that takes <em>parameters</em> you should supply the function with values which the function can use to do something. <em>Parameters</em> are specified within parentheses during function definition. Multiple parameters are separated by commas. Mind the terminology, the names given to the values during function definition are called <em>parameters</em> and the values you supply to the function are called <em>arguments</em>.</p>
 <p>You can think of parameters as variables which only exist in the function. By default, their values are assigned when you call the function and they cease to exist once the function has finished running. Their sole purpose is to serve internal computations within the function.</p>
 <p>Another way of saying this is that variables inside functions are <em>local</em>. Local variables are not in any way related to other variables outside a function.</p>
@@ -465,50 +91,54 @@ details > summary {
 <span id="cb374-2"><a href="functions.html#cb374-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb374-3"><a href="functions.html#cb374-3" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> myFunction(x):</span>
 <span id="cb374-4"><a href="functions.html#cb374-4" aria-hidden="true" tabindex="-1"></a>    x <span class="op">+=</span> <span class="dv">50</span></span>
-<span id="cb374-5"><a href="functions.html#cb374-5" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">&quot;Local x equals:&quot;</span>, x)</span>
+<span id="cb374-5"><a href="functions.html#cb374-5" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">"Local x equals:"</span>, x)</span>
 <span id="cb374-6"><a href="functions.html#cb374-6" aria-hidden="true" tabindex="-1"></a>    </span>
-<span id="cb374-7"><a href="functions.html#cb374-7" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">&quot;Global x equals:&quot;</span>, x)</span></code></pre></div>
+<span id="cb374-7"><a href="functions.html#cb374-7" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Global x equals:"</span>, x)</span></code></pre></div>
 <pre><code>## Global x equals: 100</code></pre>
 <div class="sourceCode" id="cb376"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb376-1"><a href="functions.html#cb376-1" aria-hidden="true" tabindex="-1"></a>myFunction(<span class="dv">0</span>)</span></code></pre></div>
 <pre><code>## Local x equals: 50</code></pre>
 <p>In the above example, the <em>scope</em> of the variable <code>x</code> within <code>myFunction(x)</code> is local, whereas the scope of <code>x</code> outside the function is said to be <em>global</em>.</p>
 </div>
 <div id="the-return-statement" class="section level2" number="6.3">
-<h2><span class="header-section-number">6.3</span> The <code>return</code> statement</h2>
+<h2>
+<span class="header-section-number">6.3</span> The <code>return</code> statement<a class="anchor" aria-label="anchor" href="#the-return-statement"><i class="fas fa-link"></i></a>
+</h2>
 <p>But what if you want to use a value that has been assigned to some variable and manipulated within a function somewhere else in your program? Let’s make a few changes to <code>myFunction(x)</code> so that the function <em>returns</em> a value that can be used outside <code>myFunction(x)</code>.</p>
 <div class="sourceCode" id="cb378"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb378-1"><a href="functions.html#cb378-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> myFunction(x):</span>
 <span id="cb378-2"><a href="functions.html#cb378-2" aria-hidden="true" tabindex="-1"></a>    x <span class="op">+=</span> <span class="dv">50</span></span>
-<span id="cb378-3"><a href="functions.html#cb378-3" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">&quot;Local x equals:&quot;</span>, x)</span>
+<span id="cb378-3"><a href="functions.html#cb378-3" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">"Local x equals:"</span>, x)</span>
 <span id="cb378-4"><a href="functions.html#cb378-4" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> x</span>
 <span id="cb378-5"><a href="functions.html#cb378-5" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb378-6"><a href="functions.html#cb378-6" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> <span class="dv">100</span></span>
-<span id="cb378-7"><a href="functions.html#cb378-7" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">&quot;Global x equals:&quot;</span>, x)</span></code></pre></div>
+<span id="cb378-7"><a href="functions.html#cb378-7" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Global x equals:"</span>, x)</span></code></pre></div>
 <pre><code>## Global x equals: 100</code></pre>
 <div class="sourceCode" id="cb380"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb380-1"><a href="functions.html#cb380-1" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> myFunction(<span class="dv">0</span>)</span></code></pre></div>
 <pre><code>## Local x equals: 50</code></pre>
-<div class="sourceCode" id="cb382"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb382-1"><a href="functions.html#cb382-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">&quot;After function call, global x equals:&quot;</span>, x)</span></code></pre></div>
+<div class="sourceCode" id="cb382"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb382-1"><a href="functions.html#cb382-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"After function call, global x equals:"</span>, x)</span></code></pre></div>
 <pre><code>## After function call, global x equals: 50</code></pre>
 <p>The <code>return</code> statement enables us to retrieve one or more values from a function. When returning multiple values, Python makes use of <em>tuple assignment</em>. Make sure to provide enough variables on the left side of the assignment operator to unpack the returned tuple. Consult Chapter <a href="lists.html#lists">4</a> for a revision on tuples and tuple assignment, or take a quick look at <a href="http://interactivepython.org/courselib/static/thinkcspy/Lists/TupleAssignment.html">How to Think Like a Computer Scientist: Tuple Assignment</a>.</p>
 <p>To understand the example code above, it helps to realize that function definitions do not affect the flow of execution of a program. Remember that by default, Python faithfully executes a program in a top-down fashion. Function definitions need to precede function calls, but a function’s statements are not executed until the function is called.</p>
 <p>When a function is called, the execution flow of the program takes a detour. Instead of proceeding to the next program line, it jumps to the first line of the called function, executes all function statements in top-down order, and then jumps back to where it left off.</p>
-<div class="sourceCode" id="cb384"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb384-1"><a href="functions.html#cb384-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> echo(text<span class="op">=</span><span class="st">&quot;This is some random text made for the purpose of interruption&quot;</span>):</span>
+<div class="sourceCode" id="cb384"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb384-1"><a href="functions.html#cb384-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> echo(text<span class="op">=</span><span class="st">"This is some random text made for the purpose of interruption"</span>):</span>
 <span id="cb384-2"><a href="functions.html#cb384-2" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(text)</span>
 <span id="cb384-3"><a href="functions.html#cb384-3" aria-hidden="true" tabindex="-1"></a>    </span>
-<span id="cb384-4"><a href="functions.html#cb384-4" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span> (<span class="st">&quot;Hi there, &quot;</span>)</span></code></pre></div>
+<span id="cb384-4"><a href="functions.html#cb384-4" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span> (<span class="st">"Hi there, "</span>)</span></code></pre></div>
 <pre><code>## Hi there,</code></pre>
 <div class="sourceCode" id="cb386"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb386-1"><a href="functions.html#cb386-1" aria-hidden="true" tabindex="-1"></a>echo()</span></code></pre></div>
 <pre><code>## This is some random text made for the purpose of interruption</code></pre>
-<div class="sourceCode" id="cb388"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb388-1"><a href="functions.html#cb388-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">&quot;how are you?&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb388"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb388-1"><a href="functions.html#cb388-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"how are you?"</span>)</span></code></pre></div>
 <pre><code>## how are you?</code></pre>
 </div>
 <div id="functions-can-call-other-functions-and-themselves" class="section level2" number="6.4">
-<h2><span class="header-section-number">6.4</span> Functions can call other functions, and themselves</h2>
+<h2>
+<span class="header-section-number">6.4</span> Functions can call other functions, and themselves<a class="anchor" aria-label="anchor" href="#functions-can-call-other-functions-and-themselves"><i class="fas fa-link"></i></a>
+</h2>
 <p>This sounds simple enough, but it becomes slightly more complex when functions call one another, and even themselves.</p>
 <div class="sourceCode" id="cb390"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb390-1"><a href="functions.html#cb390-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> summation(alist):</span>
 <span id="cb390-2"><a href="functions.html#cb390-2" aria-hidden="true" tabindex="-1"></a>    <span class="bu">sum</span> <span class="op">=</span> <span class="fl">0.0</span></span>
 <span id="cb390-3"><a href="functions.html#cb390-3" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="bu">len</span>(alist)):</span>
 <span id="cb390-4"><a href="functions.html#cb390-4" aria-hidden="true" tabindex="-1"></a>        <span class="bu">sum</span> <span class="op">+=</span> alist[i]</span>
-<span id="cb390-5"><a href="functions.html#cb390-5" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">&quot;Sum of the list is:&quot;</span>, <span class="bu">sum</span>)</span>
+<span id="cb390-5"><a href="functions.html#cb390-5" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">"Sum of the list is:"</span>, <span class="bu">sum</span>)</span>
 <span id="cb390-6"><a href="functions.html#cb390-6" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> <span class="bu">sum</span></span>
 <span id="cb390-7"><a href="functions.html#cb390-7" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb390-8"><a href="functions.html#cb390-8" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> average(alist):</span>
@@ -520,17 +150,23 @@ details > summary {
 <p>Note how the above implementation of <code>average</code> calls the function <code>summation</code> to calculate the sum of the items in the list given as an argument (<code>alist</code>) to the function call of <code>average</code>. While executing the <code>return</code> statement in <code>average</code>, <code>summation</code> is called and the program’s flow of execution jumps to the first line of <code>summation</code>. After all statements contained in <code>summation</code> are completed, the flow of execution jumps back to where it took off and replaces the expression <code>summation(alist)</code> by the value returned by the function call to <code>summation</code> (in this case, <code>10.0</code>).</p>
 <p>What’s the morale of this detour? When reading and trying to understand a program, you should not simply read from top to bottom. Instead, follow the flow of execution to understand what is going on.</p>
 <div id="a-word-about-recursion" class="section level3" number="6.4.1">
-<h3><span class="header-section-number">6.4.1</span> A word about <em>Recursion</em></h3>
+<h3>
+<span class="header-section-number">6.4.1</span> A word about <em>Recursion</em><a class="anchor" aria-label="anchor" href="#a-word-about-recursion"><i class="fas fa-link"></i></a>
+</h3>
 <p>Functions can call other functions, including themselves. A function calling itself is said to take a <em>recursive</em> approach to problem solving. <em>Recursion</em> is a method involving the subdivision of a problem into smaller and smaller subproblems until a subproblem small enough is obtained that can be solved easily.</p>
 <p>You already know how to calculate the sum of a list of numbers using <em>loops</em>. Let’s pretend for a moment that there are no <code>while</code> or <code>for</code> loops in Python. How would you approach calculating the sum of a list of numbers then?</p>
 <p>While the topic of <em>Recursion</em> is beyond the scope of this book, the interested reader is invited to take a look at <a href="http://interactivepython.org/runestone/static/pythonds/Recursion/toctree.html">Problem Solving with Algorithms and Data Structures: Chapter 4. Recursion</a>, by Brad Miller and David Ranum (2011). In particular, <a href="http://interactivepython.org/runestone/static/pythonds/Recursion/pythondsCalculatingtheSumofaListofNumbers.html">Section 4.3. Calculating the Sum of a List of Numbers</a> adresses the calculation of a sum of a list of numbers by taking a recursive approach. Recursion is a powerful technique that enables solutions to problems that would otherwise be difficult to express in code.</p>
 </div>
 </div>
 <div id="stroop-functions" class="section level2" number="6.5">
-<h2><span class="header-section-number">6.5</span> Stroop functions</h2>
+<h2>
+<span class="header-section-number">6.5</span> Stroop functions<a class="anchor" aria-label="anchor" href="#stroop-functions"><i class="fas fa-link"></i></a>
+</h2>
 </div>
 <div id="common-errors-4" class="section level2" number="6.6">
-<h2><span class="header-section-number">6.6</span> Common errors</h2>
+<h2>
+<span class="header-section-number">6.6</span> Common errors<a class="anchor" aria-label="anchor" href="#common-errors-4"><i class="fas fa-link"></i></a>
+</h2>
 <ul>
 <li>Trying to use local variables globally. Remember that any function parameter and any variable declared within a function statement is <em>local</em>, meaning that it cannot be accessed from outside the function.</li>
 </ul>
@@ -540,10 +176,10 @@ details > summary {
 <span id="cb392-4"><a href="functions.html#cb392-4" aria-hidden="true" tabindex="-1"></a>    </span>
 <span id="cb392-5"><a href="functions.html#cb392-5" aria-hidden="true" tabindex="-1"></a>m <span class="op">=</span> average([<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">4</span>])</span>
 <span id="cb392-6"><a href="functions.html#cb392-6" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(s)</span></code></pre></div>
-<pre><code>## Error in py_call_impl(callable, dots$args, dots$keywords): NameError: name &#39;s&#39; is not defined
+<pre><code>## Error in py_call_impl(callable, dots$args, dots$keywords): NameError: name 's' is not defined
 ## 
 ## Detailed traceback:
-##   File &quot;&lt;string&gt;&quot;, line 1, in &lt;module&gt;</code></pre>
+##   File "&lt;string&gt;", line 1, in &lt;module&gt;</code></pre>
 <ul>
 <li>Forgetting to return a value at the end of the function definition. In truth, functions do not necessarily <em>return</em> values, depending on the purpose of the function. Functions which return one or more value(s) are called <em>fruitful</em> functions, those that do not have a <code>return</code> statement are called <em>void</em> functions. However, now and then we tend to forget to return values which we do want to use outside the function. Consider the example below.</li>
 </ul>
@@ -557,23 +193,22 @@ details > summary {
 <span id="cb394-8"><a href="functions.html#cb394-8" aria-hidden="true" tabindex="-1"></a>                m <span class="op">=</span> alist[i]</span>
 <span id="cb394-9"><a href="functions.html#cb394-9" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb394-10"><a href="functions.html#cb394-10" aria-hidden="true" tabindex="-1"></a>m <span class="op">=</span> maximum([<span class="dv">2</span>,<span class="dv">4</span>,<span class="dv">6</span>,<span class="dv">8</span>,<span class="dv">10</span>])</span>
-<span id="cb394-11"><a href="functions.html#cb394-11" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">&quot;m equals:&quot;</span>, m)</span>
+<span id="cb394-11"><a href="functions.html#cb394-11" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"m equals:"</span>, m)</span>
 <span id="cb394-12"><a href="functions.html#cb394-12" aria-hidden="true" tabindex="-1"></a>        </span></code></pre></div>
 <pre><code>## m equals: None</code></pre>
 <p>Instead of having assigned the maximum value contained in <code>[2,4,6,8]</code> to <code>m</code>, <code>m</code> apparently became <code>None</code>, whatever that is. Let’s examine this <code>None</code> further.</p>
 <div class="sourceCode" id="cb396"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb396-1"><a href="functions.html#cb396-1" aria-hidden="true" tabindex="-1"></a><span class="bu">type</span>(m)</span></code></pre></div>
-<pre><code>## &lt;class &#39;NoneType&#39;&gt;</code></pre>
+<pre><code>## &lt;class 'NoneType'&gt;</code></pre>
 <div class="sourceCode" id="cb398"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb398-1"><a href="functions.html#cb398-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(m <span class="op">+</span> <span class="dv">1</span>)</span></code></pre></div>
-<pre><code>## Error in py_call_impl(callable, dots$args, dots$keywords): TypeError: unsupported operand type(s) for +: &#39;NoneType&#39; and &#39;int&#39;
+<pre><code>## Error in py_call_impl(callable, dots$args, dots$keywords): TypeError: unsupported operand type(s) for +: 'NoneType' and 'int'
 ## 
 ## Detailed traceback:
-##   File &quot;&lt;string&gt;&quot;, line 1, in &lt;module&gt;</code></pre>
+##   File "&lt;string&gt;", line 1, in &lt;module&gt;</code></pre>
 <p>We accidentally created an object of type <code>NoneType</code> by forgetting to return <code>m</code> in our function definition of <code>maximum</code>. As you see above, this can raise errors somewhere else in your code, whose cause can be tricky to trace back in more complex programs. Therefore, always make sure to double check whether your functions return all values you need outside of the function.</p>
 <ul>
 <li>Forgetting to assign a value returned by a function.</li>
 </ul>
-<!-- #4 -->
-<div class="sourceCode" id="cb400"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb400-1"><a href="functions.html#cb400-1" aria-hidden="true" tabindex="-1"></a></span>
+<!-- #4 --><div class="sourceCode" id="cb400"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb400-1"><a href="functions.html#cb400-1" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb400-2"><a href="functions.html#cb400-2" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> average(alist):</span>
 <span id="cb400-3"><a href="functions.html#cb400-3" aria-hidden="true" tabindex="-1"></a>    s <span class="op">=</span> <span class="bu">sum</span>(alist)</span>
 <span id="cb400-4"><a href="functions.html#cb400-4" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> s<span class="op">/</span><span class="bu">float</span>(<span class="bu">len</span>(alist))</span>
@@ -582,7 +217,7 @@ details > summary {
 <span id="cb400-7"><a href="functions.html#cb400-7" aria-hidden="true" tabindex="-1"></a>mylist <span class="op">=</span> [<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">4</span>]</span>
 <span id="cb400-8"><a href="functions.html#cb400-8" aria-hidden="true" tabindex="-1"></a>average(mylist)</span></code></pre></div>
 <pre><code>## 2.5</code></pre>
-<div class="sourceCode" id="cb402"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb402-1"><a href="functions.html#cb402-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">&quot;average of mylist is:&quot;</span>, a)</span></code></pre></div>
+<div class="sourceCode" id="cb402"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb402-1"><a href="functions.html#cb402-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"average of mylist is:"</span>, a)</span></code></pre></div>
 <pre><code>## average of mylist is: 0</code></pre>
 <p>The average of <code>mylist</code> is obviously not <code>0</code>. However, we forgot to assign the value that the function <code>average</code> returns to a variable (in this case to the variable <code>a</code>). By doing so, the calculated average value is lost in memory and the variable <code>a</code> keeps its initial value, <code>0</code>.</p>
 <ul>
@@ -595,9 +230,9 @@ details > summary {
 <span id="cb404-5"><a href="functions.html#cb404-5" aria-hidden="true" tabindex="-1"></a>result <span class="op">=</span> sumAverage([<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">4</span>])</span>
 <span id="cb404-6"><a href="functions.html#cb404-6" aria-hidden="true" tabindex="-1"></a>s, av <span class="op">=</span> sumAverage([<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">4</span>])</span>
 <span id="cb404-7"><a href="functions.html#cb404-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb404-8"><a href="functions.html#cb404-8" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">&quot;result equals&quot;</span>, result)</span></code></pre></div>
+<span id="cb404-8"><a href="functions.html#cb404-8" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"result equals"</span>, result)</span></code></pre></div>
 <pre><code>## result equals (10, 2.5)</code></pre>
-<div class="sourceCode" id="cb406"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb406-1"><a href="functions.html#cb406-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">&quot;s equals&quot;</span>, s, <span class="st">&quot;, av equals&quot;</span>, av)</span></code></pre></div>
+<div class="sourceCode" id="cb406"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb406-1"><a href="functions.html#cb406-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"s equals"</span>, s, <span class="st">", av equals"</span>, av)</span></code></pre></div>
 <pre><code>## s equals 10 , av equals 2.5</code></pre>
 <p>Note how the first variant returns a tuple with both return values as elements, and the second variant assigns each return value separately to a variable name.</p>
 <ul>
@@ -611,7 +246,7 @@ details > summary {
 <pre><code>## Error in py_call_impl(callable, dots$args, dots$keywords): TypeError: average() takes 1 positional argument but 2 were given
 ## 
 ## Detailed traceback:
-##   File &quot;&lt;string&gt;&quot;, line 1, in &lt;module&gt;</code></pre>
+##   File "&lt;string&gt;", line 1, in &lt;module&gt;</code></pre>
 <ul>
 <li>Providing a wrong data type as a function argument. The body of a function is written assuming that you provide the intended data type as argument during a function call. In software engineering, every piece of new code is intensively checked with the help of so-called unit tests before going into production. Amongst other things, these unit tests include <em>type checks</em> on the data input and output format of self-built functions. This minimizes the chance that a new piece of code crashes the rest of the program. Unit tests are beyond the scope of this introductory book, so you will probably encounter one or another instance where you accidentally provide a wrong data type to a function. Providing a value of an unintended data type can raise all kinds of follow-up errors.</li>
 </ul>
@@ -620,22 +255,26 @@ details > summary {
 <span id="cb410-3"><a href="functions.html#cb410-3" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> s<span class="op">/</span><span class="bu">float</span>(<span class="bu">len</span>(alist))</span>
 <span id="cb410-4"><a href="functions.html#cb410-4" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb410-5"><a href="functions.html#cb410-5" aria-hidden="true" tabindex="-1"></a>average(<span class="va">True</span>)</span></code></pre></div>
-<pre><code>## Error in py_call_impl(callable, dots$args, dots$keywords): TypeError: &#39;bool&#39; object is not iterable
+<pre><code>## Error in py_call_impl(callable, dots$args, dots$keywords): TypeError: 'bool' object is not iterable
 ## 
 ## Detailed traceback:
-##   File &quot;&lt;string&gt;&quot;, line 1, in &lt;module&gt;
-##   File &quot;&lt;string&gt;&quot;, line 2, in average</code></pre>
-<div class="sourceCode" id="cb412"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb412-1"><a href="functions.html#cb412-1" aria-hidden="true" tabindex="-1"></a>average(<span class="st">&quot;Hello&quot;</span>)</span></code></pre></div>
-<pre><code>## Error in py_call_impl(callable, dots$args, dots$keywords): TypeError: unsupported operand type(s) for +: &#39;int&#39; and &#39;str&#39;
+##   File "&lt;string&gt;", line 1, in &lt;module&gt;
+##   File "&lt;string&gt;", line 2, in average</code></pre>
+<div class="sourceCode" id="cb412"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb412-1"><a href="functions.html#cb412-1" aria-hidden="true" tabindex="-1"></a>average(<span class="st">"Hello"</span>)</span></code></pre></div>
+<pre><code>## Error in py_call_impl(callable, dots$args, dots$keywords): TypeError: unsupported operand type(s) for +: 'int' and 'str'
 ## 
 ## Detailed traceback:
-##   File &quot;&lt;string&gt;&quot;, line 1, in &lt;module&gt;
-##   File &quot;&lt;string&gt;&quot;, line 2, in average</code></pre>
+##   File "&lt;string&gt;", line 1, in &lt;module&gt;
+##   File "&lt;string&gt;", line 2, in average</code></pre>
 </div>
 <div id="exercises-5" class="section level2" number="6.7">
-<h2><span class="header-section-number">6.7</span> Exercises</h2>
+<h2>
+<span class="header-section-number">6.7</span> Exercises<a class="anchor" aria-label="anchor" href="#exercises-5"><i class="fas fa-link"></i></a>
+</h2>
 <div id="exercise-1.-following-the-control-flow" class="section level3" number="6.7.1">
-<h3><span class="header-section-number">6.7.1</span> Exercise 1. Following the control flow</h3>
+<h3>
+<span class="header-section-number">6.7.1</span> Exercise 1. Following the control flow<a class="anchor" aria-label="anchor" href="#exercise-1.-following-the-control-flow"><i class="fas fa-link"></i></a>
+</h3>
 <p>Read the following script carefully. Try to follow the flow of execution. Indicate the values of <code>x</code>,<code>y</code> and <code>anumber</code> after the program has finished executing. You may use a calculator to perform calculations.
 You can check your answers afterwards by running the script.</p>
 <div class="sourceCode" id="cb414"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb414-1"><a href="functions.html#cb414-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> mean(numbers):</span>
@@ -668,14 +307,16 @@ You can check your answers afterwards by running the script.</p>
 <span id="cb414-28"><a href="functions.html#cb414-28" aria-hidden="true" tabindex="-1"></a>    <span class="cf">else</span>:</span>
 <span id="cb414-29"><a href="functions.html#cb414-29" aria-hidden="true" tabindex="-1"></a>        anumber <span class="op">=</span> mean([x,<span class="bu">max</span>(myList)])</span>
 <span id="cb414-30"><a href="functions.html#cb414-30" aria-hidden="true" tabindex="-1"></a>    </span>
-<span id="cb414-31"><a href="functions.html#cb414-31" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">&quot;x equals&quot;</span>, x)</span>
-<span id="cb414-32"><a href="functions.html#cb414-32" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">&quot;y equals&quot;</span>, y)</span>
-<span id="cb414-33"><a href="functions.html#cb414-33" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">&quot;anumber equals&quot;</span>, anumber)</span>
+<span id="cb414-31"><a href="functions.html#cb414-31" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">"x equals"</span>, x)</span>
+<span id="cb414-32"><a href="functions.html#cb414-32" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">"y equals"</span>, y)</span>
+<span id="cb414-33"><a href="functions.html#cb414-33" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">"anumber equals"</span>, anumber)</span>
 <span id="cb414-34"><a href="functions.html#cb414-34" aria-hidden="true" tabindex="-1"></a>        </span>
 <span id="cb414-35"><a href="functions.html#cb414-35" aria-hidden="true" tabindex="-1"></a>main()</span></code></pre></div>
 </div>
 <div id="exercise-2.-an-imperfect-list-sorting-attempt" class="section level3" number="6.7.2">
-<h3><span class="header-section-number">6.7.2</span> Exercise 2. An imperfect list sorting attempt</h3>
+<h3>
+<span class="header-section-number">6.7.2</span> Exercise 2. An imperfect list sorting attempt<a class="anchor" aria-label="anchor" href="#exercise-2.-an-imperfect-list-sorting-attempt"><i class="fas fa-link"></i></a>
+</h3>
 <p>Given the following instructions</p>
 <ul>
 <li>Take the two lists <code>myList1 = [5,2,1,3,0]</code> and <code>myList2 = [9,7,8]</code> and implement an algorithm that sorts them in ascending order so that a sorted list containing all integers from 0 to 10 is obtained.</li>
@@ -715,7 +356,9 @@ result = myList1 + myList2
 print(result)</code></pre>
 </div>
 <div id="exercise-3.-an-erroneous-sorting-algorithm" class="section level3" number="6.7.3">
-<h3><span class="header-section-number">6.7.3</span> Exercise 3. An erroneous sorting algorithm</h3>
+<h3>
+<span class="header-section-number">6.7.3</span> Exercise 3. An erroneous sorting algorithm<a class="anchor" aria-label="anchor" href="#exercise-3.-an-erroneous-sorting-algorithm"><i class="fas fa-link"></i></a>
+</h3>
 <p>Instead of sorting a list manually as in exercise 2 which you may figure is quite labour intensive (especially when your amount of data is too large to allow manual sorting), people have come up with a number of more efficient sorting algorithms. In essence, these algorithms are functions that take an unsorted list as input, perform a number of internal manipulations and return a sorted list. Below you find an (erroneous) implementation of <em>bubble sort</em>. The main idea of bubble sort is iteratively going through a list and exchanging the position of adjacent elements if they are out of order.</p>
 <p>Feel free to take a look at <a href="https://interactivepython.org/runestone/static/pythonds/SortSearch/TheBubbleSort.html">Problem Solving with Algorithms and Data Structures: Chapter 5. Sorting and Searching, 5.7: The Bubble Sort</a> for a more detailed description of the bubble sort approach.</p>
 <p>Correct all errors in the below implementation of bubble sort so that the script runs error-free. The implementation makes use of the <code>swap</code> helper function you first encountered in exercise 2. There are no errors in the swap function.</p>
@@ -743,13 +386,19 @@ print(myList)
 print(bubbleSort(myList))</code></pre>
 </div>
 <div id="exercise-4.-chunking" class="section level3" number="6.7.4">
-<h3><span class="header-section-number">6.7.4</span> Exercise 4. Chunking</h3>
+<h3>
+<span class="header-section-number">6.7.4</span> Exercise 4. Chunking<a class="anchor" aria-label="anchor" href="#exercise-4.-chunking"><i class="fas fa-link"></i></a>
+</h3>
 </div>
 <div id="exercise-5.-add-functionality-to-the-stroop-task" class="section level3" number="6.7.5">
-<h3><span class="header-section-number">6.7.5</span> Exercise 5. Add functionality to the stroop task</h3>
+<h3>
+<span class="header-section-number">6.7.5</span> Exercise 5. Add functionality to the stroop task<a class="anchor" aria-label="anchor" href="#exercise-5.-add-functionality-to-the-stroop-task"><i class="fas fa-link"></i></a>
+</h3>
 </div>
 <div id="exercise-6.-insertion-sort-algorithm" class="section level3" number="6.7.6">
-<h3><span class="header-section-number">6.7.6</span> Exercise 6. Insertion sort algorithm</h3>
+<h3>
+<span class="header-section-number">6.7.6</span> Exercise 6. Insertion sort algorithm<a class="anchor" aria-label="anchor" href="#exercise-6.-insertion-sort-algorithm"><i class="fas fa-link"></i></a>
+</h3>
 <p>In exercise 3, you encountered one of the infamous sorting algorithms known to the programming community: <em>bubble sort</em>. There are, however, more efficient sorting algorithms. In this exercise, you will take your sorting skills to the next level and implement <em>insertion sort</em>.</p>
 <p><a href="https://interactivepython.org/courselib/static/pythonds/SortSearch/TheInsertionSort.html">Problem Solving with Algorithms and Data Structures: Chapter 5. Sorting and Searching, 5.9: The Insertion Sort</a> explains the insertion sort approach excellently. The main idea behind insertion sort is that it builds a sorted sublist in the left part of an unsorted list and continuously updates that list by comparing a designated element of the unsorted list to each element in the sublist.</p>
 <p>The chapter on insertion sort by Miller and Ranum includes a sample implementation of the algorithm. You are, however, strongly advised to build the algorithm yourself so that you understand what happens at each step.</p>
@@ -758,7 +407,9 @@ print(bubbleSort(myList))</code></pre>
 </div>
 </div>
 <div id="think-further-5" class="section level2" number="6.8">
-<h2><span class="header-section-number">6.8</span> Think further</h2>
+<h2>
+<span class="header-section-number">6.8</span> Think further<a class="anchor" aria-label="anchor" href="#think-further-5"><i class="fas fa-link"></i></a>
+</h2>
 <p>For an alternative approach to explaining <em>functions</em> in Python and additional information, you are invited to take a look at the following resources:</p>
 <ul>
 <li><a href="http://openbookproject.net/thinkcs/python/english3e/functions.html">Wentworth, P., Elkner, J., Downey, A. B., &amp; Meyer, C. (2015). How to think like a computer scientist: Learning with Python 3. Chapter 4. Functions</a></li>
@@ -767,31 +418,65 @@ print(bubbleSort(myList))</code></pre>
 </ul>
 </div>
 <div id="references" class="section level2" number="6.9">
-<h2><span class="header-section-number">6.9</span> References</h2>
+<h2>
+<span class="header-section-number">6.9</span> References<a class="anchor" aria-label="anchor" href="#references"><i class="fas fa-link"></i></a>
+</h2>
 <ul>
 <li>Miller, B. N., &amp; Ranum, D. L. (2011). Problem Solving with Algorithms and Data Structures Using Python SECOND EDITION. Franklin, Beedle &amp; Associates Inc..</li>
 </ul>
-
 </div>
 </div>
-<p style="text-align: center;">
-<a href="loops.html"><button class="btn btn-default">Previous</button></a>
-<a href="data.html"><button class="btn btn-default">Next</button></a>
-</p>
+  <div class="chapter-nav">
+<div class="prev"><a href="loops.html"><span class="header-section-number">5</span> Loops</a></div>
+<div class="next"><a href="data.html"><span class="header-section-number">7</span> Working with data</a></div>
+</div></main><div class="col-md-3 col-lg-2 d-none d-md-block sidebar sidebar-chapter">
+    <nav id="toc" data-toggle="toc" aria-label="On this page"><h2>On this page</h2>
+      <ul class="nav navbar-nav">
+<li><a class="nav-link" href="#functions"><span class="header-section-number">6</span> Functions</a></li>
+<li><a class="nav-link" href="#defining-and-calling-functions"><span class="header-section-number">6.1</span> Defining and calling functions</a></li>
+<li><a class="nav-link" href="#function-parameters-and-arguments"><span class="header-section-number">6.2</span> Function parameters and arguments</a></li>
+<li><a class="nav-link" href="#the-return-statement"><span class="header-section-number">6.3</span> The return statement</a></li>
+<li>
+<a class="nav-link" href="#functions-can-call-other-functions-and-themselves"><span class="header-section-number">6.4</span> Functions can call other functions, and themselves</a><ul class="nav navbar-nav"><li><a class="nav-link" href="#a-word-about-recursion"><span class="header-section-number">6.4.1</span> A word about Recursion</a></li></ul>
+</li>
+<li><a class="nav-link" href="#stroop-functions"><span class="header-section-number">6.5</span> Stroop functions</a></li>
+<li><a class="nav-link" href="#common-errors-4"><span class="header-section-number">6.6</span> Common errors</a></li>
+<li>
+<a class="nav-link" href="#exercises-5"><span class="header-section-number">6.7</span> Exercises</a><ul class="nav navbar-nav">
+<li><a class="nav-link" href="#exercise-1.-following-the-control-flow"><span class="header-section-number">6.7.1</span> Exercise 1. Following the control flow</a></li>
+<li><a class="nav-link" href="#exercise-2.-an-imperfect-list-sorting-attempt"><span class="header-section-number">6.7.2</span> Exercise 2. An imperfect list sorting attempt</a></li>
+<li><a class="nav-link" href="#exercise-3.-an-erroneous-sorting-algorithm"><span class="header-section-number">6.7.3</span> Exercise 3. An erroneous sorting algorithm</a></li>
+<li><a class="nav-link" href="#exercise-4.-chunking"><span class="header-section-number">6.7.4</span> Exercise 4. Chunking</a></li>
+<li><a class="nav-link" href="#exercise-5.-add-functionality-to-the-stroop-task"><span class="header-section-number">6.7.5</span> Exercise 5. Add functionality to the stroop task</a></li>
+<li><a class="nav-link" href="#exercise-6.-insertion-sort-algorithm"><span class="header-section-number">6.7.6</span> Exercise 6. Insertion sort algorithm</a></li>
+</ul>
+</li>
+<li><a class="nav-link" href="#think-further-5"><span class="header-section-number">6.8</span> Think further</a></li>
+<li><a class="nav-link" href="#references"><span class="header-section-number">6.9</span> References</a></li>
+</ul>
+
+      <div class="book-extra">
+        <ul class="list-unstyled">
+          
+        </ul>
 </div>
+    </nav>
 </div>
 
-
 </div>
+</div> <!-- .container -->
 
-<script>
+<footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
 
-// add bootstrap table styles to pandoc tables
-$(document).ready(function () {
-  $('tr.header').parent('thead').parent('table').addClass('table table-condensed');
-});
+  <div class="col-12 col-md-6 mt-3">
+    <p>"<strong>Programming for Psychologists</strong>: A course in Python" was written by Martin Schmettow and Lena Brandl. It was last built on 2021-11-01.</p>
+  </div>
 
-</script>
+  <div class="col-12 col-md-6 mt-3">
+    <p>This book was built by the <a class="text-light" href="https://bookdown.org">bookdown</a> R package.</p>
+  </div>
 
+</div></div>
+</footer>
 </body>
 </html>
