@@ -2,56 +2,43 @@
 <html lang="" xml:lang="">
 <head>
 
-  <meta charset="utf-8" />
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>5 Loops | Programming Interaction for Psychologists</title>
-  <meta name="description" content="5 Loops | Programming Interaction for Psychologists" />
-  <meta name="generator" content="bookdown 0.20 and GitBook 2.6.7" />
+<meta charset="utf-8" />
+<meta name="generator" content="pandoc" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta property="og:title" content="5 Loops | Programming Interaction for Psychologists" />
+<meta property="og:type" content="book" />
 
-  <meta property="og:title" content="5 Loops | Programming Interaction for Psychologists" />
-  <meta property="og:type" content="book" />
-  
-  
-  
-  <meta name="github-repo" content="schmettow/PfP_Book" />
 
-  <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="5 Loops | Programming Interaction for Psychologists" />
-  
-  
-  
+
+<meta name="github-repo" content="schmettow/PfP_Book" />
 
 <meta name="author" content="Martin Schmettow and Lena Brandl" />
 
-
-<meta name="date" content="2020-10-28" />
-
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="apple-mobile-web-app-capable" content="yes" />
-  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
-  
-  
-<link rel="prev" href="lists.html"/>
-<link rel="next" href="functions.html"/>
-<script src="libs/jquery-2.2.3/jquery.min.js"></script>
-<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
-<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
-<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
-<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
-<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
-<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
-<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+<meta name="date" content="2021-11-01" />
 
 
+<meta name="description" content="5 Loops | Programming Interaction for Psychologists">
 
+<title>5 Loops | Programming Interaction for Psychologists</title>
 
-
-
-
-
-
-<script src="libs/accessible-code-block-0.0.1/empty-anchor.js"></script>
-<script src="libs/htmlwidgets-1.5.1/htmlwidgets.js"></script>
+<script src="libs/header-attrs-2.8/header-attrs.js"></script>
+<script src="libs/jquery-1.11.3/jquery.min.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link href="libs/bootstrap-3.3.5/css/bootstrap.min.css" rel="stylesheet" />
+<script src="libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
+<script src="libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
+<script src="libs/bootstrap-3.3.5/shim/respond.min.js"></script>
+<style>h1 {font-size: 34px;}
+       h1.title {font-size: 38px;}
+       h2 {font-size: 30px;}
+       h3 {font-size: 24px;}
+       h4 {font-size: 18px;}
+       h5 {font-size: 16px;}
+       h6 {font-size: 12px;}
+       code {color: inherit; background-color: rgba(0, 0, 0, 0.04);}
+       pre:not([class]) { background-color: white }</style>
+<script src="libs/navigation-1.1/tabsets.js"></script>
+<script src="libs/htmlwidgets-1.5.3/htmlwidgets.js"></script>
 <script src="libs/d3-3.3.8/d3.min.js"></script>
 <script src="libs/dagre-0.4.0/dagre-d3.min.js"></script>
 <link href="libs/mermaid-0.3.0/dist/mermaid.css" rel="stylesheet" />
@@ -61,19 +48,21 @@
 <script src="libs/DiagrammeR-binding-1.0.6.1/DiagrammeR.js"></script>
 
 
+<style type="text/css">code{white-space: pre;}</style>
 <style type="text/css">
-code.sourceCode > span { display: inline-block; line-height: 1.25; }
-code.sourceCode > span { color: inherit; text-decoration: inherit; }
-code.sourceCode > span:empty { height: 1.2em; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
 .sourceCode { overflow: visible; }
-code.sourceCode { white-space: pre; position: relative; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
 pre.sourceCode { margin: 0; }
 @media screen {
 div.sourceCode { overflow: auto; }
 }
 @media print {
-code.sourceCode { white-space: pre-wrap; }
-code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
 }
 pre.numberSource code
   { counter-reset: source-line 0; }
@@ -93,7 +82,7 @@ pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-le
 div.sourceCode
   {   }
 @media screen {
-code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 code span.al { color: #ff0000; font-weight: bold; } /* Alert */
 code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
@@ -125,281 +114,338 @@ code span.va { color: #19177c; } /* Variable */
 code span.vs { color: #4070a0; } /* VerbatimString */
 code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
 </style>
+<style type="text/css">
+  pre:not([class]) {
+    background-color: white;
+  }
+</style>
 
+
+
+
+<style type = "text/css">
+.main-container {
+  max-width: 940px;
+  margin-left: auto;
+  margin-right: auto;
+}
+code {
+  color: inherit;
+  background-color: rgba(0, 0, 0, 0.04);
+}
+img {
+  max-width:100%;
+  height: auto;
+}
+/* show arrow before summary tag as in bootstrap
+TODO: remove if boostrap in updated in html_document (rmarkdown#1485) */
+details > summary {
+  display: list-item;
+  cursor: pointer;
+}
+</style>
 </head>
 
 <body>
 
+<div class="container-fluid main-container">
 
 
-  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
-
-    <div class="book-summary">
-      <nav role="navigation">
-
-<ul class="summary">
-<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Preface</a></li>
-<li class="chapter" data-level="1" data-path="intro.html"><a href="intro.html"><i class="fa fa-check"></i><b>1</b> Introduction</a><ul>
-<li class="chapter" data-level="1.1" data-path="intro.html"><a href="intro.html#installing-a-python-environment"><i class="fa fa-check"></i><b>1.1</b> Installing a Python environment</a></li>
-<li class="chapter" data-level="1.2" data-path="intro.html"><a href="intro.html#installing-the-anaconda-python-environment"><i class="fa fa-check"></i><b>1.2</b> Installing the Anaconda Python environment</a></li>
-<li class="chapter" data-level="1.3" data-path="intro.html"><a href="intro.html#windows"><i class="fa fa-check"></i><b>1.3</b> Windows</a></li>
-<li class="chapter" data-level="1.4" data-path="intro.html"><a href="intro.html#macos"><i class="fa fa-check"></i><b>1.4</b> MacOS</a></li>
-<li class="chapter" data-level="1.5" data-path="intro.html"><a href="intro.html#testing-your-environment"><i class="fa fa-check"></i><b>1.5</b> Testing your environment</a></li>
-<li class="chapter" data-level="1.6" data-path="intro.html"><a href="intro.html#dumb_computers"><i class="fa fa-check"></i><b>1.6</b> Computers are dumb</a></li>
-<li class="chapter" data-level="1.7" data-path="intro.html"><a href="intro.html#dive-in-a-first-example"><i class="fa fa-check"></i><b>1.7</b> Dive in: a first example</a></li>
-<li class="chapter" data-level="1.8" data-path="intro.html"><a href="intro.html#exercises"><i class="fa fa-check"></i><b>1.8</b> Exercises</a></li>
-</ul></li>
-<li class="chapter" data-level="2" data-path="variables.html"><a href="variables.html"><i class="fa fa-check"></i><b>2</b> Variables, values and types</a><ul>
-<li class="chapter" data-level="2.1" data-path="variables.html"><a href="variables.html#variables-1"><i class="fa fa-check"></i><b>2.1</b> Variables</a></li>
-<li class="chapter" data-level="2.2" data-path="variables.html"><a href="variables.html#stroop-task-variables"><i class="fa fa-check"></i><b>2.2</b> Stroop Task variables</a></li>
-<li class="chapter" data-level="2.3" data-path="variables.html"><a href="variables.html#how-variables-are-used"><i class="fa fa-check"></i><b>2.3</b> How Variables Are Used</a></li>
-<li class="chapter" data-level="2.4" data-path="variables.html"><a href="variables.html#data-types"><i class="fa fa-check"></i><b>2.4</b> Data types</a><ul>
-<li class="chapter" data-level="2.4.1" data-path="variables.html"><a href="variables.html#numbers"><i class="fa fa-check"></i><b>2.4.1</b> Numbers</a></li>
-<li class="chapter" data-level="2.4.2" data-path="variables.html"><a href="variables.html#strings"><i class="fa fa-check"></i><b>2.4.2</b> Strings</a></li>
-<li class="chapter" data-level="2.4.3" data-path="variables.html"><a href="variables.html#booleans"><i class="fa fa-check"></i><b>2.4.3</b> Booleans</a></li>
-</ul></li>
-<li class="chapter" data-level="2.5" data-path="variables.html"><a href="variables.html#common-errors"><i class="fa fa-check"></i><b>2.5</b> Common errors</a></li>
-<li class="chapter" data-level="2.6" data-path="variables.html"><a href="variables.html#debugging"><i class="fa fa-check"></i><b>2.6</b> Debugging</a></li>
-<li class="chapter" data-level="2.7" data-path="intro.html"><a href="intro.html#exercises"><i class="fa fa-check"></i><b>2.7</b> Exercises</a><ul>
-<li class="chapter" data-level="2.7.1" data-path="variables.html"><a href="variables.html#exercise-1.-operators"><i class="fa fa-check"></i><b>2.7.1</b> Exercise 1. Operators</a></li>
-<li class="chapter" data-level="2.7.2" data-path="variables.html"><a href="variables.html#exercise-2.-values"><i class="fa fa-check"></i><b>2.7.2</b> Exercise 2. Values</a></li>
-<li class="chapter" data-level="2.7.3" data-path="variables.html"><a href="variables.html#exercise-3.-mini-programs"><i class="fa fa-check"></i><b>2.7.3</b> Exercise 3. Mini programs</a></li>
-<li class="chapter" data-level="2.7.4" data-path="variables.html"><a href="variables.html#exercise-4.-debugging"><i class="fa fa-check"></i><b>2.7.4</b> Exercise 4. Debugging</a></li>
-<li class="chapter" data-level="2.7.5" data-path="variables.html"><a href="variables.html#exercise-5.-string-concatenation"><i class="fa fa-check"></i><b>2.7.5</b> Exercise 5. String concatenation</a></li>
-<li class="chapter" data-level="2.7.6" data-path="variables.html"><a href="variables.html#exercise-6.-variable-names"><i class="fa fa-check"></i><b>2.7.6</b> Exercise 6. Variable names</a></li>
-<li class="chapter" data-level="2.7.7" data-path="variables.html"><a href="variables.html#exercise-7.-stroop-task-welcome-message"><i class="fa fa-check"></i><b>2.7.7</b> Exercise 7. Stroop task welcome message</a></li>
-<li class="chapter" data-level="2.7.8" data-path="variables.html"><a href="variables.html#exercise-8.-printing"><i class="fa fa-check"></i><b>2.7.8</b> Exercise 8. Printing</a></li>
-<li class="chapter" data-level="2.7.9" data-path="variables.html"><a href="variables.html#exercise-9.-using-python-as-a-calculator"><i class="fa fa-check"></i><b>2.7.9</b> Exercise 9. Using Python as a calculator</a></li>
-<li class="chapter" data-level="2.7.10" data-path="variables.html"><a href="variables.html#exercise-10.-a-boolean-puzzle"><i class="fa fa-check"></i><b>2.7.10</b> Exercise 10. A Boolean puzzle</a></li>
-</ul></li>
-<li class="chapter" data-level="2.8" data-path="variables.html"><a href="variables.html#think-further"><i class="fa fa-check"></i><b>2.8</b> Think Further</a></li>
-</ul></li>
-<li class="chapter" data-level="3" data-path="conditionals.html"><a href="conditionals.html"><i class="fa fa-check"></i><b>3</b> Conditionals</a><ul>
-<li class="chapter" data-level="3.1" data-path="conditionals.html"><a href="conditionals.html#boolean-logic"><i class="fa fa-check"></i><b>3.1</b> Boolean logic</a></li>
-<li class="chapter" data-level="3.2" data-path="conditionals.html"><a href="conditionals.html#if-then"><i class="fa fa-check"></i><b>3.2</b> if this is true, then do this</a></li>
-<li class="chapter" data-level="3.3" data-path="conditionals.html"><a href="conditionals.html#else-do-that"><i class="fa fa-check"></i><b>3.3</b> else do that</a></li>
-<li class="chapter" data-level="3.4" data-path="conditionals.html"><a href="conditionals.html#bringing-interaction-to-life-conditional-state-transitions"><i class="fa fa-check"></i><b>3.4</b> Bringing interaction to life: Conditional state transitions</a><ul>
-<li class="chapter" data-level="3.4.1" data-path="conditionals.html"><a href="conditionals.html#transition-tables"><i class="fa fa-check"></i><b>3.4.1</b> Transition tables</a></li>
-<li class="chapter" data-level="3.4.2" data-path="conditionals.html"><a href="conditionals.html#state-charts"><i class="fa fa-check"></i><b>3.4.2</b> State charts</a></li>
-</ul></li>
-<li class="chapter" data-level="3.5" data-path="variables.html"><a href="variables.html#common-errors"><i class="fa fa-check"></i><b>3.5</b> Common errors</a></li>
-<li class="chapter" data-level="3.6" data-path="variables.html"><a href="variables.html#debugging"><i class="fa fa-check"></i><b>3.6</b> Debugging</a></li>
-<li class="chapter" data-level="3.7" data-path="intro.html"><a href="intro.html#exercises"><i class="fa fa-check"></i><b>3.7</b> Exercises</a><ul>
-<li class="chapter" data-level="3.7.1" data-path="conditionals.html"><a href="conditionals.html#exercise-1.-boolean-logic"><i class="fa fa-check"></i><b>3.7.1</b> Exercise 1. Boolean logic</a></li>
-<li class="chapter" data-level="3.7.2" data-path="conditionals.html"><a href="conditionals.html#exercise-2.-state-charts"><i class="fa fa-check"></i><b>3.7.2</b> Exercise 2. State charts</a></li>
-<li class="chapter" data-level="3.7.3" data-path="conditionals.html"><a href="conditionals.html#exercise-3.-transition-tables"><i class="fa fa-check"></i><b>3.7.3</b> Exercise 3. Transition tables</a></li>
-<li class="chapter" data-level="3.7.4" data-path="conditionals.html"><a href="conditionals.html#exercise-4.-mini-programs"><i class="fa fa-check"></i><b>3.7.4</b> Exercise 4. Mini programs</a></li>
-<li class="chapter" data-level="3.7.5" data-path="conditionals.html"><a href="conditionals.html#exercise-5.-following-the-control-flow"><i class="fa fa-check"></i><b>3.7.5</b> Exercise 5. Following the control flow</a></li>
-<li class="chapter" data-level="3.7.6" data-path="conditionals.html"><a href="conditionals.html#exercise-6.-indentation"><i class="fa fa-check"></i><b>3.7.6</b> Exercise 6. Indentation</a></li>
-<li class="chapter" data-level="3.7.7" data-path="conditionals.html"><a href="conditionals.html#exercise-7.-pseudo-code-conditionals"><i class="fa fa-check"></i><b>3.7.7</b> Exercise 7. Pseudo code conditionals</a></li>
-<li class="chapter" data-level="3.7.8" data-path="conditionals.html"><a href="conditionals.html#exercise-8.-modify-stroop-task"><i class="fa fa-check"></i><b>3.7.8</b> Exercise 8. Modify Stroop Task</a></li>
-<li class="chapter" data-level="3.7.9" data-path="conditionals.html"><a href="conditionals.html#exercise-9.-simplify-nested-conditionals"><i class="fa fa-check"></i><b>3.7.9</b> Exercise 9. Simplify nested conditionals</a></li>
-<li class="chapter" data-level="3.7.10" data-path="conditionals.html"><a href="conditionals.html#exercise-10.-flow-chart-conditionals"><i class="fa fa-check"></i><b>3.7.10</b> Exercise 10. Flow chart conditionals</a></li>
-</ul></li>
-<li class="chapter" data-level="3.8" data-path="variables.html"><a href="variables.html#think-further"><i class="fa fa-check"></i><b>3.8</b> Think Further</a></li>
-</ul></li>
-<li class="chapter" data-level="4" data-path="lists.html"><a href="lists.html"><i class="fa fa-check"></i><b>4</b> Lists</a><ul>
-<li class="chapter" data-level="4.1" data-path="lists.html"><a href="lists.html#lists-1"><i class="fa fa-check"></i><b>4.1</b> Lists</a><ul>
-<li class="chapter" data-level="4.1.1" data-path="lists.html"><a href="lists.html#lists-are-mutable"><i class="fa fa-check"></i><b>4.1.1</b> Lists are mutable</a></li>
-</ul></li>
-<li class="chapter" data-level="4.2" data-path="lists.html"><a href="lists.html#tuples"><i class="fa fa-check"></i><b>4.2</b> Tuples</a></li>
-<li class="chapter" data-level="4.3" data-path="lists.html"><a href="lists.html#dictionaries"><i class="fa fa-check"></i><b>4.3</b> Dictionaries</a></li>
-<li class="chapter" data-level="4.4" data-path="lists.html"><a href="lists.html#putting-collections-to-use"><i class="fa fa-check"></i><b>4.4</b> Putting collections to use</a></li>
-<li class="chapter" data-level="4.5" data-path="variables.html"><a href="variables.html#common-errors"><i class="fa fa-check"></i><b>4.5</b> Common errors</a></li>
-<li class="chapter" data-level="4.6" data-path="variables.html"><a href="variables.html#debugging"><i class="fa fa-check"></i><b>4.6</b> Debugging</a></li>
-<li class="chapter" data-level="4.7" data-path="intro.html"><a href="intro.html#exercises"><i class="fa fa-check"></i><b>4.7</b> Exercises</a><ul>
-<li class="chapter" data-level="4.7.1" data-path="lists.html"><a href="lists.html#exercise-1.-indexing"><i class="fa fa-check"></i><b>4.7.1</b> Exercise 1. Indexing</a></li>
-<li class="chapter" data-level="4.7.2" data-path="lists.html"><a href="lists.html#exercise-2.-debugging"><i class="fa fa-check"></i><b>4.7.2</b> Exercise 2. Debugging</a></li>
-<li class="chapter" data-level="4.7.3" data-path="variables.html"><a href="variables.html#exercise-3.-mini-programs"><i class="fa fa-check"></i><b>4.7.3</b> Exercise 3. Mini programs</a></li>
-<li class="chapter" data-level="4.7.4" data-path="lists.html"><a href="lists.html#exercise-4.-shopping-list"><i class="fa fa-check"></i><b>4.7.4</b> Exercise 4. Shopping list</a></li>
-<li class="chapter" data-level="4.7.5" data-path="lists.html"><a href="lists.html#exercise-5.-dictionaries"><i class="fa fa-check"></i><b>4.7.5</b> Exercise 5. Dictionaries</a></li>
-<li class="chapter" data-level="4.7.6" data-path="lists.html"><a href="lists.html#exercise-6.-element-selection"><i class="fa fa-check"></i><b>4.7.6</b> Exercise 6. Element selection</a></li>
-<li class="chapter" data-level="4.7.7" data-path="lists.html"><a href="lists.html#exercise-7.-adjust-a-dictionary-data-set"><i class="fa fa-check"></i><b>4.7.7</b> Exercise 7. Adjust a dictionary data set</a></li>
-<li class="chapter" data-level="4.7.8" data-path="lists.html"><a href="lists.html#exercise-8.-a-dictionary-data-set"><i class="fa fa-check"></i><b>4.7.8</b> Exercise 8. A dictionary data set</a></li>
-<li class="chapter" data-level="4.7.9" data-path="lists.html"><a href="lists.html#exercise-9.-stroop-extension"><i class="fa fa-check"></i><b>4.7.9</b> Exercise 9. Stroop extension</a></li>
-</ul></li>
-<li class="chapter" data-level="4.8" data-path="variables.html"><a href="variables.html#think-further"><i class="fa fa-check"></i><b>4.8</b> Think further</a></li>
-</ul></li>
-<li class="chapter" data-level="5" data-path="loops.html"><a href="loops.html"><i class="fa fa-check"></i><b>5</b> Loops</a><ul>
-<li class="chapter" data-level="5.1" data-path="loops.html"><a href="loops.html#the-for-loop"><i class="fa fa-check"></i><b>5.1</b> The <code>for</code> loop</a></li>
-<li class="chapter" data-level="5.2" data-path="loops.html"><a href="loops.html#the-while-loop"><i class="fa fa-check"></i><b>5.2</b> The <code>while</code> loop</a><ul>
-<li class="chapter" data-level="5.2.1" data-path="loops.html"><a href="loops.html#for-or-while"><i class="fa fa-check"></i><b>5.2.1</b> <code>for</code> or <code>while</code>?</a></li>
-</ul></li>
-<li class="chapter" data-level="5.3" data-path="loops.html"><a href="loops.html#the-break-statement"><i class="fa fa-check"></i><b>5.3</b> The <code>break</code> statement</a></li>
-<li class="chapter" data-level="5.4" data-path="loops.html"><a href="loops.html#controlling-the-flow-of-your-program-with-loops"><i class="fa fa-check"></i><b>5.4</b> Controlling the flow of your program with loops</a></li>
-<li class="chapter" data-level="5.5" data-path="variables.html"><a href="variables.html#common-errors"><i class="fa fa-check"></i><b>5.5</b> Common errors</a></li>
-<li class="chapter" data-level="5.6" data-path="variables.html"><a href="variables.html#debugging"><i class="fa fa-check"></i><b>5.6</b> Debugging</a></li>
-<li class="chapter" data-level="5.7" data-path="intro.html"><a href="intro.html#exercises"><i class="fa fa-check"></i><b>5.7</b> Exercises</a><ul>
-<li class="chapter" data-level="5.7.1" data-path="loops.html"><a href="loops.html#exercise-1.-following-the-control-flow-i"><i class="fa fa-check"></i><b>5.7.1</b> Exercise 1. Following the control flow I</a></li>
-<li class="chapter" data-level="5.7.2" data-path="loops.html"><a href="loops.html#exercise-2.-debugging-i"><i class="fa fa-check"></i><b>5.7.2</b> Exercise 2. Debugging I</a></li>
-<li class="chapter" data-level="5.7.3" data-path="loops.html"><a href="loops.html#exercise-3.-a-guessing-game"><i class="fa fa-check"></i><b>5.7.3</b> Exercise 3. A guessing game</a></li>
-<li class="chapter" data-level="5.7.4" data-path="loops.html"><a href="loops.html#exercise-4.-controlling-the-flow"><i class="fa fa-check"></i><b>5.7.4</b> Exercise 4. Controlling the flow</a></li>
-<li class="chapter" data-level="5.7.5" data-path="loops.html"><a href="loops.html#exercise-5.-following-the-control-flow-ii"><i class="fa fa-check"></i><b>5.7.5</b> Exercise 5. Following the control flow II</a></li>
-<li class="chapter" data-level="5.7.6" data-path="loops.html"><a href="loops.html#exercise-6.-debugging-ii"><i class="fa fa-check"></i><b>5.7.6</b> Exercise 6. Debugging II</a></li>
-<li class="chapter" data-level="5.7.7" data-path="loops.html"><a href="loops.html#exercise-7.-nested-loops"><i class="fa fa-check"></i><b>5.7.7</b> Exercise 7. Nested loops</a></li>
-<li class="chapter" data-level="5.7.8" data-path="loops.html"><a href="loops.html#exercise-8.-data-transformation-using-loops"><i class="fa fa-check"></i><b>5.7.8</b> Exercise 8. Data transformation using loops</a></li>
-<li class="chapter" data-level="5.7.9" data-path="loops.html"><a href="loops.html#exercise-9.-calculating-a-mean"><i class="fa fa-check"></i><b>5.7.9</b> Exercise 9. Calculating a mean</a></li>
-</ul></li>
-<li class="chapter" data-level="5.8" data-path="variables.html"><a href="variables.html#think-further"><i class="fa fa-check"></i><b>5.8</b> Think Further</a></li>
-</ul></li>
-<li class="chapter" data-level="6" data-path="functions.html"><a href="functions.html"><i class="fa fa-check"></i><b>6</b> Functions</a><ul>
-<li class="chapter" data-level="6.1" data-path="functions.html"><a href="functions.html#defining-and-calling-functions"><i class="fa fa-check"></i><b>6.1</b> Defining and calling functions</a></li>
-<li class="chapter" data-level="6.2" data-path="functions.html"><a href="functions.html#function-parameters-and-arguments"><i class="fa fa-check"></i><b>6.2</b> Function parameters and arguments</a></li>
-<li class="chapter" data-level="6.3" data-path="functions.html"><a href="functions.html#the-return-statement"><i class="fa fa-check"></i><b>6.3</b> The <code>return</code> statement</a></li>
-<li class="chapter" data-level="6.4" data-path="functions.html"><a href="functions.html#functions-can-call-other-functions-and-themselves"><i class="fa fa-check"></i><b>6.4</b> Functions can call other functions, and themselves</a><ul>
-<li class="chapter" data-level="6.4.1" data-path="functions.html"><a href="functions.html#a-word-about-recursion"><i class="fa fa-check"></i><b>6.4.1</b> A word about <em>Recursion</em></a></li>
-</ul></li>
-<li class="chapter" data-level="6.5" data-path="functions.html"><a href="functions.html#stroop-functions"><i class="fa fa-check"></i><b>6.5</b> Stroop functions</a></li>
-<li class="chapter" data-level="6.6" data-path="variables.html"><a href="variables.html#common-errors"><i class="fa fa-check"></i><b>6.6</b> Common errors</a></li>
-<li class="chapter" data-level="6.7" data-path="intro.html"><a href="intro.html#exercises"><i class="fa fa-check"></i><b>6.7</b> Exercises</a><ul>
-<li class="chapter" data-level="6.7.1" data-path="functions.html"><a href="functions.html#exercise-1.-following-the-control-flow"><i class="fa fa-check"></i><b>6.7.1</b> Exercise 1. Following the control flow</a></li>
-<li class="chapter" data-level="6.7.2" data-path="functions.html"><a href="functions.html#exercise-2.-an-imperfect-list-sorting-attempt"><i class="fa fa-check"></i><b>6.7.2</b> Exercise 2. An imperfect list sorting attempt</a></li>
-<li class="chapter" data-level="6.7.3" data-path="functions.html"><a href="functions.html#exercise-3.-an-erroneous-sorting-algorithm"><i class="fa fa-check"></i><b>6.7.3</b> Exercise 3. An erroneous sorting algorithm</a></li>
-<li class="chapter" data-level="6.7.4" data-path="functions.html"><a href="functions.html#exercise-4.-chunking"><i class="fa fa-check"></i><b>6.7.4</b> Exercise 4. Chunking</a></li>
-<li class="chapter" data-level="6.7.5" data-path="functions.html"><a href="functions.html#exercise-5.-add-functionality-to-the-stroop-task"><i class="fa fa-check"></i><b>6.7.5</b> Exercise 5. Add functionality to the stroop task</a></li>
-<li class="chapter" data-level="6.7.6" data-path="functions.html"><a href="functions.html#exercise-6.-insertion-sort-algorithm"><i class="fa fa-check"></i><b>6.7.6</b> Exercise 6. Insertion sort algorithm</a></li>
-</ul></li>
-<li class="chapter" data-level="6.8" data-path="variables.html"><a href="variables.html#think-further"><i class="fa fa-check"></i><b>6.8</b> Think further</a></li>
-<li class="chapter" data-level="6.9" data-path="functions.html"><a href="functions.html#references"><i class="fa fa-check"></i><b>6.9</b> References</a></li>
-</ul></li>
-<li class="chapter" data-level="7" data-path="data.html"><a href="data.html"><i class="fa fa-check"></i><b>7</b> Working with data</a><ul>
-<li class="chapter" data-level="7.1" data-path="data.html"><a href="data.html#elements-of-data-processing"><i class="fa fa-check"></i><b>7.1</b> Elements of data processing</a></li>
-<li class="chapter" data-level="7.2" data-path="data.html"><a href="data.html#data-tables"><i class="fa fa-check"></i><b>7.2</b> Data tables</a></li>
-<li class="chapter" data-level="7.3" data-path="data.html"><a href="data.html#down-the-sink-writing-data-files"><i class="fa fa-check"></i><b>7.3</b> Down the sink: Writing data files</a></li>
-<li class="chapter" data-level="7.4" data-path="data.html"><a href="data.html#may-the-source-reading-data-files"><i class="fa fa-check"></i><b>7.4</b> May the source …: reading data files</a></li>
-<li class="chapter" data-level="7.5" data-path="intro.html"><a href="intro.html#exercises"><i class="fa fa-check"></i><b>7.5</b> Exercises</a><ul>
-<li class="chapter" data-level="7.5.1" data-path="data.html"><a href="data.html#exercise-1"><i class="fa fa-check"></i><b>7.5.1</b> Exercise 1</a></li>
-<li class="chapter" data-level="7.5.2" data-path="data.html"><a href="data.html#exercise-2"><i class="fa fa-check"></i><b>7.5.2</b> Exercise 2</a></li>
-</ul></li>
-<li class="chapter" data-level="7.6" data-path="variables.html"><a href="variables.html#think-further"><i class="fa fa-check"></i><b>7.6</b> Think further</a></li>
-<li class="chapter" data-level="7.7" data-path="functions.html"><a href="functions.html#references"><i class="fa fa-check"></i><b>7.7</b> References</a></li>
-</ul></li>
-<li class="chapter" data-level="8" data-path="interaction.html"><a href="interaction.html"><i class="fa fa-check"></i><b>8</b> Interaction</a><ul>
-<li class="chapter" data-level="8.1" data-path="interaction.html"><a href="interaction.html#interaction-models"><i class="fa fa-check"></i><b>8.1</b> Interaction models</a><ul>
-<li class="chapter" data-level="8.1.1" data-path="interaction.html"><a href="interaction.html#identifying-states"><i class="fa fa-check"></i><b>8.1.1</b> Identifying states</a></li>
-<li class="chapter" data-level="8.1.2" data-path="interaction.html"><a href="interaction.html#identifying-transitions"><i class="fa fa-check"></i><b>8.1.2</b> Identifying transitions</a></li>
-<li class="chapter" data-level="8.1.3" data-path="interaction.html"><a href="interaction.html#events-user-input-and-internal-conditions"><i class="fa fa-check"></i><b>8.1.3</b> Events: user input and internal conditions</a></li>
-<li class="chapter" data-level="8.1.4" data-path="intro.html"><a href="intro.html#exercises"><i class="fa fa-check"></i><b>8.1.4</b> Exercises</a></li>
-</ul></li>
-<li class="chapter" data-level="8.2" data-path="interaction.html"><a href="interaction.html#programming-interactive-prototypes"><i class="fa fa-check"></i><b>8.2</b> Programming interactive prototypes</a><ul>
-<li class="chapter" data-level="8.2.1" data-path="interaction.html"><a href="interaction.html#interactive-transitionals"><i class="fa fa-check"></i><b>8.2.1</b> Interactive transitionals</a></li>
-<li class="chapter" data-level="8.2.2" data-path="interaction.html"><a href="interaction.html#automatic-transitions"><i class="fa fa-check"></i><b>8.2.2</b> Automatic transitions</a></li>
-<li class="chapter" data-level="8.2.3" data-path="interaction.html"><a href="interaction.html#the-timestamp-method"><i class="fa fa-check"></i><b>8.2.3</b> The timestamp method</a></li>
-<li class="chapter" data-level="8.2.4" data-path="interaction.html"><a href="interaction.html#presentation-conditionals"><i class="fa fa-check"></i><b>8.2.4</b> Presentation conditionals</a></li>
-</ul></li>
-<li class="chapter" data-level="8.3" data-path="interaction.html"><a href="interaction.html#interactions-in-pygame"><i class="fa fa-check"></i><b>8.3</b> Interactions in Pygame</a><ul>
-<li class="chapter" data-level="8.3.1" data-path="interaction.html"><a href="interaction.html#overall-structure"><i class="fa fa-check"></i><b>8.3.1</b> Overall structure</a></li>
-<li class="chapter" data-level="8.3.2" data-path="interaction.html"><a href="interaction.html#the-screen-and-the-refresh-loop."><i class="fa fa-check"></i><b>8.3.2</b> The screen and the refresh loop.</a></li>
-<li class="chapter" data-level="8.3.3" data-path="interaction.html"><a href="interaction.html#handling-user-input"><i class="fa fa-check"></i><b>8.3.3</b> Handling user input</a></li>
-<li class="chapter" data-level="8.3.4" data-path="interaction.html"><a href="interaction.html#transitionals"><i class="fa fa-check"></i><b>8.3.4</b> Transitionals</a></li>
-<li class="chapter" data-level="8.3.5" data-path="interaction.html"><a href="interaction.html#pygame-events"><i class="fa fa-check"></i><b>8.3.5</b> Pygame events</a></li>
-</ul></li>
-<li class="chapter" data-level="8.4" data-path="interaction.html"><a href="interaction.html#presentitionals-in-pygame"><i class="fa fa-check"></i><b>8.4</b> Presentitionals in Pygame</a><ul>
-<li class="chapter" data-level="8.4.1" data-path="interaction.html"><a href="interaction.html#display-and-surface"><i class="fa fa-check"></i><b>8.4.1</b> Display and surface</a></li>
-<li class="chapter" data-level="8.4.2" data-path="interaction.html"><a href="interaction.html#drawing-figures"><i class="fa fa-check"></i><b>8.4.2</b> Drawing figures</a></li>
-<li class="chapter" data-level="8.4.3" data-path="interaction.html"><a href="interaction.html#placing-text-and-pictures"><i class="fa fa-check"></i><b>8.4.3</b> Placing text and pictures</a></li>
-</ul></li>
-<li class="chapter" data-level="8.5" data-path="interaction.html"><a href="interaction.html#exercises-1"><i class="fa fa-check"></i><b>8.5</b> Exercises</a><ul>
-<li class="chapter" data-level="8.5.1" data-path="interaction.html"><a href="interaction.html#exercise-c.-transition-tables"><i class="fa fa-check"></i><b>8.5.1</b> Exercise C. Transition tables</a></li>
-</ul></li>
-<li class="chapter" data-level="8.6" data-path="variables.html"><a href="variables.html#common-errors"><i class="fa fa-check"></i><b>8.6</b> Common errors</a></li>
-<li class="chapter" data-level="8.7" data-path="variables.html"><a href="variables.html#think-further"><i class="fa fa-check"></i><b>8.7</b> Think Further</a></li>
-</ul></li>
-<li class="chapter" data-level="9" data-path="solutions.html"><a href="solutions.html"><i class="fa fa-check"></i><b>9</b> Solutions</a><ul>
-<li class="chapter" data-level="9.1" data-path="solutions.html"><a href="solutions.html#chapter-1.-introduction"><i class="fa fa-check"></i><b>9.1</b> Chapter 1. Introduction</a></li>
-<li class="chapter" data-level="9.2" data-path="solutions.html"><a href="solutions.html#chapter-2.-variables-values-and-types"><i class="fa fa-check"></i><b>9.2</b> Chapter 2. Variables, values and types</a><ul>
-<li class="chapter" data-level="9.2.1" data-path="variables.html"><a href="variables.html#exercise-1.-operators"><i class="fa fa-check"></i><b>9.2.1</b> Exercise 1. Operators</a></li>
-<li class="chapter" data-level="9.2.2" data-path="variables.html"><a href="variables.html#exercise-2.-values"><i class="fa fa-check"></i><b>9.2.2</b> Exercise 2. Values</a></li>
-<li class="chapter" data-level="9.2.3" data-path="variables.html"><a href="variables.html#exercise-3.-mini-programs"><i class="fa fa-check"></i><b>9.2.3</b> Exercise 3. Mini programs</a></li>
-<li class="chapter" data-level="9.2.4" data-path="variables.html"><a href="variables.html#exercise-4.-debugging"><i class="fa fa-check"></i><b>9.2.4</b> Exercise 4. Debugging</a></li>
-<li class="chapter" data-level="9.2.5" data-path="variables.html"><a href="variables.html#exercise-5.-string-concatenation"><i class="fa fa-check"></i><b>9.2.5</b> Exercise 5. String concatenation</a></li>
-<li class="chapter" data-level="9.2.6" data-path="variables.html"><a href="variables.html#exercise-6.-variable-names"><i class="fa fa-check"></i><b>9.2.6</b> Exercise 6. Variable names</a></li>
-<li class="chapter" data-level="9.2.7" data-path="variables.html"><a href="variables.html#exercise-7.-stroop-task-welcome-message"><i class="fa fa-check"></i><b>9.2.7</b> Exercise 7. Stroop task welcome message</a></li>
-<li class="chapter" data-level="9.2.8" data-path="variables.html"><a href="variables.html#exercise-8.-printing"><i class="fa fa-check"></i><b>9.2.8</b> Exercise 8. Printing</a></li>
-<li class="chapter" data-level="9.2.9" data-path="solutions.html"><a href="solutions.html#exercise-9.-using-python-as-calculator"><i class="fa fa-check"></i><b>9.2.9</b> Exercise 9. Using Python as calculator</a></li>
-<li class="chapter" data-level="9.2.10" data-path="variables.html"><a href="variables.html#exercise-10.-a-boolean-puzzle"><i class="fa fa-check"></i><b>9.2.10</b> Exercise 10. A Boolean puzzle</a></li>
-</ul></li>
-<li class="chapter" data-level="9.3" data-path="solutions.html"><a href="solutions.html#chapter-3.-conditionals"><i class="fa fa-check"></i><b>9.3</b> Chapter 3. Conditionals</a><ul>
-<li class="chapter" data-level="9.3.1" data-path="conditionals.html"><a href="conditionals.html#exercise-1.-boolean-logic"><i class="fa fa-check"></i><b>9.3.1</b> Exercise 1. Boolean logic</a></li>
-<li class="chapter" data-level="9.3.2" data-path="conditionals.html"><a href="conditionals.html#exercise-2.-state-charts"><i class="fa fa-check"></i><b>9.3.2</b> Exercise 2. State charts</a></li>
-<li class="chapter" data-level="9.3.3" data-path="conditionals.html"><a href="conditionals.html#exercise-3.-transition-tables"><i class="fa fa-check"></i><b>9.3.3</b> Exercise 3. Transition tables</a></li>
-<li class="chapter" data-level="9.3.4" data-path="conditionals.html"><a href="conditionals.html#exercise-4.-mini-programs"><i class="fa fa-check"></i><b>9.3.4</b> Exercise 4. Mini programs</a></li>
-<li class="chapter" data-level="9.3.5" data-path="conditionals.html"><a href="conditionals.html#exercise-5.-following-the-control-flow"><i class="fa fa-check"></i><b>9.3.5</b> Exercise 5. Following the control flow</a></li>
-<li class="chapter" data-level="9.3.6" data-path="conditionals.html"><a href="conditionals.html#exercise-6.-indentation"><i class="fa fa-check"></i><b>9.3.6</b> Exercise 6. Indentation</a></li>
-<li class="chapter" data-level="9.3.7" data-path="conditionals.html"><a href="conditionals.html#exercise-7.-pseudo-code-conditionals"><i class="fa fa-check"></i><b>9.3.7</b> Exercise 7. Pseudo code conditionals</a></li>
-<li class="chapter" data-level="9.3.8" data-path="conditionals.html"><a href="conditionals.html#exercise-8.-modify-stroop-task"><i class="fa fa-check"></i><b>9.3.8</b> Exercise 8. Modify Stroop Task</a></li>
-<li class="chapter" data-level="9.3.9" data-path="conditionals.html"><a href="conditionals.html#exercise-9.-simplify-nested-conditionals"><i class="fa fa-check"></i><b>9.3.9</b> Exercise 9. Simplify nested conditionals</a></li>
-<li class="chapter" data-level="9.3.10" data-path="conditionals.html"><a href="conditionals.html#exercise-10.-flow-chart-conditionals"><i class="fa fa-check"></i><b>9.3.10</b> Exercise 10. Flow chart conditionals</a></li>
-</ul></li>
-<li class="chapter" data-level="9.4" data-path="solutions.html"><a href="solutions.html#chapter-4.-lists"><i class="fa fa-check"></i><b>9.4</b> Chapter 4. Lists</a><ul>
-<li class="chapter" data-level="9.4.1" data-path="lists.html"><a href="lists.html#exercise-1.-indexing"><i class="fa fa-check"></i><b>9.4.1</b> Exercise 1. Indexing</a></li>
-<li class="chapter" data-level="9.4.2" data-path="lists.html"><a href="lists.html#exercise-2.-debugging"><i class="fa fa-check"></i><b>9.4.2</b> Exercise 2. Debugging</a></li>
-<li class="chapter" data-level="9.4.3" data-path="solutions.html"><a href="solutions.html#exercise-3.-mini-programs-1"><i class="fa fa-check"></i><b>9.4.3</b> Exercise 3. Mini programs</a></li>
-<li class="chapter" data-level="9.4.4" data-path="solutions.html"><a href="solutions.html#exercise-1.-shopping-list"><i class="fa fa-check"></i><b>9.4.4</b> Exercise 1. Shopping list</a></li>
-<li class="chapter" data-level="9.4.5" data-path="solutions.html"><a href="solutions.html#exercise-2.-dictionnaries"><i class="fa fa-check"></i><b>9.4.5</b> Exercise 2. Dictionnaries</a></li>
-<li class="chapter" data-level="9.4.6" data-path="solutions.html"><a href="solutions.html#exercise-3.-selecting-elements"><i class="fa fa-check"></i><b>9.4.6</b> Exercise 3. Selecting elements</a></li>
-<li class="chapter" data-level="9.4.7" data-path="solutions.html"><a href="solutions.html#exercise-4.-adjust-a-dictionnary-data-set"><i class="fa fa-check"></i><b>9.4.7</b> Exercise 4. Adjust a dictionnary data set</a></li>
-<li class="chapter" data-level="9.4.8" data-path="solutions.html"><a href="solutions.html#exercise-5.-a-dictionnary-data-set"><i class="fa fa-check"></i><b>9.4.8</b> Exercise 5. A dictionnary data set</a></li>
-<li class="chapter" data-level="9.4.9" data-path="solutions.html"><a href="solutions.html#exercise-6.-stroop-extension"><i class="fa fa-check"></i><b>9.4.9</b> Exercise 6. Stroop extension</a></li>
-</ul></li>
-<li class="chapter" data-level="9.5" data-path="solutions.html"><a href="solutions.html#chapter-5.-loops"><i class="fa fa-check"></i><b>9.5</b> Chapter 5. Loops</a><ul>
-<li class="chapter" data-level="9.5.1" data-path="loops.html"><a href="loops.html#exercise-1.-following-the-control-flow-i"><i class="fa fa-check"></i><b>9.5.1</b> Exercise 1. Following the control flow I</a></li>
-<li class="chapter" data-level="9.5.2" data-path="loops.html"><a href="loops.html#exercise-2.-debugging-i"><i class="fa fa-check"></i><b>9.5.2</b> Exercise 2. Debugging I</a></li>
-<li class="chapter" data-level="9.5.3" data-path="solutions.html"><a href="solutions.html#exercise-3.-controlling-the-flow"><i class="fa fa-check"></i><b>9.5.3</b> Exercise 3. Controlling the flow</a></li>
-<li class="chapter" data-level="9.5.4" data-path="solutions.html"><a href="solutions.html#exercise-4.-following-the-control-flow-ii"><i class="fa fa-check"></i><b>9.5.4</b> Exercise 4. Following the control flow II</a></li>
-<li class="chapter" data-level="9.5.5" data-path="solutions.html"><a href="solutions.html#exercise-5.-debugging"><i class="fa fa-check"></i><b>9.5.5</b> Exercise 5. Debugging</a></li>
-<li class="chapter" data-level="9.5.6" data-path="solutions.html"><a href="solutions.html#exercise-6.-nested-loops"><i class="fa fa-check"></i><b>9.5.6</b> Exercise 6. Nested loops</a></li>
-<li class="chapter" data-level="9.5.7" data-path="solutions.html"><a href="solutions.html#exercise-7.-data-transformation-using-loops"><i class="fa fa-check"></i><b>9.5.7</b> Exercise 7. Data transformation using loops</a></li>
-<li class="chapter" data-level="9.5.8" data-path="solutions.html"><a href="solutions.html#exercise-8.-calculating-a-mean"><i class="fa fa-check"></i><b>9.5.8</b> Exercise 8. Calculating a mean</a></li>
-<li class="chapter" data-level="9.5.9" data-path="solutions.html"><a href="solutions.html#exercise-9.-a-guessing-game"><i class="fa fa-check"></i><b>9.5.9</b> Exercise 9. A guessing game</a></li>
-</ul></li>
-<li class="chapter" data-level="9.6" data-path="solutions.html"><a href="solutions.html#chapter-6.-functions"><i class="fa fa-check"></i><b>9.6</b> Chapter 6. Functions</a><ul>
-<li class="chapter" data-level="9.6.1" data-path="functions.html"><a href="functions.html#exercise-1.-following-the-control-flow"><i class="fa fa-check"></i><b>9.6.1</b> Exercise 1. Following the control flow</a></li>
-<li class="chapter" data-level="9.6.2" data-path="functions.html"><a href="functions.html#exercise-2.-an-imperfect-list-sorting-attempt"><i class="fa fa-check"></i><b>9.6.2</b> Exercise 2. An imperfect list sorting attempt</a></li>
-<li class="chapter" data-level="9.6.3" data-path="solutions.html"><a href="solutions.html#exercise-3.-an-errorneous-sorting-algorithm"><i class="fa fa-check"></i><b>9.6.3</b> Exercise 3. An errorneous sorting algorithm</a></li>
-<li class="chapter" data-level="9.6.4" data-path="solutions.html"><a href="solutions.html#exercise-4."><i class="fa fa-check"></i><b>9.6.4</b> Exercise 4.</a></li>
-<li class="chapter" data-level="9.6.5" data-path="solutions.html"><a href="solutions.html#exercise-5."><i class="fa fa-check"></i><b>9.6.5</b> Exercise 5.</a></li>
-<li class="chapter" data-level="9.6.6" data-path="functions.html"><a href="functions.html#exercise-6.-insertion-sort-algorithm"><i class="fa fa-check"></i><b>9.6.6</b> Exercise 6. Insertion sort algorithm</a></li>
+<div class="row">
+<div class="col-sm-12">
+<div id="TOC">
+<ul>
+<li><a href="index.html#preface">Preface</a></li>
+<li><a href="intro.html#intro"><span class="toc-section-number">1</span> Introduction</a>
+<ul>
+<li><a href="intro.html#installing-a-python-environment"><span class="toc-section-number">1.1</span> Installing a Python environment</a></li>
+<li><a href="intro.html#installing-the-anaconda-python-environment"><span class="toc-section-number">1.2</span> Installing the Anaconda Python environment</a></li>
+<li><a href="intro.html#windows"><span class="toc-section-number">1.3</span> Windows</a></li>
+<li><a href="intro.html#macos"><span class="toc-section-number">1.4</span> MacOS</a></li>
+<li><a href="intro.html#testing-your-environment"><span class="toc-section-number">1.5</span> Testing your environment</a></li>
+<li><a href="intro.html#dumb_computers"><span class="toc-section-number">1.6</span> Computers are dumb</a></li>
+<li><a href="intro.html#dive-in-a-first-example"><span class="toc-section-number">1.7</span> Dive in: a first example</a></li>
+<li><a href="intro.html#batchwork"><span class="toc-section-number">1.8</span> Making an eye tracker</a>
+<ul>
+<li><a href="intro.html#yets-and-yetis"><span class="toc-section-number">1.8.1</span> YETs and Yetis</a></li>
+<li><a href="intro.html#the-eyeballing-exercise"><span class="toc-section-number">1.8.2</span> The Eyeballing exercise</a></li>
+<li><a href="intro.html#dumb-pictures"><span class="toc-section-number">1.8.3</span> Dumb pictures</a></li>
+<li><a href="intro.html#from-pixel-to-eye-tracking"><span class="toc-section-number">1.8.4</span> From pixel to eye tracking</a></li>
+<li><a href="intro.html#into-the-batch"><span class="toc-section-number">1.8.5</span> Into the batch</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="10" data-path="debugging-and-good-programming-practices.html"><a href="debugging-and-good-programming-practices.html"><i class="fa fa-check"></i><b>10</b> Debugging and good programming practices</a><ul>
-<li class="chapter" data-level="10.1" data-path="variables.html"><a href="variables.html#debugging"><i class="fa fa-check"></i><b>10.1</b> Debugging</a></li>
-<li class="chapter" data-level="10.2" data-path="debugging-and-good-programming-practices.html"><a href="debugging-and-good-programming-practices.html#boosting-your-programming-learning-curve"><i class="fa fa-check"></i><b>10.2</b> Boosting your programming learning curve</a><ul>
-<li class="chapter" data-level="10.2.1" data-path="debugging-and-good-programming-practices.html"><a href="debugging-and-good-programming-practices.html#going-with-the-flow"><i class="fa fa-check"></i><b>10.2.1</b> Going with the flow</a></li>
-<li class="chapter" data-level="10.2.2" data-path="debugging-and-good-programming-practices.html"><a href="debugging-and-good-programming-practices.html#just-do-it"><i class="fa fa-check"></i><b>10.2.2</b> Just do it!</a></li>
+<li><a href="variables.html#variables"><span class="toc-section-number">2</span> Variables, values and types</a>
+<ul>
+<li><a href="variables.html#variables-1"><span class="toc-section-number">2.1</span> Variables</a></li>
+<li><a href="variables.html#stroop-task-variables"><span class="toc-section-number">2.2</span> Use of variables in the Stroop Task</a></li>
+<li><a href="variables.html#how-variables-are-used"><span class="toc-section-number">2.3</span> How Variables Are Used</a></li>
+<li><a href="variables.html#data-types"><span class="toc-section-number">2.4</span> Data types</a>
+<ul>
+<li><a href="variables.html#numbers"><span class="toc-section-number">2.4.1</span> Numbers</a></li>
+<li><a href="variables.html#strings"><span class="toc-section-number">2.4.2</span> Strings</a></li>
+<li><a href="variables.html#booleans"><span class="toc-section-number">2.4.3</span> Booleans</a></li>
+</ul></li>
+<li><a href="variables.html#object-variables-in-a-yeti"><span class="toc-section-number">2.5</span> Object variables in a Yeti</a></li>
+<li><a href="variables.html#common-errors"><span class="toc-section-number">2.6</span> Common errors</a></li>
+<li><a href="variables.html#debugging"><span class="toc-section-number">2.7</span> Debugging</a></li>
+<li><a href="variables.html#exercises-1"><span class="toc-section-number">2.8</span> Exercises</a>
+<ul>
+<li><a href="variables.html#exercise-1.-operators"><span class="toc-section-number">2.8.1</span> Exercise 1. Operators</a></li>
+<li><a href="variables.html#exercise-2.-values"><span class="toc-section-number">2.8.2</span> Exercise 2. Values</a></li>
+<li><a href="variables.html#exercise-3.-mini-programs"><span class="toc-section-number">2.8.3</span> Exercise 3. Mini programs</a></li>
+<li><a href="variables.html#exercise-4.-debugging"><span class="toc-section-number">2.8.4</span> Exercise 4. Debugging</a></li>
+<li><a href="variables.html#exercise-5.-string-concatenation"><span class="toc-section-number">2.8.5</span> Exercise 5. String concatenation</a></li>
+<li><a href="variables.html#exercise-6.-variable-names"><span class="toc-section-number">2.8.6</span> Exercise 6. Variable names</a></li>
+<li><a href="variables.html#exercise-7.-stroop-task-welcome-message"><span class="toc-section-number">2.8.7</span> Exercise 7. Stroop task welcome message</a></li>
+<li><a href="variables.html#exercise-8.-printing"><span class="toc-section-number">2.8.8</span> Exercise 8. Printing</a></li>
+<li><a href="variables.html#exercise-9.-using-python-as-a-calculator"><span class="toc-section-number">2.8.9</span> Exercise 9. Using Python as a calculator</a></li>
+<li><a href="variables.html#exercise-10.-a-boolean-puzzle"><span class="toc-section-number">2.8.10</span> Exercise 10. A Boolean puzzle</a></li>
+</ul></li>
+<li><a href="variables.html#think-further-1"><span class="toc-section-number">2.9</span> Think Further</a></li>
+</ul></li>
+<li><a href="conditionals.html#conditionals"><span class="toc-section-number">3</span> Conditionals</a>
+<ul>
+<li><a href="conditionals.html#boolean-logic"><span class="toc-section-number">3.1</span> Boolean logic</a></li>
+<li><a href="conditionals.html#if-then"><span class="toc-section-number">3.2</span> if this is true, then do this</a></li>
+<li><a href="conditionals.html#else-do-that"><span class="toc-section-number">3.3</span> else do that</a></li>
+<li><a href="conditionals.html#bringing-interaction-to-life-conditional-state-transitions"><span class="toc-section-number">3.4</span> Bringing interaction to life: Conditional state transitions</a>
+<ul>
+<li><a href="conditionals.html#transition-tables"><span class="toc-section-number">3.4.1</span> Transition tables</a></li>
+<li><a href="conditionals.html#state-charts"><span class="toc-section-number">3.4.2</span> State charts</a></li>
+</ul></li>
+<li><a href="conditionals.html#common-errors-1"><span class="toc-section-number">3.5</span> Common errors</a></li>
+<li><a href="conditionals.html#debugging-1"><span class="toc-section-number">3.6</span> Debugging</a></li>
+<li><a href="conditionals.html#exercises-2"><span class="toc-section-number">3.7</span> Exercises</a>
+<ul>
+<li><a href="conditionals.html#exercise-1.-boolean-logic"><span class="toc-section-number">3.7.1</span> Exercise 1. Boolean logic</a></li>
+<li><a href="conditionals.html#exercise-2.-state-charts"><span class="toc-section-number">3.7.2</span> Exercise 2. State charts</a></li>
+<li><a href="conditionals.html#exercise-3.-transition-tables"><span class="toc-section-number">3.7.3</span> Exercise 3. Transition tables</a></li>
+<li><a href="conditionals.html#exercise-4.-mini-programs"><span class="toc-section-number">3.7.4</span> Exercise 4. Mini programs</a></li>
+<li><a href="conditionals.html#exercise-5.-following-the-control-flow"><span class="toc-section-number">3.7.5</span> Exercise 5. Following the control flow</a></li>
+<li><a href="conditionals.html#exercise-6.-indentation"><span class="toc-section-number">3.7.6</span> Exercise 6. Indentation</a></li>
+<li><a href="conditionals.html#exercise-7.-pseudo-code-conditionals"><span class="toc-section-number">3.7.7</span> Exercise 7. Pseudo code conditionals</a></li>
+<li><a href="conditionals.html#exercise-8.-modify-stroop-task"><span class="toc-section-number">3.7.8</span> Exercise 8. Modify Stroop Task</a></li>
+<li><a href="conditionals.html#exercise-9.-simplify-nested-conditionals"><span class="toc-section-number">3.7.9</span> Exercise 9. Simplify nested conditionals</a></li>
+<li><a href="conditionals.html#exercise-10.-flow-chart-conditionals"><span class="toc-section-number">3.7.10</span> Exercise 10. Flow chart conditionals</a></li>
+</ul></li>
+<li><a href="conditionals.html#think-further-2"><span class="toc-section-number">3.8</span> Think Further</a></li>
+</ul></li>
+<li><a href="lists.html#lists"><span class="toc-section-number">4</span> Lists</a>
+<ul>
+<li><a href="lists.html#lists-1"><span class="toc-section-number">4.1</span> Lists</a>
+<ul>
+<li><a href="lists.html#lists-are-mutable"><span class="toc-section-number">4.1.1</span> Lists are mutable</a></li>
+</ul></li>
+<li><a href="lists.html#tuples"><span class="toc-section-number">4.2</span> Tuples</a></li>
+<li><a href="lists.html#dictionaries"><span class="toc-section-number">4.3</span> Dictionaries</a></li>
+<li><a href="lists.html#putting-collections-to-use"><span class="toc-section-number">4.4</span> Putting collections to use</a></li>
+<li><a href="lists.html#common-errors-2"><span class="toc-section-number">4.5</span> Common errors</a></li>
+<li><a href="lists.html#debugging-2"><span class="toc-section-number">4.6</span> Debugging</a></li>
+<li><a href="lists.html#exercises-3"><span class="toc-section-number">4.7</span> Exercises</a>
+<ul>
+<li><a href="lists.html#exercise-1.-indexing"><span class="toc-section-number">4.7.1</span> Exercise 1. Indexing</a></li>
+<li><a href="lists.html#exercise-2.-debugging"><span class="toc-section-number">4.7.2</span> Exercise 2. Debugging</a></li>
+<li><a href="lists.html#exercise-3.-mini-programs-1"><span class="toc-section-number">4.7.3</span> Exercise 3. Mini programs</a></li>
+<li><a href="lists.html#exercise-4.-shopping-list"><span class="toc-section-number">4.7.4</span> Exercise 4. Shopping list</a></li>
+<li><a href="lists.html#exercise-5.-dictionaries"><span class="toc-section-number">4.7.5</span> Exercise 5. Dictionaries</a></li>
+<li><a href="lists.html#exercise-6.-element-selection"><span class="toc-section-number">4.7.6</span> Exercise 6. Element selection</a></li>
+<li><a href="lists.html#exercise-7.-adjust-a-dictionary-data-set"><span class="toc-section-number">4.7.7</span> Exercise 7. Adjust a dictionary data set</a></li>
+<li><a href="lists.html#exercise-8.-a-dictionary-data-set"><span class="toc-section-number">4.7.8</span> Exercise 8. A dictionary data set</a></li>
+<li><a href="lists.html#exercise-9.-stroop-extension"><span class="toc-section-number">4.7.9</span> Exercise 9. Stroop extension</a></li>
+</ul></li>
+<li><a href="lists.html#think-further-3"><span class="toc-section-number">4.8</span> Think further</a></li>
+</ul></li>
+<li><a href="loops.html#loops"><span class="toc-section-number">5</span> Loops</a>
+<ul>
+<li><a href="loops.html#the-for-loop"><span class="toc-section-number">5.1</span> The <code>for</code> loop</a></li>
+<li><a href="loops.html#the-while-loop"><span class="toc-section-number">5.2</span> The <code>while</code> loop</a>
+<ul>
+<li><a href="loops.html#for-or-while"><span class="toc-section-number">5.2.1</span> <code>for</code> or <code>while</code>?</a></li>
+</ul></li>
+<li><a href="loops.html#the-break-statement"><span class="toc-section-number">5.3</span> The <code>break</code> statement</a></li>
+<li><a href="loops.html#controlling-the-flow-of-your-program-with-loops"><span class="toc-section-number">5.4</span> Controlling the flow of your program with loops</a></li>
+<li><a href="loops.html#common-errors-3"><span class="toc-section-number">5.5</span> Common errors</a></li>
+<li><a href="loops.html#debugging-3"><span class="toc-section-number">5.6</span> Debugging</a></li>
+<li><a href="loops.html#exercises-4"><span class="toc-section-number">5.7</span> Exercises</a>
+<ul>
+<li><a href="loops.html#exercise-1.-following-the-control-flow-i"><span class="toc-section-number">5.7.1</span> Exercise 1. Following the control flow I</a></li>
+<li><a href="loops.html#exercise-2.-debugging-i"><span class="toc-section-number">5.7.2</span> Exercise 2. Debugging I</a></li>
+<li><a href="loops.html#exercise-3.-a-guessing-game"><span class="toc-section-number">5.7.3</span> Exercise 3. A guessing game</a></li>
+<li><a href="loops.html#exercise-4.-controlling-the-flow"><span class="toc-section-number">5.7.4</span> Exercise 4. Controlling the flow</a></li>
+<li><a href="loops.html#exercise-5.-following-the-control-flow-ii"><span class="toc-section-number">5.7.5</span> Exercise 5. Following the control flow II</a></li>
+<li><a href="loops.html#exercise-6.-debugging-ii"><span class="toc-section-number">5.7.6</span> Exercise 6. Debugging II</a></li>
+<li><a href="loops.html#exercise-7.-nested-loops"><span class="toc-section-number">5.7.7</span> Exercise 7. Nested loops</a></li>
+<li><a href="loops.html#exercise-8.-data-transformation-using-loops"><span class="toc-section-number">5.7.8</span> Exercise 8. Data transformation using loops</a></li>
+<li><a href="loops.html#exercise-9.-calculating-a-mean"><span class="toc-section-number">5.7.9</span> Exercise 9. Calculating a mean</a></li>
+</ul></li>
+<li><a href="loops.html#think-further-4"><span class="toc-section-number">5.8</span> Think Further</a></li>
+</ul></li>
+<li><a href="functions.html#functions"><span class="toc-section-number">6</span> Functions</a>
+<ul>
+<li><a href="functions.html#defining-and-calling-functions"><span class="toc-section-number">6.1</span> Defining and calling functions</a></li>
+<li><a href="functions.html#function-parameters-and-arguments"><span class="toc-section-number">6.2</span> Function parameters and arguments</a></li>
+<li><a href="functions.html#the-return-statement"><span class="toc-section-number">6.3</span> The <code>return</code> statement</a></li>
+<li><a href="functions.html#functions-can-call-other-functions-and-themselves"><span class="toc-section-number">6.4</span> Functions can call other functions, and themselves</a>
+<ul>
+<li><a href="functions.html#a-word-about-recursion"><span class="toc-section-number">6.4.1</span> A word about <em>Recursion</em></a></li>
+</ul></li>
+<li><a href="functions.html#stroop-functions"><span class="toc-section-number">6.5</span> Stroop functions</a></li>
+<li><a href="functions.html#common-errors-4"><span class="toc-section-number">6.6</span> Common errors</a></li>
+<li><a href="functions.html#exercises-5"><span class="toc-section-number">6.7</span> Exercises</a>
+<ul>
+<li><a href="functions.html#exercise-1.-following-the-control-flow"><span class="toc-section-number">6.7.1</span> Exercise 1. Following the control flow</a></li>
+<li><a href="functions.html#exercise-2.-an-imperfect-list-sorting-attempt"><span class="toc-section-number">6.7.2</span> Exercise 2. An imperfect list sorting attempt</a></li>
+<li><a href="functions.html#exercise-3.-an-erroneous-sorting-algorithm"><span class="toc-section-number">6.7.3</span> Exercise 3. An erroneous sorting algorithm</a></li>
+<li><a href="functions.html#exercise-4.-chunking"><span class="toc-section-number">6.7.4</span> Exercise 4. Chunking</a></li>
+<li><a href="functions.html#exercise-5.-add-functionality-to-the-stroop-task"><span class="toc-section-number">6.7.5</span> Exercise 5. Add functionality to the stroop task</a></li>
+<li><a href="functions.html#exercise-6.-insertion-sort-algorithm"><span class="toc-section-number">6.7.6</span> Exercise 6. Insertion sort algorithm</a></li>
+</ul></li>
+<li><a href="functions.html#think-further-5"><span class="toc-section-number">6.8</span> Think further</a></li>
+<li><a href="functions.html#references"><span class="toc-section-number">6.9</span> References</a></li>
+</ul></li>
+<li><a href="data.html#data"><span class="toc-section-number">7</span> Working with data</a>
+<ul>
+<li><a href="data.html#elements-of-data-processing"><span class="toc-section-number">7.1</span> Elements of data processing</a></li>
+<li><a href="data.html#data-tables"><span class="toc-section-number">7.2</span> Data tables</a></li>
+<li><a href="data.html#down-the-sink-writing-data-files"><span class="toc-section-number">7.3</span> Down the sink: Writing data files</a></li>
+<li><a href="data.html#may-the-source-reading-data-files"><span class="toc-section-number">7.4</span> May the source …: reading data files</a></li>
+<li><a href="data.html#exercises-6"><span class="toc-section-number">7.5</span> Exercises</a>
+<ul>
+<li><a href="data.html#exercise-1"><span class="toc-section-number">7.5.1</span> Exercise 1</a></li>
+<li><a href="data.html#exercise-2"><span class="toc-section-number">7.5.2</span> Exercise 2</a></li>
+</ul></li>
+<li><a href="data.html#think-further-6"><span class="toc-section-number">7.6</span> Think further</a></li>
+<li><a href="data.html#references-1"><span class="toc-section-number">7.7</span> References</a></li>
+</ul></li>
+<li><a href="interaction.html#interaction"><span class="toc-section-number">8</span> Interaction</a>
+<ul>
+<li><a href="interaction.html#interaction-models"><span class="toc-section-number">8.1</span> Interaction models</a>
+<ul>
+<li><a href="interaction.html#identifying-states"><span class="toc-section-number">8.1.1</span> Identifying states</a></li>
+<li><a href="interaction.html#identifying-transitions"><span class="toc-section-number">8.1.2</span> Identifying transitions</a></li>
+<li><a href="interaction.html#events-user-input-and-internal-conditions"><span class="toc-section-number">8.1.3</span> Events: user input and internal conditions</a></li>
+<li><a href="interaction.html#exercises-7"><span class="toc-section-number">8.1.4</span> Exercises</a></li>
+</ul></li>
+<li><a href="interaction.html#programming-interactive-prototypes"><span class="toc-section-number">8.2</span> Programming interactive prototypes</a>
+<ul>
+<li><a href="interaction.html#interactive-transitionals"><span class="toc-section-number">8.2.1</span> Interactive transitionals</a></li>
+<li><a href="interaction.html#automatic-transitions"><span class="toc-section-number">8.2.2</span> Automatic transitions</a></li>
+<li><a href="interaction.html#the-timestamp-method"><span class="toc-section-number">8.2.3</span> The timestamp method</a></li>
+<li><a href="interaction.html#presentation-conditionals"><span class="toc-section-number">8.2.4</span> Presentation conditionals</a></li>
+</ul></li>
+<li><a href="interaction.html#interactions-in-pygame"><span class="toc-section-number">8.3</span> Interactions in Pygame</a>
+<ul>
+<li><a href="interaction.html#overall-structure"><span class="toc-section-number">8.3.1</span> Overall structure</a></li>
+<li><a href="interaction.html#the-screen-and-the-refresh-loop."><span class="toc-section-number">8.3.2</span> The screen and the refresh loop.</a></li>
+<li><a href="interaction.html#handling-user-input"><span class="toc-section-number">8.3.3</span> Handling user input</a></li>
+<li><a href="interaction.html#transitionals"><span class="toc-section-number">8.3.4</span> Transitionals</a></li>
+<li><a href="interaction.html#pygame-events"><span class="toc-section-number">8.3.5</span> Pygame events</a></li>
+</ul></li>
+<li><a href="interaction.html#presentitionals"><span class="toc-section-number">8.4</span> Presentitionals in Pygame</a>
+<ul>
+<li><a href="interaction.html#display-and-surface"><span class="toc-section-number">8.4.1</span> Display and surface</a></li>
+<li><a href="interaction.html#drawing-figures"><span class="toc-section-number">8.4.2</span> Drawing figures</a></li>
+<li><a href="interaction.html#placing-text-and-pictures"><span class="toc-section-number">8.4.3</span> Placing text and pictures</a></li>
+</ul></li>
+<li><a href="interaction.html#exercises-8"><span class="toc-section-number">8.5</span> Exercises</a>
+<ul>
+<li><a href="interaction.html#exercise-c.-transition-tables"><span class="toc-section-number">8.5.1</span> Exercise C. Transition tables</a></li>
+</ul></li>
+<li><a href="interaction.html#common-errors-5"><span class="toc-section-number">8.6</span> Common errors</a></li>
+<li><a href="interaction.html#think-further-7"><span class="toc-section-number">8.7</span> Think Further</a></li>
+</ul></li>
+<li><a href="solutions.html#solutions"><span class="toc-section-number">9</span> Solutions</a>
+<ul>
+<li><a href="solutions.html#chapter-1.-introduction"><span class="toc-section-number">9.1</span> Chapter 1. Introduction</a></li>
+<li><a href="solutions.html#chapter-2.-variables-values-and-types"><span class="toc-section-number">9.2</span> Chapter 2. Variables, values and types</a>
+<ul>
+<li><a href="solutions.html#exercise-1.-operators-1"><span class="toc-section-number">9.2.1</span> Exercise 1. Operators</a></li>
+<li><a href="solutions.html#exercise-2.-values-1"><span class="toc-section-number">9.2.2</span> Exercise 2. Values</a></li>
+<li><a href="solutions.html#exercise-3.-mini-programs-2"><span class="toc-section-number">9.2.3</span> Exercise 3. Mini programs</a></li>
+<li><a href="solutions.html#exercise-4.-debugging-1"><span class="toc-section-number">9.2.4</span> Exercise 4. Debugging</a></li>
+<li><a href="solutions.html#exercise-5.-string-concatenation-1"><span class="toc-section-number">9.2.5</span> Exercise 5. String concatenation</a></li>
+<li><a href="solutions.html#exercise-6.-variable-names-1"><span class="toc-section-number">9.2.6</span> Exercise 6. Variable names</a></li>
+<li><a href="solutions.html#exercise-7.-stroop-task-welcome-message-1"><span class="toc-section-number">9.2.7</span> Exercise 7. Stroop task welcome message</a></li>
+<li><a href="solutions.html#exercise-8.-printing-1"><span class="toc-section-number">9.2.8</span> Exercise 8. Printing</a></li>
+<li><a href="solutions.html#exercise-9.-using-python-as-calculator"><span class="toc-section-number">9.2.9</span> Exercise 9. Using Python as calculator</a></li>
+<li><a href="solutions.html#exercise-10.-a-boolean-puzzle-1"><span class="toc-section-number">9.2.10</span> Exercise 10. A Boolean puzzle</a></li>
+</ul></li>
+<li><a href="solutions.html#chapter-3.-conditionals"><span class="toc-section-number">9.3</span> Chapter 3. Conditionals</a>
+<ul>
+<li><a href="solutions.html#exercise-1.-boolean-logic-1"><span class="toc-section-number">9.3.1</span> Exercise 1. Boolean logic</a></li>
+<li><a href="solutions.html#exercise-2.-state-charts-1"><span class="toc-section-number">9.3.2</span> Exercise 2. State charts</a></li>
+<li><a href="solutions.html#exercise-3.-transition-tables-1"><span class="toc-section-number">9.3.3</span> Exercise 3. Transition tables</a></li>
+<li><a href="solutions.html#exercise-4.-mini-programs-1"><span class="toc-section-number">9.3.4</span> Exercise 4. Mini programs</a></li>
+<li><a href="solutions.html#exercise-5.-following-the-control-flow-1"><span class="toc-section-number">9.3.5</span> Exercise 5. Following the control flow</a></li>
+<li><a href="solutions.html#exercise-6.-indentation-1"><span class="toc-section-number">9.3.6</span> Exercise 6. Indentation</a></li>
+<li><a href="solutions.html#exercise-7.-pseudo-code-conditionals-1"><span class="toc-section-number">9.3.7</span> Exercise 7. Pseudo code conditionals</a></li>
+<li><a href="solutions.html#exercise-8.-modify-stroop-task-1"><span class="toc-section-number">9.3.8</span> Exercise 8. Modify Stroop Task</a></li>
+<li><a href="solutions.html#exercise-9.-simplify-nested-conditionals-1"><span class="toc-section-number">9.3.9</span> Exercise 9. Simplify nested conditionals</a></li>
+<li><a href="solutions.html#exercise-10.-flow-chart-conditionals-1"><span class="toc-section-number">9.3.10</span> Exercise 10. Flow chart conditionals</a></li>
+</ul></li>
+<li><a href="solutions.html#chapter-4.-lists"><span class="toc-section-number">9.4</span> Chapter 4. Lists</a>
+<ul>
+<li><a href="solutions.html#exercise-1.-indexing-1"><span class="toc-section-number">9.4.1</span> Exercise 1. Indexing</a></li>
+<li><a href="solutions.html#exercise-2.-debugging-1"><span class="toc-section-number">9.4.2</span> Exercise 2. Debugging</a></li>
+<li><a href="solutions.html#exercise-3.-mini-programs-3"><span class="toc-section-number">9.4.3</span> Exercise 3. Mini programs</a></li>
+<li><a href="solutions.html#exercise-1.-shopping-list"><span class="toc-section-number">9.4.4</span> Exercise 1. Shopping list</a></li>
+<li><a href="solutions.html#exercise-2.-dictionnaries"><span class="toc-section-number">9.4.5</span> Exercise 2. Dictionnaries</a></li>
+<li><a href="solutions.html#exercise-3.-selecting-elements"><span class="toc-section-number">9.4.6</span> Exercise 3. Selecting elements</a></li>
+<li><a href="solutions.html#exercise-4.-adjust-a-dictionnary-data-set"><span class="toc-section-number">9.4.7</span> Exercise 4. Adjust a dictionnary data set</a></li>
+<li><a href="solutions.html#exercise-5.-a-dictionnary-data-set"><span class="toc-section-number">9.4.8</span> Exercise 5. A dictionnary data set</a></li>
+<li><a href="solutions.html#exercise-6.-stroop-extension"><span class="toc-section-number">9.4.9</span> Exercise 6. Stroop extension</a></li>
+</ul></li>
+<li><a href="solutions.html#chapter-5.-loops"><span class="toc-section-number">9.5</span> Chapter 5. Loops</a>
+<ul>
+<li><a href="solutions.html#exercise-1.-following-the-control-flow-i-1"><span class="toc-section-number">9.5.1</span> Exercise 1. Following the control flow I</a></li>
+<li><a href="solutions.html#exercise-2.-debugging-i-1"><span class="toc-section-number">9.5.2</span> Exercise 2. Debugging I</a></li>
+<li><a href="solutions.html#exercise-3.-controlling-the-flow"><span class="toc-section-number">9.5.3</span> Exercise 3. Controlling the flow</a></li>
+<li><a href="solutions.html#exercise-4.-following-the-control-flow-ii"><span class="toc-section-number">9.5.4</span> Exercise 4. Following the control flow II</a></li>
+<li><a href="solutions.html#exercise-5.-debugging"><span class="toc-section-number">9.5.5</span> Exercise 5. Debugging</a></li>
+<li><a href="solutions.html#exercise-6.-nested-loops"><span class="toc-section-number">9.5.6</span> Exercise 6. Nested loops</a></li>
+<li><a href="solutions.html#exercise-7.-data-transformation-using-loops"><span class="toc-section-number">9.5.7</span> Exercise 7. Data transformation using loops</a></li>
+<li><a href="solutions.html#exercise-8.-calculating-a-mean"><span class="toc-section-number">9.5.8</span> Exercise 8. Calculating a mean</a></li>
+<li><a href="solutions.html#exercise-9.-a-guessing-game"><span class="toc-section-number">9.5.9</span> Exercise 9. A guessing game</a></li>
+</ul></li>
+<li><a href="solutions.html#chapter-6.-functions"><span class="toc-section-number">9.6</span> Chapter 6. Functions</a>
+<ul>
+<li><a href="solutions.html#exercise-1.-following-the-control-flow-1"><span class="toc-section-number">9.6.1</span> Exercise 1. Following the control flow</a></li>
+<li><a href="solutions.html#exercise-2.-an-imperfect-list-sorting-attempt-1"><span class="toc-section-number">9.6.2</span> Exercise 2. An imperfect list sorting attempt</a></li>
+<li><a href="solutions.html#exercise-3.-an-errorneous-sorting-algorithm"><span class="toc-section-number">9.6.3</span> Exercise 3. An errorneous sorting algorithm</a></li>
+<li><a href="solutions.html#exercise-4."><span class="toc-section-number">9.6.4</span> Exercise 4.</a></li>
+<li><a href="solutions.html#exercise-5."><span class="toc-section-number">9.6.5</span> Exercise 5.</a></li>
+<li><a href="solutions.html#exercise-6.-insertion-sort-algorithm-1"><span class="toc-section-number">9.6.6</span> Exercise 6. Insertion sort algorithm</a></li>
+</ul></li>
+</ul></li>
+<li><a href="debugging-and-good-programming-practices.html#debugging-and-good-programming-practices"><span class="toc-section-number">10</span> Debugging and good programming practices</a>
+<ul>
+<li><a href="debugging-and-good-programming-practices.html#debugging-4"><span class="toc-section-number">10.1</span> Debugging</a></li>
+<li><a href="debugging-and-good-programming-practices.html#boosting-your-programming-learning-curve"><span class="toc-section-number">10.2</span> Boosting your programming learning curve</a>
+<ul>
+<li><a href="debugging-and-good-programming-practices.html#going-with-the-flow"><span class="toc-section-number">10.2.1</span> Going with the flow</a></li>
+<li><a href="debugging-and-good-programming-practices.html#just-do-it"><span class="toc-section-number">10.2.2</span> Just do it!</a></li>
 </ul></li>
 </ul></li>
 </ul>
-
-      </nav>
-    </div>
-
-    <div class="book-body">
-      <div class="body-inner">
-        <div class="book-header" role="navigation">
-          <h1>
-            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Programming Interaction for Psychologists</a>
-          </h1>
-        </div>
-
-        <div class="page-wrapper" tabindex="-1" role="main">
-          <div class="page-inner">
-
-            <section class="normal" id="section-">
-<div id="loops" class="section level1">
+</div>
+</div>
+</div>
+<div class="row">
+<div class="col-sm-12">
+<div id="loops" class="section level1" number="5">
 <h1><span class="header-section-number">5</span> Loops</h1>
-<div class="sourceCode" id="cb294"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb294-1"><a href="loops.html#cb294-1"></a><span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">2</span>):</span>
-<span id="cb294-2"><a href="loops.html#cb294-2"></a>    <span class="bu">print</span>(<span class="st">&quot;Hello, World!&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb302"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb302-1"><a href="loops.html#cb302-1" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">2</span>):</span>
+<span id="cb302-2"><a href="loops.html#cb302-2" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">&quot;Hello, World!&quot;</span>)</span></code></pre></div>
 <pre><code>## Hello, World!
 ## Hello, World!</code></pre>
 <p>Very much unlike human beings, computers are good at executing repetitive tasks without making errors. It just so happens that boring, repetitive tasks are an inescapable part of many exciting things. Take psychological research as an example. In conducting psychological research, you may come up with a theory about human beings, about how things work between humans, or maybe between a human operator and a machine. Or, alternatively, you may have a research question, a question about how things work, how human beings function, why they make the mistakes they make. Now, what do psychologists do to find an answer to their scientific questions? Right, psychologists conduct empirical research.</p>
 <p>Let’s say, you have a research question and you try to answer your question by setting up an empirical experiment. You invite others to participate in your research. You repeat your experimental procedure with each and every participant. Depending on the kind of research you conducted, you repeat the qualitative inspection of the generated data for each participant. And depending on the statistical tool you use, you may end up filling in the data of each and every participant by hand into your statistical software. Now, here is the good news. Programming can help you unbore (yes, that is a word) the boring and repetitive bits of your exciting research.</p>
 <p>At the root of boring tasks often lies repetition. You repeat an experimental procedure, you repeat the same quality checks for the data of each participant, you perform the same data cleaning on each single row in a data frame, and so on. Human beings tend to make mistakes when they repeat the same task over and over again. At the same time, this is exactly where the strength of computers lies. Computers do not make mistakes when they repeat a task. When a computer makes a mistake, then it is because it was falsely instructed in the first place.</p>
 <p>Chapter 5 introduces you to the mechanism that lies at the heart of a computer’s paramount strength, repetition; or as it is called in computer jargon: <em>loops</em>. The Python language has a number of features that make it easier for you as a programmer to make your computer execute those boring, repetitive tasks for you.</p>
-<div id="the-for-loop" class="section level2">
+<div id="the-for-loop" class="section level2" number="5.1">
 <h2><span class="header-section-number">5.1</span> The <code>for</code> loop</h2>
-<div class="sourceCode" id="cb296"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb296-1"><a href="loops.html#cb296-1"></a><span class="cf">for</span> letter <span class="kw">in</span> <span class="st">&quot;Hello&quot;</span>:</span>
-<span id="cb296-2"><a href="loops.html#cb296-2"></a>    <span class="bu">print</span>(letter)</span></code></pre></div>
+<div class="sourceCode" id="cb304"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb304-1"><a href="loops.html#cb304-1" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> letter <span class="kw">in</span> <span class="st">&quot;Hello&quot;</span>:</span>
+<span id="cb304-2"><a href="loops.html#cb304-2" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(letter)</span></code></pre></div>
 <pre><code>## H
 ## e
 ## l
@@ -413,88 +459,88 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>On each iteration of the <code>for</code> loop, the <em>loop variable</em> takes on the value of the next element in the sequence. This means that on the first iteration, the loop variable <code>letter</code> has the value <code>H</code>, on the second iteration, it has the value <code>e</code>, on the third iteration, its value is <code>l</code>, and so on. The loop variable ceases to take on a new value once it is assigned the last element of the designated sequence, in this case the<code>o</code> of <code>"Hello"</code>.</p>
 <p>Syntactically, after the <code>for</code> statement, the so-called <em>loop body</em> follows. The body of a loop specifies the statements that are to be executed on each iteration. In the example above, printing the current value of the loop variable <code>letter</code> is executed on each iteration of the loop.</p>
 <p>The body of a loop needs to be <em>indented</em>. The end of a <code>for</code> loop is demarcated by indentation. Once the value of the last element in the sequence has been assigned to the loop variable, and the body of the loop has been executed, the loop terminates. The execution of the computer program is continued on the first line after the loop body, and indentation (or rather the lack thereof) demarcates this line, like so</p>
-<div class="sourceCode" id="cb298"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb298-1"><a href="loops.html#cb298-1"></a><span class="cf">for</span> letter <span class="kw">in</span> <span class="st">&quot;Hello&quot;</span>:</span>
-<span id="cb298-2"><a href="loops.html#cb298-2"></a>    <span class="bu">print</span>(letter)</span>
-<span id="cb298-3"><a href="loops.html#cb298-3"></a></span>
-<span id="cb298-4"><a href="loops.html#cb298-4"></a><span class="bu">print</span>(<span class="st">&quot;World&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb306"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb306-1"><a href="loops.html#cb306-1" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> letter <span class="kw">in</span> <span class="st">&quot;Hello&quot;</span>:</span>
+<span id="cb306-2"><a href="loops.html#cb306-2" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(letter)</span>
+<span id="cb306-3"><a href="loops.html#cb306-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb306-4"><a href="loops.html#cb306-4" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">&quot;World&quot;</span>)</span></code></pre></div>
 <p>Here, <code>print("Hello")</code> constitutes the first line after the <code>for</code> loop.</p>
 <p>Instead of including a manually defined sequence in the <code>for</code> statement, such as the string <code>"Hello"</code>, you can use the <code>range</code> method to create a list of integers. For example, you may want to repeat a certain block of statements twice. However, the block of statements may not involve a suitable sequence over which you can make a <code>for</code> loop iterate. In such cases, you can use the <code>range</code> method to create a looping mechanism, like so</p>
-<div class="sourceCode" id="cb299"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb299-1"><a href="loops.html#cb299-1"></a><span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">2</span>):</span>
-<span id="cb299-2"><a href="loops.html#cb299-2"></a>    <span class="bu">print</span>(<span class="st">&quot;Hello, World!&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb307"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb307-1"><a href="loops.html#cb307-1" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">2</span>):</span>
+<span id="cb307-2"><a href="loops.html#cb307-2" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">&quot;Hello, World!&quot;</span>)</span></code></pre></div>
 <pre><code>## Hello, World!
 ## Hello, World!</code></pre>
 <p>Unless specified otherwise, the <code>range</code> method initiates a list that contains each integer starting at <code>0</code> until, but excluding the specified integer between the brackets <code>()</code>.</p>
-<div class="sourceCode" id="cb301"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb301-1"><a href="loops.html#cb301-1"></a><span class="bu">print</span>(<span class="bu">range</span>(<span class="dv">2</span>))</span></code></pre></div>
+<div class="sourceCode" id="cb309"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb309-1"><a href="loops.html#cb309-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="bu">range</span>(<span class="dv">2</span>))</span></code></pre></div>
 <pre><code>## range(0, 2)</code></pre>
 <p>In the example above, the loop variable <code>i</code> will thus have two values before the loop terminates, <code>0</code> and <code>1</code>. In total, the statement <code>print("Hello, World")</code> is therefore executed twice.</p>
 <p>Read the documentation of the <code>range</code> method for further information on how to customize the sequence of integers it produces.</p>
-<div class="sourceCode" id="cb303"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb303-1"><a href="loops.html#cb303-1"></a><span class="bu">help</span>(<span class="bu">range</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb311"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb311-1"><a href="loops.html#cb311-1" aria-hidden="true" tabindex="-1"></a><span class="bu">help</span>(<span class="bu">range</span>)</span></code></pre></div>
 <p>In summary, from the above it follows that there are at least two ways for iterating over <em>ordered</em> sequences of objects, such as lists and strings, using <code>for</code> loops. In the first strategy, you assign each element of the sequence iteratively to the loop variable, like so</p>
-<div class="sourceCode" id="cb304"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb304-1"><a href="loops.html#cb304-1"></a>a <span class="op">=</span> [<span class="st">&#39;a&#39;</span>, <span class="st">&#39;b&#39;</span>]</span>
-<span id="cb304-2"><a href="loops.html#cb304-2"></a><span class="cf">for</span> i <span class="kw">in</span> a:</span>
-<span id="cb304-3"><a href="loops.html#cb304-3"></a>    <span class="bu">print</span>(i)</span></code></pre></div>
+<div class="sourceCode" id="cb312"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb312-1"><a href="loops.html#cb312-1" aria-hidden="true" tabindex="-1"></a>a <span class="op">=</span> [<span class="st">&#39;a&#39;</span>, <span class="st">&#39;b&#39;</span>]</span>
+<span id="cb312-2"><a href="loops.html#cb312-2" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> i <span class="kw">in</span> a:</span>
+<span id="cb312-3"><a href="loops.html#cb312-3" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(i)</span></code></pre></div>
 <pre><code>## a
 ## b</code></pre>
 <p>Following the second strategy, you access the elements of the sequence through their indices, like so</p>
-<div class="sourceCode" id="cb306"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb306-1"><a href="loops.html#cb306-1"></a><span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="bu">len</span>(a)):</span>
-<span id="cb306-2"><a href="loops.html#cb306-2"></a>    <span class="bu">print</span>(a[i])</span></code></pre></div>
+<div class="sourceCode" id="cb314"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb314-1"><a href="loops.html#cb314-1" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="bu">len</span>(a)):</span>
+<span id="cb314-2"><a href="loops.html#cb314-2" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(a[i])</span></code></pre></div>
 <pre><code>## a
 ## b</code></pre>
 <p>Which way of iterating over <em>ordered</em> sequences you prefer is up to you. Sometimes, the problem you try to solve with your code will require one way, sometimes the other. However, when constructing loops, remember that you <strong>cannot</strong> access the elements of an <em>unordered</em> collection such as dictionaries using the index operator.</p>
-<div class="sourceCode" id="cb308"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb308-1"><a href="loops.html#cb308-1"></a>d <span class="op">=</span> {<span class="st">&#39;a&#39;</span>: <span class="dv">1</span>,</span>
-<span id="cb308-2"><a href="loops.html#cb308-2"></a>     <span class="st">&#39;b&#39;</span>: <span class="dv">2</span>}</span>
-<span id="cb308-3"><a href="loops.html#cb308-3"></a><span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="bu">len</span>(d)):</span>
-<span id="cb308-4"><a href="loops.html#cb308-4"></a>    <span class="bu">print</span>(d[i])</span></code></pre></div>
+<div class="sourceCode" id="cb316"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb316-1"><a href="loops.html#cb316-1" aria-hidden="true" tabindex="-1"></a>d <span class="op">=</span> {<span class="st">&#39;a&#39;</span>: <span class="dv">1</span>,</span>
+<span id="cb316-2"><a href="loops.html#cb316-2" aria-hidden="true" tabindex="-1"></a>     <span class="st">&#39;b&#39;</span>: <span class="dv">2</span>}</span>
+<span id="cb316-3"><a href="loops.html#cb316-3" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="bu">len</span>(d)):</span>
+<span id="cb316-4"><a href="loops.html#cb316-4" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(d[i])</span></code></pre></div>
 <pre><code>## Error in py_call_impl(callable, dots$args, dots$keywords): KeyError: 0
 ## 
-## Detailed traceback: 
+## Detailed traceback:
 ##   File &quot;&lt;string&gt;&quot;, line 2, in &lt;module&gt;</code></pre>
 <p>You will need to think of another way to iterate over the contents of a dictionary. You could use the <code>keys()</code> method to iterate over the dictionary’s keys, or the <code>values()</code> method for its values respectively, like so</p>
-<div class="sourceCode" id="cb310"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb310-1"><a href="loops.html#cb310-1"></a><span class="cf">for</span> i <span class="kw">in</span> d.keys():</span>
-<span id="cb310-2"><a href="loops.html#cb310-2"></a>    <span class="bu">print</span>(i)</span>
-<span id="cb310-3"><a href="loops.html#cb310-3"></a>  </span></code></pre></div>
+<div class="sourceCode" id="cb318"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb318-1"><a href="loops.html#cb318-1" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> i <span class="kw">in</span> d.keys():</span>
+<span id="cb318-2"><a href="loops.html#cb318-2" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(i)</span>
+<span id="cb318-3"><a href="loops.html#cb318-3" aria-hidden="true" tabindex="-1"></a>  </span></code></pre></div>
 <pre><code>## a
 ## b</code></pre>
-<div class="sourceCode" id="cb312"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb312-1"><a href="loops.html#cb312-1"></a><span class="cf">for</span> j <span class="kw">in</span> d.values():</span>
-<span id="cb312-2"><a href="loops.html#cb312-2"></a>    <span class="bu">print</span>(j)</span></code></pre></div>
+<div class="sourceCode" id="cb320"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb320-1"><a href="loops.html#cb320-1" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> j <span class="kw">in</span> d.values():</span>
+<span id="cb320-2"><a href="loops.html#cb320-2" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(j)</span></code></pre></div>
 <pre><code>## 1
 ## 2</code></pre>
 <p>Alternatively, the <code>items()</code> method can be used to iterate over the key-value pairs contained in a dictionary.</p>
-<div class="sourceCode" id="cb314"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb314-1"><a href="loops.html#cb314-1"></a><span class="cf">for</span> z <span class="kw">in</span> d.items():</span>
-<span id="cb314-2"><a href="loops.html#cb314-2"></a>    <span class="bu">print</span>(z)</span></code></pre></div>
+<div class="sourceCode" id="cb322"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb322-1"><a href="loops.html#cb322-1" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> z <span class="kw">in</span> d.items():</span>
+<span id="cb322-2"><a href="loops.html#cb322-2" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(z)</span></code></pre></div>
 <pre><code>## (&#39;a&#39;, 1)
 ## (&#39;b&#39;, 2)</code></pre>
 <p>As usual, which iteration strategy you use depends on what you try to achieve. There is not one golden solution that fits all problems.</p>
 </div>
-<div id="the-while-loop" class="section level2">
+<div id="the-while-loop" class="section level2" number="5.2">
 <h2><span class="header-section-number">5.2</span> The <code>while</code> loop</h2>
-<div class="sourceCode" id="cb316"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb316-1"><a href="loops.html#cb316-1"></a>a <span class="op">=</span> <span class="dv">0</span></span>
-<span id="cb316-2"><a href="loops.html#cb316-2"></a>b <span class="op">=</span> <span class="dv">1</span></span>
-<span id="cb316-3"><a href="loops.html#cb316-3"></a></span>
-<span id="cb316-4"><a href="loops.html#cb316-4"></a><span class="cf">while</span> b <span class="op">&lt;</span> <span class="dv">5</span>:</span>
-<span id="cb316-5"><a href="loops.html#cb316-5"></a>    a <span class="op">+=</span> b</span>
-<span id="cb316-6"><a href="loops.html#cb316-6"></a>    b <span class="op">+=</span> b</span>
-<span id="cb316-7"><a href="loops.html#cb316-7"></a>    <span class="bu">print</span>(<span class="st">&quot;Current sum is:&quot;</span>, a, <span class="st">&quot;current value is:&quot;</span>, b)</span></code></pre></div>
+<div class="sourceCode" id="cb324"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb324-1"><a href="loops.html#cb324-1" aria-hidden="true" tabindex="-1"></a>a <span class="op">=</span> <span class="dv">0</span></span>
+<span id="cb324-2"><a href="loops.html#cb324-2" aria-hidden="true" tabindex="-1"></a>b <span class="op">=</span> <span class="dv">1</span></span>
+<span id="cb324-3"><a href="loops.html#cb324-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb324-4"><a href="loops.html#cb324-4" aria-hidden="true" tabindex="-1"></a><span class="cf">while</span> b <span class="op">&lt;</span> <span class="dv">5</span>:</span>
+<span id="cb324-5"><a href="loops.html#cb324-5" aria-hidden="true" tabindex="-1"></a>    a <span class="op">+=</span> b</span>
+<span id="cb324-6"><a href="loops.html#cb324-6" aria-hidden="true" tabindex="-1"></a>    b <span class="op">+=</span> b</span>
+<span id="cb324-7"><a href="loops.html#cb324-7" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">&quot;Current sum is:&quot;</span>, a, <span class="st">&quot;current value is:&quot;</span>, b)</span></code></pre></div>
 <pre><code>## Current sum is: 1 current value is: 2
 ## Current sum is: 3 current value is: 4
 ## Current sum is: 7 current value is: 8</code></pre>
-<div class="sourceCode" id="cb318"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb318-1"><a href="loops.html#cb318-1"></a><span class="bu">print</span>(<span class="st">&quot;This is the first line of code after the loop, the sum is:&quot;</span>, a)</span>
-<span id="cb318-2"><a href="loops.html#cb318-2"></a>    </span></code></pre></div>
+<div class="sourceCode" id="cb326"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb326-1"><a href="loops.html#cb326-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">&quot;This is the first line of code after the loop, the sum is:&quot;</span>, a)</span>
+<span id="cb326-2"><a href="loops.html#cb326-2" aria-hidden="true" tabindex="-1"></a>    </span></code></pre></div>
 <pre><code>## This is the first line of code after the loop, the sum is: 7</code></pre>
 <p>A <code>while</code> loop is centered around a condition formulated in the first line of the loop, the <code>while</code> statement. It allows you to repeatedly execute a number of body statements as long as the condition in the <code>while</code> statement remains <code>True</code>. At the same time, this means that the body of a <code>while</code> loop is never executed if the loop condition is <code>False</code> at its initial execution.</p>
-<div class="sourceCode" id="cb320"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb320-1"><a href="loops.html#cb320-1"></a>a <span class="op">=</span> <span class="dv">0</span></span>
-<span id="cb320-2"><a href="loops.html#cb320-2"></a>b <span class="op">=</span> <span class="dv">5</span></span>
-<span id="cb320-3"><a href="loops.html#cb320-3"></a></span>
-<span id="cb320-4"><a href="loops.html#cb320-4"></a><span class="cf">while</span> b <span class="op">&lt;</span> <span class="dv">5</span>:</span>
-<span id="cb320-5"><a href="loops.html#cb320-5"></a>    a <span class="op">+=</span> b</span>
-<span id="cb320-6"><a href="loops.html#cb320-6"></a>    b <span class="op">+=</span> b</span>
-<span id="cb320-7"><a href="loops.html#cb320-7"></a>    <span class="bu">print</span>(<span class="st">&quot;Current sum is:&quot;</span>, a, <span class="st">&quot;current value is:&quot;</span>, b)</span>
-<span id="cb320-8"><a href="loops.html#cb320-8"></a></span>
-<span id="cb320-9"><a href="loops.html#cb320-9"></a><span class="bu">print</span>(<span class="st">&quot;This is the first line of code after the loop, the sum is:&quot;</span>, a)</span></code></pre></div>
+<div class="sourceCode" id="cb328"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb328-1"><a href="loops.html#cb328-1" aria-hidden="true" tabindex="-1"></a>a <span class="op">=</span> <span class="dv">0</span></span>
+<span id="cb328-2"><a href="loops.html#cb328-2" aria-hidden="true" tabindex="-1"></a>b <span class="op">=</span> <span class="dv">5</span></span>
+<span id="cb328-3"><a href="loops.html#cb328-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb328-4"><a href="loops.html#cb328-4" aria-hidden="true" tabindex="-1"></a><span class="cf">while</span> b <span class="op">&lt;</span> <span class="dv">5</span>:</span>
+<span id="cb328-5"><a href="loops.html#cb328-5" aria-hidden="true" tabindex="-1"></a>    a <span class="op">+=</span> b</span>
+<span id="cb328-6"><a href="loops.html#cb328-6" aria-hidden="true" tabindex="-1"></a>    b <span class="op">+=</span> b</span>
+<span id="cb328-7"><a href="loops.html#cb328-7" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">&quot;Current sum is:&quot;</span>, a, <span class="st">&quot;current value is:&quot;</span>, b)</span>
+<span id="cb328-8"><a href="loops.html#cb328-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb328-9"><a href="loops.html#cb328-9" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">&quot;This is the first line of code after the loop, the sum is:&quot;</span>, a)</span></code></pre></div>
 <pre><code>## This is the first line of code after the loop, the sum is: 0</code></pre>
 <p>The strategy behind <code>while</code> loops is that the body of the loop changes one or more (loop) variables so that the loop condition eventually becomes <code>False</code>. Otherwise, the loop will continue forever and we speak of an <em>infinte loop</em>. Infinite loops can manoeuver your program into a dead end if started unintentionally.</p>
 <p>Note how the basic structure of the Stroop Task program is a large while loop. Unless the required number of trials has been executed or the user manually closes the program, it will keep running no matter what.</p>
-<div id="for-or-while" class="section level3">
+<div id="for-or-while" class="section level3" number="5.2.1">
 <h3><span class="header-section-number">5.2.1</span> <code>for</code> or <code>while</code>?</h3>
 <p>At times, it may be confusing whether either a <code>for</code> or a <code>while</code> loop will suit your needs best. If you are unsure which kind of loop you should use, ask yourself the following:</p>
 <ul>
@@ -504,177 +550,177 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>Still, as a programmer you have great freedom in choosing either <em>for</em> or <em>while</em> loops. In many cases, using either kind of loop is but a difference in perspective on the problem you try to solve with your code. In other cases, using one kind of loop will be more efficient than using the other.</p>
 </div>
 </div>
-<div id="the-break-statement" class="section level2">
+<div id="the-break-statement" class="section level2" number="5.3">
 <h2><span class="header-section-number">5.3</span> The <code>break</code> statement</h2>
-<div class="sourceCode" id="cb322"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb322-1"><a href="loops.html#cb322-1"></a>myNumber <span class="op">=</span> <span class="dv">17</span></span>
-<span id="cb322-2"><a href="loops.html#cb322-2"></a><span class="cf">while</span> <span class="va">True</span>:</span>
-<span id="cb322-3"><a href="loops.html#cb322-3"></a>    guess <span class="op">=</span> <span class="bu">input</span>(<span class="st">&quot;Enter a number:&quot;</span>)</span>
-<span id="cb322-4"><a href="loops.html#cb322-4"></a>    <span class="cf">if</span> guess <span class="op">&gt;</span> <span class="dv">17</span>:</span>
-<span id="cb322-5"><a href="loops.html#cb322-5"></a>        <span class="bu">print</span>(<span class="st">&quot;My number is smaller than </span><span class="sc">{}</span><span class="st">&quot;</span>.<span class="bu">format</span>(guess))</span>
-<span id="cb322-6"><a href="loops.html#cb322-6"></a>    <span class="cf">elif</span> guess <span class="op">&lt;</span> <span class="dv">17</span>:</span>
-<span id="cb322-7"><a href="loops.html#cb322-7"></a>        <span class="bu">print</span>(<span class="st">&quot;My number is greater than </span><span class="sc">{}</span><span class="st">&quot;</span>.<span class="bu">format</span>(guess))</span>
-<span id="cb322-8"><a href="loops.html#cb322-8"></a>    <span class="cf">else</span>:</span>
-<span id="cb322-9"><a href="loops.html#cb322-9"></a>        <span class="cf">break</span></span>
-<span id="cb322-10"><a href="loops.html#cb322-10"></a><span class="bu">print</span>(<span class="st">&quot;Ding, ding! Correct, my number is </span><span class="sc">{}</span><span class="st">&quot;</span>.<span class="bu">format</span>(myNumber))</span></code></pre></div>
+<div class="sourceCode" id="cb330"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb330-1"><a href="loops.html#cb330-1" aria-hidden="true" tabindex="-1"></a>myNumber <span class="op">=</span> <span class="dv">17</span></span>
+<span id="cb330-2"><a href="loops.html#cb330-2" aria-hidden="true" tabindex="-1"></a><span class="cf">while</span> <span class="va">True</span>:</span>
+<span id="cb330-3"><a href="loops.html#cb330-3" aria-hidden="true" tabindex="-1"></a>    guess <span class="op">=</span> <span class="bu">input</span>(<span class="st">&quot;Enter a number:&quot;</span>)</span>
+<span id="cb330-4"><a href="loops.html#cb330-4" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> guess <span class="op">&gt;</span> <span class="dv">17</span>:</span>
+<span id="cb330-5"><a href="loops.html#cb330-5" aria-hidden="true" tabindex="-1"></a>        <span class="bu">print</span>(<span class="st">&quot;My number is smaller than </span><span class="sc">{}</span><span class="st">&quot;</span>.<span class="bu">format</span>(guess))</span>
+<span id="cb330-6"><a href="loops.html#cb330-6" aria-hidden="true" tabindex="-1"></a>    <span class="cf">elif</span> guess <span class="op">&lt;</span> <span class="dv">17</span>:</span>
+<span id="cb330-7"><a href="loops.html#cb330-7" aria-hidden="true" tabindex="-1"></a>        <span class="bu">print</span>(<span class="st">&quot;My number is greater than </span><span class="sc">{}</span><span class="st">&quot;</span>.<span class="bu">format</span>(guess))</span>
+<span id="cb330-8"><a href="loops.html#cb330-8" aria-hidden="true" tabindex="-1"></a>    <span class="cf">else</span>:</span>
+<span id="cb330-9"><a href="loops.html#cb330-9" aria-hidden="true" tabindex="-1"></a>        <span class="cf">break</span></span>
+<span id="cb330-10"><a href="loops.html#cb330-10" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">&quot;Ding, ding! Correct, my number is </span><span class="sc">{}</span><span class="st">&quot;</span>.<span class="bu">format</span>(myNumber))</span></code></pre></div>
 <p>The <code>break</code> statement allows you to immediately exit any loop, be it a <code>for</code> or a <code>while</code> loop. The next statement that is executed is the first line after the loop body. Interactive programs that process user input often require to exit their loops prematurely. Depending on the input given, the program may need to transition to the next state or terminate altogether.</p>
 <p>Also note the usage of <em>String formatting</em>. The <code>.format()</code> method can be applied to any String and allows you to specify value and variable substitutions within a given String. While a detailed discussion of <em>formatters</em> is beyond the scope of the current chapter, a tutorial on String formatting can be found [here] (<a href="https://www.digitalocean.com/community/tutorials/how-to-use-string-formatters-in-python-3" class="uri">https://www.digitalocean.com/community/tutorials/how-to-use-string-formatters-in-python-3</a>). String formatting is highly useful, no matter whether you want to export some information out of your program by writing text or Excel files, or whether you simply want to print something to the console.</p>
 <p>The basic idea behind String formatters is that you substitute a value, a variable, or an expression that you want to insert in your String by curly brackets <code>{}</code>. You specify the to-be-inserted value within the method brackets, like so</p>
-<div class="sourceCode" id="cb323"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb323-1"><a href="loops.html#cb323-1"></a><span class="bu">print</span>(<span class="st">&quot;</span><span class="sc">{}</span><span class="st"> participants took part in the conducted research&quot;</span>.<span class="bu">format</span>(<span class="dv">10</span>))</span></code></pre></div>
+<div class="sourceCode" id="cb331"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb331-1"><a href="loops.html#cb331-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">&quot;</span><span class="sc">{}</span><span class="st"> participants took part in the conducted research&quot;</span>.<span class="bu">format</span>(<span class="dv">10</span>))</span></code></pre></div>
 <pre><code>## 10 participants took part in the conducted research</code></pre>
 <p>Formatters can manage multiple placeholders, variables and perform cool transformations on the to-be-substituted values, like rounding</p>
-<div class="sourceCode" id="cb325"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb325-1"><a href="loops.html#cb325-1"></a>n <span class="op">=</span> <span class="dv">10</span></span>
-<span id="cb325-2"><a href="loops.html#cb325-2"></a><span class="bu">print</span>(<span class="st">&quot;</span><span class="sc">{0}</span><span class="st"> participants took part in the conducted research. Their average score was </span><span class="sc">{1:.2f}</span><span class="st">.&quot;</span>.<span class="bu">format</span>(n, <span class="fl">25.7777</span>))</span></code></pre></div>
+<div class="sourceCode" id="cb333"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb333-1"><a href="loops.html#cb333-1" aria-hidden="true" tabindex="-1"></a>n <span class="op">=</span> <span class="dv">10</span></span>
+<span id="cb333-2"><a href="loops.html#cb333-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">&quot;</span><span class="sc">{0}</span><span class="st"> participants took part in the conducted research. Their average score was </span><span class="sc">{1:.2f}</span><span class="st">.&quot;</span>.<span class="bu">format</span>(n, <span class="fl">25.7777</span>))</span></code></pre></div>
 <pre><code>## 10 participants took part in the conducted research. Their average score was 25.78.</code></pre>
 <p>Notice the usage of the <em>positional arguments</em> <code>0</code> and <code>1</code> to specify the order in which the to-be-substituted values <code>n</code> and <code>25.7777</code> are inserted in the String. Positional arguments specify the index of the to-be-inserted values within the brackets of the <code>format</code> method.</p>
 <p>Here, rounding is achieved by some minor usage of format code syntax, which first specifies the position of the transformation and then the intended conversion <code>{position:transformation}</code>. In this case we transform <code>25.7777</code> inhabiting index <code>1</code> into a floating point with two decimals, thus the format code syntax <code>{1:.2f}</code>. We could as well have exchanged the two values, but that would not have made much sense, would it now?</p>
-<div class="sourceCode" id="cb327"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb327-1"><a href="loops.html#cb327-1"></a>n <span class="op">=</span> <span class="dv">10</span></span>
-<span id="cb327-2"><a href="loops.html#cb327-2"></a><span class="bu">print</span>(<span class="st">&quot;</span><span class="sc">{1:.2f}</span><span class="st"> participants took part in the conducted research. Their average score was </span><span class="sc">{0}</span><span class="st">.&quot;</span>.<span class="bu">format</span>(n, <span class="fl">25.7777</span>))</span></code></pre></div>
+<div class="sourceCode" id="cb335"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb335-1"><a href="loops.html#cb335-1" aria-hidden="true" tabindex="-1"></a>n <span class="op">=</span> <span class="dv">10</span></span>
+<span id="cb335-2"><a href="loops.html#cb335-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">&quot;</span><span class="sc">{1:.2f}</span><span class="st"> participants took part in the conducted research. Their average score was </span><span class="sc">{0}</span><span class="st">.&quot;</span>.<span class="bu">format</span>(n, <span class="fl">25.7777</span>))</span></code></pre></div>
 <pre><code>## 25.78 participants took part in the conducted research. Their average score was 10.</code></pre>
 <p>Check out the <a href="https://www.digitalocean.com/community/tutorials/how-to-use-string-formatters-in-python-3">tutorial</a> for more information on String formatters!</p>
 </div>
-<div id="controlling-the-flow-of-your-program-with-loops" class="section level2">
+<div id="controlling-the-flow-of-your-program-with-loops" class="section level2" number="5.4">
 <h2><span class="header-section-number">5.4</span> Controlling the flow of your program with loops</h2>
 <p>By now you will have noticed that by default, Python faithfully executes any program in a top-down order. But what if you want to change the order in which specific parts of your program are being executed, possibly depending on external conditions such as the time of the day, or the input of a user?</p>
-<p>The basic top-down execution order can be alterated using <em>control flow statements</em>. Python knows three control flow statements: <code>if</code>,<code>for</code>, and <code>while</code> statements. We already encountered <code>if</code> statements in Chapter 3 [Conditionals]. Control flow statements are readily used in interactive software such as the Stroop Task experiment</p>
-<div class="sourceCode" id="cb329"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb329-1"><a href="loops.html#cb329-1"></a>STATE <span class="op">=</span> <span class="st">&quot;welcome&quot;</span></span>
-<span id="cb329-2"><a href="loops.html#cb329-2"></a><span class="cf">while</span> <span class="va">True</span>:</span>
-<span id="cb329-3"><a href="loops.html#cb329-3"></a></span>
-<span id="cb329-4"><a href="loops.html#cb329-4"></a>    <span class="co"># Changing states by user input</span></span>
-<span id="cb329-5"><a href="loops.html#cb329-5"></a>    <span class="cf">for</span> event <span class="kw">in</span> pygame.event.get():</span>
-<span id="cb329-6"><a href="loops.html#cb329-6"></a>        <span class="cf">if</span> STATE <span class="op">==</span> <span class="st">&quot;welcome&quot;</span>:</span>
-<span id="cb329-7"><a href="loops.html#cb329-7"></a>            <span class="cf">if</span> event.<span class="bu">type</span> <span class="op">==</span> KEYDOWN <span class="kw">and</span> event.key <span class="op">==</span> K_SPACE:</span>
-<span id="cb329-8"><a href="loops.html#cb329-8"></a>                STATE <span class="op">=</span> <span class="st">&quot;prepare_next_trial&quot;</span></span>
-<span id="cb329-9"><a href="loops.html#cb329-9"></a>                <span class="bu">print</span>(STATE)</span>
-<span id="cb329-10"><a href="loops.html#cb329-10"></a>        </span>
-<span id="cb329-11"><a href="loops.html#cb329-11"></a>        <span class="cf">if</span> event.<span class="bu">type</span> <span class="op">==</span> QUIT:</span>
-<span id="cb329-12"><a href="loops.html#cb329-12"></a>                STATE <span class="op">=</span> <span class="st">&quot;quit&quot;</span></span></code></pre></div>
+<p>The basic top-down execution order can be alterated using <em>control flow statements</em>. Python knows three control flow statements: <code>if</code>,<code>for</code>, and <code>while</code> statements. We already encountered <code>if</code> statements in Chapter 3 <a href="conditionals.html#conditionals">Conditionals</a>. Control flow statements are readily used in interactive software such as the Stroop Task experiment</p>
+<div class="sourceCode" id="cb337"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb337-1"><a href="loops.html#cb337-1" aria-hidden="true" tabindex="-1"></a>STATE <span class="op">=</span> <span class="st">&quot;welcome&quot;</span></span>
+<span id="cb337-2"><a href="loops.html#cb337-2" aria-hidden="true" tabindex="-1"></a><span class="cf">while</span> <span class="va">True</span>:</span>
+<span id="cb337-3"><a href="loops.html#cb337-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb337-4"><a href="loops.html#cb337-4" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Changing states by user input</span></span>
+<span id="cb337-5"><a href="loops.html#cb337-5" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> event <span class="kw">in</span> pygame.event.get():</span>
+<span id="cb337-6"><a href="loops.html#cb337-6" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> STATE <span class="op">==</span> <span class="st">&quot;welcome&quot;</span>:</span>
+<span id="cb337-7"><a href="loops.html#cb337-7" aria-hidden="true" tabindex="-1"></a>            <span class="cf">if</span> event.<span class="bu">type</span> <span class="op">==</span> KEYDOWN <span class="kw">and</span> event.key <span class="op">==</span> K_SPACE:</span>
+<span id="cb337-8"><a href="loops.html#cb337-8" aria-hidden="true" tabindex="-1"></a>                STATE <span class="op">=</span> <span class="st">&quot;prepare_next_trial&quot;</span></span>
+<span id="cb337-9"><a href="loops.html#cb337-9" aria-hidden="true" tabindex="-1"></a>                <span class="bu">print</span>(STATE)</span>
+<span id="cb337-10"><a href="loops.html#cb337-10" aria-hidden="true" tabindex="-1"></a>        </span>
+<span id="cb337-11"><a href="loops.html#cb337-11" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> event.<span class="bu">type</span> <span class="op">==</span> QUIT:</span>
+<span id="cb337-12"><a href="loops.html#cb337-12" aria-hidden="true" tabindex="-1"></a>                STATE <span class="op">=</span> <span class="st">&quot;quit&quot;</span></span></code></pre></div>
 <p>In principle, the above code can run infinitely, unless the user triggers the <code>QUIT</code> <code>event.type</code>. Note that in the original Stroop experiment, there is another condition that prevents the program from running infinitely, namely a maximum number of trials.</p>
 <p>Within the main <code>while</code> loop, a <code>for</code> loop manages the changing of program states as a consequence of user input. To this end, the loop variable <code>event</code> iterates over <em>event objects</em> stored in an <em>event queue</em>, which is essentially a special sequence devised by the <em>Pygame library</em>. The <code>pygame.event</code> <em>module</em> knowns a number of event types, among which the <code>KEYDOWN</code> event, referring to the event that the user presses a key on the keyboard.</p>
 <p>In the example above, several conditions have to be fulfilled so that the program state changes to <code>"prepare next trial"</code>: The current program state has to be <code>"welcome"</code>, the event has to be a <code>KEYDOWN</code>and the key pressed has to be <code>SPACE</code>. Note that in the program above, program termination can be achieved at any time through the <code>"quit"</code> state.</p>
 </div>
-<div id="common-errors" class="section level2">
+<div id="common-errors-3" class="section level2" number="5.5">
 <h2><span class="header-section-number">5.5</span> Common errors</h2>
 <ul>
 <li>Easily the most common error surrounding loops is trying to make them iterate over an <em>integer</em> instead of a <em>sequence</em>. Very often, you will want your program to modify the elements of a given sequence according to a set of statements. Logically, you will need as many iterations as elements in the sequence. This often leads to <code>for</code> statement definitions such as:</li>
 </ul>
-<div class="sourceCode" id="cb330"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb330-1"><a href="loops.html#cb330-1"></a>myList <span class="op">=</span> [<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">4</span>,<span class="dv">5</span>]</span>
-<span id="cb330-2"><a href="loops.html#cb330-2"></a><span class="cf">for</span> i <span class="kw">in</span> <span class="bu">len</span>(myList):</span>
-<span id="cb330-3"><a href="loops.html#cb330-3"></a>    myList[i] <span class="op">+=</span> <span class="dv">1</span></span></code></pre></div>
+<div class="sourceCode" id="cb338"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb338-1"><a href="loops.html#cb338-1" aria-hidden="true" tabindex="-1"></a>myList <span class="op">=</span> [<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">4</span>,<span class="dv">5</span>]</span>
+<span id="cb338-2"><a href="loops.html#cb338-2" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> i <span class="kw">in</span> <span class="bu">len</span>(myList):</span>
+<span id="cb338-3"><a href="loops.html#cb338-3" aria-hidden="true" tabindex="-1"></a>    myList[i] <span class="op">+=</span> <span class="dv">1</span></span></code></pre></div>
 <pre><code>## Error in py_call_impl(callable, dots$args, dots$keywords): TypeError: &#39;int&#39; object is not iterable
 ## 
-## Detailed traceback: 
+## Detailed traceback:
 ##   File &quot;&lt;string&gt;&quot;, line 1, in &lt;module&gt;</code></pre>
 <p>Probably, your intention was to make the loop repeat as many times as there are elements in <code>myList</code>. However, <code>len(myList)</code> returns an <em>integer</em>, not a <em>sequence</em> object! Instead, you will have to convert the <em>length</em> of <code>myList</code> into a <em>sequence</em>, for instance by using <code>range()</code>.</p>
-<div class="sourceCode" id="cb332"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb332-1"><a href="loops.html#cb332-1"></a>myList <span class="op">=</span> [<span class="dv">5</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">4</span>,<span class="dv">5</span>]</span>
-<span id="cb332-2"><a href="loops.html#cb332-2"></a><span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="bu">len</span>(myList)):</span>
-<span id="cb332-3"><a href="loops.html#cb332-3"></a>    myList[i] <span class="op">+=</span> <span class="dv">1</span></span>
-<span id="cb332-4"><a href="loops.html#cb332-4"></a>  </span>
-<span id="cb332-5"><a href="loops.html#cb332-5"></a><span class="bu">print</span>(myList)</span></code></pre></div>
+<div class="sourceCode" id="cb340"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb340-1"><a href="loops.html#cb340-1" aria-hidden="true" tabindex="-1"></a>myList <span class="op">=</span> [<span class="dv">5</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">4</span>,<span class="dv">5</span>]</span>
+<span id="cb340-2"><a href="loops.html#cb340-2" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="bu">len</span>(myList)):</span>
+<span id="cb340-3"><a href="loops.html#cb340-3" aria-hidden="true" tabindex="-1"></a>    myList[i] <span class="op">+=</span> <span class="dv">1</span></span>
+<span id="cb340-4"><a href="loops.html#cb340-4" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb340-5"><a href="loops.html#cb340-5" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(myList)</span></code></pre></div>
 <pre><code>## [6, 3, 4, 5, 6]</code></pre>
 <p>Alternatively, you can assign the values of <code>myList</code> iteratively to the looping variable <code>i</code> to avoid working with the <code>length</code> of the sequence.</p>
-<div class="sourceCode" id="cb334"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb334-1"><a href="loops.html#cb334-1"></a>myList <span class="op">=</span> [<span class="dv">5</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">4</span>,<span class="dv">5</span>]</span>
-<span id="cb334-2"><a href="loops.html#cb334-2"></a><span class="cf">for</span> i <span class="kw">in</span> myList:</span>
-<span id="cb334-3"><a href="loops.html#cb334-3"></a>    myList[myList.index(i)] <span class="op">+=</span> <span class="dv">1</span></span>
-<span id="cb334-4"><a href="loops.html#cb334-4"></a></span>
-<span id="cb334-5"><a href="loops.html#cb334-5"></a><span class="bu">print</span>(myList)</span>
-<span id="cb334-6"><a href="loops.html#cb334-6"></a>    </span></code></pre></div>
+<div class="sourceCode" id="cb342"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb342-1"><a href="loops.html#cb342-1" aria-hidden="true" tabindex="-1"></a>myList <span class="op">=</span> [<span class="dv">5</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">4</span>,<span class="dv">5</span>]</span>
+<span id="cb342-2"><a href="loops.html#cb342-2" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> i <span class="kw">in</span> myList:</span>
+<span id="cb342-3"><a href="loops.html#cb342-3" aria-hidden="true" tabindex="-1"></a>    myList[myList.index(i)] <span class="op">+=</span> <span class="dv">1</span></span>
+<span id="cb342-4"><a href="loops.html#cb342-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb342-5"><a href="loops.html#cb342-5" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(myList)</span>
+<span id="cb342-6"><a href="loops.html#cb342-6" aria-hidden="true" tabindex="-1"></a>    </span></code></pre></div>
 <pre><code>## [6, 6, 3, 4, 5]</code></pre>
 <p>But wait, this result seems slightly different. You do get an alterated version of <code>myList</code> where each element is enhanced by <code>1</code> (as in the first example), but the order is messed up. That is exactly because a different strategy is devised by accessing each element directly in the <code>for</code> statement. Furthermore, the <code>index()</code> method is used to find the index of the first occurrence of the value specified within the brackets. It is because the method returns the index of the <strong>first</strong> occurence that the two strategies return different results in this case.</p>
 <p>When you opt for either of the two looping strategies, keep in mind that you may need to go to some length to get the exact same result using both strategies. Usually, either one strategy quickly turns out to be the better, less complicated means for your end. In the above example, you could for instance have used a second list object to obtain the same result as in the first example, like so</p>
-<div class="sourceCode" id="cb336"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb336-1"><a href="loops.html#cb336-1"></a>myList <span class="op">=</span> [<span class="dv">5</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">4</span>,<span class="dv">5</span>]</span>
-<span id="cb336-2"><a href="loops.html#cb336-2"></a>a <span class="op">=</span> []</span>
-<span id="cb336-3"><a href="loops.html#cb336-3"></a><span class="cf">for</span> i <span class="kw">in</span> myList:</span>
-<span id="cb336-4"><a href="loops.html#cb336-4"></a>    a.append(i <span class="op">+</span> <span class="dv">1</span>)</span>
-<span id="cb336-5"><a href="loops.html#cb336-5"></a></span>
-<span id="cb336-6"><a href="loops.html#cb336-6"></a><span class="bu">print</span>(a)</span></code></pre></div>
+<div class="sourceCode" id="cb344"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb344-1"><a href="loops.html#cb344-1" aria-hidden="true" tabindex="-1"></a>myList <span class="op">=</span> [<span class="dv">5</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">4</span>,<span class="dv">5</span>]</span>
+<span id="cb344-2"><a href="loops.html#cb344-2" aria-hidden="true" tabindex="-1"></a>a <span class="op">=</span> []</span>
+<span id="cb344-3"><a href="loops.html#cb344-3" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> i <span class="kw">in</span> myList:</span>
+<span id="cb344-4"><a href="loops.html#cb344-4" aria-hidden="true" tabindex="-1"></a>    a.append(i <span class="op">+</span> <span class="dv">1</span>)</span>
+<span id="cb344-5"><a href="loops.html#cb344-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb344-6"><a href="loops.html#cb344-6" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(a)</span></code></pre></div>
 <pre><code>## [6, 3, 4, 5, 6]</code></pre>
 <p>Again, whether using a second list is a viable option to solve the problem at hand is totally up to what you try to achieve with your code.</p>
 <ul>
 <li><code>index out of range</code> errors tend to slip in when working with <code>for</code> loops.</li>
 </ul>
-<div class="sourceCode" id="cb338"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb338-1"><a href="loops.html#cb338-1"></a>a <span class="op">=</span> [<span class="dv">1</span>, <span class="st">&#39;a&#39;</span>]</span>
-<span id="cb338-2"><a href="loops.html#cb338-2"></a>b <span class="op">=</span> [<span class="dv">1</span>, <span class="st">&#39;a&#39;</span>, <span class="st">&#39;b&#39;</span>]</span>
-<span id="cb338-3"><a href="loops.html#cb338-3"></a></span>
-<span id="cb338-4"><a href="loops.html#cb338-4"></a><span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="bu">len</span>(b)):</span>
-<span id="cb338-5"><a href="loops.html#cb338-5"></a>     a[i] <span class="op">=</span> b[i]</span></code></pre></div>
+<div class="sourceCode" id="cb346"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb346-1"><a href="loops.html#cb346-1" aria-hidden="true" tabindex="-1"></a>a <span class="op">=</span> [<span class="dv">1</span>, <span class="st">&#39;a&#39;</span>]</span>
+<span id="cb346-2"><a href="loops.html#cb346-2" aria-hidden="true" tabindex="-1"></a>b <span class="op">=</span> [<span class="dv">1</span>, <span class="st">&#39;a&#39;</span>, <span class="st">&#39;b&#39;</span>]</span>
+<span id="cb346-3"><a href="loops.html#cb346-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb346-4"><a href="loops.html#cb346-4" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="bu">len</span>(b)):</span>
+<span id="cb346-5"><a href="loops.html#cb346-5" aria-hidden="true" tabindex="-1"></a>     a[i] <span class="op">=</span> b[i]</span></code></pre></div>
 <pre><code>## Error in py_call_impl(callable, dots$args, dots$keywords): IndexError: list assignment index out of range
 ## 
-## Detailed traceback: 
+## Detailed traceback:
 ##   File &quot;&lt;string&gt;&quot;, line 2, in &lt;module&gt;</code></pre>
 <p>An <code>index out of range error</code> is thrown when you try to access a non-existing index in a sequence. In the example above, <code>a</code> has two elements, thus two valid indices (<code>0</code> and <code>1</code>). <code>b</code> on the contrary has three elements and thereby three valid indices (<code>0</code>, <code>1</code> and <code>2</code>). The code snippet throws an error when a third index is accessed in <code>a</code>. Always make sure that the sequences you iterate over or intend to modify in the body of a <code>for</code> loop have the right amount of indices at their disposal.</p>
 <ul>
 <li>Letting a <code>while</code> loop run endlessly. Unless you actively construct a <code>while</code> loop to terminate, it will not. This can result in all sorts of errors, but usually you will notice that your program does not enter its later states. When you construct your <code>while</code> loops, think well about how to terminate them. The <code>break</code> statement can also be an option to intentionally terminate the loop when another condition is met that is not defined in the <code>while</code> statement, like so</li>
 </ul>
-<div class="sourceCode" id="cb340"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb340-1"><a href="loops.html#cb340-1"></a>i <span class="op">=</span> <span class="dv">5</span></span>
-<span id="cb340-2"><a href="loops.html#cb340-2"></a>myNumber <span class="op">=</span> <span class="dv">13</span></span>
-<span id="cb340-3"><a href="loops.html#cb340-3"></a><span class="cf">while</span> i <span class="op">&gt;</span> <span class="dv">0</span>:</span>
-<span id="cb340-4"><a href="loops.html#cb340-4"></a>    guess <span class="op">=</span> <span class="bu">input</span>(<span class="st">&quot;Enter a number:&quot;</span>)</span>
-<span id="cb340-5"><a href="loops.html#cb340-5"></a>    <span class="cf">if</span> guess <span class="op">==</span> myNumber:</span>
-<span id="cb340-6"><a href="loops.html#cb340-6"></a>        <span class="bu">print</span>(<span class="st">&quot;Ding, ding! Correct, my number is </span><span class="sc">{}</span><span class="st">&quot;</span>.<span class="bu">format</span>(myNumber))</span>
-<span id="cb340-7"><a href="loops.html#cb340-7"></a>        <span class="cf">break</span></span>
-<span id="cb340-8"><a href="loops.html#cb340-8"></a>    <span class="cf">elif</span> guess <span class="op">&gt;</span> myNumber:</span>
-<span id="cb340-9"><a href="loops.html#cb340-9"></a>        i <span class="op">-=</span> <span class="dv">1</span></span>
-<span id="cb340-10"><a href="loops.html#cb340-10"></a>        <span class="bu">print</span>(<span class="st">&quot;My number is smaller than </span><span class="sc">{}</span><span class="st">&quot;</span>.<span class="bu">format</span>(guess))</span>
-<span id="cb340-11"><a href="loops.html#cb340-11"></a>        <span class="bu">print</span>(<span class="st">&quot;You may guess another </span><span class="sc">{}</span><span class="st"> times&quot;</span>.<span class="bu">format</span>(i))</span>
-<span id="cb340-12"><a href="loops.html#cb340-12"></a>    <span class="cf">elif</span> guess <span class="op">&lt;</span> myNumber:</span>
-<span id="cb340-13"><a href="loops.html#cb340-13"></a>        i <span class="op">-=</span> <span class="dv">1</span></span>
-<span id="cb340-14"><a href="loops.html#cb340-14"></a>        <span class="bu">print</span>(<span class="st">&quot;My number is greater than </span><span class="sc">{}</span><span class="st">&quot;</span>.<span class="bu">format</span>(guess))</span>
-<span id="cb340-15"><a href="loops.html#cb340-15"></a>        <span class="cf">if</span> i <span class="op">==</span> <span class="dv">0</span>:</span>
-<span id="cb340-16"><a href="loops.html#cb340-16"></a>            <span class="bu">print</span>(<span class="st">&quot;Too bad, you lost&quot;</span>)</span>
-<span id="cb340-17"><a href="loops.html#cb340-17"></a>        <span class="cf">else</span>:</span>
-<span id="cb340-18"><a href="loops.html#cb340-18"></a>            <span class="bu">print</span>(<span class="st">&quot;You may guess another </span><span class="sc">{}</span><span class="st"> times&quot;</span>.<span class="bu">format</span>(i))</span></code></pre></div>
+<div class="sourceCode" id="cb348"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb348-1"><a href="loops.html#cb348-1" aria-hidden="true" tabindex="-1"></a>i <span class="op">=</span> <span class="dv">5</span></span>
+<span id="cb348-2"><a href="loops.html#cb348-2" aria-hidden="true" tabindex="-1"></a>myNumber <span class="op">=</span> <span class="dv">13</span></span>
+<span id="cb348-3"><a href="loops.html#cb348-3" aria-hidden="true" tabindex="-1"></a><span class="cf">while</span> i <span class="op">&gt;</span> <span class="dv">0</span>:</span>
+<span id="cb348-4"><a href="loops.html#cb348-4" aria-hidden="true" tabindex="-1"></a>    guess <span class="op">=</span> <span class="bu">input</span>(<span class="st">&quot;Enter a number:&quot;</span>)</span>
+<span id="cb348-5"><a href="loops.html#cb348-5" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> guess <span class="op">==</span> myNumber:</span>
+<span id="cb348-6"><a href="loops.html#cb348-6" aria-hidden="true" tabindex="-1"></a>        <span class="bu">print</span>(<span class="st">&quot;Ding, ding! Correct, my number is </span><span class="sc">{}</span><span class="st">&quot;</span>.<span class="bu">format</span>(myNumber))</span>
+<span id="cb348-7"><a href="loops.html#cb348-7" aria-hidden="true" tabindex="-1"></a>        <span class="cf">break</span></span>
+<span id="cb348-8"><a href="loops.html#cb348-8" aria-hidden="true" tabindex="-1"></a>    <span class="cf">elif</span> guess <span class="op">&gt;</span> myNumber:</span>
+<span id="cb348-9"><a href="loops.html#cb348-9" aria-hidden="true" tabindex="-1"></a>        i <span class="op">-=</span> <span class="dv">1</span></span>
+<span id="cb348-10"><a href="loops.html#cb348-10" aria-hidden="true" tabindex="-1"></a>        <span class="bu">print</span>(<span class="st">&quot;My number is smaller than </span><span class="sc">{}</span><span class="st">&quot;</span>.<span class="bu">format</span>(guess))</span>
+<span id="cb348-11"><a href="loops.html#cb348-11" aria-hidden="true" tabindex="-1"></a>        <span class="bu">print</span>(<span class="st">&quot;You may guess another </span><span class="sc">{}</span><span class="st"> times&quot;</span>.<span class="bu">format</span>(i))</span>
+<span id="cb348-12"><a href="loops.html#cb348-12" aria-hidden="true" tabindex="-1"></a>    <span class="cf">elif</span> guess <span class="op">&lt;</span> myNumber:</span>
+<span id="cb348-13"><a href="loops.html#cb348-13" aria-hidden="true" tabindex="-1"></a>        i <span class="op">-=</span> <span class="dv">1</span></span>
+<span id="cb348-14"><a href="loops.html#cb348-14" aria-hidden="true" tabindex="-1"></a>        <span class="bu">print</span>(<span class="st">&quot;My number is greater than </span><span class="sc">{}</span><span class="st">&quot;</span>.<span class="bu">format</span>(guess))</span>
+<span id="cb348-15"><a href="loops.html#cb348-15" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> i <span class="op">==</span> <span class="dv">0</span>:</span>
+<span id="cb348-16"><a href="loops.html#cb348-16" aria-hidden="true" tabindex="-1"></a>            <span class="bu">print</span>(<span class="st">&quot;Too bad, you lost&quot;</span>)</span>
+<span id="cb348-17"><a href="loops.html#cb348-17" aria-hidden="true" tabindex="-1"></a>        <span class="cf">else</span>:</span>
+<span id="cb348-18"><a href="loops.html#cb348-18" aria-hidden="true" tabindex="-1"></a>            <span class="bu">print</span>(<span class="st">&quot;You may guess another </span><span class="sc">{}</span><span class="st"> times&quot;</span>.<span class="bu">format</span>(i))</span></code></pre></div>
 <p>In the above alteration of the guessing game, there are two ways to make the program terminate. First, you guess the number. Second, you run out of trials. The easiest way of terminating a <code>while</code> loop in response to user input remains using the <code>break</code> statement.</p>
 </div>
-<div id="debugging" class="section level2">
+<div id="debugging-3" class="section level2" number="5.6">
 <h2><span class="header-section-number">5.6</span> Debugging</h2>
 <p>Loops can (in theory) continue for an infinite amount of iterations. Imagine looping over a data set of more than 1000 experimental participants. Loops with a large amount of iterations may seem cumbersome to debug at first sight. Computers make mistakes when they are falsely instructed and they will make the same mistake over and over again, infinitely if they must. You can imagine that debugging a loop that runs over hundreds or thousands of iterations is a pain when each time you change a small piece of code you need to run all iterations before you can inspect the result of the change in code. Here, the <code>break</code> statement can be used to inspect the output your loop generates at a single, or a fixed amount of iterations. By doing so, you do not only save time because your program does not need to execute each iteration of the program, your output will also be less cluttered. Picture a piece of code that produces one printed line for each iteration of code, like so</p>
-<div class="sourceCode" id="cb341"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb341-1"><a href="loops.html#cb341-1"></a><span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">1000</span>):</span>
-<span id="cb341-2"><a href="loops.html#cb341-2"></a>  <span class="bu">print</span>(<span class="st">&quot;Hello, World!&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb349"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb349-1"><a href="loops.html#cb349-1" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">1000</span>):</span>
+<span id="cb349-2"><a href="loops.html#cb349-2" aria-hidden="true" tabindex="-1"></a>  <span class="bu">print</span>(<span class="st">&quot;Hello, World!&quot;</span>)</span></code></pre></div>
 <p>Now you change a small part of the code and want to inspect its effect.</p>
-<div class="sourceCode" id="cb342"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb342-1"><a href="loops.html#cb342-1"></a><span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">1000</span>):</span>
-<span id="cb342-2"><a href="loops.html#cb342-2"></a>  <span class="bu">print</span>(<span class="st">&quot;Hello &quot;</span> <span class="op">+</span> <span class="st">&quot;World&quot;</span> <span class="op">+</span> <span class="st">&quot;!&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb350"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb350-1"><a href="loops.html#cb350-1" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">1000</span>):</span>
+<span id="cb350-2"><a href="loops.html#cb350-2" aria-hidden="true" tabindex="-1"></a>  <span class="bu">print</span>(<span class="st">&quot;Hello &quot;</span> <span class="op">+</span> <span class="st">&quot;World&quot;</span> <span class="op">+</span> <span class="st">&quot;!&quot;</span>)</span></code></pre></div>
 <p>It is unneccessary to print this one-liner a thousand times to see what is going on. Instead, you can use the break statement to print a single line.</p>
-<div class="sourceCode" id="cb343"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb343-1"><a href="loops.html#cb343-1"></a><span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">1000</span>):</span>
-<span id="cb343-2"><a href="loops.html#cb343-2"></a>  <span class="bu">print</span>(<span class="st">&quot;Hello &quot;</span> <span class="op">+</span> <span class="st">&quot;World&quot;</span> <span class="op">+</span> <span class="st">&quot;!&quot;</span>)</span>
-<span id="cb343-3"><a href="loops.html#cb343-3"></a>  <span class="cf">break</span></span></code></pre></div>
+<div class="sourceCode" id="cb351"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb351-1"><a href="loops.html#cb351-1" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">1000</span>):</span>
+<span id="cb351-2"><a href="loops.html#cb351-2" aria-hidden="true" tabindex="-1"></a>  <span class="bu">print</span>(<span class="st">&quot;Hello &quot;</span> <span class="op">+</span> <span class="st">&quot;World&quot;</span> <span class="op">+</span> <span class="st">&quot;!&quot;</span>)</span>
+<span id="cb351-3"><a href="loops.html#cb351-3" aria-hidden="true" tabindex="-1"></a>  <span class="cf">break</span></span></code></pre></div>
 <pre><code>## Hello World!</code></pre>
 <p>This comes in handy when you suspect a bug in one of your loops. Remember that if there is a bug in your loop, your computer will make the same mistake over and over again. So if you identify the bug in one iteration or a small amount of iterations, it will also be present in the exact same way in the remaining iterations. Usually, you can resolve bugs in your loops based on what you inspect in a subset of iterations.</p>
 </div>
-<div id="exercises" class="section level2">
+<div id="exercises-4" class="section level2" number="5.7">
 <h2><span class="header-section-number">5.7</span> Exercises</h2>
-<div id="exercise-1.-following-the-control-flow-i" class="section level3">
+<div id="exercise-1.-following-the-control-flow-i" class="section level3" number="5.7.1">
 <h3><span class="header-section-number">5.7.1</span> Exercise 1. Following the control flow I</h3>
 <p>What is the output of the following code snippets?</p>
-<div class="sourceCode" id="cb345"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb345-1"><a href="loops.html#cb345-1"></a><span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="bu">len</span>([<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>])):</span>
-<span id="cb345-2"><a href="loops.html#cb345-2"></a>    <span class="bu">print</span>(i)</span></code></pre></div>
-<div class="sourceCode" id="cb346"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb346-1"><a href="loops.html#cb346-1"></a><span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="bu">len</span>([])):</span>
-<span id="cb346-2"><a href="loops.html#cb346-2"></a>    <span class="bu">print</span>(i)</span></code></pre></div>
-<div class="sourceCode" id="cb347"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb347-1"><a href="loops.html#cb347-1"></a>a <span class="op">=</span> <span class="dv">0</span></span>
-<span id="cb347-2"><a href="loops.html#cb347-2"></a><span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">3</span>):</span>
-<span id="cb347-3"><a href="loops.html#cb347-3"></a>    a <span class="op">+=</span> i</span>
-<span id="cb347-4"><a href="loops.html#cb347-4"></a>    <span class="bu">print</span>(a <span class="op">+</span> i)</span></code></pre></div>
-<div class="sourceCode" id="cb348"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb348-1"><a href="loops.html#cb348-1"></a>a <span class="op">=</span> <span class="dv">0</span></span>
-<span id="cb348-2"><a href="loops.html#cb348-2"></a>b <span class="op">=</span> <span class="dv">30</span></span>
-<span id="cb348-3"><a href="loops.html#cb348-3"></a><span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">5</span>):</span>
-<span id="cb348-4"><a href="loops.html#cb348-4"></a>    a <span class="op">+=</span> i</span>
-<span id="cb348-5"><a href="loops.html#cb348-5"></a>    b <span class="op">-=</span> i</span>
-<span id="cb348-6"><a href="loops.html#cb348-6"></a>    </span>
-<span id="cb348-7"><a href="loops.html#cb348-7"></a><span class="bu">print</span>(a <span class="op">+</span> b)</span></code></pre></div>
-<div class="sourceCode" id="cb349"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb349-1"><a href="loops.html#cb349-1"></a><span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">1</span>,<span class="dv">3</span>):</span>
-<span id="cb349-2"><a href="loops.html#cb349-2"></a>    <span class="bu">print</span>(i)</span></code></pre></div>
-<div class="sourceCode" id="cb350"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb350-1"><a href="loops.html#cb350-1"></a>i <span class="op">=</span> <span class="dv">10</span></span>
-<span id="cb350-2"><a href="loops.html#cb350-2"></a><span class="cf">while</span> i <span class="op">&gt;</span> <span class="dv">5</span>:</span>
-<span id="cb350-3"><a href="loops.html#cb350-3"></a>    <span class="bu">print</span>(i <span class="op">-</span> <span class="dv">5</span>)</span>
-<span id="cb350-4"><a href="loops.html#cb350-4"></a>    i <span class="op">-=</span> <span class="dv">2</span></span></code></pre></div>
-<div class="sourceCode" id="cb351"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb351-1"><a href="loops.html#cb351-1"></a>a <span class="op">=</span> <span class="dv">2</span></span>
-<span id="cb351-2"><a href="loops.html#cb351-2"></a>b <span class="op">=</span> (<span class="dv">1</span>,<span class="dv">2</span>)</span>
-<span id="cb351-3"><a href="loops.html#cb351-3"></a></span>
-<span id="cb351-4"><a href="loops.html#cb351-4"></a><span class="cf">while</span> a <span class="op">!=</span> <span class="dv">0</span>:</span>
-<span id="cb351-5"><a href="loops.html#cb351-5"></a>    <span class="cf">for</span> i <span class="kw">in</span> b:</span>
-<span id="cb351-6"><a href="loops.html#cb351-6"></a>        <span class="bu">print</span>(a <span class="op">+</span> i)</span>
-<span id="cb351-7"><a href="loops.html#cb351-7"></a>    a <span class="op">-=</span> <span class="dv">1</span></span></code></pre></div>
+<div class="sourceCode" id="cb353"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb353-1"><a href="loops.html#cb353-1" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="bu">len</span>([<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>])):</span>
+<span id="cb353-2"><a href="loops.html#cb353-2" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(i)</span></code></pre></div>
+<div class="sourceCode" id="cb354"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb354-1"><a href="loops.html#cb354-1" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="bu">len</span>([])):</span>
+<span id="cb354-2"><a href="loops.html#cb354-2" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(i)</span></code></pre></div>
+<div class="sourceCode" id="cb355"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb355-1"><a href="loops.html#cb355-1" aria-hidden="true" tabindex="-1"></a>a <span class="op">=</span> <span class="dv">0</span></span>
+<span id="cb355-2"><a href="loops.html#cb355-2" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">3</span>):</span>
+<span id="cb355-3"><a href="loops.html#cb355-3" aria-hidden="true" tabindex="-1"></a>    a <span class="op">+=</span> i</span>
+<span id="cb355-4"><a href="loops.html#cb355-4" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(a <span class="op">+</span> i)</span></code></pre></div>
+<div class="sourceCode" id="cb356"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb356-1"><a href="loops.html#cb356-1" aria-hidden="true" tabindex="-1"></a>a <span class="op">=</span> <span class="dv">0</span></span>
+<span id="cb356-2"><a href="loops.html#cb356-2" aria-hidden="true" tabindex="-1"></a>b <span class="op">=</span> <span class="dv">30</span></span>
+<span id="cb356-3"><a href="loops.html#cb356-3" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">5</span>):</span>
+<span id="cb356-4"><a href="loops.html#cb356-4" aria-hidden="true" tabindex="-1"></a>    a <span class="op">+=</span> i</span>
+<span id="cb356-5"><a href="loops.html#cb356-5" aria-hidden="true" tabindex="-1"></a>    b <span class="op">-=</span> i</span>
+<span id="cb356-6"><a href="loops.html#cb356-6" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb356-7"><a href="loops.html#cb356-7" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(a <span class="op">+</span> b)</span></code></pre></div>
+<div class="sourceCode" id="cb357"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb357-1"><a href="loops.html#cb357-1" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">1</span>,<span class="dv">3</span>):</span>
+<span id="cb357-2"><a href="loops.html#cb357-2" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(i)</span></code></pre></div>
+<div class="sourceCode" id="cb358"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb358-1"><a href="loops.html#cb358-1" aria-hidden="true" tabindex="-1"></a>i <span class="op">=</span> <span class="dv">10</span></span>
+<span id="cb358-2"><a href="loops.html#cb358-2" aria-hidden="true" tabindex="-1"></a><span class="cf">while</span> i <span class="op">&gt;</span> <span class="dv">5</span>:</span>
+<span id="cb358-3"><a href="loops.html#cb358-3" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(i <span class="op">-</span> <span class="dv">5</span>)</span>
+<span id="cb358-4"><a href="loops.html#cb358-4" aria-hidden="true" tabindex="-1"></a>    i <span class="op">-=</span> <span class="dv">2</span></span></code></pre></div>
+<div class="sourceCode" id="cb359"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb359-1"><a href="loops.html#cb359-1" aria-hidden="true" tabindex="-1"></a>a <span class="op">=</span> <span class="dv">2</span></span>
+<span id="cb359-2"><a href="loops.html#cb359-2" aria-hidden="true" tabindex="-1"></a>b <span class="op">=</span> (<span class="dv">1</span>,<span class="dv">2</span>)</span>
+<span id="cb359-3"><a href="loops.html#cb359-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb359-4"><a href="loops.html#cb359-4" aria-hidden="true" tabindex="-1"></a><span class="cf">while</span> a <span class="op">!=</span> <span class="dv">0</span>:</span>
+<span id="cb359-5"><a href="loops.html#cb359-5" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> i <span class="kw">in</span> b:</span>
+<span id="cb359-6"><a href="loops.html#cb359-6" aria-hidden="true" tabindex="-1"></a>        <span class="bu">print</span>(a <span class="op">+</span> i)</span>
+<span id="cb359-7"><a href="loops.html#cb359-7" aria-hidden="true" tabindex="-1"></a>    a <span class="op">-=</span> <span class="dv">1</span></span></code></pre></div>
 </div>
-<div id="exercise-2.-debugging-i" class="section level3">
+<div id="exercise-2.-debugging-i" class="section level3" number="5.7.2">
 <h3><span class="header-section-number">5.7.2</span> Exercise 2. Debugging I</h3>
 <p>Do the following code snippets throw an error? If they do, what goes wrong? For each exercise, only one answer is correct.</p>
 <pre><code>a = [4,6,8]
@@ -712,7 +758,7 @@ for i in a:
 <li>No error is thrown, the output of the mini program is <code>0</code>, <code>0</code>, <code>0</code>, <code>1.5</code> because each index in <code>a</code> is multiplied by each element in <code>b</code>.</li>
 </ul>
 </div>
-<div id="exercise-3.-a-guessing-game" class="section level3">
+<div id="exercise-3.-a-guessing-game" class="section level3" number="5.7.3">
 <h3><span class="header-section-number">5.7.3</span> Exercise 3. A guessing game</h3>
 <p>Make a Python script <code>guessing.py</code> that implements the following behaviour:</p>
 <ul>
@@ -725,60 +771,60 @@ for i in a:
 </ul>
 <p><em>Hint</em>: Prompting and feedback via the console is sufficient.</p>
 </div>
-<div id="exercise-4.-controlling-the-flow" class="section level3">
+<div id="exercise-4.-controlling-the-flow" class="section level3" number="5.7.4">
 <h3><span class="header-section-number">5.7.4</span> Exercise 4. Controlling the flow</h3>
 <p>Programming small interactive programs such as the guessing game helps you understand how to use <em>control flow statements</em> to bring about a desired behaviour in your programs. For this exercise, you will be programming an extension to the guessing game, a three digit number lock!</p>
 </div>
-<div id="exercise-5.-following-the-control-flow-ii" class="section level3">
+<div id="exercise-5.-following-the-control-flow-ii" class="section level3" number="5.7.5">
 <h3><span class="header-section-number">5.7.5</span> Exercise 5. Following the control flow II</h3>
 <p>Read the script below carefully. Indicate the values of the following expressions after the script has finished executing:</p>
-<div class="sourceCode" id="cb355"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb355-1"><a href="loops.html#cb355-1"></a>dataset.keys()</span>
-<span id="cb355-2"><a href="loops.html#cb355-2"></a>dataset[dataset.keys()[<span class="dv">0</span>]]</span>
-<span id="cb355-3"><a href="loops.html#cb355-3"></a>condA[<span class="dv">0</span>]</span>
-<span id="cb355-4"><a href="loops.html#cb355-4"></a>condA[<span class="dv">0</span>][<span class="dv">0</span>]</span>
-<span id="cb355-5"><a href="loops.html#cb355-5"></a><span class="bu">len</span>(condA)</span>
-<span id="cb355-6"><a href="loops.html#cb355-6"></a><span class="bu">len</span>(condB)</span>
-<span id="cb355-7"><a href="loops.html#cb355-7"></a>meanA</span>
-<span id="cb355-8"><a href="loops.html#cb355-8"></a>meanB</span></code></pre></div>
+<div class="sourceCode" id="cb363"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb363-1"><a href="loops.html#cb363-1" aria-hidden="true" tabindex="-1"></a>dataset.keys()</span>
+<span id="cb363-2"><a href="loops.html#cb363-2" aria-hidden="true" tabindex="-1"></a>dataset[dataset.keys()[<span class="dv">0</span>]]</span>
+<span id="cb363-3"><a href="loops.html#cb363-3" aria-hidden="true" tabindex="-1"></a>condA[<span class="dv">0</span>]</span>
+<span id="cb363-4"><a href="loops.html#cb363-4" aria-hidden="true" tabindex="-1"></a>condA[<span class="dv">0</span>][<span class="dv">0</span>]</span>
+<span id="cb363-5"><a href="loops.html#cb363-5" aria-hidden="true" tabindex="-1"></a><span class="bu">len</span>(condA)</span>
+<span id="cb363-6"><a href="loops.html#cb363-6" aria-hidden="true" tabindex="-1"></a><span class="bu">len</span>(condB)</span>
+<span id="cb363-7"><a href="loops.html#cb363-7" aria-hidden="true" tabindex="-1"></a>meanA</span>
+<span id="cb363-8"><a href="loops.html#cb363-8" aria-hidden="true" tabindex="-1"></a>meanB</span></code></pre></div>
 <p>You can check your answers afterwards by running the script.</p>
-<div class="sourceCode" id="cb356"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb356-1"><a href="loops.html#cb356-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
-<span id="cb356-2"><a href="loops.html#cb356-2"></a></span>
-<span id="cb356-3"><a href="loops.html#cb356-3"></a>dataset <span class="op">=</span> {<span class="st">&#39;p1&#39;</span>:(<span class="dv">21</span>,<span class="st">&quot;Female&quot;</span>,<span class="st">&quot;Dutch&quot;</span>,<span class="st">&quot;B-Psychology&quot;</span>),</span>
-<span id="cb356-4"><a href="loops.html#cb356-4"></a>           <span class="st">&#39;p2&#39;</span>:(<span class="dv">20</span>,<span class="st">&quot;Female&quot;</span>,<span class="st">&quot;Dutch&quot;</span>,<span class="st">&quot;B-Psychology&quot;</span>),</span>
-<span id="cb356-5"><a href="loops.html#cb356-5"></a>           <span class="st">&#39;p3&#39;</span>:(<span class="dv">21</span>,<span class="st">&quot;Female&quot;</span>,<span class="st">&quot;Dutch&quot;</span>,<span class="st">&quot;B-Applied_Mathematics&quot;</span>),</span>
-<span id="cb356-6"><a href="loops.html#cb356-6"></a>           <span class="st">&#39;p4&#39;</span>:(<span class="dv">23</span>,<span class="st">&quot;Male&quot;</span>, <span class="st">&quot;German&quot;</span>,<span class="st">&quot;B-Communication_Science&quot;</span>),</span>
-<span id="cb356-7"><a href="loops.html#cb356-7"></a>           <span class="st">&#39;p5&#39;</span>:(<span class="dv">20</span>,<span class="st">&quot;n/a&quot;</span>,<span class="st">&quot;Dutch&quot;</span>,<span class="st">&quot;M-Business_Administration&quot;</span>),</span>
-<span id="cb356-8"><a href="loops.html#cb356-8"></a>           <span class="st">&#39;p6&#39;</span>:(<span class="dv">19</span>,<span class="st">&quot;Male&quot;</span>,<span class="st">&quot;Swedish&quot;</span>,<span class="st">&quot;B-Computer_Science&quot;</span>),</span>
-<span id="cb356-9"><a href="loops.html#cb356-9"></a>           <span class="st">&#39;p7&#39;</span>:(<span class="dv">19</span>,<span class="st">&quot;Male&quot;</span>,<span class="st">&quot;German&quot;</span>,<span class="st">&quot;B-Communication_Science&quot;</span>),</span>
-<span id="cb356-10"><a href="loops.html#cb356-10"></a>           <span class="st">&#39;p8&#39;</span>:(<span class="dv">24</span>,<span class="st">&quot;Female&quot;</span>,<span class="st">&quot;Italian&quot;</span>,<span class="st">&quot;M-Psychology&quot;</span>),</span>
-<span id="cb356-11"><a href="loops.html#cb356-11"></a>           <span class="st">&#39;p9&#39;</span>:(<span class="dv">23</span>,<span class="st">&quot;Female&quot;</span>,<span class="st">&quot;Italian&quot;</span>,<span class="st">&quot;M-Communication_Science&quot;</span>),</span>
-<span id="cb356-12"><a href="loops.html#cb356-12"></a>           <span class="st">&#39;p10&#39;</span>:(<span class="dv">18</span>,<span class="st">&quot;Male&quot;</span>,<span class="st">&quot;Dutch&quot;</span>,<span class="st">&quot;B-Computer_Science&quot;</span>)</span>
-<span id="cb356-13"><a href="loops.html#cb356-13"></a>           }</span>
-<span id="cb356-14"><a href="loops.html#cb356-14"></a></span>
-<span id="cb356-15"><a href="loops.html#cb356-15"></a>condA <span class="op">=</span> []</span>
-<span id="cb356-16"><a href="loops.html#cb356-16"></a>condB <span class="op">=</span> []</span>
-<span id="cb356-17"><a href="loops.html#cb356-17"></a></span>
-<span id="cb356-18"><a href="loops.html#cb356-18"></a>ageA <span class="op">=</span> []</span>
-<span id="cb356-19"><a href="loops.html#cb356-19"></a>ageB <span class="op">=</span> []</span>
-<span id="cb356-20"><a href="loops.html#cb356-20"></a></span>
-<span id="cb356-21"><a href="loops.html#cb356-21"></a><span class="cf">for</span> participant <span class="kw">in</span> dataset.keys():</span>
-<span id="cb356-22"><a href="loops.html#cb356-22"></a>    <span class="cf">if</span> dataset[participant][<span class="dv">1</span>] <span class="op">==</span> <span class="st">&quot;Female&quot;</span>:</span>
-<span id="cb356-23"><a href="loops.html#cb356-23"></a>        condA.append(dataset[participant])</span>
-<span id="cb356-24"><a href="loops.html#cb356-24"></a>    <span class="cf">elif</span> dataset[participant][<span class="dv">1</span>] <span class="op">==</span> <span class="st">&quot;Male&quot;</span>:</span>
-<span id="cb356-25"><a href="loops.html#cb356-25"></a>        condB.append(dataset[participant])</span>
-<span id="cb356-26"><a href="loops.html#cb356-26"></a></span>
-<span id="cb356-27"><a href="loops.html#cb356-27"></a><span class="cf">for</span> participant <span class="kw">in</span> condA:</span>
-<span id="cb356-28"><a href="loops.html#cb356-28"></a>    ageA.append(participant[<span class="dv">0</span>])</span>
-<span id="cb356-29"><a href="loops.html#cb356-29"></a></span>
-<span id="cb356-30"><a href="loops.html#cb356-30"></a>count <span class="op">=</span> <span class="dv">0</span></span>
-<span id="cb356-31"><a href="loops.html#cb356-31"></a><span class="cf">while</span> count <span class="op">&lt;</span> <span class="bu">len</span>(condB):</span>
-<span id="cb356-32"><a href="loops.html#cb356-32"></a>    ageB.append(condB[count][<span class="dv">0</span>])</span>
-<span id="cb356-33"><a href="loops.html#cb356-33"></a>    count <span class="op">+=</span> <span class="dv">1</span></span>
-<span id="cb356-34"><a href="loops.html#cb356-34"></a>    </span>
-<span id="cb356-35"><a href="loops.html#cb356-35"></a>meanA <span class="op">=</span> np.mean(ageA)</span>
-<span id="cb356-36"><a href="loops.html#cb356-36"></a>meanB <span class="op">=</span> np.mean(ageB)</span></code></pre></div>
+<div class="sourceCode" id="cb364"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb364-1"><a href="loops.html#cb364-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb364-2"><a href="loops.html#cb364-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb364-3"><a href="loops.html#cb364-3" aria-hidden="true" tabindex="-1"></a>dataset <span class="op">=</span> {<span class="st">&#39;p1&#39;</span>:(<span class="dv">21</span>,<span class="st">&quot;Female&quot;</span>,<span class="st">&quot;Dutch&quot;</span>,<span class="st">&quot;B-Psychology&quot;</span>),</span>
+<span id="cb364-4"><a href="loops.html#cb364-4" aria-hidden="true" tabindex="-1"></a>           <span class="st">&#39;p2&#39;</span>:(<span class="dv">20</span>,<span class="st">&quot;Female&quot;</span>,<span class="st">&quot;Dutch&quot;</span>,<span class="st">&quot;B-Psychology&quot;</span>),</span>
+<span id="cb364-5"><a href="loops.html#cb364-5" aria-hidden="true" tabindex="-1"></a>           <span class="st">&#39;p3&#39;</span>:(<span class="dv">21</span>,<span class="st">&quot;Female&quot;</span>,<span class="st">&quot;Dutch&quot;</span>,<span class="st">&quot;B-Applied_Mathematics&quot;</span>),</span>
+<span id="cb364-6"><a href="loops.html#cb364-6" aria-hidden="true" tabindex="-1"></a>           <span class="st">&#39;p4&#39;</span>:(<span class="dv">23</span>,<span class="st">&quot;Male&quot;</span>, <span class="st">&quot;German&quot;</span>,<span class="st">&quot;B-Communication_Science&quot;</span>),</span>
+<span id="cb364-7"><a href="loops.html#cb364-7" aria-hidden="true" tabindex="-1"></a>           <span class="st">&#39;p5&#39;</span>:(<span class="dv">20</span>,<span class="st">&quot;n/a&quot;</span>,<span class="st">&quot;Dutch&quot;</span>,<span class="st">&quot;M-Business_Administration&quot;</span>),</span>
+<span id="cb364-8"><a href="loops.html#cb364-8" aria-hidden="true" tabindex="-1"></a>           <span class="st">&#39;p6&#39;</span>:(<span class="dv">19</span>,<span class="st">&quot;Male&quot;</span>,<span class="st">&quot;Swedish&quot;</span>,<span class="st">&quot;B-Computer_Science&quot;</span>),</span>
+<span id="cb364-9"><a href="loops.html#cb364-9" aria-hidden="true" tabindex="-1"></a>           <span class="st">&#39;p7&#39;</span>:(<span class="dv">19</span>,<span class="st">&quot;Male&quot;</span>,<span class="st">&quot;German&quot;</span>,<span class="st">&quot;B-Communication_Science&quot;</span>),</span>
+<span id="cb364-10"><a href="loops.html#cb364-10" aria-hidden="true" tabindex="-1"></a>           <span class="st">&#39;p8&#39;</span>:(<span class="dv">24</span>,<span class="st">&quot;Female&quot;</span>,<span class="st">&quot;Italian&quot;</span>,<span class="st">&quot;M-Psychology&quot;</span>),</span>
+<span id="cb364-11"><a href="loops.html#cb364-11" aria-hidden="true" tabindex="-1"></a>           <span class="st">&#39;p9&#39;</span>:(<span class="dv">23</span>,<span class="st">&quot;Female&quot;</span>,<span class="st">&quot;Italian&quot;</span>,<span class="st">&quot;M-Communication_Science&quot;</span>),</span>
+<span id="cb364-12"><a href="loops.html#cb364-12" aria-hidden="true" tabindex="-1"></a>           <span class="st">&#39;p10&#39;</span>:(<span class="dv">18</span>,<span class="st">&quot;Male&quot;</span>,<span class="st">&quot;Dutch&quot;</span>,<span class="st">&quot;B-Computer_Science&quot;</span>)</span>
+<span id="cb364-13"><a href="loops.html#cb364-13" aria-hidden="true" tabindex="-1"></a>           }</span>
+<span id="cb364-14"><a href="loops.html#cb364-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb364-15"><a href="loops.html#cb364-15" aria-hidden="true" tabindex="-1"></a>condA <span class="op">=</span> []</span>
+<span id="cb364-16"><a href="loops.html#cb364-16" aria-hidden="true" tabindex="-1"></a>condB <span class="op">=</span> []</span>
+<span id="cb364-17"><a href="loops.html#cb364-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb364-18"><a href="loops.html#cb364-18" aria-hidden="true" tabindex="-1"></a>ageA <span class="op">=</span> []</span>
+<span id="cb364-19"><a href="loops.html#cb364-19" aria-hidden="true" tabindex="-1"></a>ageB <span class="op">=</span> []</span>
+<span id="cb364-20"><a href="loops.html#cb364-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb364-21"><a href="loops.html#cb364-21" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> participant <span class="kw">in</span> dataset.keys():</span>
+<span id="cb364-22"><a href="loops.html#cb364-22" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> dataset[participant][<span class="dv">1</span>] <span class="op">==</span> <span class="st">&quot;Female&quot;</span>:</span>
+<span id="cb364-23"><a href="loops.html#cb364-23" aria-hidden="true" tabindex="-1"></a>        condA.append(dataset[participant])</span>
+<span id="cb364-24"><a href="loops.html#cb364-24" aria-hidden="true" tabindex="-1"></a>    <span class="cf">elif</span> dataset[participant][<span class="dv">1</span>] <span class="op">==</span> <span class="st">&quot;Male&quot;</span>:</span>
+<span id="cb364-25"><a href="loops.html#cb364-25" aria-hidden="true" tabindex="-1"></a>        condB.append(dataset[participant])</span>
+<span id="cb364-26"><a href="loops.html#cb364-26" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb364-27"><a href="loops.html#cb364-27" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> participant <span class="kw">in</span> condA:</span>
+<span id="cb364-28"><a href="loops.html#cb364-28" aria-hidden="true" tabindex="-1"></a>    ageA.append(participant[<span class="dv">0</span>])</span>
+<span id="cb364-29"><a href="loops.html#cb364-29" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb364-30"><a href="loops.html#cb364-30" aria-hidden="true" tabindex="-1"></a>count <span class="op">=</span> <span class="dv">0</span></span>
+<span id="cb364-31"><a href="loops.html#cb364-31" aria-hidden="true" tabindex="-1"></a><span class="cf">while</span> count <span class="op">&lt;</span> <span class="bu">len</span>(condB):</span>
+<span id="cb364-32"><a href="loops.html#cb364-32" aria-hidden="true" tabindex="-1"></a>    ageB.append(condB[count][<span class="dv">0</span>])</span>
+<span id="cb364-33"><a href="loops.html#cb364-33" aria-hidden="true" tabindex="-1"></a>    count <span class="op">+=</span> <span class="dv">1</span></span>
+<span id="cb364-34"><a href="loops.html#cb364-34" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb364-35"><a href="loops.html#cb364-35" aria-hidden="true" tabindex="-1"></a>meanA <span class="op">=</span> np.mean(ageA)</span>
+<span id="cb364-36"><a href="loops.html#cb364-36" aria-hidden="true" tabindex="-1"></a>meanB <span class="op">=</span> np.mean(ageB)</span></code></pre></div>
 </div>
-<div id="exercise-6.-debugging-ii" class="section level3">
+<div id="exercise-6.-debugging-ii" class="section level3" number="5.7.6">
 <h3><span class="header-section-number">5.7.6</span> Exercise 6. Debugging II</h3>
 <p>The script below calculates some descriptives from <code>data</code>. The code is still somewhat buggy. Debug the script and indicate the values of <code>fastest</code>, <code>slowest</code>, and <code>all_mean</code>.</p>
 <pre><code>data = {&#39;p1&#39;:(21,&quot;Female&quot;,&quot;Condition B&quot;,[0.675,0.777,0.778,0.62,0.869]),
@@ -820,45 +866,45 @@ for participant in data:
         all_sum += data[participant][3][counter]
 all_mean = all_sum/number_of_trials*len(data)</code></pre>
 </div>
-<div id="exercise-7.-nested-loops" class="section level3">
+<div id="exercise-7.-nested-loops" class="section level3" number="5.7.7">
 <h3><span class="header-section-number">5.7.7</span> Exercise 7. Nested loops</h3>
 <p>Nested data often requires <em>nested loops</em> for answering certain questions about the data. Let’s have a look at the <code>list</code> data set below. each participant has a participant number paired with a list of additional experiment information.</p>
-<div class="sourceCode" id="cb358"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb358-1"><a href="loops.html#cb358-1"></a>participants <span class="op">=</span> [</span>
-<span id="cb358-2"><a href="loops.html#cb358-2"></a>    (<span class="st">&quot;p1&quot;</span>, [<span class="st">&quot;Condition 1&quot;</span>,<span class="st">&quot;Location A&quot;</span>,<span class="st">&quot;withdrew&quot;</span>,<span class="st">&quot;no audio&quot;</span>]),</span>
-<span id="cb358-3"><a href="loops.html#cb358-3"></a>    (<span class="st">&quot;p2&quot;</span>, [<span class="st">&quot;Condition 1&quot;</span>,<span class="st">&quot;Location A&quot;</span>,<span class="st">&quot;no audio&quot;</span>,<span class="st">&quot;no video&quot;</span>]),</span>
-<span id="cb358-4"><a href="loops.html#cb358-4"></a>    (<span class="st">&quot;p3&quot;</span>, [<span class="st">&quot;Condition 2&quot;</span>,<span class="st">&quot;Location B&quot;</span>]),</span>
-<span id="cb358-5"><a href="loops.html#cb358-5"></a>    (<span class="st">&quot;p4&quot;</span>, [<span class="st">&quot;Condition 1&quot;</span>,<span class="st">&quot;Location A&quot;</span>,<span class="st">&quot;withdrew&quot;</span>]),</span>
-<span id="cb358-6"><a href="loops.html#cb358-6"></a>    (<span class="st">&quot;p5&quot;</span>, [<span class="st">&quot;Condition 2&quot;</span>,<span class="st">&quot;Location A&quot;</span>]),</span>
-<span id="cb358-7"><a href="loops.html#cb358-7"></a>    (<span class="st">&quot;p6&quot;</span>, [<span class="st">&quot;Condition 2&quot;</span>,<span class="st">&quot;Location B&quot;</span>,<span class="st">&quot;withdrew&quot;</span>]),</span>
-<span id="cb358-8"><a href="loops.html#cb358-8"></a>    (<span class="st">&quot;p7&quot;</span>, [<span class="st">&quot;Condition 1&quot;</span>,<span class="st">&quot;Location A&quot;</span>,<span class="st">&quot;no video&quot;</span>]),</span>
-<span id="cb358-9"><a href="loops.html#cb358-9"></a>    (<span class="st">&quot;p8&quot;</span>, [<span class="st">&quot;Condition 1&quot;</span>,<span class="st">&quot;Location B&quot;</span>]),</span>
-<span id="cb358-10"><a href="loops.html#cb358-10"></a>    (<span class="st">&quot;p9&quot;</span>, [<span class="st">&quot;Condition 2&quot;</span>,<span class="st">&quot;Location B&quot;</span>,<span class="st">&quot;withdrew&quot;</span>]),</span>
-<span id="cb358-11"><a href="loops.html#cb358-11"></a>    (<span class="st">&quot;p10&quot;</span>,[<span class="st">&quot;Condition 2&quot;</span>,<span class="st">&quot;Location A&quot;</span>,<span class="st">&quot;withdrew&quot;</span>])]</span></code></pre></div>
+<div class="sourceCode" id="cb366"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb366-1"><a href="loops.html#cb366-1" aria-hidden="true" tabindex="-1"></a>participants <span class="op">=</span> [</span>
+<span id="cb366-2"><a href="loops.html#cb366-2" aria-hidden="true" tabindex="-1"></a>    (<span class="st">&quot;p1&quot;</span>, [<span class="st">&quot;Condition 1&quot;</span>,<span class="st">&quot;Location A&quot;</span>,<span class="st">&quot;withdrew&quot;</span>,<span class="st">&quot;no audio&quot;</span>]),</span>
+<span id="cb366-3"><a href="loops.html#cb366-3" aria-hidden="true" tabindex="-1"></a>    (<span class="st">&quot;p2&quot;</span>, [<span class="st">&quot;Condition 1&quot;</span>,<span class="st">&quot;Location A&quot;</span>,<span class="st">&quot;no audio&quot;</span>,<span class="st">&quot;no video&quot;</span>]),</span>
+<span id="cb366-4"><a href="loops.html#cb366-4" aria-hidden="true" tabindex="-1"></a>    (<span class="st">&quot;p3&quot;</span>, [<span class="st">&quot;Condition 2&quot;</span>,<span class="st">&quot;Location B&quot;</span>]),</span>
+<span id="cb366-5"><a href="loops.html#cb366-5" aria-hidden="true" tabindex="-1"></a>    (<span class="st">&quot;p4&quot;</span>, [<span class="st">&quot;Condition 1&quot;</span>,<span class="st">&quot;Location A&quot;</span>,<span class="st">&quot;withdrew&quot;</span>]),</span>
+<span id="cb366-6"><a href="loops.html#cb366-6" aria-hidden="true" tabindex="-1"></a>    (<span class="st">&quot;p5&quot;</span>, [<span class="st">&quot;Condition 2&quot;</span>,<span class="st">&quot;Location A&quot;</span>]),</span>
+<span id="cb366-7"><a href="loops.html#cb366-7" aria-hidden="true" tabindex="-1"></a>    (<span class="st">&quot;p6&quot;</span>, [<span class="st">&quot;Condition 2&quot;</span>,<span class="st">&quot;Location B&quot;</span>,<span class="st">&quot;withdrew&quot;</span>]),</span>
+<span id="cb366-8"><a href="loops.html#cb366-8" aria-hidden="true" tabindex="-1"></a>    (<span class="st">&quot;p7&quot;</span>, [<span class="st">&quot;Condition 1&quot;</span>,<span class="st">&quot;Location A&quot;</span>,<span class="st">&quot;no video&quot;</span>]),</span>
+<span id="cb366-9"><a href="loops.html#cb366-9" aria-hidden="true" tabindex="-1"></a>    (<span class="st">&quot;p8&quot;</span>, [<span class="st">&quot;Condition 1&quot;</span>,<span class="st">&quot;Location B&quot;</span>]),</span>
+<span id="cb366-10"><a href="loops.html#cb366-10" aria-hidden="true" tabindex="-1"></a>    (<span class="st">&quot;p9&quot;</span>, [<span class="st">&quot;Condition 2&quot;</span>,<span class="st">&quot;Location B&quot;</span>,<span class="st">&quot;withdrew&quot;</span>]),</span>
+<span id="cb366-11"><a href="loops.html#cb366-11" aria-hidden="true" tabindex="-1"></a>    (<span class="st">&quot;p10&quot;</span>,[<span class="st">&quot;Condition 2&quot;</span>,<span class="st">&quot;Location A&quot;</span>,<span class="st">&quot;withdrew&quot;</span>])]</span></code></pre></div>
 <p>If we want to know how many participants withdrew their participation we need a counter, and for each participant we need a second loop that tests each of the experiment information in turn on the <code>"withdrew"</code> keyword:</p>
-<div class="sourceCode" id="cb359"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb359-1"><a href="loops.html#cb359-1"></a>counter <span class="op">=</span> <span class="dv">0</span></span>
-<span id="cb359-2"><a href="loops.html#cb359-2"></a><span class="cf">for</span> (participant, expInfo) <span class="kw">in</span> participants:</span>
-<span id="cb359-3"><a href="loops.html#cb359-3"></a>  <span class="cf">pass</span></span>
-<span id="cb359-4"><a href="loops.html#cb359-4"></a>        <span class="co"># to be implemented by you</span></span>
-<span id="cb359-5"><a href="loops.html#cb359-5"></a>        </span>
-<span id="cb359-6"><a href="loops.html#cb359-6"></a><span class="bu">print</span>(<span class="st">&quot;The number of participants who withdrew their participation is&quot;</span>, counter)</span></code></pre></div>
+<div class="sourceCode" id="cb367"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb367-1"><a href="loops.html#cb367-1" aria-hidden="true" tabindex="-1"></a>counter <span class="op">=</span> <span class="dv">0</span></span>
+<span id="cb367-2"><a href="loops.html#cb367-2" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (participant, expInfo) <span class="kw">in</span> participants:</span>
+<span id="cb367-3"><a href="loops.html#cb367-3" aria-hidden="true" tabindex="-1"></a>  <span class="cf">pass</span></span>
+<span id="cb367-4"><a href="loops.html#cb367-4" aria-hidden="true" tabindex="-1"></a>        <span class="co"># to be implemented by you</span></span>
+<span id="cb367-5"><a href="loops.html#cb367-5" aria-hidden="true" tabindex="-1"></a>        </span>
+<span id="cb367-6"><a href="loops.html#cb367-6" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">&quot;The number of participants who withdrew their participation is&quot;</span>, counter)</span></code></pre></div>
 <p>Implement the second <code>for</code> loop that iterates over the experiment information and count the number of participants who withdrew their participation.</p>
 </div>
-<div id="exercise-8.-data-transformation-using-loops" class="section level3">
+<div id="exercise-8.-data-transformation-using-loops" class="section level3" number="5.7.8">
 <h3><span class="header-section-number">5.7.8</span> Exercise 8. Data transformation using loops</h3>
 <ul>
 <li>Write a script that transforms the data set <code>participants</code> from Exercise 3 into a dictonary data set.</li>
 <li>Extend the script with a <code>counter</code> mechanism that counts the number of participants who were tested at location A and location B respectively.</li>
 </ul>
 </div>
-<div id="exercise-9.-calculating-a-mean" class="section level3">
+<div id="exercise-9.-calculating-a-mean" class="section level3" number="5.7.9">
 <h3><span class="header-section-number">5.7.9</span> Exercise 9. Calculating a mean</h3>
 <p>For the sequence <code>seq</code> calculate the arithmetic mean using a <code>while</code> loop. Check your implementation using the <code>mean()</code> method of the <code>NumPy</code> library.</p>
-<div class="sourceCode" id="cb360"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb360-1"><a href="loops.html#cb360-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
-<span id="cb360-2"><a href="loops.html#cb360-2"></a></span>
-<span id="cb360-3"><a href="loops.html#cb360-3"></a>seq <span class="op">=</span> <span class="bu">range</span>(<span class="dv">1000</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb368"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb368-1"><a href="loops.html#cb368-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb368-2"><a href="loops.html#cb368-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb368-3"><a href="loops.html#cb368-3" aria-hidden="true" tabindex="-1"></a>seq <span class="op">=</span> <span class="bu">range</span>(<span class="dv">1000</span>)</span></code></pre></div>
 </div>
 </div>
-<div id="think-further" class="section level2">
+<div id="think-further-4" class="section level2" number="5.8">
 <h2><span class="header-section-number">5.8</span> Think Further</h2>
 <ul>
 <li>Tutorial on String formatting. [Lisa Tagliaferri (2016). How To Use String Formatters in Python 3] (<a href="https://www.digitalocean.com/community/tutorials/how-to-use-string-formatters-in-python-3" class="uri">https://www.digitalocean.com/community/tutorials/how-to-use-string-formatters-in-python-3</a>) Though the heading says ‘Python 3’, all Lisa discusses in her tutorial also applies to Python 2.7.</li>
@@ -866,62 +912,24 @@ all_mean = all_sum/number_of_trials*len(data)</code></pre>
 
 </div>
 </div>
-            </section>
+<p style="text-align: center;">
+<a href="lists.html"><button class="btn btn-default">Previous</button></a>
+<a href="functions.html"><button class="btn btn-default">Next</button></a>
+</p>
+</div>
+</div>
 
-          </div>
-        </div>
-      </div>
-<a href="lists.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="functions.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
-    </div>
-  </div>
-<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
-<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
-<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
-<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
-<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
-<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
-<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
-<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
-<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+
+</div>
+
 <script>
-gitbook.require(["gitbook"], function(gitbook) {
-gitbook.start({
-"sharing": {
-"github": false,
-"facebook": true,
-"twitter": true,
-"linkedin": false,
-"weibo": false,
-"instapaper": false,
-"vk": false,
-"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
-},
-"fontsettings": {
-"theme": "white",
-"family": "sans",
-"size": 2
-},
-"edit": {
-"link": null,
-"text": null
-},
-"history": {
-"link": null,
-"text": null
-},
-"view": {
-"link": null,
-"text": null
-},
-"download": null,
-"toc": {
-"collapse": "subsection"
-}
+
+// add bootstrap table styles to pandoc tables
+$(document).ready(function () {
+  $('tr.header').parent('thead').parent('table').addClass('table table-condensed');
 });
-});
+
 </script>
 
 </body>
-
 </html>

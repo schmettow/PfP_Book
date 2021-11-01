@@ -2,56 +2,43 @@
 <html lang="" xml:lang="">
 <head>
 
-  <meta charset="utf-8" />
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Programming Interaction for Psychologists</title>
-  <meta name="description" content="Programming Interaction for Psychologists" />
-  <meta name="generator" content="bookdown 0.20 and GitBook 2.6.7" />
+<meta charset="utf-8" />
+<meta name="generator" content="pandoc" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta property="og:title" content="Programming Interaction for Psychologists" />
+<meta property="og:type" content="book" />
 
-  <meta property="og:title" content="Programming Interaction for Psychologists" />
-  <meta property="og:type" content="book" />
-  
-  
-  
-  <meta name="github-repo" content="schmettow/PfP_Book" />
 
-  <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Programming Interaction for Psychologists" />
-  
-  
-  
+
+<meta name="github-repo" content="schmettow/PfP_Book" />
 
 <meta name="author" content="Martin Schmettow and Lena Brandl" />
 
-
-<meta name="date" content="2020-10-28" />
-
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="apple-mobile-web-app-capable" content="yes" />
-  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
-  
-  
-
-<link rel="next" href="intro.html"/>
-<script src="libs/jquery-2.2.3/jquery.min.js"></script>
-<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
-<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
-<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
-<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
-<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
-<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
-<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+<meta name="date" content="2021-11-01" />
 
 
+<meta name="description" content="Programming Interaction for Psychologists">
 
+<title>Programming Interaction for Psychologists</title>
 
-
-
-
-
-
-<script src="libs/accessible-code-block-0.0.1/empty-anchor.js"></script>
-<script src="libs/htmlwidgets-1.5.1/htmlwidgets.js"></script>
+<script src="libs/header-attrs-2.8/header-attrs.js"></script>
+<script src="libs/jquery-1.11.3/jquery.min.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link href="libs/bootstrap-3.3.5/css/bootstrap.min.css" rel="stylesheet" />
+<script src="libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
+<script src="libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
+<script src="libs/bootstrap-3.3.5/shim/respond.min.js"></script>
+<style>h1 {font-size: 34px;}
+       h1.title {font-size: 38px;}
+       h2 {font-size: 30px;}
+       h3 {font-size: 24px;}
+       h4 {font-size: 18px;}
+       h5 {font-size: 16px;}
+       h6 {font-size: 12px;}
+       code {color: inherit; background-color: rgba(0, 0, 0, 0.04);}
+       pre:not([class]) { background-color: white }</style>
+<script src="libs/navigation-1.1/tabsets.js"></script>
+<script src="libs/htmlwidgets-1.5.3/htmlwidgets.js"></script>
 <script src="libs/d3-3.3.8/d3.min.js"></script>
 <script src="libs/dagre-0.4.0/dagre-d3.min.js"></script>
 <link href="libs/mermaid-0.3.0/dist/mermaid.css" rel="stylesheet" />
@@ -61,19 +48,21 @@
 <script src="libs/DiagrammeR-binding-1.0.6.1/DiagrammeR.js"></script>
 
 
+<style type="text/css">code{white-space: pre;}</style>
 <style type="text/css">
-code.sourceCode > span { display: inline-block; line-height: 1.25; }
-code.sourceCode > span { color: inherit; text-decoration: inherit; }
-code.sourceCode > span:empty { height: 1.2em; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
 .sourceCode { overflow: visible; }
-code.sourceCode { white-space: pre; position: relative; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
 pre.sourceCode { margin: 0; }
 @media screen {
 div.sourceCode { overflow: auto; }
 }
 @media print {
-code.sourceCode { white-space: pre-wrap; }
-code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
 }
 pre.numberSource code
   { counter-reset: source-line 0; }
@@ -93,7 +82,7 @@ pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-le
 div.sourceCode
   {   }
 @media screen {
-code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 code span.al { color: #ff0000; font-weight: bold; } /* Alert */
 code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
@@ -125,333 +114,351 @@ code span.va { color: #19177c; } /* Variable */
 code span.vs { color: #4070a0; } /* VerbatimString */
 code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
 </style>
+<style type="text/css">
+  pre:not([class]) {
+    background-color: white;
+  }
+</style>
 
+
+
+
+<style type = "text/css">
+.main-container {
+  max-width: 940px;
+  margin-left: auto;
+  margin-right: auto;
+}
+code {
+  color: inherit;
+  background-color: rgba(0, 0, 0, 0.04);
+}
+img {
+  max-width:100%;
+  height: auto;
+}
+/* show arrow before summary tag as in bootstrap
+TODO: remove if boostrap in updated in html_document (rmarkdown#1485) */
+details > summary {
+  display: list-item;
+  cursor: pointer;
+}
+</style>
 </head>
 
 <body>
 
+<div class="container-fluid main-container">
 
 
-  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
-
-    <div class="book-summary">
-      <nav role="navigation">
-
-<ul class="summary">
-<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Preface</a></li>
-<li class="chapter" data-level="1" data-path="intro.html"><a href="intro.html"><i class="fa fa-check"></i><b>1</b> Introduction</a><ul>
-<li class="chapter" data-level="1.1" data-path="intro.html"><a href="intro.html#installing-a-python-environment"><i class="fa fa-check"></i><b>1.1</b> Installing a Python environment</a></li>
-<li class="chapter" data-level="1.2" data-path="intro.html"><a href="intro.html#installing-the-anaconda-python-environment"><i class="fa fa-check"></i><b>1.2</b> Installing the Anaconda Python environment</a></li>
-<li class="chapter" data-level="1.3" data-path="intro.html"><a href="intro.html#windows"><i class="fa fa-check"></i><b>1.3</b> Windows</a></li>
-<li class="chapter" data-level="1.4" data-path="intro.html"><a href="intro.html#macos"><i class="fa fa-check"></i><b>1.4</b> MacOS</a></li>
-<li class="chapter" data-level="1.5" data-path="intro.html"><a href="intro.html#testing-your-environment"><i class="fa fa-check"></i><b>1.5</b> Testing your environment</a></li>
-<li class="chapter" data-level="1.6" data-path="intro.html"><a href="intro.html#dumb_computers"><i class="fa fa-check"></i><b>1.6</b> Computers are dumb</a></li>
-<li class="chapter" data-level="1.7" data-path="intro.html"><a href="intro.html#dive-in-a-first-example"><i class="fa fa-check"></i><b>1.7</b> Dive in: a first example</a></li>
-<li class="chapter" data-level="1.8" data-path="intro.html"><a href="intro.html#exercises"><i class="fa fa-check"></i><b>1.8</b> Exercises</a></li>
-</ul></li>
-<li class="chapter" data-level="2" data-path="variables.html"><a href="variables.html"><i class="fa fa-check"></i><b>2</b> Variables, values and types</a><ul>
-<li class="chapter" data-level="2.1" data-path="variables.html"><a href="variables.html#variables-1"><i class="fa fa-check"></i><b>2.1</b> Variables</a></li>
-<li class="chapter" data-level="2.2" data-path="variables.html"><a href="variables.html#stroop-task-variables"><i class="fa fa-check"></i><b>2.2</b> Stroop Task variables</a></li>
-<li class="chapter" data-level="2.3" data-path="variables.html"><a href="variables.html#how-variables-are-used"><i class="fa fa-check"></i><b>2.3</b> How Variables Are Used</a></li>
-<li class="chapter" data-level="2.4" data-path="variables.html"><a href="variables.html#data-types"><i class="fa fa-check"></i><b>2.4</b> Data types</a><ul>
-<li class="chapter" data-level="2.4.1" data-path="variables.html"><a href="variables.html#numbers"><i class="fa fa-check"></i><b>2.4.1</b> Numbers</a></li>
-<li class="chapter" data-level="2.4.2" data-path="variables.html"><a href="variables.html#strings"><i class="fa fa-check"></i><b>2.4.2</b> Strings</a></li>
-<li class="chapter" data-level="2.4.3" data-path="variables.html"><a href="variables.html#booleans"><i class="fa fa-check"></i><b>2.4.3</b> Booleans</a></li>
-</ul></li>
-<li class="chapter" data-level="2.5" data-path="variables.html"><a href="variables.html#common-errors"><i class="fa fa-check"></i><b>2.5</b> Common errors</a></li>
-<li class="chapter" data-level="2.6" data-path="variables.html"><a href="variables.html#debugging"><i class="fa fa-check"></i><b>2.6</b> Debugging</a></li>
-<li class="chapter" data-level="2.7" data-path="intro.html"><a href="intro.html#exercises"><i class="fa fa-check"></i><b>2.7</b> Exercises</a><ul>
-<li class="chapter" data-level="2.7.1" data-path="variables.html"><a href="variables.html#exercise-1.-operators"><i class="fa fa-check"></i><b>2.7.1</b> Exercise 1. Operators</a></li>
-<li class="chapter" data-level="2.7.2" data-path="variables.html"><a href="variables.html#exercise-2.-values"><i class="fa fa-check"></i><b>2.7.2</b> Exercise 2. Values</a></li>
-<li class="chapter" data-level="2.7.3" data-path="variables.html"><a href="variables.html#exercise-3.-mini-programs"><i class="fa fa-check"></i><b>2.7.3</b> Exercise 3. Mini programs</a></li>
-<li class="chapter" data-level="2.7.4" data-path="variables.html"><a href="variables.html#exercise-4.-debugging"><i class="fa fa-check"></i><b>2.7.4</b> Exercise 4. Debugging</a></li>
-<li class="chapter" data-level="2.7.5" data-path="variables.html"><a href="variables.html#exercise-5.-string-concatenation"><i class="fa fa-check"></i><b>2.7.5</b> Exercise 5. String concatenation</a></li>
-<li class="chapter" data-level="2.7.6" data-path="variables.html"><a href="variables.html#exercise-6.-variable-names"><i class="fa fa-check"></i><b>2.7.6</b> Exercise 6. Variable names</a></li>
-<li class="chapter" data-level="2.7.7" data-path="variables.html"><a href="variables.html#exercise-7.-stroop-task-welcome-message"><i class="fa fa-check"></i><b>2.7.7</b> Exercise 7. Stroop task welcome message</a></li>
-<li class="chapter" data-level="2.7.8" data-path="variables.html"><a href="variables.html#exercise-8.-printing"><i class="fa fa-check"></i><b>2.7.8</b> Exercise 8. Printing</a></li>
-<li class="chapter" data-level="2.7.9" data-path="variables.html"><a href="variables.html#exercise-9.-using-python-as-a-calculator"><i class="fa fa-check"></i><b>2.7.9</b> Exercise 9. Using Python as a calculator</a></li>
-<li class="chapter" data-level="2.7.10" data-path="variables.html"><a href="variables.html#exercise-10.-a-boolean-puzzle"><i class="fa fa-check"></i><b>2.7.10</b> Exercise 10. A Boolean puzzle</a></li>
-</ul></li>
-<li class="chapter" data-level="2.8" data-path="variables.html"><a href="variables.html#think-further"><i class="fa fa-check"></i><b>2.8</b> Think Further</a></li>
-</ul></li>
-<li class="chapter" data-level="3" data-path="conditionals.html"><a href="conditionals.html"><i class="fa fa-check"></i><b>3</b> Conditionals</a><ul>
-<li class="chapter" data-level="3.1" data-path="conditionals.html"><a href="conditionals.html#boolean-logic"><i class="fa fa-check"></i><b>3.1</b> Boolean logic</a></li>
-<li class="chapter" data-level="3.2" data-path="conditionals.html"><a href="conditionals.html#if-then"><i class="fa fa-check"></i><b>3.2</b> if this is true, then do this</a></li>
-<li class="chapter" data-level="3.3" data-path="conditionals.html"><a href="conditionals.html#else-do-that"><i class="fa fa-check"></i><b>3.3</b> else do that</a></li>
-<li class="chapter" data-level="3.4" data-path="conditionals.html"><a href="conditionals.html#bringing-interaction-to-life-conditional-state-transitions"><i class="fa fa-check"></i><b>3.4</b> Bringing interaction to life: Conditional state transitions</a><ul>
-<li class="chapter" data-level="3.4.1" data-path="conditionals.html"><a href="conditionals.html#transition-tables"><i class="fa fa-check"></i><b>3.4.1</b> Transition tables</a></li>
-<li class="chapter" data-level="3.4.2" data-path="conditionals.html"><a href="conditionals.html#state-charts"><i class="fa fa-check"></i><b>3.4.2</b> State charts</a></li>
-</ul></li>
-<li class="chapter" data-level="3.5" data-path="variables.html"><a href="variables.html#common-errors"><i class="fa fa-check"></i><b>3.5</b> Common errors</a></li>
-<li class="chapter" data-level="3.6" data-path="variables.html"><a href="variables.html#debugging"><i class="fa fa-check"></i><b>3.6</b> Debugging</a></li>
-<li class="chapter" data-level="3.7" data-path="intro.html"><a href="intro.html#exercises"><i class="fa fa-check"></i><b>3.7</b> Exercises</a><ul>
-<li class="chapter" data-level="3.7.1" data-path="conditionals.html"><a href="conditionals.html#exercise-1.-boolean-logic"><i class="fa fa-check"></i><b>3.7.1</b> Exercise 1. Boolean logic</a></li>
-<li class="chapter" data-level="3.7.2" data-path="conditionals.html"><a href="conditionals.html#exercise-2.-state-charts"><i class="fa fa-check"></i><b>3.7.2</b> Exercise 2. State charts</a></li>
-<li class="chapter" data-level="3.7.3" data-path="conditionals.html"><a href="conditionals.html#exercise-3.-transition-tables"><i class="fa fa-check"></i><b>3.7.3</b> Exercise 3. Transition tables</a></li>
-<li class="chapter" data-level="3.7.4" data-path="conditionals.html"><a href="conditionals.html#exercise-4.-mini-programs"><i class="fa fa-check"></i><b>3.7.4</b> Exercise 4. Mini programs</a></li>
-<li class="chapter" data-level="3.7.5" data-path="conditionals.html"><a href="conditionals.html#exercise-5.-following-the-control-flow"><i class="fa fa-check"></i><b>3.7.5</b> Exercise 5. Following the control flow</a></li>
-<li class="chapter" data-level="3.7.6" data-path="conditionals.html"><a href="conditionals.html#exercise-6.-indentation"><i class="fa fa-check"></i><b>3.7.6</b> Exercise 6. Indentation</a></li>
-<li class="chapter" data-level="3.7.7" data-path="conditionals.html"><a href="conditionals.html#exercise-7.-pseudo-code-conditionals"><i class="fa fa-check"></i><b>3.7.7</b> Exercise 7. Pseudo code conditionals</a></li>
-<li class="chapter" data-level="3.7.8" data-path="conditionals.html"><a href="conditionals.html#exercise-8.-modify-stroop-task"><i class="fa fa-check"></i><b>3.7.8</b> Exercise 8. Modify Stroop Task</a></li>
-<li class="chapter" data-level="3.7.9" data-path="conditionals.html"><a href="conditionals.html#exercise-9.-simplify-nested-conditionals"><i class="fa fa-check"></i><b>3.7.9</b> Exercise 9. Simplify nested conditionals</a></li>
-<li class="chapter" data-level="3.7.10" data-path="conditionals.html"><a href="conditionals.html#exercise-10.-flow-chart-conditionals"><i class="fa fa-check"></i><b>3.7.10</b> Exercise 10. Flow chart conditionals</a></li>
-</ul></li>
-<li class="chapter" data-level="3.8" data-path="variables.html"><a href="variables.html#think-further"><i class="fa fa-check"></i><b>3.8</b> Think Further</a></li>
-</ul></li>
-<li class="chapter" data-level="4" data-path="lists.html"><a href="lists.html"><i class="fa fa-check"></i><b>4</b> Lists</a><ul>
-<li class="chapter" data-level="4.1" data-path="lists.html"><a href="lists.html#lists-1"><i class="fa fa-check"></i><b>4.1</b> Lists</a><ul>
-<li class="chapter" data-level="4.1.1" data-path="lists.html"><a href="lists.html#lists-are-mutable"><i class="fa fa-check"></i><b>4.1.1</b> Lists are mutable</a></li>
-</ul></li>
-<li class="chapter" data-level="4.2" data-path="lists.html"><a href="lists.html#tuples"><i class="fa fa-check"></i><b>4.2</b> Tuples</a></li>
-<li class="chapter" data-level="4.3" data-path="lists.html"><a href="lists.html#dictionaries"><i class="fa fa-check"></i><b>4.3</b> Dictionaries</a></li>
-<li class="chapter" data-level="4.4" data-path="lists.html"><a href="lists.html#putting-collections-to-use"><i class="fa fa-check"></i><b>4.4</b> Putting collections to use</a></li>
-<li class="chapter" data-level="4.5" data-path="variables.html"><a href="variables.html#common-errors"><i class="fa fa-check"></i><b>4.5</b> Common errors</a></li>
-<li class="chapter" data-level="4.6" data-path="variables.html"><a href="variables.html#debugging"><i class="fa fa-check"></i><b>4.6</b> Debugging</a></li>
-<li class="chapter" data-level="4.7" data-path="intro.html"><a href="intro.html#exercises"><i class="fa fa-check"></i><b>4.7</b> Exercises</a><ul>
-<li class="chapter" data-level="4.7.1" data-path="lists.html"><a href="lists.html#exercise-1.-indexing"><i class="fa fa-check"></i><b>4.7.1</b> Exercise 1. Indexing</a></li>
-<li class="chapter" data-level="4.7.2" data-path="lists.html"><a href="lists.html#exercise-2.-debugging"><i class="fa fa-check"></i><b>4.7.2</b> Exercise 2. Debugging</a></li>
-<li class="chapter" data-level="4.7.3" data-path="variables.html"><a href="variables.html#exercise-3.-mini-programs"><i class="fa fa-check"></i><b>4.7.3</b> Exercise 3. Mini programs</a></li>
-<li class="chapter" data-level="4.7.4" data-path="lists.html"><a href="lists.html#exercise-4.-shopping-list"><i class="fa fa-check"></i><b>4.7.4</b> Exercise 4. Shopping list</a></li>
-<li class="chapter" data-level="4.7.5" data-path="lists.html"><a href="lists.html#exercise-5.-dictionaries"><i class="fa fa-check"></i><b>4.7.5</b> Exercise 5. Dictionaries</a></li>
-<li class="chapter" data-level="4.7.6" data-path="lists.html"><a href="lists.html#exercise-6.-element-selection"><i class="fa fa-check"></i><b>4.7.6</b> Exercise 6. Element selection</a></li>
-<li class="chapter" data-level="4.7.7" data-path="lists.html"><a href="lists.html#exercise-7.-adjust-a-dictionary-data-set"><i class="fa fa-check"></i><b>4.7.7</b> Exercise 7. Adjust a dictionary data set</a></li>
-<li class="chapter" data-level="4.7.8" data-path="lists.html"><a href="lists.html#exercise-8.-a-dictionary-data-set"><i class="fa fa-check"></i><b>4.7.8</b> Exercise 8. A dictionary data set</a></li>
-<li class="chapter" data-level="4.7.9" data-path="lists.html"><a href="lists.html#exercise-9.-stroop-extension"><i class="fa fa-check"></i><b>4.7.9</b> Exercise 9. Stroop extension</a></li>
-</ul></li>
-<li class="chapter" data-level="4.8" data-path="variables.html"><a href="variables.html#think-further"><i class="fa fa-check"></i><b>4.8</b> Think further</a></li>
-</ul></li>
-<li class="chapter" data-level="5" data-path="loops.html"><a href="loops.html"><i class="fa fa-check"></i><b>5</b> Loops</a><ul>
-<li class="chapter" data-level="5.1" data-path="loops.html"><a href="loops.html#the-for-loop"><i class="fa fa-check"></i><b>5.1</b> The <code>for</code> loop</a></li>
-<li class="chapter" data-level="5.2" data-path="loops.html"><a href="loops.html#the-while-loop"><i class="fa fa-check"></i><b>5.2</b> The <code>while</code> loop</a><ul>
-<li class="chapter" data-level="5.2.1" data-path="loops.html"><a href="loops.html#for-or-while"><i class="fa fa-check"></i><b>5.2.1</b> <code>for</code> or <code>while</code>?</a></li>
-</ul></li>
-<li class="chapter" data-level="5.3" data-path="loops.html"><a href="loops.html#the-break-statement"><i class="fa fa-check"></i><b>5.3</b> The <code>break</code> statement</a></li>
-<li class="chapter" data-level="5.4" data-path="loops.html"><a href="loops.html#controlling-the-flow-of-your-program-with-loops"><i class="fa fa-check"></i><b>5.4</b> Controlling the flow of your program with loops</a></li>
-<li class="chapter" data-level="5.5" data-path="variables.html"><a href="variables.html#common-errors"><i class="fa fa-check"></i><b>5.5</b> Common errors</a></li>
-<li class="chapter" data-level="5.6" data-path="variables.html"><a href="variables.html#debugging"><i class="fa fa-check"></i><b>5.6</b> Debugging</a></li>
-<li class="chapter" data-level="5.7" data-path="intro.html"><a href="intro.html#exercises"><i class="fa fa-check"></i><b>5.7</b> Exercises</a><ul>
-<li class="chapter" data-level="5.7.1" data-path="loops.html"><a href="loops.html#exercise-1.-following-the-control-flow-i"><i class="fa fa-check"></i><b>5.7.1</b> Exercise 1. Following the control flow I</a></li>
-<li class="chapter" data-level="5.7.2" data-path="loops.html"><a href="loops.html#exercise-2.-debugging-i"><i class="fa fa-check"></i><b>5.7.2</b> Exercise 2. Debugging I</a></li>
-<li class="chapter" data-level="5.7.3" data-path="loops.html"><a href="loops.html#exercise-3.-a-guessing-game"><i class="fa fa-check"></i><b>5.7.3</b> Exercise 3. A guessing game</a></li>
-<li class="chapter" data-level="5.7.4" data-path="loops.html"><a href="loops.html#exercise-4.-controlling-the-flow"><i class="fa fa-check"></i><b>5.7.4</b> Exercise 4. Controlling the flow</a></li>
-<li class="chapter" data-level="5.7.5" data-path="loops.html"><a href="loops.html#exercise-5.-following-the-control-flow-ii"><i class="fa fa-check"></i><b>5.7.5</b> Exercise 5. Following the control flow II</a></li>
-<li class="chapter" data-level="5.7.6" data-path="loops.html"><a href="loops.html#exercise-6.-debugging-ii"><i class="fa fa-check"></i><b>5.7.6</b> Exercise 6. Debugging II</a></li>
-<li class="chapter" data-level="5.7.7" data-path="loops.html"><a href="loops.html#exercise-7.-nested-loops"><i class="fa fa-check"></i><b>5.7.7</b> Exercise 7. Nested loops</a></li>
-<li class="chapter" data-level="5.7.8" data-path="loops.html"><a href="loops.html#exercise-8.-data-transformation-using-loops"><i class="fa fa-check"></i><b>5.7.8</b> Exercise 8. Data transformation using loops</a></li>
-<li class="chapter" data-level="5.7.9" data-path="loops.html"><a href="loops.html#exercise-9.-calculating-a-mean"><i class="fa fa-check"></i><b>5.7.9</b> Exercise 9. Calculating a mean</a></li>
-</ul></li>
-<li class="chapter" data-level="5.8" data-path="variables.html"><a href="variables.html#think-further"><i class="fa fa-check"></i><b>5.8</b> Think Further</a></li>
-</ul></li>
-<li class="chapter" data-level="6" data-path="functions.html"><a href="functions.html"><i class="fa fa-check"></i><b>6</b> Functions</a><ul>
-<li class="chapter" data-level="6.1" data-path="functions.html"><a href="functions.html#defining-and-calling-functions"><i class="fa fa-check"></i><b>6.1</b> Defining and calling functions</a></li>
-<li class="chapter" data-level="6.2" data-path="functions.html"><a href="functions.html#function-parameters-and-arguments"><i class="fa fa-check"></i><b>6.2</b> Function parameters and arguments</a></li>
-<li class="chapter" data-level="6.3" data-path="functions.html"><a href="functions.html#the-return-statement"><i class="fa fa-check"></i><b>6.3</b> The <code>return</code> statement</a></li>
-<li class="chapter" data-level="6.4" data-path="functions.html"><a href="functions.html#functions-can-call-other-functions-and-themselves"><i class="fa fa-check"></i><b>6.4</b> Functions can call other functions, and themselves</a><ul>
-<li class="chapter" data-level="6.4.1" data-path="functions.html"><a href="functions.html#a-word-about-recursion"><i class="fa fa-check"></i><b>6.4.1</b> A word about <em>Recursion</em></a></li>
-</ul></li>
-<li class="chapter" data-level="6.5" data-path="functions.html"><a href="functions.html#stroop-functions"><i class="fa fa-check"></i><b>6.5</b> Stroop functions</a></li>
-<li class="chapter" data-level="6.6" data-path="variables.html"><a href="variables.html#common-errors"><i class="fa fa-check"></i><b>6.6</b> Common errors</a></li>
-<li class="chapter" data-level="6.7" data-path="intro.html"><a href="intro.html#exercises"><i class="fa fa-check"></i><b>6.7</b> Exercises</a><ul>
-<li class="chapter" data-level="6.7.1" data-path="functions.html"><a href="functions.html#exercise-1.-following-the-control-flow"><i class="fa fa-check"></i><b>6.7.1</b> Exercise 1. Following the control flow</a></li>
-<li class="chapter" data-level="6.7.2" data-path="functions.html"><a href="functions.html#exercise-2.-an-imperfect-list-sorting-attempt"><i class="fa fa-check"></i><b>6.7.2</b> Exercise 2. An imperfect list sorting attempt</a></li>
-<li class="chapter" data-level="6.7.3" data-path="functions.html"><a href="functions.html#exercise-3.-an-erroneous-sorting-algorithm"><i class="fa fa-check"></i><b>6.7.3</b> Exercise 3. An erroneous sorting algorithm</a></li>
-<li class="chapter" data-level="6.7.4" data-path="functions.html"><a href="functions.html#exercise-4.-chunking"><i class="fa fa-check"></i><b>6.7.4</b> Exercise 4. Chunking</a></li>
-<li class="chapter" data-level="6.7.5" data-path="functions.html"><a href="functions.html#exercise-5.-add-functionality-to-the-stroop-task"><i class="fa fa-check"></i><b>6.7.5</b> Exercise 5. Add functionality to the stroop task</a></li>
-<li class="chapter" data-level="6.7.6" data-path="functions.html"><a href="functions.html#exercise-6.-insertion-sort-algorithm"><i class="fa fa-check"></i><b>6.7.6</b> Exercise 6. Insertion sort algorithm</a></li>
-</ul></li>
-<li class="chapter" data-level="6.8" data-path="variables.html"><a href="variables.html#think-further"><i class="fa fa-check"></i><b>6.8</b> Think further</a></li>
-<li class="chapter" data-level="6.9" data-path="functions.html"><a href="functions.html#references"><i class="fa fa-check"></i><b>6.9</b> References</a></li>
-</ul></li>
-<li class="chapter" data-level="7" data-path="data.html"><a href="data.html"><i class="fa fa-check"></i><b>7</b> Working with data</a><ul>
-<li class="chapter" data-level="7.1" data-path="data.html"><a href="data.html#elements-of-data-processing"><i class="fa fa-check"></i><b>7.1</b> Elements of data processing</a></li>
-<li class="chapter" data-level="7.2" data-path="data.html"><a href="data.html#data-tables"><i class="fa fa-check"></i><b>7.2</b> Data tables</a></li>
-<li class="chapter" data-level="7.3" data-path="data.html"><a href="data.html#down-the-sink-writing-data-files"><i class="fa fa-check"></i><b>7.3</b> Down the sink: Writing data files</a></li>
-<li class="chapter" data-level="7.4" data-path="data.html"><a href="data.html#may-the-source-reading-data-files"><i class="fa fa-check"></i><b>7.4</b> May the source …: reading data files</a></li>
-<li class="chapter" data-level="7.5" data-path="intro.html"><a href="intro.html#exercises"><i class="fa fa-check"></i><b>7.5</b> Exercises</a><ul>
-<li class="chapter" data-level="7.5.1" data-path="data.html"><a href="data.html#exercise-1"><i class="fa fa-check"></i><b>7.5.1</b> Exercise 1</a></li>
-<li class="chapter" data-level="7.5.2" data-path="data.html"><a href="data.html#exercise-2"><i class="fa fa-check"></i><b>7.5.2</b> Exercise 2</a></li>
-</ul></li>
-<li class="chapter" data-level="7.6" data-path="variables.html"><a href="variables.html#think-further"><i class="fa fa-check"></i><b>7.6</b> Think further</a></li>
-<li class="chapter" data-level="7.7" data-path="functions.html"><a href="functions.html#references"><i class="fa fa-check"></i><b>7.7</b> References</a></li>
-</ul></li>
-<li class="chapter" data-level="8" data-path="interaction.html"><a href="interaction.html"><i class="fa fa-check"></i><b>8</b> Interaction</a><ul>
-<li class="chapter" data-level="8.1" data-path="interaction.html"><a href="interaction.html#interaction-models"><i class="fa fa-check"></i><b>8.1</b> Interaction models</a><ul>
-<li class="chapter" data-level="8.1.1" data-path="interaction.html"><a href="interaction.html#identifying-states"><i class="fa fa-check"></i><b>8.1.1</b> Identifying states</a></li>
-<li class="chapter" data-level="8.1.2" data-path="interaction.html"><a href="interaction.html#identifying-transitions"><i class="fa fa-check"></i><b>8.1.2</b> Identifying transitions</a></li>
-<li class="chapter" data-level="8.1.3" data-path="interaction.html"><a href="interaction.html#events-user-input-and-internal-conditions"><i class="fa fa-check"></i><b>8.1.3</b> Events: user input and internal conditions</a></li>
-<li class="chapter" data-level="8.1.4" data-path="intro.html"><a href="intro.html#exercises"><i class="fa fa-check"></i><b>8.1.4</b> Exercises</a></li>
-</ul></li>
-<li class="chapter" data-level="8.2" data-path="interaction.html"><a href="interaction.html#programming-interactive-prototypes"><i class="fa fa-check"></i><b>8.2</b> Programming interactive prototypes</a><ul>
-<li class="chapter" data-level="8.2.1" data-path="interaction.html"><a href="interaction.html#interactive-transitionals"><i class="fa fa-check"></i><b>8.2.1</b> Interactive transitionals</a></li>
-<li class="chapter" data-level="8.2.2" data-path="interaction.html"><a href="interaction.html#automatic-transitions"><i class="fa fa-check"></i><b>8.2.2</b> Automatic transitions</a></li>
-<li class="chapter" data-level="8.2.3" data-path="interaction.html"><a href="interaction.html#the-timestamp-method"><i class="fa fa-check"></i><b>8.2.3</b> The timestamp method</a></li>
-<li class="chapter" data-level="8.2.4" data-path="interaction.html"><a href="interaction.html#presentation-conditionals"><i class="fa fa-check"></i><b>8.2.4</b> Presentation conditionals</a></li>
-</ul></li>
-<li class="chapter" data-level="8.3" data-path="interaction.html"><a href="interaction.html#interactions-in-pygame"><i class="fa fa-check"></i><b>8.3</b> Interactions in Pygame</a><ul>
-<li class="chapter" data-level="8.3.1" data-path="interaction.html"><a href="interaction.html#overall-structure"><i class="fa fa-check"></i><b>8.3.1</b> Overall structure</a></li>
-<li class="chapter" data-level="8.3.2" data-path="interaction.html"><a href="interaction.html#the-screen-and-the-refresh-loop."><i class="fa fa-check"></i><b>8.3.2</b> The screen and the refresh loop.</a></li>
-<li class="chapter" data-level="8.3.3" data-path="interaction.html"><a href="interaction.html#handling-user-input"><i class="fa fa-check"></i><b>8.3.3</b> Handling user input</a></li>
-<li class="chapter" data-level="8.3.4" data-path="interaction.html"><a href="interaction.html#transitionals"><i class="fa fa-check"></i><b>8.3.4</b> Transitionals</a></li>
-<li class="chapter" data-level="8.3.5" data-path="interaction.html"><a href="interaction.html#pygame-events"><i class="fa fa-check"></i><b>8.3.5</b> Pygame events</a></li>
-</ul></li>
-<li class="chapter" data-level="8.4" data-path="interaction.html"><a href="interaction.html#presentitionals-in-pygame"><i class="fa fa-check"></i><b>8.4</b> Presentitionals in Pygame</a><ul>
-<li class="chapter" data-level="8.4.1" data-path="interaction.html"><a href="interaction.html#display-and-surface"><i class="fa fa-check"></i><b>8.4.1</b> Display and surface</a></li>
-<li class="chapter" data-level="8.4.2" data-path="interaction.html"><a href="interaction.html#drawing-figures"><i class="fa fa-check"></i><b>8.4.2</b> Drawing figures</a></li>
-<li class="chapter" data-level="8.4.3" data-path="interaction.html"><a href="interaction.html#placing-text-and-pictures"><i class="fa fa-check"></i><b>8.4.3</b> Placing text and pictures</a></li>
-</ul></li>
-<li class="chapter" data-level="8.5" data-path="interaction.html"><a href="interaction.html#exercises-1"><i class="fa fa-check"></i><b>8.5</b> Exercises</a><ul>
-<li class="chapter" data-level="8.5.1" data-path="interaction.html"><a href="interaction.html#exercise-c.-transition-tables"><i class="fa fa-check"></i><b>8.5.1</b> Exercise C. Transition tables</a></li>
-</ul></li>
-<li class="chapter" data-level="8.6" data-path="variables.html"><a href="variables.html#common-errors"><i class="fa fa-check"></i><b>8.6</b> Common errors</a></li>
-<li class="chapter" data-level="8.7" data-path="variables.html"><a href="variables.html#think-further"><i class="fa fa-check"></i><b>8.7</b> Think Further</a></li>
-</ul></li>
-<li class="chapter" data-level="9" data-path="solutions.html"><a href="solutions.html"><i class="fa fa-check"></i><b>9</b> Solutions</a><ul>
-<li class="chapter" data-level="9.1" data-path="solutions.html"><a href="solutions.html#chapter-1.-introduction"><i class="fa fa-check"></i><b>9.1</b> Chapter 1. Introduction</a></li>
-<li class="chapter" data-level="9.2" data-path="solutions.html"><a href="solutions.html#chapter-2.-variables-values-and-types"><i class="fa fa-check"></i><b>9.2</b> Chapter 2. Variables, values and types</a><ul>
-<li class="chapter" data-level="9.2.1" data-path="variables.html"><a href="variables.html#exercise-1.-operators"><i class="fa fa-check"></i><b>9.2.1</b> Exercise 1. Operators</a></li>
-<li class="chapter" data-level="9.2.2" data-path="variables.html"><a href="variables.html#exercise-2.-values"><i class="fa fa-check"></i><b>9.2.2</b> Exercise 2. Values</a></li>
-<li class="chapter" data-level="9.2.3" data-path="variables.html"><a href="variables.html#exercise-3.-mini-programs"><i class="fa fa-check"></i><b>9.2.3</b> Exercise 3. Mini programs</a></li>
-<li class="chapter" data-level="9.2.4" data-path="variables.html"><a href="variables.html#exercise-4.-debugging"><i class="fa fa-check"></i><b>9.2.4</b> Exercise 4. Debugging</a></li>
-<li class="chapter" data-level="9.2.5" data-path="variables.html"><a href="variables.html#exercise-5.-string-concatenation"><i class="fa fa-check"></i><b>9.2.5</b> Exercise 5. String concatenation</a></li>
-<li class="chapter" data-level="9.2.6" data-path="variables.html"><a href="variables.html#exercise-6.-variable-names"><i class="fa fa-check"></i><b>9.2.6</b> Exercise 6. Variable names</a></li>
-<li class="chapter" data-level="9.2.7" data-path="variables.html"><a href="variables.html#exercise-7.-stroop-task-welcome-message"><i class="fa fa-check"></i><b>9.2.7</b> Exercise 7. Stroop task welcome message</a></li>
-<li class="chapter" data-level="9.2.8" data-path="variables.html"><a href="variables.html#exercise-8.-printing"><i class="fa fa-check"></i><b>9.2.8</b> Exercise 8. Printing</a></li>
-<li class="chapter" data-level="9.2.9" data-path="solutions.html"><a href="solutions.html#exercise-9.-using-python-as-calculator"><i class="fa fa-check"></i><b>9.2.9</b> Exercise 9. Using Python as calculator</a></li>
-<li class="chapter" data-level="9.2.10" data-path="variables.html"><a href="variables.html#exercise-10.-a-boolean-puzzle"><i class="fa fa-check"></i><b>9.2.10</b> Exercise 10. A Boolean puzzle</a></li>
-</ul></li>
-<li class="chapter" data-level="9.3" data-path="solutions.html"><a href="solutions.html#chapter-3.-conditionals"><i class="fa fa-check"></i><b>9.3</b> Chapter 3. Conditionals</a><ul>
-<li class="chapter" data-level="9.3.1" data-path="conditionals.html"><a href="conditionals.html#exercise-1.-boolean-logic"><i class="fa fa-check"></i><b>9.3.1</b> Exercise 1. Boolean logic</a></li>
-<li class="chapter" data-level="9.3.2" data-path="conditionals.html"><a href="conditionals.html#exercise-2.-state-charts"><i class="fa fa-check"></i><b>9.3.2</b> Exercise 2. State charts</a></li>
-<li class="chapter" data-level="9.3.3" data-path="conditionals.html"><a href="conditionals.html#exercise-3.-transition-tables"><i class="fa fa-check"></i><b>9.3.3</b> Exercise 3. Transition tables</a></li>
-<li class="chapter" data-level="9.3.4" data-path="conditionals.html"><a href="conditionals.html#exercise-4.-mini-programs"><i class="fa fa-check"></i><b>9.3.4</b> Exercise 4. Mini programs</a></li>
-<li class="chapter" data-level="9.3.5" data-path="conditionals.html"><a href="conditionals.html#exercise-5.-following-the-control-flow"><i class="fa fa-check"></i><b>9.3.5</b> Exercise 5. Following the control flow</a></li>
-<li class="chapter" data-level="9.3.6" data-path="conditionals.html"><a href="conditionals.html#exercise-6.-indentation"><i class="fa fa-check"></i><b>9.3.6</b> Exercise 6. Indentation</a></li>
-<li class="chapter" data-level="9.3.7" data-path="conditionals.html"><a href="conditionals.html#exercise-7.-pseudo-code-conditionals"><i class="fa fa-check"></i><b>9.3.7</b> Exercise 7. Pseudo code conditionals</a></li>
-<li class="chapter" data-level="9.3.8" data-path="conditionals.html"><a href="conditionals.html#exercise-8.-modify-stroop-task"><i class="fa fa-check"></i><b>9.3.8</b> Exercise 8. Modify Stroop Task</a></li>
-<li class="chapter" data-level="9.3.9" data-path="conditionals.html"><a href="conditionals.html#exercise-9.-simplify-nested-conditionals"><i class="fa fa-check"></i><b>9.3.9</b> Exercise 9. Simplify nested conditionals</a></li>
-<li class="chapter" data-level="9.3.10" data-path="conditionals.html"><a href="conditionals.html#exercise-10.-flow-chart-conditionals"><i class="fa fa-check"></i><b>9.3.10</b> Exercise 10. Flow chart conditionals</a></li>
-</ul></li>
-<li class="chapter" data-level="9.4" data-path="solutions.html"><a href="solutions.html#chapter-4.-lists"><i class="fa fa-check"></i><b>9.4</b> Chapter 4. Lists</a><ul>
-<li class="chapter" data-level="9.4.1" data-path="lists.html"><a href="lists.html#exercise-1.-indexing"><i class="fa fa-check"></i><b>9.4.1</b> Exercise 1. Indexing</a></li>
-<li class="chapter" data-level="9.4.2" data-path="lists.html"><a href="lists.html#exercise-2.-debugging"><i class="fa fa-check"></i><b>9.4.2</b> Exercise 2. Debugging</a></li>
-<li class="chapter" data-level="9.4.3" data-path="solutions.html"><a href="solutions.html#exercise-3.-mini-programs-1"><i class="fa fa-check"></i><b>9.4.3</b> Exercise 3. Mini programs</a></li>
-<li class="chapter" data-level="9.4.4" data-path="solutions.html"><a href="solutions.html#exercise-1.-shopping-list"><i class="fa fa-check"></i><b>9.4.4</b> Exercise 1. Shopping list</a></li>
-<li class="chapter" data-level="9.4.5" data-path="solutions.html"><a href="solutions.html#exercise-2.-dictionnaries"><i class="fa fa-check"></i><b>9.4.5</b> Exercise 2. Dictionnaries</a></li>
-<li class="chapter" data-level="9.4.6" data-path="solutions.html"><a href="solutions.html#exercise-3.-selecting-elements"><i class="fa fa-check"></i><b>9.4.6</b> Exercise 3. Selecting elements</a></li>
-<li class="chapter" data-level="9.4.7" data-path="solutions.html"><a href="solutions.html#exercise-4.-adjust-a-dictionnary-data-set"><i class="fa fa-check"></i><b>9.4.7</b> Exercise 4. Adjust a dictionnary data set</a></li>
-<li class="chapter" data-level="9.4.8" data-path="solutions.html"><a href="solutions.html#exercise-5.-a-dictionnary-data-set"><i class="fa fa-check"></i><b>9.4.8</b> Exercise 5. A dictionnary data set</a></li>
-<li class="chapter" data-level="9.4.9" data-path="solutions.html"><a href="solutions.html#exercise-6.-stroop-extension"><i class="fa fa-check"></i><b>9.4.9</b> Exercise 6. Stroop extension</a></li>
-</ul></li>
-<li class="chapter" data-level="9.5" data-path="solutions.html"><a href="solutions.html#chapter-5.-loops"><i class="fa fa-check"></i><b>9.5</b> Chapter 5. Loops</a><ul>
-<li class="chapter" data-level="9.5.1" data-path="loops.html"><a href="loops.html#exercise-1.-following-the-control-flow-i"><i class="fa fa-check"></i><b>9.5.1</b> Exercise 1. Following the control flow I</a></li>
-<li class="chapter" data-level="9.5.2" data-path="loops.html"><a href="loops.html#exercise-2.-debugging-i"><i class="fa fa-check"></i><b>9.5.2</b> Exercise 2. Debugging I</a></li>
-<li class="chapter" data-level="9.5.3" data-path="solutions.html"><a href="solutions.html#exercise-3.-controlling-the-flow"><i class="fa fa-check"></i><b>9.5.3</b> Exercise 3. Controlling the flow</a></li>
-<li class="chapter" data-level="9.5.4" data-path="solutions.html"><a href="solutions.html#exercise-4.-following-the-control-flow-ii"><i class="fa fa-check"></i><b>9.5.4</b> Exercise 4. Following the control flow II</a></li>
-<li class="chapter" data-level="9.5.5" data-path="solutions.html"><a href="solutions.html#exercise-5.-debugging"><i class="fa fa-check"></i><b>9.5.5</b> Exercise 5. Debugging</a></li>
-<li class="chapter" data-level="9.5.6" data-path="solutions.html"><a href="solutions.html#exercise-6.-nested-loops"><i class="fa fa-check"></i><b>9.5.6</b> Exercise 6. Nested loops</a></li>
-<li class="chapter" data-level="9.5.7" data-path="solutions.html"><a href="solutions.html#exercise-7.-data-transformation-using-loops"><i class="fa fa-check"></i><b>9.5.7</b> Exercise 7. Data transformation using loops</a></li>
-<li class="chapter" data-level="9.5.8" data-path="solutions.html"><a href="solutions.html#exercise-8.-calculating-a-mean"><i class="fa fa-check"></i><b>9.5.8</b> Exercise 8. Calculating a mean</a></li>
-<li class="chapter" data-level="9.5.9" data-path="solutions.html"><a href="solutions.html#exercise-9.-a-guessing-game"><i class="fa fa-check"></i><b>9.5.9</b> Exercise 9. A guessing game</a></li>
-</ul></li>
-<li class="chapter" data-level="9.6" data-path="solutions.html"><a href="solutions.html#chapter-6.-functions"><i class="fa fa-check"></i><b>9.6</b> Chapter 6. Functions</a><ul>
-<li class="chapter" data-level="9.6.1" data-path="functions.html"><a href="functions.html#exercise-1.-following-the-control-flow"><i class="fa fa-check"></i><b>9.6.1</b> Exercise 1. Following the control flow</a></li>
-<li class="chapter" data-level="9.6.2" data-path="functions.html"><a href="functions.html#exercise-2.-an-imperfect-list-sorting-attempt"><i class="fa fa-check"></i><b>9.6.2</b> Exercise 2. An imperfect list sorting attempt</a></li>
-<li class="chapter" data-level="9.6.3" data-path="solutions.html"><a href="solutions.html#exercise-3.-an-errorneous-sorting-algorithm"><i class="fa fa-check"></i><b>9.6.3</b> Exercise 3. An errorneous sorting algorithm</a></li>
-<li class="chapter" data-level="9.6.4" data-path="solutions.html"><a href="solutions.html#exercise-4."><i class="fa fa-check"></i><b>9.6.4</b> Exercise 4.</a></li>
-<li class="chapter" data-level="9.6.5" data-path="solutions.html"><a href="solutions.html#exercise-5."><i class="fa fa-check"></i><b>9.6.5</b> Exercise 5.</a></li>
-<li class="chapter" data-level="9.6.6" data-path="functions.html"><a href="functions.html#exercise-6.-insertion-sort-algorithm"><i class="fa fa-check"></i><b>9.6.6</b> Exercise 6. Insertion sort algorithm</a></li>
+<div class="row">
+<div class="col-sm-12">
+<div id="TOC">
+<ul>
+<li><a href="index.html#preface">Preface</a></li>
+<li><a href="intro.html#intro"><span class="toc-section-number">1</span> Introduction</a>
+<ul>
+<li><a href="intro.html#installing-a-python-environment"><span class="toc-section-number">1.1</span> Installing a Python environment</a></li>
+<li><a href="intro.html#installing-the-anaconda-python-environment"><span class="toc-section-number">1.2</span> Installing the Anaconda Python environment</a></li>
+<li><a href="intro.html#windows"><span class="toc-section-number">1.3</span> Windows</a></li>
+<li><a href="intro.html#macos"><span class="toc-section-number">1.4</span> MacOS</a></li>
+<li><a href="intro.html#testing-your-environment"><span class="toc-section-number">1.5</span> Testing your environment</a></li>
+<li><a href="intro.html#dumb_computers"><span class="toc-section-number">1.6</span> Computers are dumb</a></li>
+<li><a href="intro.html#dive-in-a-first-example"><span class="toc-section-number">1.7</span> Dive in: a first example</a></li>
+<li><a href="intro.html#batchwork"><span class="toc-section-number">1.8</span> Making an eye tracker</a>
+<ul>
+<li><a href="intro.html#yets-and-yetis"><span class="toc-section-number">1.8.1</span> YETs and Yetis</a></li>
+<li><a href="intro.html#the-eyeballing-exercise"><span class="toc-section-number">1.8.2</span> The Eyeballing exercise</a></li>
+<li><a href="intro.html#dumb-pictures"><span class="toc-section-number">1.8.3</span> Dumb pictures</a></li>
+<li><a href="intro.html#from-pixel-to-eye-tracking"><span class="toc-section-number">1.8.4</span> From pixel to eye tracking</a></li>
+<li><a href="intro.html#into-the-batch"><span class="toc-section-number">1.8.5</span> Into the batch</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="10" data-path="debugging-and-good-programming-practices.html"><a href="debugging-and-good-programming-practices.html"><i class="fa fa-check"></i><b>10</b> Debugging and good programming practices</a><ul>
-<li class="chapter" data-level="10.1" data-path="variables.html"><a href="variables.html#debugging"><i class="fa fa-check"></i><b>10.1</b> Debugging</a></li>
-<li class="chapter" data-level="10.2" data-path="debugging-and-good-programming-practices.html"><a href="debugging-and-good-programming-practices.html#boosting-your-programming-learning-curve"><i class="fa fa-check"></i><b>10.2</b> Boosting your programming learning curve</a><ul>
-<li class="chapter" data-level="10.2.1" data-path="debugging-and-good-programming-practices.html"><a href="debugging-and-good-programming-practices.html#going-with-the-flow"><i class="fa fa-check"></i><b>10.2.1</b> Going with the flow</a></li>
-<li class="chapter" data-level="10.2.2" data-path="debugging-and-good-programming-practices.html"><a href="debugging-and-good-programming-practices.html#just-do-it"><i class="fa fa-check"></i><b>10.2.2</b> Just do it!</a></li>
+<li><a href="variables.html#variables"><span class="toc-section-number">2</span> Variables, values and types</a>
+<ul>
+<li><a href="variables.html#variables-1"><span class="toc-section-number">2.1</span> Variables</a></li>
+<li><a href="variables.html#stroop-task-variables"><span class="toc-section-number">2.2</span> Use of variables in the Stroop Task</a></li>
+<li><a href="variables.html#how-variables-are-used"><span class="toc-section-number">2.3</span> How Variables Are Used</a></li>
+<li><a href="variables.html#data-types"><span class="toc-section-number">2.4</span> Data types</a>
+<ul>
+<li><a href="variables.html#numbers"><span class="toc-section-number">2.4.1</span> Numbers</a></li>
+<li><a href="variables.html#strings"><span class="toc-section-number">2.4.2</span> Strings</a></li>
+<li><a href="variables.html#booleans"><span class="toc-section-number">2.4.3</span> Booleans</a></li>
+</ul></li>
+<li><a href="variables.html#object-variables-in-a-yeti"><span class="toc-section-number">2.5</span> Object variables in a Yeti</a></li>
+<li><a href="variables.html#common-errors"><span class="toc-section-number">2.6</span> Common errors</a></li>
+<li><a href="variables.html#debugging"><span class="toc-section-number">2.7</span> Debugging</a></li>
+<li><a href="variables.html#exercises-1"><span class="toc-section-number">2.8</span> Exercises</a>
+<ul>
+<li><a href="variables.html#exercise-1.-operators"><span class="toc-section-number">2.8.1</span> Exercise 1. Operators</a></li>
+<li><a href="variables.html#exercise-2.-values"><span class="toc-section-number">2.8.2</span> Exercise 2. Values</a></li>
+<li><a href="variables.html#exercise-3.-mini-programs"><span class="toc-section-number">2.8.3</span> Exercise 3. Mini programs</a></li>
+<li><a href="variables.html#exercise-4.-debugging"><span class="toc-section-number">2.8.4</span> Exercise 4. Debugging</a></li>
+<li><a href="variables.html#exercise-5.-string-concatenation"><span class="toc-section-number">2.8.5</span> Exercise 5. String concatenation</a></li>
+<li><a href="variables.html#exercise-6.-variable-names"><span class="toc-section-number">2.8.6</span> Exercise 6. Variable names</a></li>
+<li><a href="variables.html#exercise-7.-stroop-task-welcome-message"><span class="toc-section-number">2.8.7</span> Exercise 7. Stroop task welcome message</a></li>
+<li><a href="variables.html#exercise-8.-printing"><span class="toc-section-number">2.8.8</span> Exercise 8. Printing</a></li>
+<li><a href="variables.html#exercise-9.-using-python-as-a-calculator"><span class="toc-section-number">2.8.9</span> Exercise 9. Using Python as a calculator</a></li>
+<li><a href="variables.html#exercise-10.-a-boolean-puzzle"><span class="toc-section-number">2.8.10</span> Exercise 10. A Boolean puzzle</a></li>
+</ul></li>
+<li><a href="variables.html#think-further-1"><span class="toc-section-number">2.9</span> Think Further</a></li>
+</ul></li>
+<li><a href="conditionals.html#conditionals"><span class="toc-section-number">3</span> Conditionals</a>
+<ul>
+<li><a href="conditionals.html#boolean-logic"><span class="toc-section-number">3.1</span> Boolean logic</a></li>
+<li><a href="conditionals.html#if-then"><span class="toc-section-number">3.2</span> if this is true, then do this</a></li>
+<li><a href="conditionals.html#else-do-that"><span class="toc-section-number">3.3</span> else do that</a></li>
+<li><a href="conditionals.html#bringing-interaction-to-life-conditional-state-transitions"><span class="toc-section-number">3.4</span> Bringing interaction to life: Conditional state transitions</a>
+<ul>
+<li><a href="conditionals.html#transition-tables"><span class="toc-section-number">3.4.1</span> Transition tables</a></li>
+<li><a href="conditionals.html#state-charts"><span class="toc-section-number">3.4.2</span> State charts</a></li>
+</ul></li>
+<li><a href="conditionals.html#common-errors-1"><span class="toc-section-number">3.5</span> Common errors</a></li>
+<li><a href="conditionals.html#debugging-1"><span class="toc-section-number">3.6</span> Debugging</a></li>
+<li><a href="conditionals.html#exercises-2"><span class="toc-section-number">3.7</span> Exercises</a>
+<ul>
+<li><a href="conditionals.html#exercise-1.-boolean-logic"><span class="toc-section-number">3.7.1</span> Exercise 1. Boolean logic</a></li>
+<li><a href="conditionals.html#exercise-2.-state-charts"><span class="toc-section-number">3.7.2</span> Exercise 2. State charts</a></li>
+<li><a href="conditionals.html#exercise-3.-transition-tables"><span class="toc-section-number">3.7.3</span> Exercise 3. Transition tables</a></li>
+<li><a href="conditionals.html#exercise-4.-mini-programs"><span class="toc-section-number">3.7.4</span> Exercise 4. Mini programs</a></li>
+<li><a href="conditionals.html#exercise-5.-following-the-control-flow"><span class="toc-section-number">3.7.5</span> Exercise 5. Following the control flow</a></li>
+<li><a href="conditionals.html#exercise-6.-indentation"><span class="toc-section-number">3.7.6</span> Exercise 6. Indentation</a></li>
+<li><a href="conditionals.html#exercise-7.-pseudo-code-conditionals"><span class="toc-section-number">3.7.7</span> Exercise 7. Pseudo code conditionals</a></li>
+<li><a href="conditionals.html#exercise-8.-modify-stroop-task"><span class="toc-section-number">3.7.8</span> Exercise 8. Modify Stroop Task</a></li>
+<li><a href="conditionals.html#exercise-9.-simplify-nested-conditionals"><span class="toc-section-number">3.7.9</span> Exercise 9. Simplify nested conditionals</a></li>
+<li><a href="conditionals.html#exercise-10.-flow-chart-conditionals"><span class="toc-section-number">3.7.10</span> Exercise 10. Flow chart conditionals</a></li>
+</ul></li>
+<li><a href="conditionals.html#think-further-2"><span class="toc-section-number">3.8</span> Think Further</a></li>
+</ul></li>
+<li><a href="lists.html#lists"><span class="toc-section-number">4</span> Lists</a>
+<ul>
+<li><a href="lists.html#lists-1"><span class="toc-section-number">4.1</span> Lists</a>
+<ul>
+<li><a href="lists.html#lists-are-mutable"><span class="toc-section-number">4.1.1</span> Lists are mutable</a></li>
+</ul></li>
+<li><a href="lists.html#tuples"><span class="toc-section-number">4.2</span> Tuples</a></li>
+<li><a href="lists.html#dictionaries"><span class="toc-section-number">4.3</span> Dictionaries</a></li>
+<li><a href="lists.html#putting-collections-to-use"><span class="toc-section-number">4.4</span> Putting collections to use</a></li>
+<li><a href="lists.html#common-errors-2"><span class="toc-section-number">4.5</span> Common errors</a></li>
+<li><a href="lists.html#debugging-2"><span class="toc-section-number">4.6</span> Debugging</a></li>
+<li><a href="lists.html#exercises-3"><span class="toc-section-number">4.7</span> Exercises</a>
+<ul>
+<li><a href="lists.html#exercise-1.-indexing"><span class="toc-section-number">4.7.1</span> Exercise 1. Indexing</a></li>
+<li><a href="lists.html#exercise-2.-debugging"><span class="toc-section-number">4.7.2</span> Exercise 2. Debugging</a></li>
+<li><a href="lists.html#exercise-3.-mini-programs-1"><span class="toc-section-number">4.7.3</span> Exercise 3. Mini programs</a></li>
+<li><a href="lists.html#exercise-4.-shopping-list"><span class="toc-section-number">4.7.4</span> Exercise 4. Shopping list</a></li>
+<li><a href="lists.html#exercise-5.-dictionaries"><span class="toc-section-number">4.7.5</span> Exercise 5. Dictionaries</a></li>
+<li><a href="lists.html#exercise-6.-element-selection"><span class="toc-section-number">4.7.6</span> Exercise 6. Element selection</a></li>
+<li><a href="lists.html#exercise-7.-adjust-a-dictionary-data-set"><span class="toc-section-number">4.7.7</span> Exercise 7. Adjust a dictionary data set</a></li>
+<li><a href="lists.html#exercise-8.-a-dictionary-data-set"><span class="toc-section-number">4.7.8</span> Exercise 8. A dictionary data set</a></li>
+<li><a href="lists.html#exercise-9.-stroop-extension"><span class="toc-section-number">4.7.9</span> Exercise 9. Stroop extension</a></li>
+</ul></li>
+<li><a href="lists.html#think-further-3"><span class="toc-section-number">4.8</span> Think further</a></li>
+</ul></li>
+<li><a href="loops.html#loops"><span class="toc-section-number">5</span> Loops</a>
+<ul>
+<li><a href="loops.html#the-for-loop"><span class="toc-section-number">5.1</span> The <code>for</code> loop</a></li>
+<li><a href="loops.html#the-while-loop"><span class="toc-section-number">5.2</span> The <code>while</code> loop</a>
+<ul>
+<li><a href="loops.html#for-or-while"><span class="toc-section-number">5.2.1</span> <code>for</code> or <code>while</code>?</a></li>
+</ul></li>
+<li><a href="loops.html#the-break-statement"><span class="toc-section-number">5.3</span> The <code>break</code> statement</a></li>
+<li><a href="loops.html#controlling-the-flow-of-your-program-with-loops"><span class="toc-section-number">5.4</span> Controlling the flow of your program with loops</a></li>
+<li><a href="loops.html#common-errors-3"><span class="toc-section-number">5.5</span> Common errors</a></li>
+<li><a href="loops.html#debugging-3"><span class="toc-section-number">5.6</span> Debugging</a></li>
+<li><a href="loops.html#exercises-4"><span class="toc-section-number">5.7</span> Exercises</a>
+<ul>
+<li><a href="loops.html#exercise-1.-following-the-control-flow-i"><span class="toc-section-number">5.7.1</span> Exercise 1. Following the control flow I</a></li>
+<li><a href="loops.html#exercise-2.-debugging-i"><span class="toc-section-number">5.7.2</span> Exercise 2. Debugging I</a></li>
+<li><a href="loops.html#exercise-3.-a-guessing-game"><span class="toc-section-number">5.7.3</span> Exercise 3. A guessing game</a></li>
+<li><a href="loops.html#exercise-4.-controlling-the-flow"><span class="toc-section-number">5.7.4</span> Exercise 4. Controlling the flow</a></li>
+<li><a href="loops.html#exercise-5.-following-the-control-flow-ii"><span class="toc-section-number">5.7.5</span> Exercise 5. Following the control flow II</a></li>
+<li><a href="loops.html#exercise-6.-debugging-ii"><span class="toc-section-number">5.7.6</span> Exercise 6. Debugging II</a></li>
+<li><a href="loops.html#exercise-7.-nested-loops"><span class="toc-section-number">5.7.7</span> Exercise 7. Nested loops</a></li>
+<li><a href="loops.html#exercise-8.-data-transformation-using-loops"><span class="toc-section-number">5.7.8</span> Exercise 8. Data transformation using loops</a></li>
+<li><a href="loops.html#exercise-9.-calculating-a-mean"><span class="toc-section-number">5.7.9</span> Exercise 9. Calculating a mean</a></li>
+</ul></li>
+<li><a href="loops.html#think-further-4"><span class="toc-section-number">5.8</span> Think Further</a></li>
+</ul></li>
+<li><a href="functions.html#functions"><span class="toc-section-number">6</span> Functions</a>
+<ul>
+<li><a href="functions.html#defining-and-calling-functions"><span class="toc-section-number">6.1</span> Defining and calling functions</a></li>
+<li><a href="functions.html#function-parameters-and-arguments"><span class="toc-section-number">6.2</span> Function parameters and arguments</a></li>
+<li><a href="functions.html#the-return-statement"><span class="toc-section-number">6.3</span> The <code>return</code> statement</a></li>
+<li><a href="functions.html#functions-can-call-other-functions-and-themselves"><span class="toc-section-number">6.4</span> Functions can call other functions, and themselves</a>
+<ul>
+<li><a href="functions.html#a-word-about-recursion"><span class="toc-section-number">6.4.1</span> A word about <em>Recursion</em></a></li>
+</ul></li>
+<li><a href="functions.html#stroop-functions"><span class="toc-section-number">6.5</span> Stroop functions</a></li>
+<li><a href="functions.html#common-errors-4"><span class="toc-section-number">6.6</span> Common errors</a></li>
+<li><a href="functions.html#exercises-5"><span class="toc-section-number">6.7</span> Exercises</a>
+<ul>
+<li><a href="functions.html#exercise-1.-following-the-control-flow"><span class="toc-section-number">6.7.1</span> Exercise 1. Following the control flow</a></li>
+<li><a href="functions.html#exercise-2.-an-imperfect-list-sorting-attempt"><span class="toc-section-number">6.7.2</span> Exercise 2. An imperfect list sorting attempt</a></li>
+<li><a href="functions.html#exercise-3.-an-erroneous-sorting-algorithm"><span class="toc-section-number">6.7.3</span> Exercise 3. An erroneous sorting algorithm</a></li>
+<li><a href="functions.html#exercise-4.-chunking"><span class="toc-section-number">6.7.4</span> Exercise 4. Chunking</a></li>
+<li><a href="functions.html#exercise-5.-add-functionality-to-the-stroop-task"><span class="toc-section-number">6.7.5</span> Exercise 5. Add functionality to the stroop task</a></li>
+<li><a href="functions.html#exercise-6.-insertion-sort-algorithm"><span class="toc-section-number">6.7.6</span> Exercise 6. Insertion sort algorithm</a></li>
+</ul></li>
+<li><a href="functions.html#think-further-5"><span class="toc-section-number">6.8</span> Think further</a></li>
+<li><a href="functions.html#references"><span class="toc-section-number">6.9</span> References</a></li>
+</ul></li>
+<li><a href="data.html#data"><span class="toc-section-number">7</span> Working with data</a>
+<ul>
+<li><a href="data.html#elements-of-data-processing"><span class="toc-section-number">7.1</span> Elements of data processing</a></li>
+<li><a href="data.html#data-tables"><span class="toc-section-number">7.2</span> Data tables</a></li>
+<li><a href="data.html#down-the-sink-writing-data-files"><span class="toc-section-number">7.3</span> Down the sink: Writing data files</a></li>
+<li><a href="data.html#may-the-source-reading-data-files"><span class="toc-section-number">7.4</span> May the source …: reading data files</a></li>
+<li><a href="data.html#exercises-6"><span class="toc-section-number">7.5</span> Exercises</a>
+<ul>
+<li><a href="data.html#exercise-1"><span class="toc-section-number">7.5.1</span> Exercise 1</a></li>
+<li><a href="data.html#exercise-2"><span class="toc-section-number">7.5.2</span> Exercise 2</a></li>
+</ul></li>
+<li><a href="data.html#think-further-6"><span class="toc-section-number">7.6</span> Think further</a></li>
+<li><a href="data.html#references-1"><span class="toc-section-number">7.7</span> References</a></li>
+</ul></li>
+<li><a href="interaction.html#interaction"><span class="toc-section-number">8</span> Interaction</a>
+<ul>
+<li><a href="interaction.html#interaction-models"><span class="toc-section-number">8.1</span> Interaction models</a>
+<ul>
+<li><a href="interaction.html#identifying-states"><span class="toc-section-number">8.1.1</span> Identifying states</a></li>
+<li><a href="interaction.html#identifying-transitions"><span class="toc-section-number">8.1.2</span> Identifying transitions</a></li>
+<li><a href="interaction.html#events-user-input-and-internal-conditions"><span class="toc-section-number">8.1.3</span> Events: user input and internal conditions</a></li>
+<li><a href="interaction.html#exercises-7"><span class="toc-section-number">8.1.4</span> Exercises</a></li>
+</ul></li>
+<li><a href="interaction.html#programming-interactive-prototypes"><span class="toc-section-number">8.2</span> Programming interactive prototypes</a>
+<ul>
+<li><a href="interaction.html#interactive-transitionals"><span class="toc-section-number">8.2.1</span> Interactive transitionals</a></li>
+<li><a href="interaction.html#automatic-transitions"><span class="toc-section-number">8.2.2</span> Automatic transitions</a></li>
+<li><a href="interaction.html#the-timestamp-method"><span class="toc-section-number">8.2.3</span> The timestamp method</a></li>
+<li><a href="interaction.html#presentation-conditionals"><span class="toc-section-number">8.2.4</span> Presentation conditionals</a></li>
+</ul></li>
+<li><a href="interaction.html#interactions-in-pygame"><span class="toc-section-number">8.3</span> Interactions in Pygame</a>
+<ul>
+<li><a href="interaction.html#overall-structure"><span class="toc-section-number">8.3.1</span> Overall structure</a></li>
+<li><a href="interaction.html#the-screen-and-the-refresh-loop."><span class="toc-section-number">8.3.2</span> The screen and the refresh loop.</a></li>
+<li><a href="interaction.html#handling-user-input"><span class="toc-section-number">8.3.3</span> Handling user input</a></li>
+<li><a href="interaction.html#transitionals"><span class="toc-section-number">8.3.4</span> Transitionals</a></li>
+<li><a href="interaction.html#pygame-events"><span class="toc-section-number">8.3.5</span> Pygame events</a></li>
+</ul></li>
+<li><a href="interaction.html#presentitionals"><span class="toc-section-number">8.4</span> Presentitionals in Pygame</a>
+<ul>
+<li><a href="interaction.html#display-and-surface"><span class="toc-section-number">8.4.1</span> Display and surface</a></li>
+<li><a href="interaction.html#drawing-figures"><span class="toc-section-number">8.4.2</span> Drawing figures</a></li>
+<li><a href="interaction.html#placing-text-and-pictures"><span class="toc-section-number">8.4.3</span> Placing text and pictures</a></li>
+</ul></li>
+<li><a href="interaction.html#exercises-8"><span class="toc-section-number">8.5</span> Exercises</a>
+<ul>
+<li><a href="interaction.html#exercise-c.-transition-tables"><span class="toc-section-number">8.5.1</span> Exercise C. Transition tables</a></li>
+</ul></li>
+<li><a href="interaction.html#common-errors-5"><span class="toc-section-number">8.6</span> Common errors</a></li>
+<li><a href="interaction.html#think-further-7"><span class="toc-section-number">8.7</span> Think Further</a></li>
+</ul></li>
+<li><a href="solutions.html#solutions"><span class="toc-section-number">9</span> Solutions</a>
+<ul>
+<li><a href="solutions.html#chapter-1.-introduction"><span class="toc-section-number">9.1</span> Chapter 1. Introduction</a></li>
+<li><a href="solutions.html#chapter-2.-variables-values-and-types"><span class="toc-section-number">9.2</span> Chapter 2. Variables, values and types</a>
+<ul>
+<li><a href="solutions.html#exercise-1.-operators-1"><span class="toc-section-number">9.2.1</span> Exercise 1. Operators</a></li>
+<li><a href="solutions.html#exercise-2.-values-1"><span class="toc-section-number">9.2.2</span> Exercise 2. Values</a></li>
+<li><a href="solutions.html#exercise-3.-mini-programs-2"><span class="toc-section-number">9.2.3</span> Exercise 3. Mini programs</a></li>
+<li><a href="solutions.html#exercise-4.-debugging-1"><span class="toc-section-number">9.2.4</span> Exercise 4. Debugging</a></li>
+<li><a href="solutions.html#exercise-5.-string-concatenation-1"><span class="toc-section-number">9.2.5</span> Exercise 5. String concatenation</a></li>
+<li><a href="solutions.html#exercise-6.-variable-names-1"><span class="toc-section-number">9.2.6</span> Exercise 6. Variable names</a></li>
+<li><a href="solutions.html#exercise-7.-stroop-task-welcome-message-1"><span class="toc-section-number">9.2.7</span> Exercise 7. Stroop task welcome message</a></li>
+<li><a href="solutions.html#exercise-8.-printing-1"><span class="toc-section-number">9.2.8</span> Exercise 8. Printing</a></li>
+<li><a href="solutions.html#exercise-9.-using-python-as-calculator"><span class="toc-section-number">9.2.9</span> Exercise 9. Using Python as calculator</a></li>
+<li><a href="solutions.html#exercise-10.-a-boolean-puzzle-1"><span class="toc-section-number">9.2.10</span> Exercise 10. A Boolean puzzle</a></li>
+</ul></li>
+<li><a href="solutions.html#chapter-3.-conditionals"><span class="toc-section-number">9.3</span> Chapter 3. Conditionals</a>
+<ul>
+<li><a href="solutions.html#exercise-1.-boolean-logic-1"><span class="toc-section-number">9.3.1</span> Exercise 1. Boolean logic</a></li>
+<li><a href="solutions.html#exercise-2.-state-charts-1"><span class="toc-section-number">9.3.2</span> Exercise 2. State charts</a></li>
+<li><a href="solutions.html#exercise-3.-transition-tables-1"><span class="toc-section-number">9.3.3</span> Exercise 3. Transition tables</a></li>
+<li><a href="solutions.html#exercise-4.-mini-programs-1"><span class="toc-section-number">9.3.4</span> Exercise 4. Mini programs</a></li>
+<li><a href="solutions.html#exercise-5.-following-the-control-flow-1"><span class="toc-section-number">9.3.5</span> Exercise 5. Following the control flow</a></li>
+<li><a href="solutions.html#exercise-6.-indentation-1"><span class="toc-section-number">9.3.6</span> Exercise 6. Indentation</a></li>
+<li><a href="solutions.html#exercise-7.-pseudo-code-conditionals-1"><span class="toc-section-number">9.3.7</span> Exercise 7. Pseudo code conditionals</a></li>
+<li><a href="solutions.html#exercise-8.-modify-stroop-task-1"><span class="toc-section-number">9.3.8</span> Exercise 8. Modify Stroop Task</a></li>
+<li><a href="solutions.html#exercise-9.-simplify-nested-conditionals-1"><span class="toc-section-number">9.3.9</span> Exercise 9. Simplify nested conditionals</a></li>
+<li><a href="solutions.html#exercise-10.-flow-chart-conditionals-1"><span class="toc-section-number">9.3.10</span> Exercise 10. Flow chart conditionals</a></li>
+</ul></li>
+<li><a href="solutions.html#chapter-4.-lists"><span class="toc-section-number">9.4</span> Chapter 4. Lists</a>
+<ul>
+<li><a href="solutions.html#exercise-1.-indexing-1"><span class="toc-section-number">9.4.1</span> Exercise 1. Indexing</a></li>
+<li><a href="solutions.html#exercise-2.-debugging-1"><span class="toc-section-number">9.4.2</span> Exercise 2. Debugging</a></li>
+<li><a href="solutions.html#exercise-3.-mini-programs-3"><span class="toc-section-number">9.4.3</span> Exercise 3. Mini programs</a></li>
+<li><a href="solutions.html#exercise-1.-shopping-list"><span class="toc-section-number">9.4.4</span> Exercise 1. Shopping list</a></li>
+<li><a href="solutions.html#exercise-2.-dictionnaries"><span class="toc-section-number">9.4.5</span> Exercise 2. Dictionnaries</a></li>
+<li><a href="solutions.html#exercise-3.-selecting-elements"><span class="toc-section-number">9.4.6</span> Exercise 3. Selecting elements</a></li>
+<li><a href="solutions.html#exercise-4.-adjust-a-dictionnary-data-set"><span class="toc-section-number">9.4.7</span> Exercise 4. Adjust a dictionnary data set</a></li>
+<li><a href="solutions.html#exercise-5.-a-dictionnary-data-set"><span class="toc-section-number">9.4.8</span> Exercise 5. A dictionnary data set</a></li>
+<li><a href="solutions.html#exercise-6.-stroop-extension"><span class="toc-section-number">9.4.9</span> Exercise 6. Stroop extension</a></li>
+</ul></li>
+<li><a href="solutions.html#chapter-5.-loops"><span class="toc-section-number">9.5</span> Chapter 5. Loops</a>
+<ul>
+<li><a href="solutions.html#exercise-1.-following-the-control-flow-i-1"><span class="toc-section-number">9.5.1</span> Exercise 1. Following the control flow I</a></li>
+<li><a href="solutions.html#exercise-2.-debugging-i-1"><span class="toc-section-number">9.5.2</span> Exercise 2. Debugging I</a></li>
+<li><a href="solutions.html#exercise-3.-controlling-the-flow"><span class="toc-section-number">9.5.3</span> Exercise 3. Controlling the flow</a></li>
+<li><a href="solutions.html#exercise-4.-following-the-control-flow-ii"><span class="toc-section-number">9.5.4</span> Exercise 4. Following the control flow II</a></li>
+<li><a href="solutions.html#exercise-5.-debugging"><span class="toc-section-number">9.5.5</span> Exercise 5. Debugging</a></li>
+<li><a href="solutions.html#exercise-6.-nested-loops"><span class="toc-section-number">9.5.6</span> Exercise 6. Nested loops</a></li>
+<li><a href="solutions.html#exercise-7.-data-transformation-using-loops"><span class="toc-section-number">9.5.7</span> Exercise 7. Data transformation using loops</a></li>
+<li><a href="solutions.html#exercise-8.-calculating-a-mean"><span class="toc-section-number">9.5.8</span> Exercise 8. Calculating a mean</a></li>
+<li><a href="solutions.html#exercise-9.-a-guessing-game"><span class="toc-section-number">9.5.9</span> Exercise 9. A guessing game</a></li>
+</ul></li>
+<li><a href="solutions.html#chapter-6.-functions"><span class="toc-section-number">9.6</span> Chapter 6. Functions</a>
+<ul>
+<li><a href="solutions.html#exercise-1.-following-the-control-flow-1"><span class="toc-section-number">9.6.1</span> Exercise 1. Following the control flow</a></li>
+<li><a href="solutions.html#exercise-2.-an-imperfect-list-sorting-attempt-1"><span class="toc-section-number">9.6.2</span> Exercise 2. An imperfect list sorting attempt</a></li>
+<li><a href="solutions.html#exercise-3.-an-errorneous-sorting-algorithm"><span class="toc-section-number">9.6.3</span> Exercise 3. An errorneous sorting algorithm</a></li>
+<li><a href="solutions.html#exercise-4."><span class="toc-section-number">9.6.4</span> Exercise 4.</a></li>
+<li><a href="solutions.html#exercise-5."><span class="toc-section-number">9.6.5</span> Exercise 5.</a></li>
+<li><a href="solutions.html#exercise-6.-insertion-sort-algorithm-1"><span class="toc-section-number">9.6.6</span> Exercise 6. Insertion sort algorithm</a></li>
+</ul></li>
+</ul></li>
+<li><a href="debugging-and-good-programming-practices.html#debugging-and-good-programming-practices"><span class="toc-section-number">10</span> Debugging and good programming practices</a>
+<ul>
+<li><a href="debugging-and-good-programming-practices.html#debugging-4"><span class="toc-section-number">10.1</span> Debugging</a></li>
+<li><a href="debugging-and-good-programming-practices.html#boosting-your-programming-learning-curve"><span class="toc-section-number">10.2</span> Boosting your programming learning curve</a>
+<ul>
+<li><a href="debugging-and-good-programming-practices.html#going-with-the-flow"><span class="toc-section-number">10.2.1</span> Going with the flow</a></li>
+<li><a href="debugging-and-good-programming-practices.html#just-do-it"><span class="toc-section-number">10.2.2</span> Just do it!</a></li>
 </ul></li>
 </ul></li>
 </ul>
-
-      </nav>
-    </div>
-
-    <div class="book-body">
-      <div class="body-inner">
-        <div class="book-header" role="navigation">
-          <h1>
-            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Programming Interaction for Psychologists</a>
-          </h1>
-        </div>
-
-        <div class="page-wrapper" tabindex="-1" role="main">
-          <div class="page-inner">
-
-            <section class="normal" id="section-">
+</div>
+</div>
+</div>
+<div class="row">
+<div class="col-sm-12">
 <div id="header">
 <h1 class="title">Programming Interaction for Psychologists</h1>
-<h2 class="subtitle"><em>A course in Python</em></h2>
-<p class="author"><em>Martin Schmettow and Lena Brandl</em></p>
-<p class="date"><em>2020-10-28</em></p>
+<h3 class="subtitle"><em>A course in Python</em></h3>
+<h4 class="author"><em>Martin Schmettow and Lena Brandl</em></h4>
+<h4 class="date"><em>2021-11-01</em></h4>
 </div>
 <div id="preface" class="section level1 unnumbered">
 <h1>Preface</h1>
 
 </div>
-            </section>
+<p style="text-align: center;">
+<a href="intro.html"><button class="btn btn-default">Next</button></a>
+</p>
+</div>
+</div>
 
-          </div>
-        </div>
-      </div>
 
-<a href="intro.html" class="navigation navigation-next navigation-unique" aria-label="Next page"><i class="fa fa-angle-right"></i></a>
-    </div>
-  </div>
-<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
-<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
-<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
-<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
-<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
-<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
-<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
-<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
-<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+</div>
+
 <script>
-gitbook.require(["gitbook"], function(gitbook) {
-gitbook.start({
-"sharing": {
-"github": false,
-"facebook": true,
-"twitter": true,
-"linkedin": false,
-"weibo": false,
-"instapaper": false,
-"vk": false,
-"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
-},
-"fontsettings": {
-"theme": "white",
-"family": "sans",
-"size": 2
-},
-"edit": {
-"link": null,
-"text": null
-},
-"history": {
-"link": null,
-"text": null
-},
-"view": {
-"link": null,
-"text": null
-},
-"download": null,
-"toc": {
-"collapse": "subsection"
-}
+
+// add bootstrap table styles to pandoc tables
+$(document).ready(function () {
+  $('tr.header').parent('thead').parent('table').addClass('table table-condensed');
 });
-});
+
 </script>
 
 </body>
-
 </html>

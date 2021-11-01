@@ -1,17 +1,14 @@
 # Introduction {#intro}
 
-
 ## Installing a Python environment
 
 This course teaches the programming language Python. In order to write Python programs, you need a set of general tools, referred to as the *Python environment*:
 
-  1. a *Python editor*, where you write your code
-  1. a *Python interpreter*, which runs your code
-  1. *Python libraries* libraries, that provide specialized functionality for the task at hand
+1.  a *Python editor*, where you write your code
+2.  a *Python interpreter*, which runs your code
+3.  *Python libraries*, that provide specialized functionality for the task at hand
 
 The *Anaconda Python* system puts an editor, an interpreter and a huge set of libraries on your computer. There is just one library that you have to install separately. The *Pygame* library provides specialized functionality for developing arcade games (Ping Pong, Super Mario, etc.), which is almost perfect for writing programs that do psychological experiments.
-
-
 
 ## Installing the Anaconda Python environment
 
@@ -19,22 +16,21 @@ The *Anaconda Python* system puts an editor, an interpreter and a huge set of li
 
 ## Windows
 
-1.	From https://www.anaconda.com/download/ download the 64-bit installer  of Python 3.x 
-2.	Run the downloaded file and 
-    a.	Install for “just me”
-    b.	Accept  the proposed destination folder
-    c.	Accept default advanced options
-3.	In the start menu find the program Anaconda Prompt
-4.	In the console, type: `pip install pygame` and hit Return. Confirm anything with `y`.
+1.  From <https://www.anaconda.com/download/> download the 64-bit installer of Python 3.x
 
+2.  Run the downloaded file and
 
+    a.  Install for "just me"
+    b.  Accept the proposed destination folder
+    c.  Accept default advanced options
+
+3.  In the start menu find the program Anaconda Prompt
+
+4.  In the console, type: `pip install pygame` and hit Return. Confirm anything with `y`.
 
 ## MacOS
 
-
-Follow the analog procedure to Windows.
-Unfortunately, the authors use Windows computers, so this is untested.
-
+Follow the analog procedure to Windows. Unfortunately, the authors use Windows computers, so this is untested.
 
 <!-- 30  -->
 
@@ -42,95 +38,95 @@ Unfortunately, the authors use Windows computers, so this is untested.
 
 For testing your Anaconda environment, follow these steps:
 
-1.	From the Start menu start Anaconda Navigator
-1.  From the Home screen launch Spyder
-2.	Download the Python file `PIP_Stroop_interaction.py` from the folder Week 1 on Google Drive https://goo.gl/UmBsil
-3.	Open this file in Spyder (File --> Open).
-4.	Run the program by clicking the green play button. You should see a window popping up, which greets you to the Stroop experiment.
-
+1.  From the Start menu start Anaconda Navigator
+2.  From the Home screen launch Spyder
+3.  Download the Python file `PIP_Stroop_interaction.py` from the folder Week 1 on Google Drive <https://goo.gl/UmBsil>
+4.  Open this file in Spyder (File --\> Open).
+5.  Run the program by clicking the green play button. You should see a window popping up, which greets you to the Stroop experiment.
 
 And finally, it is a dear tradition to greet the world with your first program. Create a new file in Spyder and copy-paste the following lines into it. Then hit the play button once again.
 
-
-```{python}
+```{python eval = F}
 print('Hello world!')
 ```
 
-
-
+    ## Hello world!
 
 ## Computers are dumb {#dumb_computers}
 
-Programming is the process of giving instructions to a computer. The problem is … computers are incredibly dumb. In order to get used to instructing dumb computers, in the following exercise YOU will become the computer yourself. You will not just be the computer, you first have to program it, complying to some debilitating set of communication rules. 
+Programming is the process of giving instructions to a computer. The problem is ... computers are incredibly dumb. In order to get used to instructing dumb computers, in the following exercise YOU will become the computer yourself. You will not just be the computer, you first have to program it, complying to some debilitating set of communication rules.
 
 Your task is to create a theater play that resembles a computer to execute a program that Psychology researchers have used a thousand times in their labs. In the *Stroop task*, participants are shown a word that is written to the screen in one of three ink colors (red, blue, green). They are asked to name the ink color as quick as possible, usually by pressing one of four assigned keys (e.g., Y = red, X = blue, N = green). The task has a twist: the presented words are themselves color words. It can happen that the word "RED" appears in red ink, which we call the *congruent condition*, but it can also happen that the word "BLUE" appears in green letters, which is *incongruent*. Hundreds of experiments have shown, that in the incongruent condition people respond noticably slower. This observation is called the *Stroop effect* and dozens of theories have spawned from this observation. Discussing them is beyond the scope, but to not let you completely dissatisfied: people seem to always read the words, although they were not asked to do so and we can conclude:
 
-1. people cannot *not* read
-1. people do not (always) listen to what an experimenter wants from them
+1.  people cannot *not* read
+2.  people do not (always) listen to what an experimenter wants from them
 
 The following exercise is meant as a theater play and thus works best for a team of around 7-8 students. However, nothing keeps you from just being a drama poet and put down a script all by yourself.
 
 Here are the rules for the theater play:
 
-1. every actor (except the looper, see below) can only perform one simple action
+1.  every actor (except the looper, see below) can only perform one simple action
 
-2. actors can only talk to the looper, but not to each other
+2.  actors can only talk to the looper, but not to each other
 
-3. every actor can
-    a)	either do something on command 
-    b)	or answer a question
+3.  every actor can
 
-4. actors who take commands 
-    a)	only understand one command, like “pick a color”
-    b)	can only do one thing, like 
-        * picking an object
-        * showing an object
-        * making a particular change to an object
+    a)  either do something on command
+    b)  or answer a question
 
-    c)	in addition they can give and receive objects from the looper
+4.  actors which take commands
 
-5.	actors who answer questions 
-    a)	only understand one question type, for example: “What time is it now?”
-    b)	can only give a one-word answer, for example:
-      *	a word from a predefined set of words
-      * a number
-      * yes or no (as a special case of a pedefined set)
+    a)  only understand one command, like "pick a color"
 
-6.	The *looper* is a special actor who
-    a)	is the only one can interact with other actors (speak, listen, exchange objects) and knows all the possible questions, answers and actions the other actors can perform.
-    b) is slightly more intelligent than the other actors in that he/she can make decisions by combining information from various sources.
-    c)	can do simple calculations (like subtracting a number) and comparisons (like comparing two colors).
-    e) unfortunately has no senses, but relies completely on what the actors tell
-    f)	speaks a continuous monologue to the audience, explaining all  actions to the audience.
+    b)  can only do one thing, like
 
-8. the *drawer* is a special actor whose task it is to present output to the user.
+        -   picking an object
+        -   showing an object
+        -   making a particular change to an object
 
-9. the *event handler* is a special actor whose task it is to take input from the user
+    c)  in addition they can give and receive objects from the looper
 
-10.	the *user* is a special actor who only interacts with *drawer* and *event handler*.
+5.  actors who answer questions
 
+    a)  only understand one question type, for example: "What time is it now?"
+    b)  can only give a one-word answer, for example:
 
+    -   a word from a predefined set of words
+    -   a number
+    -   yes or no (as a special case of a pedefined set)
+
+6.  The *looper* is a special actor who
+
+    a)  is the only one can interact with other actors (speak, listen, exchange objects) and knows all the possible questions, answers and actions the other actors can perform.
+    b)  is slightly more intelligent than the other actors in that he/she can make decisions by combining information from various sources.
+    c)  can do simple calculations (like subtracting a number) and comparisons (like comparing two colors).
+    d)  unfortunately has no senses, but relies completely on what the actors tell
+    e)  speaks a continuous monologue to the audience, explaining all actions to the audience.
+
+7.  the *drawer* is a special actor whose task it is to present output to the user.
+
+8.  the *event handler* is a special actor whose task it is to take input from the user
+
+9.  the *user* is a special actor who only interacts with *drawer* and *event handler*.
 
 For the play you will need the following requisites:
 
-1.	these instructions
-2.	three color word stencils
-3.	three ink colors (to put behind the stencil)
-4.	a bar with three buttons drawn on paper
-5.	a clock
-6.	paper and pencil
+1.  these instructions
+2.  three color word stencils
+3.  three ink colors (to put behind the stencil)
+4.  a bar with three buttons drawn on paper
+5.  a clock
+6.  paper and pencil
 
-It is further recommended that one of the team is assigned the role of the *debugger*. This person does not take an active role, but watches over the compliance with the set of rules. 
+It is further recommended that one of the team is assigned the role of the *debugger*. This person does not take an active role, but watches over the compliance with the set of rules.
 
 Have fun and do not let your intuition come between you and the task!
 
+## Dive in: a first example
 
+In section 1.2 [Computers are dumb](#dumb_computers), you have seen how debilitating it can be to program a computer to do the simplest things. Talking to a computer (as a programmer) requires to understand some fundamental ways of how computers work and learn their language. A good way to get started learning a language is just go there and expose yourself to native speakers. Let's do that! The following text is a program the performs the Stroop task, just as in the theater play.
 
-## Dive in: a first example 
-
-In section 1.2 [Computers are dumb], you have seen how debilitating it can be to program a computer to do the simplest things. Talking to a computer (as a programmer) requires to understand some fundamental ways of how computers work and learn their language. A good way to get started learning a language is just go there and expose yourself to native speakers. Let's do that! The following text is a program the performs the Stroop task, just as in the theater play. 
-
-```{python eval = FALSE}
+```{python eval = F}
 import pygame
 import sys
 from time import time
@@ -328,15 +324,11 @@ def draw_goodbye():
     screen.blit(text_surface, text_rectangle)
     
 main()
-
-
-
-
 ```
 
-At first sight, you'll probably see just gargle-bargle. But on closer examination, you may see one or the other thing you recognize.  We start with the most visible feature of the Stroop task, colors. If you watch out for color words in the code, you'll find the following: 
+At first sight, you'll probably see just gargle-bargle. But on closer examination, you may see one or the other thing you recognize. We start with the most visible feature of the Stroop task, colors. If you watch out for color words in the code, you'll find the following:
 
-```{python eval = FALSE}
+```{python eval = F}
 col_white = (250, 250, 250)
 col_black = (0, 0, 0)
 col_gray = (220, 220, 220)
@@ -351,22 +343,21 @@ COLORS   = {"red": col_red,
 WORDS    = ("red", "green", "blue")
 ```
 
-The first paragraph defines each color used throughout the program as three numbers. This is because computer screens produce all colors by mixture of red, blue and green, which not coincidentily matches the three types of color vision sensors in our eyes. For example, black just means that all lights are out, hence the three zeroes. Red means that only the red channel is firing photons. 
+The first paragraph defines each color used throughout the program as three numbers. This is because computer screens produce all colors by mixture of red, blue and green, which not coincidentily matches the three types of color vision sensors in our eyes. For example, black just means that all lights are out, hence the three zeroes. Red means that only the red channel is firing photons.
 
-Whenever you see a single `=` character, that means that what is given to the right is stored in a *variable* to the  left. The second paragraph just collects the three colors in one compound variable, which you will later learn to be a *dictionary*. Search for `COLOR` in the following code to see, how it is being used:
+Whenever you see a single `=` character, that means that what is given to the right is stored in a *variable* to the left. The second paragraph just collects the three colors in one compound variable, which you will later learn to be a *dictionary*. Search for `COLOR` in the following code to see, how it is being used:
 
-```{python eval = FALSE}
-
+```{python eval = F}
 def draw_stimulus(color, word):
     text_surface = font.render(word, True, COLORS[color], col_gray)
     text_rectangle = text_surface.get_rect()
     text_rectangle.center = (SCREEN_SIZE[0]/2.0,150)
     screen.blit(text_surface, text_rectangle)
-
 ```
+
 This code block is called a *function definition*. This function almost exactly represents what one of the actors did in the play: receiving a color word and a color, combine it into one Stroop trial and show it to the user. We can follow up how this function is used, by searching for "draw_stimulus" in the code:
 
-```{python eval = FALSE}
+```{python eval = F}
 if STATE == "present_trial":
             draw_stimulus(this_color, this_word)
             draw_button(SCREEN_SIZE[0]*1/5, 450, "Red: X", col_red)
@@ -376,12 +367,12 @@ if STATE == "present_trial":
 
 What you see here is a so-called *conditional*. Only the most simple program are just a sequence of procedures. All "real" programs, and especially *interactive programs*, do certain things only when certain conditions are satisfied. Here the condition is that the current *state* of the program is to present a trial. If you look further around you will immediatly see that the variable `STATE` is used all over the place and it happens to always occur in one of two patterns in the code:
 
-1. as a condition (`STATE == ...`)
-2. as an assignment of new values (`STATE = ...`)
+1.  as a condition (`STATE == ...`)
+2.  as an assignment of new values (`STATE = ...`)
 
 Note the difference between `=`, which stores a new value in a variable and `==` which means *equals*. Let's discover where the variable `STATE` actually gets such a value: `"present_trial"`:
 
-```{python eval = FALSE}
+```{python eval = F}
 if STATE == "feedback":
     if event.type == KEYDOWN and event.key == K_SPACE:
         if trial_number < 20:
@@ -389,22 +380,21 @@ if STATE == "feedback":
         else:
             STATE = "goodbye"
         print(STATE)
-
 ```
 
 Literally, this reads as: "If we are in state 'feedback' (where the participant is shown the results of the previous trial), and if the space key is pressed, and if we have not yet reached the maximum number of trials, then present the next trial (otherwise say good bye)"
 
-These are precisely the rules the looper in our play had to have on her mind. If you look closely, you will find more of similar constructions, that change the state under certain conditions. These statements we later call *interaction conditionals*, and they control the flow of the program. This is why they are more complicated than the rest.
+These are precisely the rules the Looper in our play had to have on her mind. If you look closely, you will find more of similar constructions, that change the state under certain conditions. These statements we later call *interaction conditionals*, and they control the flow of the program. This is why they are more complicated than the rest.
 
-As a final endeavour, we try to find some clues how the measurement of *response time* is handled in the program. If you serach for "time", the first occurence is right at the top:
+As a final endeavor, we try to find some clues how the measurement of *response time* is handled in the program. If you search for "time", the first occurrence is right at the top:
 
-```{python eval = FALSE}
+```{python eval = F}
 from time import time
 ```
 
 Just as programmers can define functions, they can also make use of functions other programmers are already providing. Usually, they do so in larger packages of related functions, which are called *libraries*. This line of code means: from the library time, make available the function time. Where is this function used?
 
-```{python eval = FALSE}
+```{python eval = F}
 if STATE == "present_trial":
     trial_number = trial_number + 1
     this_word  = pick_color()
@@ -415,7 +405,7 @@ if STATE == "present_trial":
 
 The only thing that happens here, is that in the moment where the trial is presented, the current absolute time is recorded in a variable `time_when_presented`. How is that used further down?
 
-```{python eval = FALSE}
+```{python eval = F}
 if STATE == "wait_for_response":
     if event.type == KEYDOWN and event.key in KEYS.values():
         time_when_reacted = time()
@@ -426,16 +416,197 @@ if STATE == "wait_for_response":
 
 When the user responds by pressing a button, that moment in time is recorded in another variable `time_when_reacted` and the current reaction time is computed as the time difference between reaction and presentation.
 
-## Exercises
+#### Exercises
 
-1. Load the Stroop program into your Python editor and run it yourself.
-2. Find further function definitions that resemble one of the actors in the play
-3. If you have struggled with recording the response time in a compliant way, how would you do it, now that you have seen how the code works? How many actors are needed, and what precisely can they do?
-4. Change the program such that it does 8 trials
-5. Change the progran such that it uses orange instead of red (words and colors)
-6. Change the program such that it uses Q, W, E as response keys
-7. Change the program such that it performs the Stroop task with four words and colors
+1.  Load the Stroop program into your Python editor and run it yourself.
+2.  Find further function definitions that resemble one of the actors in the play
+3.  If you have struggled with recording the response time in a compliant way, how would you do it, now that you have seen how the code works? How many actors are needed, and what precisely can they do?
+4.  Change the program such that it does 8 trials
+5.  Change the progran such that it uses orange instead of red (words and colors)
+6.  Change the program such that it uses Q, W, E as response keys
+7.  Change the program such that it performs the Stroop task with four words and colors
+
+## Making an eye tracker {#batchwork}
+
+### YETs and Yetis
+
+An eye tracker is a device that tells, where a person is looking at from moment to moment. Modern eye trackers are highly sophisticated systems, very precise and multiple purpose. They are very costly, too. Too costly that every student could have one.
+
+Even an eye tracking system with a 10.000 EUR price tag operates by a very simple principle: A camera device is pointed to the eye and the eye ball coordinates are estimated and recorded by a piece of software.
+
+A YET is an camera device that is pointed to the eye, but costs almost nothing. It is so cheap to make that every student can own one, hence *Your Eye Tracker*.
+
+YET0 is the first o this new kind of eye tracking devices. It is a mininal design, for which you only need:
+
+1.  a 30cm plastic ruler
+2.  a tube of strong glue
+3.  YET0 (Clippy)
+4.  a USB endoscope camera with 5.5 mm diameter and LED
+
+If you are following one of our courses, you have received a YET0. It is a simple piece of plastic, weighing in only two grams. The design is so simple that you can print one yourself in under 10 minutes with every entry-level 3D printer (170 - 200 EUR).
+
+The USB endoscope camera is a mass product from China, which you can get by the usual online distributors. The costs are typically between 6 and 9 Eur, delivery included. There is also a 7mm version of the endoscope, for which a wider Clippy would be needed, and it is heavier. And do not accidentally buy one with a longer wire, with a stiffer wire, or with a screen attached. That won't be of much use.
+
+A Yeti is a YET interface (or intelligence). It is a piece of software that analyses the incoming video footage and often interacts with the user. A Yeti is usually written in Python, using the library Pygame for interaction with the user and the library OpenCV for the video analysis.
+
+For using a Yeti with YET, you first have to download it from the [YET Github repository](https://github.com/schmettow/YET/tree/main/yeti)
+
+### The Eyeballing exercise
+
+The Stroop task is an example of an *interactive program.* Interactive programs have an interface to the user and should react to the user input in a useful manner. That's a hard problem for computers, hence for programmers.
+
+Like all machines, computers are much better at monotonic tasks. Programming an interactive stop watch can be much harder than programming a computer to stoically perform the same procedure at 60 times per second.
+
+In the following exercise, we are playing a similar game as in \@ref(dumb_computers). You will write a script for a simple eye tracking device. An eye tracking device is composed of
+
+1.  a camera pointed towards the eye
+2.  and a program that analyses incoming pictures to produce an estimate of where the eye is resting.
+
+For this script you will need ideas. To get to these ideas, you will need some sample data. In the first part of the exercise, we will produce sample images of portraits and eyeballs. For taking portrait samples, produce five portraits of yourself while looking
+
+-   straight ahead (centered)
+
+-   up and down (vertical)
+
+-   left and right (horizontal)
+
+Then, get YET as close as possible to you eyeball, with LEDs turned on and repeat the above sequence.
+
+Now, inspect your pictures in a group. Start with the portraits. Describe the visual features of vertical and horizontal gaze directions? Then turn to the eyeball pictures and repeat the visual analysis.
+
+### Dumb pictures {#dumb-pictures}
+
+When you were eye-balling eyeballs, a lot of messy, but surprisingly effective, biological stuff was going on between your eyeball and your mind, most of which you are unaware of. For example, that you immediately recognize an eyeball as such.
+
+Let's explore how computers see:
+
+1.  Connect YET, with LEDs turned off.
+2.  Get YET as close as possible to the screen of your computer and try to keep it still.
+
+Computers see images as a rectangular grid of points, where every point has X and Y coordinates on a geometric plane, and a color. The only difference to geometry is that in programming `(0,0)` is the *upper* left corner.
+
+On a computer screen, such a point is a tiny multi-color, dimmable LED, called a *pixel*. If you have a magnifying glass at hand and you take an even closer view at your screen, you will see, that every pixel is actually composed of three differently colored LEDs: Red, Green and Blue. We will learn more about *RGB* frames in \@ref(presentitionals).
+
+Sometimes, a computer doesn't need to see color, but only brightness levels, where all points emit light on scale from 0 (black) to 255 (white). This is called a *grayscale* frame. The most simple form of representing a picture is a black-and-white mode, where all points are either off or at full brightness (0 or 1). This is called a *bitmap* frame, because it is composed *binary* pixel. in computer jargon a binary switch is called a *bit*.
+
+### From pixel to eye tracking
+
+Now that you have the basics, your task is to design a computer program that takes in a grid of pixels (also called a *frame*) and produces an estimate of the direction the eyeball is pointed at. Again, you will decompose a complex task into smaller parts. However, as there is no nasty user input involved, you don't describe actors, but design a *sequence of functions*, where the first function takes in the frame and the last returns the eyeball position in horizontal and vertical direction.
+
+Here are some functions that can be helpful:
+
+-   *Frame.grab* always is the first in line.
+
+    -   Is there a new frame?
+    -   Hand out the new frame
+
+-   *Frame.dim* takes in a frame and produces width and height of the frame, e.g.
+
+    -   Give the height of the frame!
+    -   Give the width of the frame!
+
+-   *Frame.split* splits a frame in two horizontal or two vertical parts and return both parts
+
+    -   Split frame horizontally at position width/2!
+
+-   *Frame.bitmap* takes a grayscale frame and turns it into a bitmap, using a threshold.
+
+    -   Make bitmap with threshold value 127!
+
+-   *Frame.eye* detects an eye in a face and returns the enclosing frame.
+
+    -   Was an eye detected?
+    -   Frame the detected eye!
+
+-   *Frame.avg_bright* calculates an average brightness value of an input frame
+
+### Into the batch
+
+Up-down. left-right! Have you found a solution to the problem? You can a solution in chapter \@ref(solutions). The following code is extracted from Yeti2, a simple program, that detects the horizontal position (left, center, right).
+
+The code of Yeti2 starts a preamble, which is mostly the same for all Yetis. The interesting part begins with another fast loop. Remember the Looper in \@ref(dive-in-a-first-example)? It is the same principle here. The Looper doesn't know when the next video frame arrives, so every loop starts with an interrogation to collect the next frame. The frame is subsequently turned into a grayscale image, because the subsequent analysis is purely based on brightness information.
+
+```{python eval = F}
+
+Detected = False
+
+# FAST LOOP
+while True:
+
+    # Capture frame-by-frame
+    ret, frame = video_capture.read()
+    if not ret:
+        print("Can't receive frame (stream end?). Exiting ...")
+        break
+    
+    # FRAME PROCESSING
+    gray = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
+```
+
+As long as the eye is not detected, Yeti2 applies a highly specialized computer vision technique, called a Haar cascade to detect an eye in the frame.
+
+```{python eval = F}
+    if not Detected:
+        eyes = eyeCascade.detectMultiScale(
+            gray,
+            scaleFactor=1.1,
+            minNeighbors=5,
+            minSize=(200, 200))
+        # AUTOMATIC TRANSITIONAL
+        if len(eyes) > 0:
+            eye = eyes[0]
+            print("Eye detected")
+            Detected = True
+        # once eye is detected, yeti stays there
+
+
+
+```
+
+This function returns a list of detected eyes, which it it is empty has zero length. When this list contains detected eyes, the first detected eye is selected and Yeti2 changes its status to Detected. If you inspect the code further, you will notice that Yeti2 never returns to undetected state. That means, it continues to measure eye position, even if no eye is present in the frame. That is a compromise to keep the program simple.
+
+If an eye was detected, the sub frame holding the eye is extracted and undergose a deeper analysis. What you see here is a typical data processing chain, were the input of every step in the analysis is a frame that has been created at an earlier step. The chain starts with the frame holding the eye, which is horizontally split into left and right frame. Then, for both frames the sum of brightness is computed (which works like the average, since the two frames are of equal size). The position of eye ball is determined by comparing the brightness of the left and right frame. If you look left, more of your sclera is seen in the right frame, and vice versa.
+
+Essential for this to work is that the value of brightness ratio in center position `center_ratio` is adjusted to the situation.
+
+```{python eval = F}
+    # CONDITIONAL PROCESSING
+    if Detected:
+        center_ratio = .85
+        threshold = .05
+        (x, y, w, h) = eye
+        eye_frame = cv2.resize(frame[y:y+h,x:x+w], dim,interpolation = cv2.INTER_AREA)
+        left_frame = eye_frame[0:height, 0:int(width/2)]
+        right_frame = eye_frame[0:height, int(width/2):width]
+        left_sum = np.sum(left_frame)
+        right_sum = np.sum(right_frame)
+        LR_ratio = left_sum/right_sum
+        
+        if LR_ratio < center_ratio - threshold:
+            Position = "right"
+        if LR_ratio > center_ratio + threshold:
+            Position = "left"
+        else Position = "center"
+
+```
+
+#### Further readings
+
+[OpenCV Getting and Setting Pixels](https://www.pyimagesearch.com/2021/01/20/opencv-getting-and-setting-pixels/)
 
 
 
 
+#### Think further
+
+1.  Think about another device you could build around YET. The famous physicist Stephen Hawking used a device registering his eye blinks to communicate. A similar device is used in the novel  *Butterfly and divers bell* for writing the same novel.
+
+    a.  Use YET to record pictures of your closed eye and perform an analysis of visual features to discern an open eye from a closed eye, for example the distribution of brightness. Propose a sequence of functions, that take in a raw frame and return *True* when the eye is closed, *False* otherwise.
+
+    b.  Design an interactive program around the blink detection, by adding actors like in \@ref(dumb_computers).
+
+    c.  Inspect Yeti6 for how it is done there.
+
+2.  When the eyeball jumps from object to object in the visual field, it makes *saccades*. Saccades are extremely fast. If the average eyeball could make full spins at the speed of a saccade, it would make a 360 in 720 milliseconds (84 rpm). Think about how you could use YET to measure your own speed-of-eyeball.
+
+3.  In psychological experiments, reaction time is frequently measured as the interval between stimulus presentation and keypress. Compared to saccades, fingers are sluggish. Combine your results from \@ref(dumb_computers) and \@ref(batchwork) to create a Stroop task where the response is measured by eye tracking.

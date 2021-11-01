@@ -6,8 +6,6 @@ library(reticulate)
 #knitr::knit_engines$set(python = reticulate::eng_python)
 ```
 
-
-
 In chapter 1 Introduction, you took a closer look at the Stroop Task program. In doing so, you encountered components of a computer program called *variables*
 
 ```{python eval = FALSE}
@@ -23,11 +21,10 @@ COLORS   = {"red": col_red,
 WORDS    = ("red", "green", "blue")
 
 ```
+
 For instance, you learned that the variable `COLORS` collects combinations of numbers for red, green, and blue color in a compound variable, called a *dictionary*.
 
-However, before we can talk about what compound variables such as dictionaries are, you will meet 
-the most fundamental component of a computer program: *values*.
-
+However, before we can talk about what compound variables such as dictionaries are, you will meet the most fundamental component of a computer program: *values*.
 
 ```{python}
 print(2 + 2)
@@ -38,11 +35,9 @@ print(20 / 4)
 print("Hello, World!")
 ```
 
-In the examples above, the *printed* outputs `4`, `5.0` and `Hello, World!` are *values*. Values can be numbers, but also words, or even whole sentences. In the interior of a computer program, `4` and `Hello, World` serve the same purpose, they are both building blocks. Values are classified into different *classes*, or *data types*: `4` is a so-called *integer* and `"Hello, World"` is a
-*string*, so-called because it is a string of individual letters. The data type of a value determines which operations can be performed on a value, and how these operations are performed. You can think of operations such as arithmetic addition and subtraction, but also self-defined operations, called *functions*. You will learn about functions later in this book.
+In the examples above, the *printed* outputs `4`, `5.0` and `Hello, World!` are *values*. Values can be numbers, but also words, or even whole sentences. In the interior of a computer program, `4` and `Hello, World` serve the same purpose, they are both building blocks. Values are classified into different *classes*, or *data types*: `4` is a so-called *integer* and `"Hello, World"` is a *string*, so-called because it is a string of individual letters. The data type of a value determines which operations can be performed on a value, and how these operations are performed. You can think of operations such as arithmetic addition and subtraction, but also self-defined operations, called *functions*. You will learn about functions later in this book.
 
-If you ever wonder what class a value belongs to, your Python interpreter
-can tell you.
+If you ever wonder what class a value belongs to, your Python interpreter can tell you.
 
 ```{python, echo = TRUE}
 print(type(4))
@@ -51,17 +46,14 @@ print(type(4))
 ```{python, echo = TRUE}
 print(type("Hello, World!"))
 ```
+
 You will learn more about the four basic data types in Section 2.4 [Data types].
 
 You will find the `print` function very useful; it makes some output visible by *printing* to the console of your programming environment whatever is written inside the two brackets `()`. Printing is a way to make things visible, such as the result of the simple calculation `2 + 2`. In the example above, if the `print` function were not included, your computer would perform the calculation `2 + 2` internally, but you would not see the result, `4`. Do not blame your computer, as we saw in chapter 1, computers are incredibly dumb. How is your computer supposed to know that in addition to making the calculation, it is also supposed to show you its result on the screen? Computers are unfortunately not gifted with common sense - you need to tell them precisely what to do.
 
 ## Variables
-Computer programs are usually required to store information in some way for later retrieval or manipulation. In the Stroop Task program we saw in chapter 1, for each trial, we need to store the color and the word that our computer picked. In addition, we want to record the reaction time of the subject. Otherwise, the Stroop Task program would be utterly useless for examining the relation between reaction times and (in)congruence between words and their colors. In other words, the Stroop task program would be useless if it could only manipulate values as we did when we calculated `2 + 2`. You see, when your computer performs a simple value manipulation you get a momentarily answer. At times, computers are too efficient for their own good. They quickly forget about the values that pass through their system. The very moment they finish a calculation, computer programs forget the outcome of a calculation. They even forget that they ever performed the calculation (if you do not remind them that they indeed did). This is where *variables* come in handy. Variables are storage units
-in a computer's memory. A variable can store any kind of value. Unlike the result of simple value manipulations, such as `2 + 2`, variables have designated storage addresses in a computer's memory. You need a way to access variables in your computer's memory
-and hence, you give them a name. You can think of a variable's name
-as a unique identification address in the computer's memory. In fact, during a *value assignment*, a value is stored at a certain position in the computer's memory. This position as a precisely defined location, much like longitude and latitude coordinates describe a physical location in the Global Positioning System (GPS). The command by which a value is stored in a variable
-is called an *assignment statement*. It is common to say "a
-value is assigned to a variable".
+
+Computer programs are usually required to store information in some way for later retrieval or manipulation. In the Stroop Task program we saw in chapter 1, for each trial, we need to store the color and the word that our computer picked. In addition, we want to record the reaction time of the subject. Otherwise, the Stroop Task program would be utterly useless for examining the relation between reaction times and (in)congruence between words and their colors. In other words, the Stroop task program would be useless if it could only manipulate values as we did when we calculated `2 + 2`. You see, when your computer performs a simple value manipulation you get a momentarily answer. At times, computers are too efficient for their own good. They quickly forget about the values that pass through their system. The very moment they finish a calculation, computer programs forget the outcome of a calculation. They even forget that they ever performed the calculation (if you do not remind them that they indeed did). This is where *variables* come in handy. Variables are storage units in a computer's memory. A variable can store any kind of value. Unlike the result of simple value manipulations, such as `2 + 2`, variables have designated storage addresses in a computer's memory. You need a way to access variables in your computer's memory and hence, you give them a name. You can think of a variable's name as a unique identification address in the computer's memory. In fact, during a *value assignment*, a value is stored at a certain position in the computer's memory. This position as a precisely defined location, much like longitude and latitude coordinates describe a physical location in the Global Positioning System (GPS). The command by which a value is stored in a variable is called an *assignment statement*. It is common to say "a value is assigned to a variable".
 
 ```{python}
 a = 4
@@ -71,61 +63,39 @@ print(a)
 print(b)
 ```
 
-
-The order in which the variable and a value are placed
-around the equal sign `=` is not arbitrary. Variables always have to be
-on the left side, values on the right side. Everything else will
-produce an error. As mentioned above, variables can store any kind of value. The right side can be a complex expression, which is not obviously a value at first sight.
+The order in which the variable and a value are placed around the equal sign `=` is not arbitrary. Variables always have to be on the left side, values on the right side. Everything else will produce an error. As mentioned above, variables can store any kind of value. The right side can be a complex expression, which is not obviously a value at first sight.
 
 ```{python}
 a = 13*17/23
 print(a)
 ```
 
-
-The single equal sign, as in `a = 4` is exclusivey reserved for assignment statements. If you read a program out loud, practice saying 
+The single equal sign, as in `a = 4` is exclusivey reserved for assignment statements. If you read a program out loud, practice saying
 
 > a is assigned the value 4
 
 A double equal expression, as in `a == 4` is used for comparing two values, as in "Does the value of 'a' equal 4?" That is completely different to an assignment and will be covered in Section 2.3 [Data types] and in more detail, in Chapter \@ref(conditionals).
 
-
-Programmers have much freedom in naming variables, but some strict rules exist, as well as some conventions. Some of them are good practice
-and others will throw syntax errors if not adhered to. In the beginning, you may think
-of good practice guidelines as superfluous, but you
-will learn to value them once you start making more complex programs.
+Programmers have much freedom in naming variables, but some strict rules exist, as well as some conventions. Some of them are good practice and others will throw syntax errors if not adhered to. In the beginning, you may think of good practice guidelines as superfluous, but you will learn to value them once you start making more complex programs.
 
 Heeding them pays off!
 
-1. Programmers give meaningful names to variables in order to make their
-code more readable for others and themselves. Without meaningful names,
-they easily get lost when reading through their code again. Even to them their own code
-may appear as nothing more than gargle-bargle.
+1.  Programmers give meaningful names to variables in order to make their code more readable for others and themselves. Without meaningful names, they easily get lost when reading through their code again. Even to them their own code may appear as nothing more than gargle-bargle.
 
-2. The first character of a variable must be a letter of the alphabet,
-either uppercase or lowercase ASCII or Unicode, or an underscore.
+2.  The first character of a variable must be a letter of the alphabet, either uppercase or lowercase ASCII or Unicode, or an underscore.
 
-3. The rest of a variable name may consist of letters (uppercase or lowercase
-ASCII or Unicode characters), underscores, or digits (0-9).
+3.  The rest of a variable name may consist of letters (uppercase or lowercase ASCII or Unicode characters), underscores, or digits (0-9).
 
-4. Variable names are case-sensitive. This means that the variables `myString`
-and `mystring` are **not** treated as the same variable by your
-computer.
+4.  Variable names are case-sensitive. This means that the variables `myString` and `mystring` are **not** treated as the same variable by your computer.
 
-5. You may still get sytnax errors despite adhering to all rules named
-above. Chances are high that you tried to use one of Python's *keywords*
-as a variable name. Python uses a number of keywords to recognize
-the structure of a program.`if` and `for` are keywords for example. Your Python interpreter 
-can tell you the complete list of keywords known
-to your Python version:
+5.  You may still get sytnax errors despite adhering to all rules named above. Chances are high that you tried to use one of Python's *keywords* as a variable name. Python uses a number of keywords to recognize the structure of a program.`if` and `for` are keywords for example. Your Python interpreter can tell you the complete list of keywords known to your Python version:
 
 ```{python}
 import keyword
 print(keyword.kwlist)
 ```
 
-
-## Stroop Task variables
+## Use of variables in the Stroop Task {#stroop-task-variables}
 
 Now that you read about how variables are assigned their values, let's have a look at how variables are used in the interactive Stroop program.
 
@@ -146,14 +116,9 @@ RT.append(this_reaction_time)
 
 In the first line of the above code snippets from the Stroop Task program, an empty *list* is assigned to the variable `RT`. The purpose of this list is to store reaction times during the Stroop experiment. You will learn more about *lists* in Chapter \@ref(lists). For now it suffices to know that lists are yet another data type, capable of containing values of multiple data types at the same time! You may reckon that they are the ultimate structure for storing information. The variables `time_when_presented` and `time_when_reacted` respectively store the point in time (using the *function* `time`) at a certain event. `time_when_presented` records the moment in time when a stimulus is presented and `time_when_reacted` saves the moment in time when the subject reacts to the stimulus. The reaction time of the subject is then calculated by *subtracting* one stored point in time from the other and saved in the variable `this_reaction_time`. Finally, the subject's reaction time is *appended* to `RT`, meaning that `this_reaction_time` is saved in `RT` before the program proceeds to the next trial. A disclaimer; the code snippets above obviously reduce the mechanics of the Stroop Task program to some highlighted variable assignments. This means that the code lacks the actual dynamics of the program and will not run as is. But it captures the basic idea of how the program records and manipulates a participant's reaction time with the help of variables.
 
-## How Variables Are Used
+## How Variables Are Used {#how-variables-are-used}
 
-More formally, variables are an essential component of any program.
-As such, their applications are numerous. This section provides but
-a glimpse into the vast and creative application possiblities of variables.
-Do not worry, you will soon get a hang of it once you start doing
-some programming yourself. One common way of using variables
-is storing the output of *functions*:
+Variables are an essential component of all programs, with numerous applications. This section provides but a glimpse into the vast and creative possibilities of variables. Do not worry, you will soon get a hang of it once you start doing some programming yourself. One common way of using variables is storing the output of *functions*:
 
 ```{python}
 import random
@@ -162,18 +127,9 @@ print(a)
 
 ```
 
-You will learn in detail about functions in Chapter \@ref(functions). For now it
-is good enough to know that the function `random.randint(0,10)` randomly
-picks an integer between 0 and 10, and *returns* the chosen
-integer. Whatever number is picked by the function is stored in the
-variable `number` and can easily be retrieved and used for other
-purposes elsewhere. If this piece of information does not satisfy
-you, simply type `help(random)` after importing `random`
-and your interpreter will give you a more detailed description of
-the *class* `random`.
+You will learn in detail about functions in Chapter \@ref(functions). For now it is good enough to know that the function `random.randint(0,10)` randomly picks an integer between 0 and 10, and *returns* the chosen integer. Whatever number is picked by the function is stored in the variable `number` and can easily be retrieved and used for other purposes elsewhere. If this piece of information does not satisfy you, simply type `help(random)` after importing `random` and your interpreter will give you a more detailed description of the *class* `random`.
 
-A variable's assigned value can be updated. This means that its value can be changed after
-an initial assignment. This is very useful for structuring a program:
+A variable's assigned value can be updated. This means that its value can be changed after an initial assignment. This is very useful for structuring a program:
 
 ```{python, eval=F}
 # determining the maximum number of trials
@@ -187,34 +143,15 @@ while(n < n_trials):
     n = n + 1
 ```
 
-
-This comes in handy if you want to repeat a part of your program until
-a certain condition is fulfilled. For instance, imagine taking measurements
-for a fixed number of trials for a psychological experiment.
-In the example above, `n_trials` and `n` are used for creating
-a counting mechanism until the desired number of repeated measurements
-is reached. Note how the old value of `n` is used to update
-the value of `n` after one execution cycle of the program in `n = n + 1`. After the first execution of the `while` part of the code snippet,`n` will have the value `1` instead of `0`!
-If you are not yet fully getting the hang of it, do not worry. You
-will learn more about the use of *conditionals* and the *while loop*
-in Chapter \@ref(conditionals) and Chapter \@ref(loops), respectively. The basic idea behind the above code snippet is to show you how updating variables can be used to create a counting mechanism in a computer program.
+This comes in handy if you want to repeat a part of your program until a certain condition is fulfilled. For instance, imagine taking measurements for a fixed number of trials for a psychological experiment. In the example above, `n_trials` and `n` are used for creating a counting mechanism until the desired number of repeated measurements is reached. Note how the old value of `n` is used to update the value of `n` after one execution cycle of the program in `n = n + 1`. After the first execution of the `while` part of the code snippet,`n` will have the value `1` instead of `0`! If you are not yet fully getting the hang of it, do not worry. You will learn more about the use of *conditionals* and the *while loop* in Chapter \@ref(conditionals) and Chapter \@ref(loops), respectively. The basic idea behind the above code snippet is to show you how updating variables can be used to create a counting mechanism in a computer program.
 
 ## Data types
 
-Earlier in this chapter, you learned that
-each value belongs to a certain *class* or *data type*.
-This section will introduce the *basic data types*: *integers*,
-*floats*, *strings*, and *booleans*. Apart from the basic data types, Python knows numerous
-specialized types. Earlier in this chapter, you already encountered two such specialized data types: *dictionaries* and *lists*. Literally any computer program contains values of at least the basic types and thus, it seems to be reasonable to say a word or two about them. 
+Earlier in this chapter, you learned that each value belongs to a certain *class* or *data type*. This section will introduce the *basic data types*: *integers*, *floats*, *strings*, and *booleans*. Apart from the basic data types, Python knows numerous specialized types. Earlier in this chapter, you already encountered two such specialized data types: *dictionaries* and *lists*. Literally any computer program contains values of at least the basic types and thus, it seems to be reasonable to say a word or two about them.
 
 ### Numbers
 
-There are two main types of numbers in Python, *integers*
-and *floating point numbers*, or *floats* for short.
-Integers are whole numbers, such as `6` and `1234`, while
-floats are numbers including a decimal point, such as `2.4`
-and `45.768`. But wait, what happens if we add a float to a
-variable of type integer? Let's try!
+There are two main types of numbers in Python, *integers* and *floating point numbers*, or *floats* for short. Integers are whole numbers, such as `6` and `1234`, while floats are numbers including a decimal point, such as `2.4` and `45.768`. But wait, what happens if we add a float to a variable of type integer? Let's try!
 
 ```{python}
 number = 7
@@ -224,12 +161,7 @@ number = number + 3.5
 print(type(number))
 ```
 
-
-The variable changed from type *int* to *float*! This
-is an example of implicit *typecasting*. Typecasting means
-changing the type of a variable, and it can be done explicitly and
-implicitly. At times you will want to change the type of a variable
-to suit your needs. For this, you use explicit typecasting: 
+The variable changed from type *int* to *float*! This is an example of implicit *typecasting*. Typecasting means changing the type of a variable, and it can be done explicitly and implicitly. At times you will want to change the type of a variable to suit your needs. For this, you use explicit typecasting:
 
 ```{python}
 number = 10.5
@@ -237,34 +169,26 @@ int(number)
 10
 ```
 
-And here you discover one tricky thing about typecasting *floats*
-to *integers*. Python does not round off the value of floats
-when typecasting them into integers, it simply cuts off whatever there
-is after the decimal point. This can become especially tricky when
-typecasting implicitly and should be monitored with caution.
+And here you discover one tricky thing about typecasting *floats* to *integers*. Python does not round off the value of floats when typecasting them into integers, it simply cuts off whatever there is after the decimal point. This can become especially tricky when typecasting implicitly and should be monitored with caution.
 
 ### Strings
 
-If numbers are *integers* or *floats*, what about
-values such as `"17"` and `"13.65"`? They look like numbers,
-but they are wrapped in quotation marks like *strings*. 
+If numbers are *integers* or *floats*, what about values such as `"17"` and `"13.65"`? They look like numbers, but they are wrapped in quotation marks like *strings*.
 
 ```{python}
 print(type("17"))
 print(type("13.65"))
 ```
 
-They are strings! In Python, strings can be enclosed in either single
-quotes (`'`), or double quotes (`"`), or three of each
-(`'''` or `"""`). But what if your string includes a quote and you want to indicate this by using quotation marks *within* your string? Using the same quotation marks as used for defining the string will prematurely end the string.
+They are strings! In Python, strings can be enclosed in either single quotes (`'`), or double quotes (`"`), or three of each (`'''` or `"""`). But what if your string includes a quote and you want to indicate this by using quotation marks *within* your string? Using the same quotation marks as used for defining the string will prematurely end the string.
 
 ```{python eval = F}
 quote = "Freud: "The mind is like an iceberg, it floats with one-seventh of its bulk above water.""
 ```
+
 ```{r echo = F}
 print(" Error: invalid syntax (<string>, line 1)")
 ```
-
 
 Instead, when using single quotes, you can use double quotes or triple quotes inside them:
 
@@ -272,24 +196,18 @@ Instead, when using single quotes, you can use double quotes or triple quotes in
 quote = 'Carl Rogers: "How can I provide a relationship which this person may use for his own personal growth?"'
 ```
 
-
-
-
-Double quoted strings can have single quotes and triple quotes inside
-them: 
+Double quoted strings can have single quotes and triple quotes inside them:
 
 ```{python}
 quote = "Ivan Pavlov's best known findings relate to the phenomenon of conditioning."
 ```
 
-Triple quoted strings can include either single or double quotes.
-Strings are basically a sequence of single characters tied together
-and unlike variable names, strings may include spaces! They are usually
-used to display text or to export information out of the
-program. You need to export data out of the program to save the data you collected during an experiment somewhere on your hard disk.
+Triple quoted strings can include either single or double quotes. Strings are basically a sequence of single characters tied together and unlike variable names, strings may include spaces! They are usually used to display text or to export information out of the program. You need to export data out of the program to save the data you collected during an experiment somewhere on your hard disk.
 
 ### Booleans
+
 A *boolean expression* is an expression that is either `True` or `False`.
+
 ```{python}
 print(5 == (3+2))
 print(5 == 6)
@@ -301,7 +219,7 @@ j = "hel"
 print("hello" == j + "lo")
 ```
 
-`True` and `False` are special values of type boolean; they are no strings! 
+`True` and `False` are special values of type boolean; they are no strings!
 
 ```{python}
 print(type(True))
@@ -314,14 +232,14 @@ print(type(False))
 
 A *boolean expression* consists of two operands, located left and right of a *relational* or *comparative* operator. There are six comparison operators in Python:
 
-+ `x == y # x equals y`
-+ `x != y # x is not equal to y`
-+ `x > y  # x is greater than y`
-+ `x < y  # x is smaller than y`
-+ `x >= y # x is greater or equal to y`
-+ `x <= y # x is smaller or equal to y`
+-   `x == y # x equals y`
+-   `x != y # x is not equal to y`
+-   `x > y  # x is greater than y`
+-   `x < y  # x is smaller than y`
+-   `x >= y # x is greater or equal to y`
+-   `x <= y # x is smaller or equal to y`
 
-These operators are probably familiar to you, but their usage in Python differs from the mathematical symbols you know from highschool. One very common confusion surrounds the `equals` (`==`) operator. Remember that `=` is reserved as assignment operator and `==` is used for comparisons. There is no such thing as `=>` or `=<`.  
+These operators are probably familiar to you, but their usage in Python differs from the mathematical symbols you know from highschool. One very common confusion surrounds the `equals` (`==`) operator. Remember that `=` is reserved as assignment operator and `==` is used for comparisons. There is no such thing as `=>` or `=<`.\
 Apart from that, boolean values can be handled exactly as any other value, that is, they can be assigned to variables, printed and so on.
 
 ```{python}
@@ -330,9 +248,83 @@ passed_BSA = number_of_EC_required_for_BSA <= 50
 print(passed_BSA)
 ```
 
+## Object variables in a Yeti {#object-variables-in-a-yeti}
+
+In the Stroop program, variables are use to collect the response times, one simple number at a time. This data is collected for the purpose of subsequent data analysis. That means (or even implies) this data remains unprocessed.
+
+The situation in a Yeti is different in two ways:
+
+1.  Video frames are more complex than numbers \@ref(dump-pictures). They are a grid of numbers, i.e. they are *compound*.
+2.  The whole point of a Yeti is to deeply process the incoming video data.
+
+In Python, compound variables are usually referred to as *objects* and programming with objects is called *object-orientation (OO)*. The creation of objects in a program looks similar to storing the result of a function in a variable. The following line from Yeti2 reads a frame from the video device and assigns it to the variable Frame. A function that creates an object in such a way is called a *constructor*.
+
+```{python eval = F}
+Frame = video_capture.read()
+```
+
+In the Stroop program, most variables are created once and remain unchanged. The only variables that change are concerned with the measurement of response times and the STATE variable, which keeps track of the program flow. If you see a program as a machine that takes data as input and produces data as output, the Stroop task converts a letter to a float number every two (or so) seconds. Because interactive programs have the human wetware in the loop, they are usually sluggish. The biggest problem is the motor system. A world-class typist can hit the keyboard with a rate of 13 strokes per second. In the ASCII scheme, one letter is worth 1 Byte (8 Bit). The maximum data input rate of any keyboard-driven program is 13 Bytes/second.
+
+A Yeti is a program that operates on an input stream of YET, which according to the next program is many magnitudes larger.
+
+```{python}
+width    = 640
+height   = 480
+subpixel = 3
+fps      = 30 # frames per second
+input_rate = width * height * subpixel * fps
+
+print("Yeti input data stream: " + str(input_rate) + " Bytes/second")
+```
+
+A Yeti has to do some serious number crunching to get from the raw video frame to the measures for eyeball position. The following code block shows the *data processing chain* of Yeti2, which uses changes in brightness distribution to locate the eye ball.
+
+```{python eval = F}
+center_ratio = .85
+threshold = .05
+(x, y, w, h) = eye
+F_eye = cv2.resize(Frame[y:y+h,x:x+w], dim,interpolation = cv2.INTER_AREA)
+F_left = F_eye[0:height, 0:int(width/2)]
+F_right = F_eye[0:height, int(width/2):width]
+bright_left = np.sum(F_left)
+bright_right = np.sum(F_right)
+bright_dist = bright_left/bright_right
+```
+
+The many assignment operators are typical for data processing chains. In this particular algorithm, the incoming data is split in a left and a right frame, which undergo a brightness analysis separately, before they are merged into a single number for brightness distribution.
+
+```{r echo = F}
+
+DiagrammeR::mermaid("graph TB
+         F_eye   --> F_left
+         F_eye   --> F_right
+         F_left  --> bright_left
+         F_right --> bright_right
+         bright_left --> bright_dist
+         bright_right --> bright_dist")
+```
+
+What is remarkable about this chain is that it starts with a whole lot of data (one YET frame per 18ms), but it ends with a single floating point number. This is called a *data reduction* mechanism. Most, if not all, techniques in Statistics and Machine Learning are data reduction mechanisms.
+
+The purpose of Yeti2 is to reduce data, but the user interface of the program is a video stream equal to the input. Even more, the output video stream is an improved version of the original by being
+
+-   enhanced by focusing on the eye
+-   interactive, as the program reacts to voluntary eye movements
+-   augmented, as the real view is enhanced by processed data
+
+Let's take a look at how the user interface of Yeti2 is assembled:
+
+```{python eval = F}
+F_out = cv2.putText(F_eye, f"{bright_dist}", (100, 100), cv2.FONT_HERSHEY_SIMPLEX, 2, (255,0,0))
+F_out = cv2.putText(F_out, f"{Position}", (200, 200), cv2.FONT_HERSHEY_SIMPLEX, 2,
+        font_col, thickness = 8)
+```
+
+Again, we see a chain of assignment operators. Function `cv2.putText` takes the frame capturing the eye `F_eye` as input and produces as output the same frame with a text overlay for brightness distribution (`F_out`). The same function is applied to `F_out`, this time adding the guessed position and the result is written back to the same variable name. That is called *updating* a variable and it reduces the memory consumption of the program. For a tedious task as putting together an augmented display one text box at a time, updating avoids the problem of finding a unique name for every step.
+
 ## Common errors
 
-1. Confusing the *assignment operator* (`=`) with the comparative *equals* operator (`==`). The first is solely used for assigning values to variables as in 
+1.  Confusing the *assignment operator* (`=`) with the comparative *equals* operator (`==`). The first is solely used for assigning values to variables as in
 
 ```{python}
 myString = "This is an assignment statement"
@@ -349,13 +341,12 @@ Usually, when you confuse the assignment operator with the equals operator, you 
 ```{python eval = F}
 17+3 = 21
 ```
+
 ```{r echo = F}
 print("Error: can't assign to operator (<string>, line 1)")
 ```
 
-
-
-2. Forgetting to typecast other data types when incorporating them into strings
+2.  Forgetting to typecast other data types when incorporating them into strings
 
 ```{python error = T}
 myGrade = 8
@@ -370,7 +361,7 @@ myGrade = 8
 print("I got an " + str(myGrade) + " on the last exam!")
 ```
 
-3. Unintentionally cutting off decimals when typecasting to *integers*.
+3.  Unintentionally cutting off decimals when typecasting to *integers*.
 
 ```{python}
 import numpy
@@ -379,6 +370,7 @@ mean_RT = numpy.mean(RT)
 print("The subject had a mean reaction time of " + str(int(mean_RT)) + " seconds.")
 
 ```
+
 Obviously, a mean reaction time of exactly `3` is unrealistic with `3.749`, `2.998`, and `3.0147` as individual trial reaction times. You may feel inclined to typecast anyway to shorten the numerical string expression, but remember that typecasting from *float* to *integer* results in the loss of any information after the decimal point. Besides, usually there are better ways for rounding off floating points; consider the `round` method for instance.
 
 ```{python}
@@ -388,12 +380,14 @@ mean_RT = numpy.mean(RT)
 print("The subject had a mean reaction time of " + str(round(mean_RT, 3)) + " seconds.")
 ```
 
-4. Forgetting to reassign an updated value of a variable
+4.  Forgetting to reassign an updated value of a variable
+
 ```{python}
 count = 1
 count + 1
 print(count)
 ```
+
 Remember to assign the new value of a mutated variable to either a new variable or the original variable name; your computer will otherwise ignore the variable mutation and keep the variable's old value in memory.
 
 ```{python}
@@ -408,9 +402,9 @@ Despite all efforts and skill, programmers encounter programming errors on a dai
 
 Apart from some general good debugging practices introduced in chapter 9 [Debugging], there are some tricks that are especially useful in tracing errors that originate from the variables in your program.
 
-1. Checking all of your equals `==` and assignment `=` operators is a good start when tracking down bugs suspected to originate from variables. For this you can either scan your code from top to bottom manually or use the search function of your programming environment. Use `Cltr` + `F` to search for an expression in your code (in this case either `=` or `==`, or the name of the variable you expect to be the culprit). Then, for each instance of the equals `==` or `=` assignment operator, or the variable itself, ask yourself whether you used the right operator for the intended job. Confusing the equals and assignment operator usually results in a syntax error, but a syntax error does not necessarily need to originate from confusing operators. In fact, syntax errors are undoubtly the most generic errors in programming.
+1.  Checking all of your equals `==` and assignment `=` operators is a good start when tracking down bugs suspected to originate from variables. For this you can either scan your code from top to bottom manually or use the search function of your programming environment. Use `Cltr` + `F` to search for an expression in your code (in this case either `=` or `==`, or the name of the variable you expect to be the culprit). Then, for each instance of the equals `==` or `=` assignment operator, or the variable itself, ask yourself whether you used the right operator for the intended job. Confusing the equals and assignment operator usually results in a syntax error, but a syntax error does not necessarily need to originate from confusing operators. In fact, syntax errors are undoubtly the most generic errors in programming.
 
-2. Once you are positive that the bug is not caused by confusing the equals with the assignment operator, you should take a closer look at the operations you perform on your variables (such as comparing variables or performing arithmetic calculations). Operations are another potential source of bugs.
+2.  Once you are positive that the bug is not caused by confusing the equals with the assignment operator, you should take a closer look at the operations you perform on your variables (such as comparing variables or performing arithmetic calculations). Operations are another potential source of bugs.
 
 ```{python, eval=F}
 a = 1
@@ -429,7 +423,7 @@ print(type(a))
 print(type(b))
 ```
 
-3. Performing operations on variables may still have unexpected results, even when no type errors are involved. Arithmetic (`+`, `-`, `*`, `/`) and *Boolean* operators follow rules of precedence. Arithmetic operators follow the same rules of precedence as you learned about in highschool mathematics. All arithmetic operators also precede any Boolean operator, meaning that in the code snippet below `1 + 1` is evaluated before being compared to `2`.
+3.  Performing operations on variables may still have unexpected results, even when no type errors are involved. Arithmetic (`+`, `-`, `*`, `/`) and *Boolean* operators follow rules of precedence. Arithmetic operators follow the same rules of precedence as you learned about in highschool mathematics. All arithmetic operators also precede any Boolean operator, meaning that in the code snippet below `1 + 1` is evaluated before being compared to `2`.
 
 ```{python}
 print(1 + 1 == 2)
@@ -437,7 +431,7 @@ print(1 + 1 == 2)
 
 As a debugging strategy, it is useful to change the precedence of operators with the help of brackets `()`. The bug may originate in a false assumption about operator precedences. Using brackets, you can make sure that operations are executed in the exact order you intended.
 
-4. When you neither confused the equals with the assignment operator, nor made a type error, nor had false assumptions about operator precedences, the last resort is to mentally follow the flow of your program and to check whether your variables are assigned the expected value at all times. For instance, in the code snippet below, you may expect the result to be `1` since you added `2` to the initial value of `a` and `2 / 2` is `1`.
+4.  When you neither confused the equals with the assignment operator, nor made a type error, nor had false assumptions about operator precedences, the last resort is to mentally follow the flow of your program and to check whether your variables are assigned the expected value at all times. For instance, in the code snippet below, you may expect the result to be `1` since you added `2` to the initial value of `a` and `2 / 2` is `1`.
 
 ```{python}
 a = 0
@@ -499,11 +493,11 @@ print(y >= 5)
 
 Which statements about values are true?
 
-* Values are storage units in a computer's memory and thus, they are persistent throughout a computer program
-* Each value exclusively belongs to one data type
-* There are four basic data types that occur in virtually any computer program: strings, integers, floats and dictionaries
-* Variables can be assigned any type of value
-* Any operation (e.g. subtraction) can be performed on any two pairs of values  
+-   Values are storage units in a computer's memory and thus, they are persistent throughout a computer program
+-   Each value exclusively belongs to one data type
+-   There are four basic data types that occur in virtually any computer program: strings, integers, floats and dictionaries
+-   Variables can be assigned any type of value
+-   Any operation (e.g. subtraction) can be performed on any two pairs of values
 
 ### Exercise 3. Mini programs
 
@@ -532,177 +526,165 @@ print(x)
 
 What goes wrong in the following code snippets?
 
-```{}
-x = 1
-2x = 2
-print(x + 2x)
-```
+    x = 1
+    2x = 2
+    print(x + 2x)
 
-* The letter `x` may not repeat in multiple assignment statements
-* Variable declarations must be ordered in descending order, so the value `2` should be assigned before `1`
-* An illegal variable name is used
+-   The letter `x` may not repeat in multiple assignment statements
+-   Variable declarations must be ordered in descending order, so the value `2` should be assigned before `1`
+-   An illegal variable name is used
 
-```{}
-x = 3
-y = "3"
-print(x = y)
-```
+<!-- -->
 
-* A wrong arithmetic equation is printed, `3` does not equal `"3"`
-* Strings and integers are not comparable using boolean operators
-* The assignment operator is used instead of a comparative operator
+    x = 3
+    y = "3"
+    print(x = y)
 
-```{}
-name = "Colin"
-print(This is + name)
+-   A wrong arithmetic equation is printed, `3` does not equal `"3"`
+-   Strings and integers are not comparable using boolean operators
+-   The assignment operator is used instead of a comparative operator
 
-```
+<!-- -->
 
-* Variables cannot be called in `print` statements
-* The `name` variable needs to be typecasted into a String
-* The content inside the brackets of the `print` statement lacks quotation marks
+    name = "Colin"
+    print(This is + name)
+
+-   Variables cannot be called in `print` statements
+-   The `name` variable needs to be typecasted into a String
+-   The content inside the brackets of the `print` statement lacks quotation marks
 
 ### Exercise 5. String concatenation
 
 Consider the three blocks of code below.
 
-1. What is the output of the respective *print statement* at the end of each block?
-2. Describe in your own words what *string concatenation* is.
-3. There is an error hidden in the code. Explain what is going wrong and adjust the code so that it runs without throwing any errors.
+1.  What is the output of the respective *print statement* at the end of each block?
+2.  Describe in your own words what *string concatenation* is.
+3.  There is an error hidden in the code. Explain what is going wrong and adjust the code so that it runs without throwing any errors.
 
-```{}
-myString = "The statement 'Veni, vidi, vici.'"
-s1 = " was coined by Gaius Julius Caesar."
-myString = myString + s1
-print(myString)
+<!-- -->
 
-
-myString = "The statement 'Veni, vidi, vici.'"
-s1 = " was coined by Gaius Julius Caesar."
-s2 = ", 'I came, I saw, I conquered.',"
-myString = myString + s2 + s1
-print(myString)
+    myString = "The statement 'Veni, vidi, vici.'"
+    s1 = " was coined by Gaius Julius Caesar."
+    myString = myString + s1
+    print(myString)
 
 
-myString = "The statement 'Veni, vidi, vici.'"
-s1 = " was coined by Gaius Julius Caesar,"
-s2 = " supposedly around "
-year = 47
-s3 = " BC."
-myString = myString + s1 + s2 + year + s3
-print(myString)
-```
+    myString = "The statement 'Veni, vidi, vici.'"
+    s1 = " was coined by Gaius Julius Caesar."
+    s2 = ", 'I came, I saw, I conquered.',"
+    myString = myString + s2 + s1
+    print(myString)
 
-Want to know more about *string concatenation*? The following website
-provides a gentle introduction to the topic: [Python for Beginners: String concatenation and formatting in Python](http://www.pythonforbeginners.com/concatenation/string-concatenation-and-formatting-in-python)
+
+    myString = "The statement 'Veni, vidi, vici.'"
+    s1 = " was coined by Gaius Julius Caesar,"
+    s2 = " supposedly around "
+    year = 47
+    s3 = " BC."
+    myString = myString + s1 + s2 + year + s3
+    print(myString)
+
+Want to know more about *string concatenation*? The following website provides a gentle introduction to the topic: [Python for Beginners: String concatenation and formatting in Python](http://www.pythonforbeginners.com/concatenation/string-concatenation-and-formatting-in-python)
 
 ### Exercise 6. Variable names
 
-For the following variable names indicate whether the name is legal
-or not. For illegal variable names, point out what makes the name violate rules and/or conventions.
-```{}
-Reg       = "What have the Romans ever given us?"
-man1      = "The aqueduct?"
-2ndMan    = "The sanitation"
-m@n3      = "And the roads"
-man_4     = "Irrigation"
-man 5     = "Medicine"
-SixthMan  = "Education"
-man_no._7 = "And the wine!"
-8thMan    = "Public votes"
-no9atReg  = "Public order; it's finally safe to walk in the streets at night."
-reg       = """All right. But apart from sanitation,
-            medicine, education, wine, public order,
-            irrigation, roads, a fresh water system,
-            and public health;
-            what have the Romans ever done for us?"""
-```
+For the following variable names indicate whether the name is legal or not. For illegal variable names, point out what makes the name violate rules and/or conventions.
 
+    Reg       = "What have the Romans ever given us?"
+    man1      = "The aqueduct?"
+    2ndMan    = "The sanitation"
+    m@n3      = "And the roads"
+    man_4     = "Irrigation"
+    man 5     = "Medicine"
+    SixthMan  = "Education"
+    man_no._7 = "And the wine!"
+    8thMan    = "Public votes"
+    no9atReg  = "Public order; it's finally safe to walk in the streets at night."
+    reg       = """All right. But apart from sanitation,
+                medicine, education, wine, public order,
+                irrigation, roads, a fresh water system,
+                and public health;
+                what have the Romans ever done for us?"""
 
 ### Exercise 7. Stroop task welcome message
 
-In this exercise you will add a welcome message to the starting screen
-of the Stroop Task program.
+In this exercise you will add a welcome message to the starting screen of the Stroop Task program.
 
-1. Open the file `stroop_modifiedCh1Ex3.py`. Run it.
-2. Make two new variables, `msgColor` and `msgText`. Choose any color and welcome message you want.
-3. Read and try to understand the code written in lines 134-137. Try to formulate in your own words what each line of the code does.
-4. Uncomment lines 134-137. *Hint*: In Python, a commented line starts with a `#`. Commented lines will not be executed.
-5. Hit `Run file` again and see your first modification of the Stroop task algorithm in action.
-
+1.  Open the file `stroop_modifiedCh1Ex3.py`. Run it.
+2.  Make two new variables, `msgColor` and `msgText`. Choose any color and welcome message you want.
+3.  Read and try to understand the code written in lines 134-137. Try to formulate in your own words what each line of the code does.
+4.  Uncomment lines 134-137. *Hint*: In Python, a commented line starts with a `#`. Commented lines will not be executed.
+5.  Hit `Run file` again and see your first modification of the Stroop task algorithm in action.
 
 ### Exercise 8. Printing
 
 The following code prints part of a Methods section. Copy it and run it.
 
-```{}
-participants = 52.0
-trials = "200"
-experimental_sessions = 3
-trials_pp = trials * experimental_sessions
-conditions = 4
+    participants = 52.0
+    trials = "200"
+    experimental_sessions = 3
+    trials_pp = trials * experimental_sessions
+    conditions = 4
 
 
-# to be implemented by you
-condition1 = 
-condition2 = 
-condition3 = 
-condition4 =
+    # to be implemented by you
+    condition1 = 
+    condition2 = 
+    condition3 = 
+    condition4 =
 
-print("In total,", participants, "participants participated in the study.")
-print("A 2x2 factorial between-subjects design was employed.")
-print("The study examined the interaction of two independent variables: ")
-print("task difficulty (easy, difficult) and time (limited, unlimited).")
-print(conditions, "conditions were devised, plus a control condition.")
-print("The conditions were:",condition1,condition2,condition3,condition4)
-print("Participants were tested in", experimental_sessions, "experimental sessions.")
-print("Each session consisted of",trials,"trials.")
-print("In total, each partcipant thus completed", trials_pp, "trials.")
-```
+    print("In total,", participants, "participants participated in the study.")
+    print("A 2x2 factorial between-subjects design was employed.")
+    print("The study examined the interaction of two independent variables: ")
+    print("task difficulty (easy, difficult) and time (limited, unlimited).")
+    print(conditions, "conditions were devised, plus a control condition.")
+    print("The conditions were:",condition1,condition2,condition3,condition4)
+    print("Participants were tested in", experimental_sessions, "experimental sessions.")
+    print("Each session consisted of",trials,"trials.")
+    print("In total, each partcipant thus completed", trials_pp, "trials.")
 
-1. The first time you run the script, you get an error. Initialize the variables `condition1, condition2, condition3, condition4` to solve the error. Fill in semantically and syntactically correct values for the four condition variables. For example, in the context of the given Method excerpt, it would not make sense to say that one of the four conditions was `easy-locationA-limited`, right?
-2. Once you have filled in the blank variable declarations, you get a a curious output for the number of trials per person. Adjust
-the code so that the correct number of trails per person is printed. Explain what happened in your own words.
-3. `52.0` participants looks a bit ugly when printed as part of the text. Adjust the code in such a way that only full integers are printed to the console.
+1.  The first time you run the script, you get an error. Initialize the variables `condition1, condition2, condition3, condition4` to solve the error. Fill in semantically and syntactically correct values for the four condition variables. For example, in the context of the given Method excerpt, it would not make sense to say that one of the four conditions was `easy-locationA-limited`, right?
+2.  Once you have filled in the blank variable declarations, you get a a curious output for the number of trials per person. Adjust the code so that the correct number of trails per person is printed. Explain what happened in your own words.
+3.  `52.0` participants looks a bit ugly when printed as part of the text. Adjust the code in such a way that only full integers are printed to the console.
 
 ### Exercise 9. Using Python as a calculator
 
 Make a python script `Ch1Ex5.py` and implement the following pseudo code:
 
-* assign the value 37 to the variable `n1`
-* assign the value 456 to `n2`
-* calculate 1027 modulo n1 and assign the result to `n3`
-* divide `n2` by `n3`
-* add 4 to `n2`
-* calculate `n2` modulo 5 and assign the result to `n4`
-* subtract 17 from `n4`
-* calculate 65 modulo `n4` and divide the result by 2
+-   assign the value 37 to the variable `n1`
+-   assign the value 456 to `n2`
+-   calculate 1027 modulo n1 and assign the result to `n3`
+-   divide `n2` by `n3`
+-   add 4 to `n2`
+-   calculate `n2` modulo 5 and assign the result to `n4`
+-   subtract 17 from `n4`
+-   calculate 65 modulo `n4` and divide the result by 2
 
 What is the resulting value of `n4`?
 
 ### Exercise 10. A Boolean puzzle
 
 Fill in the blank spots (indicated by a question mark `?`) in the following code in such a way that `True` Boolean values are returned. You can use your Python interpreter for calculations.
-```{}
-n1 = 238
-n2 = 17
 
-print(n1 ? n2)
-print(n1 / ? == 14)
-print(n1 * ? == n2)
-print(n1 + ? == n2 - ? and n1 + ? == 972%243 and n2 - ? == 0)
-print(n2 * ? == n1*47)
-print(n1 / ? == n2 / ? * ?)
-```
+    n1 = 238
+    n2 = 17
+
+    print(n1 ? n2)
+    print(n1 / ? == 14)
+    print(n1 * ? == n2)
+    print(n1 + ? == n2 - ? and n1 + ? == 972%243 and n2 - ? == 0)
+    print(n2 * ? == n1*47)
+    print(n1 / ? == n2 / ? * ?)
 
 ## Think Further
 
-For more information and exercise on Variables and Data Types you
-may want to consult some of the following resources:
+1.  For more information and exercise on Variables and Data Types you may want to consult some of the following resources:
 
+    -   [Downey, A. (2012). Think Python. O'Reilly Media, Inc.. Chapter 2. Variables, expressions and statements](http://www.greenteapress.com/thinkpython/thinkpython.pdf)
+    -   [Official Python Tutorial, parts 3.1.1 Numbers and 3.1.2 Strings](https://docs.python.org/2/tutorial/introduction.html)
+    -   [Learnpython \`\`Variables and Types'' interactive tutorial](http://www.learnpython.org/en/Variables_and_Types)
+    -   [Swaroop, C. H. (2003). A Byte of Python. Chapter 6 \`\`Basics''](https://python.swaroopch.com/basics.html)
 
-* [Downey, A. (2012). Think Python. O'Reilly Media, Inc.. Chapter 2. Variables,
-expressions and statements](http://www.greenteapress.com/thinkpython/thinkpython.pdf)
-* [Official Python Tutorial, parts 3.1.1 Numbers and 3.1.2 Strings](https://docs.python.org/2/tutorial/introduction.html)
-* [Learnpython ``Variables and Types'' interactive tutorial](http://www.learnpython.org/en/Variables_and_Types)
-* [Swaroop, C. H. (2003). A Byte of Python. Chapter 6 ``Basics''](https://python.swaroopch.com/basics.html)
+2.  Are statistical techniques data reduction mechanism, in that they take in a lot of data and reduce it to a few numbers? Take three statistical techniques from the top of your head and make the check.
+
+3.  Think about your own brain. Does it use any data reduction mechanisms?

@@ -729,7 +729,7 @@ But let's look at keyboard input, first, as they appear in the Stroop program. T
 So, this conditional asks for the type of the event, which is that a key has been pressed down. Note that this is more basic than that a key has been entered, as that would also mean it has been released. The secod condition is about the key. Different to our prototypes, this is not a literal character, but a constant, that Pygame has predefined. That helps to deal with keys that  do not have a character assigned, such as Return, Alt, Ctrl and the arrows on your keyboard. The full list of key definitions can be found in the [Pygame documentation]:(https://www.pygame.org/docs/ref/key.html).
 
 
-When theer is a `KEYDOWN` there must also be a `KEYUP` event type, that is recorded, when the key is released again. That can be quite useful, when the goal is to do something as long as the key is pressed. Just try out what the key arrow_up does when you are editing a document. It moves the cursor up the lines until you release it.
+When there is a `KEYDOWN` there must also be a `KEYUP` event type, that is recorded, when the key is released again. That can be quite useful, when the goal is to do something as long as the key is pressed. Just try out what the key arrow_up does when you are editing a document. It moves the cursor up the lines until you release it.
 
 The full list of event types is given in the [Pygame documentation]:(https://www.pygame.org/docs/ref/event.html). Here we will only briefly explain the most important, which is the event type QUIT and all mouse event types:
 
@@ -740,7 +740,7 @@ if event.type == QUIT:
   break
 ```
  
-This actually corresponds with the alltime exit that we once implemented in the prototype. Usually, the QUIT event is the same as a key press on the ESC key. And if you try it out, you will see that you can cancel the Stroop program at any time pressing ESC. It is no more than a short cut.
+This actually corresponds with the all time exit that we once implemented in the prototype. Usually, the QUIT event is the same as a key press on the ESC key. And if you try it out, you will see that you can cancel the Stroop program at any time pressing ESC.
 
 Mouse events come as several types with different properties, the two most important ones are:
 
@@ -830,7 +830,7 @@ Notice that
 
 
 
-## Presentitionals in Pygame
+## Presentitionals in Pygame {#presentitionals}
 
 And, here we're getting to the candy! With Pygame presentitionals we give our program a face. The presentitionals of Pygame have the same formal structure as the prototype presentitionals, so there is nothing more to say about it. This chapter shows you how to create graphical user interface that render stimuli, show pictures, play animations and have buttons.
 
