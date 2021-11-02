@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<title>2 Variables, values and types | Programming for Psychologists</title>
+<title>2 Variables, values and types | Programming for researcher on behaviour</title>
 <meta name="author" content="Martin Schmettow and Lena Brandl">
 <!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.2"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/header-attrs-2.8/header-attrs.js"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet">
@@ -21,8 +21,8 @@
 
     <div class="d-flex align-items-start justify-content-between">
       <h1>
-        <a href="index.html" title="A course in Python">Programming for Psychologists</a>:
-        <small class="text-muted">A course in Python</small>
+        <a href="index.html" title="A first course in Python">Programming for researcher on behaviour</a>:
+        <small class="text-muted">A first course in Python</small>
       </h1>
       <button class="btn btn-outline-primary d-lg-none ml-2 mt-1" type="button" data-toggle="collapse" data-target="#main-nav" aria-expanded="true" aria-controls="main-nav"><i class="fas fa-bars"></i><span class="sr-only">Show table of contents</span></button>
     </div>
@@ -267,8 +267,8 @@ Apart from that, boolean values can be handled exactly as any other value, that 
 <span id="cb68-8"><a href="variables.html#cb68-8" aria-hidden="true" tabindex="-1"></a>bright_right <span class="op">=</span> np.<span class="bu">sum</span>(F_right)</span>
 <span id="cb68-9"><a href="variables.html#cb68-9" aria-hidden="true" tabindex="-1"></a>bright_dist <span class="op">=</span> bright_left<span class="op">/</span>bright_right</span></code></pre></div>
 <p>The many assignment operators are typical for data processing chains. In this particular algorithm, the incoming data is split in a left and a right frame, which undergo a brightness analysis separately, before they are merged into a single number for brightness distribution.</p>
-<div id="htmlwidget-b2852fa7f0bbc3da805d" style="width:672px;height:480px;" class="DiagrammeR html-widget"></div>
-<script type="application/json" data-for="htmlwidget-b2852fa7f0bbc3da805d">{"x":{"diagram":"graph TB\n         F_eye   --> F_left\n         F_eye   --> F_right\n         F_left  --> bright_left\n         F_right --> bright_right\n         bright_left --> bright_dist\n         bright_right --> bright_dist"},"evals":[],"jsHooks":[]}</script><p>What is remarkable about this chain is that it starts with a whole lot of data (one YET frame per 18ms), but it ends with a single floating point number. This is called a <em>data reduction</em> mechanism. Most, if not all, techniques in Statistics and Machine Learning are data reduction mechanisms.</p>
+<div id="htmlwidget-69a8780a5d157cf22c57" style="width:672px;height:480px;" class="DiagrammeR html-widget"></div>
+<script type="application/json" data-for="htmlwidget-69a8780a5d157cf22c57">{"x":{"diagram":"graph TB\n         F_eye   --> F_left\n         F_eye   --> F_right\n         F_left  --> bright_left\n         F_right --> bright_right\n         bright_left --> bright_dist\n         bright_right --> bright_dist"},"evals":[],"jsHooks":[]}</script><p>What is remarkable about this chain is that it starts with a whole lot of data (one YET frame per 18ms), but it ends with a single floating point number. This is called a <em>data reduction</em> mechanism. Most, if not all, techniques in Statistics and Machine Learning are data reduction mechanisms.</p>
 <p>The purpose of Yeti2 is to reduce data, but the user interface of the program is a video stream equal to the input. Even more, the output video stream is an improved version of the original by being</p>
 <ul>
 <li>enhanced by focusing on the eye</li>
@@ -679,7 +679,7 @@ print(n1 / ? == n2 / ? * ?)</code></pre>
 <footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
 
   <div class="col-12 col-md-6 mt-3">
-    <p>"<strong>Programming for Psychologists</strong>: A course in Python" was written by Martin Schmettow and Lena Brandl. It was last built on 2021-11-01.</p>
+    <p>"<strong>Programming for researcher on behaviour</strong>: A first course in Python" was written by Martin Schmettow and Lena Brandl. It was last built on 2021-11-02.</p>
   </div>
 
   <div class="col-12 col-md-6 mt-3">

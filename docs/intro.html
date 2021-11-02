@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<title>1 Introduction | Programming for Psychologists</title>
+<title>1 Introduction | Programming for researcher on behaviour</title>
 <meta name="author" content="Martin Schmettow and Lena Brandl">
 <!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.2"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/header-attrs-2.8/header-attrs.js"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet">
@@ -21,8 +21,8 @@
 
     <div class="d-flex align-items-start justify-content-between">
       <h1>
-        <a href="index.html" title="A course in Python">Programming for Psychologists</a>:
-        <small class="text-muted">A course in Python</small>
+        <a href="index.html" title="A first course in Python">Programming for researcher on behaviour</a>:
+        <small class="text-muted">A first course in Python</small>
       </h1>
       <button class="btn btn-outline-primary d-lg-none ml-2 mt-1" type="button" data-toggle="collapse" data-target="#main-nav" aria-expanded="true" aria-controls="main-nav"><i class="fas fa-bars"></i><span class="sr-only">Show table of contents</span></button>
     </div>
@@ -74,11 +74,10 @@
 <span class="header-section-number">1.2</span> Installing the Anaconda Python environment<a class="anchor" aria-label="anchor" href="#installing-the-anaconda-python-environment"><i class="fas fa-link"></i></a>
 </h2>
 <!-- #9 use conda environments -->
-</div>
-<div id="windows" class="section level2" number="1.3">
-<h2>
-<span class="header-section-number">1.3</span> Windows<a class="anchor" aria-label="anchor" href="#windows"><i class="fas fa-link"></i></a>
-</h2>
+<div id="windows" class="section level3" number="1.2.1">
+<h3>
+<span class="header-section-number">1.2.1</span> Windows<a class="anchor" aria-label="anchor" href="#windows"><i class="fas fa-link"></i></a>
+</h3>
 <ol style="list-style-type: decimal">
 <li><p>From <a href="https://www.anaconda.com/download/" class="uri">https://www.anaconda.com/download/</a> download the 64-bit installer of Python 3.x</p></li>
 <li>
@@ -93,16 +92,17 @@
 <li><p>In the console, type: <code>pip install pygame</code> and hit Return. Confirm anything with <code>y</code>.</p></li>
 </ol>
 </div>
-<div id="macos" class="section level2" number="1.4">
-<h2>
-<span class="header-section-number">1.4</span> MacOS<a class="anchor" aria-label="anchor" href="#macos"><i class="fas fa-link"></i></a>
-</h2>
+<div id="macos" class="section level3" number="1.2.2">
+<h3>
+<span class="header-section-number">1.2.2</span> MacOS<a class="anchor" aria-label="anchor" href="#macos"><i class="fas fa-link"></i></a>
+</h3>
 <p>Follow the analog procedure to Windows. Unfortunately, the authors use Windows computers, so this is untested.</p>
 <!-- 30  -->
 </div>
-<div id="testing-your-environment" class="section level2" number="1.5">
+</div>
+<div id="testing-your-environment" class="section level2" number="1.3">
 <h2>
-<span class="header-section-number">1.5</span> Testing your environment<a class="anchor" aria-label="anchor" href="#testing-your-environment"><i class="fas fa-link"></i></a>
+<span class="header-section-number">1.3</span> Testing your environment<a class="anchor" aria-label="anchor" href="#testing-your-environment"><i class="fas fa-link"></i></a>
 </h2>
 <p>For testing your Anaconda environment, follow these steps:</p>
 <ol style="list-style-type: decimal">
@@ -117,9 +117,9 @@
 <div class="sourceCode" id="cb1"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1-1"><a href="intro.html#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">'Hello world!'</span>)</span></code></pre></div>
 <pre><code>## Hello world!</code></pre>
 </div>
-<div id="dumb_computers" class="section level2" number="1.6">
+<div id="dumb_computers" class="section level2" number="1.4">
 <h2>
-<span class="header-section-number">1.6</span> Computers are dumb<a class="anchor" aria-label="anchor" href="#dumb_computers"><i class="fas fa-link"></i></a>
+<span class="header-section-number">1.4</span> Computers are dumb<a class="anchor" aria-label="anchor" href="#dumb_computers"><i class="fas fa-link"></i></a>
 </h2>
 <p>Programming is the process of giving instructions to a computer. The problem is … computers are incredibly dumb. In order to get used to instructing dumb computers, in the following exercise YOU will become the computer yourself. You will not just be the computer, you first have to program it, complying to some debilitating set of communication rules.</p>
 <p>Your task is to create a theater play that resembles a computer to execute a program that Psychology researchers have used a thousand times in their labs. In the <em>Stroop task</em>, participants are shown a word that is written to the screen in one of three ink colors (red, blue, green). They are asked to name the ink color as quick as possible, usually by pressing one of four assigned keys (e.g., Y = red, X = blue, N = green). The task has a twist: the presented words are themselves color words. It can happen that the word “RED” appears in red ink, which we call the <em>congruent condition</em>, but it can also happen that the word “BLUE” appears in green letters, which is <em>incongruent</em>. Hundreds of experiments have shown, that in the incongruent condition people respond noticably slower. This observation is called the <em>Stroop effect</em> and dozens of theories have spawned from this observation. Discussing them is beyond the scope, but to not let you completely dissatisfied: people seem to always read the words, although they were not asked to do so and we can conclude:</p>
@@ -192,9 +192,9 @@
 <p>It is further recommended that one of the team is assigned the role of the <em>debugger</em>. This person does not take an active role, but watches over the compliance with the set of rules.</p>
 <p>Have fun and do not let your intuition come between you and the task!</p>
 </div>
-<div id="dive-in-a-first-example" class="section level2" number="1.7">
+<div id="dive-in-a-first-example" class="section level2" number="1.5">
 <h2>
-<span class="header-section-number">1.7</span> Dive in: a first example<a class="anchor" aria-label="anchor" href="#dive-in-a-first-example"><i class="fas fa-link"></i></a>
+<span class="header-section-number">1.5</span> Dive in: a first example<a class="anchor" aria-label="anchor" href="#dive-in-a-first-example"><i class="fas fa-link"></i></a>
 </h2>
 <p>In section 1.2 <a href="intro.html#dumb_computers">Computers are dumb</a>, you have seen how debilitating it can be to program a computer to do the simplest things. Talking to a computer (as a programmer) requires to understand some fundamental ways of how computers work and learn their language. A good way to get started learning a language is just go there and expose yourself to native speakers. Let’s do that! The following text is a program the performs the Stroop task, just as in the theater play.</p>
 <div class="sourceCode" id="cb3"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb3-1"><a href="intro.html#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pygame</span>
@@ -452,9 +452,9 @@
 <span id="cb10-5"><a href="intro.html#cb10-5" aria-hidden="true" tabindex="-1"></a>        this_correctness <span class="op">=</span> (event.key <span class="op">==</span> KEYS[this_color])</span>
 <span id="cb10-6"><a href="intro.html#cb10-6" aria-hidden="true" tabindex="-1"></a>        STATE <span class="op">=</span> <span class="st">"feedback"</span></span></code></pre></div>
 <p>When the user responds by pressing a button, that moment in time is recorded in another variable <code>time_when_reacted</code> and the current reaction time is computed as the time difference between reaction and presentation.</p>
-<div id="exercises" class="section level4" number="1.7.0.1">
+<div id="exercises" class="section level4" number="1.5.0.1">
 <h4>
-<span class="header-section-number">1.7.0.1</span> Exercises<a class="anchor" aria-label="anchor" href="#exercises"><i class="fas fa-link"></i></a>
+<span class="header-section-number">1.5.0.1</span> Exercises<a class="anchor" aria-label="anchor" href="#exercises"><i class="fas fa-link"></i></a>
 </h4>
 <ol style="list-style-type: decimal">
 <li>Load the Stroop program into your Python editor and run it yourself.</li>
@@ -467,13 +467,13 @@
 </ol>
 </div>
 </div>
-<div id="batchwork" class="section level2" number="1.8">
+<div id="batchwork" class="section level2" number="1.6">
 <h2>
-<span class="header-section-number">1.8</span> Making an eye tracker<a class="anchor" aria-label="anchor" href="#batchwork"><i class="fas fa-link"></i></a>
+<span class="header-section-number">1.6</span> Making an eye tracker<a class="anchor" aria-label="anchor" href="#batchwork"><i class="fas fa-link"></i></a>
 </h2>
-<div id="yets-and-yetis" class="section level3" number="1.8.1">
+<div id="yets-and-yetis" class="section level3" number="1.6.1">
 <h3>
-<span class="header-section-number">1.8.1</span> YETs and Yetis<a class="anchor" aria-label="anchor" href="#yets-and-yetis"><i class="fas fa-link"></i></a>
+<span class="header-section-number">1.6.1</span> YETs and Yetis<a class="anchor" aria-label="anchor" href="#yets-and-yetis"><i class="fas fa-link"></i></a>
 </h3>
 <p>An eye tracker is a device that tells, where a person is looking at from moment to moment. Modern eye trackers are highly sophisticated systems, very precise and multiple purpose. They are very costly, too. Too costly that every student could have one.</p>
 <p>Even an eye tracking system with a 10.000 EUR price tag operates by a very simple principle: A camera device is pointed to the eye and the eye ball coordinates are estimated and recorded by a piece of software.</p>
@@ -490,9 +490,9 @@
 <p>A Yeti is a YET interface (or intelligence). It is a piece of software that analyses the incoming video footage and often interacts with the user. A Yeti is usually written in Python, using the library Pygame for interaction with the user and the library OpenCV for the video analysis.</p>
 <p>For using a Yeti with YET, you first have to download it from the <a href="https://github.com/schmettow/YET/tree/main/yeti">YET Github repository</a></p>
 </div>
-<div id="the-eyeballing-exercise" class="section level3" number="1.8.2">
+<div id="the-eyeballing-exercise" class="section level3" number="1.6.2">
 <h3>
-<span class="header-section-number">1.8.2</span> The Eyeballing exercise<a class="anchor" aria-label="anchor" href="#the-eyeballing-exercise"><i class="fas fa-link"></i></a>
+<span class="header-section-number">1.6.2</span> The Eyeballing exercise<a class="anchor" aria-label="anchor" href="#the-eyeballing-exercise"><i class="fas fa-link"></i></a>
 </h3>
 <p>The Stroop task is an example of an <em>interactive program.</em> Interactive programs have an interface to the user and should react to the user input in a useful manner. That’s a hard problem for computers, hence for programmers.</p>
 <p>Like all machines, computers are much better at monotonic tasks. Programming an interactive stop watch can be much harder than programming a computer to stoically perform the same procedure at 60 times per second.</p>
@@ -510,9 +510,9 @@
 <p>Then, get YET as close as possible to you eyeball, with LEDs turned on and repeat the above sequence.</p>
 <p>Now, inspect your pictures in a group. Start with the portraits. Describe the visual features of vertical and horizontal gaze directions? Then turn to the eyeball pictures and repeat the visual analysis.</p>
 </div>
-<div id="dumb-pictures" class="section level3" number="1.8.3">
+<div id="dumb-pictures" class="section level3" number="1.6.3">
 <h3>
-<span class="header-section-number">1.8.3</span> Dumb pictures<a class="anchor" aria-label="anchor" href="#dumb-pictures"><i class="fas fa-link"></i></a>
+<span class="header-section-number">1.6.3</span> Dumb pictures<a class="anchor" aria-label="anchor" href="#dumb-pictures"><i class="fas fa-link"></i></a>
 </h3>
 <p>When you were eye-balling eyeballs, a lot of messy, but surprisingly effective, biological stuff was going on between your eyeball and your mind, most of which you are unaware of. For example, that you immediately recognize an eyeball as such.</p>
 <p>Let’s explore how computers see:</p>
@@ -524,9 +524,9 @@
 <p>On a computer screen, such a point is a tiny multi-color, dimmable LED, called a <em>pixel</em>. If you have a magnifying glass at hand and you take an even closer view at your screen, you will see, that every pixel is actually composed of three differently colored LEDs: Red, Green and Blue. We will learn more about <em>RGB</em> frames in <a href="interaction.html#presentitionals">8.4</a>.</p>
 <p>Sometimes, a computer doesn’t need to see color, but only brightness levels, where all points emit light on scale from 0 (black) to 255 (white). This is called a <em>grayscale</em> frame. The most simple form of representing a picture is a black-and-white mode, where all points are either off or at full brightness (0 or 1). This is called a <em>bitmap</em> frame, because it is composed <em>binary</em> pixel. in computer jargon a binary switch is called a <em>bit</em>.</p>
 </div>
-<div id="from-pixel-to-eye-tracking" class="section level3" number="1.8.4">
+<div id="from-pixel-to-eye-tracking" class="section level3" number="1.6.4">
 <h3>
-<span class="header-section-number">1.8.4</span> From pixel to eye tracking<a class="anchor" aria-label="anchor" href="#from-pixel-to-eye-tracking"><i class="fas fa-link"></i></a>
+<span class="header-section-number">1.6.4</span> From pixel to eye tracking<a class="anchor" aria-label="anchor" href="#from-pixel-to-eye-tracking"><i class="fas fa-link"></i></a>
 </h3>
 <p>Now that you have the basics, your task is to design a computer program that takes in a grid of pixels (also called a <em>frame</em>) and produces an estimate of the direction the eyeball is pointed at. Again, you will decompose a complex task into smaller parts. However, as there is no nasty user input involved, you don’t describe actors, but design a <em>sequence of functions</em>, where the first function takes in the frame and the last returns the eyeball position in horizontal and vertical direction.</p>
 <p>Here are some functions that can be helpful:</p>
@@ -567,12 +567,12 @@
 <li><p><em>Frame.avg_bright</em> calculates an average brightness value of an input frame</p></li>
 </ul>
 </div>
-<div id="into-the-batch" class="section level3" number="1.8.5">
+<div id="into-the-batch" class="section level3" number="1.6.5">
 <h3>
-<span class="header-section-number">1.8.5</span> Into the batch<a class="anchor" aria-label="anchor" href="#into-the-batch"><i class="fas fa-link"></i></a>
+<span class="header-section-number">1.6.5</span> Into the batch<a class="anchor" aria-label="anchor" href="#into-the-batch"><i class="fas fa-link"></i></a>
 </h3>
 <p>Up-down. left-right! Have you found a solution to the problem? You can a solution in chapter <a href="solutions.html#solutions">9</a>. The following code is extracted from Yeti2, a simple program, that detects the horizontal position (left, center, right).</p>
-<p>The code of Yeti2 starts a preamble, which is mostly the same for all Yetis. The interesting part begins with another fast loop. Remember the Looper in <a href="intro.html#dive-in-a-first-example">1.7</a>? It is the same principle here. The Looper doesn’t know when the next video frame arrives, so every loop starts with an interrogation to collect the next frame. The frame is subsequently turned into a grayscale image, because the subsequent analysis is purely based on brightness information.</p>
+<p>The code of Yeti2 starts a preamble, which is mostly the same for all Yetis. The interesting part begins with another fast loop. Remember the Looper in <a href="intro.html#dive-in-a-first-example">1.5</a>? It is the same principle here. The Looper doesn’t know when the next video frame arrives, so every loop starts with an interrogation to collect the next frame. The frame is subsequently turned into a grayscale image, because the subsequent analysis is purely based on brightness information.</p>
 <div class="sourceCode" id="cb11"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb11-1"><a href="intro.html#cb11-1" aria-hidden="true" tabindex="-1"></a>Detected <span class="op">=</span> <span class="va">False</span></span>
 <span id="cb11-2"><a href="intro.html#cb11-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb11-3"><a href="intro.html#cb11-3" aria-hidden="true" tabindex="-1"></a><span class="co"># FAST LOOP</span></span>
@@ -619,15 +619,15 @@
 <span id="cb13-15"><a href="intro.html#cb13-15" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> LR_ratio <span class="op">&gt;</span> center_ratio <span class="op">+</span> threshold:</span>
 <span id="cb13-16"><a href="intro.html#cb13-16" aria-hidden="true" tabindex="-1"></a>            Position <span class="op">=</span> <span class="st">"left"</span></span>
 <span id="cb13-17"><a href="intro.html#cb13-17" aria-hidden="true" tabindex="-1"></a>        <span class="cf">else</span> Position <span class="op">=</span> <span class="st">"center"</span></span></code></pre></div>
-<div id="further-readings" class="section level4" number="1.8.5.1">
+<div id="further-readings" class="section level4" number="1.6.5.1">
 <h4>
-<span class="header-section-number">1.8.5.1</span> Further readings<a class="anchor" aria-label="anchor" href="#further-readings"><i class="fas fa-link"></i></a>
+<span class="header-section-number">1.6.5.1</span> Further readings<a class="anchor" aria-label="anchor" href="#further-readings"><i class="fas fa-link"></i></a>
 </h4>
 <p><a href="https://www.pyimagesearch.com/2021/01/20/opencv-getting-and-setting-pixels/">OpenCV Getting and Setting Pixels</a></p>
 </div>
-<div id="think-further" class="section level4" number="1.8.5.2">
+<div id="think-further" class="section level4" number="1.6.5.2">
 <h4>
-<span class="header-section-number">1.8.5.2</span> Think further<a class="anchor" aria-label="anchor" href="#think-further"><i class="fas fa-link"></i></a>
+<span class="header-section-number">1.6.5.2</span> Think further<a class="anchor" aria-label="anchor" href="#think-further"><i class="fas fa-link"></i></a>
 </h4>
 <ol style="list-style-type: decimal">
 <li>
@@ -639,7 +639,7 @@
 </ol>
 </li>
 <li><p>When the eyeball jumps from object to object in the visual field, it makes <em>saccades</em>. Saccades are extremely fast. If the average eyeball could make full spins at the speed of a saccade, it would make a 360 in 720 milliseconds (84 rpm). Think about how you could use YET to measure your own speed-of-eyeball.</p></li>
-<li><p>In psychological experiments, reaction time is frequently measured as the interval between stimulus presentation and keypress. Compared to saccades, fingers are sluggish. Combine your results from @ref(dumb_computers) and <a href="intro.html#batchwork">1.8</a> to create a Stroop task where the response is measured by eye tracking.</p></li>
+<li><p>In psychological experiments, reaction time is frequently measured as the interval between stimulus presentation and keypress. Compared to saccades, fingers are sluggish. Combine your results from @ref(dumb_computers) and <a href="intro.html#batchwork">1.6</a> to create a Stroop task where the response is measured by eye tracking.</p></li>
 </ol>
 </div>
 </div>
@@ -653,19 +653,22 @@
       <ul class="nav navbar-nav">
 <li><a class="nav-link" href="#intro"><span class="header-section-number">1</span> Introduction</a></li>
 <li><a class="nav-link" href="#installing-a-python-environment"><span class="header-section-number">1.1</span> Installing a Python environment</a></li>
-<li><a class="nav-link" href="#installing-the-anaconda-python-environment"><span class="header-section-number">1.2</span> Installing the Anaconda Python environment</a></li>
-<li><a class="nav-link" href="#windows"><span class="header-section-number">1.3</span> Windows</a></li>
-<li><a class="nav-link" href="#macos"><span class="header-section-number">1.4</span> MacOS</a></li>
-<li><a class="nav-link" href="#testing-your-environment"><span class="header-section-number">1.5</span> Testing your environment</a></li>
-<li><a class="nav-link" href="#dumb_computers"><span class="header-section-number">1.6</span> Computers are dumb</a></li>
-<li><a class="nav-link" href="#dive-in-a-first-example"><span class="header-section-number">1.7</span> Dive in: a first example</a></li>
 <li>
-<a class="nav-link" href="#batchwork"><span class="header-section-number">1.8</span> Making an eye tracker</a><ul class="nav navbar-nav">
-<li><a class="nav-link" href="#yets-and-yetis"><span class="header-section-number">1.8.1</span> YETs and Yetis</a></li>
-<li><a class="nav-link" href="#the-eyeballing-exercise"><span class="header-section-number">1.8.2</span> The Eyeballing exercise</a></li>
-<li><a class="nav-link" href="#dumb-pictures"><span class="header-section-number">1.8.3</span> Dumb pictures</a></li>
-<li><a class="nav-link" href="#from-pixel-to-eye-tracking"><span class="header-section-number">1.8.4</span> From pixel to eye tracking</a></li>
-<li><a class="nav-link" href="#into-the-batch"><span class="header-section-number">1.8.5</span> Into the batch</a></li>
+<a class="nav-link" href="#installing-the-anaconda-python-environment"><span class="header-section-number">1.2</span> Installing the Anaconda Python environment</a><ul class="nav navbar-nav">
+<li><a class="nav-link" href="#windows"><span class="header-section-number">1.2.1</span> Windows</a></li>
+<li><a class="nav-link" href="#macos"><span class="header-section-number">1.2.2</span> MacOS</a></li>
+</ul>
+</li>
+<li><a class="nav-link" href="#testing-your-environment"><span class="header-section-number">1.3</span> Testing your environment</a></li>
+<li><a class="nav-link" href="#dumb_computers"><span class="header-section-number">1.4</span> Computers are dumb</a></li>
+<li><a class="nav-link" href="#dive-in-a-first-example"><span class="header-section-number">1.5</span> Dive in: a first example</a></li>
+<li>
+<a class="nav-link" href="#batchwork"><span class="header-section-number">1.6</span> Making an eye tracker</a><ul class="nav navbar-nav">
+<li><a class="nav-link" href="#yets-and-yetis"><span class="header-section-number">1.6.1</span> YETs and Yetis</a></li>
+<li><a class="nav-link" href="#the-eyeballing-exercise"><span class="header-section-number">1.6.2</span> The Eyeballing exercise</a></li>
+<li><a class="nav-link" href="#dumb-pictures"><span class="header-section-number">1.6.3</span> Dumb pictures</a></li>
+<li><a class="nav-link" href="#from-pixel-to-eye-tracking"><span class="header-section-number">1.6.4</span> From pixel to eye tracking</a></li>
+<li><a class="nav-link" href="#into-the-batch"><span class="header-section-number">1.6.5</span> Into the batch</a></li>
 </ul>
 </li>
 </ul>
@@ -684,7 +687,7 @@
 <footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
 
   <div class="col-12 col-md-6 mt-3">
-    <p>"<strong>Programming for Psychologists</strong>: A course in Python" was written by Martin Schmettow and Lena Brandl. It was last built on 2021-11-01.</p>
+    <p>"<strong>Programming for researcher on behaviour</strong>: A first course in Python" was written by Martin Schmettow and Lena Brandl. It was last built on 2021-11-02.</p>
   </div>
 
   <div class="col-12 col-md-6 mt-3">

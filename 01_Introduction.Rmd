@@ -14,7 +14,7 @@ The *Anaconda Python* system puts an editor, an interpreter and a huge set of li
 
 <!-- #9 use conda environments -->
 
-## Windows
+### Windows
 
 1.  From <https://www.anaconda.com/download/> download the 64-bit installer of Python 3.x
 
@@ -28,7 +28,7 @@ The *Anaconda Python* system puts an editor, an interpreter and a huge set of li
 
 4.  In the console, type: `pip install pygame` and hit Return. Confirm anything with `y`.
 
-## MacOS
+### MacOS
 
 Follow the analog procedure to Windows. Unfortunately, the authors use Windows computers, so this is untested.
 

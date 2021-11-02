@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<title>7 Working with data | Programming for Psychologists</title>
+<title>7 Working with data | Programming for researcher on behaviour</title>
 <meta name="author" content="Martin Schmettow and Lena Brandl">
 <!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.2"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/header-attrs-2.8/header-attrs.js"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet">
@@ -21,8 +21,8 @@
 
     <div class="d-flex align-items-start justify-content-between">
       <h1>
-        <a href="index.html" title="A course in Python">Programming for Psychologists</a>:
-        <small class="text-muted">A course in Python</small>
+        <a href="index.html" title="A first course in Python">Programming for researcher on behaviour</a>:
+        <small class="text-muted">A first course in Python</small>
       </h1>
       <button class="btn btn-outline-primary d-lg-none ml-2 mt-1" type="button" data-toggle="collapse" data-target="#main-nav" aria-expanded="true" aria-controls="main-nav"><i class="fas fa-bars"></i><span class="sr-only">Show table of contents</span></button>
     </div>
@@ -73,10 +73,10 @@
 <span class="header-section-number">7.1</span> Elements of data processing<a class="anchor" aria-label="anchor" href="#elements-of-data-processing"><i class="fas fa-link"></i></a>
 </h2>
 <p>In the previous chapter we have dealt with functions as reusable pieces of code. There is another common notion of what a function is: <em>a function processes data</em>. The basic model of data processing is the following:</p>
-<div id="htmlwidget-2a8ee13e2112db293086" style="width:672px;height:480px;" class="DiagrammeR html-widget"></div>
-<script type="application/json" data-for="htmlwidget-2a8ee13e2112db293086">{"x":{"diagram":"graph LR\nIN(Input Data) --> PROC[Function]\nPROC --> OUT(Output Data)"},"evals":[],"jsHooks":[]}</script><p>So, what is data? As psychologists we are used to think of data as observations from empirical studies that we process by statistical procedures. That precisely matches our above model:</p>
-<div id="htmlwidget-aace666ef783673955ad" style="width:672px;height:480px;" class="DiagrammeR html-widget"></div>
-<script type="application/json" data-for="htmlwidget-aace666ef783673955ad">{"x":{"diagram":"graph LR\nIN(Observations) --> PROC[t-test]\nPROC --> OUT(p-value)"},"evals":[],"jsHooks":[]}</script><p>In Python, as a general programming language, there exist libraries that implement tables of observations, as well as the t-test (and more modern statistical procedures, luckily). However, we don’t want to bother you with statistics for the moment. Instead, take another look at two function that we have introduced in <a href="functions.html#functions">6</a>:</p>
+<div id="htmlwidget-c46aa13c0dc5dfbec106" style="width:672px;height:480px;" class="DiagrammeR html-widget"></div>
+<script type="application/json" data-for="htmlwidget-c46aa13c0dc5dfbec106">{"x":{"diagram":"graph LR\nIN(Input Data) --> PROC[Function]\nPROC --> OUT(Output Data)"},"evals":[],"jsHooks":[]}</script><p>So, what is data? As psychologists we are used to think of data as observations from empirical studies that we process by statistical procedures. That precisely matches our above model:</p>
+<div id="htmlwidget-4fc3b51af247df825775" style="width:672px;height:480px;" class="DiagrammeR html-widget"></div>
+<script type="application/json" data-for="htmlwidget-4fc3b51af247df825775">{"x":{"diagram":"graph LR\nIN(Observations) --> PROC[t-test]\nPROC --> OUT(p-value)"},"evals":[],"jsHooks":[]}</script><p>In Python, as a general programming language, there exist libraries that implement tables of observations, as well as the t-test (and more modern statistical procedures, luckily). However, we don’t want to bother you with statistics for the moment. Instead, take another look at two function that we have introduced in <a href="functions.html#functions">6</a>:</p>
 <div class="sourceCode" id="cb422"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb422-1"><a href="data.html#cb422-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> summation(alist):</span>
 <span id="cb422-2"><a href="data.html#cb422-2" aria-hidden="true" tabindex="-1"></a>    <span class="bu">sum</span> <span class="op">=</span> <span class="fl">0.0</span></span>
 <span id="cb422-3"><a href="data.html#cb422-3" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="bu">len</span>(alist)):</span>
@@ -88,16 +88,16 @@
 <pre><code>## Sum of the list is: 10.0
 ## 10.0</code></pre>
 <p>The function <code>summation</code> takes a list of values and computes the sum. Again, that satisfies the basic model of data processing:</p>
-<div id="htmlwidget-dba0be90ab73592f4d27" style="width:672px;height:480px;" class="DiagrammeR html-widget"></div>
-<script type="application/json" data-for="htmlwidget-dba0be90ab73592f4d27">{"x":{"diagram":"graph LR\nIN(List of numbers) --> PROC[Summation]\nPROC --> OUT(sum)"},"evals":[],"jsHooks":[]}</script><p>It is easy to see how input and output are implemented with Python functions:</p>
+<div id="htmlwidget-c573b5d3bbe9b5b8ab4e" style="width:672px;height:480px;" class="DiagrammeR html-widget"></div>
+<script type="application/json" data-for="htmlwidget-c573b5d3bbe9b5b8ab4e">{"x":{"diagram":"graph LR\nIN(List of numbers) --> PROC[Summation]\nPROC --> OUT(sum)"},"evals":[],"jsHooks":[]}</script><p>It is easy to see how input and output are implemented with Python functions:</p>
 <ul>
 <li>function arguments provide the input</li>
 <li>the function body does the processing</li>
 <li>the return statement gives the output</li>
 </ul>
 <p>Consequently, every function that takes arguments and has a return statement can be considered data processing. Furthermore, data processing can take place as chains. Let’s take the variance of a list of numbers as an example. The formula for variance, shown below, reveals that the variance statistic is produces in three steps: first, the residuals are computed, these are squared an finally the mean value is taken.</p>
-<div id="htmlwidget-31dd3d3d72388cd4ab5f" style="width:672px;height:480px;" class="DiagrammeR html-widget"></div>
-<script type="application/json" data-for="htmlwidget-31dd3d3d72388cd4ab5f">{"x":{"diagram":"graph LR\n IN(List of numbers) --> PROC_1[square residuals]\n PROC_1 --> OUT_1(List of squared residuals)\n OUT_1 --> PROC_2[take the mean]\n PROC_2 --> OUT(Variance)"},"evals":[],"jsHooks":[]}</script><p>Let’s see how this is implemnented in Python. For the squared residuals, we create our own function, but resort to the function <code>mean</code> in the <code>numpy</code> library. Note how the two defined functions operate on a dedicated list for output, rather than modifying the original one. Recall that lists are called by reference, which means the original list would otherwise be altered by the function.</p>
+<div id="htmlwidget-a33d936ef468e2eb967c" style="width:672px;height:480px;" class="DiagrammeR html-widget"></div>
+<script type="application/json" data-for="htmlwidget-a33d936ef468e2eb967c">{"x":{"diagram":"graph LR\n IN(List of numbers) --> PROC_1[square residuals]\n PROC_1 --> OUT_1(List of squared residuals)\n OUT_1 --> PROC_2[take the mean]\n PROC_2 --> OUT(Variance)"},"evals":[],"jsHooks":[]}</script><p>Let’s see how this is implemnented in Python. For the squared residuals, we create our own function, but resort to the function <code>mean</code> in the <code>numpy</code> library. Note how the two defined functions operate on a dedicated list for output, rather than modifying the original one. Recall that lists are called by reference, which means the original list would otherwise be altered by the function.</p>
 <div class="sourceCode" id="cb424"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb424-1"><a href="data.html#cb424-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> numpy <span class="im">import</span> mean</span>
 <span id="cb424-2"><a href="data.html#cb424-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb424-3"><a href="data.html#cb424-3" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> residuals(lon):</span>
@@ -348,7 +348,7 @@ And finally, the <code>close</code> command signals the operating system that th
 <span id="cb437-30"><a href="data.html#cb437-30" aria-hidden="true" tabindex="-1"></a>R[this_color],</span>
 <span id="cb437-31"><a href="data.html#cb437-31" aria-hidden="true" tabindex="-1"></a>G[this_color],</span>
 <span id="cb437-32"><a href="data.html#cb437-32" aria-hidden="true" tabindex="-1"></a>B[this_color], <span class="st">")"</span>)</span></code></pre></div>
-<pre><code>## Presenting orange in color green ( 0 150 150 )</code></pre>
+<pre><code>## Presenting orange in color orange ( 255 150 0 )</code></pre>
 <!-- To give a more compelling example for when it is useful to load stimuli at runtime: A modified version of the experiment is the primed Stroop task that by which one can assess the strength of certain semantic associations. It differs from the original in that it -->
 <!-- + shows a priming picture upfront (e.g. a wolf) -->
 <!-- + uses no color words, but target words that the participant may associate with the picture (e.g., the word "grandmother") -->
@@ -440,7 +440,7 @@ And finally, the <code>close</code> command signals the operating system that th
 <footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
 
   <div class="col-12 col-md-6 mt-3">
-    <p>"<strong>Programming for Psychologists</strong>: A course in Python" was written by Martin Schmettow and Lena Brandl. It was last built on 2021-11-01.</p>
+    <p>"<strong>Programming for researcher on behaviour</strong>: A first course in Python" was written by Martin Schmettow and Lena Brandl. It was last built on 2021-11-02.</p>
   </div>
 
   <div class="col-12 col-md-6 mt-3">

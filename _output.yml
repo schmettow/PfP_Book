@@ -1,9 +1,2 @@
 bookdown::bs4_book:
   split_by: chapter
-bookdown::pdf_book:
-  keep_tex: yes
-  pandoc_args: --top-level-division=chapter
-  template: null
-  fig_width: 5
-  fig_height: 4
-  fig_caption: true

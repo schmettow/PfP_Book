@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<title>8 Interaction | Programming for Psychologists</title>
+<title>8 Interaction | Programming for researcher on behaviour</title>
 <meta name="author" content="Martin Schmettow and Lena Brandl">
 <!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.2"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/header-attrs-2.8/header-attrs.js"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet">
@@ -21,8 +21,8 @@
 
     <div class="d-flex align-items-start justify-content-between">
       <h1>
-        <a href="index.html" title="A course in Python">Programming for Psychologists</a>:
-        <small class="text-muted">A course in Python</small>
+        <a href="index.html" title="A first course in Python">Programming for researcher on behaviour</a>:
+        <small class="text-muted">A first course in Python</small>
       </h1>
       <button class="btn btn-outline-primary d-lg-none ml-2 mt-1" type="button" data-toggle="collapse" data-target="#main-nav" aria-expanded="true" aria-controls="main-nav"><i class="fas fa-bars"></i><span class="sr-only">Show table of contents</span></button>
     </div>
@@ -107,8 +107,8 @@ G    .    .</code></pre>
 <span class="header-section-number">8.1.2</span> Identifying transitions<a class="anchor" aria-label="anchor" href="#identifying-transitions"><i class="fas fa-link"></i></a>
 </h3>
 <p>The second step in the analysis is about identifying the <em>transitions</em> between states. The Dutch traffic light knows three transitions:</p>
-<div id="htmlwidget-94b1ef769baea307476c" style="width:672px;height:480px;" class="DiagrammeR html-widget"></div>
-<script type="application/json" data-for="htmlwidget-94b1ef769baea307476c">{"x":{"diagram":"graph LR\n         Go   --> Att\n         Att  --> Stop\n         Stop --> Go"},"evals":[],"jsHooks":[]}</script><p>Cycling through a set of states is the most simple interaction protocol. It is unique, in that states are arrenged in a closed cycle, which implies that every state appears exactly once on the left-hand side (the original state) and the right-hand side (the destination). As we will later see, this is why we also only need one button for a manual traffic light.</p>
+<div id="htmlwidget-8aa6ec4d6a09ac960545" style="width:672px;height:480px;" class="DiagrammeR html-widget"></div>
+<script type="application/json" data-for="htmlwidget-8aa6ec4d6a09ac960545">{"x":{"diagram":"graph LR\n         Go   --> Att\n         Att  --> Stop\n         Stop --> Go"},"evals":[],"jsHooks":[]}</script><p>Cycling through a set of states is the most simple interaction protocol. It is unique, in that states are arrenged in a closed cycle, which implies that every state appears exactly once on the left-hand side (the original state) and the right-hand side (the destination). As we will later see, this is why we also only need one button for a manual traffic light.</p>
 <p>Most of the time it is more complicated and state charts can easily go out-of-hand. We now introduce the method of <em>transition tables</em>, which breaks down the complex analysis into a series of simple questions. All we know afterthe state analysis is the set of states and that, potentially, every state can change into every other. We put this into a square matrix of states. The rows denote the <em>origin</em> state, the columns are <em>target</em> states.</p>
 <pre><code>      Go  Att Stop
 Go
@@ -125,8 +125,8 @@ Go          X
 Att             X
 Stop  X</code></pre>
 <p>It is important to understand, that transitions are not symmetric. In the case of a traffic light, you can go from Go to Att, but there is no transition back. In interaction models other than a uni-directional cycle, transitions can well be symmetric, think of the checkout process on webshops. Usually, they guide you through the process in a number of steps (billing address –&gt; delivery address, credit card number), but allow you to go back to the previous step to do corrections.</p>
-<div id="htmlwidget-fc3cf8fc30fc24eb8140" style="width:672px;height:192px;" class="DiagrammeR html-widget"></div>
-<script type="application/json" data-for="htmlwidget-fc3cf8fc30fc24eb8140">{"x":{"diagram":"graph LR\n    Delivery    --> Billing\n    Billing    --> Credit_card\n    Credit_card --> Billing\n    Billing     --> Delivery"},"evals":[],"jsHooks":[]}</script><pre><code>             Delivery  Billing Credit_card
+<div id="htmlwidget-5cf1c08074875de101d9" style="width:672px;height:192px;" class="DiagrammeR html-widget"></div>
+<script type="application/json" data-for="htmlwidget-5cf1c08074875de101d9">{"x":{"diagram":"graph LR\n    Delivery    --> Billing\n    Billing    --> Credit_card\n    Credit_card --> Billing\n    Billing     --> Delivery"},"evals":[],"jsHooks":[]}</script><pre><code>             Delivery  Billing Credit_card
 Delivery               x
 Billing      x                 x
 Credit_card            x       </code></pre>
@@ -1104,7 +1104,7 @@ The Pacman figure would leave a trail of copies of itself, painting a trail with
 <footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
 
   <div class="col-12 col-md-6 mt-3">
-    <p>"<strong>Programming for Psychologists</strong>: A course in Python" was written by Martin Schmettow and Lena Brandl. It was last built on 2021-11-01.</p>
+    <p>"<strong>Programming for researcher on behaviour</strong>: A first course in Python" was written by Martin Schmettow and Lena Brandl. It was last built on 2021-11-02.</p>
   </div>
 
   <div class="col-12 col-md-6 mt-3">
