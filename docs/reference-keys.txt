@@ -205,3 +205,7 @@ debugging-4
 boosting-your-programming-learning-curve
 going-with-the-flow
 just-do-it
+continuous-event-handling
+playing-animations
+interactive-animations
+controls

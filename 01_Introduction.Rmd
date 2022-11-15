@@ -40,8 +40,8 @@ For testing your Anaconda environment, follow these steps:
 
 1.  From the Start menu start Anaconda Navigator
 2.  From the Home screen launch Spyder
-3.  Download the Python file `PIP_Stroop_interaction.py` from the folder Week 1 on Google Drive <https://goo.gl/UmBsil>
-4.  Open this file in Spyder (File --\> Open).
+3.  Download the Python file `PIP_Stroop_interaction.py` from the folder Day 1.
+4.  Open this file in Visual Studio Code (File --\> Open).
 5.  Run the program by clicking the green play button. You should see a window popping up, which greets you to the Stroop experiment.
 
 And finally, it is a dear tradition to greet the world with your first program. Create a new file in Spyder and copy-paste the following lines into it. Then hit the play button once again.

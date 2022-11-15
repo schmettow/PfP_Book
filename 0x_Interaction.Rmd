@@ -39,15 +39,13 @@ The first step in the analysis is to *identify states* of the program. A state i
 + In MS Word, there are several different modes to view a document: Read, Print, Web.
 + ...
 
-If you are making a model of an existing system in front of your eyes, that's called *reverse engineering*. One good heuristic to reverse engineer states is to simply observe the different visual forms the display takes. Then, the states are exmained further and are given a description and a label. So, let's reverse engineer the Dutch traffic light by watching one cycle of signals:
-
-Here are the three displays of the traffic light:
+If you are making a model of an existing system in front of your eyes, that's called *reverse engineering*. One good heuristic to reverse engineer a system of states is to simply observe the different visual forms the display takes. Then, the states are examined further and are given a description and a label. So, let's reverse engineer a Dutch traffic light by watching one cycle of signals:
 
     .    .    R
     .    Y    .
     G    .    .
 
-Then we capture the purpose of state and give it What we have to capture in the first place in our analysis is the *purpose of states*.  and this we note this down in a *table of states (TOS)*:
+You may be tempted at this stage to call the states by their appearance (Green, Yellow, Red). That is not exactly wrong, but it confuses the purpose of the state with its appearance. Imagine, you wanted to actually design a traffic light for people who are blind, using sounds. Then the light colors no longer describe the state well.  Instead, the state description should state the *purpose of states*, which we note down in a *table of states (TOS)*:
 
 
 ```{r echo=FALSE, message=FALSE}
@@ -57,11 +55,13 @@ tibble::tribble(~State, ~Purpose,
                 "Stop", "No permission to cross")
 ```
 
-Notice how we named the states of the traffic light, or better how we did not call them Green, Yellow and Red. Why, because colored lamps are just one medium for the signal. The description of the state should address the purpose of the state and not its appearance. When doing the analysis, rather than thinking of lamps and buzzers, think of what the user will understans. Visual design comes at a later point in the development process.
+By keeping the states abstract, at a later point in the development you can decide, how to shape the user interface, visually or through other channels.
+
+
 
 ### Identifying transitions
 
-The second step in the analysis is about identifying the *transitions* between states. The Dutch traffic light knows three transitions:
+The second step in the analysis is identifying the *transitions* between states. The Dutch traffic light knows three transitions:
 
 ```{r echo = F}
 DiagrammeR::mermaid("graph LR
@@ -72,23 +72,23 @@ DiagrammeR::mermaid("graph LR
 ```
 
 
-Cycling through a set of states is the most simple interaction protocol. It is unique, in that states are arrenged in a closed cycle, which implies that every state appears exactly once on the left-hand side (the original state) and the right-hand side (the destination). As we will later see, this is why we also only  need one button for a manual traffic light.
+Cycling through a set of states is the most simple interaction protocol. It is unique, in that states are arranged in a closed cycle, which implies that every state appears exactly once on the left-hand side (the original state) and the right-hand side (the destination). As we will later see, this is why a single control is sufficient to manually operate a traffic light.
 
-Most of the time it is more complicated and state charts can easily go out-of-hand. We now introduce the method of *transition tables*, which breaks down the complex analysis into a series of simple questions. All we know afterthe state analysis is the set of states and that, potentially, every state can change into every other. We put this into a square matrix of states. The rows denote the *origin* state, the columns are *target* states.
+Most of the time, the interaction flow is more complicated. For example, the system you are developing may have bi-directional state transitions, branches and loops. We now introduce the method of *transition tables*, which breaks down the state transition analysis into a series of simple questions. For that, we collect all states that have identified, and assume that, potentially, there can be a transition between any two of them. The result is a square matrix of states. The empty cells of this table are the possible transitions, where the row denote the *origin* state, the columns are *target* states.
 
           Go  Att Stop
     Go
     Att
     Stop
 
-According to the empty transition table, the traffic light has nine possible transitions. But which of them make any sense and should be implemented? We start in the first row and ask: "Does it make sense that a state Go is followed by itself?"  Here, the answer is No and you leave the cell just empty. But, there are situations, where you would want to make such a "selfish" transition, think of a dia show program, that, whenever a button is pressed, shows the next picture. The state Show_picture is followed by Show_picture. That also implies, that states can be somewhat abstract. It would make little sense to have a separate state defined for every picture in the show.
+According to the empty transition table, the traffic light has nine possible transitions. But which of them make any sense and should be implemented? We start in the first row and ask: "Does it make sense that a state Go is followed by itself?"  Here, the answer is No and you leave the cell empty. But, there are situations, where you would want to make such a "selfish" transition, think of a slide show program, that, whenever a button is pressed, presents the next picture. The state Present is followed by Present, until the last slide has been reached. A rather minimal slide show program would have the following transition table:
 
              Welcome  Present Goodbye
     Welcome           X
     Present           X       X
     Goodbye  
 
-Let's move on: "Does a transition from Go to Att make sense?" Absolutely! You make a cross. Then you do the same for the second and the third row, leaving blank the impossble transitions and marking the possible. 
+Back to traffic lights: "Does a transition from Go to Att make sense?" Absolutely! You make a cross. Then you do the same for the second and the third row, leaving blank the impossible transitions and marking the possible. 
 
           Go  Att Stop
     Go          X
@@ -97,7 +97,7 @@ Let's move on: "Does a transition from Go to Att make sense?" Absolutely! You ma
 
 
 
-It is important to understand, that transitions are not symmetric. In the case of a traffic light, you can go from Go to Att, but there is no transition back. In interaction models other than a uni-directional cycle, transitions can well be symmetric, think of the checkout process on webshops. Usually, they guide you through the process in a number of steps (billing address --> delivery address, credit card number), but allow you to go back to the previous step to do corrections.
+It is important to understand, that transitions are not necessarily symmetric, which means teh lower and upper triangles in the transition table are usually not symmetric. In the case of a traffic light, you can go from Go to Att, but there is no transition back. In interaction models other than a uni-directional cycle, transitions can well be symmetric, think of the checkout process on webshops. Usually, they guide you through the process in a number of steps (billing address --> delivery address, credit card number), but allow you to go back to the previous step to do corrections.
 
 ```{r echo = F, fig.height = 2}
 DiagrammeR::mermaid("graph LR
@@ -123,7 +123,7 @@ Notice that in the traffic light example, every state is origin of exactly one t
 
 The transition table tells you which of the possible transitions are allowed and should be implemented. It does not yet tell you when this is going to happen, exactly. An *event* is a condition that triggers a transitions. Events can be internal conditions or user input. 
 
-*Internal conditions* do not require user input. The program decides solely by itself, when to transit. This is why  we call transitions on internal conditions *automatic transitions*. A typical case of automatic transitions is control by a timer. If we assume that the Dutch traffic light runs automatically, without someone standing next to it (in a yellow vest) and pushing buttons, all transitions must be automatic. Certainly, we do not want the traffic light to change states instantly, but only after a certain time has passed. For the interaction model that means we have to specify the resting time in every state. We do that right on the transition table by replacing the crosses with a brief description of the condition that makes the system leave the origin state:
+*Internal conditions* do not require user input. The program decides solely by itself, when to transit. This is why  we call transitions on internal conditions *automatic transitions*. A typical case of automatic transitions, when something is supposed to happen at a certain moment in time, or after a period of time. To see this, assume that the Dutch traffic light runs automatically, without someone standing next to it (in a yellow vest) and pushing buttons. Of course, we do not want the traffic light to change states continuously or randomly, but only after a certain time has passed. For the interaction model that means we have to specify the resting time in every state. We do that right on the transition table by replacing the crosses with a brief description of the condition that makes the system leave the origin state:
 
           Go  Att   Stop
     Go        20s
@@ -136,14 +136,14 @@ In words, the interaction model is expressed like the following:
 2. When in Att, wait 5s, then transit to Stop
 3. When in Stop, wait 20s, then transit to Go
 
-In psychological experiments, such time-controlled transitions happen a lot. The purpose of some experiments is to investigate subliminal priming, where presnetation time is so short, that people cannot consciously process the stimuls, but there still are subconscious effects. For example, when very briefly seeing a picture of an apple, participants reportedly react faster to the question: "Is this a word? PEAR." In subliminal primning experiments, in order to control cognitive processing time, stimuli are presented for a very brief moment, followed by a visual mask (to erase visual sensory memory). Finally, the response is acquired as a key press (which is user input) and the program proceeds to the next trial.
+In psychological experiments, such time-controlled transitions happen a lot. For example, many experiments manipulate the presentation time of visual stimuli to investigate subliminal priming and other unconscious effects. , where presentation time is so short, that people cannot consciously process the stimulus. For example, when very briefly seeing a picture of an apple, participants reportedly react faster to the question: "Is this a word? PEAR." In subliminal priming experiments, in order to control cognitive processing time, stimuli are presented for a very brief moment, followed by a visual mask (to erase visual sensory memory). Finally, the response is acquired as a key press (which is user input) and the program proceeds to the next trial.
 
           Stim  Mask   Resp
     Stim        100ms
     Mask               100ms
     Resp  X
     
-That brings us to the second form of events: *user input* events. A transition that is triggered by user input is called an interactive transition. Only if there is at least one interactive transition, will we call it an interactive program. In most cases, user input is just pressing a certain key. Let's first look at how a manual traffic light can be specified. Taking another look at the transition table tells us:
+That brings us to the second form of events: *user input* events. A transition that is triggered by user input is called an *interactive transition*. Only if there is at least one interactive transition, will we call it an interactive program. In most cases, user input is just pressing a certain key. Let's first look at how a manual traffic light can be specified. Taking another look at the transition table tells us:
 
 + there are three possible transitions
 + at every origin state there is only one transition possible
@@ -156,18 +156,18 @@ Because there is only one transition possible at every moment, it seems we can g
     Att             Next
     Stop  Next
 
-In this case, it seems fairly practical to give the traffic light operator a remote control with just one button. But note that for more complex systems that is not a good idea in terms of usability. Why? Because of what is known as mode confusion. The ideal example probably is one of these 1980 clunky digital watches, which not just told you the time, but also let you use stop watches, timers, altitude alarms, step counters and brewing a nice cup of coffee. And all that functionality is controlled by just four flimsy buttons. What these buttons do, changes with the state the watch is in. For example, the lower left button could switch to another time zone in Watch, but do a reset in stop watch mode. The user has to learn from the manual what every button does in every state and has to be completely aware which mode the watch currently is in.
+In this case, it seems fairly practical to give the traffic light operator a remote control with just one button. But note that for more complex systems that is not a good idea in terms of usability. Why? Because of what is known as mode confusion. The ideal example probably is one of these 1980 clunky digital watches, which not just told you the time, but also let you use stop timers, altitude alarms, step counters and brewing a nice cup of coffee. And all that functionality is controlled by just four flimsy buttons. What these buttons do, changes with the state the watch is in. For example, the lower left button could switch to another time zone in Watch, but do a reset in stop watch mode. The user has to learn from the manual what every button does in every state and has to be completely aware which mode the watch currently is in.
 
-When desgning more complex interactions it is therefore better to use different user inputs (keys presses) for different actions. That does not mean you have to use a totally new control for every cell in the transition table. There can be actions that are very similar across states, such as an action Next or Previous in the checkout process example:
+When designing more complex interactions it is therefore better to use different user inputs (keys presses) for different actions. That does not mean you have to use a totally new control for every cell in the transition table. There can be actions that are very similar across states, such as an action Next or Previous in the checkout process example:
 
                  Delivery  Billing     Credit_card
     Delivery               Next
     Billing      Previous              Next
     Credit_card            Previous
 
-Note that we keep the name of the controls rather abstract, denoting the action, not the physical key or mouse button. Like with the analysis of states, we defer the peoblem to a later state. The reason is to not get distracted at this stage, but also it makes the transition table easier to read, and let's us identify actions that could use the same control. How many controls you finally use in your program is a matter of careful choice. However, there is at least one rule: The number of separate controls must be equal to or larger than  the maximum number of interactive transitions in any row. According to this rule, the traffic light can have one or more controls, whereas the checkout program requires at least two (Billing).
+Note that we keep the name of the controls rather abstract, denoting the action, not the physical key or mouse button. Like we ignored the visual appearance of states, we defer the design of physical input controls to a later state. How many different controls you finally use in your program is a matter of choice. However, there is at least one rule: The number of separate controls must be equal to or larger than  the maximum number of interactive transitions in any row. According to this rule, the traffic light can have one or more controls, whereas the checkout program requires at least two (Billing).
 
-In the checkout and traffic light examples, there is only one transition per state, but of course, there can be more than one. In the subliminal priming example, the participant's response is whether the shown letter combination is a word, or not. That implies that two controls are needed at that transitions, say the controls Word and Not_word. As the program will continue to state Stim, irrespectively of which of the two keys have been pressed. 
+In the checkout and traffic light examples, there is only one transition per state, but of course, there can be more than one. In the subliminal priming example, the participant's response is whether the shown letter combination is a word, or not. That implies that two controls are needed at that transitions, say the controls Word and Not_word. 
 
 
           Stim       Mask   Resp
@@ -177,17 +177,15 @@ In the checkout and traffic light examples, there is only one transition per sta
           Not_word
 
 
-This needs to be considered carefully, because if you end up putting two controls in the same cell it could be that you have not yet discovered all states. In the subliminal priming example, Resp is followed by Stim, irrespectively of user input. But, that is a special case.
-
 The transition table is now complete. It covers states (in rows and columns), transitions (occupied cells) and events (what is in the cell). In the next section, we will build interactive programs by translating each cell in the table into a *transition conditional*.
 
 
 ### Exercises
 
-1. german traffic lights differ from Dutch traffic lights in that they light Red and Yellow before switching to Go. Create a transition table.
+1. German traffic lights differ from Dutch traffic lights in that they light Red and Yellow before switching to Go. Create a transition table.
 1. Identify states, events and transitions of a stopwatch program and create a transition table.
 1. A smart traffic light switches from Stop to Go automatically, when a car is approaching and the crossroads are clear. Analyze and create a transition table.
-1. Review the Stroop program and find the states in the code. Then, take a closer look at where in the code states are used.
+1. Review the Stroop program and find the states in the code. Then, take a closer look how the STATE variable is used.
 
 
 
@@ -205,7 +203,7 @@ STATE = "Billing"the sole purpose of checking whether your interaction model doe
 
 ## Programming interactive prototypes
 
-One of the worst things that can happen in software development is that a flaw that has been introduced during an early state of planning is discovered when the program is almost done. For that reason, it is good practice in software development to test models and catch flaws as early as possible. So, how can we test our interaction model? Of course, we could just implement the whole program and then see, if it does what was intended. But, if there truly are flaws, a lot of effort would have been wasted and a lot of work had to be redone. This catch-22 situation can be resolved by implementing just the aspect of the system that you want to test, for example the flow of interaction. This is called a *prototype* and, as you will see, the transition table can quickly be translated into a simple piece of software, an *interactive prototype*, using just a few standard coding patterns.
+One of the worst things that can happen in software development is that a flaw is introduced during an early state of planning, but is discovered when the program is almost finished. For that reason, it is good practice in software development to test models and catch flaws as early as possible. So, how can we test our interaction model? Of course, we could just implement the whole program and then see, if it does what was intended. But, if there truly are flaws, a lot of effort would have been wasted and a lot of work had to be redone. This catch-22 can be resolved by implementing the aspect of the system that you want to test, separately. Up to this point, we have specified the flow of interaction in the abstract manner of transition tables, at the same time completely ignoring visual design and physical controls. As you will see next, the transition table can quickly be translated into a simple piece of software, an *interactive prototype*, using just a few standard coding patterns. On this prototype the interaction model of the system can be tested and improved in isolation.
 
 For the interactive prototype, we will turn the transitions from the table into *transition conditionals* or short: *transitionals*. As we have two kinds of transitions, automatic and interactive, we will also have to deal with interactive and automatic transitionals.
 
@@ -214,7 +212,6 @@ For the interactive prototype, we will turn the transitions from the table into 
 ### Interactive transitionals
 
 The following code snippet implements two interactive transitional with the same origin, namely the transition from Billing to Delivery and Credit_card:
-
 
 
 ```{python, eval = F}
@@ -235,7 +232,7 @@ Notice that
 3. interactive transitionals check for two conditions: current state and whether the respective key has been pressed
 4. a transition occurs by setting the variable `STATE` to another value
 
-The above code will only ask for user input once, change the state (or stay in Billing, if no valid input was entered) and terminate. Instead, we want this program to truly flow and be able to react on longer series of user actions. Basically, the only thing we have to do is put the transitionals into a loop. However, in this particular case, what would happen is that the program would never truly stop. For that purpose, we implement a general state called Exit, that ends the program. The transitions of Exit are special, in that this state always is the destination, never the origin. This is why we can omit the row. In many cases you also want to respect the users freedom and allow them to jump to Exit at any time they want:
+The above code will only ask for user input once, change the state (or stay in Billing, if no valid input was entered) and terminate. Instead, we want this program to truly flow and be able to react on longer series of user actions. Basically, the only thing we have to do is put the transitionals into a loop. However, in this particular case, what would happen is that the program would never truly stop. For that purpose, we implement a general state called Exit, that ends the program. The transitions of Exit are special, in that this state always is the destination, never the origin. This is why we can omit the row. By allowing the user to jump to Exit from any other state, we are respecting their freedom in a very basic manner:
 
 
                  Delivery  Billing     Credit_card  Exit
