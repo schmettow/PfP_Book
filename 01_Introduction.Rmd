@@ -8,43 +8,38 @@ This course teaches the programming language Python. In order to write Python pr
 2.  a *Python interpreter*, which runs your code
 3.  *Python libraries*, that provide specialized functionality for the task at hand
 
-The *Anaconda Python* system puts an editor, an interpreter and a huge set of libraries on your computer. There is just one library that you have to install separately. The *Pygame* library provides specialized functionality for developing arcade games (Ping Pong, Super Mario, etc.), which is almost perfect for writing programs that do psychological experiments.
+The *Thonny* editor puts an editor, an interpreter and a package manager on your computer. Thonny is designed for beginners and brings its own Python environment, so you do not have to install Python separately. There is just one library that you have to install additionally. The *Pygame* library provides specialized functionality for developing arcade games (Ping Pong, Super Mario, etc.), which is almost perfect for writing programs that do psychological experiments.
 
-## Installing the Anaconda Python environment
-
-<!-- #9 use conda environments -->
+## Installing the Thonny editor
 
 ### Windows
 
-1.  From <https://www.anaconda.com/download/> download the 64-bit installer of Python 3.x
+1.  From <https://thonny.org> download the installer for Windows
 
-2.  Run the downloaded file and
+2.  Run the downloaded file and follow the instructions of the installer.
 
-    a.  Install for "just me"
-    b.  Accept the proposed destination folder
-    c.  Accept default advanced options
+3.  Thonny ships with its own Python interpreter, so no further setup is required.
 
-3.  In the start menu find the program Anaconda Prompt
-
-4.  In the console, type: `pip install pygame` and hit Return. Confirm anything with `y`.
+4.  Start Thonny and install the Pygame library via the menu *Tools --\> Manage packages*, search for `pygame` and click *Install*.
 
 ### MacOS
 
-Follow the analog procedure to Windows. Unfortunately, the authors use Windows computers, so this is untested.
+1.  From <https://thonny.org> download the installer for MacOS.
 
-<!-- 30  -->
+2.  Run the downloaded file and follow the instructions of the installer.
+
+3.  Install the Pygame library as described for Windows.
 
 ## Testing your environment
 
-For testing your Anaconda environment, follow these steps:
+For testing your Thonny environment, follow these steps:
 
-1.  From the Start menu start Anaconda Navigator
-2.  From the Home screen launch Spyder
-3.  Download the Python file `PIP_Stroop_interaction.py` from the folder Day 1.
-4.  Open this file in Visual Studio Code (File --\> Open).
-5.  Run the program by clicking the green play button. You should see a window popping up, which greets you to the Stroop experiment.
+1.  Start Thonny.
+2.  Download the Python file `PIP_Stroop_interaction.py` from the folder Day 1.
+3.  Open this file in Thonny (File --\> Open).
+4.  Run the program by clicking the green play button. You should see a window popping up, which greets you to the Stroop experiment.
 
-And finally, it is a dear tradition to greet the world with your first program. Create a new file in Spyder and copy-paste the following lines into it. Then hit the play button once again.
+And finally, it is a dear tradition to greet the world with your first program. Create a new file in Thonny and copy-paste the following lines into it. Then hit the play button once again.
 
 ```{python eval = F}
 print('Hello world!')
@@ -200,7 +195,7 @@ def main():
                     print(STATE)
                     continue
                     
-            if STATE == "trial":
+            elif STATE == "trial":
                 if event.type == KEYDOWN and event.key in KEYS.values():
                     time_when_reacted = time()
                     this_reaction_time = time_when_reacted - time_when_presented
@@ -209,7 +204,7 @@ def main():
                     print(STATE)
                     continue
     
-            if STATE == "feedback":
+            elif STATE == "feedback":
                 if event.type == KEYDOWN and event.key == K_SPACE:
                     if trial_number < n_trials:
                         STATE = "prepare_trial"
