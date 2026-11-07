@@ -74,7 +74,7 @@ The single equal sign, as in `a = 4` is exclusivey reserved for assignment state
 
 > a is assigned the value 4
 
-A double equal expression, as in `a == 4` is used for comparing two values, as in "Does the value of 'a' equal 4?" That is completely different to an assignment and will be covered in Section 2.3 [Data types] and in more detail, in Chapter {{< sec-conditionals >}}.
+A double equal expression, as in `a == 4` is used for comparing two values, as in "Does the value of 'a' equal 4?" That is completely different to an assignment and will be covered in Section 2.3 [Data types] and in more detail, in Chapter @sec-conditionals.
 
 Programmers have much freedom in naming variables, but some strict rules exist, as well as some conventions. Some of them are good practice and others will throw syntax errors if not adhered to. In the beginning, you may think of good practice guidelines as superfluous, but you will learn to value them once you start making more complex programs.
 
@@ -114,7 +114,7 @@ this_reaction_time = time_when_reacted - time_when_presented
 RT.append(this_reaction_time)
 ```
 
-In the first line of the above code snippets from the Stroop Task program, an empty *list* is assigned to the variable `RT`. The purpose of this list is to store reaction times during the Stroop experiment. You will learn more about *lists* in Chapter {{< sec-lists >}}. For now it suffices to know that lists are yet another data type, capable of containing values of multiple data types at the same time! You may reckon that they are the ultimate structure for storing information. The variables `time_when_presented` and `time_when_reacted` respectively store the point in time (using the *function* `time`) at a certain event. `time_when_presented` records the moment in time when a stimulus is presented and `time_when_reacted` saves the moment in time when the subject reacts to the stimulus. The reaction time of the subject is then calculated by *subtracting* one stored point in time from the other and saved in the variable `this_reaction_time`. Finally, the subject's reaction time is *appended* to `RT`, meaning that `this_reaction_time` is saved in `RT` before the program proceeds to the next trial. A disclaimer; the code snippets above obviously reduce the mechanics of the Stroop Task program to some highlighted variable assignments. This means that the code lacks the actual dynamics of the program and will not run as is. But it captures the basic idea of how the program records and manipulates a participant's reaction time with the help of variables.
+In the first line of the above code snippets from the Stroop Task program, an empty *list* is assigned to the variable `RT`. The purpose of this list is to store reaction times during the Stroop experiment. You will learn more about *lists* in Chapter @sec-lists. For now it suffices to know that lists are yet another data type, capable of containing values of multiple data types at the same time! You may reckon that they are the ultimate structure for storing information. The variables `time_when_presented` and `time_when_reacted` respectively store the point in time (using the *function* `time`) at a certain event. `time_when_presented` records the moment in time when a stimulus is presented and `time_when_reacted` saves the moment in time when the subject reacts to the stimulus. The reaction time of the subject is then calculated by *subtracting* one stored point in time from the other and saved in the variable `this_reaction_time`. Finally, the subject's reaction time is *appended* to `RT`, meaning that `this_reaction_time` is saved in `RT` before the program proceeds to the next trial. A disclaimer; the code snippets above obviously reduce the mechanics of the Stroop Task program to some highlighted variable assignments. This means that the code lacks the actual dynamics of the program and will not run as is. But it captures the basic idea of how the program records and manipulates a participant's reaction time with the help of variables.
 
 ## How Variables Are Used {#sec-how-variables-are-used}
 
@@ -127,7 +127,7 @@ print(a)
 
 ```
 
-You will learn in detail about functions in Chapter {{< sec-functions >}}. For now it is good enough to know that the function `random.randint(0,10)` randomly picks an integer between 0 and 10, and *returns* the chosen integer. Whatever number is picked by the function is stored in the variable `number` and can easily be retrieved and used for other purposes elsewhere. If this piece of information does not satisfy you, simply type `help(random)` after importing `random` and your interpreter will give you a more detailed description of the *class* `random`.
+You will learn in detail about functions in Chapter @sec-functions. For now it is good enough to know that the function `random.randint(0,10)` randomly picks an integer between 0 and 10, and *returns* the chosen integer. Whatever number is picked by the function is stored in the variable `number` and can easily be retrieved and used for other purposes elsewhere. If this piece of information does not satisfy you, simply type `help(random)` after importing `random` and your interpreter will give you a more detailed description of the *class* `random`.
 
 A variable's assigned value can be updated. This means that its value can be changed after an initial assignment. This is very useful for structuring a program:
 
@@ -143,7 +143,7 @@ while(n < n_trials):
     n = n + 1
 ```
 
-This comes in handy if you want to repeat a part of your program until a certain condition is fulfilled. For instance, imagine taking measurements for a fixed number of trials for a psychological experiment. In the example above, `n_trials` and `n` are used for creating a counting mechanism until the desired number of repeated measurements is reached. Note how the old value of `n` is used to update the value of `n` after one execution cycle of the program in `n = n + 1`. After the first execution of the `while` part of the code snippet,`n` will have the value `1` instead of `0`! If you are not yet fully getting the hang of it, do not worry. You will learn more about the use of *conditionals* and the *while loop* in Chapter {{< sec-conditionals >}} and Chapter {{< sec-loops >}}, respectively. The basic idea behind the above code snippet is to show you how updating variables can be used to create a counting mechanism in a computer program.
+This comes in handy if you want to repeat a part of your program until a certain condition is fulfilled. For instance, imagine taking measurements for a fixed number of trials for a psychological experiment. In the example above, `n_trials` and `n` are used for creating a counting mechanism until the desired number of repeated measurements is reached. Note how the old value of `n` is used to update the value of `n` after one execution cycle of the program in `n = n + 1`. After the first execution of the `while` part of the code snippet,`n` will have the value `1` instead of `0`! If you are not yet fully getting the hang of it, do not worry. You will learn more about the use of *conditionals* and the *while loop* in Chapter @sec-conditionals and Chapter @sec-loops, respectively. The basic idea behind the above code snippet is to show you how updating variables can be used to create a counting mechanism in a computer program.
 
 ## Data types
 
@@ -254,7 +254,7 @@ In the Stroop program, variables are use to collect the response times, one simp
 
 The situation in a Yeti is different in two ways:
 
-1.  Video frames are more complex than numbers {{< sec-dumb-pictures >}}. They are a grid of numbers, i.e. they are *compound*.
+1.  Video frames are more complex than numbers @sec-dumb-pictures. They are a grid of numbers, i.e. they are *compound*.
 2.  The whole point of a Yeti is to deeply process the incoming video data.
 
 In Python, compound variables are usually referred to as *objects* and programming with objects is called *object-orientation (OO)*. The creation of objects in a program looks similar to storing the result of a function in a variable. The following line from Yeti2 reads a frame from the video device and assigns it to the variable Frame. A function that creates an object in such a way is called a *constructor*.

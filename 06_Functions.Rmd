@@ -77,7 +77,7 @@ x = myFunction(0)
 print("After function call, global x equals:", x)
 ```
 
-The `return` statement enables us to retrieve one or more values from a function. When returning multiple values, Python makes use of *tuple assignment*. Make sure to provide enough variables on the left side of the assignment operator to unpack the returned tuple. Consult Chapter {{< sec-lists >}} for a revision on tuples and tuple assignment, or take a quick look at [How to Think Like a Computer Scientist: Tuple Assignment](http://interactivepython.org/courselib/static/thinkcspy/Lists/TupleAssignment.html).
+The `return` statement enables us to retrieve one or more values from a function. When returning multiple values, Python makes use of *tuple assignment*. Make sure to provide enough variables on the left side of the assignment operator to unpack the returned tuple. Consult Chapter @sec-lists for a revision on tuples and tuple assignment, or take a quick look at [How to Think Like a Computer Scientist: Tuple Assignment](http://interactivepython.org/courselib/static/thinkcspy/Lists/TupleAssignment.html).
 
 To understand the example code above, it helps to realize that function definitions do not affect the flow of execution of a program. Remember that by default, Python faithfully executes a program in a top-down fashion. Function definitions need to precede function calls, but a function's statements are not executed until the function is called.
 

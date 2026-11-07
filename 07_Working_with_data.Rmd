@@ -27,7 +27,7 @@ IN(Observations) --> PROC[t-test]
 PROC --> OUT(p-value)
 ```
 
-In Python, as a general programming language, there exist libraries that implement tables of observations, as well as the t-test (and more modern statistical procedures, luckily). However, we don't want to bother you with statistics for the moment. Instead, take another look at two function that we have introduced in {{< sec-functions >}}:
+In Python, as a general programming language, there exist libraries that implement tables of observations, as well as the t-test (and more modern statistical procedures, luckily). However, we don't want to bother you with statistics for the moment. Instead, take another look at two function that we have introduced in @sec-functions:
 
 ```{python, summation-function}
 def summation(alist):
