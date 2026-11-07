@@ -1,7 +1,3 @@
-# Preface {-}
-
-This course is about programming  experiments, such as the Stroop task, and apparatus, such as an eye tracker. The programming language Python is almost all-mighty and still very easy to learn. Learning to develop interactive programs with Pygame is not the easiest way to start, but it is the most rewarding and it covers all the basics. To break down the complexity, the course teaches a structured development process, that can safely carry the boldest ideas to working prototype. In a parallel track, the course also introduces the basics of Data Science and you will even wet your feed with Computer Vision, a branch of Machine Learning. 
-
 ```{r, setup, include = FALSE}
 library(tidyverse)
 library(reticulate)
