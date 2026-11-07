@@ -1,2 +1,0 @@
-bookdown::bs4_book:
-  split_by: chapter

@@ -1,7 +1,21 @@
 {
   "permission": {
     "edit": {
-      "*.Rmd": "allow"
+      "*.Rmd": "allow",
+      "*.yml": "allow"
+    },
+    "bash": {
+      "sed *": "allow",
+      "grep *": "allow",
+      "echo *": "allow",
+      "mkdir *": "allow",
+      "mv *": "allow",
+      "ls *": "allow",
+      "quarto render *": "allow",
+      "tail *": "allow",
+      "python3 *": "allow",
+      "which *": "allow",
+      "Rscript *": "allow"
     }
   }
 }

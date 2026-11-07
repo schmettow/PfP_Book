@@ -1,4 +1,4 @@
-# Conditionals {#conditionals}
+# Conditionals {#sec-conditionals}
 
 ```{python}
 if 1 == 1:
@@ -82,7 +82,7 @@ print((max_trials - trial) > 0  and correct)
 ```
 
 
-## if this is true, then do this {#if-then}
+## if this is true, then do this {#sec-if-then}
 
 Boolean values are essential for regulating the flow of a computer program as they provide the conditions under which certain blocks of code are executed. The simplest form of a *conditional* is the *if statement*.
 

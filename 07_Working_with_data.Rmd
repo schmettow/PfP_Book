@@ -1,4 +1,4 @@
-# Working with data {#data}
+# Working with data {#sec-data}
 
 ```{r setup}
 knitr::opts_chunk$set(warning = FALSE, message = FALSE)
@@ -10,13 +10,10 @@ library(tidyverse)
 
 In the previous chapter we have dealt with functions as reusable pieces of code. There is another common notion of what a function is: *a function processes data*. The basic model of data processing is the following:
 
-```{r echo = F}
-DiagrammeR::mermaid(
-"graph LR
+```{mermaid}
+graph LR
 IN(Input Data) --> PROC[Function]
-PROC --> OUT(Output Data)")
-
-
+PROC --> OUT(Output Data)
 ```
 
 
@@ -24,14 +21,13 @@ PROC --> OUT(Output Data)")
 
 So, what is data? As psychologists we are used to think of data as observations from empirical studies that we process by statistical procedures. That precisely matches our above model:
 
-```{r echo = F}
-DiagrammeR::mermaid(
-"graph LR
+```{mermaid}
+graph LR
 IN(Observations) --> PROC[t-test]
-PROC --> OUT(p-value)")
+PROC --> OUT(p-value)
 ```
 
-In Python, as a general programming language, there exist libraries that implement tables of observations, as well as the t-test (and more modern statistical procedures, luckily). However, we don't want to bother you with statistics for the moment. Instead, take another look at two function that we have introduced in \@ref(functions):
+In Python, as a general programming language, there exist libraries that implement tables of observations, as well as the t-test (and more modern statistical procedures, luckily). However, we don't want to bother you with statistics for the moment. Instead, take another look at two function that we have introduced in {{< sec-functions >}}:
 
 ```{python}
 def summation(alist):
@@ -46,12 +42,10 @@ summation([1,2,3,4])
 
 The function `summation` takes a list of values and computes the sum. Again, that satisfies the basic model of data processing:
 
-```{r echo = F}
-DiagrammeR::mermaid(
-"graph LR
+```{mermaid}
+graph LR
 IN(List of numbers) --> PROC[Summation]
-PROC --> OUT(sum)")
-
+PROC --> OUT(sum)
 ```
 
 It is easy to see how input and output are implemented with Python functions:
@@ -62,13 +56,12 @@ It is easy to see how input and output are implemented with Python functions:
 
 Consequently, every function that takes arguments and has a return statement can be considered data processing. Furthermore, data processing can take place as chains. Let's take the variance of a list of numbers as an example. The formula for variance, shown below, reveals that the variance statistic is produces in three steps: first, the residuals are computed, these are squared an finally the mean value is taken. 
 
-```{r echo = F}
-DiagrammeR::mermaid(
-"graph LR
+```{mermaid}
+graph LR
  IN(List of numbers) --> PROC_1[square residuals]
  PROC_1 --> OUT_1(List of squared residuals)
  OUT_1 --> PROC_2[take the mean]
- PROC_2 --> OUT(Variance)")
+ PROC_2 --> OUT(Variance)
 
 ```
 
@@ -259,7 +252,7 @@ Colors <- tibble(
            G = c(0, 150, 150),
            B = c(180, 150, 0))
 
-write_csv(Colors, path = "Colors.csv")
+write_csv(Colors, file = "Colors.csv")
 
 ```
 
@@ -342,7 +335,7 @@ If you are working with data tables a lot, it may be worth to take a look at the
 ```{python}
 import pandas
 
-Colors = pandas.read_csv("colors.csv")
+Colors = pandas.read_csv("Colors.csv")
 
 print(Colors)
 ```

@@ -1,0 +1,1799 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.11.9">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="description" content="A primer for social science students who want to learn the art of coding.">
+
+<title>8&nbsp; Interaction – Programming for Psychologists</title>
+<style>
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: 1.5em;}
+div.column{flex: auto;}
+@media screen {
+div.columns{gap: min(4vw, 1.5em);}
+div.column{overflow-x: auto;}
+}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<link href="./08_Solutions.html" rel="next">
+<link href="./07_Working_with_data.html" rel="prev">
+<script src="site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="site_libs/quarto-html/scrollable-regions/scrollable-regions.js" type="module"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-63b5708e65d6cd79cd7618c58d0c21e7.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap-6b46698c2bc1a02576ccef540665ab94.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+<script src="site_libs/quarto-diagram/mermaid.min.js"></script>
+<script src="site_libs/quarto-diagram/mermaid-init.js"></script>
+<link href="site_libs/quarto-diagram/mermaid.css" rel="stylesheet">
+
+
+</head>
+
+<body class="nav-sidebar floating quarto-light"><a id="quarto-skip-link" class="visually-hidden-focusable" href="#quarto-document-content">Skip to main content</a>
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav" aria-label="Toolbar">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="Breadcrumbs"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./0x_Interaction.html"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Interaction</span></a></li></ol></nav>
+        <a class="flex-grow-1" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto" aria-label="Site">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="./">Programming for Psychologists</a> 
+        <div class="sidebar-tools-main">
+    <a href="https://github.com/schmettow/PfP_Book" title="Source Code" class="quarto-navigation-tool px-1" aria-label="Source Code"><i class="bi bi-github"></i></a>
+</div>
+    </div>
+      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Preface</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./01_Introduction.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Introduction</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./02_Variables.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Variables, values and types</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./03_Conditionals.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Conditionals</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./04_Lists.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Lists</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./05_Loops.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Loops</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./06_Functions.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Functions</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./07_Working_with_data.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Working with data</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./0x_Interaction.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Interaction</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./08_Solutions.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Solutions</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./09_Debugging.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Debugging and good programming practices</span></span></a>
+  </div>
+</li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" aria-labelledby="toc-title" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#interaction-models" id="toc-interaction-models" class="nav-link active" data-scroll-target="#interaction-models"><span class="header-section-number">8.1</span> Interaction models</a>
+  <ul class="collapse">
+  <li><a href="#identifying-states" id="toc-identifying-states" class="nav-link" data-scroll-target="#identifying-states"><span class="header-section-number">8.1.1</span> Identifying states</a></li>
+  <li><a href="#identifying-transitions" id="toc-identifying-transitions" class="nav-link" data-scroll-target="#identifying-transitions"><span class="header-section-number">8.1.2</span> Identifying transitions</a></li>
+  <li><a href="#events-user-input-and-internal-conditions" id="toc-events-user-input-and-internal-conditions" class="nav-link" data-scroll-target="#events-user-input-and-internal-conditions"><span class="header-section-number">8.1.3</span> Events: user input and internal conditions</a></li>
+  <li><a href="#exercises" id="toc-exercises" class="nav-link" data-scroll-target="#exercises"><span class="header-section-number">8.1.4</span> Exercises</a></li>
+  </ul></li>
+  <li><a href="#programming-interactive-prototypes" id="toc-programming-interactive-prototypes" class="nav-link" data-scroll-target="#programming-interactive-prototypes"><span class="header-section-number">8.2</span> Programming interactive prototypes</a>
+  <ul class="collapse">
+  <li><a href="#interactive-transitionals" id="toc-interactive-transitionals" class="nav-link" data-scroll-target="#interactive-transitionals"><span class="header-section-number">8.2.1</span> Interactive transitionals</a></li>
+  <li><a href="#automatic-transitions" id="toc-automatic-transitions" class="nav-link" data-scroll-target="#automatic-transitions"><span class="header-section-number">8.2.2</span> Automatic transitions</a></li>
+  <li><a href="#the-timestamp-method" id="toc-the-timestamp-method" class="nav-link" data-scroll-target="#the-timestamp-method"><span class="header-section-number">8.2.3</span> The timestamp method</a></li>
+  <li><a href="#presentation-conditionals" id="toc-presentation-conditionals" class="nav-link" data-scroll-target="#presentation-conditionals"><span class="header-section-number">8.2.4</span> Presentation conditionals</a></li>
+  </ul></li>
+  <li><a href="#interactions-in-pygame" id="toc-interactions-in-pygame" class="nav-link" data-scroll-target="#interactions-in-pygame"><span class="header-section-number">8.3</span> Interactions in Pygame</a>
+  <ul class="collapse">
+  <li><a href="#overall-structure" id="toc-overall-structure" class="nav-link" data-scroll-target="#overall-structure"><span class="header-section-number">8.3.1</span> Overall structure</a></li>
+  <li><a href="#the-screen-and-the-refresh-loop." id="toc-the-screen-and-the-refresh-loop." class="nav-link" data-scroll-target="#the-screen-and-the-refresh-loop."><span class="header-section-number">8.3.2</span> The screen and the refresh loop.</a></li>
+  <li><a href="#handling-user-input" id="toc-handling-user-input" class="nav-link" data-scroll-target="#handling-user-input"><span class="header-section-number">8.3.3</span> Handling user input</a></li>
+  <li><a href="#transitionals" id="toc-transitionals" class="nav-link" data-scroll-target="#transitionals"><span class="header-section-number">8.3.4</span> Transitionals</a></li>
+  <li><a href="#pygame-events" id="toc-pygame-events" class="nav-link" data-scroll-target="#pygame-events"><span class="header-section-number">8.3.5</span> Pygame events</a></li>
+  </ul></li>
+  <li><a href="#sec-presentitionals" id="toc-sec-presentitionals" class="nav-link" data-scroll-target="#sec-presentitionals"><span class="header-section-number">8.4</span> Presentitionals in Pygame</a>
+  <ul class="collapse">
+  <li><a href="#display-and-surface" id="toc-display-and-surface" class="nav-link" data-scroll-target="#display-and-surface"><span class="header-section-number">8.4.1</span> Display and surface</a></li>
+  <li><a href="#drawing-figures" id="toc-drawing-figures" class="nav-link" data-scroll-target="#drawing-figures"><span class="header-section-number">8.4.2</span> Drawing figures</a></li>
+  <li><a href="#placing-text-and-pictures" id="toc-placing-text-and-pictures" class="nav-link" data-scroll-target="#placing-text-and-pictures"><span class="header-section-number">8.4.3</span> Placing text and pictures</a></li>
+  </ul></li>
+  <li><a href="#exercises-1" id="toc-exercises-1" class="nav-link" data-scroll-target="#exercises-1"><span class="header-section-number">8.5</span> Exercises</a>
+  <ul class="collapse">
+  <li><a href="#exercise-c.-transition-tables" id="toc-exercise-c.-transition-tables" class="nav-link" data-scroll-target="#exercise-c.-transition-tables"><span class="header-section-number">8.5.1</span> Exercise C. Transition tables</a></li>
+  </ul></li>
+  <li><a href="#common-errors" id="toc-common-errors" class="nav-link" data-scroll-target="#common-errors"><span class="header-section-number">8.6</span> Common errors</a></li>
+  <li><a href="#think-further" id="toc-think-further" class="nav-link" data-scroll-target="#think-further"><span class="header-section-number">8.7</span> Think Further</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content" tabindex="-1">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title"><span id="sec-interaction" class="quarto-section-identifier"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Interaction</span></span></h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<p>When you decided to learn programming you probably had something different in mind than putting some values in variables or compare apple with pears in conditionals. Most likely, your were more thinking of creating something with a little more magic then ASCII letters printed to the console. Perhaps, you already have an idea for a smartphone app on your mind. Who hasn’t?</p>
+<p>We won’t push you that far. But, with conditionals in your hand, you are prepared to get to the next level and develop <em>interactive programs</em> Interactive programs are those that run continuously and do something when the user presses a button or moves and clicks the mouse. They don’t do something completely random, except for some artistic installations, perhaps, but react in a purposeful way to user input. We can say, that a program executes an <em>interaction model</em>, a set of rules that describe the programs behaviour. Then we show you how to write interactive programs very efficiently by turning the transition table into <em>transitionals</em>.</p>
+<p>In this chapter we do more than just show you how to use a conditional or a loop. You will notice that writing an interactive program is more than just coding. It is a <em>development process</em> with a sequence of steps where the output of one step is input for the next.</p>
+<pre><code>    Your brain does              The result is
+    [Interaction modelling]  --&gt; Transition table 
+--&gt; [Coding transitionals]   --&gt; Interactive prototype
+--&gt; [Coding presentationals] --&gt; Pygame program.</code></pre>
+<p>First, we will teach you how to analyze an interaction problem and note down your ideas in a structured way, a <em>transition table</em>. Then we’ll show you how to implement a prototype for testing the interaction protocol by turning the transition table into <em>transitionals</em>. Finally, we’ll explain in more detail how to put the elements of interaction together in Pygame and give them a fluent appearance.</p>
+<section id="interaction-models" class="level2" data-number="8.1">
+<h2 data-number="8.1" class="anchored" data-anchor-id="interaction-models"><span class="header-section-number">8.1</span> Interaction models</h2>
+<p>An interaction model describes when the program does what. As simple as this definition is, making an interaction model is not. Rather, creating this model is an important part of sincere software development and happens long before you start coding. In essence, when starting to work on an interactive program, the first you do is: switch off your computer, pull out pencils and paper and scratch your head.</p>
+<p>What we are asking you to do is envisioning the program you are going to write, eventually. The formal output of the interaction analysis is just one table that somewhat abstractly describes the flow of the program. That does not mean, that during the analysis you may do use other representations, such as flow charts or screen scribbles. The opposite is the case: seeing your program from different angles, will help you to come up with a better interaction model and the results can be used downstream, such as screen scribbles for the visual design.</p>
+<p>As complex it is, an interaction model can be broken down into three sets of elements: states, transitions and events:</p>
+<ul>
+<li>states are the different modes a program is in.</li>
+<li>transitions let the program move from one state to another</li>
+<li>events make these transitions happen</li>
+</ul>
+<p>The scope of this book covers rather simple interactive programs only, psychological experiments. In order to explain the basics of interaction programming, we go for something even more simple: a Dutch traffic light.</p>
+<section id="identifying-states" class="level3" data-number="8.1.1">
+<h3 data-number="8.1.1" class="anchored" data-anchor-id="identifying-states"><span class="header-section-number">8.1.1</span> Identifying states</h3>
+<p>The first step in the analysis is to <em>identify states</em> of the program. A state is a rather abstract term, so let’s see a few examples:</p>
+<ul>
+<li>a light switch has the two states On and Off</li>
+<li>the Dutch traffic light has the three signals Go, Attention and Stop</li>
+<li>In MS Word, there are several different modes to view a document: Read, Print, Web.</li>
+<li>…</li>
+</ul>
+<p>If you are making a model of an existing system in front of your eyes, that’s called <em>reverse engineering</em>. One good heuristic to reverse engineer a system of states is to simply observe the different visual forms the display takes. Then, the states are examined further and are given a description and a label. So, let’s reverse engineer a Dutch traffic light by watching one cycle of signals:</p>
+<pre><code>.    .    R
+.    Y    .
+G    .    .</code></pre>
+<p>You may be tempted at this stage to call the states by their appearance (Green, Yellow, Red). That is not exactly wrong, but it confuses the purpose of the state with its appearance. Imagine, you wanted to actually design a traffic light for people who are blind, using sounds. Then the light colors no longer describe the state well. Instead, the state description should state the <em>purpose of states</em>, which we note down in a <em>table of states (TOS)</em>:</p>
+<div class="cell">
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 3 × 2
+  State Purpose                   
+  &lt;chr&gt; &lt;chr&gt;                     
+1 Go    signal permission to cross
+2 Att   signal soon Stop          
+3 Stop  No permission to cross    </code></pre>
+</div>
+</div>
+<p>By keeping the states abstract, at a later point in the development you can decide, how to shape the user interface, visually or through other channels.</p>
+</section>
+<section id="identifying-transitions" class="level3" data-number="8.1.2">
+<h3 data-number="8.1.2" class="anchored" data-anchor-id="identifying-transitions"><span class="header-section-number">8.1.2</span> Identifying transitions</h3>
+<p>The second step in the analysis is identifying the <em>transitions</em> between states. The Dutch traffic light knows three transitions:</p>
+<div class="cell" data-layout-align="default">
+<div class="cell-output-display">
+<div>
+<p></p><figure class="figure"><p></p>
+<div>
+
+<pre class="mermaid mermaid-js">graph LR
+         Go   --&gt; Att
+         Att  --&gt; Stop
+         Stop --&gt; Go
+</pre>
+</div>
+<p></p></figure><p></p>
+</div>
+</div>
+</div>
+<p>Cycling through a set of states is the most simple interaction protocol. It is unique, in that states are arranged in a closed cycle, which implies that every state appears exactly once on the left-hand side (the original state) and the right-hand side (the destination). As we will later see, this is why a single control is sufficient to manually operate a traffic light.</p>
+<p>Most of the time, the interaction flow is more complicated. For example, the system you are developing may have bi-directional state transitions, branches and loops. We now introduce the method of <em>transition tables</em>, which breaks down the state transition analysis into a series of simple questions. For that, we collect all states that have identified, and assume that, potentially, there can be a transition between any two of them. The result is a square matrix of states. The empty cells of this table are the possible transitions, where the row denote the <em>origin</em> state, the columns are <em>target</em> states.</p>
+<pre><code>      Go  Att Stop
+Go
+Att
+Stop</code></pre>
+<p>According to the empty transition table, the traffic light has nine possible transitions. But which of them make any sense and should be implemented? We start in the first row and ask: “Does it make sense that a state Go is followed by itself?” Here, the answer is No and you leave the cell empty. But, there are situations, where you would want to make such a “selfish” transition, think of a slide show program, that, whenever a button is pressed, presents the next picture. The state Present is followed by Present, until the last slide has been reached. A rather minimal slide show program would have the following transition table:</p>
+<pre><code>         Welcome  Present Goodbye
+Welcome           X
+Present           X       X
+Goodbye  </code></pre>
+<p>Back to traffic lights: “Does a transition from Go to Att make sense?” Absolutely! You make a cross. Then you do the same for the second and the third row, leaving blank the impossible transitions and marking the possible.</p>
+<pre><code>      Go  Att Stop
+Go          X
+Att             X
+Stop  X</code></pre>
+<p>It is important to understand, that transitions are not necessarily symmetric, which means teh lower and upper triangles in the transition table are usually not symmetric. In the case of a traffic light, you can go from Go to Att, but there is no transition back. In interaction models other than a uni-directional cycle, transitions can well be symmetric, think of the checkout process on webshops. Usually, they guide you through the process in a number of steps (billing address –&gt; delivery address, credit card number), but allow you to go back to the previous step to do corrections.</p>
+<div class="cell" data-layout-align="default">
+<div class="cell-output-display">
+<div>
+<p></p><figure class="figure"><p></p>
+<div>
+
+<pre class="mermaid mermaid-js">graph LR
+    Delivery    --&gt; Billing
+    Billing    --&gt; Credit_card
+    Credit_card --&gt; Billing
+    Billing     --&gt; Delivery
+</pre>
+</div>
+<p></p></figure><p></p>
+</div>
+</div>
+</div>
+<pre><code>             Delivery  Billing Credit_card
+Delivery               x
+Billing      x                 x
+Credit_card            x       </code></pre>
+<!-- #5 specify initial state -->
+<p>Notice that in the traffic light example, every state is origin of exactly one transition, whereas in the checkout process there are two transitions originating at Billing. This is called <em>branching</em>. If you wonder how the program eventually decides which transition to take, read on about events.</p>
+</section>
+<section id="events-user-input-and-internal-conditions" class="level3" data-number="8.1.3">
+<h3 data-number="8.1.3" class="anchored" data-anchor-id="events-user-input-and-internal-conditions"><span class="header-section-number">8.1.3</span> Events: user input and internal conditions</h3>
+<p>The transition table tells you which of the possible transitions are allowed and should be implemented. It does not yet tell you when this is going to happen, exactly. An <em>event</em> is a condition that triggers a transitions. Events can be internal conditions or user input.</p>
+<p><em>Internal conditions</em> do not require user input. The program decides solely by itself, when to transit. This is why we call transitions on internal conditions <em>automatic transitions</em>. A typical case of automatic transitions, when something is supposed to happen at a certain moment in time, or after a period of time. To see this, assume that the Dutch traffic light runs automatically, without someone standing next to it (in a yellow vest) and pushing buttons. Of course, we do not want the traffic light to change states continuously or randomly, but only after a certain time has passed. For the interaction model that means we have to specify the resting time in every state. We do that right on the transition table by replacing the crosses with a brief description of the condition that makes the system leave the origin state:</p>
+<pre><code>      Go  Att   Stop
+Go        20s
+Att             5s
+Stop  20s</code></pre>
+<p>In words, the interaction model is expressed like the following:</p>
+<ol type="1">
+<li>When in state Go, wait 20s, then transit to Att</li>
+<li>When in Att, wait 5s, then transit to Stop</li>
+<li>When in Stop, wait 20s, then transit to Go</li>
+</ol>
+<p>In psychological experiments, such time-controlled transitions happen a lot. For example, many experiments manipulate the presentation time of visual stimuli to investigate subliminal priming and other unconscious effects. , where presentation time is so short, that people cannot consciously process the stimulus. For example, when very briefly seeing a picture of an apple, participants reportedly react faster to the question: “Is this a word? PEAR.” In subliminal priming experiments, in order to control cognitive processing time, stimuli are presented for a very brief moment, followed by a visual mask (to erase visual sensory memory). Finally, the response is acquired as a key press (which is user input) and the program proceeds to the next trial.</p>
+<pre><code>      Stim  Mask   Resp
+Stim        100ms
+Mask               100ms
+Resp  X</code></pre>
+<p>That brings us to the second form of events: <em>user input</em> events. A transition that is triggered by user input is called an <em>interactive transition</em>. Only if there is at least one interactive transition, will we call it an interactive program. In most cases, user input is just pressing a certain key. Let’s first look at how a manual traffic light can be specified. Taking another look at the transition table tells us:</p>
+<ul>
+<li>there are three possible transitions</li>
+<li>at every origin state there is only one transition possible</li>
+</ul>
+<p>Because there is only one transition possible at every moment, it seems we can go with just one key, let’s call it Next.</p>
+<pre><code>      Go  Att   Stop
+Go        Next
+Att             Next
+Stop  Next</code></pre>
+<p>In this case, it seems fairly practical to give the traffic light operator a remote control with just one button. But note that for more complex systems that is not a good idea in terms of usability. Why? Because of what is known as mode confusion. The ideal example probably is one of these 1980 clunky digital watches, which not just told you the time, but also let you use stop timers, altitude alarms, step counters and brewing a nice cup of coffee. And all that functionality is controlled by just four flimsy buttons. What these buttons do, changes with the state the watch is in. For example, the lower left button could switch to another time zone in Watch, but do a reset in stop watch mode. The user has to learn from the manual what every button does in every state and has to be completely aware which mode the watch currently is in.</p>
+<p>When designing more complex interactions it is therefore better to use different user inputs (keys presses) for different actions. That does not mean you have to use a totally new control for every cell in the transition table. There can be actions that are very similar across states, such as an action Next or Previous in the checkout process example:</p>
+<pre><code>             Delivery  Billing     Credit_card
+Delivery               Next
+Billing      Previous              Next
+Credit_card            Previous</code></pre>
+<p>Note that we keep the name of the controls rather abstract, denoting the action, not the physical key or mouse button. Like we ignored the visual appearance of states, we defer the design of physical input controls to a later state. How many different controls you finally use in your program is a matter of choice. However, there is at least one rule: The number of separate controls must be equal to or larger than the maximum number of interactive transitions in any row. According to this rule, the traffic light can have one or more controls, whereas the checkout program requires at least two (Billing).</p>
+<p>In the checkout and traffic light examples, there is only one transition per state, but of course, there can be more than one. In the subliminal priming example, the participant’s response is whether the shown letter combination is a word, or not. That implies that two controls are needed at that transitions, say the controls Word and Not_word.</p>
+<pre><code>      Stim       Mask   Resp
+Stim             100ms
+Mask                    100ms
+Resp  Word or
+      Not_word</code></pre>
+<p>The transition table is now complete. It covers states (in rows and columns), transitions (occupied cells) and events (what is in the cell). In the next section, we will build interactive programs by translating each cell in the table into a <em>transition conditional</em>.</p>
+</section>
+<section id="exercises" class="level3" data-number="8.1.4">
+<h3 data-number="8.1.4" class="anchored" data-anchor-id="exercises"><span class="header-section-number">8.1.4</span> Exercises</h3>
+<ol type="1">
+<li>German traffic lights differ from Dutch traffic lights in that they light Red and Yellow before switching to Go. Create a transition table.</li>
+<li>Identify states, events and transitions of a stopwatch program and create a transition table.</li>
+<li>A smart traffic light switches from Stop to Go automatically, when a car is approaching and the crossroads are clear. Analyze and create a transition table.</li>
+<li>Review the Stroop program and find the states in the code. Then, take a closer look how the STATE variable is used.</li>
+</ol>
+<!-- 7 rewrite
+
+it down do a good analysis and break it down in manageable pieces. That  in this chapter we will To In this chapter, we are doing real software development, which is more than just coding.
+
+In essence, this chapter is more than just coding, it introduces a basic, but systematic software development process.
+
+Just imagine, With a little more experience, a transition table is easily translated into a Pygame 
+program, but there is a lot of clutter, too. For that purpose we proceed by writing a prototype for the console, that has 
+STATE = "Billing"the sole purpose of checking whether your interaction model does what you intended. -->
+</section>
+</section>
+<section id="programming-interactive-prototypes" class="level2" data-number="8.2">
+<h2 data-number="8.2" class="anchored" data-anchor-id="programming-interactive-prototypes"><span class="header-section-number">8.2</span> Programming interactive prototypes</h2>
+<p>One of the worst things that can happen in software development is that a flaw is introduced during an early state of planning, but is discovered when the program is almost finished. For that reason, it is good practice in software development to test models and catch flaws as early as possible. So, how can we test our interaction model? Of course, we could just implement the whole program and then see, if it does what was intended. But, if there truly are flaws, a lot of effort would have been wasted and a lot of work had to be redone. This catch-22 can be resolved by implementing the aspect of the system that you want to test, separately. Up to this point, we have specified the flow of interaction in the abstract manner of transition tables, at the same time completely ignoring visual design and physical controls. As you will see next, the transition table can quickly be translated into a simple piece of software, an <em>interactive prototype</em>, using just a few standard coding patterns. On this prototype the interaction model of the system can be tested and improved in isolation.</p>
+<p>For the interactive prototype, we will turn the transitions from the table into <em>transition conditionals</em> or short: <em>transitionals</em>. As we have two kinds of transitions, automatic and interactive, we will also have to deal with interactive and automatic transitionals.</p>
+<section id="interactive-transitionals" class="level3" data-number="8.2.1">
+<h3 data-number="8.2.1" class="anchored" data-anchor-id="interactive-transitionals"><span class="header-section-number">8.2.1</span> Interactive transitionals</h3>
+<p>The following code snippet implements two interactive transitional with the same origin, namely the transition from Billing to Delivery and Credit_card:</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(STATE)</span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>key <span class="op">=</span> <span class="bu">input</span>(<span class="st">"Press a key: "</span>)</span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> STATE <span class="op">==</span> <span class="st">"Billing"</span> <span class="kw">and</span> key <span class="op">==</span> <span class="st">"p"</span>:</span>
+<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a>  STATE <span class="op">=</span> <span class="st">"Delivery"</span></span>
+<span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-7"><a href="#cb13-7" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> STATE <span class="op">==</span> <span class="st">"Billing"</span> <span class="kw">and</span> key <span class="op">==</span> <span class="st">"n"</span>:</span>
+<span id="cb13-8"><a href="#cb13-8" aria-hidden="true" tabindex="-1"></a>  STATE <span class="op">=</span> <span class="st">"Credit_card"</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p>Notice that</p>
+<ol type="1">
+<li>the state of a program is maintained as a plain String variable</li>
+<li>the starting state is set as “Billing”</li>
+<li>interactive transitionals check for two conditions: current state and whether the respective key has been pressed</li>
+<li>a transition occurs by setting the variable <code>STATE</code> to another value</li>
+</ol>
+<p>The above code will only ask for user input once, change the state (or stay in Billing, if no valid input was entered) and terminate. Instead, we want this program to truly flow and be able to react on longer series of user actions. Basically, the only thing we have to do is put the transitionals into a loop. However, in this particular case, what would happen is that the program would never truly stop. For that purpose, we implement a general state called Exit, that ends the program. The transitions of Exit are special, in that this state always is the destination, never the origin. This is why we can omit the row. By allowing the user to jump to Exit from any other state, we are respecting their freedom in a very basic manner:</p>
+<pre><code>             Delivery  Billing     Credit_card  Exit
+Delivery               Next                     X
+Billing      Previous              Next         X
+Credit_card            Previous                 X, Next</code></pre>
+<p>The interaction prototype of Checkout looks like the following.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb15"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>STATE <span class="op">=</span> <span class="st">"Delivery"</span></span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a><span class="cf">while</span> <span class="va">True</span>:</span>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a>  <span class="bu">print</span>(STATE)</span>
+<span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a>  key <span class="op">=</span> <span class="bu">input</span>(<span class="st">"Press a key: "</span>)</span>
+<span id="cb15-6"><a href="#cb15-6" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb15-7"><a href="#cb15-7" aria-hidden="true" tabindex="-1"></a>  <span class="co"># interactive transitionals</span></span>
+<span id="cb15-8"><a href="#cb15-8" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb15-9"><a href="#cb15-9" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span> STATE <span class="op">==</span> <span class="st">"Delivery"</span> <span class="kw">and</span> key <span class="op">==</span> <span class="st">"n"</span>:</span>
+<span id="cb15-10"><a href="#cb15-10" aria-hidden="true" tabindex="-1"></a>    STATE <span class="op">=</span> <span class="st">"Billing"</span></span>
+<span id="cb15-11"><a href="#cb15-11" aria-hidden="true" tabindex="-1"></a>    <span class="cf">continue</span></span>
+<span id="cb15-12"><a href="#cb15-12" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span> STATE <span class="op">==</span> <span class="st">"Billing"</span> <span class="kw">and</span> key <span class="op">==</span> <span class="st">"p"</span>:</span>
+<span id="cb15-13"><a href="#cb15-13" aria-hidden="true" tabindex="-1"></a>    STATE <span class="op">=</span> <span class="st">"Delivery"</span></span>
+<span id="cb15-14"><a href="#cb15-14" aria-hidden="true" tabindex="-1"></a>    <span class="cf">continue</span></span>
+<span id="cb15-15"><a href="#cb15-15" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb15-16"><a href="#cb15-16" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span> STATE <span class="op">==</span> <span class="st">"Billing"</span> <span class="kw">and</span> key <span class="op">==</span> <span class="st">"n"</span>:</span>
+<span id="cb15-17"><a href="#cb15-17" aria-hidden="true" tabindex="-1"></a>    STATE <span class="op">=</span> <span class="st">"Credit_card"</span></span>
+<span id="cb15-18"><a href="#cb15-18" aria-hidden="true" tabindex="-1"></a>    <span class="cf">continue</span></span>
+<span id="cb15-19"><a href="#cb15-19" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span> STATE <span class="op">==</span> <span class="st">"Credit_card"</span> <span class="kw">and</span> key <span class="op">==</span> <span class="st">"p"</span>:</span>
+<span id="cb15-20"><a href="#cb15-20" aria-hidden="true" tabindex="-1"></a>    STATE <span class="op">=</span> <span class="st">"Billing"</span></span>
+<span id="cb15-21"><a href="#cb15-21" aria-hidden="true" tabindex="-1"></a>    <span class="cf">continue</span></span>
+<span id="cb15-22"><a href="#cb15-22" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb15-23"><a href="#cb15-23" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span> STATE <span class="op">==</span> <span class="st">"Credit_card"</span> <span class="kw">and</span> key <span class="op">==</span> <span class="st">"n"</span>:</span>
+<span id="cb15-24"><a href="#cb15-24" aria-hidden="true" tabindex="-1"></a>    STATE <span class="op">=</span> <span class="st">"Exit"</span></span>
+<span id="cb15-25"><a href="#cb15-25" aria-hidden="true" tabindex="-1"></a>    <span class="cf">continue</span></span>
+<span id="cb15-26"><a href="#cb15-26" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb15-27"><a href="#cb15-27" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span> key <span class="op">==</span> <span class="st">"x"</span>:</span>
+<span id="cb15-28"><a href="#cb15-28" aria-hidden="true" tabindex="-1"></a>    STATE <span class="op">=</span> <span class="st">"Exit"</span></span>
+<span id="cb15-29"><a href="#cb15-29" aria-hidden="true" tabindex="-1"></a>    <span class="cf">continue</span></span>
+<span id="cb15-30"><a href="#cb15-30" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb15-31"><a href="#cb15-31" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span> STATE <span class="op">==</span> <span class="st">"Exit"</span>:</span>
+<span id="cb15-32"><a href="#cb15-32" aria-hidden="true" tabindex="-1"></a>    <span class="cf">break</span></span>
+<span id="cb15-33"><a href="#cb15-33" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb15-34"><a href="#cb15-34" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb15-35"><a href="#cb15-35" aria-hidden="true" tabindex="-1"></a>exit()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p>Notice that:</p>
+<ol type="1">
+<li>the loop itself comes with no conditions itself. It just plainly loops, until someone proves that the truth is not true.</li>
+<li>the print statement at the top of the while loop entirely replaces the graphical user interface at this stage.</li>
+<li>after every transitional, we have put a <code>continue</code> statement. Why? Because, when the State veriable is updated, it can fire up a second transitional. Check yourself, by reading the conditionals: within one iteration we would go from Delivery to Exit all the way through and we would not even see the intermediate steps printed to the console. The <code>continue</code> statement forces the loop to begin a new iteration, immediatly, omitting all the transitionals after the one that has fired. That makes sure that per iteration no more than one state transition takes place.</li>
+<li>We use a transitional that does not ask for the state and therefore always triggers Exit when x is pressed</li>
+<li>the Credit_card –&gt; Exit transitional uses <code>continue</code> in order to reach the <code>print(STATE)</code> command one more time. During that final iteration only, the last transitional (the one without destination) is encountered and the <code>break</code> statement ends the loop.</li>
+</ol>
+<p>In general, interactive transitional emerge from the transition table by the following pattern:</p>
+<pre><code>if STATE == &lt;origin&gt; and &lt;event&gt;:
+  STATE = &lt;state&gt;
+  continue</code></pre>
+<p>Notice that every combination of state and event gets its own <code>if ... continue</code> block. We call this <em>flat transitionals</em>. Another way is to use <em>nested transitionals</em>, which have an an outer <code>if</code> block to interrogate the state and uses the inner <code>if</code> block to deal with all possible events, The general form is:</p>
+<pre><code>if STATE == &lt;origin&gt;:
+  if   &lt;event_1&gt;:
+    STATE = &lt;next_state_1&gt;
+  elif &lt;event_2&gt;:
+    STATE = &lt;next_state_2&gt;
+  elif ...
+  continue</code></pre>
+<p>There is no difference in functionality between these two forms of transitionals, but for longer programs it may be easier to read. With nested transitionals, the checkout program would look like the following:</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb18"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>STATE <span class="op">=</span> <span class="st">"Delivery"</span></span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a><span class="cf">while</span> <span class="va">True</span>:</span>
+<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb18-4"><a href="#cb18-4" aria-hidden="true" tabindex="-1"></a>  <span class="bu">print</span>(STATE)</span>
+<span id="cb18-5"><a href="#cb18-5" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb18-6"><a href="#cb18-6" aria-hidden="true" tabindex="-1"></a>  key <span class="op">=</span> <span class="bu">input</span>(<span class="st">"Press a key: "</span>)</span>
+<span id="cb18-7"><a href="#cb18-7" aria-hidden="true" tabindex="-1"></a><span class="co"># interactive transitionals</span></span>
+<span id="cb18-8"><a href="#cb18-8" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span> STATE <span class="op">==</span> <span class="st">"Delivery"</span> <span class="kw">and</span> key <span class="op">==</span> <span class="st">"n"</span>:</span>
+<span id="cb18-9"><a href="#cb18-9" aria-hidden="true" tabindex="-1"></a>    STATE <span class="op">=</span> <span class="st">"Billing"</span></span>
+<span id="cb18-10"><a href="#cb18-10" aria-hidden="true" tabindex="-1"></a>    <span class="cf">continue</span></span>
+<span id="cb18-11"><a href="#cb18-11" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb18-12"><a href="#cb18-12" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span> STATE <span class="op">==</span> <span class="st">"Billing"</span>:</span>
+<span id="cb18-13"><a href="#cb18-13" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> key <span class="op">==</span> <span class="st">"n"</span>:</span>
+<span id="cb18-14"><a href="#cb18-14" aria-hidden="true" tabindex="-1"></a>      STATE <span class="op">=</span> <span class="st">"Credit_card"</span></span>
+<span id="cb18-15"><a href="#cb18-15" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> key <span class="op">==</span> <span class="st">"p"</span>:</span>
+<span id="cb18-16"><a href="#cb18-16" aria-hidden="true" tabindex="-1"></a>      STATE <span class="op">=</span> <span class="st">"Delivery"</span></span>
+<span id="cb18-17"><a href="#cb18-17" aria-hidden="true" tabindex="-1"></a>    <span class="cf">continue</span></span>
+<span id="cb18-18"><a href="#cb18-18" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span> STATE <span class="op">==</span> <span class="st">"Credit_card"</span>:</span>
+<span id="cb18-19"><a href="#cb18-19" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> key <span class="op">==</span> <span class="st">"n"</span>:</span>
+<span id="cb18-20"><a href="#cb18-20" aria-hidden="true" tabindex="-1"></a>      STATE <span class="op">=</span> <span class="st">"Exit"</span></span>
+<span id="cb18-21"><a href="#cb18-21" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> key <span class="op">==</span> <span class="st">"p"</span>:</span>
+<span id="cb18-22"><a href="#cb18-22" aria-hidden="true" tabindex="-1"></a>      STATE <span class="op">=</span> <span class="st">"Billing"</span></span>
+<span id="cb18-23"><a href="#cb18-23" aria-hidden="true" tabindex="-1"></a>    <span class="cf">continue</span></span>
+<span id="cb18-24"><a href="#cb18-24" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb18-25"><a href="#cb18-25" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span> STATE <span class="op">==</span> <span class="st">"Exit"</span>:</span>
+<span id="cb18-26"><a href="#cb18-26" aria-hidden="true" tabindex="-1"></a>    <span class="cf">break</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p>Notice that</p>
+<ol type="1">
+<li>the indentation visually groups all transitions that belong to the same origin state</li>
+<li>we reduced the number of <code>continue</code> statements. As <code>key</code> is never changed inside a transitional, only a single event conditional is triggered at a time.</li>
+</ol>
+</section>
+<section id="automatic-transitions" class="level3" data-number="8.2.2">
+<h3 data-number="8.2.2" class="anchored" data-anchor-id="automatic-transitions"><span class="header-section-number">8.2.2</span> Automatic transitions</h3>
+<p>Sometimes we want a transition to happen due to internal conditions of the program, for example:</p>
+<ul>
+<li>stay in state Att, when 5 seconds have passed move on to Stop</li>
+<li>show the stimulus for 100ms, then move on to the distraction mask.</li>
+<li>after 20 trials of an experiment, make a pause.</li>
+<li>after all dias have been shown, give a Goodbye</li>
+</ul>
+<p>A frequent case of automatic transitions is staying in a state for a certain amount of time, then move on to the next state. Take as an example a dia show program that automatically shows every picture for, say, 30 seconds. Fortunately, automatic transitions almost look the same, the only difference being that <code>&lt;event&gt;</code> becomes <code>&lt;condition&gt;</code>.</p>
+<p>As you have experienced at the Stroop task theater play from chapter {{&lt; sec-intro &gt;}} dealing with time requires some extra tricks. For example, how do we let the automatic traffic light rest in the Go state for exactly 20 seconds? We set a timestamp and wait for the difference to become 20 seconds or longer. Fortunately, for interaction prototypes, there is a cheap and dirty trick to do that more straight-forwardly, which is the command <code>sleep(20)</code>. It suspends the whole program and wakes it up after twenty seconds. Why is that dirty? For two reasons: First, it only works for interaction prototypes, but not Pygame programs. For example, when you are showing animated stimuli, putting the whole program on halt won’t work. Second, you will not be able to bypass the waiting time, say, the user wants to prematurely proceed to the next picture in the dia show.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb19"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> time <span class="im">import</span> sleep</span>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>STATE <span class="op">=</span> <span class="st">"Stop"</span> <span class="co"># Att, Go</span></span>
+<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a><span class="cf">while</span> <span class="va">True</span>:</span>
+<span id="cb19-4"><a href="#cb19-4" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(STATE)</span>
+<span id="cb19-5"><a href="#cb19-5" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> STATE <span class="op">==</span> <span class="st">"Go"</span>:</span>
+<span id="cb19-6"><a href="#cb19-6" aria-hidden="true" tabindex="-1"></a>      sleep(<span class="dv">2</span>)</span>
+<span id="cb19-7"><a href="#cb19-7" aria-hidden="true" tabindex="-1"></a>      STATE <span class="op">=</span> <span class="st">"Att"</span></span>
+<span id="cb19-8"><a href="#cb19-8" aria-hidden="true" tabindex="-1"></a>      <span class="cf">continue</span></span>
+<span id="cb19-9"><a href="#cb19-9" aria-hidden="true" tabindex="-1"></a>      </span>
+<span id="cb19-10"><a href="#cb19-10" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> STATE <span class="op">==</span> <span class="st">"Att"</span>:</span>
+<span id="cb19-11"><a href="#cb19-11" aria-hidden="true" tabindex="-1"></a>      sleep(<span class="dv">1</span>)</span>
+<span id="cb19-12"><a href="#cb19-12" aria-hidden="true" tabindex="-1"></a>      STATE <span class="op">=</span> <span class="st">"Stop"</span></span>
+<span id="cb19-13"><a href="#cb19-13" aria-hidden="true" tabindex="-1"></a>      <span class="cf">continue</span></span>
+<span id="cb19-14"><a href="#cb19-14" aria-hidden="true" tabindex="-1"></a>      </span>
+<span id="cb19-15"><a href="#cb19-15" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> STATE <span class="op">==</span> <span class="st">"Stop"</span>:</span>
+<span id="cb19-16"><a href="#cb19-16" aria-hidden="true" tabindex="-1"></a>      sleep(<span class="dv">2</span>)</span>
+<span id="cb19-17"><a href="#cb19-17" aria-hidden="true" tabindex="-1"></a>      STATE <span class="op">=</span> <span class="st">"Go"</span></span>
+<span id="cb19-18"><a href="#cb19-18" aria-hidden="true" tabindex="-1"></a>      <span class="cf">continue</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p>A program can be (and typically is) a mix of interactive and automatic transitionals. For example, we could create a semi-automatic traffic light, where the operator only has to switch Stop and Go. When set to Stop, the program first goes to state Att, rests there for a few seconds and than automatically moves on to Stop.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb20"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> time <span class="im">import</span> sleep</span>
+<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a>STATE <span class="op">=</span> <span class="st">"Stop"</span> <span class="co"># Att, Go</span></span>
+<span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a><span class="cf">while</span> <span class="va">True</span>:</span>
+<span id="cb20-4"><a href="#cb20-4" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(STATE)</span>
+<span id="cb20-5"><a href="#cb20-5" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> STATE <span class="op">==</span> <span class="st">"Go"</span>:</span>
+<span id="cb20-6"><a href="#cb20-6" aria-hidden="true" tabindex="-1"></a>      <span class="bu">input</span>(<span class="st">"Hit Return"</span>)</span>
+<span id="cb20-7"><a href="#cb20-7" aria-hidden="true" tabindex="-1"></a>      STATE <span class="op">=</span> <span class="st">"Att"</span></span>
+<span id="cb20-8"><a href="#cb20-8" aria-hidden="true" tabindex="-1"></a>      <span class="cf">continue</span></span>
+<span id="cb20-9"><a href="#cb20-9" aria-hidden="true" tabindex="-1"></a>      </span>
+<span id="cb20-10"><a href="#cb20-10" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> STATE <span class="op">==</span> <span class="st">"Att"</span>:</span>
+<span id="cb20-11"><a href="#cb20-11" aria-hidden="true" tabindex="-1"></a>      sleep(<span class="dv">2</span>)</span>
+<span id="cb20-12"><a href="#cb20-12" aria-hidden="true" tabindex="-1"></a>      STATE <span class="op">=</span> <span class="st">"Stop"</span></span>
+<span id="cb20-13"><a href="#cb20-13" aria-hidden="true" tabindex="-1"></a>      <span class="cf">continue</span></span>
+<span id="cb20-14"><a href="#cb20-14" aria-hidden="true" tabindex="-1"></a>      </span>
+<span id="cb20-15"><a href="#cb20-15" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> STATE <span class="op">==</span> <span class="st">"Stop"</span>:</span>
+<span id="cb20-16"><a href="#cb20-16" aria-hidden="true" tabindex="-1"></a>      <span class="bu">input</span>(<span class="st">"Hit Return"</span>)</span>
+<span id="cb20-17"><a href="#cb20-17" aria-hidden="true" tabindex="-1"></a>      STATE <span class="op">=</span> <span class="st">"Go"</span></span>
+<span id="cb20-18"><a href="#cb20-18" aria-hidden="true" tabindex="-1"></a>      <span class="cf">continue</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p>Notice that</p>
+<ol type="1">
+<li>the <code>input</code> commands moved into the transitionals as otherwise the loop would prompt for input for automatic transitions, as well, which is just not the idea. Later, we will use the event handling mechanism of Pygame, which will provide a better solution for mixing interactive and automatic transitionals.</li>
+<li>we have simplified the event handling. This traffic light needs just one control button to toggle Stop and Go, which here is any key (followed by Return) or just the Return key. That is not a general solution, but only works, because there is just one transition per state.</li>
+</ol>
+</section>
+<section id="the-timestamp-method" class="level3" data-number="8.2.3">
+<h3 data-number="8.2.3" class="anchored" data-anchor-id="the-timestamp-method"><span class="header-section-number">8.2.3</span> The timestamp method</h3>
+<p>As we have said, for a prototype, the <code>sleep(s)</code> is fine in most cases to cause a delayed reaction, but not when we start coding with Pygame. Then we have to use the timestamp method, which has little benefits for interactive prototypes. Still, it seems in order to introduce this method on the somewhat cleaner code of the interactive prototypes.</p>
+<p>The following code shows, how to implement a time delay by setting a timestamp and comparing the difference with current time in the automatic traffic light example.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb21"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> time <span class="im">import</span> time</span>
+<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a>STATE <span class="op">=</span> <span class="st">"Go"</span> <span class="co"># Att, Go</span></span>
+<span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a>time_stamp <span class="op">=</span> time()</span>
+<span id="cb21-4"><a href="#cb21-4" aria-hidden="true" tabindex="-1"></a><span class="cf">while</span> <span class="va">True</span>:</span>
+<span id="cb21-5"><a href="#cb21-5" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb21-6"><a href="#cb21-6" aria-hidden="true" tabindex="-1"></a>    current_time <span class="op">=</span> time()</span>
+<span id="cb21-7"><a href="#cb21-7" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb21-8"><a href="#cb21-8" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> STATE <span class="op">==</span> <span class="st">"Go"</span> <span class="kw">and</span> current_time <span class="op">-</span> time_stamp <span class="op">&gt;=</span> <span class="dv">2</span>:</span>
+<span id="cb21-9"><a href="#cb21-9" aria-hidden="true" tabindex="-1"></a>      STATE <span class="op">=</span> <span class="st">"Att"</span></span>
+<span id="cb21-10"><a href="#cb21-10" aria-hidden="true" tabindex="-1"></a>      time_stamp <span class="op">=</span> time()</span>
+<span id="cb21-11"><a href="#cb21-11" aria-hidden="true" tabindex="-1"></a>      <span class="bu">print</span>(STATE)</span>
+<span id="cb21-12"><a href="#cb21-12" aria-hidden="true" tabindex="-1"></a>      <span class="cf">continue</span></span>
+<span id="cb21-13"><a href="#cb21-13" aria-hidden="true" tabindex="-1"></a>      </span>
+<span id="cb21-14"><a href="#cb21-14" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> STATE <span class="op">==</span> <span class="st">"Att"</span> <span class="kw">and</span> current_time <span class="op">-</span> time_stamp <span class="op">&gt;=</span> <span class="dv">1</span>:</span>
+<span id="cb21-15"><a href="#cb21-15" aria-hidden="true" tabindex="-1"></a>      STATE <span class="op">=</span> <span class="st">"Stop"</span></span>
+<span id="cb21-16"><a href="#cb21-16" aria-hidden="true" tabindex="-1"></a>      time_stamp <span class="op">=</span> time()</span>
+<span id="cb21-17"><a href="#cb21-17" aria-hidden="true" tabindex="-1"></a>      <span class="bu">print</span>(STATE)</span>
+<span id="cb21-18"><a href="#cb21-18" aria-hidden="true" tabindex="-1"></a>      <span class="cf">continue</span></span>
+<span id="cb21-19"><a href="#cb21-19" aria-hidden="true" tabindex="-1"></a>      </span>
+<span id="cb21-20"><a href="#cb21-20" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> STATE <span class="op">==</span> <span class="st">"Stop"</span> <span class="kw">and</span> current_time <span class="op">-</span> time_stamp <span class="op">&gt;=</span> <span class="dv">2</span>:</span>
+<span id="cb21-21"><a href="#cb21-21" aria-hidden="true" tabindex="-1"></a>      STATE <span class="op">=</span> <span class="st">"Go"</span></span>
+<span id="cb21-22"><a href="#cb21-22" aria-hidden="true" tabindex="-1"></a>      time_stamp <span class="op">=</span> time()</span>
+<span id="cb21-23"><a href="#cb21-23" aria-hidden="true" tabindex="-1"></a>      <span class="bu">print</span>(STATE)</span>
+<span id="cb21-24"><a href="#cb21-24" aria-hidden="true" tabindex="-1"></a>      <span class="cf">continue</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p>Notice that</p>
+<ul>
+<li>the second condition of time-controlled transitionals carries the waiting time</li>
+<li>the function <code>time()</code> returns the number of seconds since 1 January 1970. That is called the Unix epoch.</li>
+<li>because the starting state Go is time-controlled, we have to set a first timestamp before the <code>while</code> loop starts.</li>
+<li>the print statements have been moved into the transitionals. Read more on that below.</li>
+<li><code>current_time</code> is set once at the beginning of every iteration. Read more on that below.</li>
+</ul>
+<p>It appears as if going from the <code>sleep</code> method to the <code>time</code> method is just some superficial change in code. In fact, there is one dramatic change once the program runs, although you may not even realize it on the first glance. With <code>sleep</code>, the <code>while</code> loop does exactly one iteration per state change, that is one per five seconds (combined sleeping time). When entering a transitional, the sleep is initiated and the program rests. Then it wakes up and finds the <code>continue</code>, eventually. In the timestamp version, the program never sleeps. The while loop cycles as fast as it can, which is incredibly fast, at every iteration picking up <code>current_time</code> and comparing it to the timestamp. Find out yourself, by putting the <code>print(STATE)</code> back to its old place, at the top of the loop.</p>
+<p>We will use the exact same method in Pygame. But, here it is, why the method does not work well with the prototype. The system we have chosen was the traffic light. That was on full purpose as it is fully automatic. The problem is the <code>input</code> command, as it waits for input. While it does, the loop stands still. In order to combine user input with a fast while loop, we would need another way of handling input events. That is what Pygame will provide.</p>
+<!--
+### Continuous event handling
+
+With the time stamp method we can write our prototype in a way that comes closer to the final Pygame program, which also has a fast paced `while` loop to make for a fluent user interface. Another advantage of the time stamp method is that we can react to input while we wait. An example is 
+-->
+</section>
+<section id="presentation-conditionals" class="level3" data-number="8.2.4">
+<h3 data-number="8.2.4" class="anchored" data-anchor-id="presentation-conditionals"><span class="header-section-number">8.2.4</span> Presentation conditionals</h3>
+<p>If you inspect the interactive prototyping code so far, you will notice that all output is produced by a single <code>print</code> statement, which resides outside of the transitionals. That is fully on purpose, deriving from a golden rule of user interface development, as we will see later.</p>
+<p>The sole purpose of a traffic light is to transit between states and make these states visible to the user In general, interactive programs do more than just transit from state to state. They usually process some sort of data or information. Very often, the user input at one state, affects the display of a subsequent state.</p>
+<p>The one It suffices to check the interaction flow, but lacks the ability This is a very poor solution, as it only checks the primary state the program is in. In order to check the logic of the program it is useful to enrich tehz output further. For example, in the traffic light example, we may want to show the tr5affic light, not just its state.</p>
+<p>It is tempting to just the print statements into the transitionals, but that will finally not work at all with Pygame programs. Recall what we said in the beginning of this chapter about breaking a complex problem into manageable pieces. In software development it is accepted best practice to clearly separate two aspects of an interactive program: the flow of states and the presentation on screen. There even is a name for this approach, its called a <em>two-tier architecture</em>. While this may seem over done at the toy examples, we use here, but it has significant advantages in the long run:</p>
+<ul>
+<li>You can focus on one thing at a time, typically starting with the flow of the program and once that is done, move on to screen design.</li>
+<li>You can even separate the two tasks: one expert is doing the interaction flow, and another expert creates the screens.</li>
+<li>It works with Pygame.</li>
+</ul>
+<p>In order to be more flexible with what the prototype presents to the screen when in a state, we will expand the <code>print(STATE)</code> statement into a set of <em>presentation conditionals (presentitionals)</em>, allowing us to create different output for different states. We demonstrate the idea by the example of the checkout process.</p>
+<p>Notice that:</p>
+<ol type="1">
+<li>Presentationals <em>never</em> change the state as that is the domain of transitionals.</li>
+<li>presentitionals are triggered by states, simply. If you find yourself wanting to add another condition, say whether the response was correct, that can either go into teh presentitional itself or you can split the state into two separate ones.<br>
+</li>
+<li>we use <code>if</code> statements without <code>continue</code>. If we would do otherwise, the iteration would jump over our carefully crafted transitionals and nothing will ever happen anymore. We also don’t need to break the iteration, because the program always is in exactly one state and the presetitionals never change state. That makes sure that exactly one presentitional will fire during a single iteration.</li>
+<li>presentitionals come before transitionals, as otherwise they would fall prey to the <code>continue</code> statement and never show up. With Pygame, due to its better event handler mechanism, this is no longer necessary and it seems more logical to put presentitionals last.</li>
+</ol>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb22"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a>STATE <span class="op">=</span> <span class="st">"Delivery"</span></span>
+<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a><span class="cf">while</span> <span class="va">True</span>:</span>
+<span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb22-4"><a href="#cb22-4" aria-hidden="true" tabindex="-1"></a>  <span class="co"># presentation conditionals</span></span>
+<span id="cb22-5"><a href="#cb22-5" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb22-6"><a href="#cb22-6" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span> STATE <span class="op">==</span> <span class="st">"Billing"</span>:</span>
+<span id="cb22-7"><a href="#cb22-7" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">"n for proceed"</span>)</span>
+<span id="cb22-8"><a href="#cb22-8" aria-hidden="true" tabindex="-1"></a>    billing  <span class="op">=</span> <span class="bu">input</span>(<span class="st">"Please, enter your billing address"</span>)</span>
+<span id="cb22-9"><a href="#cb22-9" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb22-10"><a href="#cb22-10" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span> STATE <span class="op">==</span> <span class="st">"Delivery"</span>:</span>
+<span id="cb22-11"><a href="#cb22-11" aria-hidden="true" tabindex="-1"></a>    delivery <span class="op">=</span> <span class="bu">input</span>(<span class="st">"Please, enter your delivery address"</span>)</span>
+<span id="cb22-12"><a href="#cb22-12" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">"p for previous, n for next"</span>)</span>
+<span id="cb22-13"><a href="#cb22-13" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb22-14"><a href="#cb22-14" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span> STATE <span class="op">==</span> <span class="st">"Credit_card"</span>:</span>
+<span id="cb22-15"><a href="#cb22-15" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">"n for next, p for previous"</span>)</span>
+<span id="cb22-16"><a href="#cb22-16" aria-hidden="true" tabindex="-1"></a>    credit_card  <span class="op">=</span> <span class="bu">input</span>(<span class="st">"Please, enter your billing address"</span>)</span>
+<span id="cb22-17"><a href="#cb22-17" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb22-18"><a href="#cb22-18" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span> STATE <span class="op">==</span> <span class="st">"Exit"</span>:</span>
+<span id="cb22-19"><a href="#cb22-19" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">"We received your order"</span>)</span>
+<span id="cb22-20"><a href="#cb22-20" aria-hidden="true" tabindex="-1"></a>    <span class="cf">break</span></span>
+<span id="cb22-21"><a href="#cb22-21" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb22-22"><a href="#cb22-22" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb22-23"><a href="#cb22-23" aria-hidden="true" tabindex="-1"></a>  key <span class="op">=</span> <span class="bu">input</span>(<span class="st">"Press a key: "</span>)</span>
+<span id="cb22-24"><a href="#cb22-24" aria-hidden="true" tabindex="-1"></a>  <span class="co"># interactive transitionals</span></span>
+<span id="cb22-25"><a href="#cb22-25" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span> STATE <span class="op">==</span> <span class="st">"Delivery"</span> <span class="kw">and</span> key <span class="op">==</span> <span class="st">"n"</span>:</span>
+<span id="cb22-26"><a href="#cb22-26" aria-hidden="true" tabindex="-1"></a>    STATE <span class="op">=</span> <span class="st">"Billing"</span></span>
+<span id="cb22-27"><a href="#cb22-27" aria-hidden="true" tabindex="-1"></a>    <span class="cf">continue</span></span>
+<span id="cb22-28"><a href="#cb22-28" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb22-29"><a href="#cb22-29" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span> STATE <span class="op">==</span> <span class="st">"Billing"</span>:</span>
+<span id="cb22-30"><a href="#cb22-30" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> key <span class="op">==</span> <span class="st">"n"</span>:</span>
+<span id="cb22-31"><a href="#cb22-31" aria-hidden="true" tabindex="-1"></a>      STATE <span class="op">=</span> <span class="st">"Credit_card"</span></span>
+<span id="cb22-32"><a href="#cb22-32" aria-hidden="true" tabindex="-1"></a>    <span class="cf">elif</span> key <span class="op">==</span> <span class="st">"p"</span>:</span>
+<span id="cb22-33"><a href="#cb22-33" aria-hidden="true" tabindex="-1"></a>      STATE <span class="op">=</span> <span class="st">"Delivery"</span></span>
+<span id="cb22-34"><a href="#cb22-34" aria-hidden="true" tabindex="-1"></a>    <span class="cf">continue</span></span>
+<span id="cb22-35"><a href="#cb22-35" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span> STATE <span class="op">==</span> <span class="st">"Credit_card"</span>:</span>
+<span id="cb22-36"><a href="#cb22-36" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> key <span class="op">==</span> <span class="st">"n"</span>:</span>
+<span id="cb22-37"><a href="#cb22-37" aria-hidden="true" tabindex="-1"></a>      STATE <span class="op">=</span> <span class="st">"Exit"</span></span>
+<span id="cb22-38"><a href="#cb22-38" aria-hidden="true" tabindex="-1"></a>    <span class="cf">elif</span> key <span class="op">==</span> <span class="st">"p"</span>:</span>
+<span id="cb22-39"><a href="#cb22-39" aria-hidden="true" tabindex="-1"></a>      STATE <span class="op">=</span> <span class="st">"Billing"</span></span>
+<span id="cb22-40"><a href="#cb22-40" aria-hidden="true" tabindex="-1"></a>    <span class="cf">continue</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</section>
+</section>
+<section id="interactions-in-pygame" class="level2" data-number="8.3">
+<h2 data-number="8.3" class="anchored" data-anchor-id="interactions-in-pygame"><span class="header-section-number">8.3</span> Interactions in Pygame</h2>
+<section id="overall-structure" class="level3" data-number="8.3.1">
+<h3 data-number="8.3.1" class="anchored" data-anchor-id="overall-structure"><span class="header-section-number">8.3.1</span> Overall structure</h3>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb23"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a>BACKGR_COL <span class="op">=</span> col_gray</span>
+<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a>SCREEN_SIZE <span class="op">=</span> (<span class="dv">700</span>, <span class="dv">500</span>)</span>
+<span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a>pygame.init()</span>
+<span id="cb23-4"><a href="#cb23-4" aria-hidden="true" tabindex="-1"></a>pygame.display.set_mode(SCREEN_SIZE) </span>
+<span id="cb23-5"><a href="#cb23-5" aria-hidden="true" tabindex="-1"></a>pygame.display.set_caption(<span class="st">"Stroop Test"</span>)</span>
+<span id="cb23-6"><a href="#cb23-6" aria-hidden="true" tabindex="-1"></a>screen <span class="op">=</span> pygame.display.get_surface()</span>
+<span id="cb23-7"><a href="#cb23-7" aria-hidden="true" tabindex="-1"></a>font <span class="op">=</span> pygame.font.Font(<span class="va">None</span>, <span class="dv">80</span>)</span>
+<span id="cb23-8"><a href="#cb23-8" aria-hidden="true" tabindex="-1"></a>font_small <span class="op">=</span> pygame.font.Font(<span class="va">None</span>, <span class="dv">40</span>) </span>
+<span id="cb23-9"><a href="#cb23-9" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> main():</span>
+<span id="cb23-10"><a href="#cb23-10" aria-hidden="true" tabindex="-1"></a>  <span class="co"># fast while loop</span></span>
+<span id="cb23-11"><a href="#cb23-11" aria-hidden="true" tabindex="-1"></a>  <span class="cf">while</span> <span class="va">True</span>:</span>
+<span id="cb23-12"><a href="#cb23-12" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb23-13"><a href="#cb23-13" aria-hidden="true" tabindex="-1"></a>          <span class="co"># refreshing the display</span></span>
+<span id="cb23-14"><a href="#cb23-14" aria-hidden="true" tabindex="-1"></a>          screen.fill(BACKGR_COL)        </span>
+<span id="cb23-15"><a href="#cb23-15" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb23-16"><a href="#cb23-16" aria-hidden="true" tabindex="-1"></a>          <span class="co"># Event loop</span></span>
+<span id="cb23-17"><a href="#cb23-17" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb23-18"><a href="#cb23-18" aria-hidden="true" tabindex="-1"></a>              <span class="co"># interactive transitionals                     </span></span>
+<span id="cb23-19"><a href="#cb23-19" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb23-20"><a href="#cb23-20" aria-hidden="true" tabindex="-1"></a>          <span class="co"># automatic transitionals</span></span>
+<span id="cb23-21"><a href="#cb23-21" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb23-22"><a href="#cb23-22" aria-hidden="true" tabindex="-1"></a>          <span class="co"># Presentitionals</span></span>
+<span id="cb23-23"><a href="#cb23-23" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb23-24"><a href="#cb23-24" aria-hidden="true" tabindex="-1"></a>          <span class="co"># Updating the display</span></span>
+<span id="cb23-25"><a href="#cb23-25" aria-hidden="true" tabindex="-1"></a>          pygame.display.update()</span>
+<span id="cb23-26"><a href="#cb23-26" aria-hidden="true" tabindex="-1"></a>main()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p>Notice that:</p>
+<ol type="1">
+<li>The code for setting up the display looks complicated, but it usually suffices to just copy that part of the code whenever we start a new project. Still, you probably want to configure a few aspects to your requirements:
+<ul>
+<li>choose a background color, e.g.&nbsp;<code>col_black</code> or <code>#FFFFFF</code> (white)</li>
+<li>set the width and height of the screen by changing <code>SCREEN_SIZE</code></li>
+<li>change the caption of the screen (to appear in the top bar of the window)</li>
+<li>change font and font size</li>
+</ul></li>
+<li>the main program is nbot invoked directly, but encapsulated in a function <code>def main():</code>. This function is then executed in the very last line of code.</li>
+</ol>
+</section>
+<section id="the-screen-and-the-refresh-loop." class="level3" data-number="8.3.2">
+<h3 data-number="8.3.2" class="anchored" data-anchor-id="the-screen-and-the-refresh-loop."><span class="header-section-number">8.3.2</span> The screen and the refresh loop.</h3>
+<p>With Pygame you can create interactive programs with fancy geometries and fluent animations. In fact, all computer animations are just pseudo-fluent. It is like in the movies: a fluent movement, like that of a jumping ball, is captured in a high speed. It is just a sequence of still images, but by the sluggish human visual system it is perceived no less fluent than the real scene.</p>
+<p>In a Pygame program, an animation is created by a series of stills, too, with the only difference that these stills are not on celluloid. They get computed in an instance and transfered to the computer screen in fast succession, like 60 per second (60Hz). This happens as followed:</p>
+<ol type="1">
+<li>setting up the display</li>
+<li>a fast while loop runs continuously, at every iteration:</li>
+<li>the screen is refreshed by painting the background color over the previous image</li>
+<li>the next image is computed by transitionals and presentitionals</li>
+<li>the display is updated with the new image</li>
+</ol>
+<p>A single iteration of the fast while loop we call <em>a refresh</em>.</p>
+</section>
+<section id="handling-user-input" class="level3" data-number="8.3.3">
+<h3 data-number="8.3.3" class="anchored" data-anchor-id="handling-user-input"><span class="header-section-number">8.3.3</span> Handling user input</h3>
+<p>With Pygame you can create interactive programs that react fluently to user input. There no longer is a prompt that waits for input and requires Return to continue. User input in Pygame programs is handled by a very clever mechanism called the <em>event handler queue</em>. You don’t actually see it, as it is set up behind the scenes by <code>pygame.init()</code>. It acts a lot like a descretive secretary: it stays in teh background and collects the incoming messages, hands them over one by one to the executive and lets her do her own thing with it.</p>
+<p>While the fast <code>while</code> loop runs in the foreground, the event handler is a separate mechanism that continuously listens to input from keyboard or mouse. Whenever something happens, a key is pressed or the mouse is pushed, the event handler registers this event and puts it in a queue. At every regresh this queue is retrieved and emptied by <code>pygame.event.get()</code>, which returns the queue as a list. The event <code>for</code> loop iterates over this list, pulling out the events one by one out and handing them over to the interactive transitionals.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb24"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Event handler</span></span>
+<span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> event <span class="kw">in</span> pygame.event.get(): </span>
+<span id="cb24-3"><a href="#cb24-3" aria-hidden="true" tabindex="-1"></a>    <span class="co"># interactive transitionals                     </span></span>
+<span id="cb24-4"><a href="#cb24-4" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> STATE <span class="op">==</span> <span class="st">"welcome"</span>:</span>
+<span id="cb24-5"><a href="#cb24-5" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> event.<span class="bu">type</span> <span class="op">==</span> KEYDOWN <span class="kw">and</span> event.key <span class="op">==</span> K_SPACE:</span>
+<span id="cb24-6"><a href="#cb24-6" aria-hidden="true" tabindex="-1"></a>            STATE <span class="op">=</span> <span class="st">"prepare_next_trial"</span></span>
+<span id="cb24-7"><a href="#cb24-7" aria-hidden="true" tabindex="-1"></a>            <span class="bu">print</span>(STATE)</span>
+<span id="cb24-8"><a href="#cb24-8" aria-hidden="true" tabindex="-1"></a>            <span class="cf">continue</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p>Notice that</p>
+<ol type="1">
+<li>when there is no input, the event loop never runs and none of the interactive transitionals wil fire. The event handler loop acts like a conditional most of the time. It sits in the fast refresh loop and therefore is idle most of the iterations. That is why you should never put automatic transitionals into the event loop.</li>
+<li><code>pygame.event.get()</code> returns the event queue, but also empties it. Otherwise, events would be eveluated over and over again.</li>
+<li>an event is a complex piece of information. For a key press, the type of the event is <code>KEYDOWN</code> and it has a property key that holds the key that has been pressed.</li>
+<li>if more than one event has been recorded, they are all being processed in a single refresh. That can mean more than one transition per refresh.</li>
+<li>We still need <code>continue</code> to make sure that only one transitional per event is fired. While the event handler queue is consumed (emptied) by <code>pygame.event.get()</code>, the variable <code>event</code> is not. If two successive transitionals use the same event (e.g.&nbsp;n for next), they would both be triggered.</li>
+</ol>
+</section>
+<section id="transitionals" class="level3" data-number="8.3.4">
+<h3 data-number="8.3.4" class="anchored" data-anchor-id="transitionals"><span class="header-section-number">8.3.4</span> Transitionals</h3>
+<p>Interactive transitionals differ only slightly. Because of the event handler mechanism they no longer reside under the fast <code>while</code>, but one level deeper in the event handler loop. If you use a print statement to see the state transitions on the console, these must go into the individual transitionals, see yourself:</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb25"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Event loop</span></span>
+<span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> event <span class="kw">in</span> pygame.event.get():</span>
+<span id="cb25-3"><a href="#cb25-3" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb25-4"><a href="#cb25-4" aria-hidden="true" tabindex="-1"></a>    <span class="co"># interactive transitionals                     </span></span>
+<span id="cb25-5"><a href="#cb25-5" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> STATE <span class="op">==</span> <span class="st">"welcome"</span>:</span>
+<span id="cb25-6"><a href="#cb25-6" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> event.<span class="bu">type</span> <span class="op">==</span> KEYDOWN <span class="kw">and</span> event.key <span class="op">==</span> K_SPACE:</span>
+<span id="cb25-7"><a href="#cb25-7" aria-hidden="true" tabindex="-1"></a>            STATE <span class="op">=</span> <span class="st">"prepare_next_trial"</span></span>
+<span id="cb25-8"><a href="#cb25-8" aria-hidden="true" tabindex="-1"></a>        <span class="bu">print</span>(STATE)</span>
+<span id="cb25-9"><a href="#cb25-9" aria-hidden="true" tabindex="-1"></a>        <span class="cf">continue</span></span>
+<span id="cb25-10"><a href="#cb25-10" aria-hidden="true" tabindex="-1"></a>            </span>
+<span id="cb25-11"><a href="#cb25-11" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> STATE <span class="op">==</span> <span class="st">"wait_for_response"</span>:</span>
+<span id="cb25-12"><a href="#cb25-12" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> event.<span class="bu">type</span> <span class="op">==</span> KEYDOWN <span class="kw">and</span> event.key <span class="kw">in</span> KEYS.values():</span>
+<span id="cb25-13"><a href="#cb25-13" aria-hidden="true" tabindex="-1"></a>            time_when_reacted <span class="op">=</span> time()</span>
+<span id="cb25-14"><a href="#cb25-14" aria-hidden="true" tabindex="-1"></a>            this_reaction_time <span class="op">=</span> time_when_reacted <span class="op">-</span> time_when_presented</span>
+<span id="cb25-15"><a href="#cb25-15" aria-hidden="true" tabindex="-1"></a>            this_correctness <span class="op">=</span> (event.key <span class="op">==</span> KEYS[this_color])</span>
+<span id="cb25-16"><a href="#cb25-16" aria-hidden="true" tabindex="-1"></a>            STATE <span class="op">=</span> <span class="st">"feedback"</span></span>
+<span id="cb25-17"><a href="#cb25-17" aria-hidden="true" tabindex="-1"></a>        <span class="bu">print</span>(STATE)</span>
+<span id="cb25-18"><a href="#cb25-18" aria-hidden="true" tabindex="-1"></a>        <span class="cf">continue</span></span>
+<span id="cb25-19"><a href="#cb25-19" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> STATE <span class="op">==</span> <span class="st">"feedback"</span>:</span>
+<span id="cb25-20"><a href="#cb25-20" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> event.<span class="bu">type</span> <span class="op">==</span> KEYDOWN <span class="kw">and</span> event.key <span class="op">==</span> K_SPACE:</span>
+<span id="cb25-21"><a href="#cb25-21" aria-hidden="true" tabindex="-1"></a>            <span class="cf">if</span> trial_number <span class="op">&lt;</span> n_trials:</span>
+<span id="cb25-22"><a href="#cb25-22" aria-hidden="true" tabindex="-1"></a>                STATE <span class="op">=</span> <span class="st">"prepare_next_trial"</span></span>
+<span id="cb25-23"><a href="#cb25-23" aria-hidden="true" tabindex="-1"></a>            <span class="cf">else</span>:</span>
+<span id="cb25-24"><a href="#cb25-24" aria-hidden="true" tabindex="-1"></a>                STATE <span class="op">=</span> <span class="st">"goodbye"</span></span>
+<span id="cb25-25"><a href="#cb25-25" aria-hidden="true" tabindex="-1"></a>        <span class="bu">print</span>(STATE)</span>
+<span id="cb25-26"><a href="#cb25-26" aria-hidden="true" tabindex="-1"></a>        <span class="cf">continue</span></span>
+<span id="cb25-27"><a href="#cb25-27" aria-hidden="true" tabindex="-1"></a>            </span>
+<span id="cb25-28"><a href="#cb25-28" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb25-29"><a href="#cb25-29" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> event.<span class="bu">type</span> <span class="op">==</span> QUIT:</span>
+<span id="cb25-30"><a href="#cb25-30" aria-hidden="true" tabindex="-1"></a>        STATE <span class="op">=</span> <span class="st">"quit"</span></span>
+<span id="cb25-31"><a href="#cb25-31" aria-hidden="true" tabindex="-1"></a>        <span class="bu">print</span>(STATE)</span>
+<span id="cb25-32"><a href="#cb25-32" aria-hidden="true" tabindex="-1"></a>        <span class="cf">break</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p>Notice that:</p>
+<ol type="1">
+<li>the event condition gets a little more complicated (more on that below) and that lets us prefer nested transitionals</li>
+<li>the second transitional does a little data processing, namely capturing the response time by the time stamp method.</li>
+<li>the third transitional contains two transitions, which we call a <code>branching transitional</code>. The inner most conditional interrogates the number of trials that have already been presented and either moves on to another trial or teh end of the experiment.</li>
+<li>the last transitional breaks the event handler loop. If the user wants to quit, he wants to quit and not wait for the event handler loop to finish the queue.</li>
+</ol>
+<p>Automatic transitionals in Pygame differ in no way from automatic transitionals in console prototypes, except when you have to use the time_stamp method to cause a delay. They have the same structure and they remain directly under the fast <code>while</code> loop.</p>
+<p>There is one automatic transitional in the Stroop program, that is a little special on closer examination: With every new trial, the transitional <code>prepare_trial</code> is triggered and automatically the program moves on to <code>show_trial</code>. On closer examination this transitional is different to the ones we have seen before, because the state <code>prepare_trial</code> does not have a presentational. It is completely invisible to the user, a <em>ghost transitional</em>. We also notice that there is quite some extra code inside. Some serious data processing is done, before the actual transition.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb26"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="co"># automatic transitionals</span></span>
+<span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> STATE <span class="op">==</span> <span class="st">"prepare_trial"</span>:</span>
+<span id="cb26-3"><a href="#cb26-3" aria-hidden="true" tabindex="-1"></a>        trial_number <span class="op">=</span> trial_number <span class="op">+</span> <span class="dv">1</span></span>
+<span id="cb26-4"><a href="#cb26-4" aria-hidden="true" tabindex="-1"></a>        this_word  <span class="op">=</span> pick_color()</span>
+<span id="cb26-5"><a href="#cb26-5" aria-hidden="true" tabindex="-1"></a>        this_color <span class="op">=</span> pick_color()</span>
+<span id="cb26-6"><a href="#cb26-6" aria-hidden="true" tabindex="-1"></a>        time_when_presented <span class="op">=</span> time()</span>
+<span id="cb26-7"><a href="#cb26-7" aria-hidden="true" tabindex="-1"></a>        STATE <span class="op">=</span> <span class="st">"show_trial"</span></span>
+<span id="cb26-8"><a href="#cb26-8" aria-hidden="true" tabindex="-1"></a>        <span class="bu">print</span>(STATE)    </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p>This transition actually prepares all aspects of the stimulus, before it is shown. But, why aren’t these computations just be done during a direct transition to <code>show_trial</code>? In fact, for the little program we have here, it does not matter. It is just there to have one automatic transitional.</p>
+<p>But, there are situations, where using ghost transitionals can be useful</p>
+<ul>
+<li>when the data processing is complex. Then, it seems more natural to think of the progranm being in data processing transition.</li>
+<li>when the data processing lets the program branch. For example, we could define two separate states for trial feedback, for correct and incorrect responses. Then, it seems more natural to put the computations and branching into a “knot” on its own.</li>
+</ul>
+<p>IN both cases, the program will be easier to understand and debig, but there is no difference in functionality.</p>
+</section>
+<section id="pygame-events" class="level3" data-number="8.3.5">
+<h3 data-number="8.3.5" class="anchored" data-anchor-id="pygame-events"><span class="header-section-number">8.3.5</span> Pygame events</h3>
+<p>The event handler collects the events between two refreshes and hands it over to the event loop. We have already seen on the transitionals that events are more complex than just literal characters. That makes sense, when you consider that also mouse events are being captured. They cannot be expressed as a characters, but as either coordinates (when the mouse is moved) or as button presses at a certain position on the screen.</p>
+<p>But let’s look at keyboard input, first, as they appear in the Stroop program. They are all have the same in structure in their inner event conditions:</p>
+<pre><code>  if event.type == KEYDOWN and event.key == K_&lt;key&gt;:</code></pre>
+<p>So, this conditional asks for the type of the event, which is that a key has been pressed down. Note that this is more basic than that a key has been entered, as that would also mean it has been released. The secod condition is about the key. Different to our prototypes, this is not a literal character, but a constant, that Pygame has predefined. That helps to deal with keys that do not have a character assigned, such as Return, Alt, Ctrl and the arrows on your keyboard. The full list of key definitions can be found in the [Pygame documentation]:(https://www.pygame.org/docs/ref/key.html).</p>
+<p>When there is a <code>KEYDOWN</code> there must also be a <code>KEYUP</code> event type, that is recorded, when the key is released again. That can be quite useful, when the goal is to do something as long as the key is pressed. Just try out what the key arrow_up does when you are editing a document. It moves the cursor up the lines until you release it.</p>
+<p>The full list of event types is given in the [Pygame documentation]:(https://www.pygame.org/docs/ref/event.html). Here we will only briefly explain the most important, which is the event type QUIT and all mouse event types:</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb28"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> event.<span class="bu">type</span> <span class="op">==</span> QUIT:</span>
+<span id="cb28-2"><a href="#cb28-2" aria-hidden="true" tabindex="-1"></a>  STATE <span class="op">=</span> <span class="st">"quit"</span></span>
+<span id="cb28-3"><a href="#cb28-3" aria-hidden="true" tabindex="-1"></a>  <span class="cf">break</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p>This actually corresponds with the all time exit that we once implemented in the prototype. Usually, the QUIT event is the same as a key press on the ESC key. And if you try it out, you will see that you can cancel the Stroop program at any time pressing ESC.</p>
+<p>Mouse events come as several types with different properties, the two most important ones are:</p>
+<ul>
+<li>a MOUSEMOTION event is recorded when the mouse pointer has moved during the refreshes. It has an attribute <code>event.pos</code>, which is a list of two numbers, the x and y coordinates of the new pointer position.</li>
+<li>MOUSEBUTTONDOWN is recorded when a mouse button is pressed down. The attribute event.button identifies which button it was (LEFT, RIGHT).</li>
+</ul>
+<p>See these two events in action in the following little program:</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb29"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pygame</span>
+<span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> sys</span>
+<span id="cb29-3"><a href="#cb29-3" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> time <span class="im">import</span> time</span>
+<span id="cb29-4"><a href="#cb29-4" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> pygame.<span class="bu">locals</span> <span class="im">import</span> <span class="op">*</span></span>
+<span id="cb29-5"><a href="#cb29-5" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> random</span>
+<span id="cb29-6"><a href="#cb29-6" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> pygame.compat <span class="im">import</span> unichr_, unicode_</span>
+<span id="cb29-7"><a href="#cb29-7" aria-hidden="true" tabindex="-1"></a><span class="co">##### VARIABLES #####</span></span>
+<span id="cb29-8"><a href="#cb29-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Colors</span></span>
+<span id="cb29-9"><a href="#cb29-9" aria-hidden="true" tabindex="-1"></a>col_black <span class="op">=</span> (<span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>)</span>
+<span id="cb29-10"><a href="#cb29-10" aria-hidden="true" tabindex="-1"></a>col_green <span class="op">=</span> (<span class="dv">0</span>, <span class="dv">255</span>, <span class="dv">0</span>)</span>
+<span id="cb29-11"><a href="#cb29-11" aria-hidden="true" tabindex="-1"></a>col_green_dim <span class="op">=</span> (<span class="dv">0</span>, <span class="dv">60</span>, <span class="dv">0</span>)</span>
+<span id="cb29-12"><a href="#cb29-12" aria-hidden="true" tabindex="-1"></a>BACKGR_COL <span class="op">=</span> col_black</span>
+<span id="cb29-13"><a href="#cb29-13" aria-hidden="true" tabindex="-1"></a>SCREEN_SIZE <span class="op">=</span> (<span class="dv">500</span>, <span class="dv">500</span>)</span>
+<span id="cb29-14"><a href="#cb29-14" aria-hidden="true" tabindex="-1"></a>pygame.init()</span>
+<span id="cb29-15"><a href="#cb29-15" aria-hidden="true" tabindex="-1"></a>pygame.display.set_mode(SCREEN_SIZE)</span>
+<span id="cb29-16"><a href="#cb29-16" aria-hidden="true" tabindex="-1"></a>pygame.display.set_caption(<span class="st">"Mouse events"</span>)</span>
+<span id="cb29-17"><a href="#cb29-17" aria-hidden="true" tabindex="-1"></a>screen <span class="op">=</span> pygame.display.get_surface()</span>
+<span id="cb29-18"><a href="#cb29-18" aria-hidden="true" tabindex="-1"></a>screen.fill(BACKGR_COL)</span>
+<span id="cb29-19"><a href="#cb29-19" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> main():</span>
+<span id="cb29-20"><a href="#cb29-20" aria-hidden="true" tabindex="-1"></a>    STATE <span class="op">=</span> <span class="st">"not_clicked"</span></span>
+<span id="cb29-21"><a href="#cb29-21" aria-hidden="true" tabindex="-1"></a>    mousex <span class="op">=</span> <span class="dv">0</span></span>
+<span id="cb29-22"><a href="#cb29-22" aria-hidden="true" tabindex="-1"></a>    mousey <span class="op">=</span> <span class="dv">0</span></span>
+<span id="cb29-23"><a href="#cb29-23" aria-hidden="true" tabindex="-1"></a>    <span class="cf">while</span> <span class="va">True</span>:</span>
+<span id="cb29-24"><a href="#cb29-24" aria-hidden="true" tabindex="-1"></a>        screen.fill(BACKGR_COL)        </span>
+<span id="cb29-25"><a href="#cb29-25" aria-hidden="true" tabindex="-1"></a>        <span class="cf">for</span> event <span class="kw">in</span> pygame.event.get():                        </span>
+<span id="cb29-26"><a href="#cb29-26" aria-hidden="true" tabindex="-1"></a>            <span class="co"># IT</span></span>
+<span id="cb29-27"><a href="#cb29-27" aria-hidden="true" tabindex="-1"></a>            <span class="cf">if</span> STATE <span class="op">==</span> <span class="st">"not_clicked"</span>:</span>
+<span id="cb29-28"><a href="#cb29-28" aria-hidden="true" tabindex="-1"></a>                <span class="co"># mouse moved, new pointer position is stored</span></span>
+<span id="cb29-29"><a href="#cb29-29" aria-hidden="true" tabindex="-1"></a>                <span class="cf">if</span> event.<span class="bu">type</span> <span class="op">==</span> MOUSEMOTION: </span>
+<span id="cb29-30"><a href="#cb29-30" aria-hidden="true" tabindex="-1"></a>                    mousex <span class="op">=</span> event.pos[<span class="dv">0</span>]</span>
+<span id="cb29-31"><a href="#cb29-31" aria-hidden="true" tabindex="-1"></a>                    mousey <span class="op">=</span> event.pos[<span class="dv">1</span>]</span>
+<span id="cb29-32"><a href="#cb29-32" aria-hidden="true" tabindex="-1"></a>                    <span class="cf">continue</span></span>
+<span id="cb29-33"><a href="#cb29-33" aria-hidden="true" tabindex="-1"></a>                <span class="co"># left mouse button clicked</span></span>
+<span id="cb29-34"><a href="#cb29-34" aria-hidden="true" tabindex="-1"></a>                <span class="cf">if</span> event.<span class="bu">type</span> <span class="op">==</span> MOUSEBUTTONDOWN <span class="kw">and</span> event.button <span class="op">==</span> LEFT: </span>
+<span id="cb29-35"><a href="#cb29-35" aria-hidden="true" tabindex="-1"></a>                    STATE <span class="op">=</span> <span class="st">"clicked"</span></span>
+<span id="cb29-36"><a href="#cb29-36" aria-hidden="true" tabindex="-1"></a>                    time_when_clicked <span class="op">=</span> time() <span class="co"># timestamp for "unclicking"</span></span>
+<span id="cb29-37"><a href="#cb29-37" aria-hidden="true" tabindex="-1"></a>                    <span class="cf">continue</span></span>
+<span id="cb29-38"><a href="#cb29-38" aria-hidden="true" tabindex="-1"></a>            <span class="cf">if</span> event.<span class="bu">type</span> <span class="op">==</span> QUIT:</span>
+<span id="cb29-39"><a href="#cb29-39" aria-hidden="true" tabindex="-1"></a>                pygame.quit()</span>
+<span id="cb29-40"><a href="#cb29-40" aria-hidden="true" tabindex="-1"></a>                sys.exit()</span>
+<span id="cb29-41"><a href="#cb29-41" aria-hidden="true" tabindex="-1"></a>        <span class="co"># AT</span></span>
+<span id="cb29-42"><a href="#cb29-42" aria-hidden="true" tabindex="-1"></a>        <span class="co"># unclicking after 500ms</span></span>
+<span id="cb29-43"><a href="#cb29-43" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> STATE <span class="op">==</span> <span class="st">"clicked"</span> <span class="kw">and</span> time() <span class="op">-</span> time_when_clicked <span class="op">&gt;</span> <span class="fl">0.5</span>: </span>
+<span id="cb29-44"><a href="#cb29-44" aria-hidden="true" tabindex="-1"></a>            STATE <span class="op">=</span> <span class="st">"not_clicked"</span></span>
+<span id="cb29-45"><a href="#cb29-45" aria-hidden="true" tabindex="-1"></a>        <span class="co">#  Presentitionals</span></span>
+<span id="cb29-46"><a href="#cb29-46" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> STATE <span class="op">==</span> <span class="st">"clicked"</span>:</span>
+<span id="cb29-47"><a href="#cb29-47" aria-hidden="true" tabindex="-1"></a>            draw(mousex, mousey, <span class="va">True</span>)</span>
+<span id="cb29-48"><a href="#cb29-48" aria-hidden="true" tabindex="-1"></a>        </span>
+<span id="cb29-49"><a href="#cb29-49" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> STATE <span class="op">==</span> <span class="st">"not_clicked"</span>:</span>
+<span id="cb29-50"><a href="#cb29-50" aria-hidden="true" tabindex="-1"></a>            draw(mousex, mousey, <span class="va">False</span>)</span>
+<span id="cb29-51"><a href="#cb29-51" aria-hidden="true" tabindex="-1"></a>        </span>
+<span id="cb29-52"><a href="#cb29-52" aria-hidden="true" tabindex="-1"></a>        pygame.display.update()</span>
+<span id="cb29-53"><a href="#cb29-53" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> draw(posx, posy, clicked):</span>
+<span id="cb29-54"><a href="#cb29-54" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> clicked:</span>
+<span id="cb29-55"><a href="#cb29-55" aria-hidden="true" tabindex="-1"></a>        color <span class="op">=</span> col_green</span>
+<span id="cb29-56"><a href="#cb29-56" aria-hidden="true" tabindex="-1"></a>    <span class="cf">else</span>:</span>
+<span id="cb29-57"><a href="#cb29-57" aria-hidden="true" tabindex="-1"></a>        color <span class="op">=</span> col_green_dim</span>
+<span id="cb29-58"><a href="#cb29-58" aria-hidden="true" tabindex="-1"></a>    text_surface <span class="op">=</span> font.render(<span class="bu">str</span>(<span class="bu">int</span>(posx)) <span class="op">+</span> <span class="st">':'</span> <span class="op">+</span> <span class="bu">str</span>(<span class="bu">int</span>(posy)), <span class="va">True</span>, color, BACKGR_COL)</span>
+<span id="cb29-59"><a href="#cb29-59" aria-hidden="true" tabindex="-1"></a>    text_rectangle <span class="op">=</span> text_surface.get_rect()</span>
+<span id="cb29-60"><a href="#cb29-60" aria-hidden="true" tabindex="-1"></a>    text_rectangle.center <span class="op">=</span> (SCREEN_SIZE[<span class="dv">0</span>]<span class="op">/</span><span class="fl">2.0</span>,SCREEN_SIZE[<span class="dv">1</span>]<span class="op">/</span><span class="fl">2.0</span>)</span>
+<span id="cb29-61"><a href="#cb29-61" aria-hidden="true" tabindex="-1"></a>    screen.blit(text_surface, text_rectangle)</span>
+<span id="cb29-62"><a href="#cb29-62" aria-hidden="true" tabindex="-1"></a>main()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p>Notice that</p>
+<ol type="1">
+<li><code>event.pos</code> is a list of two values, the x and y coordinates</li>
+<li>Pygame provides the mouse buttons as constants, which are not to be put in quotation marks.</li>
+<li>it is unsafe to create new variables inside an event, as you never know when it happens. It is better to explicitly create variables (mousex, mousey) at the top of the main program</li>
+<li>there are two presentitionals, but they both use the same function to do the drawing</li>
+</ol>
+<!-- #12 -->
+</section>
+</section>
+<section id="sec-presentitionals" class="level2" data-number="8.4">
+<h2 data-number="8.4" class="anchored" data-anchor-id="sec-presentitionals"><span class="header-section-number">8.4</span> Presentitionals in Pygame</h2>
+<p>And, here we’re getting to the candy! With Pygame presentitionals we give our program a face. The presentitionals of Pygame have the same formal structure as the prototype presentitionals, so there is nothing more to say about it. This chapter shows you how to create graphical user interface that render stimuli, show pictures, play animations and have buttons.</p>
+<p>The Pygame system has been developed for arcade games and is very powerful when it comes to creating and transforming graphical objects. Unfortunately, that also makes it very complex, which is why the functions have so many dots in their names. Fortunately, many psychological experiments are at most as complex as the simplest arcade game. Introducing a small subset of Pygame functionality is sufficient. For when you are a geek take a look at other books on game development with Python.</p>
+<p>Recall that at every refresh the screen is almost literally painted over. In fact, every one presentitional can be considered a drawing on its very own. That allows us to demonstrate the elements of Pygame graphics in simple programs, that produce a still picture. That also matches the way you should proceed, when writing the transitionals: first you write the scaffolding code, which consists of all the presentitional and their empty draw function. Then you grab the draw functions one by one and program the visuals, using text, geometric figures and pictures. Here is how the scaffolding looks like:</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb30"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> state <span class="op">==</span> <span class="st">"some_state"</span>:</span>
+<span id="cb30-2"><a href="#cb30-2" aria-hidden="true" tabindex="-1"></a>  draw_some_state()</span>
+<span id="cb30-3"><a href="#cb30-3" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb30-4"><a href="#cb30-4" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> state <span class="op">==</span> <span class="st">"some_other_state"</span>:</span>
+<span id="cb30-5"><a href="#cb30-5" aria-hidden="true" tabindex="-1"></a>  draw_some_state(some_property)</span>
+<span id="cb30-6"><a href="#cb30-6" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb30-7"><a href="#cb30-7" aria-hidden="true" tabindex="-1"></a>pygame.display.update()</span>
+<span id="cb30-8"><a href="#cb30-8" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb30-9"><a href="#cb30-9" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> draw_some_state():</span>
+<span id="cb30-10"><a href="#cb30-10" aria-hidden="true" tabindex="-1"></a>  <span class="cf">pass</span></span>
+<span id="cb30-11"><a href="#cb30-11" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb30-12"><a href="#cb30-12" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> draw_some_other_state(some_property):</span>
+<span id="cb30-13"><a href="#cb30-13" aria-hidden="true" tabindex="-1"></a>  <span class="cf">pass</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p>Notice that:</p>
+<ol type="1">
+<li>we do <em>not</em> use print statements in presentitionals, as they are in the fast loop.</li>
+<li>often, it is useful to make the draw function more generic and use function arguments to fix some properties.</li>
+</ol>
+<section id="display-and-surface" class="level3" data-number="8.4.1">
+<h3 data-number="8.4.1" class="anchored" data-anchor-id="display-and-surface"><span class="header-section-number">8.4.1</span> Display and surface</h3>
+<p>Creating the appearence of states means to draw things to the surface (also known as screen or canvas). However, before we can do so, the surface itself must be created. Also, we have to understand the “physical properties” of the surface.</p>
+<p>Like almost any other program, a Pygame program appears as a window, just like the one in which this text is displayed, be it a browser or a pdf viewer. This windows is composed of the frame, which consists of a rectangular edge, a title bar with a caption and the Windows controls |_|| ||X| in the upper right corner. Between the edge sits the surface. The first thing that needs to be done is creating this window, which is called the <em>display</em> in Pygame terminology. The following code creates a minimal Pygame display with a surface that is 600 pixel wide and 400 pixel high and puts “A Pygame display” into the title bar. The only thing it can do is quit properly.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb31"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Required libraries</span></span>
+<span id="cb31-2"><a href="#cb31-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pygame</span>
+<span id="cb31-3"><a href="#cb31-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> sys</span>
+<span id="cb31-4"><a href="#cb31-4" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> pygame.<span class="bu">locals</span> <span class="im">import</span> <span class="op">*</span></span>
+<span id="cb31-5"><a href="#cb31-5" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> pygame.compat <span class="im">import</span> unichr_, unicode_</span>
+<span id="cb31-6"><a href="#cb31-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Initializing the display</span></span>
+<span id="cb31-7"><a href="#cb31-7" aria-hidden="true" tabindex="-1"></a>pygame.init()</span>
+<span id="cb31-8"><a href="#cb31-8" aria-hidden="true" tabindex="-1"></a>pygame.display.set_mode((<span class="dv">600</span>, <span class="dv">400</span>))</span>
+<span id="cb31-9"><a href="#cb31-9" aria-hidden="true" tabindex="-1"></a>pygame.display.set_caption(<span class="st">"A Pygame display"</span>)</span>
+<span id="cb31-10"><a href="#cb31-10" aria-hidden="true" tabindex="-1"></a><span class="co"># Creating the surface</span></span>
+<span id="cb31-11"><a href="#cb31-11" aria-hidden="true" tabindex="-1"></a>surface <span class="op">=</span> pygame.display.get_surface()</span>
+<span id="cb31-12"><a href="#cb31-12" aria-hidden="true" tabindex="-1"></a>surface.fill((<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>))</span>
+<span id="cb31-13"><a href="#cb31-13" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> main():</span>
+<span id="cb31-14"><a href="#cb31-14" aria-hidden="true" tabindex="-1"></a>    <span class="cf">while</span> <span class="va">True</span>:</span>
+<span id="cb31-15"><a href="#cb31-15" aria-hidden="true" tabindex="-1"></a>        <span class="cf">for</span> event <span class="kw">in</span> pygame.event.get():</span>
+<span id="cb31-16"><a href="#cb31-16" aria-hidden="true" tabindex="-1"></a>            <span class="co"># IT</span></span>
+<span id="cb31-17"><a href="#cb31-17" aria-hidden="true" tabindex="-1"></a>            <span class="cf">if</span> event.<span class="bu">type</span> <span class="op">==</span> QUIT:</span>
+<span id="cb31-18"><a href="#cb31-18" aria-hidden="true" tabindex="-1"></a>                pygame.quit()</span>
+<span id="cb31-19"><a href="#cb31-19" aria-hidden="true" tabindex="-1"></a>                sys.exit()</span>
+<span id="cb31-20"><a href="#cb31-20" aria-hidden="true" tabindex="-1"></a>        pygame.display.update()</span>
+<span id="cb31-21"><a href="#cb31-21" aria-hidden="true" tabindex="-1"></a>main()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p>Notice that:</p>
+<ol type="1">
+<li>When initializing the display, there is no assignment operator involved. There is only one display object <code>pygame.display</code> which magically appears by initializing pygame. However, to some extent you can configure it to your liking.</li>
+<li>As we do it here, the display is set to a fixed size and you won’t be able to resize the window during runtime. There is a way to make it resizeable, but that would complicate matters when it comes to drawing to the surface.</li>
+<li>The surface is an object that is created by <code>pygame.display.get_surface()</code> and assigned the name <code>surface</code> here. Thus, you can give it another name and, in fact, we call it “screen” or “canvas” in other examples of this book.</li>
+<li>With <code>surface.fill()</code> you give the surface a color. For more on colors, read on.</li>
+<li>It is the display that is updated (refreshed), not the surface, which is just a little counter-intuitive, as the surface is where we draw.</li>
+<li>Although the program does nithing noteworthy, we included the event handler with a quit transition. If we do not, closing the window becomes a surprisingly difficult task.</li>
+</ol>
+<p>There is more to say about the surface than you can actually see in this example. One thing to notice is that the size of the surface is given with <em>pixel</em> as a unit. What is a pixel? Take a loupe and look at your computer monitor closely. You will see tiny dots, each of which is composed of three differently colored areas. These dots are the pixel and everything you draw or render to the screen is actually composed of pixel. It seems natural to use pixel as a unit of measurement when programming graphics, as long as we precisely know the size of the surface. One reason for not using metric (mm, cm) as units is that pixel size can differ a lot between monitors. Use the same loupe on teh display of your smartphone to check this yourself. This is why, here, we always work with fixed size displays.</p>
+<p>Objects are placed on the canvas by <em>coordinates</em>, and these are given in pixel, too. While we are used to coordinate systems that have the origin (x = 0, y = 0) in the lower left corner, Pygame surfaces have the <em>origin (0,0) in the upper left corner</em>. The historical reason is that the old clunky electron ray tubes start a new refresh in the first line, from left-to-right. Perhaps, it is easier to remember that it is like writing a text.</p>
+<p>By <code>pygame.update.display()</code> the refresh loop updates the display at every iteration. This update collects all the graphical elements that have been produced during that iteration and puts them to the surface. However, speaking figuratively this is <em>unlike</em> grabbing a fresh canvas and do the drawing. It is much like how the old masters worked with oil on canvas. New or updated elements are over-painted. Areas that are not affected by over-painting stay just as they are. In computer games that perfectly makes sense. When navigating a character, say the famous Pacman, the maze is constant and it makes little sense to update it every 60th of a second. In the interactive programs we are dealing with, here, the interface layout changes more often and, in order to play it safe, we always do the <code>surface.fill()</code> in order to create a blank sheet at every refresh.</p>
+<p>Speaking of <em>colors</em>: after creating the surface, we filled it with our background color of choice, which is the tupel <code>(0, 0, 0)</code>. Why these three numbers? Remember what you saw through the loop: every pixel is composed of three subpixel of different colors, namely: Red, Green and Blue. That is how every computer in the world composes colors: as an <em>additive mixture</em> of these three colors. In short, we call it the <em>RGB system</em>. Every subpixel has a fixed color, but the brightness of the color can vary, taking values from 0 to 255 (which happens to be called a byte). For a few examples, check out the Stroop program, where a number of colors have been predefined as tupels. So, <code>(0, 0, 0)</code> means that all three color channels are dark and the results is Black. On the very opposite <code>(255, 255, 255)</code> means all channels fire at maximum brightness, which results in White.</p>
+<!-- #14 -->
+</section>
+<section id="drawing-figures" class="level3" data-number="8.4.2">
+<h3 data-number="8.4.2" class="anchored" data-anchor-id="drawing-figures"><span class="header-section-number">8.4.2</span> Drawing figures</h3>
+<!-- #16 -->
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb32"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pygame</span>
+<span id="cb32-2"><a href="#cb32-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> sys</span>
+<span id="cb32-3"><a href="#cb32-3" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> pygame.<span class="bu">locals</span> <span class="im">import</span> <span class="op">*</span></span>
+<span id="cb32-4"><a href="#cb32-4" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> pygame.compat <span class="im">import</span> unichr_, unicode_</span>
+<span id="cb32-5"><a href="#cb32-5" aria-hidden="true" tabindex="-1"></a>pygame.init()</span>
+<span id="cb32-6"><a href="#cb32-6" aria-hidden="true" tabindex="-1"></a>width <span class="op">=</span> <span class="dv">1000</span></span>
+<span id="cb32-7"><a href="#cb32-7" aria-hidden="true" tabindex="-1"></a>height <span class="op">=</span> <span class="dv">800</span></span>
+<span id="cb32-8"><a href="#cb32-8" aria-hidden="true" tabindex="-1"></a>pygame.display.set_mode((width, height))</span>
+<span id="cb32-9"><a href="#cb32-9" aria-hidden="true" tabindex="-1"></a>pygame.display.set_caption(<span class="st">"Drawing figures"</span>)</span>
+<span id="cb32-10"><a href="#cb32-10" aria-hidden="true" tabindex="-1"></a>screen <span class="op">=</span> pygame.display.get_surface()</span>
+<span id="cb32-11"><a href="#cb32-11" aria-hidden="true" tabindex="-1"></a>screen.fill((<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>))</span>
+<span id="cb32-12"><a href="#cb32-12" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> main():</span>
+<span id="cb32-13"><a href="#cb32-13" aria-hidden="true" tabindex="-1"></a>    <span class="cf">while</span> <span class="va">True</span>:</span>
+<span id="cb32-14"><a href="#cb32-14" aria-hidden="true" tabindex="-1"></a>        screen.fill((<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>))</span>
+<span id="cb32-15"><a href="#cb32-15" aria-hidden="true" tabindex="-1"></a>        <span class="cf">for</span> event <span class="kw">in</span> pygame.event.get():</span>
+<span id="cb32-16"><a href="#cb32-16" aria-hidden="true" tabindex="-1"></a>            <span class="cf">if</span> event.<span class="bu">type</span> <span class="op">==</span> QUIT:</span>
+<span id="cb32-17"><a href="#cb32-17" aria-hidden="true" tabindex="-1"></a>                pygame.quit()</span>
+<span id="cb32-18"><a href="#cb32-18" aria-hidden="true" tabindex="-1"></a>                sys.exit()</span>
+<span id="cb32-19"><a href="#cb32-19" aria-hidden="true" tabindex="-1"></a>        </span>
+<span id="cb32-20"><a href="#cb32-20" aria-hidden="true" tabindex="-1"></a>        draw_circ(<span class="dv">250</span>, <span class="dv">200</span>, <span class="dv">200</span>, (<span class="dv">255</span>, <span class="dv">255</span>, <span class="dv">255</span>), <span class="dv">5</span>)</span>
+<span id="cb32-21"><a href="#cb32-21" aria-hidden="true" tabindex="-1"></a>        draw_circ(<span class="dv">250</span>, <span class="dv">200</span>, <span class="dv">150</span>, (<span class="dv">255</span>, <span class="dv">255</span>, <span class="dv">255</span>), <span class="dv">20</span>)</span>
+<span id="cb32-22"><a href="#cb32-22" aria-hidden="true" tabindex="-1"></a>        draw_circ(<span class="dv">250</span>, <span class="dv">650</span>, <span class="dv">100</span>, (<span class="dv">255</span>, <span class="dv">0</span>, <span class="dv">0</span>), <span class="dv">0</span>)</span>
+<span id="cb32-23"><a href="#cb32-23" aria-hidden="true" tabindex="-1"></a>        </span>
+<span id="cb32-24"><a href="#cb32-24" aria-hidden="true" tabindex="-1"></a>        draw_rect(<span class="dv">500</span>, <span class="dv">50</span>,  <span class="dv">400</span>, <span class="dv">600</span>, (<span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">255</span>), <span class="dv">0</span>)</span>
+<span id="cb32-25"><a href="#cb32-25" aria-hidden="true" tabindex="-1"></a>        draw_rect(<span class="dv">500</span>, <span class="dv">50</span>,  <span class="dv">200</span>, <span class="dv">200</span>, (<span class="dv">0</span>, <span class="dv">255</span>, <span class="dv">0</span>), <span class="dv">10</span>)</span>
+<span id="cb32-26"><a href="#cb32-26" aria-hidden="true" tabindex="-1"></a>        </span>
+<span id="cb32-27"><a href="#cb32-27" aria-hidden="true" tabindex="-1"></a>        draw_tria(<span class="dv">250</span>, <span class="dv">200</span>, <span class="dv">250</span>, <span class="dv">650</span>, <span class="dv">500</span>, <span class="dv">50</span>)</span>
+<span id="cb32-28"><a href="#cb32-28" aria-hidden="true" tabindex="-1"></a>        </span>
+<span id="cb32-29"><a href="#cb32-29" aria-hidden="true" tabindex="-1"></a>        pygame.display.update()</span>
+<span id="cb32-30"><a href="#cb32-30" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> draw_circ(x, y, radius, </span>
+<span id="cb32-31"><a href="#cb32-31" aria-hidden="true" tabindex="-1"></a>              color <span class="op">=</span> (<span class="dv">255</span>,<span class="dv">255</span>,<span class="dv">255</span>), </span>
+<span id="cb32-32"><a href="#cb32-32" aria-hidden="true" tabindex="-1"></a>              stroke_size <span class="op">=</span> <span class="dv">1</span>):</span>
+<span id="cb32-33"><a href="#cb32-33" aria-hidden="true" tabindex="-1"></a>    pygame.draw.circle(screen, color, </span>
+<span id="cb32-34"><a href="#cb32-34" aria-hidden="true" tabindex="-1"></a>                       (x,y), radius, stroke_size)</span>
+<span id="cb32-35"><a href="#cb32-35" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> draw_rect(x, y, </span>
+<span id="cb32-36"><a href="#cb32-36" aria-hidden="true" tabindex="-1"></a>              width, height, </span>
+<span id="cb32-37"><a href="#cb32-37" aria-hidden="true" tabindex="-1"></a>              color <span class="op">=</span> (<span class="dv">255</span>,<span class="dv">255</span>,<span class="dv">255</span>), </span>
+<span id="cb32-38"><a href="#cb32-38" aria-hidden="true" tabindex="-1"></a>              stroke_size <span class="op">=</span> <span class="dv">1</span>):</span>
+<span id="cb32-39"><a href="#cb32-39" aria-hidden="true" tabindex="-1"></a>    pygame.draw.rect(screen, color, (x, y, width, height), stroke_size)</span>
+<span id="cb32-40"><a href="#cb32-40" aria-hidden="true" tabindex="-1"></a>    <span class="cf">pass</span></span>
+<span id="cb32-41"><a href="#cb32-41" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> draw_tria(x_1, y_1, </span>
+<span id="cb32-42"><a href="#cb32-42" aria-hidden="true" tabindex="-1"></a>              x_2, y_2,</span>
+<span id="cb32-43"><a href="#cb32-43" aria-hidden="true" tabindex="-1"></a>              x_3, y_3, color <span class="op">=</span> (<span class="dv">255</span>,<span class="dv">255</span>,<span class="dv">255</span>), </span>
+<span id="cb32-44"><a href="#cb32-44" aria-hidden="true" tabindex="-1"></a>              stroke_size <span class="op">=</span> <span class="dv">1</span>):</span>
+<span id="cb32-45"><a href="#cb32-45" aria-hidden="true" tabindex="-1"></a>    points <span class="op">=</span> ((x_1, y_1), (x_2, y_2), (x_3, y_3))</span>
+<span id="cb32-46"><a href="#cb32-46" aria-hidden="true" tabindex="-1"></a>    pygame.draw.polygon(screen, color, points, stroke_size)</span>
+<span id="cb32-47"><a href="#cb32-47" aria-hidden="true" tabindex="-1"></a>    <span class="cf">pass</span></span>
+<span id="cb32-48"><a href="#cb32-48" aria-hidden="true" tabindex="-1"></a>main()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="figures/Draw_figures.png" class="img-fluid figure-img"></p>
+<figcaption>Drawing_figures</figcaption>
+</figure>
+</div>
+<p>Notice that:</p>
+<ol type="1">
+<li>The order of drawing commands determines how figures are painted over one another.</li>
+<li>Sometimes it is useful to write your own wrapper functions for Psygame commands. Here, it is mainly for the purpose of creating a matrix-like appearance by function names of equal length.</li>
+<li>Even static programs should have a minimal event loop that reacts properly when the user wants to quit the program.</li>
+</ol>
+</section>
+<section id="placing-text-and-pictures" class="level3" data-number="8.4.3">
+<h3 data-number="8.4.3" class="anchored" data-anchor-id="placing-text-and-pictures"><span class="header-section-number">8.4.3</span> Placing text and pictures</h3>
+<p>Putting text on the screen is something that we experience everyday, when we read the internet, write emails or write code. One might think that this is as straight-forward in Pygame as creating figures. It is not that easy, though, and in order to understand why these complications arise, think about the following: When you want to write on a note “DON’T PANIC!” with a surrounding box. What do you do first, the writing or the box?</p>
+<p>You put the writing first, because only after you have written do you see how high and wide the written text is. And the same problem happens when rendering text on Pygame surfaces. Fonts differ and even individual characters differ. There is no more reasonable way, to determine the size of the text box, after it has been rendered. To solve the problem, we divide the drawing process in two parts: the <em>rendering</em> part creates an object of the text box in the computer memory, without sending it to the surface, yet. From this object, we can retrieve the properties of the text box, most notably its dimensions. Even better, this object can be manipulated in many ways, for example resizing or moving it <a href="https://www.pygame.org/docs/ref/rect.html">Pygame doc</a>. Only after that, the text object is send to the surface.</p>
+<p>In the following program we merged both steps into a more programmer-friendly function that almost behaves like the figure drawing commands. The only difference: you don’t know in advance how large the textbox will be.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb33"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pygame</span>
+<span id="cb33-2"><a href="#cb33-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> sys</span>
+<span id="cb33-3"><a href="#cb33-3" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> pygame.<span class="bu">locals</span> <span class="im">import</span> <span class="op">*</span></span>
+<span id="cb33-4"><a href="#cb33-4" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> pygame.compat <span class="im">import</span> unichr_, unicode_</span>
+<span id="cb33-5"><a href="#cb33-5" aria-hidden="true" tabindex="-1"></a>pygame.init()</span>
+<span id="cb33-6"><a href="#cb33-6" aria-hidden="true" tabindex="-1"></a>width <span class="op">=</span> <span class="dv">1000</span></span>
+<span id="cb33-7"><a href="#cb33-7" aria-hidden="true" tabindex="-1"></a>height <span class="op">=</span> <span class="dv">800</span></span>
+<span id="cb33-8"><a href="#cb33-8" aria-hidden="true" tabindex="-1"></a>pygame.display.set_mode((width, height))</span>
+<span id="cb33-9"><a href="#cb33-9" aria-hidden="true" tabindex="-1"></a>pygame.display.set_caption(<span class="st">"Drawing figures"</span>)</span>
+<span id="cb33-10"><a href="#cb33-10" aria-hidden="true" tabindex="-1"></a>FONT <span class="op">=</span> pygame.font.Font(<span class="st">'freesansbold.ttf'</span>,<span class="dv">40</span>)</span>
+<span id="cb33-11"><a href="#cb33-11" aria-hidden="true" tabindex="-1"></a>SURF <span class="op">=</span> pygame.display.get_surface()</span>
+<span id="cb33-12"><a href="#cb33-12" aria-hidden="true" tabindex="-1"></a>SURF.fill((<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>))</span>
+<span id="cb33-13"><a href="#cb33-13" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> main():</span>
+<span id="cb33-14"><a href="#cb33-14" aria-hidden="true" tabindex="-1"></a>    <span class="cf">while</span> <span class="va">True</span>:</span>
+<span id="cb33-15"><a href="#cb33-15" aria-hidden="true" tabindex="-1"></a>        SURF.fill((<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>))</span>
+<span id="cb33-16"><a href="#cb33-16" aria-hidden="true" tabindex="-1"></a>        <span class="cf">for</span> event <span class="kw">in</span> pygame.event.get():</span>
+<span id="cb33-17"><a href="#cb33-17" aria-hidden="true" tabindex="-1"></a>            <span class="cf">if</span> event.<span class="bu">type</span> <span class="op">==</span> QUIT:</span>
+<span id="cb33-18"><a href="#cb33-18" aria-hidden="true" tabindex="-1"></a>                pygame.quit()</span>
+<span id="cb33-19"><a href="#cb33-19" aria-hidden="true" tabindex="-1"></a>                sys.exit()</span>
+<span id="cb33-20"><a href="#cb33-20" aria-hidden="true" tabindex="-1"></a>        </span>
+<span id="cb33-21"><a href="#cb33-21" aria-hidden="true" tabindex="-1"></a>        draw_text(x <span class="op">=</span> <span class="dv">0</span>, y <span class="op">=</span> <span class="dv">0</span>, text <span class="op">=</span> <span class="st">"Pygame says:"</span>)</span>
+<span id="cb33-22"><a href="#cb33-22" aria-hidden="true" tabindex="-1"></a>        draw_text(x <span class="op">=</span> width<span class="op">/</span><span class="dv">2</span>, y <span class="op">=</span> height<span class="op">/</span><span class="dv">2</span>, text <span class="op">=</span> <span class="st">"Hi there!"</span>, </span>
+<span id="cb33-23"><a href="#cb33-23" aria-hidden="true" tabindex="-1"></a>                  center <span class="op">=</span> <span class="va">True</span>)</span>
+<span id="cb33-24"><a href="#cb33-24" aria-hidden="true" tabindex="-1"></a>        </span>
+<span id="cb33-25"><a href="#cb33-25" aria-hidden="true" tabindex="-1"></a>        pygame.display.update()</span>
+<span id="cb33-26"><a href="#cb33-26" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> draw_text(x, y, text,</span>
+<span id="cb33-27"><a href="#cb33-27" aria-hidden="true" tabindex="-1"></a>              color <span class="op">=</span> (<span class="dv">255</span>, <span class="dv">255</span>, <span class="dv">255</span>),</span>
+<span id="cb33-28"><a href="#cb33-28" aria-hidden="true" tabindex="-1"></a>              center <span class="op">=</span> <span class="va">False</span>):</span>
+<span id="cb33-29"><a href="#cb33-29" aria-hidden="true" tabindex="-1"></a>    rendered_text <span class="op">=</span> FONT.render(text, <span class="va">True</span>, color)</span>
+<span id="cb33-30"><a href="#cb33-30" aria-hidden="true" tabindex="-1"></a>    <span class="co"># retrieving the abstract rectangle of the text box</span></span>
+<span id="cb33-31"><a href="#cb33-31" aria-hidden="true" tabindex="-1"></a>    box <span class="op">=</span> rendered_text.get_rect()</span>
+<span id="cb33-32"><a href="#cb33-32" aria-hidden="true" tabindex="-1"></a>    <span class="co"># this sets the x and why coordinates</span></span>
+<span id="cb33-33"><a href="#cb33-33" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> center:</span>
+<span id="cb33-34"><a href="#cb33-34" aria-hidden="true" tabindex="-1"></a>        box.center <span class="op">=</span> (x,y)</span>
+<span id="cb33-35"><a href="#cb33-35" aria-hidden="true" tabindex="-1"></a>    <span class="cf">else</span>:</span>
+<span id="cb33-36"><a href="#cb33-36" aria-hidden="true" tabindex="-1"></a>        box.topleft <span class="op">=</span> (x,y)</span>
+<span id="cb33-37"><a href="#cb33-37" aria-hidden="true" tabindex="-1"></a>    <span class="co"># This puts a pre-rendered object to the screen</span></span>
+<span id="cb33-38"><a href="#cb33-38" aria-hidden="true" tabindex="-1"></a>    SURF.blit(rendered_text, box)</span>
+<span id="cb33-39"><a href="#cb33-39" aria-hidden="true" tabindex="-1"></a> </span>
+<span id="cb33-40"><a href="#cb33-40" aria-hidden="true" tabindex="-1"></a>main()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p>Notice that:</p>
+<ol type="1">
+<li>First, we actually have to select a font for the text. Here. this is set globally.</li>
+<li>The coordinates of the function refer to the upper left corner by default, but can be set to refer to teh center of the box.</li>
+<li>The <code>SURF.blit()</code> command sends the rendered text and the textbox to the surface.</li>
+<li>The box is first retrieved from the rendered text, then moved and finally send to the surface.</li>
+<li>The function <code>draw_textbox()</code> uses <code>pygame.transform.smoothscale()</code> to force the text into a given width and height. The results don’t neccessarily look good.</li>
+<li>We have consistently put all global variables into capital letters to avoid confusion between globalö and local variables.</li>
+</ol>
+<p>Working with pictures is very similar to text boxes. Again, you only know the size once you have loaded the file from your hard drive.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb34"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> main():</span>
+<span id="cb34-2"><a href="#cb34-2" aria-hidden="true" tabindex="-1"></a>    <span class="cf">while</span> <span class="va">True</span>:</span>
+<span id="cb34-3"><a href="#cb34-3" aria-hidden="true" tabindex="-1"></a>        SURF.fill((<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>))</span>
+<span id="cb34-4"><a href="#cb34-4" aria-hidden="true" tabindex="-1"></a>        <span class="cf">for</span> event <span class="kw">in</span> pygame.event.get():</span>
+<span id="cb34-5"><a href="#cb34-5" aria-hidden="true" tabindex="-1"></a>            <span class="cf">if</span> event.<span class="bu">type</span> <span class="op">==</span> QUIT:</span>
+<span id="cb34-6"><a href="#cb34-6" aria-hidden="true" tabindex="-1"></a>                pygame.quit()</span>
+<span id="cb34-7"><a href="#cb34-7" aria-hidden="true" tabindex="-1"></a>                sys.exit()</span>
+<span id="cb34-8"><a href="#cb34-8" aria-hidden="true" tabindex="-1"></a>        </span>
+<span id="cb34-9"><a href="#cb34-9" aria-hidden="true" tabindex="-1"></a>        draw_picture(x <span class="op">=</span> WIDTH<span class="op">/</span><span class="dv">2</span>, y <span class="op">=</span> HEIGHT<span class="op">/</span><span class="dv">2</span>, <span class="bu">file</span> <span class="op">=</span> <span class="st">"Beach.png"</span>, </span>
+<span id="cb34-10"><a href="#cb34-10" aria-hidden="true" tabindex="-1"></a>                     center <span class="op">=</span> <span class="va">True</span>,</span>
+<span id="cb34-11"><a href="#cb34-11" aria-hidden="true" tabindex="-1"></a>                     scale <span class="op">=</span> <span class="fl">0.5</span>)</span>
+<span id="cb34-12"><a href="#cb34-12" aria-hidden="true" tabindex="-1"></a>        pygame.display.update()</span>
+<span id="cb34-13"><a href="#cb34-13" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> draw_picture(x, y, <span class="bu">file</span>, scale <span class="op">=</span> <span class="dv">1</span>, center <span class="op">=</span> <span class="va">False</span>):</span>
+<span id="cb34-14"><a href="#cb34-14" aria-hidden="true" tabindex="-1"></a>    picture <span class="op">=</span> pygame.image.load(<span class="bu">file</span>)</span>
+<span id="cb34-15"><a href="#cb34-15" aria-hidden="true" tabindex="-1"></a>    <span class="co"># retrieving the box</span></span>
+<span id="cb34-16"><a href="#cb34-16" aria-hidden="true" tabindex="-1"></a>    box <span class="op">=</span> picture.get_rect()</span>
+<span id="cb34-17"><a href="#cb34-17" aria-hidden="true" tabindex="-1"></a>    <span class="co"># transformation</span></span>
+<span id="cb34-18"><a href="#cb34-18" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> scale <span class="op">!=</span> <span class="dv">1</span>:</span>
+<span id="cb34-19"><a href="#cb34-19" aria-hidden="true" tabindex="-1"></a>        new_width <span class="op">=</span> <span class="bu">int</span>(box.width <span class="op">*</span> scale)</span>
+<span id="cb34-20"><a href="#cb34-20" aria-hidden="true" tabindex="-1"></a>        new_height <span class="op">=</span> <span class="bu">int</span>(box.height <span class="op">*</span> scale)</span>
+<span id="cb34-21"><a href="#cb34-21" aria-hidden="true" tabindex="-1"></a>        picture <span class="op">=</span> pygame.transform.smoothscale(picture, </span>
+<span id="cb34-22"><a href="#cb34-22" aria-hidden="true" tabindex="-1"></a>                                               (new_width, new_height))</span>
+<span id="cb34-23"><a href="#cb34-23" aria-hidden="true" tabindex="-1"></a>        box <span class="op">=</span> picture.get_rect()</span>
+<span id="cb34-24"><a href="#cb34-24" aria-hidden="true" tabindex="-1"></a>    <span class="co"># getting the new box</span></span>
+<span id="cb34-25"><a href="#cb34-25" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> center:</span>
+<span id="cb34-26"><a href="#cb34-26" aria-hidden="true" tabindex="-1"></a>        box.center <span class="op">=</span> (x,y)</span>
+<span id="cb34-27"><a href="#cb34-27" aria-hidden="true" tabindex="-1"></a>    <span class="cf">else</span>:</span>
+<span id="cb34-28"><a href="#cb34-28" aria-hidden="true" tabindex="-1"></a>        box.topleft <span class="op">=</span> (x,y)</span>
+<span id="cb34-29"><a href="#cb34-29" aria-hidden="true" tabindex="-1"></a>    SURF.blit(picture, box)</span>
+<span id="cb34-30"><a href="#cb34-30" aria-hidden="true" tabindex="-1"></a> </span>
+<span id="cb34-31"><a href="#cb34-31" aria-hidden="true" tabindex="-1"></a>main()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p>Notice that</p>
+<ol type="1">
+<li>the picture file resides in teh same directory as the program. If that is different you have to use relative paths. Avoid absolute paths, as this makes the program less portable.</li>
+<li>in the function definition, we put the scale arguent at the end, although an earlier position would be more logical. The reason is that all argument without a default have to come first, such as file.</li>
+<li><code>picture.get_rect()</code> is called twice. After the scaling the box gets an update</li>
+<li>Putting the scaling part into a conditional is not necessary, but saves computation where it is not needed.</li>
+</ol>
+<!--
+### Playing animations
+
+
++ the refresh rate
++ computer-aided hypnosis
+
+### Interactive animations
+
+Remember Pacman? In this classic arcade game, four ghosts haunt you while wander a dungeon to collect all the cookies. Forget the ghosts and recall what above we have said about the Pygame surface being like an oilpainting. If we would write a Pacman program, we would use `surface.fill(BG_COLOR)`, such that whenever the Pacman figure moves it disappears from its previous position. Imagine what would happen if you forgot the surface fill?
+
+The Pacman figure would leave a trail of copies of itself, painting a trail with its past moments. If you would then also remove the dungeon itself, what you get is a program that paints to the screen.
+
++ drawing with objects
++ drawing mandalas
+
+
+-->
+<!-- 15 -->
+<!--
+
+### Controls
+
++ hitting objects
++ buttons
++ text input
++ dealing with object sets. Use Pandas, not lists. 
+
+-->
+</section>
+</section>
+<section id="exercises-1" class="level2" data-number="8.5">
+<h2 data-number="8.5" class="anchored" data-anchor-id="exercises-1"><span class="header-section-number">8.5</span> Exercises</h2>
+<section id="exercise-c.-transition-tables" class="level3" data-number="8.5.1">
+<h3 data-number="8.5.1" class="anchored" data-anchor-id="exercise-c.-transition-tables"><span class="header-section-number">8.5.1</span> Exercise C. Transition tables</h3>
+<p>For the following code snippet, make a transition table.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb35"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a>STATE <span class="op">=</span> <span class="st">"A"</span></span>
+<span id="cb35-2"><a href="#cb35-2" aria-hidden="true" tabindex="-1"></a><span class="cf">while</span> <span class="va">True</span>:</span>
+<span id="cb35-3"><a href="#cb35-3" aria-hidden="true" tabindex="-1"></a>    <span class="co">#ITC</span></span>
+<span id="cb35-4"><a href="#cb35-4" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> event <span class="kw">in</span> pygame.event.get():                        </span>
+<span id="cb35-5"><a href="#cb35-5" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> STATE <span class="op">==</span> <span class="st">"A"</span>:</span>
+<span id="cb35-6"><a href="#cb35-6" aria-hidden="true" tabindex="-1"></a>            count <span class="op">=</span> <span class="dv">0</span></span>
+<span id="cb35-7"><a href="#cb35-7" aria-hidden="true" tabindex="-1"></a>            <span class="cf">if</span> event.<span class="bu">type</span> <span class="op">==</span> KEYDOWN <span class="kw">and</span> event.key <span class="op">==</span> K_w:</span>
+<span id="cb35-8"><a href="#cb35-8" aria-hidden="true" tabindex="-1"></a>                STATE <span class="op">=</span> <span class="st">"B"</span></span>
+<span id="cb35-9"><a href="#cb35-9" aria-hidden="true" tabindex="-1"></a>                <span class="bu">print</span>(STATE)</span>
+<span id="cb35-10"><a href="#cb35-10" aria-hidden="true" tabindex="-1"></a>        <span class="cf">elif</span> STATE <span class="op">==</span> <span class="st">"B"</span>:</span>
+<span id="cb35-11"><a href="#cb35-11" aria-hidden="true" tabindex="-1"></a>            count <span class="op">=</span> count <span class="op">+</span> <span class="dv">1</span></span>
+<span id="cb35-12"><a href="#cb35-12" aria-hidden="true" tabindex="-1"></a>            <span class="cf">if</span> event.<span class="bu">type</span> <span class="op">==</span> KEYDOWN <span class="kw">and</span> event.key <span class="op">==</span> K_a:</span>
+<span id="cb35-13"><a href="#cb35-13" aria-hidden="true" tabindex="-1"></a>                timer <span class="op">=</span> time()</span>
+<span id="cb35-14"><a href="#cb35-14" aria-hidden="true" tabindex="-1"></a>                STATE <span class="op">=</span> <span class="st">"C"</span></span>
+<span id="cb35-15"><a href="#cb35-15" aria-hidden="true" tabindex="-1"></a>                <span class="bu">print</span>(STATE)</span>
+<span id="cb35-16"><a href="#cb35-16" aria-hidden="true" tabindex="-1"></a>        <span class="cf">elif</span> STATE <span class="op">==</span> <span class="st">"D"</span>:</span>
+<span id="cb35-17"><a href="#cb35-17" aria-hidden="true" tabindex="-1"></a>            <span class="cf">if</span> event.<span class="bu">type</span> <span class="op">==</span> KEYDOWN <span class="kw">and</span> event.key <span class="op">==</span> K_SPACE:</span>
+<span id="cb35-18"><a href="#cb35-18" aria-hidden="true" tabindex="-1"></a>                <span class="cf">if</span> count <span class="op">&lt;</span> <span class="dv">10</span>:</span>
+<span id="cb35-19"><a href="#cb35-19" aria-hidden="true" tabindex="-1"></a>                    STATE <span class="op">=</span> <span class="st">"B"</span></span>
+<span id="cb35-20"><a href="#cb35-20" aria-hidden="true" tabindex="-1"></a>                <span class="cf">else</span>:</span>
+<span id="cb35-21"><a href="#cb35-21" aria-hidden="true" tabindex="-1"></a>                    STATE <span class="op">=</span> <span class="st">"quit"</span></span>
+<span id="cb35-22"><a href="#cb35-22" aria-hidden="true" tabindex="-1"></a>                <span class="bu">print</span>(STATE)</span>
+<span id="cb35-23"><a href="#cb35-23" aria-hidden="true" tabindex="-1"></a>    <span class="co">#ATC</span></span>
+<span id="cb35-24"><a href="#cb35-24" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> STATE <span class="op">==</span> <span class="st">"C"</span>:</span>
+<span id="cb35-25"><a href="#cb35-25" aria-hidden="true" tabindex="-1"></a>        present_picture()</span>
+<span id="cb35-26"><a href="#cb35-26" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> time() <span class="op">-</span> timer <span class="op">&gt;</span> <span class="dv">3</span>:</span>
+<span id="cb35-27"><a href="#cb35-27" aria-hidden="true" tabindex="-1"></a>            STATE <span class="op">=</span> <span class="st">"D"</span></span>
+<span id="cb35-28"><a href="#cb35-28" aria-hidden="true" tabindex="-1"></a>        <span class="bu">print</span>(STATE)</span>
+<span id="cb35-29"><a href="#cb35-29" aria-hidden="true" tabindex="-1"></a>    <span class="cf">elif</span> STATE <span class="op">==</span> <span class="st">"quit"</span>:</span>
+<span id="cb35-30"><a href="#cb35-30" aria-hidden="true" tabindex="-1"></a>        pygame.quit()</span>
+<span id="cb35-31"><a href="#cb35-31" aria-hidden="true" tabindex="-1"></a>        sys.exit()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</section>
+</section>
+<section id="common-errors" class="level2" data-number="8.6">
+<h2 data-number="8.6" class="anchored" data-anchor-id="common-errors"><span class="header-section-number">8.6</span> Common errors</h2>
+<ol type="1">
+<li>You forgot to add <code>continue</code> transitionals.</li>
+<li>You used drawing functions inside the event handler loop.</li>
+<li>You used the wait command in a Pygame program.</li>
+</ol>
+</section>
+<section id="think-further" class="level2" data-number="8.7">
+<h2 data-number="8.7" class="anchored" data-anchor-id="think-further"><span class="header-section-number">8.7</span> Think Further</h2>
+
+
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp("https:\/\/schmettow\.github\.io\/PfP_Book\/");
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+      window.quartoDecorateExternalLinks = function (root) {
+     var links = (root || window.document).querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+          if (!link.classList.contains('no-external-icon')) {
+          }
+        }
+      }
+      };
+      window.quartoDecorateExternalLinks(window.document);
+    // Esc closes the popup (WCAG 1.4.13) and focus leaving both trigger and
+    // popup closes it (WCAG 2.4.11); tippy handles neither for interactive popups.
+    const hideOnEscAndFocusOut = {
+      name: 'hideOnEscAndFocusOut',
+      defaultValue: true,
+      fn(instance) {
+        const dismiss = () => {
+          // A show scheduled by the trigger delay would otherwise reopen it
+          instance.clearDelayTimeouts();
+          instance.hide();
+        };
+        const onKeyDown = (event) => {
+          if (event.key !== 'Escape') {
+            return;
+          }
+          // Keep Esc from also reaching page handlers (e.g. reveal.js overview),
+          // except an open reveal.js slide menu, which Esc should close too.
+          // The menu handles keys only when its keyboard option is on.
+          const menuHandlesEsc = window.Reveal?.getPlugin?.('menu')?.isOpen() &&
+            window.Reveal.getConfig().menu?.keyboard !== false;
+          if (!menuHandlesEsc) {
+            event.stopPropagation();
+          }
+          if (instance.popper.contains(window.document.activeElement)) {
+            // Disabled while refocusing so the focus trigger does not reopen it
+            instance.disable();
+            instance.reference.focus();
+            instance.enable();
+          }
+          dismiss();
+        };
+        const onFocusOut = (event) => {
+          const target = event.relatedTarget;
+          if (target && !instance.reference.contains(target) &&
+              !instance.popper.contains(target)) {
+            dismiss();
+          }
+        };
+        // On the trigger too: a click trigger (code-annotations: select) has no
+        // blur handling. Attached for the instance's lifetime so leaving the
+        // trigger also cancels a show still pending on the trigger delay.
+        instance.reference.addEventListener('focusout', onFocusOut);
+        return {
+          onShow() {
+            window.document.addEventListener('keydown', onKeyDown, true);
+            instance.popper.addEventListener('focusout', onFocusOut);
+          },
+          onHide() {
+            window.document.removeEventListener('keydown', onKeyDown, true);
+            instance.popper.removeEventListener('focusout', onFocusOut);
+          },
+          onDestroy() {
+            instance.reference.removeEventListener('focusout', onFocusOut);
+          },
+        };
+      },
+    };
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+        plugins: [hideOnEscAndFocusOut],
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          // Each band is positioned against its own containing block, which is
+          // not the offsetParent of the lines, so place it from client rects.
+          const placeBand = (band, firstEl, lastEl, codeBlock) => {
+            const container = band.offsetParent;
+            if (container === null) {
+              return;
+            }
+            const containerRect = container.getBoundingClientRect();
+            // Reveal.js scales slides with a transform, so convert client
+            // pixels back to the CSS pixels of the container.
+            const scale = containerRect.height / container.offsetHeight || 1;
+            const firstRect = firstEl.getBoundingClientRect();
+            const lastRect = lastEl.getBoundingClientRect();
+            const top = (firstRect.top - containerRect.top) / scale - container.clientTop + container.scrollTop;
+            const height = (lastRect.bottom - firstRect.top) / scale;
+            band.style.top = top - 2 + "px";
+            band.style.height = height + 4 + "px";
+            if (codeBlock) {
+              // Without the copy button wrapper, the containing block is wider
+              // than the code block, so span the code block explicitly.
+              const blockRect = codeBlock.getBoundingClientRect();
+              band.style.left = (blockRect.left - containerRect.left) / scale - container.clientLeft + container.scrollLeft + "px";
+              band.style.width = blockRect.width / scale + "px";
+            }
+          };
+          if (lineIds.length > 0) {
+            const el = window.document.getElementById(lineIds[0]);
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const parent = el.parentElement.parentElement;
+            // cook up a div (if necessary) and position it
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            placeBand(div, el, lastEl, parent.closest("div.sourceCode") || parent);
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            placeBand(gutterDiv, el, lastEl);
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+  <script type="application/javascript">
+  window.quartoScrollableRegionsLabels = {"code":"Scrollable code","output":"Scrollable output"};
+  </script>
+<nav class="page-navigation" aria-label="Page">
+  <div class="nav-page nav-page-previous">
+      <a href="./07_Working_with_data.html" class="pagination-link" aria-label="Working with data">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Working with data</span></span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="./08_Solutions.html" class="pagination-link" aria-label="Solutions">
+        <span class="nav-page-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Solutions</span></span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
+</div> <!-- /content -->
+
+
+
+
+</body></html>

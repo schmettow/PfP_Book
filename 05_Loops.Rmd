@@ -1,4 +1,4 @@
-# Loops {#loops}
+# Loops {#sec-loops}
 
 ```{python}
 for i in range(2):

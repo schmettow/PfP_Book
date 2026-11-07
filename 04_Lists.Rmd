@@ -1,4 +1,4 @@
-# Lists {#lists}
+# Lists {#sec-lists}
 
 ```{python}
 message = ["Hello,"]
@@ -133,7 +133,7 @@ Because lists are mutable, you can sequentially fill them with elements, one by 
 
 
 ###A word about class specific functions
-By now, you have seen a few examples of class-specific *functions*, such as `append()` for lists or `join()` for strings. Even though a detailed explanation of *functions* (also called *methods*) is postponed to Chapter \@ref(functions), a quick introduction to the terminology of objects, classes, and class-specific functions will help you make the most of your lists and other collections. For now, you can see functions as pieces of reusable code that specify what to do with some input values.
+By now, you have seen a few examples of class-specific *functions*, such as `append()` for lists or `join()` for strings. Even though a detailed explanation of *functions* (also called *methods*) is postponed to Chapter {{< sec-functions >}}, a quick introduction to the terminology of objects, classes, and class-specific functions will help you make the most of your lists and other collections. For now, you can see functions as pieces of reusable code that specify what to do with some input values.
 
 When you create a variable `a` and assign a value to it, say `[4,5]`, you can think of it as creating an *object* (i.e. an instance) of the Python *class* *list*. The *list* class has been programmed by the developers of the Python language, same as any other built-in Python class, such as integers and strings. Classes are blueprints, a specification of how to build certain objects. Engineers use blueprints to build cars, buildings, bridges and more. Chefs use recipes to put together meals. Python classes are the same in that they specify how objects of a certain type are programmed internally when you create one of them. A class has built-in *methods* that can be used by *any* object that has been created using the class' blueprint. And this is what you basically do whenever you surround a number of values with cornered brackets. You create a list according to the blueprint of the Python class `list`. It is very useful that your list inherits *functions* from its blueprint. It means that without any effort on your part your lists have a variety of functionality at their disposal. They can immediately use a range of built-in methods such as the `append()` method.
 

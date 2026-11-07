@@ -1,0 +1,28 @@
+project:
+  type: book
+  output-dir: docs
+
+book:
+  title: "Programming for Psychologists"
+  subtitle: "A first course in Python"
+  author: "Martin Schmettow and Lena Brandl"
+  date: today
+  description: "A primer for social science students who want to learn the art of coding."
+  site-url: https://schmettow.github.io/PfP_Book/
+  repo-url: https://github.com/schmettow/PfP_Book
+  chapters:
+    - index.Rmd
+    - 01_Introduction.Rmd
+    - 02_Variables.Rmd
+    - 03_Conditionals.Rmd
+    - 04_Lists.Rmd
+    - 05_Loops.Rmd
+    - 06_Functions.Rmd
+    - 07_Working_with_data.Rmd
+    - 0x_Interaction.Rmd
+    - 08_Solutions.Rmd
+    - 09_Debugging.Rmd
+
+format:
+  html:
+    theme: cosmo

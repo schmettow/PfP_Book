@@ -1,4 +1,4 @@
-# Introduction {#intro}
+# Introduction {#sec-intro}
 
 ## Installing a Python environment
 
@@ -47,7 +47,7 @@ print('Hello world!')
 
     ## Hello world!
 
-## Computers are dumb {#dumb_computers}
+## Computers are dumb {#sec-dumb-computers}
 
 Programming is the process of giving instructions to a computer. The problem is ... computers are incredibly dumb. In order to get used to instructing dumb computers, in the following exercise YOU will become the computer yourself. You will not just be the computer, you first have to program it, complying to some debilitating set of communication rules.
 
@@ -117,9 +117,9 @@ It is further recommended that one of the team is assigned the role of the *debu
 
 Have fun and do not let your intuition come between you and the task!
 
-## Dive in: a first example
+## Dive in: a first example {#sec-dive-in-a-first-example}
 
-In section 1.2 [Computers are dumb](#dumb_computers), you have seen how debilitating it can be to program a computer to do the simplest things. Talking to a computer (as a programmer) requires to understand some fundamental ways of how computers work and learn their language. A good way to get started learning a language is just go there and expose yourself to native speakers. Let's do that! The following text is a program the performs the Stroop task, just as in the theater play.
+In section 1.2 {{< sec-dumb-computers >}}, you have seen how debilitating it can be to program a computer to do the simplest things. Talking to a computer (as a programmer) requires to understand some fundamental ways of how computers work and learn their language. A good way to get started learning a language is just go there and expose yourself to native speakers. Let's do that! The following text is a program the performs the Stroop task, just as in the theater play.
 
 ```{python eval = F}
 import pygame
@@ -421,7 +421,7 @@ When the user responds by pressing a button, that moment in time is recorded in 
 6.  Change the program such that it uses Q, W, E as response keys
 7.  Change the program such that it performs the Stroop task with four words and colors
 
-## Making an eye tracker {#batchwork}
+## Making an eye tracker {#sec-batchwork}
 
 ### YETs and Yetis
 
@@ -452,7 +452,7 @@ The Stroop task is an example of an *interactive program.* Interactive programs 
 
 Like all machines, computers are much better at monotonic tasks. Programming an interactive stop watch can be much harder than programming a computer to stoically perform the same procedure at 60 times per second.
 
-In the following exercise, we are playing a similar game as in \@ref(dumb_computers). You will write a script for a simple eye tracking device. An eye tracking device is composed of
+In the following exercise, we are playing a similar game as in {{< sec-dumb-computers >}}. You will write a script for a simple eye tracking device. An eye tracking device is composed of
 
 1.  a camera pointed towards the eye
 2.  and a program that analyses incoming pictures to produce an estimate of where the eye is resting.
@@ -469,7 +469,7 @@ Then, get YET as close as possible to you eyeball, with LEDs turned on and repea
 
 Now, inspect your pictures in a group. Start with the portraits. Describe the visual features of vertical and horizontal gaze directions? Then turn to the eyeball pictures and repeat the visual analysis.
 
-### Dumb pictures {#dumb-pictures}
+### Dumb pictures {#sec-dumb-pictures}
 
 When you were eye-balling eyeballs, a lot of messy, but surprisingly effective, biological stuff was going on between your eyeball and your mind, most of which you are unaware of. For example, that you immediately recognize an eyeball as such.
 
@@ -480,7 +480,7 @@ Let's explore how computers see:
 
 Computers see images as a rectangular grid of points, where every point has X and Y coordinates on a geometric plane, and a color. The only difference to geometry is that in programming `(0,0)` is the *upper* left corner.
 
-On a computer screen, such a point is a tiny multi-color, dimmable LED, called a *pixel*. If you have a magnifying glass at hand and you take an even closer view at your screen, you will see, that every pixel is actually composed of three differently colored LEDs: Red, Green and Blue. We will learn more about *RGB* frames in \@ref(presentitionals).
+On a computer screen, such a point is a tiny multi-color, dimmable LED, called a *pixel*. If you have a magnifying glass at hand and you take an even closer view at your screen, you will see, that every pixel is actually composed of three differently colored LEDs: Red, Green and Blue. We will learn more about *RGB* frames in {{< sec-presentitionals >}}.
 
 Sometimes, a computer doesn't need to see color, but only brightness levels, where all points emit light on scale from 0 (black) to 255 (white). This is called a *grayscale* frame. The most simple form of representing a picture is a black-and-white mode, where all points are either off or at full brightness (0 or 1). This is called a *bitmap* frame, because it is composed *binary* pixel. in computer jargon a binary switch is called a *bit*.
 
@@ -517,9 +517,9 @@ Here are some functions that can be helpful:
 
 ### Into the batch
 
-Up-down. left-right! Have you found a solution to the problem? You can a solution in chapter \@ref(solutions). The following code is extracted from Yeti2, a simple program, that detects the horizontal position (left, center, right).
+Up-down. left-right! Have you found a solution to the problem? You can a solution in chapter {{< sec-solutions >}}. The following code is extracted from Yeti2, a simple program, that detects the horizontal position (left, center, right).
 
-The code of Yeti2 starts a preamble, which is mostly the same for all Yetis. The interesting part begins with another fast loop. Remember the Looper in \@ref(dive-in-a-first-example)? It is the same principle here. The Looper doesn't know when the next video frame arrives, so every loop starts with an interrogation to collect the next frame. The frame is subsequently turned into a grayscale image, because the subsequent analysis is purely based on brightness information.
+The code of Yeti2 starts a preamble, which is mostly the same for all Yetis. The interesting part begins with another fast loop. Remember the Looper in {{< sec-dive-in-a-first-example >}}? It is the same principle here. The Looper doesn't know when the next video frame arrives, so every loop starts with an interrogation to collect the next frame. The frame is subsequently turned into a grayscale image, because the subsequent analysis is purely based on brightness information.
 
 ```{python eval = F}
 
@@ -598,10 +598,10 @@ Essential for this to work is that the value of brightness ratio in center posit
 
     a.  Use YET to record pictures of your closed eye and perform an analysis of visual features to discern an open eye from a closed eye, for example the distribution of brightness. Propose a sequence of functions, that take in a raw frame and return *True* when the eye is closed, *False* otherwise.
 
-    b.  Design an interactive program around the blink detection, by adding actors like in \@ref(dumb_computers).
+    b.  Design an interactive program around the blink detection, by adding actors like in {{< sec-dumb-computers >}}.
 
     c.  Inspect Yeti6 for how it is done there.
 
 2.  When the eyeball jumps from object to object in the visual field, it makes *saccades*. Saccades are extremely fast. If the average eyeball could make full spins at the speed of a saccade, it would make a 360 in 720 milliseconds (84 rpm). Think about how you could use YET to measure your own speed-of-eyeball.
 
-3.  In psychological experiments, reaction time is frequently measured as the interval between stimulus presentation and keypress. Compared to saccades, fingers are sluggish. Combine your results from \@ref(dumb_computers) and \@ref(batchwork) to create a Stroop task where the response is measured by eye tracking.
+3.  In psychological experiments, reaction time is frequently measured as the interval between stimulus presentation and keypress. Compared to saccades, fingers are sluggish. Combine your results from {{< sec-dumb-computers >}} and {{< sec-batchwork >}} to create a Stroop task where the response is measured by eye tracking.
