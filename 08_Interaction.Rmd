@@ -48,7 +48,7 @@ If you are making a model of an existing system in front of your eyes, that's ca
 You may be tempted at this stage to call the states by their appearance (Green, Yellow, Red). That is not exactly wrong, but it confuses the purpose of the state with its appearance. Imagine, you wanted to actually design a traffic light for people who are blind, using sounds. Then the light colors no longer describe the state well.  Instead, the state description should state the *purpose of states*, which we note down in a *table of states (TOS)*:
 
 
-```{r echo=FALSE, message=FALSE}
+```{r, traffic-light-states, echo=FALSE, message=FALSE}
 tibble::tribble(~State, ~Purpose,
                 "Go", "signal permission to cross",
                 "Att", "signal soon Stop",
@@ -213,7 +213,7 @@ For the interactive prototype, we will turn the transitions from the table into 
 The following code snippet implements two interactive transitional with the same origin, namely the transition from Billing to Delivery and Credit_card:
 
 
-```{python, eval = F}
+```{python, billing-transitions, eval = F}
 print(STATE)
 key = input("Press a key: ")
 
@@ -243,7 +243,7 @@ The interaction prototype of Checkout looks like the following.
 
 
 
-```{python, eval = F}
+```{python, checkout-loop, eval = F}
 STATE = "Delivery"
 while True:
   
@@ -312,7 +312,7 @@ if STATE == <origin>:
 There is no difference in functionality between these two forms of transitionals, but for longer programs it may be easier to read. With nested transitionals, the checkout program would look like the following: 
 
 
-```{python, eval = F}
+```{python, checkout-elif, eval = F}
 STATE = "Delivery"
 while True:
   
@@ -363,7 +363,7 @@ A frequent case of automatic transitions is staying in a state for a certain amo
 As you have experienced at the Stroop task theater play from chapter {{< sec-intro >}} dealing with time requires some extra tricks. For example, how do we let the automatic traffic light rest in the Go state for exactly 20 seconds? We set a timestamp and wait for the difference to become 20 seconds or longer. Fortunately, for interaction prototypes, there is a cheap and  dirty trick to do that more straight-forwardly, which is the command  `sleep(20)`. It suspends the whole program and wakes it up after twenty seconds. Why is that dirty? For two reasons: First, it only works for interaction prototypes, but not Pygame programs. For example, when you are showing animated stimuli, putting the whole program on halt won't work. Second, you will not be able to bypass the waiting time, say, the user wants to prematurely proceed to the next picture in the dia show.
 
 
-```{python, eval = F}
+```{python, automatic-traffic-light, eval = F}
 from time import sleep
 STATE = "Stop" # Att, Go
 while True:
@@ -389,7 +389,7 @@ A program can be (and typically is) a mix of interactive and automatic transitio
 
 
 
-```{python, eval = F}
+```{python, keypress-traffic-light, eval = F}
 from time import sleep
 STATE = "Stop" # Att, Go
 while True:
@@ -424,7 +424,7 @@ As we have said, for a prototype, the `sleep(s)` is fine in most cases to cause 
 The following code shows, how to implement a time delay by setting a timestamp and comparing the difference with current time in the automatic traffic light example. 
 
 
-```{python, eval = F}
+```{python, timed-traffic-light, eval = F}
 from time import time
 STATE = "Go" # Att, Go
 time_stamp = time()
@@ -501,7 +501,7 @@ Notice that:
 
 
 
-```{python, eval = F}
+```{python, presentation-conditionals, eval = F}
 STATE = "Delivery"
 while True:
   
@@ -549,7 +549,7 @@ while True:
 
 ### Overall structure
 
-```{python, eval = F}
+```{python, pygame-startup, eval = F}
 BACKGR_COL = col_gray
 SCREEN_SIZE = (700, 500)
 pygame.init()
@@ -614,7 +614,7 @@ With Pygame you can create interactive programs that react fluently to user inpu
 While the fast `while` loop runs in the foreground, the event handler is a separate mechanism that continuously listens to input from keyboard or mouse. Whenever something happens, a key is pressed or the mouse is pushed, the event handler registers this event and puts it in a queue. At every regresh this queue is retrieved and emptied by `pygame.event.get()`, which returns the queue as a list. The event `for` loop iterates over this list, pulling out the events one by one out and handing them over to the interactive transitionals.
 
 
-```{python, eval = F}
+```{python, event-handler, eval = F}
 # Event handler
 for event in pygame.event.get(): 
     # interactive transitionals                     
@@ -640,7 +640,7 @@ Notice that
 Interactive transitionals differ only slightly. Because of the event handler mechanism they no longer reside under the fast `while`, but one level deeper in the event handler loop. If you use a print statement to see the state transitions on the console, these must go into the individual transitionals, see yourself:
 
 
-```{python, eval = F}
+```{python, event-loop-if-elif, eval = F}
 # Event loop
 for event in pygame.event.get():
     
@@ -690,7 +690,7 @@ Automatic transitionals in Pygame differ in no way from automatic transitionals 
 There is one automatic transitional in the Stroop program, that is a little special on closer examination: With every new trial, the transitional `prepare_trial` is triggered and automatically the program moves on to `show_trial`. On closer  examination this transitional is different to the ones we have seen before, because the state `prepare_trial` does not have a presentational. It is completely invisible to the user, a *ghost transitional*. We also notice that there is quite some extra code inside. Some serious data processing is done, before the actual transition.
 
 
-```{python, eval = F}
+```{python, automatic-transitionals, eval = F}
 # automatic transitionals
 if STATE == "prepare_trial":
         trial_number = trial_number + 1
@@ -730,7 +730,7 @@ When there is a `KEYDOWN` there must also be a `KEYUP` event type, that is recor
 The full list of event types is given in the [Pygame documentation]:(https://www.pygame.org/docs/ref/event.html). Here we will only briefly explain the most important, which is the event type QUIT and all mouse event types:
 
 
-```{python, eval = F}
+```{python, quit-handler, eval = F}
 if event.type == QUIT:
   STATE = "quit"
   break
@@ -746,7 +746,7 @@ Mouse events come as several types with different properties, the two most impor
 See these two events in action in the following little program:
 
 
-```{python, eval = F}
+```{python, keypress-interaction, eval = F}
 import pygame
 import sys
 from time import time
@@ -835,7 +835,7 @@ The Pygame system has been developed for arcade games and is very powerful when 
 Recall that at every refresh the screen is almost literally painted over. In fact, every one presentitional can be considered a drawing on its very own. That allows us to demonstrate the elements of Pygame graphics in simple programs, that produce a still picture. That also matches the way you should proceed, when writing the transitionals: first you write the scaffolding code, which consists of all the presentitional and their empty draw function. Then you grab the draw functions one by one and program the visuals, using text, geometric figures and pictures. Here is how the scaffolding looks like:
 
 
-```{python, eval = F}
+```{python, presentation-skeleton, eval = F}
 if state == "some_state":
   draw_some_state()
   
@@ -864,7 +864,7 @@ Creating the appearence of states means to draw things to the surface (also know
 Like almost any other program, a Pygame program appears as a window, just like the one in which this text is displayed, be it a browser or a pdf viewer. This windows is composed of the frame, which consists of a rectangular edge, a title bar with a caption and the Windows controls |_|| ||X| in the upper right corner. Between the edge sits the surface. The first thing that needs to be done is creating this window, which is called the *display* in Pygame terminology. The following code creates a minimal Pygame display with a surface that is 600 pixel wide and 400 pixel high and puts "A Pygame display" into the title bar. The only thing it can do is quit properly.
 
 
-```{python, eval = F}
+```{python, minimal-pygame-window, eval = F}
 # Required libraries
 import pygame
 import sys
@@ -912,7 +912,7 @@ Speaking of *colors*: after creating the surface, we filled it with our backgrou
 <!-- #16 -->
 
 
-```{python, eval = F}
+```{python, draw-figures, eval = F}
 import pygame
 import sys
 from pygame.locals import *
@@ -982,7 +982,7 @@ You put the writing first, because only after you have written do you see how hi
 In the following program we merged both steps into a more programmer-friendly function that almost behaves like the figure drawing commands. The only difference: you don't know in advance how large the textbox will be.
 
 
-```{python, eval = F}
+```{python, draw-text, eval = F}
 import pygame
 import sys
 from pygame.locals import *
@@ -1038,7 +1038,7 @@ Working with pictures is very similar to text boxes. Again, you only know the si
 
 
 
-```{python, eval = F}
+```{python, draw-picture, eval = F}
 def main():
     while True:
         SURF.fill((0,0,0))
@@ -1122,7 +1122,7 @@ The Pacman figure would leave a trail of copies of itself, painting a trail with
 For the following code snippet, make a transition table.
 
 
-```{python, eval = F}
+```{python, state-with-counter, eval = F}
 STATE = "A"
 while True:
     #ITC

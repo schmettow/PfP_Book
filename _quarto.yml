@@ -7,7 +7,7 @@ book:
   subtitle: "A first course in Python"
   author: "Martin Schmettow and Lena Brandl"
   date: today
-  description: "A primer for social science students who want to learn the art of coding."
+  description: "A primer for behavioural science students who want to learn the art of coding."
   site-url: https://schmettow.github.io/PfP_Book/
   repo-url: https://github.com/schmettow/PfP_Book
   chapters:
@@ -19,9 +19,10 @@ book:
     - 05_Loops.Rmd
     - 06_Functions.Rmd
     - 07_Working_with_data.Rmd
-    - 0x_Interaction.Rmd
-    - 08_Solutions.Rmd
+    - 08_Interaction.Rmd
     - 09_Debugging.Rmd
+    - 10_Solutions.Rmd
+    
 
 format:
   html:

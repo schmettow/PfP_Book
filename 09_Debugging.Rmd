@@ -28,7 +28,7 @@ When you start programming, it is easy to become intimidated by the amount of in
 
 Whenever you read code, try to mentally follow the flow of the program step by step.
 
-```{python}
+```{python, reassignment}
 x = 1
 x = 2
 print(x)
@@ -47,7 +47,7 @@ By reading a book your vocabulary expands. You learn new words, how a word is us
 
 When you read about something new, be it in this book, on the internet or in class, try it yourself and see what happens! This is an essential learning attitude when learning how to program. Definitely, you cannot learn how to program by just reading books. It is above all a "learning by doing" skill. Chapter 2 [Variables, values and data types] introduces *float division*. Float division is a peculiarity of all Python 2 versions. When an integer division does not result in another integer, the result is truncated instead of represented as a floating point. Your first reaction when reading about float division should be to open your Python interpreter and try out what happens when you divide two integers which do not share a common multiple.
 
-```{python}
+```{python, integer-division}
 x = 7
 y = 3
 print(x / y)

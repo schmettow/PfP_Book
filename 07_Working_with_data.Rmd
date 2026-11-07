@@ -1,6 +1,6 @@
 # Working with data {#sec-data}
 
-```{r setup}
+```{r, setup-data}
 knitr::opts_chunk$set(warning = FALSE, message = FALSE)
 library(tidyverse)
 ```
@@ -29,7 +29,7 @@ PROC --> OUT(p-value)
 
 In Python, as a general programming language, there exist libraries that implement tables of observations, as well as the t-test (and more modern statistical procedures, luckily). However, we don't want to bother you with statistics for the moment. Instead, take another look at two function that we have introduced in {{< sec-functions >}}:
 
-```{python}
+```{python, summation-function}
 def summation(alist):
     sum = 0.0
     for i in range(len(alist)):
@@ -69,7 +69,7 @@ graph LR
 Let's see how this is implemnented in Python. For the squared residuals, we create our own function, but resort to the function `mean` in the `numpy` library. Note how the two defined functions operate on a dedicated list for output, rather than modifying the original one. Recall that lists are called by reference, which means the original list would otherwise be altered by the function.
 
 
-```{python}
+```{python, variance-chain-v1}
 from numpy import mean
 
 def residuals(lon):
@@ -96,7 +96,7 @@ print(VAR)
 
 The above code represents such a data processing in such a way that the intermediate results are stored in dedicated variables (`RES`, `SQR`). While this makes the processing chain clear in the code, for longer chains there is the downside of length and cluttering the program with variables that are just used once. A more compact form to write the chain is by *nesting function*:
 
-```{python}
+```{python, variance-chain-v2}
 from numpy import mean
 
 def residuals(lon):
@@ -119,7 +119,7 @@ print(VAR)
 
 Nested function are evaluated inside-out. Consequently, when setting up such a chain, one begins with the first processing step and builds the subsequent one "around" it. While this is conveniently compact, it lacks the intuition of the data processing chain. Therefore, it is best in many situations, to encapsulate the whole line as a dedicated function:
 
-```{python}
+```{python, variance-chain-v3}
 from numpy import mean
 
 def residuals(lon):
@@ -149,7 +149,7 @@ This simple example highlights another important aspect about the data processin
 
 The purpose of psychological experiments is to collect data from participants under various conditions. Imagine you wanted to analyze the data from a single participant in the Stroop task. Perhaps, you wanted to analyze it as a factorial linear model (or ANOVA, if you like). Your data analysis program most likely expects the data in the following form:
 
-```{r echo = F}
+```{r, create-stroop-table, echo = F}
 set.seed(42)
 D_Stroop <- tibble(Condition = sample(c("congruent", "incongruent"), 8, replace = T),
                                Correctness = sample(c(T, F), 8, replace = T),
@@ -159,7 +159,7 @@ D_Stroop %>% knitr::kable()
 
 How would you create such a table in Python? The most simple form is to regard every column as a separate list and you would initialize the data gathering by creating three empty lists. In the main part of the program you can then populate the three lists separately, for example:
 
-```{python eval = F}
+```{python, collect-results, eval = F}
 Condition = []
 Correctness = []
 RT = []
@@ -180,7 +180,7 @@ In the case of psychological experiments, the main part of the data processing i
 
 The example data set above would look like the following in CSV:
 
-```{r results = "markup"}
+```{r, write-csv, results = "markup"}
 write.csv(D_Stroop, file = "", eol = "\n\n")
   
 ```
@@ -192,7 +192,7 @@ Then the csv library commands operate on the writing handler. This happens by me
 And finally, the `close` command signals the operating system that the file is no longer in use.
 
 
-```{python echo = F}
+```{python, result-lists, echo = F}
 Condition = ["incongruent", "incongruent", "congruent"]
 Correctness = [False, False, True]
 RT = [800, 696, 765]
@@ -200,7 +200,7 @@ RT = [800, 696, 765]
 ```
 
 
-```{python}
+```{python, write-stroop-csv}
 Condition = ["incongruent", "incongruent", "congruent"]
 Correctness = [False, False, True]
 RT = [800, 696, 765]
@@ -218,14 +218,14 @@ As a general rule, it is good to keep the period between open and close short. E
 
 So how do we append rows to an existing file? A closer look at the `open` function reveals that it takes a second parameter, the `mode`, which is of type string. Three major mode exists (plus a bunch of fine-tuning options):
 
-```{r echo = F, results = "markup"}
+```{r, file-modes, echo = F, results = "markup"}
 tibble(mode = c("r", "w", "a"),
            ` ` = c("reading", "writing", "appending")) %>% 
 knitr::kable()
 ```
 Hence, the code for writing an observation one-by-one could be:
 
-```{python eval = F}
+```{python, append-trial, eval = F}
 import csv
 myfile =  open("Stroop.csv", mode = "a")
 writer = csv.writer(myfile)
@@ -245,7 +245,7 @@ The first two options we have already covered in this course. In the following w
 
 In the Stroop program, we currently use only one external source of data, the user responses. All other data, like the words andf colors are just coded as list, tupels and dictionaries. Reading data from files seems an unncecessary exercise at first, but in fact can make the program more flexibel when used by non-programmers. A possible scenario for the Stroop task is that different experimenters use it, but with their own sets of colors. Here is how one could do it. First, we prepare a table that assigns color words to their respective RGB codes and save it as a CSV file. Any spreadsheet program is suited for the job.
 
-```{r echo = F}
+```{r, create-colors-table, echo = F}
 Colors <- tibble(
   Color = c("violet", "green", "orange"),
            R = c(180, 0, 255),
@@ -261,7 +261,7 @@ Lets assume the above table has been created in Excel and saved as `Colors.csv`.
 
 
 
-```{python}
+```{python, read-colors-csv}
 import csv
 import random
 
@@ -318,7 +318,7 @@ B[this_color], ")")
 
 Write a simple image presentation program, that takes a table of the following form as input and changes to the following picture on key press.
 
-```{r}
+```{r, file-names-table}
 tibble(File = c("Image01.jpg", "Image02.jpg", "Image03.jpg"))
 ```
 
@@ -332,7 +332,7 @@ With the Python library `openpyxl` you can read and write Excel files, directly.
 
 If you are working with data tables a lot, it may be worth to take a look at the Pandas library. The primary contribution of Pandas is an object class *DataFrame*, which captures a whole table at once and provides a plethora of useful methods for filtering and manipulation of data. And there are also commands to read and write csv files into a data frame.
 
-```{python}
+```{python, read-with-pandas}
 import pandas
 
 Colors = pandas.read_csv("Colors.csv")
@@ -340,7 +340,7 @@ Colors = pandas.read_csv("Colors.csv")
 print(Colors)
 ```
 
-```{r include = F}
+```{r, cleanup, include = F}
 file.remove("Colors.csv")
 ```
 

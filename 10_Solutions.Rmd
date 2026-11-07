@@ -6,13 +6,13 @@
 
 ### Exercise 1. Operators
 
-```{python}
+```{python, int-plus-float-answer}
 x = 2
 y = 1.0
 print(x + y)
 ```
 
-```{python}
+```{python, float-from-int-answer}
 x = 4.0
 y = x + 1
 print(x + y)
@@ -24,13 +24,13 @@ y = "1.0"
 print(x + y)
 ```
 
-```{python}
+```{python, int-equals-float-answer}
 x = 4
 y = 4.0
 print(x == y)
 ```
 
-```{python}
+```{python, boolean-expression-answer}
 x = 12
 y = x / 2
 print(y >= 5)
@@ -45,19 +45,19 @@ Statements 2 and 4 are true
 
 ### Exercise 3. Mini programs
 
-```{python}
+```{python, string-concatenation-answer}
 x = "1.0"
 y = "1"
 print(x + y)
 ```
 
-```{python}
+```{python, float-equality-answer}
 x = 5
 y = 2
 print((x / y) == 2.5)
 ```
 
-```{python}
+```{python, sequential-updates-answer}
 x = 1
 x = x + 1
 x = x - 2
@@ -105,7 +105,7 @@ print(This is + name)
 2. The `+` operator joins two strings, resulting in one string. The string at the left side of the operator precedes the string at the right side of the operator in the resulting string.
 
 3. `myString = myString + s1 + s2 + year + s3`: the variable `year`is of type `int` which causes a TypeError during concatenation; integer objects and string objects cannot be concatenated. The error can be solved by either explicit typecasting or changing the variable `year` into a string to start with.
-```{python, eval=F}
+```{python, build-sentence, eval=F}
 myString = myString + s1 + s2 + str(year) + s3
 
 year = "47"
@@ -124,7 +124,7 @@ year = "47"
 
 *Note*: The below description of what the specified code does is not expected from students. The intention is that they think about what happens internally in PyGame when implementing a task such as 'printing something to the screen'.
 
-```{python, eval=F}
+```{python, draw-centered-text, eval=F}
 text_surface = font.render(msgText,True,msgColor,BACKGR_COL)
 text_rectangle = text_surface.get_rect()
 text_rectangle.center = (SCREEN_SIZE[0]/2.0,225)
@@ -139,7 +139,7 @@ For further clarification, consult the [PyGame documentation](http://www.pygame.
 
 ### Exercise 8. Printing
 
-```{python}
+```{python, trials-arithmetic}
 participants = 52
 trials = 200
 experimental_sessions = 3
@@ -165,13 +165,13 @@ print("In total, each partcipant thus completed", trials_pp, "trials.")
 
 2. Initially, the variable `trials`is a string. Multiplying the variable by three thus results in a string consisting of three times the value of `trials`. This can be fixed either by initializing `trials` as an integer or using explicit typecasting.
 
-```{python, eval=F}
+```{python, int-conversion, eval=F}
 trials_pp = int(trials) * experimental_sessions
 ```
 
 ### Exercise 9. Using Python as calculator
 
-```{python}
+```{python, operator-chain}
 n1 = 37
 n2 = 456
 n3 = 1027%n1
@@ -186,7 +186,7 @@ print(n4)
 
 ### Exercise 10. A Boolean puzzle
 
-```{python}
+```{python, comparison-truth-values}
 n1 = 238
 n2 = 17
 
@@ -200,7 +200,7 @@ print(n1/4 == n2/1*3 or n1/4 == n2/17*59)
 
 Hardcoded results are also valid, for example
 
-```{python,eval=F}
+```{python, and-evaluation, eval=F}
 print(n1+(-238) == n2 - 17 and n1+(-238) == 972%243 and n2-17 == 0)
 ```
 
@@ -212,40 +212,40 @@ Only for `n1*n2/float(n1) == n2` hardcoding will not work.
 
 What is the output of the following code snippets?
 
-```{python}
+```{python, and-truth-values-answer}
 a = True
 b = False
 
 print(a and b)
 ```
 
-```{python}
+```{python, not-and-truth-values-answer}
 a = True
 b = False
 print(not a and b)
 ```
 
-```{python}
+```{python, not-or-truth-values-answer}
 a = True
 b = False
 print((not a) or b)
 ```
 
-```{python}
+```{python, not-and-brackets-answer}
 a = True
 b = False
 
 print(not (a and b))
 ```
 
-```{python}
+```{python, not-or-brackets-answer}
 a = True
 b = False
 
 print(not (a or b))
 ```
 
-```{python}
+```{python, chained-comparison-answer}
 a = 1
 b = 2
 c = 4
@@ -253,7 +253,7 @@ c = 4
 print(a >= b and c > a + b)
 ```
 
-```{python}
+```{python, mixed-operators-answer}
 a = 1
 b = 2
 c = 3
@@ -263,7 +263,7 @@ print(b % a >= c - (a + b))
 
 ### Exercise 2. State charts
 
-```{python, eval=F}
+```{python, traffic-light-v1-answer, eval=F}
 
 # Variables
 STATE = "A"
@@ -296,7 +296,7 @@ while True:
 
 For the following code snippet, make a transition table.
 
-```{python, eval=FALSE}
+```{python, traffic-light-final-answer, eval=FALSE}
 STATE = "A"
 
 while True:
@@ -344,7 +344,7 @@ while True:
 
 What is the output of the following mini programs?
 
-```{python, eval=F}
+```{python, if-with-print, eval=F}
 x = 5
 y = 0
 
@@ -355,7 +355,7 @@ if x >= 5 and y != False:
 
 * Nothing
 
-```{python, eval=F}
+```{python, divisibility-elif-answer, eval=F}
 x = 12
 
 if x%3 == 0:
@@ -366,7 +366,7 @@ elif x%4 == 0:
 
 * `x is divisible by 3`
 
-```{python, eval=F}
+```{python, compound-condition-answer, eval=F}
 x = 2
 y = 0
 
@@ -378,7 +378,7 @@ if y + 1 == x or not x * 1 <= y:
 
 ### Exercise 5. Following the control flow
 
-```{python}
+```{python, string-conditions-answer}
 myString = "Hello, World!"
 if len(myString) >= 13 or "ello" in myString:
     myString = "Hi, programming aspirant!"
@@ -412,7 +412,7 @@ print(myString)
 
 ### Exercise 6. Indentation
 
-```{python, eval=F}
+```{python, nested-condition-answer, eval=F}
 myNumber = 4
 if myNumber < 20 and myNumber > 0:
     if myNumber > 0 and myNumber < 15:
@@ -473,7 +473,7 @@ Why is it so famous? Two reasons:
 
 ### Exercise 8. Modify Stroop Task
 
-```{python, eval=F}
+```{python, stroop-exercise-answer, eval=F}
 import pygame
 import sys
 from time import time
@@ -669,7 +669,7 @@ main()
 ```
 
 ### Exercise 9. Simplify nested conditionals
-```{python, eval=F}
+```{python, participant-eligibility-answer, eval=F}
 # participant details #
 age = 20
 gender = "Male"
@@ -708,7 +708,7 @@ else:
 
 ### Exercise 10. Flow chart conditionals
 
-```{python, eval=F}
+```{python, nested-branches-answer, eval=F}
 n = -1
 if n > 0:
     n = 2*n
@@ -730,7 +730,7 @@ print(n)
 
 What is the output of the following code snippets?
 
-```{python}
+```{python, append-list-to-list-answer}
 a = [6, 7]
 b = [4, 5]
 b.append(a)
@@ -738,14 +738,14 @@ b.append(a)
 print(b)
 ```
 
-```{python}
+```{python, mixed-key-types-answer}
 d = {1: 'a',
     'a': 1}
     
 print(d[1])
 ```
 
-```{python}
+```{python, extend-with-tuple-answer}
 a = [1]
 b = ('a', 2)
 a.extend(b)
@@ -753,19 +753,19 @@ a.extend(b)
 print(a[1])
 ```
 
-```{python}
+```{python, unpack-lists-answer}
 a, b = (['a', 'd'], ['b', 'c'])
 
 print(b[0])
 ```
 
-```{python}
+```{python, negative-index-answer}
 a = [1, 2, 3]
 
 print(a[-1])
 ```
 
-```{python}
+```{python, nested-indexing-answer}
 a = (1, 2, [3, 4], 5)
 
 print(a[2][1])
@@ -775,13 +775,13 @@ print(a[2][1])
 
 Will the following code snippets throw an error? If anything goes wrong, why does it go wrong?
 
-```{python error = T}
+```{python, unpack-tuple-answer, error = T}
 a, b = 'Sigmund', 'Freud', (1856, 1939)
 ```
 
 * A `ValueError` is thrown. There are too many values on the right side of the equals sign `=` to unpack.
 
-```{python error = T}
+```{python, append-tuple-answer, error = T}
 a = [1, 2]
 b = (3, 4)
 
@@ -791,7 +791,7 @@ print(a[3])
 
 * An `IndexError` is thrown. After appending `b`, `a` has three elements. `3` is not a valid index.
 
-```{python error = T}
+```{python, mutable-in-tuple-answer, error = T}
 a = ('a', [1, 2])
 
 a[1].append(3)
@@ -799,7 +799,7 @@ a[1].append(3)
 
 * No error is thrown, `3` is appended to `[1, 2]`.
 
-```{python error = T}
+```{python, tuple-key-answer, error = T}
 a = {('a', 'b'): 3}
 
 print(a.keys())
@@ -810,7 +810,7 @@ print(a.keys())
 ### Exercise 3. Mini programs
 What is the output of the following mini programs?
 
-```{python error = T}
+```{python, empty-dict-keys-answer, error = T}
 a = {}
 
 print(a.keys())
@@ -818,7 +818,7 @@ print(a.keys())
 
 * `[]`
 
-```{python error = T}
+```{python, extend-nested-lists-answer, error = T}
 a = []
 b = ([1, 2], [3, 4], [5, 6])
 
@@ -828,7 +828,7 @@ print(a[1])
 
 * `[3, 4]`
 
-```{python error = T}
+```{python, nested-membership-answer, error = T}
 a = ('a', ('b', 'c'))
 
 print('b' in a)
@@ -836,7 +836,7 @@ print('b' in a)
 
 * `False`
 
-```{python error = T}
+```{python, dict-in-list-answer, error = T}
 a = [{'a': 1 }, {'a': 2}]
 
 if 'a' in a[0]:
@@ -869,7 +869,7 @@ elif 'a' in a[1]:
   'margarine']]`
   
 ### Exercise 2. Dictionnaries
-```{python,eval=F}
+```{python, nested-lookups-answer, eval=F}
 ('Erik', 'Erikson', (1902, 1994))
 ('Theory of Cognitive Development',)
 1856
@@ -882,7 +882,7 @@ elif 'a' in a[1]:
 
 ### Exercise 3. Selecting elements
 
-```{python,eval=F}
+```{python, data-lookups-answer, eval=F}
 shoppingList[2]
 shoppingList[0][0]
 grades["p3"][3]
@@ -895,7 +895,7 @@ grades["p6"][4][1]
 
 ### Exercise 4. Adjust a dictionnary data set
 
-```{python, eval=F}
+```{python, update-dataset-answer, eval=F}
 #1
 dataset['p1'][5] = 6.1
 dataset['p7'][5] = 7.4
@@ -932,7 +932,7 @@ dataset = {'p1':[21,"Female","Dutch","B-Psychology",[True,False,True,False,False
 
 
 ### Exercise 5. A dictionnary data set
-```{python, eval=F}
+```{python, participants-dict-answer, eval=F}
 import numpy as np
 
 participants = {'p1':("Male",19,"Dutch","Student"),
@@ -987,7 +987,7 @@ maximum = np.nanmax(age)
 
 
 ### Exercise 6. Stroop extension
-```{python, eval=F}
+```{python, stroop-program-answer, eval=F}
 # -*- coding: utf-8 -*-
 import pygame
 import sys
@@ -1260,17 +1260,17 @@ main()
 
 What is the output of the following code snippets?
 
-```{python}
+```{python, iterate-three-answer}
 for i in range(len([1,2,3])):
     print(i)
 ```
 
-```{python}
+```{python, iterate-empty-answer}
 for i in range(len([])):
     print(i)
 ```
 
-```{python}
+```{python, accumulate-sum-answer}
 a = 0
 for i in range(3):
     a += i
@@ -1278,7 +1278,7 @@ for i in range(3):
     
 ```
 
-```{python}
+```{python, two-accumulators-answer}
 a = 0
 b = 30
 for i in range(5):
@@ -1288,19 +1288,19 @@ for i in range(5):
 print(a + b)
 ```
 
-```{python}
+```{python, range-start-stop-answer}
 for i in range(1,3):
     print(i)
 ```
 
-```{python}
+```{python, countdown-loop-answer}
 i = 10
 while i > 5:
     print(i - 5)
     i -= 2
 ```
 
-```{python}
+```{python, nested-loops-answer}
 a = 2
 b = (1,2)
 
@@ -1360,7 +1360,7 @@ The correct answer is:
 
 *Disclaimer*: It is possible that your Python interpreter returns the keys of `dataset` in a different order than shown below when you execute `dataset.keys()` on your system. This has to do with how dictionaries are stored internally in computer memory. Here as well *hash functions* are utilized for efficiency reasons. As a consequence, the order of the keys in a dictionary is unspecified (which is why you cannot use the index operator to access elements of a dictionary and `p1` is not necessarily the first key shown in the list). It also means that when you display the keys of a dictionary as a list (which is what the `keys()` method does), the order in which the keys occur in the list can differ from system to system. For you this means that you should not worry if your system returns a different order when you execute `dataset.keys()`. But it is important that you understand why `dataset[dataset.keys()[0]]` returns the value that is displayed when you execute the code snippet.
 
-```{python, eval=F}
+```{python, explore-dataset-answer, eval=F}
 ['p2', 'p3', 'p1', 'p6', 'p7', 'p4', 'p5', 'p10', 'p8', 'p9']
 (20, 'Female', 'Dutch', 'B-Psychology')
 (20, 'Female', 'Dutch', 'B-Psychology')
@@ -1373,7 +1373,7 @@ The correct answer is:
 
 ### Exercise 5. Debugging
 
-```{python,eval=F}
+```{python, condition-means-answer, eval=F}
 data = {'p1':(21,"Female","Condition B",[0.675,0.777,0.778,0.62,0.869]),
         'p2':(20,"Female","Condition A",[0.599,0.674,0.698,0.569,0.7]),
         'p3':(21,"Female","Condition A",[0.655,0.645,0.633,0.788,0.866]),
@@ -1424,7 +1424,7 @@ print("all_mean:", all_mean)
 
 ### Exercise 6. Nested loops
 
-```{python, eval=F}
+```{python, count-withdrawals-answer, eval=F}
 participants = [
     ("p1", ["Condition 1","Location A","withdrew","no audio"]),
     ("p2", ["Condition 1","Location A","no audio","no video"]),
@@ -1448,7 +1448,7 @@ print("The number of participants who withdrew their participation is", counter)
 ```
 
 ### Exercise 7. Data transformation using loops
-```{python,eval=F}
+```{python, count-conditions-answer, eval=F}
 participants = [
     ("p1", ["Condition 1","Location A","withdrew","no audio"]),
     ("p2", ["Condition 1","Location A","no audio","no video"]),
@@ -1491,7 +1491,7 @@ print("The number of participants who were tested at location B is", counterB, c
 
 ### Exercise 8. Calculating a mean
 
-```{python, eval=F}
+```{python, mean-loop-answer, eval=F}
 import numpy as np
 
 seq = range(1000)
@@ -1509,7 +1509,7 @@ print(mean, np.mean(seq))
 
 ### Exercise 9. A guessing game
 
-```{python,eval=F}
+```{python, guessing-game-answer, eval=F}
 import random
 import sys
 
@@ -1541,7 +1541,7 @@ sys.exit()
 
 ### Exercise 1. Following the control flow
 
-```{python, eval=F}
+```{python, string-results, eval=F}
 "x equals 10"
 "y equals 17.5"
 "anumber equals 10.0"
@@ -1556,7 +1556,7 @@ sys.exit()
 * *Line 25*. Second, the order of the arguments provided to the swap function is messed up. The function first takes one element to be swapped, then the element with which the first element should be swapped and only then the list which contains the two elements.
 * *Line 26*. The `insert` function is as it is defined not suitable for appending elements at the end of a list. This can be solved in one of two ways: either, the function is left as is and instead of using insert, the built-in function `append()` can be used. Or, and this makes the insertion function more robust, a check is added to the function, appending any element that is supposed to be inserted at a position that exceeds the index range of the list.
 
-```{python, eval=F}
+```{python, insert-function, eval=F}
 def insert(a,position,alist):
     result = copy.deepcopy(alist)
     if position >= len(result):
@@ -1568,7 +1568,7 @@ def insert(a,position,alist):
 
 ### Exercise 3. An errorneous sorting algorithm
 
-```{python, eval=F}
+```{python, swap-function, eval=F}
 import copy
 import random
 
@@ -1597,7 +1597,7 @@ print(bubbleSort(myList))
 ### Exercise 5.
 ### Exercise 6. Insertion sort algorithm
 
-```{python,eval=F}
+```{python, insertion-sort, eval=F}
 import copy
 import random
 

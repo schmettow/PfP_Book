@@ -1,6 +1,6 @@
 # Lists {#sec-lists}
 
-```{python}
+```{python, build-list}
 message = ["Hello,"]
 message.append("world")
 print(" ".join(message))
@@ -10,7 +10,7 @@ In chapter 2 Variables, you encountered the four basic data types of the Python 
 
 ## Lists
 
-```{python, eval=F}
+```{python, list-literals, eval=F}
 a = [10, 5, 15, 25]
 b = ["eggs", "bacon", "cheese"]
 c = [4, "hello", 7.3, False]
@@ -18,7 +18,7 @@ c = [4, "hello", 7.3, False]
 
 Lists are one type of collection. The easiest way of creating a list is surrounding some values with cornered brackets `[]` and separating the values of the list with commas `,`. The values that make up a list are called *items* or *elements*. Lists can contain any type of value or variable. From this it follows that lists can also contain other lists! A list that contains another list is called a *list of lists*, or *nested* list (you may also think of this phenomenon as *listception*, if you ever watched Christopher Nolan's *Inception* (2010)).
 
-```{python}
+```{python, nested-list}
 a = 2
 b = [a, 2*a]
 c = [b, 6]
@@ -28,7 +28,7 @@ print(c)
 
 A special type of list is the so-called *empty list*. An empty list is a list with no elements. Empty lists are denoted with `[]`.
 
-```{python, eval=F}
+```{python, empty-list, eval=F}
 a = []
 ```
 
@@ -37,7 +37,7 @@ In contrast to Strings, however, the elements of lists can be of *any* type. Ord
 
 Lists are *ordered* collections of values. However, a list being *ordered* has nothing to do with how humans may be inclinded to order the elements of a list. For example, you may want to order a list `a` with three elements `"A", "B",` and `"C"` according to their alphabetic order: `a = ["A", "B", "C"]`. However, for lists, the value of an element is irrelevant for its position in the list. Lists are **not** *ordered* because they grasp some underlying semantics about their elements according to which they come up with an order. In fact, element values are arbitrary for a list. Instead, lists are called *ordered* because they allocate a certain position in memory to each element. Each list element occupies a unique position in memory. Elements of a list are accessed by querying the list at specified positions, so-called *indices*. Accessing a list at a specified index, the value located at that position in memory is returned. The *index operator* `[]` is used to access list elements at specified indices, like so
 
-```{python}
+```{python, index-numbers}
 a = [1, 2, 3]
 print(a[0])
 print(a[1])
@@ -45,7 +45,7 @@ print(a[1])
 
 The *expression* inside the brackets of the index operator (in this case the integers `0` and `1`) specifies the *index* of the to-be selected element. Each element inside a list has a unique index, an *integer* describing the element's position in the list. One major cause of errors surrounding lists is that indices start at `0`, not at `1`, as you might expect. After all, to us it feels natural to start counting at `1`.  As you can see below, this means that the first element of a list is accessed by indexing `0`. 
 
-```{python}
+```{python, string-elements}
 a = ["Hello", "World", "!"]
 print(a[0])
 print(a[2])
@@ -56,13 +56,13 @@ Why do indices start at 0, instead of 1? As you might already expect, it has to 
 ### Lists are mutable
 In contrast to Strings, lists are *mutable* sequences. This means that even after a variable is assigned a list as value, specific elements of this list can be changed without reassigning a completely new list! You can use the *index operator* to mutate specific list items.
 
-```{python}
+```{python, replace-element}
 shoppinglist = ["appels", "bananas", "tomatoes"]
 shoppinglist[2] = "peaches"
 print("Updated shopping list: " + ", ".join(shoppinglist))
 ```
 
-```{python}
+```{python, assign-index}
 a = [1,2]
 a[0] = 10
 print(a)
@@ -70,7 +70,7 @@ print(a)
 
 Using the index operator, you can also access (and change!) several elements at a time using so-called *list slices*:
 
-```{python}
+```{python, slice-assignment}
 a = [1, "a", 2, "b", 3, "c"]
 print(a[1:4])
 print(a[0:2])
@@ -84,7 +84,7 @@ Note that the statement `a[0:2] = d` mutates both elements, `1` *and* `"a"` into
 
 When no starting or ending index is specified, the `:` expression selects all elements of a list and can be used for *cloning* lists.
 
-```{python}
+```{python, copy-list}
 a = [1, "a", 2, "b", 3, "c"]
 aCopy = a[:]
 print(aCopy)
@@ -92,7 +92,7 @@ print(aCopy)
 
 But watch out, you **cannot** use the index operator to add new elements to a list. To do so, you would need to access a new index, an index not yet claimed by an existing list element. Trying to access an index outside of the current range of indices will produce an index out of range error.
 
-```{python error = T}
+```{python, index-out-of-range, error = T}
 a = [1,2]
 a[2] = 10
 print(a)
@@ -100,7 +100,7 @@ print(a)
 
 Luckily, there are other ways of adding elements to a list.
 
-```{python}
+```{python, append-element}
 a = []
 a.append(1)
 print(a)
@@ -110,7 +110,7 @@ print(a)
 
 The *append* method adds the specified element at the end of a given list. You can use the *extend* method to add *multiple* values of another list (or other type of collection) to your list.
 
-```{python}
+```{python, extend-list}
 a = [1,2]
 b = [3,4]
 
@@ -120,7 +120,7 @@ print(a)
 
 Note that there is a difference between appending a list and extending your list with another list.
 
-```{python}
+```{python, append-list}
 a = [1,2]
 b = [3,4]
 
@@ -137,7 +137,7 @@ By now, you have seen a few examples of class-specific *functions*, such as `app
 
 When you create a variable `a` and assign a value to it, say `[4,5]`, you can think of it as creating an *object* (i.e. an instance) of the Python *class* *list*. The *list* class has been programmed by the developers of the Python language, same as any other built-in Python class, such as integers and strings. Classes are blueprints, a specification of how to build certain objects. Engineers use blueprints to build cars, buildings, bridges and more. Chefs use recipes to put together meals. Python classes are the same in that they specify how objects of a certain type are programmed internally when you create one of them. A class has built-in *methods* that can be used by *any* object that has been created using the class' blueprint. And this is what you basically do whenever you surround a number of values with cornered brackets. You create a list according to the blueprint of the Python class `list`. It is very useful that your list inherits *functions* from its blueprint. It means that without any effort on your part your lists have a variety of functionality at their disposal. They can immediately use a range of built-in methods such as the `append()` method.
 
-```{python}
+```{python, append-number}
 a = [4,5]
 a.append(6)
 print(a)
@@ -153,7 +153,7 @@ The interested reader can find more information on Python classes [here](https:/
 
 Much like lists, *tuples* are ordered collections of values, but with less exentensive functionality and their unique characteristic being that they are *immutable*. Once you created a *tuple* in memory, you cannot change its elements.
 
-```{python error = T}
+```{python, tuple-immutable, error = T}
 thorndike = ("Edward", "Lee", "Thorndike", 1874, "Law of effect", "Law of exercise")
 thorndike[4] = "Law of recency"
 ```
@@ -163,7 +163,7 @@ In the Stroop Task program for instance, we saw that tuples were used to chunk t
 
 Tuples are immutable. However, if you really need to change the contents of an already existing tuple, you can always assign a new value to the variable which holds the tuple as a value.
 
-```{python}
+```{python, concatenate-tuple}
 thorndike = ("Edward", "Lee", "Thorndike", 1874, "Law of effect", "Law of exercise")
 thorndike = thorndike[:] + ("Law of recency",)
 print(thorndike)
@@ -171,20 +171,20 @@ print(thorndike)
 
 Note the trailing comma in the second line `("Law of recency",)`. Without the comma at the end of the parentheses, Python treats the content of a one-element tuple such as `("Law of recency")` as belonging to the data type of the element (in this case a `str`). As a result, a *type error* is thrown when you try to concatenate the `thorndike` tuple and `("Law of recency")`.
 
-```{python error = TRUE}
+```{python, not-a-tuple, error = TRUE}
 thorndike = ("Edward", "Lee", "Thorndike", 1874, "Law of effect", "Law of exercise")
 thorndike = thorndike[:] + ("Law of recency")
 ```
 
 Python has a very powerful *tuple assignment* feature that allows a tuple of variable names on the left of the assignment operator `=` to be assigned to a tuple of values, like so
 
-```{python}
+```{python, unpack-tuple}
 thorndike = ("Edward", "Lee", "Thorndike", 1874)
 (name, middle_name, surname, born) = thorndike
 print(name)
 ```
 
-```{python}
+```{python, unpack-strings}
 a, b = "Hello", "World"
 print(a)
 ```
@@ -195,7 +195,7 @@ The brackets `()` are optional in a tuple assignment. Using tuple assignment, yo
 
 *Dictonaries* share similarities with real-life address books where you can find a person's contact details by looking up his or her name.
 
-```{python}
+```{python, address-book-dict}
 address_book = {"studyadviser-PSY": "studyadviser-psy[at]utwente.nl",
                 "studentservices" : "studentservices[at]utwente.nl",
                 "ICT-helpdesk"   : "servicedesk-ict[at]utwente.nl"
@@ -207,7 +207,7 @@ print(address_book["studyadviser-PSY"])
 
 Dictionaries associate *keys* (e.g. a name) with *values* (e.g. contact details). The `key:value` pairs of a dictionary are separated by commas. Each pair contains a *key* and a *value* separated by a colon `:`. `key:value` pairs are always one-to-one mappings. This means that you cannot map the same key to several values, like so
 
-```{python}
+```{python, duplicate-key}
 address_book = {"studyadviser-PSY": "studyadviser-psy[at]utwente.nl",
                 "studyadviser-PSY": "Cubicus, room C116"
                 }
@@ -218,7 +218,7 @@ print("Number of key:value pairs in address_book: %d" % len(address_book.keys())
 
 As you can see, the first mapping of the key `"studyadviser-PSY"` to `"studyadviser-psy[at]utwente.nl"` has been overwritten by the second mapping of the key to `"Cubicus, room C116"`. In total, `address_book` now only contains a single `key:value` pair. As with lists and tuples, values are arbitrary for dictionaries. This means that while you cannot map the same key to several values, you can map the same value to multiple keys.
 
-```{python}
+```{python, key-value-pairs}
 address_book = {"studyadviser-PSY": "studyadviser-psy[at]utwente.nl",
                 "studyadviser-PSY_email": "studyadviser-psy[at]utwente.nl"
                 }
@@ -229,7 +229,7 @@ print("Number of key:value pairs in address_book: %d" % len(address_book.keys())
 
 Dictionaries require their keys to be *immutable* and *unique*. As you above, you cannot have two keys named `"studyadviser-PSY"` in the `address_book`. This also means that certain data types are unsuitable as dictionary keys, like lists.
 
-```{python error = T}
+```{python, list-as-key, error = T}
 d = {['a']: 'b'}
 ```
 
@@ -237,7 +237,7 @@ Whenever you try to use a mutable object (like lists) as a key, a `TypeError` wi
 
 Dictionaries are *unordered* collections. Dictionaries do not have a sequential representation of their elements. Unlike sequences, such as lists and tuples, the elements of a dictionary cannot be accessed using indices. Values stored in a dictionary can be accessed and changed through their respective *keys*, like so
 
-```{python}
+```{python, lookup-value}
 address_book = {"studyadviser-PSY": "studyadviser-psy[at]utwente.nl",
                 "studentservices" : "studentservices[at]utwente.nl",
                 "ICT-helpdesk"   : "servicedesk-ict[at]utwente.nl"
@@ -249,7 +249,7 @@ print("The telephone number of the student services is", str(address_book["stude
 
 Apart from updating existing dictionary entries, you can obviously also add and remove entries of a dictionary. Use the `del` statement to remove dictionary entries.
 
-```{python}
+```{python, change-values}
 address_book = {"studyadviser-PSY": "studyadviser-psy@utwente.nl ",
                 "studentservices" : "studentservices@utwente.nl",
                 "ICT-helpdesk"   : "servicedesk-ict@utwente.nl"
@@ -267,7 +267,7 @@ print(address_book)
 
 Lists, tuples and dictionaries are readily used in interactive programs, such as the Stroop Task program. Collections help structure user input and the subsequent storage of user input in computer memory. Structuring user input makes later retrieval of information easier. Below you see a code snippet from the Stroop Task program.
 
-```{python, eval=F}
+```{python, state-keys-dict, eval=F}
 KEYS     = {"red": K_b,
             "green": K_n,
             "blue": K_m}
@@ -323,30 +323,30 @@ In the end, you as a programmer still need to decide how to proceed with the col
 
 * The by far most occurring errors involving lists are `index out of range` errors. I think it is fair to say that they make up a large amount of all programming errors. An `index out of range error` is thrown when you try to access an index that does not exist in a sequence.
 
-```{python eval = F}
+```{python, old-style-print, eval = F}
 shoppinglist = ["milk", "eggs", "bread", "appels"]
 print shoppinglist[4]
 ```
 
-```{r echo = F}
+```{r, old-style-print-message, echo = F}
 print("Error: Missing parentheses in call to 'print'. Did you mean print(shoppinglist[4])? (<string>, line 2)")
 ```
 
 
 You will usually encounter this error as a result of confusing the starting index `0` with `1`. Against all intuition, in a list of four elements, the last element is stored at index `3`, not at index `4`. It helps to keep in mind that the indices of your sequences always have a range one shorter than the number of elements in your list. For a list with four elements, the positive index range is `0` to 4 minus 1, thus `3`.
-```{python}
+```{python, print-element}
 shoppinglist = ["milk", "eggs", "bread", "appels"]
 print(shoppinglist[3])
 ```
 
 * Another common mistake surrounding collections concerns the immutability of *tuples*. In particular, trying to change the content of a *tuple* will result in a `TypeError`. Tuples are immutable, meaning that you cannot change their content after their initialization. You can, however, re-assign the variable name of an existing tuple to a new tuple containing different values.
 
-```{python error = T}
+```{python, undefined-variable, error = T}
 a = (1,2,4)
 b[2] = 3
 ```
 
-```{python}
+```{python, tuple-variables}
 a = (1,2,4)
 print(a)
 b = (1,2,3)
@@ -355,14 +355,14 @@ print(b)
 
 * Concerning dictionaries, you will most probably not escape one or another `KeyError`. A `KeyError` is thrown when you try to access a `key` that does not exist in the dictionary.
 
-```{python error = T}
+```{python, empty-dict-lookup, error = T}
 d = {}
 print(d['a'])
 ```
 
 The same is likely to occur when you try to use indices to access the entries of a dictionary
 
-```{python error = T}
+```{python, integer-key-lookup, error = T}
 d = {'a': 1}
 print(d[0])
 ```
@@ -375,14 +375,14 @@ Here are some tips and tricks on how to debug errors that potentially originate 
 
 1. Regularly checking the `length` of your collections can be very helpful to confirm that your code does indeed what you expect it to do. Take the example of `RT`, the list we made to keep track of a participant's reaction times throughout the Stroop Task program. At the end of the experiment, you would expect the list to contain 20 elements, given that `RT` was initialized as an empty list and that the experiment had 20 trials. By checking the `length` of `RT`, you can immediately see whether your code indeed stored one reaction time per trial. `RT` should have a `length` of 20 after the experiment. You can check the length of a collection using the `len()` method, like so
 
-```{python}
+```{python, list-length}
 a = [3, 4]
 print(len(a))
 ```
 
 2. Dictionaries have a very useful built-in method that represents their `keys` as a list.
 
-```{python}
+```{python, dict-keys}
 d = {'a': 1,
      'b': 2}
      
@@ -391,7 +391,7 @@ print(d.keys())
 
 This comes in handy when you keep getting a `KeyError` while you are convinced that your dictionary should contain a certain key.
 
-```{python error = T}
+```{python, key-with-space, error = T}
 d = {'a ': 1,
      'b': 2}
      
@@ -400,7 +400,7 @@ print(d['a'])
 
 You can use `in` to check whether a candidate `key` is among the keys of the dictionary
 
-```{python}
+```{python, key-membership}
 d = {'a ': 1,
      'b': 2}
      
@@ -411,7 +411,7 @@ In this case, a typing error is the culprit. Instead of `'a'`, `'a '` with a whi
 
 Alternatively, you can use a simple conditional constructions and `not in` to make sure that you do not overwrite any existing keys
 
-```{python}
+```{python, check-before-write}
 d = {'a': 1,
      'b': 2}
 
@@ -429,7 +429,7 @@ Finally, you should know that the output list produced by the `keys()` method ca
 
 What is the output of the following code snippets?
 
-```{python, eval=F}
+```{python, append-list-to-list, eval=F}
 a = [6, 7]
 b = [4, 5]
 b.append(a)
@@ -437,14 +437,14 @@ b.append(a)
 print(b)
 ```
 
-```{python, eval=F}
+```{python, mixed-key-types, eval=F}
 d = {1: 'a',
     'a': 1}
     
 print(d[1])
 ```
 
-```{python, eval=F}
+```{python, extend-with-tuple, eval=F}
 a = [1]
 b = ('a', 2)
 a.extend(b)
@@ -452,19 +452,19 @@ a.extend(b)
 print(a[1])
 ```
 
-```{python, eval=F}
+```{python, unpack-lists, eval=F}
 a, b = (['a', 'd'], ['b', 'c'])
 
 print(b[0])
 ```
 
-```{python, eval=F}
+```{python, negative-index, eval=F}
 a = [1, 2, 3]
 
 print(a[-1])
 ```
 
-```{python, eval=F}
+```{python, nested-indexing, eval=F}
 a = (1, 2, [3, 4], 5)
 
 print(a[2][1])
@@ -565,7 +565,7 @@ elif 'a' in a[1]:
 * `1` and `2`
 
 ### Exercise 4. Shopping list
-```{python, eval=F}
+```{python, shopping-list-updates, eval=F}
 shoppinglist = ["bread","cheese","jam","milk","oatmeal","blueberries","oranges","apples"]
 shoppinglist[0] = "buns"
 shoppinglist = shoppinglist + ["chocolate"]
@@ -590,7 +590,7 @@ You can check your answer afterwards by running the code.
 
 ### Exercise 5. Dictionaries
 
-```{python, eval=F}
+```{python, nested-dict-tuples, eval=F}
 famous_psychologists = {"Freud":("Sigmund", "Freud", (1856,1939), "Psychoanalysis"),
                         "Piaget":("Jean", "Piaget", (1896,1980), "Theory of Cognitive Development"),
                         "Skinner":(("Burrhus", "Frederic"), "Skinner", (1904,1990), "Operant Conditioning"),
@@ -610,7 +610,7 @@ Using the dictionary `famous psychologists` and the above changes made to the di
 
 * Try to understand the changes made to the original dictionary by writing down the content of the following print statements
 
-```{python, eval=F}
+```{python, nested-lookups, eval=F}
 print(famous_psychologists["Erikson"][:3])
 print(famous_psychologists["Piaget"][3:])
 print(famous_psychologists["Freud"][2][0])
@@ -627,12 +627,12 @@ print(famous_psychologists["Skinner"][5][word][0])
 
 For the following data structures, give the code by which you can access the specified element.
 
-```{python, eval=F}
+```{python, nested-shopping-list, eval=F}
 dinner = ["minced beef", "tomatoes", "pasta", "onions", "pasta sauce", "courgette"]
 shoppingList = [dinner, "bread", "milk", "cornflakes", "cheese"]
 ```
 
-```{python,eval=F}
+```{python, grades-dict, eval=F}
 grades = {"p1": ("Judith",21,"female","B-PSY",(5.6,7.7,7.3)),
           "p2": ("Menno",19,"male","B-CREATE",(8.6,6.9,7.4)),
           "p3": ("Jan",19,"male","B-CREATE",(3.9,4.5,8.9)),
@@ -658,7 +658,7 @@ grades = {"p1": ("Judith",21,"female","B-PSY",(5.6,7.7,7.3)),
 
 The data set below originates from a (fictive) language course given at the University of Twente. During the course, the following information was stored about the participants: age, gender, nationality, study programme, for each lesson, whether the participant was present or not (`True` indicates presence during the lesson and `False` absence), and the paricipant's score on the final exam.
 
-```{python, eval=F}
+```{python, dataset-dict, eval=F}
 dataset = {'p1':[21,"Female","Dutch","B-Psychology",[True,False,True,False,False],5.2],
            'p2':[20,"Female","Dutch","B-Psychology",[True,True,True,False,True],8.4],
            'p3':[21,"Female","Dutch","B-Applied_Mathematics",[False,True,True,False,True],7.8],
@@ -680,7 +680,7 @@ The lecturer has to perform some last minute changes to the data set before hand
 
 Fill in the participant information given in the table below in a Python dictionary with the following structure:
 
-```{python, eval=F}
+```{python, participant-shorthand, eval=F}
 participants = {participant_no:(gender, age, nationality, profession)}
 ```
 

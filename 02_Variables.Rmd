@@ -1,6 +1,6 @@
 # Variables, values and types {#sec-variables}
 
-```{r setup, include = FALSE}
+```{r, setup-variables, include = FALSE}
 library(tidyverse)
 library(reticulate)
 #knitr::knit_engines$set(python = reticulate::eng_python)
@@ -8,7 +8,7 @@ library(reticulate)
 
 In chapter 1 Introduction, you took a closer look at the Stroop Task program. In doing so, you encountered components of a computer program called *variables*
 
-```{python eval = FALSE}
+```{python, stroop-config, eval = FALSE}
 col_white = (250, 250, 250)
 col_black = (0, 0, 0)
 col_gray = (220, 220, 220)
@@ -26,12 +26,12 @@ For instance, you learned that the variable `COLORS` collects combinations of nu
 
 However, before we can talk about what compound variables such as dictionaries are, you will meet the most fundamental component of a computer program: *values*.
 
-```{python}
+```{python, arithmetic-expressions}
 print(2 + 2)
 print(20 / 4)
 ```
 
-```{python}
+```{python, string-literal}
 print("Hello, World!")
 ```
 
@@ -39,11 +39,11 @@ In the examples above, the *printed* outputs `4`, `5.0` and `Hello, World!` are 
 
 If you ever wonder what class a value belongs to, your Python interpreter can tell you.
 
-```{python, echo = TRUE}
+```{python, type-of-number, echo = TRUE}
 print(type(4))
 ```
 
-```{python, echo = TRUE}
+```{python, type-of-string, echo = TRUE}
 print(type("Hello, World!"))
 ```
 
@@ -55,7 +55,7 @@ You will find the `print` function very useful; it makes some output visible by 
 
 Computer programs are usually required to store information in some way for later retrieval or manipulation. In the Stroop Task program we saw in chapter 1, for each trial, we need to store the color and the word that our computer picked. In addition, we want to record the reaction time of the subject. Otherwise, the Stroop Task program would be utterly useless for examining the relation between reaction times and (in)congruence between words and their colors. In other words, the Stroop task program would be useless if it could only manipulate values as we did when we calculated `2 + 2`. You see, when your computer performs a simple value manipulation you get a momentarily answer. At times, computers are too efficient for their own good. They quickly forget about the values that pass through their system. The very moment they finish a calculation, computer programs forget the outcome of a calculation. They even forget that they ever performed the calculation (if you do not remind them that they indeed did). This is where *variables* come in handy. Variables are storage units in a computer's memory. A variable can store any kind of value. Unlike the result of simple value manipulations, such as `2 + 2`, variables have designated storage addresses in a computer's memory. You need a way to access variables in your computer's memory and hence, you give them a name. You can think of a variable's name as a unique identification address in the computer's memory. In fact, during a *value assignment*, a value is stored at a certain position in the computer's memory. This position as a precisely defined location, much like longitude and latitude coordinates describe a physical location in the Global Positioning System (GPS). The command by which a value is stored in a variable is called an *assignment statement*. It is common to say "a value is assigned to a variable".
 
-```{python}
+```{python, variable-assignment}
 a = 4
 b = "This is a string"
 
@@ -65,7 +65,7 @@ print(b)
 
 The order in which the variable and a value are placed around the equal sign `=` is not arbitrary. Variables always have to be on the left side, values on the right side. Everything else will produce an error. As mentioned above, variables can store any kind of value. The right side can be a complex expression, which is not obviously a value at first sight.
 
-```{python}
+```{python, assignment-from-expression}
 a = 13*17/23
 print(a)
 ```
@@ -90,7 +90,7 @@ Heeding them pays off!
 
 5.  You may still get sytnax errors despite adhering to all rules named above. Chances are high that you tried to use one of Python's *keywords* as a variable name. Python uses a number of keywords to recognize the structure of a program.`if` and `for` are keywords for example. Your Python interpreter can tell you the complete list of keywords known to your Python version:
 
-```{python}
+```{python, python-keywords}
 import keyword
 print(keyword.kwlist)
 ```
@@ -99,7 +99,7 @@ print(keyword.kwlist)
 
 Now that you read about how variables are assigned their values, let's have a look at how variables are used in the interactive Stroop program.
 
-```{python, eval=F}
+```{python, reaction-time-variables, eval=F}
 # a list for gathering the response times
 RT = []
 
@@ -120,7 +120,7 @@ In the first line of the above code snippets from the Stroop Task program, an em
 
 Variables are an essential component of all programs, with numerous applications. This section provides but a glimpse into the vast and creative possibilities of variables. Do not worry, you will soon get a hang of it once you start doing some programming yourself. One common way of using variables is storing the output of *functions*:
 
-```{python}
+```{python, random-integer}
 import random
 a = random.randint(0,10)
 print(a)
@@ -131,7 +131,7 @@ You will learn in detail about functions in Chapter {{< sec-functions >}}. For n
 
 A variable's assigned value can be updated. This means that its value can be changed after an initial assignment. This is very useful for structuring a program:
 
-```{python, eval=F}
+```{python, trial-counter-loop, eval=F}
 # determining the maximum number of trials
 n_trials = 3
 # setting a counting variable to 0
@@ -153,7 +153,7 @@ Earlier in this chapter, you learned that each value belongs to a certain *class
 
 There are two main types of numbers in Python, *integers* and *floating point numbers*, or *floats* for short. Integers are whole numbers, such as `6` and `1234`, while floats are numbers including a decimal point, such as `2.4` and `45.768`. But wait, what happens if we add a float to a variable of type integer? Let's try!
 
-```{python}
+```{python, type-changes-on-assignment}
 number = 7
 print(type(number))
 
@@ -163,7 +163,7 @@ print(type(number))
 
 The variable changed from type *int* to *float*! This is an example of implicit *typecasting*. Typecasting means changing the type of a variable, and it can be done explicitly and implicitly. At times you will want to change the type of a variable to suit your needs. For this, you use explicit typecasting:
 
-```{python}
+```{python, integer-truncation}
 number = 10.5
 int(number)
 10
@@ -175,30 +175,30 @@ And here you discover one tricky thing about typecasting *floats* to *integers*.
 
 If numbers are *integers* or *floats*, what about values such as `"17"` and `"13.65"`? They look like numbers, but they are wrapped in quotation marks like *strings*.
 
-```{python}
+```{python, strings-not-numbers}
 print(type("17"))
 print(type("13.65"))
 ```
 
 They are strings! In Python, strings can be enclosed in either single quotes (`'`), or double quotes (`"`), or three of each (`'''` or `"""`). But what if your string includes a quote and you want to indicate this by using quotation marks *within* your string? Using the same quotation marks as used for defining the string will prematurely end the string.
 
-```{python eval = F}
+```{python, quote-nesting-error, eval = F}
 quote = "Freud: "The mind is like an iceberg, it floats with one-seventh of its bulk above water.""
 ```
 
-```{r echo = F}
+```{r, quote-nesting-error-message, echo = F}
 print(" Error: invalid syntax (<string>, line 1)")
 ```
 
 Instead, when using single quotes, you can use double quotes or triple quotes inside them:
 
-```{python}
+```{python, single-quoted-string}
 quote = 'Carl Rogers: "How can I provide a relationship which this person may use for his own personal growth?"'
 ```
 
 Double quoted strings can have single quotes and triple quotes inside them:
 
-```{python}
+```{python, apostrophe-in-string}
 quote = "Ivan Pavlov's best known findings relate to the phenomenon of conditioning."
 ```
 
@@ -208,25 +208,25 @@ Triple quoted strings can include either single or double quotes. Strings are ba
 
 A *boolean expression* is an expression that is either `True` or `False`.
 
-```{python}
+```{python, equality-comparison}
 print(5 == (3+2))
 print(5 == 6)
 
 ```
 
-```{python}
+```{python, string-concatenation}
 j = "hel"
 print("hello" == j + "lo")
 ```
 
 `True` and `False` are special values of type boolean; they are no strings!
 
-```{python}
+```{python, type-true}
 print(type(True))
 
 ```
 
-```{python}
+```{python, type-false}
 print(type(False))
 ```
 
@@ -242,7 +242,7 @@ A *boolean expression* consists of two operands, located left and right of a *re
 These operators are probably familiar to you, but their usage in Python differs from the mathematical symbols you know from highschool. One very common confusion surrounds the `equals` (`==`) operator. Remember that `=` is reserved as assignment operator and `==` is used for comparisons. There is no such thing as `=>` or `=<`.\
 Apart from that, boolean values can be handled exactly as any other value, that is, they can be assigned to variables, printed and so on.
 
-```{python}
+```{python, logical-variable}
 number_of_EC_required_for_BSA = 45
 passed_BSA = number_of_EC_required_for_BSA <= 50
 print(passed_BSA)
@@ -259,7 +259,7 @@ The situation in a Yeti is different in two ways:
 
 In Python, compound variables are usually referred to as *objects* and programming with objects is called *object-orientation (OO)*. The creation of objects in a program looks similar to storing the result of a function in a variable. The following line from Yeti2 reads a frame from the video device and assigns it to the variable Frame. A function that creates an object in such a way is called a *constructor*.
 
-```{python eval = F}
+```{python, read-video-frame, eval = F}
 Frame = video_capture.read()
 ```
 
@@ -267,7 +267,7 @@ In the Stroop program, most variables are created once and remain unchanged. The
 
 A Yeti is a program that operates on an input stream of YET, which according to the next program is many magnitudes larger.
 
-```{python}
+```{python, data-stream-volume}
 width    = 640
 height   = 480
 subpixel = 3
@@ -279,7 +279,7 @@ print("Yeti input data stream: " + str(input_rate) + " Bytes/second")
 
 A Yeti has to do some serious number crunching to get from the raw video frame to the measures for eyeball position. The following code block shows the *data processing chain* of Yeti2, which uses changes in brightness distribution to locate the eye ball.
 
-```{python eval = F}
+```{python, brightness-chain, eval = F}
 center_ratio = .85
 threshold = .05
 (x, y, w, h) = eye
@@ -313,7 +313,7 @@ The purpose of Yeti2 is to reduce data, but the user interface of the program is
 
 Let's take a look at how the user interface of Yeti2 is assembled:
 
-```{python eval = F}
+```{python, draw-output-overlay, eval = F}
 F_out = cv2.putText(F_eye, f"{bright_dist}", (100, 100), cv2.FONT_HERSHEY_SIMPLEX, 2, (255,0,0))
 F_out = cv2.putText(F_out, f"{Position}", (200, 200), cv2.FONT_HERSHEY_SIMPLEX, 2,
         font_col, thickness = 8)
@@ -325,29 +325,29 @@ Again, we see a chain of assignment operators. Function `cv2.putText` takes the 
 
 1.  Confusing the *assignment operator* (`=`) with the comparative *equals* operator (`==`). The first is solely used for assigning values to variables as in
 
-```{python}
+```{python, assignment-statement}
 myString = "This is an assignment statement"
 ```
 
 the latter for comparing two values
 
-```{python}
+```{python, comparison-valid}
 17+3 == 21
 ```
 
 Usually, when you confuse the assignment operator with the equals operator, you will get a syntax error.
 
-```{python eval = F}
+```{python, comparison-syntax-error, eval = F}
 17+3 = 21
 ```
 
-```{r echo = F}
+```{r, comparison-error-message, echo = F}
 print("Error: can't assign to operator (<string>, line 1)")
 ```
 
 2.  Forgetting to typecast other data types when incorporating them into strings
 
-```{python error = T}
+```{python, type-mismatch-error, error = T}
 myGrade = 8
 print("I got an " + myGrade + " on the last exam!")
 
@@ -355,14 +355,14 @@ print("I got an " + myGrade + " on the last exam!")
 
 Often, you will want to export some arithmetic result (such as a participant's reaction time in the Stroop Task program) or other non-string data out of the program, or you simply want to print them to the screen. This is usually done by first converting the data into type string and then writing to some external file (such as good old plain text files) or using the *print command* to write to the console. Quite often people forget that *explicit typecasting* is required when incorporating non-string values into a sequence of strings.
 
-```{python}
+```{python, cast-number-to-string}
 myGrade = 8
 print("I got an " + str(myGrade) + " on the last exam!")
 ```
 
 3.  Unintentionally cutting off decimals when typecasting to *integers*.
 
-```{python}
+```{python, mean-reaction-time}
 import numpy
 RT = [3.749,2.998,3.0147]
 mean_RT = numpy.mean(RT)
@@ -372,7 +372,7 @@ print("The subject had a mean reaction time of " + str(int(mean_RT)) + " seconds
 
 Obviously, a mean reaction time of exactly `3` is unrealistic with `3.749`, `2.998`, and `3.0147` as individual trial reaction times. You may feel inclined to typecast anyway to shorten the numerical string expression, but remember that typecasting from *float* to *integer* results in the loss of any information after the decimal point. Besides, usually there are better ways for rounding off floating points; consider the `round` method for instance.
 
-```{python}
+```{python, round-mean-reaction-time}
 import numpy
 RT = [3.749,2.998,3.0147]
 mean_RT = numpy.mean(RT)
@@ -381,7 +381,7 @@ print("The subject had a mean reaction time of " + str(round(mean_RT, 3)) + " se
 
 4.  Forgetting to reassign an updated value of a variable
 
-```{python}
+```{python, expression-discarded}
 count = 1
 count + 1
 print(count)
@@ -389,7 +389,7 @@ print(count)
 
 Remember to assign the new value of a mutated variable to either a new variable or the original variable name; your computer will otherwise ignore the variable mutation and keep the variable's old value in memory.
 
-```{python}
+```{python, increment-variable}
 count = 1
 count = count + 1
 print(count)
@@ -405,7 +405,7 @@ Apart from some general good debugging practices introduced in chapter 9 [Debugg
 
 2.  Once you are positive that the bug is not caused by confusing the equals with the assignment operator, you should take a closer look at the operations you perform on your variables (such as comparing variables or performing arithmetic calculations). Operations are another potential source of bugs.
 
-```{python, eval=F}
+```{python, number-plus-string-error, eval=F}
 a = 1
 b = "1"
 
@@ -414,7 +414,7 @@ print(a + b)
 
 In the example above, it is evident what goes wrong. `Strings` and `integers` cannot be added as two numbers are summed. A `type error` is thrown. However, in more complex programs it is often less evident where the bug originates from. Therefore, it is useful to check the data type of your variables at multiple locations in your program. Who knows, you may have unknowingly converted a variable to another type somewhere in your code and at a later moment, this causes your program to throw an error. Use the functions `type()` and `print()` to display the data type of your variables at different places in your code and hit `run`!
 
-```{python}
+```{python, different-types-same-look}
 a = 1
 b = "1"
 
@@ -424,7 +424,7 @@ print(type(b))
 
 3.  Performing operations on variables may still have unexpected results, even when no type errors are involved. Arithmetic (`+`, `-`, `*`, `/`) and *Boolean* operators follow rules of precedence. Arithmetic operators follow the same rules of precedence as you learned about in highschool mathematics. All arithmetic operators also precede any Boolean operator, meaning that in the code snippet below `1 + 1` is evaluated before being compared to `2`.
 
-```{python}
+```{python, integer-equality}
 print(1 + 1 == 2)
 ```
 
@@ -432,7 +432,7 @@ As a debugging strategy, it is useful to change the precedence of operators with
 
 4.  When you neither confused the equals with the assignment operator, nor made a type error, nor had false assumptions about operator precedences, the last resort is to mentally follow the flow of your program and to check whether your variables are assigned the expected value at all times. For instance, in the code snippet below, you may expect the result to be `1` since you added `2` to the initial value of `a` and `2 / 2` is `1`.
 
-```{python}
+```{python, float-division}
 a = 0
 b = 2
 
@@ -442,7 +442,7 @@ print(a / b)
 
 However, `a` was never assigned the new value of `2` and `0 / 2` is obviously `0`. It is easy to overlook such a mistake when scanning through your code. Therefore, checking which values are assigned to your variables as you read through your program is very helpful. You could for instance adjust the code above if you are puzzled why the result is not `2`, like so
 
-```{python}
+```{python, show-all-variables}
 a = 0
 b = 2
 
@@ -458,31 +458,31 @@ which prints first the value of `a`, then `b` and then the result of `a / b` to 
 
 What is the output of the following code snippets?
 
-```{python, eval=F}
+```{python, int-plus-float, eval=F}
 x = 2
 y = 1.0
 print(x + y)
 ```
 
-```{python, eval=F}
+```{python, float-from-int, eval=F}
 x = 4.0
 y = x + 1
 print(x + y)
 ```
 
-```{python, eval=F}
+```{python, int-plus-string-error, eval=F}
 x = 1
 y = "1.0"
 print(x + y)
 ```
 
-```{python, eval=F}
+```{python, int-equals-float, eval=F}
 x = 4
 y = 4.0
 print(x == y)
 ```
 
-```{python, eval=F}
+```{python, boolean-expression, eval=F}
 x = 12
 y = x / 2
 print(y >= 5)
@@ -502,19 +502,19 @@ Which statements about values are true?
 
 What is the output of the following mini programs?
 
-```{python, eval=F}
+```{python, cast-string-to-string, eval=F}
 x = "1.0"
 y = "1"
 print(x + y)
 ```
 
-```{python, eval=F}
+```{python, float-equality, eval=F}
 x = 5
 y = 2
 print((x / y) == 2.5)
 ```
 
-```{python, eval=F}
+```{python, sequential-updates, eval=F}
 x = 1
 x = x + 1
 x = x - 2

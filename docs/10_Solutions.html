@@ -6,9 +6,9 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="description" content="A primer for social science students who want to learn the art of coding.">
+<meta name="description" content="A primer for behavioural science students who want to learn the art of coding.">
 
-<title>9&nbsp; Solutions – Programming for Psychologists</title>
+<title>10&nbsp; Solutions – Programming for Psychologists</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -72,8 +72,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./09_Debugging.html" rel="next">
-<link href="./0x_Interaction.html" rel="prev">
+<link href="./09_Debugging.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
 <script src="site_libs/quarto-html/scrollable-regions/scrollable-regions.js" type="module"></script>
@@ -125,7 +124,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="Breadcrumbs"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./08_Solutions.html"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Solutions</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="Breadcrumbs"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./10_Solutions.html"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Solutions</span></a></li></ol></nav>
         <a class="flex-grow-1" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -203,20 +202,20 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./0x_Interaction.html" class="sidebar-item-text sidebar-link">
+  <a href="./08_Interaction.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Interaction</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./08_Solutions.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Solutions</span></span></a>
+  <a href="./09_Debugging.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Debugging and good programming practices</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./09_Debugging.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Debugging and good programming practices</span></span></a>
+  <a href="./10_Solutions.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Solutions</span></span></a>
   </div>
 </li>
     </ul>
@@ -229,65 +228,65 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#chapter-1.-introduction" id="toc-chapter-1.-introduction" class="nav-link active" data-scroll-target="#chapter-1.-introduction"><span class="header-section-number">9.1</span> Chapter 1. Introduction</a></li>
-  <li><a href="#chapter-2.-variables-values-and-types" id="toc-chapter-2.-variables-values-and-types" class="nav-link" data-scroll-target="#chapter-2.-variables-values-and-types"><span class="header-section-number">9.2</span> Chapter 2. Variables, values and types</a>
+  <li><a href="#chapter-1.-introduction" id="toc-chapter-1.-introduction" class="nav-link active" data-scroll-target="#chapter-1.-introduction"><span class="header-section-number">10.1</span> Chapter 1. Introduction</a></li>
+  <li><a href="#chapter-2.-variables-values-and-types" id="toc-chapter-2.-variables-values-and-types" class="nav-link" data-scroll-target="#chapter-2.-variables-values-and-types"><span class="header-section-number">10.2</span> Chapter 2. Variables, values and types</a>
   <ul class="collapse">
-  <li><a href="#exercise-1.-operators" id="toc-exercise-1.-operators" class="nav-link" data-scroll-target="#exercise-1.-operators"><span class="header-section-number">9.2.1</span> Exercise 1. Operators</a></li>
-  <li><a href="#exercise-2.-values" id="toc-exercise-2.-values" class="nav-link" data-scroll-target="#exercise-2.-values"><span class="header-section-number">9.2.2</span> Exercise 2. Values</a></li>
-  <li><a href="#exercise-3.-mini-programs" id="toc-exercise-3.-mini-programs" class="nav-link" data-scroll-target="#exercise-3.-mini-programs"><span class="header-section-number">9.2.3</span> Exercise 3. Mini programs</a></li>
-  <li><a href="#exercise-4.-debugging" id="toc-exercise-4.-debugging" class="nav-link" data-scroll-target="#exercise-4.-debugging"><span class="header-section-number">9.2.4</span> Exercise 4. Debugging</a></li>
-  <li><a href="#exercise-5.-string-concatenation" id="toc-exercise-5.-string-concatenation" class="nav-link" data-scroll-target="#exercise-5.-string-concatenation"><span class="header-section-number">9.2.5</span> Exercise 5. String concatenation</a></li>
-  <li><a href="#exercise-6.-variable-names" id="toc-exercise-6.-variable-names" class="nav-link" data-scroll-target="#exercise-6.-variable-names"><span class="header-section-number">9.2.6</span> Exercise 6. Variable names</a></li>
-  <li><a href="#exercise-7.-stroop-task-welcome-message" id="toc-exercise-7.-stroop-task-welcome-message" class="nav-link" data-scroll-target="#exercise-7.-stroop-task-welcome-message"><span class="header-section-number">9.2.7</span> Exercise 7. Stroop task welcome message</a></li>
-  <li><a href="#exercise-8.-printing" id="toc-exercise-8.-printing" class="nav-link" data-scroll-target="#exercise-8.-printing"><span class="header-section-number">9.2.8</span> Exercise 8. Printing</a></li>
-  <li><a href="#exercise-9.-using-python-as-calculator" id="toc-exercise-9.-using-python-as-calculator" class="nav-link" data-scroll-target="#exercise-9.-using-python-as-calculator"><span class="header-section-number">9.2.9</span> Exercise 9. Using Python as calculator</a></li>
-  <li><a href="#exercise-10.-a-boolean-puzzle" id="toc-exercise-10.-a-boolean-puzzle" class="nav-link" data-scroll-target="#exercise-10.-a-boolean-puzzle"><span class="header-section-number">9.2.10</span> Exercise 10. A Boolean puzzle</a></li>
+  <li><a href="#exercise-1.-operators" id="toc-exercise-1.-operators" class="nav-link" data-scroll-target="#exercise-1.-operators"><span class="header-section-number">10.2.1</span> Exercise 1. Operators</a></li>
+  <li><a href="#exercise-2.-values" id="toc-exercise-2.-values" class="nav-link" data-scroll-target="#exercise-2.-values"><span class="header-section-number">10.2.2</span> Exercise 2. Values</a></li>
+  <li><a href="#exercise-3.-mini-programs" id="toc-exercise-3.-mini-programs" class="nav-link" data-scroll-target="#exercise-3.-mini-programs"><span class="header-section-number">10.2.3</span> Exercise 3. Mini programs</a></li>
+  <li><a href="#exercise-4.-debugging" id="toc-exercise-4.-debugging" class="nav-link" data-scroll-target="#exercise-4.-debugging"><span class="header-section-number">10.2.4</span> Exercise 4. Debugging</a></li>
+  <li><a href="#exercise-5.-string-concatenation" id="toc-exercise-5.-string-concatenation" class="nav-link" data-scroll-target="#exercise-5.-string-concatenation"><span class="header-section-number">10.2.5</span> Exercise 5. String concatenation</a></li>
+  <li><a href="#exercise-6.-variable-names" id="toc-exercise-6.-variable-names" class="nav-link" data-scroll-target="#exercise-6.-variable-names"><span class="header-section-number">10.2.6</span> Exercise 6. Variable names</a></li>
+  <li><a href="#exercise-7.-stroop-task-welcome-message" id="toc-exercise-7.-stroop-task-welcome-message" class="nav-link" data-scroll-target="#exercise-7.-stroop-task-welcome-message"><span class="header-section-number">10.2.7</span> Exercise 7. Stroop task welcome message</a></li>
+  <li><a href="#exercise-8.-printing" id="toc-exercise-8.-printing" class="nav-link" data-scroll-target="#exercise-8.-printing"><span class="header-section-number">10.2.8</span> Exercise 8. Printing</a></li>
+  <li><a href="#exercise-9.-using-python-as-calculator" id="toc-exercise-9.-using-python-as-calculator" class="nav-link" data-scroll-target="#exercise-9.-using-python-as-calculator"><span class="header-section-number">10.2.9</span> Exercise 9. Using Python as calculator</a></li>
+  <li><a href="#exercise-10.-a-boolean-puzzle" id="toc-exercise-10.-a-boolean-puzzle" class="nav-link" data-scroll-target="#exercise-10.-a-boolean-puzzle"><span class="header-section-number">10.2.10</span> Exercise 10. A Boolean puzzle</a></li>
   </ul></li>
-  <li><a href="#chapter-3.-conditionals" id="toc-chapter-3.-conditionals" class="nav-link" data-scroll-target="#chapter-3.-conditionals"><span class="header-section-number">9.3</span> Chapter 3. Conditionals</a>
+  <li><a href="#chapter-3.-conditionals" id="toc-chapter-3.-conditionals" class="nav-link" data-scroll-target="#chapter-3.-conditionals"><span class="header-section-number">10.3</span> Chapter 3. Conditionals</a>
   <ul class="collapse">
-  <li><a href="#exercise-1.-boolean-logic" id="toc-exercise-1.-boolean-logic" class="nav-link" data-scroll-target="#exercise-1.-boolean-logic"><span class="header-section-number">9.3.1</span> Exercise 1. Boolean logic</a></li>
-  <li><a href="#exercise-2.-state-charts" id="toc-exercise-2.-state-charts" class="nav-link" data-scroll-target="#exercise-2.-state-charts"><span class="header-section-number">9.3.2</span> Exercise 2. State charts</a></li>
-  <li><a href="#exercise-3.-transition-tables" id="toc-exercise-3.-transition-tables" class="nav-link" data-scroll-target="#exercise-3.-transition-tables"><span class="header-section-number">9.3.3</span> Exercise 3. Transition tables</a></li>
-  <li><a href="#exercise-4.-mini-programs" id="toc-exercise-4.-mini-programs" class="nav-link" data-scroll-target="#exercise-4.-mini-programs"><span class="header-section-number">9.3.4</span> Exercise 4. Mini programs</a></li>
-  <li><a href="#exercise-5.-following-the-control-flow" id="toc-exercise-5.-following-the-control-flow" class="nav-link" data-scroll-target="#exercise-5.-following-the-control-flow"><span class="header-section-number">9.3.5</span> Exercise 5. Following the control flow</a></li>
-  <li><a href="#exercise-6.-indentation" id="toc-exercise-6.-indentation" class="nav-link" data-scroll-target="#exercise-6.-indentation"><span class="header-section-number">9.3.6</span> Exercise 6. Indentation</a></li>
-  <li><a href="#exercise-7.-pseudo-code-conditionals" id="toc-exercise-7.-pseudo-code-conditionals" class="nav-link" data-scroll-target="#exercise-7.-pseudo-code-conditionals"><span class="header-section-number">9.3.7</span> Exercise 7. Pseudo code conditionals</a></li>
-  <li><a href="#exercise-8.-modify-stroop-task" id="toc-exercise-8.-modify-stroop-task" class="nav-link" data-scroll-target="#exercise-8.-modify-stroop-task"><span class="header-section-number">9.3.8</span> Exercise 8. Modify Stroop Task</a></li>
-  <li><a href="#exercise-9.-simplify-nested-conditionals" id="toc-exercise-9.-simplify-nested-conditionals" class="nav-link" data-scroll-target="#exercise-9.-simplify-nested-conditionals"><span class="header-section-number">9.3.9</span> Exercise 9. Simplify nested conditionals</a></li>
-  <li><a href="#exercise-10.-flow-chart-conditionals" id="toc-exercise-10.-flow-chart-conditionals" class="nav-link" data-scroll-target="#exercise-10.-flow-chart-conditionals"><span class="header-section-number">9.3.10</span> Exercise 10. Flow chart conditionals</a></li>
+  <li><a href="#exercise-1.-boolean-logic" id="toc-exercise-1.-boolean-logic" class="nav-link" data-scroll-target="#exercise-1.-boolean-logic"><span class="header-section-number">10.3.1</span> Exercise 1. Boolean logic</a></li>
+  <li><a href="#exercise-2.-state-charts" id="toc-exercise-2.-state-charts" class="nav-link" data-scroll-target="#exercise-2.-state-charts"><span class="header-section-number">10.3.2</span> Exercise 2. State charts</a></li>
+  <li><a href="#exercise-3.-transition-tables" id="toc-exercise-3.-transition-tables" class="nav-link" data-scroll-target="#exercise-3.-transition-tables"><span class="header-section-number">10.3.3</span> Exercise 3. Transition tables</a></li>
+  <li><a href="#exercise-4.-mini-programs" id="toc-exercise-4.-mini-programs" class="nav-link" data-scroll-target="#exercise-4.-mini-programs"><span class="header-section-number">10.3.4</span> Exercise 4. Mini programs</a></li>
+  <li><a href="#exercise-5.-following-the-control-flow" id="toc-exercise-5.-following-the-control-flow" class="nav-link" data-scroll-target="#exercise-5.-following-the-control-flow"><span class="header-section-number">10.3.5</span> Exercise 5. Following the control flow</a></li>
+  <li><a href="#exercise-6.-indentation" id="toc-exercise-6.-indentation" class="nav-link" data-scroll-target="#exercise-6.-indentation"><span class="header-section-number">10.3.6</span> Exercise 6. Indentation</a></li>
+  <li><a href="#exercise-7.-pseudo-code-conditionals" id="toc-exercise-7.-pseudo-code-conditionals" class="nav-link" data-scroll-target="#exercise-7.-pseudo-code-conditionals"><span class="header-section-number">10.3.7</span> Exercise 7. Pseudo code conditionals</a></li>
+  <li><a href="#exercise-8.-modify-stroop-task" id="toc-exercise-8.-modify-stroop-task" class="nav-link" data-scroll-target="#exercise-8.-modify-stroop-task"><span class="header-section-number">10.3.8</span> Exercise 8. Modify Stroop Task</a></li>
+  <li><a href="#exercise-9.-simplify-nested-conditionals" id="toc-exercise-9.-simplify-nested-conditionals" class="nav-link" data-scroll-target="#exercise-9.-simplify-nested-conditionals"><span class="header-section-number">10.3.9</span> Exercise 9. Simplify nested conditionals</a></li>
+  <li><a href="#exercise-10.-flow-chart-conditionals" id="toc-exercise-10.-flow-chart-conditionals" class="nav-link" data-scroll-target="#exercise-10.-flow-chart-conditionals"><span class="header-section-number">10.3.10</span> Exercise 10. Flow chart conditionals</a></li>
   </ul></li>
-  <li><a href="#chapter-4.-lists" id="toc-chapter-4.-lists" class="nav-link" data-scroll-target="#chapter-4.-lists"><span class="header-section-number">9.4</span> Chapter 4. Lists</a>
+  <li><a href="#chapter-4.-lists" id="toc-chapter-4.-lists" class="nav-link" data-scroll-target="#chapter-4.-lists"><span class="header-section-number">10.4</span> Chapter 4. Lists</a>
   <ul class="collapse">
-  <li><a href="#exercise-1.-indexing" id="toc-exercise-1.-indexing" class="nav-link" data-scroll-target="#exercise-1.-indexing"><span class="header-section-number">9.4.1</span> Exercise 1. Indexing</a></li>
-  <li><a href="#exercise-2.-debugging" id="toc-exercise-2.-debugging" class="nav-link" data-scroll-target="#exercise-2.-debugging"><span class="header-section-number">9.4.2</span> Exercise 2. Debugging</a></li>
-  <li><a href="#exercise-3.-mini-programs-1" id="toc-exercise-3.-mini-programs-1" class="nav-link" data-scroll-target="#exercise-3.-mini-programs-1"><span class="header-section-number">9.4.3</span> Exercise 3. Mini programs</a></li>
-  <li><a href="#exercise-1.-shopping-list" id="toc-exercise-1.-shopping-list" class="nav-link" data-scroll-target="#exercise-1.-shopping-list"><span class="header-section-number">9.4.4</span> Exercise 1. Shopping list</a></li>
-  <li><a href="#exercise-2.-dictionnaries" id="toc-exercise-2.-dictionnaries" class="nav-link" data-scroll-target="#exercise-2.-dictionnaries"><span class="header-section-number">9.4.5</span> Exercise 2. Dictionnaries</a></li>
-  <li><a href="#exercise-3.-selecting-elements" id="toc-exercise-3.-selecting-elements" class="nav-link" data-scroll-target="#exercise-3.-selecting-elements"><span class="header-section-number">9.4.6</span> Exercise 3. Selecting elements</a></li>
-  <li><a href="#exercise-4.-adjust-a-dictionnary-data-set" id="toc-exercise-4.-adjust-a-dictionnary-data-set" class="nav-link" data-scroll-target="#exercise-4.-adjust-a-dictionnary-data-set"><span class="header-section-number">9.4.7</span> Exercise 4. Adjust a dictionnary data set</a></li>
-  <li><a href="#exercise-5.-a-dictionnary-data-set" id="toc-exercise-5.-a-dictionnary-data-set" class="nav-link" data-scroll-target="#exercise-5.-a-dictionnary-data-set"><span class="header-section-number">9.4.8</span> Exercise 5. A dictionnary data set</a></li>
-  <li><a href="#exercise-6.-stroop-extension" id="toc-exercise-6.-stroop-extension" class="nav-link" data-scroll-target="#exercise-6.-stroop-extension"><span class="header-section-number">9.4.9</span> Exercise 6. Stroop extension</a></li>
+  <li><a href="#exercise-1.-indexing" id="toc-exercise-1.-indexing" class="nav-link" data-scroll-target="#exercise-1.-indexing"><span class="header-section-number">10.4.1</span> Exercise 1. Indexing</a></li>
+  <li><a href="#exercise-2.-debugging" id="toc-exercise-2.-debugging" class="nav-link" data-scroll-target="#exercise-2.-debugging"><span class="header-section-number">10.4.2</span> Exercise 2. Debugging</a></li>
+  <li><a href="#exercise-3.-mini-programs-1" id="toc-exercise-3.-mini-programs-1" class="nav-link" data-scroll-target="#exercise-3.-mini-programs-1"><span class="header-section-number">10.4.3</span> Exercise 3. Mini programs</a></li>
+  <li><a href="#exercise-1.-shopping-list" id="toc-exercise-1.-shopping-list" class="nav-link" data-scroll-target="#exercise-1.-shopping-list"><span class="header-section-number">10.4.4</span> Exercise 1. Shopping list</a></li>
+  <li><a href="#exercise-2.-dictionnaries" id="toc-exercise-2.-dictionnaries" class="nav-link" data-scroll-target="#exercise-2.-dictionnaries"><span class="header-section-number">10.4.5</span> Exercise 2. Dictionnaries</a></li>
+  <li><a href="#exercise-3.-selecting-elements" id="toc-exercise-3.-selecting-elements" class="nav-link" data-scroll-target="#exercise-3.-selecting-elements"><span class="header-section-number">10.4.6</span> Exercise 3. Selecting elements</a></li>
+  <li><a href="#exercise-4.-adjust-a-dictionnary-data-set" id="toc-exercise-4.-adjust-a-dictionnary-data-set" class="nav-link" data-scroll-target="#exercise-4.-adjust-a-dictionnary-data-set"><span class="header-section-number">10.4.7</span> Exercise 4. Adjust a dictionnary data set</a></li>
+  <li><a href="#exercise-5.-a-dictionnary-data-set" id="toc-exercise-5.-a-dictionnary-data-set" class="nav-link" data-scroll-target="#exercise-5.-a-dictionnary-data-set"><span class="header-section-number">10.4.8</span> Exercise 5. A dictionnary data set</a></li>
+  <li><a href="#exercise-6.-stroop-extension" id="toc-exercise-6.-stroop-extension" class="nav-link" data-scroll-target="#exercise-6.-stroop-extension"><span class="header-section-number">10.4.9</span> Exercise 6. Stroop extension</a></li>
   </ul></li>
-  <li><a href="#chapter-5.-loops" id="toc-chapter-5.-loops" class="nav-link" data-scroll-target="#chapter-5.-loops"><span class="header-section-number">9.5</span> Chapter 5. Loops</a>
+  <li><a href="#chapter-5.-loops" id="toc-chapter-5.-loops" class="nav-link" data-scroll-target="#chapter-5.-loops"><span class="header-section-number">10.5</span> Chapter 5. Loops</a>
   <ul class="collapse">
-  <li><a href="#exercise-1.-following-the-control-flow-i" id="toc-exercise-1.-following-the-control-flow-i" class="nav-link" data-scroll-target="#exercise-1.-following-the-control-flow-i"><span class="header-section-number">9.5.1</span> Exercise 1. Following the control flow I</a></li>
-  <li><a href="#exercise-2.-debugging-i" id="toc-exercise-2.-debugging-i" class="nav-link" data-scroll-target="#exercise-2.-debugging-i"><span class="header-section-number">9.5.2</span> Exercise 2. Debugging I</a></li>
-  <li><a href="#exercise-3.-controlling-the-flow" id="toc-exercise-3.-controlling-the-flow" class="nav-link" data-scroll-target="#exercise-3.-controlling-the-flow"><span class="header-section-number">9.5.3</span> Exercise 3. Controlling the flow</a></li>
-  <li><a href="#exercise-4.-following-the-control-flow-ii" id="toc-exercise-4.-following-the-control-flow-ii" class="nav-link" data-scroll-target="#exercise-4.-following-the-control-flow-ii"><span class="header-section-number">9.5.4</span> Exercise 4. Following the control flow II</a></li>
-  <li><a href="#exercise-5.-debugging" id="toc-exercise-5.-debugging" class="nav-link" data-scroll-target="#exercise-5.-debugging"><span class="header-section-number">9.5.5</span> Exercise 5. Debugging</a></li>
-  <li><a href="#exercise-6.-nested-loops" id="toc-exercise-6.-nested-loops" class="nav-link" data-scroll-target="#exercise-6.-nested-loops"><span class="header-section-number">9.5.6</span> Exercise 6. Nested loops</a></li>
-  <li><a href="#exercise-7.-data-transformation-using-loops" id="toc-exercise-7.-data-transformation-using-loops" class="nav-link" data-scroll-target="#exercise-7.-data-transformation-using-loops"><span class="header-section-number">9.5.7</span> Exercise 7. Data transformation using loops</a></li>
-  <li><a href="#exercise-8.-calculating-a-mean" id="toc-exercise-8.-calculating-a-mean" class="nav-link" data-scroll-target="#exercise-8.-calculating-a-mean"><span class="header-section-number">9.5.8</span> Exercise 8. Calculating a mean</a></li>
-  <li><a href="#exercise-9.-a-guessing-game" id="toc-exercise-9.-a-guessing-game" class="nav-link" data-scroll-target="#exercise-9.-a-guessing-game"><span class="header-section-number">9.5.9</span> Exercise 9. A guessing game</a></li>
+  <li><a href="#exercise-1.-following-the-control-flow-i" id="toc-exercise-1.-following-the-control-flow-i" class="nav-link" data-scroll-target="#exercise-1.-following-the-control-flow-i"><span class="header-section-number">10.5.1</span> Exercise 1. Following the control flow I</a></li>
+  <li><a href="#exercise-2.-debugging-i" id="toc-exercise-2.-debugging-i" class="nav-link" data-scroll-target="#exercise-2.-debugging-i"><span class="header-section-number">10.5.2</span> Exercise 2. Debugging I</a></li>
+  <li><a href="#exercise-3.-controlling-the-flow" id="toc-exercise-3.-controlling-the-flow" class="nav-link" data-scroll-target="#exercise-3.-controlling-the-flow"><span class="header-section-number">10.5.3</span> Exercise 3. Controlling the flow</a></li>
+  <li><a href="#exercise-4.-following-the-control-flow-ii" id="toc-exercise-4.-following-the-control-flow-ii" class="nav-link" data-scroll-target="#exercise-4.-following-the-control-flow-ii"><span class="header-section-number">10.5.4</span> Exercise 4. Following the control flow II</a></li>
+  <li><a href="#exercise-5.-debugging" id="toc-exercise-5.-debugging" class="nav-link" data-scroll-target="#exercise-5.-debugging"><span class="header-section-number">10.5.5</span> Exercise 5. Debugging</a></li>
+  <li><a href="#exercise-6.-nested-loops" id="toc-exercise-6.-nested-loops" class="nav-link" data-scroll-target="#exercise-6.-nested-loops"><span class="header-section-number">10.5.6</span> Exercise 6. Nested loops</a></li>
+  <li><a href="#exercise-7.-data-transformation-using-loops" id="toc-exercise-7.-data-transformation-using-loops" class="nav-link" data-scroll-target="#exercise-7.-data-transformation-using-loops"><span class="header-section-number">10.5.7</span> Exercise 7. Data transformation using loops</a></li>
+  <li><a href="#exercise-8.-calculating-a-mean" id="toc-exercise-8.-calculating-a-mean" class="nav-link" data-scroll-target="#exercise-8.-calculating-a-mean"><span class="header-section-number">10.5.8</span> Exercise 8. Calculating a mean</a></li>
+  <li><a href="#exercise-9.-a-guessing-game" id="toc-exercise-9.-a-guessing-game" class="nav-link" data-scroll-target="#exercise-9.-a-guessing-game"><span class="header-section-number">10.5.9</span> Exercise 9. A guessing game</a></li>
   </ul></li>
-  <li><a href="#chapter-6.-functions" id="toc-chapter-6.-functions" class="nav-link" data-scroll-target="#chapter-6.-functions"><span class="header-section-number">9.6</span> Chapter 6. Functions</a>
+  <li><a href="#chapter-6.-functions" id="toc-chapter-6.-functions" class="nav-link" data-scroll-target="#chapter-6.-functions"><span class="header-section-number">10.6</span> Chapter 6. Functions</a>
   <ul class="collapse">
-  <li><a href="#exercise-1.-following-the-control-flow" id="toc-exercise-1.-following-the-control-flow" class="nav-link" data-scroll-target="#exercise-1.-following-the-control-flow"><span class="header-section-number">9.6.1</span> Exercise 1. Following the control flow</a></li>
-  <li><a href="#exercise-2.-an-imperfect-list-sorting-attempt" id="toc-exercise-2.-an-imperfect-list-sorting-attempt" class="nav-link" data-scroll-target="#exercise-2.-an-imperfect-list-sorting-attempt"><span class="header-section-number">9.6.2</span> Exercise 2. An imperfect list sorting attempt</a></li>
-  <li><a href="#exercise-3.-an-errorneous-sorting-algorithm" id="toc-exercise-3.-an-errorneous-sorting-algorithm" class="nav-link" data-scroll-target="#exercise-3.-an-errorneous-sorting-algorithm"><span class="header-section-number">9.6.3</span> Exercise 3. An errorneous sorting algorithm</a></li>
-  <li><a href="#exercise-4." id="toc-exercise-4." class="nav-link" data-scroll-target="#exercise-4."><span class="header-section-number">9.6.4</span> Exercise 4.</a></li>
-  <li><a href="#exercise-5." id="toc-exercise-5." class="nav-link" data-scroll-target="#exercise-5."><span class="header-section-number">9.6.5</span> Exercise 5.</a></li>
-  <li><a href="#exercise-6.-insertion-sort-algorithm" id="toc-exercise-6.-insertion-sort-algorithm" class="nav-link" data-scroll-target="#exercise-6.-insertion-sort-algorithm"><span class="header-section-number">9.6.6</span> Exercise 6. Insertion sort algorithm</a></li>
+  <li><a href="#exercise-1.-following-the-control-flow" id="toc-exercise-1.-following-the-control-flow" class="nav-link" data-scroll-target="#exercise-1.-following-the-control-flow"><span class="header-section-number">10.6.1</span> Exercise 1. Following the control flow</a></li>
+  <li><a href="#exercise-2.-an-imperfect-list-sorting-attempt" id="toc-exercise-2.-an-imperfect-list-sorting-attempt" class="nav-link" data-scroll-target="#exercise-2.-an-imperfect-list-sorting-attempt"><span class="header-section-number">10.6.2</span> Exercise 2. An imperfect list sorting attempt</a></li>
+  <li><a href="#exercise-3.-an-errorneous-sorting-algorithm" id="toc-exercise-3.-an-errorneous-sorting-algorithm" class="nav-link" data-scroll-target="#exercise-3.-an-errorneous-sorting-algorithm"><span class="header-section-number">10.6.3</span> Exercise 3. An errorneous sorting algorithm</a></li>
+  <li><a href="#exercise-4." id="toc-exercise-4." class="nav-link" data-scroll-target="#exercise-4."><span class="header-section-number">10.6.4</span> Exercise 4.</a></li>
+  <li><a href="#exercise-5." id="toc-exercise-5." class="nav-link" data-scroll-target="#exercise-5."><span class="header-section-number">10.6.5</span> Exercise 5.</a></li>
+  <li><a href="#exercise-6.-insertion-sort-algorithm" id="toc-exercise-6.-insertion-sort-algorithm" class="nav-link" data-scroll-target="#exercise-6.-insertion-sort-algorithm"><span class="header-section-number">10.6.6</span> Exercise 6. Insertion sort algorithm</a></li>
   </ul></li>
   </ul>
 </nav>
@@ -297,7 +296,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title"><span id="sec-solutions" class="quarto-section-identifier"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Solutions</span></span></h1>
+<h1 class="title"><span id="sec-solutions" class="quarto-section-identifier"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Solutions</span></span></h1>
 </div>
 
 
@@ -314,13 +313,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
-<section id="chapter-1.-introduction" class="level2" data-number="9.1">
-<h2 data-number="9.1" class="anchored" data-anchor-id="chapter-1.-introduction"><span class="header-section-number">9.1</span> Chapter 1. Introduction</h2>
+<section id="chapter-1.-introduction" class="level2" data-number="10.1">
+<h2 data-number="10.1" class="anchored" data-anchor-id="chapter-1.-introduction"><span class="header-section-number">10.1</span> Chapter 1. Introduction</h2>
 </section>
-<section id="chapter-2.-variables-values-and-types" class="level2" data-number="9.2">
-<h2 data-number="9.2" class="anchored" data-anchor-id="chapter-2.-variables-values-and-types"><span class="header-section-number">9.2</span> Chapter 2. Variables, values and types</h2>
-<section id="exercise-1.-operators" class="level3" data-number="9.2.1">
-<h3 data-number="9.2.1" class="anchored" data-anchor-id="exercise-1.-operators"><span class="header-section-number">9.2.1</span> Exercise 1. Operators</h3>
+<section id="chapter-2.-variables-values-and-types" class="level2" data-number="10.2">
+<h2 data-number="10.2" class="anchored" data-anchor-id="chapter-2.-variables-values-and-types"><span class="header-section-number">10.2</span> Chapter 2. Variables, values and types</h2>
+<section id="exercise-1.-operators" class="level3" data-number="10.2.1">
+<h3 data-number="10.2.1" class="anchored" data-anchor-id="exercise-1.-operators"><span class="header-section-number">10.2.1</span> Exercise 1. Operators</h3>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> <span class="dv">2</span></span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>y <span class="op">=</span> <span class="fl">1.0</span></span>
@@ -357,16 +356,16 @@ print(x + y)</code></pre>
 </div>
 </div>
 </section>
-<section id="exercise-2.-values" class="level3" data-number="9.2.2">
-<h3 data-number="9.2.2" class="anchored" data-anchor-id="exercise-2.-values"><span class="header-section-number">9.2.2</span> Exercise 2. Values</h3>
+<section id="exercise-2.-values" class="level3" data-number="10.2.2">
+<h3 data-number="10.2.2" class="anchored" data-anchor-id="exercise-2.-values"><span class="header-section-number">10.2.2</span> Exercise 2. Values</h3>
 <p>Statements 2 and 4 are true</p>
 <ul>
 <li>Each value exclusively belongs to one data type</li>
 <li>Variables can be assigned any type of value</li>
 </ul>
 </section>
-<section id="exercise-3.-mini-programs" class="level3" data-number="9.2.3">
-<h3 data-number="9.2.3" class="anchored" data-anchor-id="exercise-3.-mini-programs"><span class="header-section-number">9.2.3</span> Exercise 3. Mini programs</h3>
+<section id="exercise-3.-mini-programs" class="level3" data-number="10.2.3">
+<h3 data-number="10.2.3" class="anchored" data-anchor-id="exercise-3.-mini-programs"><span class="header-section-number">10.2.3</span> Exercise 3. Mini programs</h3>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> <span class="st">"1.0"</span></span>
 <span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>y <span class="op">=</span> <span class="st">"1"</span></span>
@@ -393,8 +392,8 @@ print(x + y)</code></pre>
 </div>
 </div>
 </section>
-<section id="exercise-4.-debugging" class="level3" data-number="9.2.4">
-<h3 data-number="9.2.4" class="anchored" data-anchor-id="exercise-4.-debugging"><span class="header-section-number">9.2.4</span> Exercise 4. Debugging</h3>
+<section id="exercise-4.-debugging" class="level3" data-number="10.2.4">
+<h3 data-number="10.2.4" class="anchored" data-anchor-id="exercise-4.-debugging"><span class="header-section-number">10.2.4</span> Exercise 4. Debugging</h3>
 <p>What goes wrong in the following code snippets?</p>
 <pre><code>x = 1
 2x = 2
@@ -415,8 +414,8 @@ print(This is + name)
 <li>The content inside the brackets of the <code>print</code> statement lacks quotation marks</li>
 </ul>
 </section>
-<section id="exercise-5.-string-concatenation" class="level3" data-number="9.2.5">
-<h3 data-number="9.2.5" class="anchored" data-anchor-id="exercise-5.-string-concatenation"><span class="header-section-number">9.2.5</span> Exercise 5. String concatenation</h3>
+<section id="exercise-5.-string-concatenation" class="level3" data-number="10.2.5">
+<h3 data-number="10.2.5" class="anchored" data-anchor-id="exercise-5.-string-concatenation"><span class="header-section-number">10.2.5</span> Exercise 5. String concatenation</h3>
 <ol type="1">
 <li></li>
 </ol>
@@ -435,8 +434,8 @@ print(This is + name)
 <span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a>year <span class="op">=</span> <span class="st">"47"</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </section>
-<section id="exercise-6.-variable-names" class="level3" data-number="9.2.6">
-<h3 data-number="9.2.6" class="anchored" data-anchor-id="exercise-6.-variable-names"><span class="header-section-number">9.2.6</span> Exercise 6. Variable names</h3>
+<section id="exercise-6.-variable-names" class="level3" data-number="10.2.6">
+<h3 data-number="10.2.6" class="anchored" data-anchor-id="exercise-6.-variable-names"><span class="header-section-number">10.2.6</span> Exercise 6. Variable names</h3>
 <ul>
 <li><code>2ndMan</code>: the variable name starts with a digit</li>
 <li><code>m@n3</code>: the <code>@</code> signs is an illegal character</li>
@@ -445,8 +444,8 @@ print(This is + name)
 <li><code>8thMan</code>: starting with a digit</li>
 </ul>
 </section>
-<section id="exercise-7.-stroop-task-welcome-message" class="level3" data-number="9.2.7">
-<h3 data-number="9.2.7" class="anchored" data-anchor-id="exercise-7.-stroop-task-welcome-message"><span class="header-section-number">9.2.7</span> Exercise 7. Stroop task welcome message</h3>
+<section id="exercise-7.-stroop-task-welcome-message" class="level3" data-number="10.2.7">
+<h3 data-number="10.2.7" class="anchored" data-anchor-id="exercise-7.-stroop-task-welcome-message"><span class="header-section-number">10.2.7</span> Exercise 7. Stroop task welcome message</h3>
 <p><em>Note</em>: The below description of what the specified code does is not expected from students. The intention is that they think about what happens internally in PyGame when implementing a task such as ‘printing something to the screen’.</p>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb20"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a>text_surface <span class="op">=</span> font.render(msgText,<span class="va">True</span>,msgColor,BACKGR_COL)</span>
@@ -461,8 +460,8 @@ print(This is + name)
 </ul>
 <p>For further clarification, consult the <a href="http://www.pygame.org/docs/ref/font.html">PyGame documentation</a>.</p>
 </section>
-<section id="exercise-8.-printing" class="level3" data-number="9.2.8">
-<h3 data-number="9.2.8" class="anchored" data-anchor-id="exercise-8.-printing"><span class="header-section-number">9.2.8</span> Exercise 8. Printing</h3>
+<section id="exercise-8.-printing" class="level3" data-number="10.2.8">
+<h3 data-number="10.2.8" class="anchored" data-anchor-id="exercise-8.-printing"><span class="header-section-number">10.2.8</span> Exercise 8. Printing</h3>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb21"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a>participants <span class="op">=</span> <span class="dv">52</span></span>
 <span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a>trials <span class="op">=</span> <span class="dv">200</span></span>
@@ -520,8 +519,8 @@ print(This is + name)
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb39"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb39-1"><a href="#cb39-1" aria-hidden="true" tabindex="-1"></a>trials_pp <span class="op">=</span> <span class="bu">int</span>(trials) <span class="op">*</span> experimental_sessions</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </section>
-<section id="exercise-9.-using-python-as-calculator" class="level3" data-number="9.2.9">
-<h3 data-number="9.2.9" class="anchored" data-anchor-id="exercise-9.-using-python-as-calculator"><span class="header-section-number">9.2.9</span> Exercise 9. Using Python as calculator</h3>
+<section id="exercise-9.-using-python-as-calculator" class="level3" data-number="10.2.9">
+<h3 data-number="10.2.9" class="anchored" data-anchor-id="exercise-9.-using-python-as-calculator"><span class="header-section-number">10.2.9</span> Exercise 9. Using Python as calculator</h3>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb40"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb40-1"><a href="#cb40-1" aria-hidden="true" tabindex="-1"></a>n1 <span class="op">=</span> <span class="dv">37</span></span>
 <span id="cb40-2"><a href="#cb40-2" aria-hidden="true" tabindex="-1"></a>n2 <span class="op">=</span> <span class="dv">456</span></span>
@@ -538,8 +537,8 @@ print(This is + name)
 </div>
 </div>
 </section>
-<section id="exercise-10.-a-boolean-puzzle" class="level3" data-number="9.2.10">
-<h3 data-number="9.2.10" class="anchored" data-anchor-id="exercise-10.-a-boolean-puzzle"><span class="header-section-number">9.2.10</span> Exercise 10. A Boolean puzzle</h3>
+<section id="exercise-10.-a-boolean-puzzle" class="level3" data-number="10.2.10">
+<h3 data-number="10.2.10" class="anchored" data-anchor-id="exercise-10.-a-boolean-puzzle"><span class="header-section-number">10.2.10</span> Exercise 10. A Boolean puzzle</h3>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb42"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb42-1"><a href="#cb42-1" aria-hidden="true" tabindex="-1"></a>n1 <span class="op">=</span> <span class="dv">238</span></span>
 <span id="cb42-2"><a href="#cb42-2" aria-hidden="true" tabindex="-1"></a>n2 <span class="op">=</span> <span class="dv">17</span></span>
@@ -576,10 +575,10 @@ print(This is + name)
 <p>Only for <code>n1*n2/float(n1) == n2</code> hardcoding will not work.</p>
 </section>
 </section>
-<section id="chapter-3.-conditionals" class="level2" data-number="9.3">
-<h2 data-number="9.3" class="anchored" data-anchor-id="chapter-3.-conditionals"><span class="header-section-number">9.3</span> Chapter 3. Conditionals</h2>
-<section id="exercise-1.-boolean-logic" class="level3" data-number="9.3.1">
-<h3 data-number="9.3.1" class="anchored" data-anchor-id="exercise-1.-boolean-logic"><span class="header-section-number">9.3.1</span> Exercise 1. Boolean logic</h3>
+<section id="chapter-3.-conditionals" class="level2" data-number="10.3">
+<h2 data-number="10.3" class="anchored" data-anchor-id="chapter-3.-conditionals"><span class="header-section-number">10.3</span> Chapter 3. Conditionals</h2>
+<section id="exercise-1.-boolean-logic" class="level3" data-number="10.3.1">
+<h3 data-number="10.3.1" class="anchored" data-anchor-id="exercise-1.-boolean-logic"><span class="header-section-number">10.3.1</span> Exercise 1. Boolean logic</h3>
 <p>What is the output of the following code snippets?</p>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb55"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb55-1"><a href="#cb55-1" aria-hidden="true" tabindex="-1"></a>a <span class="op">=</span> <span class="va">True</span></span>
@@ -645,8 +644,8 @@ print(This is + name)
 </div>
 </div>
 </section>
-<section id="exercise-2.-state-charts" class="level3" data-number="9.3.2">
-<h3 data-number="9.3.2" class="anchored" data-anchor-id="exercise-2.-state-charts"><span class="header-section-number">9.3.2</span> Exercise 2. State charts</h3>
+<section id="exercise-2.-state-charts" class="level3" data-number="10.3.2">
+<h3 data-number="10.3.2" class="anchored" data-anchor-id="exercise-2.-state-charts"><span class="header-section-number">10.3.2</span> Exercise 2. State charts</h3>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb69"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb69-1"><a href="#cb69-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Variables</span></span>
 <span id="cb69-2"><a href="#cb69-2" aria-hidden="true" tabindex="-1"></a>STATE <span class="op">=</span> <span class="st">"A"</span></span>
@@ -674,8 +673,8 @@ print(This is + name)
 <span id="cb69-24"><a href="#cb69-24" aria-hidden="true" tabindex="-1"></a>              sys.exit()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </section>
-<section id="exercise-3.-transition-tables" class="level3" data-number="9.3.3">
-<h3 data-number="9.3.3" class="anchored" data-anchor-id="exercise-3.-transition-tables"><span class="header-section-number">9.3.3</span> Exercise 3. Transition tables</h3>
+<section id="exercise-3.-transition-tables" class="level3" data-number="10.3.3">
+<h3 data-number="10.3.3" class="anchored" data-anchor-id="exercise-3.-transition-tables"><span class="header-section-number">10.3.3</span> Exercise 3. Transition tables</h3>
 <p>For the following code snippet, make a transition table.</p>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb70"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb70-1"><a href="#cb70-1" aria-hidden="true" tabindex="-1"></a>STATE <span class="op">=</span> <span class="st">"A"</span></span>
@@ -789,8 +788,8 @@ print(This is + name)
 </tbody>
 </table>
 </section>
-<section id="exercise-4.-mini-programs" class="level3" data-number="9.3.4">
-<h3 data-number="9.3.4" class="anchored" data-anchor-id="exercise-4.-mini-programs"><span class="header-section-number">9.3.4</span> Exercise 4. Mini programs</h3>
+<section id="exercise-4.-mini-programs" class="level3" data-number="10.3.4">
+<h3 data-number="10.3.4" class="anchored" data-anchor-id="exercise-4.-mini-programs"><span class="header-section-number">10.3.4</span> Exercise 4. Mini programs</h3>
 <p>What is the output of the following mini programs?</p>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb71"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb71-1"><a href="#cb71-1" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> <span class="dv">5</span></span>
@@ -824,8 +823,8 @@ print(This is + name)
 <li><code>2</code></li>
 </ul>
 </section>
-<section id="exercise-5.-following-the-control-flow" class="level3" data-number="9.3.5">
-<h3 data-number="9.3.5" class="anchored" data-anchor-id="exercise-5.-following-the-control-flow"><span class="header-section-number">9.3.5</span> Exercise 5. Following the control flow</h3>
+<section id="exercise-5.-following-the-control-flow" class="level3" data-number="10.3.5">
+<h3 data-number="10.3.5" class="anchored" data-anchor-id="exercise-5.-following-the-control-flow"><span class="header-section-number">10.3.5</span> Exercise 5. Following the control flow</h3>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb74"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb74-1"><a href="#cb74-1" aria-hidden="true" tabindex="-1"></a>myString <span class="op">=</span> <span class="st">"Hello, World!"</span></span>
 <span id="cb74-2"><a href="#cb74-2" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> <span class="bu">len</span>(myString) <span class="op">&gt;=</span> <span class="dv">13</span> <span class="kw">or</span> <span class="st">"ello"</span> <span class="kw">in</span> myString:</span>
@@ -864,8 +863,8 @@ print(This is + name)
 </div>
 </div>
 </section>
-<section id="exercise-6.-indentation" class="level3" data-number="9.3.6">
-<h3 data-number="9.3.6" class="anchored" data-anchor-id="exercise-6.-indentation"><span class="header-section-number">9.3.6</span> Exercise 6. Indentation</h3>
+<section id="exercise-6.-indentation" class="level3" data-number="10.3.6">
+<h3 data-number="10.3.6" class="anchored" data-anchor-id="exercise-6.-indentation"><span class="header-section-number">10.3.6</span> Exercise 6. Indentation</h3>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb80"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb80-1"><a href="#cb80-1" aria-hidden="true" tabindex="-1"></a>myNumber <span class="op">=</span> <span class="dv">4</span></span>
 <span id="cb80-2"><a href="#cb80-2" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> myNumber <span class="op">&lt;</span> <span class="dv">20</span> <span class="kw">and</span> myNumber <span class="op">&gt;</span> <span class="dv">0</span>:</span>
@@ -880,8 +879,8 @@ print(This is + name)
 <span id="cb80-11"><a href="#cb80-11" aria-hidden="true" tabindex="-1"></a>    myNumber <span class="op">=</span> <span class="dv">17</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </section>
-<section id="exercise-7.-pseudo-code-conditionals" class="level3" data-number="9.3.7">
-<h3 data-number="9.3.7" class="anchored" data-anchor-id="exercise-7.-pseudo-code-conditionals"><span class="header-section-number">9.3.7</span> Exercise 7. Pseudo code conditionals</h3>
+<section id="exercise-7.-pseudo-code-conditionals" class="level3" data-number="10.3.7">
+<h3 data-number="10.3.7" class="anchored" data-anchor-id="exercise-7.-pseudo-code-conditionals"><span class="header-section-number">10.3.7</span> Exercise 7. Pseudo code conditionals</h3>
 <pre><code>
 1.
 If not rain
@@ -920,8 +919,8 @@ else
 <li><p>In psychology of reasoning it has been shown that people have difficulties with checking the modus ponens. When asked to verify the above example, most people would first check whether the street is wet, although the most relevant question is whether it is raining, indeed.</p></li>
 </ol>
 </section>
-<section id="exercise-8.-modify-stroop-task" class="level3" data-number="9.3.8">
-<h3 data-number="9.3.8" class="anchored" data-anchor-id="exercise-8.-modify-stroop-task"><span class="header-section-number">9.3.8</span> Exercise 8. Modify Stroop Task</h3>
+<section id="exercise-8.-modify-stroop-task" class="level3" data-number="10.3.8">
+<h3 data-number="10.3.8" class="anchored" data-anchor-id="exercise-8.-modify-stroop-task"><span class="header-section-number">10.3.8</span> Exercise 8. Modify Stroop Task</h3>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb82"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb82-1"><a href="#cb82-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pygame</span>
 <span id="cb82-2"><a href="#cb82-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> sys</span>
@@ -1114,8 +1113,8 @@ else
 <span id="cb82-189"><a href="#cb82-189" aria-hidden="true" tabindex="-1"></a>main()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </section>
-<section id="exercise-9.-simplify-nested-conditionals" class="level3" data-number="9.3.9">
-<h3 data-number="9.3.9" class="anchored" data-anchor-id="exercise-9.-simplify-nested-conditionals"><span class="header-section-number">9.3.9</span> Exercise 9. Simplify nested conditionals</h3>
+<section id="exercise-9.-simplify-nested-conditionals" class="level3" data-number="10.3.9">
+<h3 data-number="10.3.9" class="anchored" data-anchor-id="exercise-9.-simplify-nested-conditionals"><span class="header-section-number">10.3.9</span> Exercise 9. Simplify nested conditionals</h3>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb83"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb83-1"><a href="#cb83-1" aria-hidden="true" tabindex="-1"></a><span class="co"># participant details #</span></span>
 <span id="cb83-2"><a href="#cb83-2" aria-hidden="true" tabindex="-1"></a>age <span class="op">=</span> <span class="dv">20</span></span>
@@ -1153,8 +1152,8 @@ else
 <span id="cb83-34"><a href="#cb83-34" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">"Participant is not eligible to take part in the experiment."</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </section>
-<section id="exercise-10.-flow-chart-conditionals" class="level3" data-number="9.3.10">
-<h3 data-number="9.3.10" class="anchored" data-anchor-id="exercise-10.-flow-chart-conditionals"><span class="header-section-number">9.3.10</span> Exercise 10. Flow chart conditionals</h3>
+<section id="exercise-10.-flow-chart-conditionals" class="level3" data-number="10.3.10">
+<h3 data-number="10.3.10" class="anchored" data-anchor-id="exercise-10.-flow-chart-conditionals"><span class="header-section-number">10.3.10</span> Exercise 10. Flow chart conditionals</h3>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb84"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb84-1"><a href="#cb84-1" aria-hidden="true" tabindex="-1"></a>n <span class="op">=</span> <span class="op">-</span><span class="dv">1</span></span>
 <span id="cb84-2"><a href="#cb84-2" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> n <span class="op">&gt;</span> <span class="dv">0</span>:</span>
@@ -1172,10 +1171,10 @@ else
 </div>
 </section>
 </section>
-<section id="chapter-4.-lists" class="level2" data-number="9.4">
-<h2 data-number="9.4" class="anchored" data-anchor-id="chapter-4.-lists"><span class="header-section-number">9.4</span> Chapter 4. Lists</h2>
-<section id="exercise-1.-indexing" class="level3" data-number="9.4.1">
-<h3 data-number="9.4.1" class="anchored" data-anchor-id="exercise-1.-indexing"><span class="header-section-number">9.4.1</span> Exercise 1. Indexing</h3>
+<section id="chapter-4.-lists" class="level2" data-number="10.4">
+<h2 data-number="10.4" class="anchored" data-anchor-id="chapter-4.-lists"><span class="header-section-number">10.4</span> Chapter 4. Lists</h2>
+<section id="exercise-1.-indexing" class="level3" data-number="10.4.1">
+<h3 data-number="10.4.1" class="anchored" data-anchor-id="exercise-1.-indexing"><span class="header-section-number">10.4.1</span> Exercise 1. Indexing</h3>
 <p>What is the output of the following code snippets?</p>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb85"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb85-1"><a href="#cb85-1" aria-hidden="true" tabindex="-1"></a>a <span class="op">=</span> [<span class="dv">6</span>, <span class="dv">7</span>]</span>
@@ -1231,8 +1230,8 @@ else
 </div>
 </div>
 </section>
-<section id="exercise-2.-debugging" class="level3" data-number="9.4.2">
-<h3 data-number="9.4.2" class="anchored" data-anchor-id="exercise-2.-debugging"><span class="header-section-number">9.4.2</span> Exercise 2. Debugging</h3>
+<section id="exercise-2.-debugging" class="level3" data-number="10.4.2">
+<h3 data-number="10.4.2" class="anchored" data-anchor-id="exercise-2.-debugging"><span class="header-section-number">10.4.2</span> Exercise 2. Debugging</h3>
 <p>Will the following code snippets throw an error? If anything goes wrong, why does it go wrong?</p>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb97"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb97-1"><a href="#cb97-1" aria-hidden="true" tabindex="-1"></a>a, b <span class="op">=</span> <span class="st">'Sigmund'</span>, <span class="st">'Freud'</span>, (<span class="dv">1856</span>, <span class="dv">1939</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
@@ -1276,8 +1275,8 @@ else
 <li>No error is thrown, the list of keys contains one element, <code>('a', 'b')</code>.</li>
 </ul>
 </section>
-<section id="exercise-3.-mini-programs-1" class="level3" data-number="9.4.3">
-<h3 data-number="9.4.3" class="anchored" data-anchor-id="exercise-3.-mini-programs-1"><span class="header-section-number">9.4.3</span> Exercise 3. Mini programs</h3>
+<section id="exercise-3.-mini-programs-1" class="level3" data-number="10.4.3">
+<h3 data-number="10.4.3" class="anchored" data-anchor-id="exercise-3.-mini-programs-1"><span class="header-section-number">10.4.3</span> Exercise 3. Mini programs</h3>
 <p>What is the output of the following mini programs?</p>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb104"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb104-1"><a href="#cb104-1" aria-hidden="true" tabindex="-1"></a>a <span class="op">=</span> {}</span>
@@ -1329,12 +1328,12 @@ else
 <li><code>1</code></li>
 </ul>
 </section>
-<section id="exercise-1.-shopping-list" class="level3" data-number="9.4.4">
-<h3 data-number="9.4.4" class="anchored" data-anchor-id="exercise-1.-shopping-list"><span class="header-section-number">9.4.4</span> Exercise 1. Shopping list</h3>
+<section id="exercise-1.-shopping-list" class="level3" data-number="10.4.4">
+<h3 data-number="10.4.4" class="anchored" data-anchor-id="exercise-1.-shopping-list"><span class="header-section-number">10.4.4</span> Exercise 1. Shopping list</h3>
 <p><code>['buns',  'cheese',  'milk',  'oatmeal',  'blueberries',  'oranges',  'apples',  'chocolate',  ['eggs', 'yoghurt', 'salmon'],  ['icing sugar',   'whipping cream',   'lemons',   'flower',   'vanilla sugar',   'eggs',   'baking powder',   'margarine']]</code></p>
 </section>
-<section id="exercise-2.-dictionnaries" class="level3" data-number="9.4.5">
-<h3 data-number="9.4.5" class="anchored" data-anchor-id="exercise-2.-dictionnaries"><span class="header-section-number">9.4.5</span> Exercise 2. Dictionnaries</h3>
+<section id="exercise-2.-dictionnaries" class="level3" data-number="10.4.5">
+<h3 data-number="10.4.5" class="anchored" data-anchor-id="exercise-2.-dictionnaries"><span class="header-section-number">10.4.5</span> Exercise 2. Dictionnaries</h3>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb112"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb112-1"><a href="#cb112-1" aria-hidden="true" tabindex="-1"></a>(<span class="st">'Erik'</span>, <span class="st">'Erikson'</span>, (<span class="dv">1902</span>, <span class="dv">1994</span>))</span>
 <span id="cb112-2"><a href="#cb112-2" aria-hidden="true" tabindex="-1"></a>(<span class="st">'Theory of Cognitive Development'</span>,)</span>
@@ -1344,8 +1343,8 @@ else
 <span id="cb112-6"><a href="#cb112-6" aria-hidden="true" tabindex="-1"></a><span class="co">"positive reinforcement"</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </section>
-<section id="exercise-3.-selecting-elements" class="level3" data-number="9.4.6">
-<h3 data-number="9.4.6" class="anchored" data-anchor-id="exercise-3.-selecting-elements"><span class="header-section-number">9.4.6</span> Exercise 3. Selecting elements</h3>
+<section id="exercise-3.-selecting-elements" class="level3" data-number="10.4.6">
+<h3 data-number="10.4.6" class="anchored" data-anchor-id="exercise-3.-selecting-elements"><span class="header-section-number">10.4.6</span> Exercise 3. Selecting elements</h3>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb113"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb113-1"><a href="#cb113-1" aria-hidden="true" tabindex="-1"></a>shoppingList[<span class="dv">2</span>]</span>
 <span id="cb113-2"><a href="#cb113-2" aria-hidden="true" tabindex="-1"></a>shoppingList[<span class="dv">0</span>][<span class="dv">0</span>]</span>
@@ -1357,8 +1356,8 @@ else
 <span id="cb113-8"><a href="#cb113-8" aria-hidden="true" tabindex="-1"></a>grades[<span class="st">"p6"</span>][<span class="dv">4</span>][<span class="dv">1</span>]</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </section>
-<section id="exercise-4.-adjust-a-dictionnary-data-set" class="level3" data-number="9.4.7">
-<h3 data-number="9.4.7" class="anchored" data-anchor-id="exercise-4.-adjust-a-dictionnary-data-set"><span class="header-section-number">9.4.7</span> Exercise 4. Adjust a dictionnary data set</h3>
+<section id="exercise-4.-adjust-a-dictionnary-data-set" class="level3" data-number="10.4.7">
+<h3 data-number="10.4.7" class="anchored" data-anchor-id="exercise-4.-adjust-a-dictionnary-data-set"><span class="header-section-number">10.4.7</span> Exercise 4. Adjust a dictionnary data set</h3>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb114"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb114-1"><a href="#cb114-1" aria-hidden="true" tabindex="-1"></a><span class="co">#1</span></span>
 <span id="cb114-2"><a href="#cb114-2" aria-hidden="true" tabindex="-1"></a>dataset[<span class="st">'p1'</span>][<span class="dv">5</span>] <span class="op">=</span> <span class="fl">6.1</span></span>
@@ -1393,8 +1392,8 @@ else
 <span id="cb114-31"><a href="#cb114-31" aria-hidden="true" tabindex="-1"></a>           }</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </section>
-<section id="exercise-5.-a-dictionnary-data-set" class="level3" data-number="9.4.8">
-<h3 data-number="9.4.8" class="anchored" data-anchor-id="exercise-5.-a-dictionnary-data-set"><span class="header-section-number">9.4.8</span> Exercise 5. A dictionnary data set</h3>
+<section id="exercise-5.-a-dictionnary-data-set" class="level3" data-number="10.4.8">
+<h3 data-number="10.4.8" class="anchored" data-anchor-id="exercise-5.-a-dictionnary-data-set"><span class="header-section-number">10.4.8</span> Exercise 5. A dictionnary data set</h3>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb115"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb115-1"><a href="#cb115-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
 <span id="cb115-2"><a href="#cb115-2" aria-hidden="true" tabindex="-1"></a></span>
@@ -1448,8 +1447,8 @@ else
 <span id="cb115-50"><a href="#cb115-50" aria-hidden="true" tabindex="-1"></a>maximum <span class="op">=</span> np.nanmax(age)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </section>
-<section id="exercise-6.-stroop-extension" class="level3" data-number="9.4.9">
-<h3 data-number="9.4.9" class="anchored" data-anchor-id="exercise-6.-stroop-extension"><span class="header-section-number">9.4.9</span> Exercise 6. Stroop extension</h3>
+<section id="exercise-6.-stroop-extension" class="level3" data-number="10.4.9">
+<h3 data-number="10.4.9" class="anchored" data-anchor-id="exercise-6.-stroop-extension"><span class="header-section-number">10.4.9</span> Exercise 6. Stroop extension</h3>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb116"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb116-1"><a href="#cb116-1" aria-hidden="true" tabindex="-1"></a><span class="co"># -*- coding: utf-8 -*-</span></span>
 <span id="cb116-2"><a href="#cb116-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pygame</span>
@@ -1717,10 +1716,10 @@ else
 </div>
 </section>
 </section>
-<section id="chapter-5.-loops" class="level2" data-number="9.5">
-<h2 data-number="9.5" class="anchored" data-anchor-id="chapter-5.-loops"><span class="header-section-number">9.5</span> Chapter 5. Loops</h2>
-<section id="exercise-1.-following-the-control-flow-i" class="level3" data-number="9.5.1">
-<h3 data-number="9.5.1" class="anchored" data-anchor-id="exercise-1.-following-the-control-flow-i"><span class="header-section-number">9.5.1</span> Exercise 1. Following the control flow I</h3>
+<section id="chapter-5.-loops" class="level2" data-number="10.5">
+<h2 data-number="10.5" class="anchored" data-anchor-id="chapter-5.-loops"><span class="header-section-number">10.5</span> Chapter 5. Loops</h2>
+<section id="exercise-1.-following-the-control-flow-i" class="level3" data-number="10.5.1">
+<h3 data-number="10.5.1" class="anchored" data-anchor-id="exercise-1.-following-the-control-flow-i"><span class="header-section-number">10.5.1</span> Exercise 1. Following the control flow I</h3>
 <p>What is the output of the following code snippets?</p>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb117"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb117-1"><a href="#cb117-1" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="bu">len</span>([<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>])):</span>
@@ -1793,8 +1792,8 @@ else
 </div>
 </div>
 </section>
-<section id="exercise-2.-debugging-i" class="level3" data-number="9.5.2">
-<h3 data-number="9.5.2" class="anchored" data-anchor-id="exercise-2.-debugging-i"><span class="header-section-number">9.5.2</span> Exercise 2. Debugging I</h3>
+<section id="exercise-2.-debugging-i" class="level3" data-number="10.5.2">
+<h3 data-number="10.5.2" class="anchored" data-anchor-id="exercise-2.-debugging-i"><span class="header-section-number">10.5.2</span> Exercise 2. Debugging I</h3>
 <p>Do the following code snippets throw an error? If they do, what goes wrong? Only one answer is correct.</p>
 <pre><code>a = [4,6,8]
 
@@ -1827,11 +1826,11 @@ for i in a:
 <li>No error is thrown, the output is of the mini program is <code>0</code>, <code>6.0</code>, <code>0</code>, <code>9.0</code> because each element in <code>a</code> is multiplied by each element in <code>b</code>.</li>
 </ul>
 </section>
-<section id="exercise-3.-controlling-the-flow" class="level3" data-number="9.5.3">
-<h3 data-number="9.5.3" class="anchored" data-anchor-id="exercise-3.-controlling-the-flow"><span class="header-section-number">9.5.3</span> Exercise 3. Controlling the flow</h3>
+<section id="exercise-3.-controlling-the-flow" class="level3" data-number="10.5.3">
+<h3 data-number="10.5.3" class="anchored" data-anchor-id="exercise-3.-controlling-the-flow"><span class="header-section-number">10.5.3</span> Exercise 3. Controlling the flow</h3>
 </section>
-<section id="exercise-4.-following-the-control-flow-ii" class="level3" data-number="9.5.4">
-<h3 data-number="9.5.4" class="anchored" data-anchor-id="exercise-4.-following-the-control-flow-ii"><span class="header-section-number">9.5.4</span> Exercise 4. Following the control flow II</h3>
+<section id="exercise-4.-following-the-control-flow-ii" class="level3" data-number="10.5.4">
+<h3 data-number="10.5.4" class="anchored" data-anchor-id="exercise-4.-following-the-control-flow-ii"><span class="header-section-number">10.5.4</span> Exercise 4. Following the control flow II</h3>
 <p><em>Disclaimer</em>: It is possible that your Python interpreter returns the keys of <code>dataset</code> in a different order than shown below when you execute <code>dataset.keys()</code> on your system. This has to do with how dictionaries are stored internally in computer memory. Here as well <em>hash functions</em> are utilized for efficiency reasons. As a consequence, the order of the keys in a dictionary is unspecified (which is why you cannot use the index operator to access elements of a dictionary and <code>p1</code> is not necessarily the first key shown in the list). It also means that when you display the keys of a dictionary as a list (which is what the <code>keys()</code> method does), the order in which the keys occur in the list can differ from system to system. For you this means that you should not worry if your system returns a different order when you execute <code>dataset.keys()</code>. But it is important that you understand why <code>dataset[dataset.keys()[0]]</code> returns the value that is displayed when you execute the code snippet.</p>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb133"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb133-1"><a href="#cb133-1" aria-hidden="true" tabindex="-1"></a>[<span class="st">'p2'</span>, <span class="st">'p3'</span>, <span class="st">'p1'</span>, <span class="st">'p6'</span>, <span class="st">'p7'</span>, <span class="st">'p4'</span>, <span class="st">'p5'</span>, <span class="st">'p10'</span>, <span class="st">'p8'</span>, <span class="st">'p9'</span>]</span>
@@ -1844,8 +1843,8 @@ for i in a:
 <span id="cb133-8"><a href="#cb133-8" aria-hidden="true" tabindex="-1"></a><span class="fl">19.75</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </section>
-<section id="exercise-5.-debugging" class="level3" data-number="9.5.5">
-<h3 data-number="9.5.5" class="anchored" data-anchor-id="exercise-5.-debugging"><span class="header-section-number">9.5.5</span> Exercise 5. Debugging</h3>
+<section id="exercise-5.-debugging" class="level3" data-number="10.5.5">
+<h3 data-number="10.5.5" class="anchored" data-anchor-id="exercise-5.-debugging"><span class="header-section-number">10.5.5</span> Exercise 5. Debugging</h3>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb134"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb134-1"><a href="#cb134-1" aria-hidden="true" tabindex="-1"></a>data <span class="op">=</span> {<span class="st">'p1'</span>:(<span class="dv">21</span>,<span class="st">"Female"</span>,<span class="st">"Condition B"</span>,[<span class="fl">0.675</span>,<span class="fl">0.777</span>,<span class="fl">0.778</span>,<span class="fl">0.62</span>,<span class="fl">0.869</span>]),</span>
 <span id="cb134-2"><a href="#cb134-2" aria-hidden="true" tabindex="-1"></a>        <span class="st">'p2'</span>:(<span class="dv">20</span>,<span class="st">"Female"</span>,<span class="st">"Condition A"</span>,[<span class="fl">0.599</span>,<span class="fl">0.674</span>,<span class="fl">0.698</span>,<span class="fl">0.569</span>,<span class="fl">0.7</span>]),</span>
@@ -1893,8 +1892,8 @@ for i in a:
 <span id="cb134-44"><a href="#cb134-44" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"all_mean:"</span>, all_mean)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </section>
-<section id="exercise-6.-nested-loops" class="level3" data-number="9.5.6">
-<h3 data-number="9.5.6" class="anchored" data-anchor-id="exercise-6.-nested-loops"><span class="header-section-number">9.5.6</span> Exercise 6. Nested loops</h3>
+<section id="exercise-6.-nested-loops" class="level3" data-number="10.5.6">
+<h3 data-number="10.5.6" class="anchored" data-anchor-id="exercise-6.-nested-loops"><span class="header-section-number">10.5.6</span> Exercise 6. Nested loops</h3>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb135"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb135-1"><a href="#cb135-1" aria-hidden="true" tabindex="-1"></a>participants <span class="op">=</span> [</span>
 <span id="cb135-2"><a href="#cb135-2" aria-hidden="true" tabindex="-1"></a>    (<span class="st">"p1"</span>, [<span class="st">"Condition 1"</span>,<span class="st">"Location A"</span>,<span class="st">"withdrew"</span>,<span class="st">"no audio"</span>]),</span>
@@ -1917,8 +1916,8 @@ for i in a:
 <span id="cb135-19"><a href="#cb135-19" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"The number of participants who withdrew their participation is"</span>, counter)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </section>
-<section id="exercise-7.-data-transformation-using-loops" class="level3" data-number="9.5.7">
-<h3 data-number="9.5.7" class="anchored" data-anchor-id="exercise-7.-data-transformation-using-loops"><span class="header-section-number">9.5.7</span> Exercise 7. Data transformation using loops</h3>
+<section id="exercise-7.-data-transformation-using-loops" class="level3" data-number="10.5.7">
+<h3 data-number="10.5.7" class="anchored" data-anchor-id="exercise-7.-data-transformation-using-loops"><span class="header-section-number">10.5.7</span> Exercise 7. Data transformation using loops</h3>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb136"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb136-1"><a href="#cb136-1" aria-hidden="true" tabindex="-1"></a>participants <span class="op">=</span> [</span>
 <span id="cb136-2"><a href="#cb136-2" aria-hidden="true" tabindex="-1"></a>    (<span class="st">"p1"</span>, [<span class="st">"Condition 1"</span>,<span class="st">"Location A"</span>,<span class="st">"withdrew"</span>,<span class="st">"no audio"</span>]),</span>
@@ -1959,8 +1958,8 @@ for i in a:
 <span id="cb136-37"><a href="#cb136-37" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"The number of participants who were tested at location B is"</span>, counterB, counterB1)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </section>
-<section id="exercise-8.-calculating-a-mean" class="level3" data-number="9.5.8">
-<h3 data-number="9.5.8" class="anchored" data-anchor-id="exercise-8.-calculating-a-mean"><span class="header-section-number">9.5.8</span> Exercise 8. Calculating a mean</h3>
+<section id="exercise-8.-calculating-a-mean" class="level3" data-number="10.5.8">
+<h3 data-number="10.5.8" class="anchored" data-anchor-id="exercise-8.-calculating-a-mean"><span class="header-section-number">10.5.8</span> Exercise 8. Calculating a mean</h3>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb137"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb137-1"><a href="#cb137-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
 <span id="cb137-2"><a href="#cb137-2" aria-hidden="true" tabindex="-1"></a></span>
@@ -1977,8 +1976,8 @@ for i in a:
 <span id="cb137-13"><a href="#cb137-13" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(mean, np.mean(seq))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </section>
-<section id="exercise-9.-a-guessing-game" class="level3" data-number="9.5.9">
-<h3 data-number="9.5.9" class="anchored" data-anchor-id="exercise-9.-a-guessing-game"><span class="header-section-number">9.5.9</span> Exercise 9. A guessing game</h3>
+<section id="exercise-9.-a-guessing-game" class="level3" data-number="10.5.9">
+<h3 data-number="10.5.9" class="anchored" data-anchor-id="exercise-9.-a-guessing-game"><span class="header-section-number">10.5.9</span> Exercise 9. A guessing game</h3>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb138"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb138-1"><a href="#cb138-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> random</span>
 <span id="cb138-2"><a href="#cb138-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> sys</span>
@@ -2007,18 +2006,18 @@ for i in a:
 </div>
 </section>
 </section>
-<section id="chapter-6.-functions" class="level2" data-number="9.6">
-<h2 data-number="9.6" class="anchored" data-anchor-id="chapter-6.-functions"><span class="header-section-number">9.6</span> Chapter 6. Functions</h2>
-<section id="exercise-1.-following-the-control-flow" class="level3" data-number="9.6.1">
-<h3 data-number="9.6.1" class="anchored" data-anchor-id="exercise-1.-following-the-control-flow"><span class="header-section-number">9.6.1</span> Exercise 1. Following the control flow</h3>
+<section id="chapter-6.-functions" class="level2" data-number="10.6">
+<h2 data-number="10.6" class="anchored" data-anchor-id="chapter-6.-functions"><span class="header-section-number">10.6</span> Chapter 6. Functions</h2>
+<section id="exercise-1.-following-the-control-flow" class="level3" data-number="10.6.1">
+<h3 data-number="10.6.1" class="anchored" data-anchor-id="exercise-1.-following-the-control-flow"><span class="header-section-number">10.6.1</span> Exercise 1. Following the control flow</h3>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb139"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb139-1"><a href="#cb139-1" aria-hidden="true" tabindex="-1"></a><span class="co">"x equals 10"</span></span>
 <span id="cb139-2"><a href="#cb139-2" aria-hidden="true" tabindex="-1"></a><span class="co">"y equals 17.5"</span></span>
 <span id="cb139-3"><a href="#cb139-3" aria-hidden="true" tabindex="-1"></a><span class="co">"anumber equals 10.0"</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </section>
-<section id="exercise-2.-an-imperfect-list-sorting-attempt" class="level3" data-number="9.6.2">
-<h3 data-number="9.6.2" class="anchored" data-anchor-id="exercise-2.-an-imperfect-list-sorting-attempt"><span class="header-section-number">9.6.2</span> Exercise 2. An imperfect list sorting attempt</h3>
+<section id="exercise-2.-an-imperfect-list-sorting-attempt" class="level3" data-number="10.6.2">
+<h3 data-number="10.6.2" class="anchored" data-anchor-id="exercise-2.-an-imperfect-list-sorting-attempt"><span class="header-section-number">10.6.2</span> Exercise 2. An imperfect list sorting attempt</h3>
 <ul>
 <li><em>Line 6/7</em>. The <code>insert</code> function does not return the resulting list.</li>
 <li><em>Line 20 and 21</em>. The output of the <code>swap</code> function is not assigned to any variable and thereby, the manipulation performed on <code>myList1</code> is not stored in memory.</li>
@@ -2036,8 +2035,8 @@ for i in a:
 <span id="cb140-6"><a href="#cb140-6" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> result[:position] <span class="op">+</span> [a] <span class="op">+</span> result[position:]</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </section>
-<section id="exercise-3.-an-errorneous-sorting-algorithm" class="level3" data-number="9.6.3">
-<h3 data-number="9.6.3" class="anchored" data-anchor-id="exercise-3.-an-errorneous-sorting-algorithm"><span class="header-section-number">9.6.3</span> Exercise 3. An errorneous sorting algorithm</h3>
+<section id="exercise-3.-an-errorneous-sorting-algorithm" class="level3" data-number="10.6.3">
+<h3 data-number="10.6.3" class="anchored" data-anchor-id="exercise-3.-an-errorneous-sorting-algorithm"><span class="header-section-number">10.6.3</span> Exercise 3. An errorneous sorting algorithm</h3>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb141"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb141-1"><a href="#cb141-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> copy</span>
 <span id="cb141-2"><a href="#cb141-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> random</span>
@@ -2063,14 +2062,14 @@ for i in a:
 <span id="cb141-22"><a href="#cb141-22" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(bubbleSort(myList))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </section>
-<section id="exercise-4." class="level3" data-number="9.6.4">
-<h3 data-number="9.6.4" class="anchored" data-anchor-id="exercise-4."><span class="header-section-number">9.6.4</span> Exercise 4.</h3>
+<section id="exercise-4." class="level3" data-number="10.6.4">
+<h3 data-number="10.6.4" class="anchored" data-anchor-id="exercise-4."><span class="header-section-number">10.6.4</span> Exercise 4.</h3>
 </section>
-<section id="exercise-5." class="level3" data-number="9.6.5">
-<h3 data-number="9.6.5" class="anchored" data-anchor-id="exercise-5."><span class="header-section-number">9.6.5</span> Exercise 5.</h3>
+<section id="exercise-5." class="level3" data-number="10.6.5">
+<h3 data-number="10.6.5" class="anchored" data-anchor-id="exercise-5."><span class="header-section-number">10.6.5</span> Exercise 5.</h3>
 </section>
-<section id="exercise-6.-insertion-sort-algorithm" class="level3" data-number="9.6.6">
-<h3 data-number="9.6.6" class="anchored" data-anchor-id="exercise-6.-insertion-sort-algorithm"><span class="header-section-number">9.6.6</span> Exercise 6. Insertion sort algorithm</h3>
+<section id="exercise-6.-insertion-sort-algorithm" class="level3" data-number="10.6.6">
+<h3 data-number="10.6.6" class="anchored" data-anchor-id="exercise-6.-insertion-sort-algorithm"><span class="header-section-number">10.6.6</span> Exercise 6. Insertion sort algorithm</h3>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb142"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb142-1"><a href="#cb142-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> copy</span>
 <span id="cb142-2"><a href="#cb142-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> random</span>
@@ -2587,14 +2586,11 @@ for i in a:
   </script>
 <nav class="page-navigation" aria-label="Page">
   <div class="nav-page nav-page-previous">
-      <a href="./0x_Interaction.html" class="pagination-link" aria-label="Interaction">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Interaction</span></span>
+      <a href="./09_Debugging.html" class="pagination-link" aria-label="Debugging and good programming practices">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Debugging and good programming practices</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./09_Debugging.html" class="pagination-link" aria-label="Debugging and good programming practices">
-        <span class="nav-page-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Debugging and good programming practices</span></span> <i class="bi bi-arrow-right-short"></i>
-      </a>
   </div>
 </nav>
 </div> <!-- /content -->

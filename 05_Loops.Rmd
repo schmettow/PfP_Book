@@ -1,6 +1,6 @@
 # Loops {#sec-loops}
 
-```{python}
+```{python, for-range-print}
 for i in range(2):
     print("Hello, World!")
 ```
@@ -15,7 +15,7 @@ Chapter 5 introduces you to the mechanism that lies at the heart of a computer's
 
 ## The `for` loop
 
-```{python}
+```{python, for-over-string}
 for letter in "Hello":
     print(letter)
 ```
@@ -32,7 +32,7 @@ Syntactically, after the `for` statement, the so-called *loop body* follows. The
 
 The body of a loop needs to be *indented*. The end of a `for` loop is demarcated by indentation. Once the value of the last element in the sequence has been assigned to the loop variable, and the body of the loop has been executed, the loop terminates. The execution of the computer program is continued on the first line after the loop body, and indentation (or rather the lack thereof) demarcates this line, like so
 
-```{python, eval=F}
+```{python, loop-then-afterward, eval=F}
 for letter in "Hello":
     print(letter)
 
@@ -43,14 +43,14 @@ Here, `print("Hello")` constitutes the first line after the `for` loop.
 
 Instead of including a manually defined sequence in the `for` statement, such as the string `"Hello"`, you can use the `range` method to create a list of integers. For example, you may want to repeat a certain block of statements twice. However, the block of statements may not involve a suitable sequence over which you can make a `for` loop iterate. In such cases, you can use the `range` method to create a looping mechanism, like so
 
-```{python}
+```{python, repeat-print}
 for i in range(2):
     print("Hello, World!")
 ```
 
 Unless specified otherwise, the `range` method initiates a list that contains each integer starting at `0` until, but excluding the specified integer between the brackets `()`.
 
-```{python}
+```{python, range-object}
 print(range(2))
 ```
 
@@ -58,13 +58,13 @@ In the example above, the loop variable `i` will thus have two values before the
 
 Read the documentation of the `range` method for further information on how to customize the sequence of integers it produces.
 
-```{python, eval=F}
+```{python, help-range, eval=F}
 help(range)
 ```
 
 In summary, from the above it follows that there are at least two ways for iterating over *ordered* sequences of objects, such as lists and strings, using `for` loops. In the first strategy, you assign each element of the sequence iteratively to the loop variable, like so
 
-```{python}
+```{python, for-over-list}
 a = ['a', 'b']
 for i in a:
     print(i)
@@ -72,14 +72,14 @@ for i in a:
 
 Following the second strategy, you access the elements of the sequence through their indices, like so
 
-```{python}
+```{python, loop-by-index}
 for i in range(len(a)):
     print(a[i])
 ```
 
 Which way of iterating over *ordered* sequences you prefer is up to you. Sometimes, the problem you try to solve with your code will require one way, sometimes the other. However, when constructing loops, remember that you **cannot** access the elements of an *unordered* collection such as dictionaries using the index operator.
 
-```{python error = TRUE}
+```{python, dict-index-error, error = TRUE}
 d = {'a': 1,
      'b': 2}
 for i in range(len(d)):
@@ -88,7 +88,7 @@ for i in range(len(d)):
 
 You will need to think of another way to iterate over the contents of a dictionary. You could use the `keys()` method to iterate over the dictionary's keys, or the `values()` method for its values respectively, like so
 
-```{python}
+```{python, loop-keys-values}
 for i in d.keys():
     print(i)
   
@@ -98,7 +98,7 @@ for j in d.values():
 
 Alternatively, the `items()` method can be used to iterate over the key-value pairs contained in a dictionary.
 
-```{python}
+```{python, loop-dict-items}
 for z in d.items():
     print(z)
 ```
@@ -107,7 +107,7 @@ As usual, which iteration strategy you use depends on what you try to achieve. T
 
 ## The `while` loop
 
-```{python}
+```{python, while-runs}
 a = 0
 b = 1
 
@@ -122,7 +122,7 @@ print("This is the first line of code after the loop, the sum is:", a)
 
 A `while` loop is centered around a condition formulated in the first line of the loop, the `while` statement. It allows you to repeatedly execute a number of body statements as long as the condition in the `while` statement remains `True`. At the same time, this means that the body of a `while` loop is never executed if the loop condition is `False` at its initial execution.
 
-```{python}
+```{python, while-never-runs}
 a = 0
 b = 5
 
@@ -150,7 +150,7 @@ Still, as a programmer you have great freedom in choosing either *for* or *while
 
 ## The `break` statement
 
-```{python, eval=F}
+```{python, guess-until-correct, eval=F}
 myNumber = 17
 while True:
     guess = input("Enter a number:")
@@ -169,13 +169,13 @@ Also note the usage of *String formatting*. The `.format()` method can be applie
 
 The basic idea behind String formatters is that you substitute a value, a variable, or an expression that you want to insert in your String by curly brackets `{}`. You specify the to-be-inserted value within the method brackets, like so
 
-```{python}
+```{python, format-placeholder}
 print("{} participants took part in the conducted research".format(10))
 ```
 
 Formatters can manage multiple placeholders, variables and perform cool transformations on the to-be-substituted values, like rounding
 
-```{python}
+```{python, format-numbered}
 n = 10
 print("{0} participants took part in the conducted research. Their average score was {1:.2f}.".format(n, 25.7777))
 ```
@@ -184,7 +184,7 @@ Notice the usage of the *positional arguments* `0` and `1` to specify the order 
 
 Here, rounding is achieved by some minor usage of format code syntax, which first specifies the position of the transformation and then the intended conversion `{position:transformation}`. In this case we transform `25.7777` inhabiting index `1` into a floating point with two decimals, thus the format code syntax `{1:.2f}`. We could as well have exchanged the two values, but that would not have made much sense, would it now?
 
-```{python}
+```{python, format-reordered}
 n = 10
 print("{1:.2f} participants took part in the conducted research. Their average score was {0}.".format(n, 25.7777))
 ```
@@ -197,7 +197,7 @@ By now you will have noticed that by default, Python faithfully executes any pro
 
 The basic top-down execution order can be alterated using *control flow statements*. Python knows three control flow statements: `if`,`for`, and `while` statements. We already encountered `if` statements in Chapter 3 [Conditionals]. Control flow statements are readily used in interactive software such as the Stroop Task experiment
 
-```{python, eval=F}
+```{python, state-loop, eval=F}
 STATE = "welcome"
 while True:
 
@@ -222,7 +222,7 @@ In the example above, several conditions have to be fulfilled so that the progra
 
 * Easily the most common error surrounding loops is trying to make them iterate over an *integer* instead of a *sequence*. Very often, you will want your program to modify the elements of a given sequence according to a set of statements. Logically, you will need as many iterations as elements in the sequence. This often leads to `for` statement definitions such as:
 
-```{python error = TRUE}
+```{python, loop-over-length, error = TRUE}
 myList = [1,2,3,4,5]
 for i in len(myList):
     myList[i] += 1
@@ -230,7 +230,7 @@ for i in len(myList):
 
 Probably, your intention was to make the loop repeat as many times as there are elements in `myList`. However, `len(myList)` returns an *integer*, not a *sequence* object! Instead, you will have to convert the *length* of `myList` into a *sequence*, for instance by using `range()`.
 
-```{python}
+```{python, increment-by-index}
 myList = [5,2,3,4,5]
 for i in range(len(myList)):
     myList[i] += 1
@@ -240,7 +240,7 @@ print(myList)
 
 Alternatively, you can assign the values of `myList` iteratively to the looping variable `i` to avoid working with the `length` of the sequence.
 
-```{python}
+```{python, increment-with-index}
 myList = [5,2,3,4,5]
 for i in myList:
     myList[myList.index(i)] += 1
@@ -253,7 +253,7 @@ But wait, this result seems slightly different. You do get an alterated version 
 
 When you opt for either of the two looping strategies, keep in mind that you may need to go to some length to get the exact same result using both strategies. Usually, either one strategy quickly turns out to be the better, less complicated means for your end. In the above example, you could for instance have used a second list object to obtain the same result as in the first example, like so
 
-```{python}
+```{python, build-new-list}
 myList = [5,2,3,4,5]
 a = []
 for i in myList:
@@ -266,7 +266,7 @@ Again, whether using a second list is a viable option to solve the problem at ha
 
 * `index out of range` errors tend to slip in when working with `for` loops.
 
-```{python error = TRUE}
+```{python, copy-prefix, error = TRUE}
 a = [1, 'a']
 b = [1, 'a', 'b']
 
@@ -279,7 +279,7 @@ An `index out of range error` is thrown when you try to access a non-existing in
 
 * Letting a `while` loop run endlessly. Unless you actively construct a `while` loop to terminate, it will not. This can result in all sorts of errors, but usually you will notice that your program does not enter its later states. When you construct your `while` loops, think well about how to terminate them. The `break` statement can also be an option to intentionally terminate the loop when another condition is met that is not defined in the `while` statement, like so
 
-```{python, eval=F}
+```{python, limited-guesses, eval=F}
 i = 5
 myNumber = 13
 while i > 0:
@@ -306,14 +306,14 @@ In the above alteration of the guessing game, there are two ways to make the pro
 
 Loops can (in theory) continue for an infinite amount of iterations. Imagine looping over a data set of more than 1000 experimental participants. Loops with a large amount of iterations may seem cumbersome to debug at first sight. Computers make mistakes when they are falsely instructed and they will make the same mistake over and over again, infinitely if they must. You can imagine that debugging a loop that runs over hundreds or thousands of iterations is a pain when each time you change a small piece of code you need to run all iterations before you can inspect the result of the change in code. Here, the `break` statement can be used to inspect the output your loop generates at a single, or a fixed amount of iterations. By doing so, you do not only save time because your program does not need to execute each iteration of the program, your output will also be less cluttered. Picture a piece of code that produces one printed line for each iteration of code, like so
 
-```{python, eval=F}
+```{python, print-long-string, eval=F}
 for i in range(1000):
   print("Hello, World!")
 ```
 
 Now you change a small part of the code and want to inspect its effect.
 
-```{python, eval=F}
+```{python, concatenate-strings, eval=F}
 for i in range(1000):
   print("Hello " + "World" + "!")
 ```
@@ -321,7 +321,7 @@ for i in range(1000):
 It is unneccessary to print this one-liner a thousand times to see what is going on. Instead, you can use the break statement to print a single line.
 
 
-```{python}
+```{python, break-after-first}
 for i in range(1000):
   print("Hello " + "World" + "!")
   break
@@ -335,17 +335,17 @@ This comes in handy when you suspect a bug in one of your loops. Remember that i
 
 What is the output of the following code snippets?
 
-```{python, eval=F}
+```{python, iterate-three, eval=F}
 for i in range(len([1,2,3])):
     print(i)
 ```
 
-```{python, eval=F}
+```{python, iterate-empty, eval=F}
 for i in range(len([])):
     print(i)
 ```
 
-```{python, eval=F}
+```{python, accumulate-sum, eval=F}
 a = 0
 for i in range(3):
     a += i
@@ -353,7 +353,7 @@ for i in range(3):
     
 ```
 
-```{python, eval=F}
+```{python, two-accumulators, eval=F}
 a = 0
 b = 30
 for i in range(5):
@@ -363,19 +363,19 @@ for i in range(5):
 print(a + b)
 ```
 
-```{python, eval=F}
+```{python, range-start-stop, eval=F}
 for i in range(1,3):
     print(i)
 ```
 
-```{python, eval=F}
+```{python, countdown-loop, eval=F}
 i = 10
 while i > 5:
     print(i - 5)
     i -= 2
 ```
 
-```{python, eval=F}
+```{python, nested-loops, eval=F}
 a = 2
 b = (1,2)
 
@@ -450,7 +450,7 @@ Programming small interactive programs such as the guessing game helps you under
 
 Read the script below carefully. Indicate the values of the following expressions after the script has finished executing:
 
-```{python, eval=F}
+```{python, explore-dataset, eval=F}
 dataset.keys()
 dataset[dataset.keys()[0]]
 condA[0]
@@ -464,7 +464,7 @@ meanB
 You can check your answers afterwards by running the script.
 
 
-```{python, eval=F}
+```{python, dataset-with-numpy, eval=F}
 import numpy as np
 
 dataset = {'p1':(21,"Female","Dutch","B-Psychology"),
@@ -553,7 +553,7 @@ all_mean = all_sum/number_of_trials*len(data)
 
 Nested data often requires *nested loops* for answering certain questions about the data. Let's have a look at the `list` data set below. each participant has a participant number paired with a list of additional experiment information.
 
-```{python, eval=F}
+```{python, participant-log, eval=F}
 participants = [
     ("p1", ["Condition 1","Location A","withdrew","no audio"]),
     ("p2", ["Condition 1","Location A","no audio","no video"]),
@@ -570,7 +570,7 @@ participants = [
 
 If we want to know how many participants withdrew their participation we need a counter, and for each participant we need a second loop that tests each of the experiment information in turn on the `"withdrew"` keyword:
 
-```{python,eval=F}
+```{python, count-withdrawals, eval=F}
 
 counter = 0
 for (participant, expInfo) in participants:
@@ -592,7 +592,7 @@ Implement the second `for` loop that iterates over the experiment information an
 
 For the sequence `seq` calculate the arithmetic mean using a `while` loop. Check your implementation using the `mean()` method of the `NumPy` library.
 
-```{python, eval=F}
+```{python, vectorized-mean, eval=F}
 import numpy as np
 
 seq = range(1000)

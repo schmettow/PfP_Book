@@ -41,7 +41,7 @@ For testing your Thonny environment, follow these steps:
 
 And finally, it is a dear tradition to greet the world with your first program. Create a new file in Thonny and copy-paste the following lines into it. Then hit the play button once again.
 
-```{python eval = F}
+```{python, hello-world, eval = F}
 print('Hello world!')
 ```
 
@@ -121,7 +121,7 @@ Have fun and do not let your intuition come between you and the task!
 
 In section 1.2 {{< sec-dumb-computers >}}, you have seen how debilitating it can be to program a computer to do the simplest things. Talking to a computer (as a programmer) requires to understand some fundamental ways of how computers work and learn their language. A good way to get started learning a language is just go there and expose yourself to native speakers. Let's do that! The following text is a program the performs the Stroop task, just as in the theater play.
 
-```{python eval = F}
+```{python, stroop-full-program, eval = F}
 import pygame
 import sys
 from time import time
@@ -323,7 +323,7 @@ main()
 
 At first sight, you'll probably see just gargle-bargle. But on closer examination, you may see one or the other thing you recognize. We start with the most visible feature of the Stroop task, colors. If you watch out for color words in the code, you'll find the following:
 
-```{python eval = F}
+```{python, color-definitions, eval = F}
 col_white = (250, 250, 250)
 col_black = (0, 0, 0)
 col_gray = (220, 220, 220)
@@ -342,7 +342,7 @@ The first paragraph defines each color used throughout the program as three numb
 
 Whenever you see a single `=` character, that means that what is given to the right is stored in a *variable* to the left. The second paragraph just collects the three colors in one compound variable, which you will later learn to be a *dictionary*. Search for `COLOR` in the following code to see, how it is being used:
 
-```{python eval = F}
+```{python, draw-stimulus-function, eval = F}
 def draw_stimulus(color, word):
     text_surface = font.render(word, True, COLORS[color], col_gray)
     text_rectangle = text_surface.get_rect()
@@ -352,7 +352,7 @@ def draw_stimulus(color, word):
 
 This code block is called a *function definition*. This function almost exactly represents what one of the actors did in the play: receiving a color word and a color, combine it into one Stroop trial and show it to the user. We can follow up how this function is used, by searching for "draw_stimulus" in the code:
 
-```{python eval = F}
+```{python, present-trial-call, eval = F}
 if STATE == "present_trial":
             draw_stimulus(this_color, this_word)
             draw_button(SCREEN_SIZE[0]*1/5, 450, "Red: X", col_red)
@@ -367,7 +367,7 @@ What you see here is a so-called *conditional*. Only the most simple program are
 
 Note the difference between `=`, which stores a new value in a variable and `==` which means *equals*. Let's discover where the variable `STATE` actually gets such a value: `"present_trial"`:
 
-```{python eval = F}
+```{python, feedback-transitional, eval = F}
 if STATE == "feedback":
     if event.type == KEYDOWN and event.key == K_SPACE:
         if trial_number < 20:
@@ -383,13 +383,13 @@ These are precisely the rules the Looper in our play had to have on her mind. If
 
 As a final endeavor, we try to find some clues how the measurement of *response time* is handled in the program. If you search for "time", the first occurrence is right at the top:
 
-```{python eval = F}
+```{python, import-time, eval = F}
 from time import time
 ```
 
 Just as programmers can define functions, they can also make use of functions other programmers are already providing. Usually, they do so in larger packages of related functions, which are called *libraries*. This line of code means: from the library time, make available the function time. Where is this function used?
 
-```{python eval = F}
+```{python, record-presentation-time, eval = F}
 if STATE == "present_trial":
     trial_number = trial_number + 1
     this_word  = pick_color()
@@ -400,7 +400,7 @@ if STATE == "present_trial":
 
 The only thing that happens here, is that in the moment where the trial is presented, the current absolute time is recorded in a variable `time_when_presented`. How is that used further down?
 
-```{python eval = F}
+```{python, record-reaction-time, eval = F}
 if STATE == "wait_for_response":
     if event.type == KEYDOWN and event.key in KEYS.values():
         time_when_reacted = time()
@@ -521,7 +521,7 @@ Up-down. left-right! Have you found a solution to the problem? You can a solutio
 
 The code of Yeti2 starts a preamble, which is mostly the same for all Yetis. The interesting part begins with another fast loop. Remember the Looper in {{< sec-dive-in-a-first-example >}}? It is the same principle here. The Looper doesn't know when the next video frame arrives, so every loop starts with an interrogation to collect the next frame. The frame is subsequently turned into a grayscale image, because the subsequent analysis is purely based on brightness information.
 
-```{python eval = F}
+```{python, yeti-main-loop, eval = F}
 
 Detected = False
 
@@ -540,7 +540,7 @@ while True:
 
 As long as the eye is not detected, Yeti2 applies a highly specialized computer vision technique, called a Haar cascade to detect an eye in the frame.
 
-```{python eval = F}
+```{python, eye-detection, eval = F}
     if not Detected:
         eyes = eyeCascade.detectMultiScale(
             gray,
@@ -564,7 +564,7 @@ If an eye was detected, the sub frame holding the eye is extracted and undergose
 
 Essential for this to work is that the value of brightness ratio in center position `center_ratio` is adjusted to the situation.
 
-```{python eval = F}
+```{python, brightness-processing, eval = F}
     # CONDITIONAL PROCESSING
     if Detected:
         center_ratio = .85
