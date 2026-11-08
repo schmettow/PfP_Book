@@ -41,12 +41,12 @@ print('Hello world!')
     ## Hello world!
 
 Finally, you can test whether the Pygame library is correctly installed and running.
-In Thonny, create another new file, then copy and paste the code of the Stroop experiment in the next section. 
+In Thonny, create another new file, then copy and paste the code of the Stroop experiment in the next section.
 Save the file and hit run again. It should run the Stroop task in five trials.
 
 **Note:** A common problem with Python installation is that you may already have a Python environment on your computer.
 This is very common on MacOS and Linux. If you installed Pygame, but it isn't found, the reason may be that you have multiple parallel Pythons and Pygame got installed for another instance than you are using.
-For that main reason, we use the editor Thonny is this book, as it brings its own Python environment and an integrated library manager. 
+For that main reason, we use the editor Thonny is this book, as it brings its own Python environment and an integrated library manager.
 Make sure to always use Thonny's Python instance (Tools-> Options --> INterpreter --> Local Python 3)
 
 
@@ -160,6 +160,7 @@ KEYS     = {"red": K_b,
             "green": K_n,
             "blue": K_m}
 
+TRIAL_DELAY = 0.5  # seconds
 
 
 ### PYGAME STARTUP ###
@@ -222,6 +223,11 @@ def main():
             trial_number = trial_number + 1
             this_word  = pick_color()
             this_color = pick_color()
+            time_trial_started = time()
+            STATE = "delay"
+            print(STATE)
+
+        if STATE == "delay" and time() >= time_trial_started + TRIAL_DELAY:
             time_when_presented = time()
             STATE = "trial"
             print(STATE)
@@ -234,6 +240,9 @@ def main():
             draw_button(SCREEN_SIZE[0]*1/5, 450, "Red: B", col_red)
             draw_button(SCREEN_SIZE[0]*3/5, 450, "Green: N", col_green)
             draw_button(SCREEN_SIZE[0]*4/5, 450, "Blue: M", col_blue)
+
+        elif STATE == "delay":
+            draw_fixation()
 
         elif STATE == "trial":
             draw_stimulus(this_color, this_word)
@@ -268,6 +277,11 @@ def draw_button(xpos, ypos, label, color):
     text_rectangle = text.get_rect()
     text_rectangle.center = (xpos, ypos)
     screen.blit(text, text_rectangle)
+
+def draw_fixation():
+    cx, cy = SCREEN_SIZE[0] // 2, SCREEN_SIZE[1] // 2
+    pygame.draw.line(screen, col_black, (cx - 20, cy), (cx + 20, cy), 2)
+    pygame.draw.line(screen, col_black, (cx, cy - 20), (cx, cy + 20), 2)
 
 def draw_welcome():
     text_surface = font.render("STROOP Experiment", True, col_black, BACKGR_COL)

@@ -3,7 +3,6 @@ import sys
 from time import time
 import random
 from pygame.locals import *
-from pygame.compat import unichr_, unicode_
 
 ##### CONFIG #####
 
@@ -34,108 +33,112 @@ KEYS     = {"red": K_b,
             "green": K_n,
             "blue": K_m}
 
+TRIAL_DELAY = 0.5  # seconds
 
 
 ### PYGAME STARTUP ###
 
 pygame.init()
-pygame.display.set_mode(SCREEN_SIZE) 
+pygame.display.set_mode(SCREEN_SIZE)
 pygame.display.set_caption("Stroop Test")
 
 screen = pygame.display.get_surface()
 # screen.fill(BACKGR_COL)
 
 font = pygame.font.Font(None, 80)
-font_small = pygame.font.Font(None, 40) 
+font_small = pygame.font.Font(None, 40)
 
 
 ### MAIN PROGRAM ###
 
 def main():
-    
-    STATE = "welcome"    
-    trial_number = 0    
-    
+
+    STATE = "welcome"
+    trial_number = 0
+
     while True:
-        
+
         # refreshing the surface
         screen.fill(BACKGR_COL)
 
         # Event loop
         for event in pygame.event.get():
-            
-            # interactive transitionals                     
-            if STATE == "welcome":
+
+            # interactive transitionals
+            if event.type == QUIT:
+                STATE = "quit"
+                print(STATE)
+                break
+
+            elif STATE == "welcome":
                 if event.type == KEYDOWN and event.key == K_SPACE:
                     STATE = "prepare_trial"
                     print(STATE)
-                    continue
-                    
-            if STATE == "trial":
+
+            elif STATE == "trial":
                 if event.type == KEYDOWN and event.key in KEYS.values():
                     time_when_reacted = time()
                     this_reaction_time = time_when_reacted - time_when_presented
                     this_correctness = (event.key == KEYS[this_color])
                     STATE = "feedback"
                     print(STATE)
-                    continue
-    
-            if STATE == "feedback":
+
+            elif STATE == "feedback":
                 if event.type == KEYDOWN and event.key == K_SPACE:
                     if trial_number < n_trials:
                         STATE = "prepare_trial"
                     else:
                         STATE = "goodbye"
                     print(STATE)
-                    continue
-                    
-            
-            if event.type == QUIT:
-                STATE = "quit"
-                print(STATE)
-                break
 
-        
         # automatic transitionals
         if STATE == "prepare_trial":
-                trial_number = trial_number + 1
-                this_word  = pick_color()
-                this_color = pick_color()
-                time_when_presented = time()
-                STATE = "trial"
-                print(STATE)    
+            trial_number = trial_number + 1
+            this_word  = pick_color()
+            this_color = pick_color()
+            time_trial_started = time()
+            STATE = "delay"
+            print(STATE)
 
-        
-        
+        if STATE == "delay" and time() >= time_trial_started + TRIAL_DELAY:
+            time_when_presented = time()
+            STATE = "trial"
+            print(STATE)
+
+
+
         # Presentitionals
         if STATE == "welcome":
             draw_welcome()
             draw_button(SCREEN_SIZE[0]*1/5, 450, "Red: B", col_red)
             draw_button(SCREEN_SIZE[0]*3/5, 450, "Green: N", col_green)
             draw_button(SCREEN_SIZE[0]*4/5, 450, "Blue: M", col_blue)
-        
-        if STATE == "trial":
+
+        elif STATE == "delay":
+            draw_fixation()
+
+        elif STATE == "trial":
             draw_stimulus(this_color, this_word)
             draw_button(SCREEN_SIZE[0]*1/5, 450, "Red: B", col_red)
             draw_button(SCREEN_SIZE[0]*3/5, 450, "Green: N", col_green)
             draw_button(SCREEN_SIZE[0]*4/5, 450, "Blue: M", col_blue)
-        
-        if STATE == "feedback":
+
+        elif STATE == "feedback":
             draw_feedback(this_correctness, this_reaction_time)
-        
-        if STATE == "goodbye":
+
+        elif STATE == "goodbye":
             draw_goodbye()
-        
-        if STATE == "quit":
+
+        elif STATE == "quit":
             pygame.quit()
             sys.exit()
-        
+
         # Updating the display
         pygame.display.update()
-        
+
 
 # Function definitions
-        
+
 def pick_color():
     """ Return a random word.
     """
@@ -147,6 +150,11 @@ def draw_button(xpos, ypos, label, color):
     text_rectangle = text.get_rect()
     text_rectangle.center = (xpos, ypos)
     screen.blit(text, text_rectangle)
+
+def draw_fixation():
+    cx, cy = SCREEN_SIZE[0] // 2, SCREEN_SIZE[1] // 2
+    pygame.draw.line(screen, col_black, (cx - 20, cy), (cx + 20, cy), 2)
+    pygame.draw.line(screen, col_black, (cx, cy - 20), (cx, cy + 20), 2)
 
 def draw_welcome():
     text_surface = font.render("STROOP Experiment", True, col_black, BACKGR_COL)
@@ -193,8 +201,5 @@ def draw_goodbye():
     text_rectangle = text_surface.get_rect()
     text_rectangle.center = (SCREEN_SIZE[0]/2.0,200)
     screen.blit(text_surface, text_rectangle)
-    
+
 main()
-
-
-
