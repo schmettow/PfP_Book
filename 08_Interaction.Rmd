@@ -45,14 +45,15 @@ If you are making a model of an existing system in front of your eyes, that's ca
     .    Y    .
     G    .    .
 
-You may be tempted at this stage to call the states by their appearance (Green, Yellow, Red). That is not exactly wrong, but it confuses the purpose of the state with its appearance. Imagine, you wanted to actually design a traffic light for people who are blind, using sounds. Then the light colors no longer describe the state well.  Instead, the state description should state the *purpose of states*, which we note down in a *table of states (TOS)*:
+You may be tempted at this stage to call the states by their appearance (Green, Yellow, Red). That is not exactly wrong, but it confuses the purpose of the state with its appearance. Imagine, you wanted to actually design a traffic light for people who are blind, using sounds. Then the light colors no longer describe the state well.  
+Instead, the state description should state the *purpose of states*, which we note down in a *table of states (TOS)*:
 
 
 ```{r, traffic-light-states, echo=FALSE, message=FALSE}
 tibble::tribble(~State, ~Purpose,
                 "Go", "signal permission to cross",
                 "Att", "signal soon Stop",
-                "Stop", "No permission to cross")
+                "Stop", "No permission to cross") |> knitr::kable()
 ```
 
 By keeping the states abstract, at a later point in the development you can decide, how to shape the user interface, visually or through other channels.
