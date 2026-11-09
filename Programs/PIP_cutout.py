@@ -1,5 +1,7 @@
 import pygame
 
+WIDTH, HEIGHT = 800, 600
+
 
 def main():
     # --- What we are building ------------------------------------------------
@@ -9,10 +11,13 @@ def main():
     # selected circle shows through the cutout, while the outer circles remain
     # partially visible around the screen. The window background is light blue
     # sky, so the white strip and the black screen read as separate layers.
+    #
+    # All sizes are relative to the global WIDTH and HEIGHT. Changing those two
+    # values scales the layout instead of requiring new absolute coordinates.
 
-    WIDTH, HEIGHT = 800, 600
-    PANEL_W, PANEL_H = 260, 260
-    CUTOUT_R = 65
+    panel_w = round(WIDTH * 0.325)
+    panel_h = round(HEIGHT * 0.4333)
+    cutout_r = round(min(WIDTH, HEIGHT) * 0.1083)
 
     SKY = (170, 210, 240)
 
@@ -29,22 +34,16 @@ def main():
     # opaque black; drawing a circle with alpha 0 punches a transparent hole.
     # There is no separate glass layer in this version: the cutout itself is
     # the alpha mask.
-    panel = pygame.Surface((PANEL_W, PANEL_H), pygame.SRCALPHA)
+    panel = pygame.Surface((panel_w, panel_h), pygame.SRCALPHA)
     panel.fill((0, 0, 0, 255))
     pygame.draw.circle(
         panel,
         (0, 0, 0, 0),
-        (PANEL_W // 2, PANEL_H // 2),
-        CUTOUT_R,
-    )
-    panel_rect = pygame.Rect(
-        (WIDTH - PANEL_W) // 2,
-        (HEIGHT - PANEL_H) // 2,
-        PANEL_W,
-        PANEL_H,
+        (panel_w // 2, panel_h // 2),
+        cutout_r,
     )
 
-    traffic_light = TrafficLightPanel(panel, panel_rect)
+    traffic_light = TrafficLightPanel(panel)
 
     running = True
     while running:
@@ -71,17 +70,29 @@ def main():
 class TrafficLightPanel:
     """The black screen and the white slider drawn behind it."""
 
-    SLIDE_W, SLIDE_H = 460, 220
-    SPACING = 150
-    LAMP_R = 70
     WHITE = (255, 255, 255)
     RED = (230, 45, 45)
     YELLOW = (245, 210, 40)
     GREEN = (40, 200, 90)
 
-    def __init__(self, panel, rect):
+    def __init__(self, panel):
         self.panel = panel
-        self.rect = rect
+        self.panel_w, self.panel_h = panel.get_size()
+
+        # Center the panel relative to the global window size.
+        self.panel_rect = pygame.Rect(
+            (WIDTH - self.panel_w) // 2,
+            (HEIGHT - self.panel_h) // 2,
+            self.panel_w,
+            self.panel_h,
+        )
+
+        # Slider geometry, also relative to the global window size.
+        self.slide_w = round(WIDTH * 0.575)
+        self.slide_h = round(HEIGHT * 0.3667)
+        self.spacing = round(WIDTH * 0.1875)
+        self.lamp_r = round(min(WIDTH, HEIGHT) * 0.1167)
+
         self.state = 2  # 1 = left lamp, 2 = middle, 3 = right
 
     def shift_left(self):
@@ -93,24 +104,23 @@ class TrafficLightPanel:
         self.state = min(self.state + 1, 3)
 
     def draw(self, surface):
-        # The selected strip construction now lives here: build the full
-        # white strip with all three circles inside draw().
-        slide = pygame.Surface((self.SLIDE_W, self.SLIDE_H))
+        # The slider strip is built inside draw(), with all three circles.
+        slide = pygame.Surface((self.slide_w, self.slide_h))
         slide.fill(self.WHITE)
         for i, color in enumerate((self.RED, self.YELLOW, self.GREEN)):
-            x = self.SLIDE_W // 2 + (i - 1) * self.SPACING
-            pygame.draw.circle(slide, color, (x, self.SLIDE_H // 2), self.LAMP_R)
+            x = self.slide_w // 2 + (i - 1) * self.spacing
+            pygame.draw.circle(slide, color, (x, self.slide_h // 2), self.lamp_r)
 
         # State 2 is centred. State 1 moves the strip right so the left lamp
         # is under the cutout; state 3 moves it left for the right lamp.
-        offset = (2 - self.state) * self.SPACING
-        slide_x = self.rect.centerx - self.SLIDE_W // 2 + offset
-        slide_y = self.rect.centery - self.SLIDE_H // 2
+        offset = (2 - self.state) * self.spacing
+        slide_x = self.panel_rect.centerx - self.slide_w // 2 + offset
+        slide_y = self.panel_rect.centery - self.slide_h // 2
 
         # The whole strip is blitted every frame. The black screen covers the
         # centre; the outer circles remain partially visible around it.
         surface.blit(slide, (slide_x, slide_y))
-        surface.blit(self.panel, self.rect.topleft)
+        surface.blit(self.panel, self.panel_rect.topleft)
 
 
 if __name__ == "__main__":
