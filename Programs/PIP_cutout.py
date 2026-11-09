@@ -1,101 +1,69 @@
 import pygame
 
-# --- Configuration ---------------------------------------------------------
 
-WIDTH, HEIGHT = 800, 600
-PANEL_W, PANEL_H = 420, 420
-CUTOUT_R = 90
-LAMP_R = 100
-SPACING = 200
-SLIDE_W, SLIDE_H = 900, 600
+def main():
+    # --- What we are building ------------------------------------------------
+    # A paper traffic light: a white slider strip with red, yellow, and green
+    # circles. The strip is always fully drawn. A smaller black screen with a
+    # round cutout sits in front of it; the selected circle shows through the
+    # cutout, while the outer circles remain partially visible around the
+    # screen. The window background is light blue sky, so the white strip and
+    # the black screen read as separate layers.
 
-WHITE = (255, 255, 255)
-PAPER = (238, 236, 228)
-RED = (230, 45, 45)
-YELLOW = (245, 210, 40)
-GREEN = (40, 200, 90)
+    WIDTH, HEIGHT = 800, 600
 
-PANEL_RECT = pygame.Rect(
-    (WIDTH - PANEL_W) // 2,
-    (HEIGHT - PANEL_H) // 2,
-    PANEL_W,
-    PANEL_H,
-)
+    # The slider is wider than the screen and stays inside the window at all
+    # three positions.
+    SLIDE_W, SLIDE_H = 460, 220
+    PANEL_W, PANEL_H = 260, 260
+    CUTOUT_R = 65
+    LAMP_R = 70
+    SPACING = 150
 
+    SKY = (170, 210, 240)
+    WHITE = (255, 255, 255)
+    RED = (230, 45, 45)
+    YELLOW = (245, 210, 40)
+    GREEN = (40, 200, 90)
 
-def make_slide():
-    """The hidden slide with three colored lamps."""
+    pygame.init()
+    screen = pygame.display.set_mode((WIDTH, HEIGHT))
+    pygame.display.set_caption("PIP Cutout")
+    clock = pygame.time.Clock()
+
+    # --- Lowest layer: sky ---------------------------------------------------
+    # The sky is painted every frame in the presentational block below.
+
+    # --- Middle layer: the slider -------------------------------------------
+    # The white strip is a static surface. All three circles are drawn once;
+    # the strip itself is moved by the panel class.
     slide = pygame.Surface((SLIDE_W, SLIDE_H))
-    slide.fill(PAPER)
+    slide.fill(WHITE)
     for i, color in enumerate((RED, YELLOW, GREEN)):
         x = SLIDE_W // 2 + (i - 1) * SPACING
         pygame.draw.circle(slide, color, (x, SLIDE_H // 2), LAMP_R)
-    return slide
 
-
-def make_panel():
-    """The black screen with a round alpha cutout."""
-    # Learning point: SRCALPHA gives every pixel its own alpha.
+    # --- Top layer: the black screen ----------------------------------------
+    # SRCALPHA means every pixel carries its own alpha. The panel is filled
+    # opaque black; drawing a circle with alpha 0 punches a transparent hole.
+    # There is no separate glass layer in this version: the cutout itself is
+    # the alpha mask.
     panel = pygame.Surface((PANEL_W, PANEL_H), pygame.SRCALPHA)
     panel.fill((0, 0, 0, 255))
-    # Learning point: alpha 0 punches a transparent hole; the rest stays opaque.
     pygame.draw.circle(
         panel,
         (0, 0, 0, 0),
         (PANEL_W // 2, PANEL_H // 2),
         CUTOUT_R,
     )
-    return panel
+    panel_rect = pygame.Rect(
+        (WIDTH - PANEL_W) // 2,
+        (HEIGHT - PANEL_H) // 2,
+        PANEL_W,
+        PANEL_H,
+    )
 
-
-class TrafficLightPanel:
-    """The black panel and the slide behind it."""
-
-    def __init__(self, panel, slide, rect):
-        self.panel = panel
-        self.slide = slide
-        self.rect = rect
-        self.position = "middle"  # left | middle | right
-
-    def shift_left(self):
-        # Learning point: shifting is a state transition, not an animation.
-        if self.position == "right":
-            self.position = "middle"
-        elif self.position == "middle":
-            self.position = "left"
-
-    def shift_right(self):
-        if self.position == "left":
-            self.position = "middle"
-        elif self.position == "middle":
-            self.position = "right"
-
-    def draw(self, surface):
-        # Learning point: the slide is larger than the panel; clip it to the
-        # panel rect so its edges never show on the white background.
-        shift = {"left": SPACING, "middle": 0, "right": -SPACING}[self.position]
-        slide_x = self.rect.centerx - SLIDE_W // 2 + shift
-        slide_y = self.rect.centery - SLIDE_H // 2
-
-        surface.set_clip(self.rect)
-        surface.blit(self.slide, (slide_x, slide_y))
-        surface.set_clip(None)
-
-        # Learning point: blit order is slide -> panel. The alpha hole in the
-        # panel reveals the selected lamp.
-        surface.blit(self.panel, self.rect.topleft)
-
-
-def main():
-    pygame.init()
-    screen = pygame.display.set_mode((WIDTH, HEIGHT))
-    pygame.display.set_caption("PIP Cutout")
-    clock = pygame.time.Clock()
-
-    # Static layers, built once in the main program.
-    slide = make_slide()
-    panel = make_panel()
-    traffic_light = TrafficLightPanel(panel, slide, PANEL_RECT)
+    traffic_light = TrafficLightPanel(panel, slide, panel_rect, SPACING)
 
     running = True
     while running:
@@ -110,12 +78,44 @@ def main():
                     traffic_light.shift_right()
 
         # Presentationals — pure drawing; no state changes here.
-        screen.fill(WHITE)
+        # Draw order: sky -> slider -> screen.
+        screen.fill(SKY)
         traffic_light.draw(screen)
         pygame.display.flip()
         clock.tick(60)
 
     pygame.quit()
+
+
+class TrafficLightPanel:
+    """The black screen and the white slider behind it."""
+
+    def __init__(self, panel, slide, rect, spacing):
+        self.panel = panel
+        self.slide = slide
+        self.rect = rect
+        self.spacing = spacing
+        self.state = 2  # 1 = left lamp, 2 = middle, 3 = right
+
+    def shift_left(self):
+        # Numerical states keep the transition simple. Clamp at 1.
+        self.state = max(self.state - 1, 1)
+
+    def shift_right(self):
+        # Clamp at 3.
+        self.state = min(self.state + 1, 3)
+
+    def draw(self, surface):
+        # State 2 is centred. State 1 moves the strip right so the left lamp
+        # is under the cutout; state 3 moves it left for the right lamp.
+        offset = (2 - self.state) * self.spacing
+        slide_x = self.rect.centerx - self.slide.get_width() // 2 + offset
+        slide_y = self.rect.centery - self.slide.get_height() // 2
+
+        # The whole strip is drawn every frame. The black screen covers the
+        # centre; the outer lamps remain partially visible around it.
+        surface.blit(self.slide, (slide_x, slide_y))
+        surface.blit(self.panel, self.rect.topleft)
 
 
 if __name__ == "__main__":
