@@ -15,9 +15,9 @@ def main():
     # All sizes are relative to the global WIDTH and HEIGHT. Changing those two
     # values scales the layout instead of requiring new absolute coordinates.
 
-    panel_w = round(WIDTH * 0.325)
-    panel_h = round(HEIGHT * 0.4333)
-    cutout_r = round(min(WIDTH, HEIGHT) * 0.1083)
+    panel_w = round(WIDTH * 5/12)
+    panel_h = round(HEIGHT * 5/12)
+    cutout_r = round(min(WIDTH, HEIGHT) * 1/12)
 
     SKY = (170, 210, 240)
 
@@ -88,10 +88,10 @@ class TrafficLightPanel:
         )
 
         # Slider geometry, also relative to the global window size.
-        self.slide_w = round(WIDTH * 0.575)
-        self.slide_h = round(HEIGHT * 0.3667)
-        self.spacing = round(WIDTH * 0.1875)
-        self.lamp_r = round(min(WIDTH, HEIGHT) * 0.1167)
+        self.slide_w = round(WIDTH * 8/12)
+        self.slide_h = round(HEIGHT * 5/12)
+        self.spacing = round(WIDTH * 3/12)
+        self.lamp_r = round(min(WIDTH, HEIGHT) * 1/12)
 
         self.state = 2  # 1 = left lamp, 2 = middle, 3 = right
 
