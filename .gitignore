@@ -5,3 +5,4 @@
 
 /.quarto/
 **/*.quarto_ipynb
+Programs/__pycache__/PIP_stroop.cpython-314.pyc
