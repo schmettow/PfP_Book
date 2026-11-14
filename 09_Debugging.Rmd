@@ -45,12 +45,12 @@ By reading a book your vocabulary expands. You learn new words, how a word is us
 
 ### Just do it!
 
-When you read about something new, be it in this book, on the internet or in class, try it yourself and see what happens! This is an essential learning attitude when learning how to program. Definitely, you cannot learn how to program by just reading books. It is above all a "learning by doing" skill. Chapter 2 [Variables, values and data types] introduces *float division*. Float division is a peculiarity of all Python 2 versions. When an integer division does not result in another integer, the result is truncated instead of represented as a floating point. Your first reaction when reading about float division should be to open your Python interpreter and try out what happens when you divide two integers which do not share a common multiple.
+When you read about something new, be it in this book, on the internet or in class, try it yourself and see what happens! This is an essential learning attitude when learning how to program. Definitely, you cannot learn how to program by just reading books. It is above all a "learning by doing" skill. Chapter 2 [Variables, values and data types] introduces arithmetic expressions. In Python 3, dividing two integers with `/` always yields a floating-point number, even when one divides the other without a remainder. Your first reaction when reading about division should be to open your Python interpreter and try out what happens when you divide two integers which do not share a common multiple.
 
-```{python, integer-division}
+```{python, true-division}
 x = 7
 y = 3
 print(x / y)
 ```
 
-After having executed the above code snippet in your Python interpreter, does it not become more apparent what I meant by *truncated*? Being a psychologist you know that writing (by hand) facilitates structuring your thoughts and subsequently, memorizing. Trying out code snippets is no different in this respect.
+After having executed the above code snippet in your Python interpreter, does it not become more apparent what I meant by *true division*? If you need the integer part only, use the `//` operator instead. Being a psychologist you know that writing (by hand) facilitates structuring your thoughts and subsequently, memorizing. Trying out code snippets is no different in this respect.

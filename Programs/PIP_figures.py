@@ -1,7 +1,6 @@
 import pygame
 import sys
 from pygame.locals import *
-from pygame.compat import unichr_, unicode_
 
 pygame.init()
 width = 1000

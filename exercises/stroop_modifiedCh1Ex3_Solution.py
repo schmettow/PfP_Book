@@ -3,7 +3,6 @@ import sys
 from time import time
 import random
 from pygame.locals import *
-from pygame.compat import unichr_, unicode_
 
 ##### VARIABLES #####
 # Colors

@@ -740,7 +740,7 @@ Turn the following flow chart into a python script and run it. Given that the in
 
 ## Think Further
 
-* For a complete list of all operator precedences in Python feel free to consult the following summary: [Official Python Documentation: 5.15 Operator precedence](https://docs.python.org/2/reference/expressions.html#operator-precedence)
+* For a complete list of all operator precedences in Python feel free to consult the following summary: [Official Python Documentation: 5.15 Operator precedence](https://docs.python.org/3/reference/expressions.html#operator-precedence)
 * For an alternative explanation of the contents of this chapter, consult [A Byte of Python: Chapter 6. Operators and Expressions and Chapter 7. Control Flow](http://files.swaroopch.com/python/byte_of_python.pdf)
 * For more detail on Conditionals, Boolean algebra and related topics, you are invited to take a look at [How to Think Like a Computer Scientist: Learning with Python 3: 5. Conditionals](http://openbookproject.net/thinkcs/python/english3e/conditionals.html)
 

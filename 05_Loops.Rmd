@@ -601,4 +601,4 @@ seq = range(1000)
 
 ## Think Further
 
-* Tutorial on String formatting. [Lisa Tagliaferri (2016). How To Use String Formatters in Python 3] (https://www.digitalocean.com/community/tutorials/how-to-use-string-formatters-in-python-3) Though the heading says 'Python 3', all Lisa discusses in her tutorial also applies to Python 2.7.
+* Tutorial on String formatting. [Lisa Tagliaferri (2016). How To Use String Formatters in Python 3] (https://www.digitalocean.com/community/tutorials/how-to-use-string-formatters-in-python-3).

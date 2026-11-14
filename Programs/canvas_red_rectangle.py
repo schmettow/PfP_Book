@@ -1,9 +1,8 @@
 import pygame
 import sys
-from time import time, clock
+from time import time
 from pygame.locals import *
 import random
-from pygame.compat import unichr_, unicode_
 
 ##### VARIABLES #####
 # Colors

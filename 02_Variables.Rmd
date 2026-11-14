@@ -680,7 +680,7 @@ Fill in the blank spots (indicated by a question mark `?`) in the following code
 1.  For more information and exercise on Variables and Data Types you may want to consult some of the following resources:
 
     -   [Downey, A. (2012). Think Python. O'Reilly Media, Inc.. Chapter 2. Variables, expressions and statements](http://www.greenteapress.com/thinkpython/thinkpython.pdf)
-    -   [Official Python Tutorial, parts 3.1.1 Numbers and 3.1.2 Strings](https://docs.python.org/2/tutorial/introduction.html)
+    -   [Official Python Tutorial, parts 3.1.1 Numbers and 3.1.2 Strings](https://docs.python.org/3/tutorial/introduction.html)
     -   [Learnpython \`\`Variables and Types'' interactive tutorial](http://www.learnpython.org/en/Variables_and_Types)
     -   [Swaroop, C. H. (2003). A Byte of Python. Chapter 6 \`\`Basics''](https://python.swaroopch.com/basics.html)
 

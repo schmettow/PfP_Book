@@ -10,6 +10,8 @@ This course teaches the programming language Python. In order to write Python pr
 
 The *Thonny* editor puts an editor, an interpreter and a package manager on your computer. Thonny is designed for beginners and brings its own Python environment, so you do not have to install Python separately. There is just one library that you have to install additionally. The *Pygame* library provides specialized functionality for developing arcade games (Ping Pong, Super Mario, etc.), which is almost perfect for writing programs that do psychological experiments.
 
+We use the community edition *pygame-ce*, which is actively developed and installs under the import name `pygame`, so all examples in this book run unchanged.
+
 ## Installing the Thonny editor
 
 ### Windows
@@ -20,7 +22,7 @@ The *Thonny* editor puts an editor, an interpreter and a package manager on your
 
 3.  Thonny ships with its own Python interpreter, so no further setup is required.
 
-4.  Start Thonny and install the Pygame library via the menu *Tools --\> Manage packages*, search for `pygame` and click *Install*.
+4.  Start Thonny and install the Pygame library via the menu *Tools --\> Manage packages*, search for `pygame-ce` and click *Install*.
 
 ### MacOS
 
@@ -28,7 +30,7 @@ The *Thonny* editor puts an editor, an interpreter and a package manager on your
 
 2.  Run the downloaded file and follow the instructions of the installer.
 
-3.  Install the Pygame library as described for Windows.
+3.  Install `pygame-ce` as described for Windows.
 
 ## Testing your environment
 
@@ -40,12 +42,12 @@ print('Hello world!')
 
     ## Hello world!
 
-Finally, you can test whether the Pygame library is correctly installed and running.
+Finally, you can test whether `pygame-ce` is correctly installed and running.
 In Thonny, create another new file, then copy and paste the code of the Stroop experiment in the next section.
 Save the file and hit run again. It should run the Stroop task in five trials.
 
 **Note:** A common problem with Python installation is that you may already have a Python environment on your computer.
-This is very common on MacOS and Linux. If you installed Pygame, but it isn't found, the reason may be that you have multiple parallel Pythons and Pygame got installed for another instance than you are using.
+This is very common on MacOS and Linux. If you installed `pygame-ce`, but it isn't found, the reason may be that you have multiple parallel Pythons and Pygame got installed for another instance than you are using.
 For that main reason, we use the editor Thonny is this book, as it brings its own Python environment and an integrated library manager.
 Make sure to always use Thonny's Python instance (Tools-> Options --> INterpreter --> Local Python 3)
 

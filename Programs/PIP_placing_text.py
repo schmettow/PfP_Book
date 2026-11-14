@@ -1,7 +1,6 @@
 import pygame
 import sys
 from pygame.locals import *
-from pygame.compat import unichr_, unicode_
 
 WIDTH = 1000
 HEIGHT = 800
