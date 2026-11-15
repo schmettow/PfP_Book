@@ -440,7 +440,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 <p>The <code>append()</code> method adds the value specified between the brackets to the end of the list. Typing <code>help(list)</code> in your console will give you a complete list of built-in functions of the class <code>list</code> and what they do.</p>
 <p>What is the take-home message of this excursion to object-orientation? Well, make use of built-in class functions as much as you can! They provide a tremendous amount of functionality which you are likely going to need and want, written in neat code which makes them very efficient to use, too!</p>
-<p>The interested reader can find more information on Python classes <a href="https://docs.python.org/2/tutorial/classes.html">here</a>.</p>
+<p>The interested reader can find more information on Python classes <a href="https://docs.python.org/3/tutorial/classes.html">here</a>.</p>
 </section>
 </section>
 <section id="tuples" class="level2" data-number="4.2">
@@ -533,7 +533,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb59"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb59-1"><a href="#cb59-1" aria-hidden="true" tabindex="-1"></a>d <span class="op">=</span> {[<span class="st">'a'</span>]: <span class="st">'b'</span>}</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>TypeError: cannot use 'list' as a dict key (unhashable type: 'list')</code></pre>
+<pre><code>TypeError: unhashable type: 'list'</code></pre>
 </div>
 </div>
 <p>Whenever you try to use a mutable object (like lists) as a key, a <code>TypeError</code> will be thrown. Because lists are mutable (you can update their elements), they are <em>unhashable</em>. Without going into the details of hash functions here, a <em>hash</em> is another representation of an object. It is a transformation of the object’s length sequence of bytes into a fixed length sequence. <em>Hash functions</em> are used in cryptographic algorithms, in digital signatures, manipulation detection, password storage and more. Hash functions are constructed so that calculating an object’s hash representation is simple, but retrieving the original object is difficult without knowing the function used to hash the object in the first place. You can imagine that things start to get messy if the object itself can change after its hash has been calculated. A hash is a momentary snapshot of an object. It is impossible to retrieve the “latest version” of a changable object from its hash representation, even if you know its hash function. Dictionaries themselves are also mutable (and thus, unhashable) and cannot be used as <em>keys</em>, by the way.</p>

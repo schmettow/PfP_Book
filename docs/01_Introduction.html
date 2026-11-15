@@ -280,6 +280,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li><em>Python libraries</em>, that provide specialized functionality for the task at hand</li>
 </ol>
 <p>The <em>Thonny</em> editor puts an editor, an interpreter and a package manager on your computer. Thonny is designed for beginners and brings its own Python environment, so you do not have to install Python separately. There is just one library that you have to install additionally. The <em>Pygame</em> library provides specialized functionality for developing arcade games (Ping Pong, Super Mario, etc.), which is almost perfect for writing programs that do psychological experiments.</p>
+<p>We use the community edition <em>pygame-ce</em>, which is actively developed and installs under the import name <code>pygame</code>, so all examples in this book run unchanged.</p>
 </section>
 <section id="installing-the-thonny-editor" class="level2" data-number="1.2">
 <h2 data-number="1.2" class="anchored" data-anchor-id="installing-the-thonny-editor"><span class="header-section-number">1.2</span> Installing the Thonny editor</h2>
@@ -289,7 +290,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li><p>From <a href="https://thonny.org" class="uri">https://thonny.org</a> download the installer for Windows</p></li>
 <li><p>Run the downloaded file and follow the instructions of the installer.</p></li>
 <li><p>Thonny ships with its own Python interpreter, so no further setup is required.</p></li>
-<li><p>Start Thonny and install the Pygame library via the menu <em>Tools –&gt; Manage packages</em>, search for <code>pygame</code> and click <em>Install</em>.</p></li>
+<li><p>Start Thonny and install the Pygame library via the menu <em>Tools –&gt; Manage packages</em>, search for <code>pygame-ce</code> and click <em>Install</em>.</p></li>
 </ol>
 </section>
 <section id="macos" class="level3" data-number="1.2.2">
@@ -297,7 +298,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <ol type="1">
 <li><p>From <a href="https://thonny.org" class="uri">https://thonny.org</a> download the installer for MacOS.</p></li>
 <li><p>Run the downloaded file and follow the instructions of the installer.</p></li>
-<li><p>Install the Pygame library as described for Windows.</p></li>
+<li><p>Install <code>pygame-ce</code> as described for Windows.</p></li>
 </ol>
 </section>
 </section>
@@ -308,8 +309,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">'Hello world!'</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <pre><code>## Hello world!</code></pre>
-<p>Finally, you can test whether the Pygame library is correctly installed and running. In Thonny, create another new file, then copy and paste the code of the Stroop experiment in the next section. Save the file and hit run again. It should run the Stroop task in five trials.</p>
-<p><strong>Note:</strong> A common problem with Python installation is that you may already have a Python environment on your computer. This is very common on MacOS and Linux. If you installed Pygame, but it isn’t found, the reason may be that you have multiple parallel Pythons and Pygame got installed for another instance than you are using. For that main reason, we use the editor Thonny is this book, as it brings its own Python environment and an integrated library manager. Make sure to always use Thonny’s Python instance (Tools-&gt; Options –&gt; INterpreter –&gt; Local Python 3)</p>
+<p>Finally, you can test whether <code>pygame-ce</code> is correctly installed and running. In Thonny, create another new file, then copy and paste the code of the Stroop experiment in the next section. Save the file and hit run again. It should run the Stroop task in five trials.</p>
+<p><strong>Note:</strong> A common problem with Python installation is that you may already have a Python environment on your computer. This is very common on MacOS and Linux. If you installed <code>pygame-ce</code>, but it isn’t found, the reason may be that you have multiple parallel Pythons and Pygame got installed for another instance than you are using. For that main reason, we use the editor Thonny is this book, as it brings its own Python environment and an integrated library manager. Make sure to always use Thonny’s Python instance (Tools-&gt; Options –&gt; INterpreter –&gt; Local Python 3)</p>
 </section>
 <section id="sec-dumb-computers" class="level2" data-number="1.4">
 <h2 data-number="1.4" class="anchored" data-anchor-id="sec-dumb-computers"><span class="header-section-number">1.4</span> Computers are dumb</h2>

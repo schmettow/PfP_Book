@@ -753,7 +753,6 @@ import sys
 from time import time
 from pygame.locals import *
 import random
-from pygame.compat import unichr_, unicode_
 ##### VARIABLES #####
 # Colors
 col_black = (0, 0, 0)
@@ -870,7 +869,6 @@ Like almost any other program, a Pygame program appears as a window, just like t
 import pygame
 import sys
 from pygame.locals import *
-from pygame.compat import unichr_, unicode_
 # Initializing the display
 pygame.init()
 pygame.display.set_mode((600, 400))
@@ -917,7 +915,6 @@ Speaking of *colors*: after creating the surface, we filled it with our backgrou
 import pygame
 import sys
 from pygame.locals import *
-from pygame.compat import unichr_, unicode_
 pygame.init()
 width = 1000
 height = 800
@@ -987,7 +984,6 @@ In the following program we merged both steps into a more programmer-friendly fu
 import pygame
 import sys
 from pygame.locals import *
-from pygame.compat import unichr_, unicode_
 pygame.init()
 width = 1000
 height = 800

@@ -4,7 +4,6 @@ import sys
 from time import time
 import random
 from pygame.locals import *
-from pygame.compat import unichr_, unicode_
 
 ##### VARIABLES #####
 # Colors
@@ -181,11 +180,11 @@ def main():
 def prompt():
     p_number = 0
     while p_number == 0:
-        p_number = int(raw_input("Please enter participant number here:"))
+        p_number = int(input("Please enter participant number here:"))
     if p_number in range(1, len(p_numbers) + 1):
         return p_number
     else:
-        print "Unknown participant number, valid participant numbers are 1 to 10"
+        print("Unknown participant number, valid participant numbers are 1 to 10")
         prompt()
                     
 def pick_color():

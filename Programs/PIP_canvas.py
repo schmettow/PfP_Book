@@ -1,7 +1,6 @@
 import pygame
 import sys
 from pygame.locals import *
-from pygame.compat import unichr_, unicode_
 
 pygame.init()
 pygame.display.set_mode((600, 400))
@@ -20,5 +19,3 @@ def main():
         pygame.display.update()
 
 main()
-
-

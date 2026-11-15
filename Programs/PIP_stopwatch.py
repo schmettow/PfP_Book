@@ -9,7 +9,7 @@ STATE = "reset"
 while True:
   
   print(STATE)
-  key = raw_input("Press a key: ")
+  key = input("Press a key: ")
   
   # interactive transitionals
   

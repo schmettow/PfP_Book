@@ -147,7 +147,7 @@ The `append()` method adds the value specified between the brackets to the end o
 
 What is the take-home message of this excursion to object-orientation? Well, make use of built-in class functions as much as you can! They provide a tremendous amount of functionality which you are likely going to need and want, written in neat code which makes them very efficient to use, too!
 
-The interested reader can find more information on Python classes [here](https://docs.python.org/2/tutorial/classes.html).
+The interested reader can find more information on Python classes [here](https://docs.python.org/3/tutorial/classes.html).
 
 ## Tuples
 
