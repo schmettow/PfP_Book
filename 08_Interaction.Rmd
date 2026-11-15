@@ -1076,6 +1076,98 @@ Notice that
 1. `picture.get_rect()` is called twice. After the scaling the box gets an update
 1. Putting the scaling part into a conditional is not necessary, but saves computation where it is not needed.
 
+### Alpha masks
+
+You have seen that Pygame drawings work like oil paint by default:
+Later drawings are added on top and occlude earlier ones.
+What if you wanted to create a window or cutout in a higher layer, so that elements on lower layers shine through?
+In Pygame and many other graphics environments, you can make figures partially or fully transparent using the *alpha channel*.
+
+The alpha channel is a fourth color channel, next to red, green and blue. The RGB channels determine how brightly each subpixel glows, while the alpha channel determines how opaque a pixel is. Because each channel is a byte, alpha takes values from 0 to 255: 0 means fully transparent, 255 means fully opaque, and the values in between produce partial transparency. Colors with alpha are written as four-tuples, such as `(0, 0, 0, 255)` for opaque black and `(0, 0, 0, 0)` for fully transparent black. In the latter case, the three color values do not matter, because nothing of that pixel will be visible.
+
+There is a catch, though. A surface that was created without an alpha channel has no place to store per-pixel transparency, so the fourth value of a color tuple is simply ignored. To make use of per-pixel transparency, you create an additional surface in memory with the flag `pygame.SRCALPHA`. Such a surface stores an alpha value for every pixel. You paint on this surface, and only then *blit* it onto the screen. While blitting, Pygame combines the pixels of the upper surface with the pixels below: opaque pixels cover what is underneath, transparent pixels leave it untouched, and semi-transparent pixels let it shine through. In this role, the alpha channel is a *mask*: it marks the pixels that the panel keeps and the pixels through which the layers below remain visible.
+
+The following program puts this to work and picks up the paper traffic light motif from the interaction analysis. Three adjacent squares in red, yellow and green form a slider. A smaller black screen with a circular cutout sits in front of it. The selected square appears through the cutout, while the neighboring squares remain partly visible around the screen. The left and right arrow keys move the slider behind the cutout.
+
+```{python, alpha-cutout, eval = F}
+import pygame
+import sys
+from pygame.locals import *
+
+WIDTH = 800
+HEIGHT = 600
+SKY = (170, 210, 240)
+RED = (230, 45, 45)
+YELLOW = (245, 210, 40)
+GREEN = (40, 200, 90)
+
+PANEL_W = round(WIDTH * 5/12)
+PANEL_H = round(HEIGHT * 5/12)
+CUTOUT_R = round(min(WIDTH, HEIGHT) * 1/12)
+SQUARE = round(WIDTH * 2/12)
+
+pygame.init()
+pygame.display.set_mode((WIDTH, HEIGHT))
+pygame.display.set_caption("Alpha mask")
+screen = pygame.display.get_surface()
+
+STATE = 2
+
+# The upper layer: an opaque black screen with a transparent hole.
+panel = pygame.Surface((PANEL_W, PANEL_H), pygame.SRCALPHA)
+panel.fill((0, 0, 0, 255))
+pygame.draw.circle(panel, (0, 0, 0, 0),
+                   (PANEL_W // 2, PANEL_H // 2), CUTOUT_R)
+panel_box = panel.get_rect(center=(WIDTH // 2, HEIGHT // 2))
+
+def main():
+    global STATE
+    while True:
+        # ITC
+        for event in pygame.event.get():
+            if event.type == QUIT:
+                pygame.quit()
+                sys.exit()
+            if event.type == KEYDOWN:
+                if event.key == K_LEFT:
+                    STATE = max(STATE - 1, 1)
+                if event.key == K_RIGHT:
+                    STATE = min(STATE + 1, 3)
+
+        # Presentationals
+        screen.fill(SKY)
+        draw_slider(STATE)
+        screen.blit(panel, panel_box)
+        pygame.display.update()
+
+def draw_slider(state):
+    # The selected square is centered under the cutout. State 2 is neutral,
+    # state 1 shifts the slider right, state 3 shifts it left.
+    offset = (2 - state) * SQUARE
+    left = panel_box.centerx - SQUARE * 3 // 2 + offset
+    top = panel_box.centery - SQUARE // 2
+    pygame.draw.rect(screen, RED, (left, top, SQUARE, SQUARE))
+    pygame.draw.rect(screen, YELLOW,
+                     (left + SQUARE, top, SQUARE, SQUARE))
+    pygame.draw.rect(screen, GREEN,
+                     (left + 2 * SQUARE, top, SQUARE, SQUARE))
+
+main()
+```
+
+Notice that:
+
+1. The panel is created as an off-screen surface with `pygame.Surface((PANEL_W, PANEL_H), pygame.SRCALPHA)`. The flag gives every pixel its own alpha value. Without it, the fourth value in `(0, 0, 0, 0)` would be ignored and the circle would remain black.
+1. The cutout is punched into the panel before the panel is blitted. Drawing a circle with the color `(0, 0, 0, 0)` *replaces* the pixel values rather than blending with them, so the circle does not paint a dark disc. It removes the panel at that spot.
+1. The drawing order is the layering order. The sky is painted first, then the slider, and the panel comes last, because it is the top layer. The cutout only works as a hole in the upper layer; it cannot be drawn as a separate figure on the lower layers.
+1. The panel is built once, before the main loop, because its shape and its hole never change. Only the sky and the slider are redrawn at every refresh.
+1. The cutout stays in the center of the screen. What moves is the slider, and the cutout acts like a window through which we look at it. State 2 is the neutral middle position. In state 1 the red square must appear in the cutout, so the whole slider shifts one square to the right. In state 3 it shifts one square to the left. This is what `offset = (2 - state) * SQUARE` computes.
+1. `max()` and `min()` clamp the state to the valid range, so pressing left on the red square or right on the green one does nothing.
+1. Alpha values between 0 and 255 give partial transparency. Replace `(0, 0, 0, 0)` with `(0, 0, 0, 128)` and the cutout turns into tinted glass: the selected square is still visible, but dimmed. The same mechanism is used for shaded overlays, ghost images, or disabled controls.
+
+Alpha is a purely presentational matter. It changes how a state looks, not when the program moves from one state to another. The state model of the slider is simple: three states and two events, left and right, that move between them. The alpha mask only adds a window through which we see the current state.
+
+
 
 <!--
 ### Playing animations
