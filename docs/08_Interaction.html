@@ -259,6 +259,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#display-and-surface" id="toc-display-and-surface" class="nav-link" data-scroll-target="#display-and-surface"><span class="header-section-number">8.4.1</span> Display and surface</a></li>
   <li><a href="#drawing-figures" id="toc-drawing-figures" class="nav-link" data-scroll-target="#drawing-figures"><span class="header-section-number">8.4.2</span> Drawing figures</a></li>
   <li><a href="#placing-text-and-pictures" id="toc-placing-text-and-pictures" class="nav-link" data-scroll-target="#placing-text-and-pictures"><span class="header-section-number">8.4.3</span> Placing text and pictures</a></li>
+  <li><a href="#alpha-masks" id="toc-alpha-masks" class="nav-link" data-scroll-target="#alpha-masks"><span class="header-section-number">8.4.4</span> Alpha masks</a></li>
   </ul></li>
   <li><a href="#exercises-1" id="toc-exercises-1" class="nav-link" data-scroll-target="#exercises-1"><span class="header-section-number">8.5</span> Exercises</a>
   <ul class="collapse">
@@ -936,63 +937,62 @@ With the time stamp method we can write our prototype in a way that comes closer
 <span id="cb28-3"><a href="#cb28-3" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> time <span class="im">import</span> time</span>
 <span id="cb28-4"><a href="#cb28-4" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> pygame.<span class="bu">locals</span> <span class="im">import</span> <span class="op">*</span></span>
 <span id="cb28-5"><a href="#cb28-5" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> random</span>
-<span id="cb28-6"><a href="#cb28-6" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> pygame.compat <span class="im">import</span> unichr_, unicode_</span>
-<span id="cb28-7"><a href="#cb28-7" aria-hidden="true" tabindex="-1"></a><span class="co">##### VARIABLES #####</span></span>
-<span id="cb28-8"><a href="#cb28-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Colors</span></span>
-<span id="cb28-9"><a href="#cb28-9" aria-hidden="true" tabindex="-1"></a>col_black <span class="op">=</span> (<span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>)</span>
-<span id="cb28-10"><a href="#cb28-10" aria-hidden="true" tabindex="-1"></a>col_green <span class="op">=</span> (<span class="dv">0</span>, <span class="dv">255</span>, <span class="dv">0</span>)</span>
-<span id="cb28-11"><a href="#cb28-11" aria-hidden="true" tabindex="-1"></a>col_green_dim <span class="op">=</span> (<span class="dv">0</span>, <span class="dv">60</span>, <span class="dv">0</span>)</span>
-<span id="cb28-12"><a href="#cb28-12" aria-hidden="true" tabindex="-1"></a>BACKGR_COL <span class="op">=</span> col_black</span>
-<span id="cb28-13"><a href="#cb28-13" aria-hidden="true" tabindex="-1"></a>SCREEN_SIZE <span class="op">=</span> (<span class="dv">500</span>, <span class="dv">500</span>)</span>
-<span id="cb28-14"><a href="#cb28-14" aria-hidden="true" tabindex="-1"></a>pygame.init()</span>
-<span id="cb28-15"><a href="#cb28-15" aria-hidden="true" tabindex="-1"></a>pygame.display.set_mode(SCREEN_SIZE)</span>
-<span id="cb28-16"><a href="#cb28-16" aria-hidden="true" tabindex="-1"></a>pygame.display.set_caption(<span class="st">"Mouse events"</span>)</span>
-<span id="cb28-17"><a href="#cb28-17" aria-hidden="true" tabindex="-1"></a>screen <span class="op">=</span> pygame.display.get_surface()</span>
-<span id="cb28-18"><a href="#cb28-18" aria-hidden="true" tabindex="-1"></a>screen.fill(BACKGR_COL)</span>
-<span id="cb28-19"><a href="#cb28-19" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> main():</span>
-<span id="cb28-20"><a href="#cb28-20" aria-hidden="true" tabindex="-1"></a>    STATE <span class="op">=</span> <span class="st">"not_clicked"</span></span>
-<span id="cb28-21"><a href="#cb28-21" aria-hidden="true" tabindex="-1"></a>    mousex <span class="op">=</span> <span class="dv">0</span></span>
-<span id="cb28-22"><a href="#cb28-22" aria-hidden="true" tabindex="-1"></a>    mousey <span class="op">=</span> <span class="dv">0</span></span>
-<span id="cb28-23"><a href="#cb28-23" aria-hidden="true" tabindex="-1"></a>    <span class="cf">while</span> <span class="va">True</span>:</span>
-<span id="cb28-24"><a href="#cb28-24" aria-hidden="true" tabindex="-1"></a>        screen.fill(BACKGR_COL)        </span>
-<span id="cb28-25"><a href="#cb28-25" aria-hidden="true" tabindex="-1"></a>        <span class="cf">for</span> event <span class="kw">in</span> pygame.event.get():                        </span>
-<span id="cb28-26"><a href="#cb28-26" aria-hidden="true" tabindex="-1"></a>            <span class="co"># IT</span></span>
-<span id="cb28-27"><a href="#cb28-27" aria-hidden="true" tabindex="-1"></a>            <span class="cf">if</span> STATE <span class="op">==</span> <span class="st">"not_clicked"</span>:</span>
-<span id="cb28-28"><a href="#cb28-28" aria-hidden="true" tabindex="-1"></a>                <span class="co"># mouse moved, new pointer position is stored</span></span>
-<span id="cb28-29"><a href="#cb28-29" aria-hidden="true" tabindex="-1"></a>                <span class="cf">if</span> event.<span class="bu">type</span> <span class="op">==</span> MOUSEMOTION: </span>
-<span id="cb28-30"><a href="#cb28-30" aria-hidden="true" tabindex="-1"></a>                    mousex <span class="op">=</span> event.pos[<span class="dv">0</span>]</span>
-<span id="cb28-31"><a href="#cb28-31" aria-hidden="true" tabindex="-1"></a>                    mousey <span class="op">=</span> event.pos[<span class="dv">1</span>]</span>
-<span id="cb28-32"><a href="#cb28-32" aria-hidden="true" tabindex="-1"></a>                    <span class="cf">continue</span></span>
-<span id="cb28-33"><a href="#cb28-33" aria-hidden="true" tabindex="-1"></a>                <span class="co"># left mouse button clicked</span></span>
-<span id="cb28-34"><a href="#cb28-34" aria-hidden="true" tabindex="-1"></a>                <span class="cf">if</span> event.<span class="bu">type</span> <span class="op">==</span> MOUSEBUTTONDOWN <span class="kw">and</span> event.button <span class="op">==</span> LEFT: </span>
-<span id="cb28-35"><a href="#cb28-35" aria-hidden="true" tabindex="-1"></a>                    STATE <span class="op">=</span> <span class="st">"clicked"</span></span>
-<span id="cb28-36"><a href="#cb28-36" aria-hidden="true" tabindex="-1"></a>                    time_when_clicked <span class="op">=</span> time() <span class="co"># timestamp for "unclicking"</span></span>
-<span id="cb28-37"><a href="#cb28-37" aria-hidden="true" tabindex="-1"></a>                    <span class="cf">continue</span></span>
-<span id="cb28-38"><a href="#cb28-38" aria-hidden="true" tabindex="-1"></a>            <span class="cf">if</span> event.<span class="bu">type</span> <span class="op">==</span> QUIT:</span>
-<span id="cb28-39"><a href="#cb28-39" aria-hidden="true" tabindex="-1"></a>                pygame.quit()</span>
-<span id="cb28-40"><a href="#cb28-40" aria-hidden="true" tabindex="-1"></a>                sys.exit()</span>
-<span id="cb28-41"><a href="#cb28-41" aria-hidden="true" tabindex="-1"></a>        <span class="co"># AT</span></span>
-<span id="cb28-42"><a href="#cb28-42" aria-hidden="true" tabindex="-1"></a>        <span class="co"># unclicking after 500ms</span></span>
-<span id="cb28-43"><a href="#cb28-43" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> STATE <span class="op">==</span> <span class="st">"clicked"</span> <span class="kw">and</span> time() <span class="op">-</span> time_when_clicked <span class="op">&gt;</span> <span class="fl">0.5</span>: </span>
-<span id="cb28-44"><a href="#cb28-44" aria-hidden="true" tabindex="-1"></a>            STATE <span class="op">=</span> <span class="st">"not_clicked"</span></span>
-<span id="cb28-45"><a href="#cb28-45" aria-hidden="true" tabindex="-1"></a>        <span class="co">#  Presentitionals</span></span>
-<span id="cb28-46"><a href="#cb28-46" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> STATE <span class="op">==</span> <span class="st">"clicked"</span>:</span>
-<span id="cb28-47"><a href="#cb28-47" aria-hidden="true" tabindex="-1"></a>            draw(mousex, mousey, <span class="va">True</span>)</span>
-<span id="cb28-48"><a href="#cb28-48" aria-hidden="true" tabindex="-1"></a>        </span>
-<span id="cb28-49"><a href="#cb28-49" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> STATE <span class="op">==</span> <span class="st">"not_clicked"</span>:</span>
-<span id="cb28-50"><a href="#cb28-50" aria-hidden="true" tabindex="-1"></a>            draw(mousex, mousey, <span class="va">False</span>)</span>
-<span id="cb28-51"><a href="#cb28-51" aria-hidden="true" tabindex="-1"></a>        </span>
-<span id="cb28-52"><a href="#cb28-52" aria-hidden="true" tabindex="-1"></a>        pygame.display.update()</span>
-<span id="cb28-53"><a href="#cb28-53" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> draw(posx, posy, clicked):</span>
-<span id="cb28-54"><a href="#cb28-54" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> clicked:</span>
-<span id="cb28-55"><a href="#cb28-55" aria-hidden="true" tabindex="-1"></a>        color <span class="op">=</span> col_green</span>
-<span id="cb28-56"><a href="#cb28-56" aria-hidden="true" tabindex="-1"></a>    <span class="cf">else</span>:</span>
-<span id="cb28-57"><a href="#cb28-57" aria-hidden="true" tabindex="-1"></a>        color <span class="op">=</span> col_green_dim</span>
-<span id="cb28-58"><a href="#cb28-58" aria-hidden="true" tabindex="-1"></a>    text_surface <span class="op">=</span> font.render(<span class="bu">str</span>(<span class="bu">int</span>(posx)) <span class="op">+</span> <span class="st">':'</span> <span class="op">+</span> <span class="bu">str</span>(<span class="bu">int</span>(posy)), <span class="va">True</span>, color, BACKGR_COL)</span>
-<span id="cb28-59"><a href="#cb28-59" aria-hidden="true" tabindex="-1"></a>    text_rectangle <span class="op">=</span> text_surface.get_rect()</span>
-<span id="cb28-60"><a href="#cb28-60" aria-hidden="true" tabindex="-1"></a>    text_rectangle.center <span class="op">=</span> (SCREEN_SIZE[<span class="dv">0</span>]<span class="op">/</span><span class="fl">2.0</span>,SCREEN_SIZE[<span class="dv">1</span>]<span class="op">/</span><span class="fl">2.0</span>)</span>
-<span id="cb28-61"><a href="#cb28-61" aria-hidden="true" tabindex="-1"></a>    screen.blit(text_surface, text_rectangle)</span>
-<span id="cb28-62"><a href="#cb28-62" aria-hidden="true" tabindex="-1"></a>main()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb28-6"><a href="#cb28-6" aria-hidden="true" tabindex="-1"></a><span class="co">##### VARIABLES #####</span></span>
+<span id="cb28-7"><a href="#cb28-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Colors</span></span>
+<span id="cb28-8"><a href="#cb28-8" aria-hidden="true" tabindex="-1"></a>col_black <span class="op">=</span> (<span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>)</span>
+<span id="cb28-9"><a href="#cb28-9" aria-hidden="true" tabindex="-1"></a>col_green <span class="op">=</span> (<span class="dv">0</span>, <span class="dv">255</span>, <span class="dv">0</span>)</span>
+<span id="cb28-10"><a href="#cb28-10" aria-hidden="true" tabindex="-1"></a>col_green_dim <span class="op">=</span> (<span class="dv">0</span>, <span class="dv">60</span>, <span class="dv">0</span>)</span>
+<span id="cb28-11"><a href="#cb28-11" aria-hidden="true" tabindex="-1"></a>BACKGR_COL <span class="op">=</span> col_black</span>
+<span id="cb28-12"><a href="#cb28-12" aria-hidden="true" tabindex="-1"></a>SCREEN_SIZE <span class="op">=</span> (<span class="dv">500</span>, <span class="dv">500</span>)</span>
+<span id="cb28-13"><a href="#cb28-13" aria-hidden="true" tabindex="-1"></a>pygame.init()</span>
+<span id="cb28-14"><a href="#cb28-14" aria-hidden="true" tabindex="-1"></a>pygame.display.set_mode(SCREEN_SIZE)</span>
+<span id="cb28-15"><a href="#cb28-15" aria-hidden="true" tabindex="-1"></a>pygame.display.set_caption(<span class="st">"Mouse events"</span>)</span>
+<span id="cb28-16"><a href="#cb28-16" aria-hidden="true" tabindex="-1"></a>screen <span class="op">=</span> pygame.display.get_surface()</span>
+<span id="cb28-17"><a href="#cb28-17" aria-hidden="true" tabindex="-1"></a>screen.fill(BACKGR_COL)</span>
+<span id="cb28-18"><a href="#cb28-18" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> main():</span>
+<span id="cb28-19"><a href="#cb28-19" aria-hidden="true" tabindex="-1"></a>    STATE <span class="op">=</span> <span class="st">"not_clicked"</span></span>
+<span id="cb28-20"><a href="#cb28-20" aria-hidden="true" tabindex="-1"></a>    mousex <span class="op">=</span> <span class="dv">0</span></span>
+<span id="cb28-21"><a href="#cb28-21" aria-hidden="true" tabindex="-1"></a>    mousey <span class="op">=</span> <span class="dv">0</span></span>
+<span id="cb28-22"><a href="#cb28-22" aria-hidden="true" tabindex="-1"></a>    <span class="cf">while</span> <span class="va">True</span>:</span>
+<span id="cb28-23"><a href="#cb28-23" aria-hidden="true" tabindex="-1"></a>        screen.fill(BACKGR_COL)        </span>
+<span id="cb28-24"><a href="#cb28-24" aria-hidden="true" tabindex="-1"></a>        <span class="cf">for</span> event <span class="kw">in</span> pygame.event.get():                        </span>
+<span id="cb28-25"><a href="#cb28-25" aria-hidden="true" tabindex="-1"></a>            <span class="co"># IT</span></span>
+<span id="cb28-26"><a href="#cb28-26" aria-hidden="true" tabindex="-1"></a>            <span class="cf">if</span> STATE <span class="op">==</span> <span class="st">"not_clicked"</span>:</span>
+<span id="cb28-27"><a href="#cb28-27" aria-hidden="true" tabindex="-1"></a>                <span class="co"># mouse moved, new pointer position is stored</span></span>
+<span id="cb28-28"><a href="#cb28-28" aria-hidden="true" tabindex="-1"></a>                <span class="cf">if</span> event.<span class="bu">type</span> <span class="op">==</span> MOUSEMOTION: </span>
+<span id="cb28-29"><a href="#cb28-29" aria-hidden="true" tabindex="-1"></a>                    mousex <span class="op">=</span> event.pos[<span class="dv">0</span>]</span>
+<span id="cb28-30"><a href="#cb28-30" aria-hidden="true" tabindex="-1"></a>                    mousey <span class="op">=</span> event.pos[<span class="dv">1</span>]</span>
+<span id="cb28-31"><a href="#cb28-31" aria-hidden="true" tabindex="-1"></a>                    <span class="cf">continue</span></span>
+<span id="cb28-32"><a href="#cb28-32" aria-hidden="true" tabindex="-1"></a>                <span class="co"># left mouse button clicked</span></span>
+<span id="cb28-33"><a href="#cb28-33" aria-hidden="true" tabindex="-1"></a>                <span class="cf">if</span> event.<span class="bu">type</span> <span class="op">==</span> MOUSEBUTTONDOWN <span class="kw">and</span> event.button <span class="op">==</span> LEFT: </span>
+<span id="cb28-34"><a href="#cb28-34" aria-hidden="true" tabindex="-1"></a>                    STATE <span class="op">=</span> <span class="st">"clicked"</span></span>
+<span id="cb28-35"><a href="#cb28-35" aria-hidden="true" tabindex="-1"></a>                    time_when_clicked <span class="op">=</span> time() <span class="co"># timestamp for "unclicking"</span></span>
+<span id="cb28-36"><a href="#cb28-36" aria-hidden="true" tabindex="-1"></a>                    <span class="cf">continue</span></span>
+<span id="cb28-37"><a href="#cb28-37" aria-hidden="true" tabindex="-1"></a>            <span class="cf">if</span> event.<span class="bu">type</span> <span class="op">==</span> QUIT:</span>
+<span id="cb28-38"><a href="#cb28-38" aria-hidden="true" tabindex="-1"></a>                pygame.quit()</span>
+<span id="cb28-39"><a href="#cb28-39" aria-hidden="true" tabindex="-1"></a>                sys.exit()</span>
+<span id="cb28-40"><a href="#cb28-40" aria-hidden="true" tabindex="-1"></a>        <span class="co"># AT</span></span>
+<span id="cb28-41"><a href="#cb28-41" aria-hidden="true" tabindex="-1"></a>        <span class="co"># unclicking after 500ms</span></span>
+<span id="cb28-42"><a href="#cb28-42" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> STATE <span class="op">==</span> <span class="st">"clicked"</span> <span class="kw">and</span> time() <span class="op">-</span> time_when_clicked <span class="op">&gt;</span> <span class="fl">0.5</span>: </span>
+<span id="cb28-43"><a href="#cb28-43" aria-hidden="true" tabindex="-1"></a>            STATE <span class="op">=</span> <span class="st">"not_clicked"</span></span>
+<span id="cb28-44"><a href="#cb28-44" aria-hidden="true" tabindex="-1"></a>        <span class="co">#  Presentitionals</span></span>
+<span id="cb28-45"><a href="#cb28-45" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> STATE <span class="op">==</span> <span class="st">"clicked"</span>:</span>
+<span id="cb28-46"><a href="#cb28-46" aria-hidden="true" tabindex="-1"></a>            draw(mousex, mousey, <span class="va">True</span>)</span>
+<span id="cb28-47"><a href="#cb28-47" aria-hidden="true" tabindex="-1"></a>        </span>
+<span id="cb28-48"><a href="#cb28-48" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> STATE <span class="op">==</span> <span class="st">"not_clicked"</span>:</span>
+<span id="cb28-49"><a href="#cb28-49" aria-hidden="true" tabindex="-1"></a>            draw(mousex, mousey, <span class="va">False</span>)</span>
+<span id="cb28-50"><a href="#cb28-50" aria-hidden="true" tabindex="-1"></a>        </span>
+<span id="cb28-51"><a href="#cb28-51" aria-hidden="true" tabindex="-1"></a>        pygame.display.update()</span>
+<span id="cb28-52"><a href="#cb28-52" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> draw(posx, posy, clicked):</span>
+<span id="cb28-53"><a href="#cb28-53" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> clicked:</span>
+<span id="cb28-54"><a href="#cb28-54" aria-hidden="true" tabindex="-1"></a>        color <span class="op">=</span> col_green</span>
+<span id="cb28-55"><a href="#cb28-55" aria-hidden="true" tabindex="-1"></a>    <span class="cf">else</span>:</span>
+<span id="cb28-56"><a href="#cb28-56" aria-hidden="true" tabindex="-1"></a>        color <span class="op">=</span> col_green_dim</span>
+<span id="cb28-57"><a href="#cb28-57" aria-hidden="true" tabindex="-1"></a>    text_surface <span class="op">=</span> font.render(<span class="bu">str</span>(<span class="bu">int</span>(posx)) <span class="op">+</span> <span class="st">':'</span> <span class="op">+</span> <span class="bu">str</span>(<span class="bu">int</span>(posy)), <span class="va">True</span>, color, BACKGR_COL)</span>
+<span id="cb28-58"><a href="#cb28-58" aria-hidden="true" tabindex="-1"></a>    text_rectangle <span class="op">=</span> text_surface.get_rect()</span>
+<span id="cb28-59"><a href="#cb28-59" aria-hidden="true" tabindex="-1"></a>    text_rectangle.center <span class="op">=</span> (SCREEN_SIZE[<span class="dv">0</span>]<span class="op">/</span><span class="fl">2.0</span>,SCREEN_SIZE[<span class="dv">1</span>]<span class="op">/</span><span class="fl">2.0</span>)</span>
+<span id="cb28-60"><a href="#cb28-60" aria-hidden="true" tabindex="-1"></a>    screen.blit(text_surface, text_rectangle)</span>
+<span id="cb28-61"><a href="#cb28-61" aria-hidden="true" tabindex="-1"></a>main()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <p>Notice that</p>
 <ol type="1">
@@ -1038,23 +1038,22 @@ With the time stamp method we can write our prototype in a way that comes closer
 <span id="cb30-2"><a href="#cb30-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pygame</span>
 <span id="cb30-3"><a href="#cb30-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> sys</span>
 <span id="cb30-4"><a href="#cb30-4" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> pygame.<span class="bu">locals</span> <span class="im">import</span> <span class="op">*</span></span>
-<span id="cb30-5"><a href="#cb30-5" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> pygame.compat <span class="im">import</span> unichr_, unicode_</span>
-<span id="cb30-6"><a href="#cb30-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Initializing the display</span></span>
-<span id="cb30-7"><a href="#cb30-7" aria-hidden="true" tabindex="-1"></a>pygame.init()</span>
-<span id="cb30-8"><a href="#cb30-8" aria-hidden="true" tabindex="-1"></a>pygame.display.set_mode((<span class="dv">600</span>, <span class="dv">400</span>))</span>
-<span id="cb30-9"><a href="#cb30-9" aria-hidden="true" tabindex="-1"></a>pygame.display.set_caption(<span class="st">"A Pygame display"</span>)</span>
-<span id="cb30-10"><a href="#cb30-10" aria-hidden="true" tabindex="-1"></a><span class="co"># Creating the surface</span></span>
-<span id="cb30-11"><a href="#cb30-11" aria-hidden="true" tabindex="-1"></a>surface <span class="op">=</span> pygame.display.get_surface()</span>
-<span id="cb30-12"><a href="#cb30-12" aria-hidden="true" tabindex="-1"></a>surface.fill((<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>))</span>
-<span id="cb30-13"><a href="#cb30-13" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> main():</span>
-<span id="cb30-14"><a href="#cb30-14" aria-hidden="true" tabindex="-1"></a>    <span class="cf">while</span> <span class="va">True</span>:</span>
-<span id="cb30-15"><a href="#cb30-15" aria-hidden="true" tabindex="-1"></a>        <span class="cf">for</span> event <span class="kw">in</span> pygame.event.get():</span>
-<span id="cb30-16"><a href="#cb30-16" aria-hidden="true" tabindex="-1"></a>            <span class="co"># IT</span></span>
-<span id="cb30-17"><a href="#cb30-17" aria-hidden="true" tabindex="-1"></a>            <span class="cf">if</span> event.<span class="bu">type</span> <span class="op">==</span> QUIT:</span>
-<span id="cb30-18"><a href="#cb30-18" aria-hidden="true" tabindex="-1"></a>                pygame.quit()</span>
-<span id="cb30-19"><a href="#cb30-19" aria-hidden="true" tabindex="-1"></a>                sys.exit()</span>
-<span id="cb30-20"><a href="#cb30-20" aria-hidden="true" tabindex="-1"></a>        pygame.display.update()</span>
-<span id="cb30-21"><a href="#cb30-21" aria-hidden="true" tabindex="-1"></a>main()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb30-5"><a href="#cb30-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Initializing the display</span></span>
+<span id="cb30-6"><a href="#cb30-6" aria-hidden="true" tabindex="-1"></a>pygame.init()</span>
+<span id="cb30-7"><a href="#cb30-7" aria-hidden="true" tabindex="-1"></a>pygame.display.set_mode((<span class="dv">600</span>, <span class="dv">400</span>))</span>
+<span id="cb30-8"><a href="#cb30-8" aria-hidden="true" tabindex="-1"></a>pygame.display.set_caption(<span class="st">"A Pygame display"</span>)</span>
+<span id="cb30-9"><a href="#cb30-9" aria-hidden="true" tabindex="-1"></a><span class="co"># Creating the surface</span></span>
+<span id="cb30-10"><a href="#cb30-10" aria-hidden="true" tabindex="-1"></a>surface <span class="op">=</span> pygame.display.get_surface()</span>
+<span id="cb30-11"><a href="#cb30-11" aria-hidden="true" tabindex="-1"></a>surface.fill((<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>))</span>
+<span id="cb30-12"><a href="#cb30-12" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> main():</span>
+<span id="cb30-13"><a href="#cb30-13" aria-hidden="true" tabindex="-1"></a>    <span class="cf">while</span> <span class="va">True</span>:</span>
+<span id="cb30-14"><a href="#cb30-14" aria-hidden="true" tabindex="-1"></a>        <span class="cf">for</span> event <span class="kw">in</span> pygame.event.get():</span>
+<span id="cb30-15"><a href="#cb30-15" aria-hidden="true" tabindex="-1"></a>            <span class="co"># IT</span></span>
+<span id="cb30-16"><a href="#cb30-16" aria-hidden="true" tabindex="-1"></a>            <span class="cf">if</span> event.<span class="bu">type</span> <span class="op">==</span> QUIT:</span>
+<span id="cb30-17"><a href="#cb30-17" aria-hidden="true" tabindex="-1"></a>                pygame.quit()</span>
+<span id="cb30-18"><a href="#cb30-18" aria-hidden="true" tabindex="-1"></a>                sys.exit()</span>
+<span id="cb30-19"><a href="#cb30-19" aria-hidden="true" tabindex="-1"></a>        pygame.display.update()</span>
+<span id="cb30-20"><a href="#cb30-20" aria-hidden="true" tabindex="-1"></a>main()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <p>Notice that:</p>
 <ol type="1">
@@ -1078,51 +1077,50 @@ With the time stamp method we can write our prototype in a way that comes closer
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb31"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pygame</span>
 <span id="cb31-2"><a href="#cb31-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> sys</span>
 <span id="cb31-3"><a href="#cb31-3" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> pygame.<span class="bu">locals</span> <span class="im">import</span> <span class="op">*</span></span>
-<span id="cb31-4"><a href="#cb31-4" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> pygame.compat <span class="im">import</span> unichr_, unicode_</span>
-<span id="cb31-5"><a href="#cb31-5" aria-hidden="true" tabindex="-1"></a>pygame.init()</span>
-<span id="cb31-6"><a href="#cb31-6" aria-hidden="true" tabindex="-1"></a>width <span class="op">=</span> <span class="dv">1000</span></span>
-<span id="cb31-7"><a href="#cb31-7" aria-hidden="true" tabindex="-1"></a>height <span class="op">=</span> <span class="dv">800</span></span>
-<span id="cb31-8"><a href="#cb31-8" aria-hidden="true" tabindex="-1"></a>pygame.display.set_mode((width, height))</span>
-<span id="cb31-9"><a href="#cb31-9" aria-hidden="true" tabindex="-1"></a>pygame.display.set_caption(<span class="st">"Drawing figures"</span>)</span>
-<span id="cb31-10"><a href="#cb31-10" aria-hidden="true" tabindex="-1"></a>screen <span class="op">=</span> pygame.display.get_surface()</span>
-<span id="cb31-11"><a href="#cb31-11" aria-hidden="true" tabindex="-1"></a>screen.fill((<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>))</span>
-<span id="cb31-12"><a href="#cb31-12" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> main():</span>
-<span id="cb31-13"><a href="#cb31-13" aria-hidden="true" tabindex="-1"></a>    <span class="cf">while</span> <span class="va">True</span>:</span>
-<span id="cb31-14"><a href="#cb31-14" aria-hidden="true" tabindex="-1"></a>        screen.fill((<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>))</span>
-<span id="cb31-15"><a href="#cb31-15" aria-hidden="true" tabindex="-1"></a>        <span class="cf">for</span> event <span class="kw">in</span> pygame.event.get():</span>
-<span id="cb31-16"><a href="#cb31-16" aria-hidden="true" tabindex="-1"></a>            <span class="cf">if</span> event.<span class="bu">type</span> <span class="op">==</span> QUIT:</span>
-<span id="cb31-17"><a href="#cb31-17" aria-hidden="true" tabindex="-1"></a>                pygame.quit()</span>
-<span id="cb31-18"><a href="#cb31-18" aria-hidden="true" tabindex="-1"></a>                sys.exit()</span>
-<span id="cb31-19"><a href="#cb31-19" aria-hidden="true" tabindex="-1"></a>        </span>
-<span id="cb31-20"><a href="#cb31-20" aria-hidden="true" tabindex="-1"></a>        draw_circ(<span class="dv">250</span>, <span class="dv">200</span>, <span class="dv">200</span>, (<span class="dv">255</span>, <span class="dv">255</span>, <span class="dv">255</span>), <span class="dv">5</span>)</span>
-<span id="cb31-21"><a href="#cb31-21" aria-hidden="true" tabindex="-1"></a>        draw_circ(<span class="dv">250</span>, <span class="dv">200</span>, <span class="dv">150</span>, (<span class="dv">255</span>, <span class="dv">255</span>, <span class="dv">255</span>), <span class="dv">20</span>)</span>
-<span id="cb31-22"><a href="#cb31-22" aria-hidden="true" tabindex="-1"></a>        draw_circ(<span class="dv">250</span>, <span class="dv">650</span>, <span class="dv">100</span>, (<span class="dv">255</span>, <span class="dv">0</span>, <span class="dv">0</span>), <span class="dv">0</span>)</span>
-<span id="cb31-23"><a href="#cb31-23" aria-hidden="true" tabindex="-1"></a>        </span>
-<span id="cb31-24"><a href="#cb31-24" aria-hidden="true" tabindex="-1"></a>        draw_rect(<span class="dv">500</span>, <span class="dv">50</span>,  <span class="dv">400</span>, <span class="dv">600</span>, (<span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">255</span>), <span class="dv">0</span>)</span>
-<span id="cb31-25"><a href="#cb31-25" aria-hidden="true" tabindex="-1"></a>        draw_rect(<span class="dv">500</span>, <span class="dv">50</span>,  <span class="dv">200</span>, <span class="dv">200</span>, (<span class="dv">0</span>, <span class="dv">255</span>, <span class="dv">0</span>), <span class="dv">10</span>)</span>
-<span id="cb31-26"><a href="#cb31-26" aria-hidden="true" tabindex="-1"></a>        </span>
-<span id="cb31-27"><a href="#cb31-27" aria-hidden="true" tabindex="-1"></a>        draw_tria(<span class="dv">250</span>, <span class="dv">200</span>, <span class="dv">250</span>, <span class="dv">650</span>, <span class="dv">500</span>, <span class="dv">50</span>)</span>
-<span id="cb31-28"><a href="#cb31-28" aria-hidden="true" tabindex="-1"></a>        </span>
-<span id="cb31-29"><a href="#cb31-29" aria-hidden="true" tabindex="-1"></a>        pygame.display.update()</span>
-<span id="cb31-30"><a href="#cb31-30" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> draw_circ(x, y, radius, </span>
-<span id="cb31-31"><a href="#cb31-31" aria-hidden="true" tabindex="-1"></a>              color <span class="op">=</span> (<span class="dv">255</span>,<span class="dv">255</span>,<span class="dv">255</span>), </span>
-<span id="cb31-32"><a href="#cb31-32" aria-hidden="true" tabindex="-1"></a>              stroke_size <span class="op">=</span> <span class="dv">1</span>):</span>
-<span id="cb31-33"><a href="#cb31-33" aria-hidden="true" tabindex="-1"></a>    pygame.draw.circle(screen, color, </span>
-<span id="cb31-34"><a href="#cb31-34" aria-hidden="true" tabindex="-1"></a>                       (x,y), radius, stroke_size)</span>
-<span id="cb31-35"><a href="#cb31-35" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> draw_rect(x, y, </span>
-<span id="cb31-36"><a href="#cb31-36" aria-hidden="true" tabindex="-1"></a>              width, height, </span>
-<span id="cb31-37"><a href="#cb31-37" aria-hidden="true" tabindex="-1"></a>              color <span class="op">=</span> (<span class="dv">255</span>,<span class="dv">255</span>,<span class="dv">255</span>), </span>
-<span id="cb31-38"><a href="#cb31-38" aria-hidden="true" tabindex="-1"></a>              stroke_size <span class="op">=</span> <span class="dv">1</span>):</span>
-<span id="cb31-39"><a href="#cb31-39" aria-hidden="true" tabindex="-1"></a>    pygame.draw.rect(screen, color, (x, y, width, height), stroke_size)</span>
-<span id="cb31-40"><a href="#cb31-40" aria-hidden="true" tabindex="-1"></a>    <span class="cf">pass</span></span>
-<span id="cb31-41"><a href="#cb31-41" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> draw_tria(x_1, y_1, </span>
-<span id="cb31-42"><a href="#cb31-42" aria-hidden="true" tabindex="-1"></a>              x_2, y_2,</span>
-<span id="cb31-43"><a href="#cb31-43" aria-hidden="true" tabindex="-1"></a>              x_3, y_3, color <span class="op">=</span> (<span class="dv">255</span>,<span class="dv">255</span>,<span class="dv">255</span>), </span>
-<span id="cb31-44"><a href="#cb31-44" aria-hidden="true" tabindex="-1"></a>              stroke_size <span class="op">=</span> <span class="dv">1</span>):</span>
-<span id="cb31-45"><a href="#cb31-45" aria-hidden="true" tabindex="-1"></a>    points <span class="op">=</span> ((x_1, y_1), (x_2, y_2), (x_3, y_3))</span>
-<span id="cb31-46"><a href="#cb31-46" aria-hidden="true" tabindex="-1"></a>    pygame.draw.polygon(screen, color, points, stroke_size)</span>
-<span id="cb31-47"><a href="#cb31-47" aria-hidden="true" tabindex="-1"></a>    <span class="cf">pass</span></span>
-<span id="cb31-48"><a href="#cb31-48" aria-hidden="true" tabindex="-1"></a>main()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb31-4"><a href="#cb31-4" aria-hidden="true" tabindex="-1"></a>pygame.init()</span>
+<span id="cb31-5"><a href="#cb31-5" aria-hidden="true" tabindex="-1"></a>width <span class="op">=</span> <span class="dv">1000</span></span>
+<span id="cb31-6"><a href="#cb31-6" aria-hidden="true" tabindex="-1"></a>height <span class="op">=</span> <span class="dv">800</span></span>
+<span id="cb31-7"><a href="#cb31-7" aria-hidden="true" tabindex="-1"></a>pygame.display.set_mode((width, height))</span>
+<span id="cb31-8"><a href="#cb31-8" aria-hidden="true" tabindex="-1"></a>pygame.display.set_caption(<span class="st">"Drawing figures"</span>)</span>
+<span id="cb31-9"><a href="#cb31-9" aria-hidden="true" tabindex="-1"></a>screen <span class="op">=</span> pygame.display.get_surface()</span>
+<span id="cb31-10"><a href="#cb31-10" aria-hidden="true" tabindex="-1"></a>screen.fill((<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>))</span>
+<span id="cb31-11"><a href="#cb31-11" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> main():</span>
+<span id="cb31-12"><a href="#cb31-12" aria-hidden="true" tabindex="-1"></a>    <span class="cf">while</span> <span class="va">True</span>:</span>
+<span id="cb31-13"><a href="#cb31-13" aria-hidden="true" tabindex="-1"></a>        screen.fill((<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>))</span>
+<span id="cb31-14"><a href="#cb31-14" aria-hidden="true" tabindex="-1"></a>        <span class="cf">for</span> event <span class="kw">in</span> pygame.event.get():</span>
+<span id="cb31-15"><a href="#cb31-15" aria-hidden="true" tabindex="-1"></a>            <span class="cf">if</span> event.<span class="bu">type</span> <span class="op">==</span> QUIT:</span>
+<span id="cb31-16"><a href="#cb31-16" aria-hidden="true" tabindex="-1"></a>                pygame.quit()</span>
+<span id="cb31-17"><a href="#cb31-17" aria-hidden="true" tabindex="-1"></a>                sys.exit()</span>
+<span id="cb31-18"><a href="#cb31-18" aria-hidden="true" tabindex="-1"></a>        </span>
+<span id="cb31-19"><a href="#cb31-19" aria-hidden="true" tabindex="-1"></a>        draw_circ(<span class="dv">250</span>, <span class="dv">200</span>, <span class="dv">200</span>, (<span class="dv">255</span>, <span class="dv">255</span>, <span class="dv">255</span>), <span class="dv">5</span>)</span>
+<span id="cb31-20"><a href="#cb31-20" aria-hidden="true" tabindex="-1"></a>        draw_circ(<span class="dv">250</span>, <span class="dv">200</span>, <span class="dv">150</span>, (<span class="dv">255</span>, <span class="dv">255</span>, <span class="dv">255</span>), <span class="dv">20</span>)</span>
+<span id="cb31-21"><a href="#cb31-21" aria-hidden="true" tabindex="-1"></a>        draw_circ(<span class="dv">250</span>, <span class="dv">650</span>, <span class="dv">100</span>, (<span class="dv">255</span>, <span class="dv">0</span>, <span class="dv">0</span>), <span class="dv">0</span>)</span>
+<span id="cb31-22"><a href="#cb31-22" aria-hidden="true" tabindex="-1"></a>        </span>
+<span id="cb31-23"><a href="#cb31-23" aria-hidden="true" tabindex="-1"></a>        draw_rect(<span class="dv">500</span>, <span class="dv">50</span>,  <span class="dv">400</span>, <span class="dv">600</span>, (<span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">255</span>), <span class="dv">0</span>)</span>
+<span id="cb31-24"><a href="#cb31-24" aria-hidden="true" tabindex="-1"></a>        draw_rect(<span class="dv">500</span>, <span class="dv">50</span>,  <span class="dv">200</span>, <span class="dv">200</span>, (<span class="dv">0</span>, <span class="dv">255</span>, <span class="dv">0</span>), <span class="dv">10</span>)</span>
+<span id="cb31-25"><a href="#cb31-25" aria-hidden="true" tabindex="-1"></a>        </span>
+<span id="cb31-26"><a href="#cb31-26" aria-hidden="true" tabindex="-1"></a>        draw_tria(<span class="dv">250</span>, <span class="dv">200</span>, <span class="dv">250</span>, <span class="dv">650</span>, <span class="dv">500</span>, <span class="dv">50</span>)</span>
+<span id="cb31-27"><a href="#cb31-27" aria-hidden="true" tabindex="-1"></a>        </span>
+<span id="cb31-28"><a href="#cb31-28" aria-hidden="true" tabindex="-1"></a>        pygame.display.update()</span>
+<span id="cb31-29"><a href="#cb31-29" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> draw_circ(x, y, radius, </span>
+<span id="cb31-30"><a href="#cb31-30" aria-hidden="true" tabindex="-1"></a>              color <span class="op">=</span> (<span class="dv">255</span>,<span class="dv">255</span>,<span class="dv">255</span>), </span>
+<span id="cb31-31"><a href="#cb31-31" aria-hidden="true" tabindex="-1"></a>              stroke_size <span class="op">=</span> <span class="dv">1</span>):</span>
+<span id="cb31-32"><a href="#cb31-32" aria-hidden="true" tabindex="-1"></a>    pygame.draw.circle(screen, color, </span>
+<span id="cb31-33"><a href="#cb31-33" aria-hidden="true" tabindex="-1"></a>                       (x,y), radius, stroke_size)</span>
+<span id="cb31-34"><a href="#cb31-34" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> draw_rect(x, y, </span>
+<span id="cb31-35"><a href="#cb31-35" aria-hidden="true" tabindex="-1"></a>              width, height, </span>
+<span id="cb31-36"><a href="#cb31-36" aria-hidden="true" tabindex="-1"></a>              color <span class="op">=</span> (<span class="dv">255</span>,<span class="dv">255</span>,<span class="dv">255</span>), </span>
+<span id="cb31-37"><a href="#cb31-37" aria-hidden="true" tabindex="-1"></a>              stroke_size <span class="op">=</span> <span class="dv">1</span>):</span>
+<span id="cb31-38"><a href="#cb31-38" aria-hidden="true" tabindex="-1"></a>    pygame.draw.rect(screen, color, (x, y, width, height), stroke_size)</span>
+<span id="cb31-39"><a href="#cb31-39" aria-hidden="true" tabindex="-1"></a>    <span class="cf">pass</span></span>
+<span id="cb31-40"><a href="#cb31-40" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> draw_tria(x_1, y_1, </span>
+<span id="cb31-41"><a href="#cb31-41" aria-hidden="true" tabindex="-1"></a>              x_2, y_2,</span>
+<span id="cb31-42"><a href="#cb31-42" aria-hidden="true" tabindex="-1"></a>              x_3, y_3, color <span class="op">=</span> (<span class="dv">255</span>,<span class="dv">255</span>,<span class="dv">255</span>), </span>
+<span id="cb31-43"><a href="#cb31-43" aria-hidden="true" tabindex="-1"></a>              stroke_size <span class="op">=</span> <span class="dv">1</span>):</span>
+<span id="cb31-44"><a href="#cb31-44" aria-hidden="true" tabindex="-1"></a>    points <span class="op">=</span> ((x_1, y_1), (x_2, y_2), (x_3, y_3))</span>
+<span id="cb31-45"><a href="#cb31-45" aria-hidden="true" tabindex="-1"></a>    pygame.draw.polygon(screen, color, points, stroke_size)</span>
+<span id="cb31-46"><a href="#cb31-46" aria-hidden="true" tabindex="-1"></a>    <span class="cf">pass</span></span>
+<span id="cb31-47"><a href="#cb31-47" aria-hidden="true" tabindex="-1"></a>main()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
@@ -1146,43 +1144,42 @@ With the time stamp method we can write our prototype in a way that comes closer
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb32"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pygame</span>
 <span id="cb32-2"><a href="#cb32-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> sys</span>
 <span id="cb32-3"><a href="#cb32-3" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> pygame.<span class="bu">locals</span> <span class="im">import</span> <span class="op">*</span></span>
-<span id="cb32-4"><a href="#cb32-4" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> pygame.compat <span class="im">import</span> unichr_, unicode_</span>
-<span id="cb32-5"><a href="#cb32-5" aria-hidden="true" tabindex="-1"></a>pygame.init()</span>
-<span id="cb32-6"><a href="#cb32-6" aria-hidden="true" tabindex="-1"></a>width <span class="op">=</span> <span class="dv">1000</span></span>
-<span id="cb32-7"><a href="#cb32-7" aria-hidden="true" tabindex="-1"></a>height <span class="op">=</span> <span class="dv">800</span></span>
-<span id="cb32-8"><a href="#cb32-8" aria-hidden="true" tabindex="-1"></a>pygame.display.set_mode((width, height))</span>
-<span id="cb32-9"><a href="#cb32-9" aria-hidden="true" tabindex="-1"></a>pygame.display.set_caption(<span class="st">"Drawing figures"</span>)</span>
-<span id="cb32-10"><a href="#cb32-10" aria-hidden="true" tabindex="-1"></a>FONT <span class="op">=</span> pygame.font.Font(<span class="st">'freesansbold.ttf'</span>,<span class="dv">40</span>)</span>
-<span id="cb32-11"><a href="#cb32-11" aria-hidden="true" tabindex="-1"></a>SURF <span class="op">=</span> pygame.display.get_surface()</span>
-<span id="cb32-12"><a href="#cb32-12" aria-hidden="true" tabindex="-1"></a>SURF.fill((<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>))</span>
-<span id="cb32-13"><a href="#cb32-13" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> main():</span>
-<span id="cb32-14"><a href="#cb32-14" aria-hidden="true" tabindex="-1"></a>    <span class="cf">while</span> <span class="va">True</span>:</span>
-<span id="cb32-15"><a href="#cb32-15" aria-hidden="true" tabindex="-1"></a>        SURF.fill((<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>))</span>
-<span id="cb32-16"><a href="#cb32-16" aria-hidden="true" tabindex="-1"></a>        <span class="cf">for</span> event <span class="kw">in</span> pygame.event.get():</span>
-<span id="cb32-17"><a href="#cb32-17" aria-hidden="true" tabindex="-1"></a>            <span class="cf">if</span> event.<span class="bu">type</span> <span class="op">==</span> QUIT:</span>
-<span id="cb32-18"><a href="#cb32-18" aria-hidden="true" tabindex="-1"></a>                pygame.quit()</span>
-<span id="cb32-19"><a href="#cb32-19" aria-hidden="true" tabindex="-1"></a>                sys.exit()</span>
-<span id="cb32-20"><a href="#cb32-20" aria-hidden="true" tabindex="-1"></a>        </span>
-<span id="cb32-21"><a href="#cb32-21" aria-hidden="true" tabindex="-1"></a>        draw_text(x <span class="op">=</span> <span class="dv">0</span>, y <span class="op">=</span> <span class="dv">0</span>, text <span class="op">=</span> <span class="st">"Pygame says:"</span>)</span>
-<span id="cb32-22"><a href="#cb32-22" aria-hidden="true" tabindex="-1"></a>        draw_text(x <span class="op">=</span> width<span class="op">/</span><span class="dv">2</span>, y <span class="op">=</span> height<span class="op">/</span><span class="dv">2</span>, text <span class="op">=</span> <span class="st">"Hi there!"</span>, </span>
-<span id="cb32-23"><a href="#cb32-23" aria-hidden="true" tabindex="-1"></a>                  center <span class="op">=</span> <span class="va">True</span>)</span>
-<span id="cb32-24"><a href="#cb32-24" aria-hidden="true" tabindex="-1"></a>        </span>
-<span id="cb32-25"><a href="#cb32-25" aria-hidden="true" tabindex="-1"></a>        pygame.display.update()</span>
-<span id="cb32-26"><a href="#cb32-26" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> draw_text(x, y, text,</span>
-<span id="cb32-27"><a href="#cb32-27" aria-hidden="true" tabindex="-1"></a>              color <span class="op">=</span> (<span class="dv">255</span>, <span class="dv">255</span>, <span class="dv">255</span>),</span>
-<span id="cb32-28"><a href="#cb32-28" aria-hidden="true" tabindex="-1"></a>              center <span class="op">=</span> <span class="va">False</span>):</span>
-<span id="cb32-29"><a href="#cb32-29" aria-hidden="true" tabindex="-1"></a>    rendered_text <span class="op">=</span> FONT.render(text, <span class="va">True</span>, color)</span>
-<span id="cb32-30"><a href="#cb32-30" aria-hidden="true" tabindex="-1"></a>    <span class="co"># retrieving the abstract rectangle of the text box</span></span>
-<span id="cb32-31"><a href="#cb32-31" aria-hidden="true" tabindex="-1"></a>    box <span class="op">=</span> rendered_text.get_rect()</span>
-<span id="cb32-32"><a href="#cb32-32" aria-hidden="true" tabindex="-1"></a>    <span class="co"># this sets the x and why coordinates</span></span>
-<span id="cb32-33"><a href="#cb32-33" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> center:</span>
-<span id="cb32-34"><a href="#cb32-34" aria-hidden="true" tabindex="-1"></a>        box.center <span class="op">=</span> (x,y)</span>
-<span id="cb32-35"><a href="#cb32-35" aria-hidden="true" tabindex="-1"></a>    <span class="cf">else</span>:</span>
-<span id="cb32-36"><a href="#cb32-36" aria-hidden="true" tabindex="-1"></a>        box.topleft <span class="op">=</span> (x,y)</span>
-<span id="cb32-37"><a href="#cb32-37" aria-hidden="true" tabindex="-1"></a>    <span class="co"># This puts a pre-rendered object to the screen</span></span>
-<span id="cb32-38"><a href="#cb32-38" aria-hidden="true" tabindex="-1"></a>    SURF.blit(rendered_text, box)</span>
-<span id="cb32-39"><a href="#cb32-39" aria-hidden="true" tabindex="-1"></a> </span>
-<span id="cb32-40"><a href="#cb32-40" aria-hidden="true" tabindex="-1"></a>main()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb32-4"><a href="#cb32-4" aria-hidden="true" tabindex="-1"></a>pygame.init()</span>
+<span id="cb32-5"><a href="#cb32-5" aria-hidden="true" tabindex="-1"></a>width <span class="op">=</span> <span class="dv">1000</span></span>
+<span id="cb32-6"><a href="#cb32-6" aria-hidden="true" tabindex="-1"></a>height <span class="op">=</span> <span class="dv">800</span></span>
+<span id="cb32-7"><a href="#cb32-7" aria-hidden="true" tabindex="-1"></a>pygame.display.set_mode((width, height))</span>
+<span id="cb32-8"><a href="#cb32-8" aria-hidden="true" tabindex="-1"></a>pygame.display.set_caption(<span class="st">"Drawing figures"</span>)</span>
+<span id="cb32-9"><a href="#cb32-9" aria-hidden="true" tabindex="-1"></a>FONT <span class="op">=</span> pygame.font.Font(<span class="st">'freesansbold.ttf'</span>,<span class="dv">40</span>)</span>
+<span id="cb32-10"><a href="#cb32-10" aria-hidden="true" tabindex="-1"></a>SURF <span class="op">=</span> pygame.display.get_surface()</span>
+<span id="cb32-11"><a href="#cb32-11" aria-hidden="true" tabindex="-1"></a>SURF.fill((<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>))</span>
+<span id="cb32-12"><a href="#cb32-12" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> main():</span>
+<span id="cb32-13"><a href="#cb32-13" aria-hidden="true" tabindex="-1"></a>    <span class="cf">while</span> <span class="va">True</span>:</span>
+<span id="cb32-14"><a href="#cb32-14" aria-hidden="true" tabindex="-1"></a>        SURF.fill((<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>))</span>
+<span id="cb32-15"><a href="#cb32-15" aria-hidden="true" tabindex="-1"></a>        <span class="cf">for</span> event <span class="kw">in</span> pygame.event.get():</span>
+<span id="cb32-16"><a href="#cb32-16" aria-hidden="true" tabindex="-1"></a>            <span class="cf">if</span> event.<span class="bu">type</span> <span class="op">==</span> QUIT:</span>
+<span id="cb32-17"><a href="#cb32-17" aria-hidden="true" tabindex="-1"></a>                pygame.quit()</span>
+<span id="cb32-18"><a href="#cb32-18" aria-hidden="true" tabindex="-1"></a>                sys.exit()</span>
+<span id="cb32-19"><a href="#cb32-19" aria-hidden="true" tabindex="-1"></a>        </span>
+<span id="cb32-20"><a href="#cb32-20" aria-hidden="true" tabindex="-1"></a>        draw_text(x <span class="op">=</span> <span class="dv">0</span>, y <span class="op">=</span> <span class="dv">0</span>, text <span class="op">=</span> <span class="st">"Pygame says:"</span>)</span>
+<span id="cb32-21"><a href="#cb32-21" aria-hidden="true" tabindex="-1"></a>        draw_text(x <span class="op">=</span> width<span class="op">/</span><span class="dv">2</span>, y <span class="op">=</span> height<span class="op">/</span><span class="dv">2</span>, text <span class="op">=</span> <span class="st">"Hi there!"</span>, </span>
+<span id="cb32-22"><a href="#cb32-22" aria-hidden="true" tabindex="-1"></a>                  center <span class="op">=</span> <span class="va">True</span>)</span>
+<span id="cb32-23"><a href="#cb32-23" aria-hidden="true" tabindex="-1"></a>        </span>
+<span id="cb32-24"><a href="#cb32-24" aria-hidden="true" tabindex="-1"></a>        pygame.display.update()</span>
+<span id="cb32-25"><a href="#cb32-25" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> draw_text(x, y, text,</span>
+<span id="cb32-26"><a href="#cb32-26" aria-hidden="true" tabindex="-1"></a>              color <span class="op">=</span> (<span class="dv">255</span>, <span class="dv">255</span>, <span class="dv">255</span>),</span>
+<span id="cb32-27"><a href="#cb32-27" aria-hidden="true" tabindex="-1"></a>              center <span class="op">=</span> <span class="va">False</span>):</span>
+<span id="cb32-28"><a href="#cb32-28" aria-hidden="true" tabindex="-1"></a>    rendered_text <span class="op">=</span> FONT.render(text, <span class="va">True</span>, color)</span>
+<span id="cb32-29"><a href="#cb32-29" aria-hidden="true" tabindex="-1"></a>    <span class="co"># retrieving the abstract rectangle of the text box</span></span>
+<span id="cb32-30"><a href="#cb32-30" aria-hidden="true" tabindex="-1"></a>    box <span class="op">=</span> rendered_text.get_rect()</span>
+<span id="cb32-31"><a href="#cb32-31" aria-hidden="true" tabindex="-1"></a>    <span class="co"># this sets the x and why coordinates</span></span>
+<span id="cb32-32"><a href="#cb32-32" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> center:</span>
+<span id="cb32-33"><a href="#cb32-33" aria-hidden="true" tabindex="-1"></a>        box.center <span class="op">=</span> (x,y)</span>
+<span id="cb32-34"><a href="#cb32-34" aria-hidden="true" tabindex="-1"></a>    <span class="cf">else</span>:</span>
+<span id="cb32-35"><a href="#cb32-35" aria-hidden="true" tabindex="-1"></a>        box.topleft <span class="op">=</span> (x,y)</span>
+<span id="cb32-36"><a href="#cb32-36" aria-hidden="true" tabindex="-1"></a>    <span class="co"># This puts a pre-rendered object to the screen</span></span>
+<span id="cb32-37"><a href="#cb32-37" aria-hidden="true" tabindex="-1"></a>    SURF.blit(rendered_text, box)</span>
+<span id="cb32-38"><a href="#cb32-38" aria-hidden="true" tabindex="-1"></a> </span>
+<span id="cb32-39"><a href="#cb32-39" aria-hidden="true" tabindex="-1"></a>main()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <p>Notice that:</p>
 <ol type="1">
@@ -1234,6 +1231,89 @@ With the time stamp method we can write our prototype in a way that comes closer
 <li><code>picture.get_rect()</code> is called twice. After the scaling the box gets an update</li>
 <li>Putting the scaling part into a conditional is not necessary, but saves computation where it is not needed.</li>
 </ol>
+</section>
+<section id="alpha-masks" class="level3" data-number="8.4.4">
+<h3 data-number="8.4.4" class="anchored" data-anchor-id="alpha-masks"><span class="header-section-number">8.4.4</span> Alpha masks</h3>
+<p>You have seen that Pygame drawings work like oil paint by default: Later drawings are added on top and occlude earlier ones. What if you wanted to create a window or cutout in a higher layer, so that elements on lower layers shine through? In Pygame and many other graphics environments, you can make figures partially or fully transparent using the <em>alpha channel</em>.</p>
+<p>The alpha channel is a fourth color channel, next to red, green and blue. The RGB channels determine how brightly each subpixel glows, while the alpha channel determines how opaque a pixel is. Because each channel is a byte, alpha takes values from 0 to 255: 0 means fully transparent, 255 means fully opaque, and the values in between produce partial transparency. Colors with alpha are written as four-tuples, such as <code>(0, 0, 0, 255)</code> for opaque black and <code>(0, 0, 0, 0)</code> for fully transparent black. In the latter case, the three color values do not matter, because nothing of that pixel will be visible.</p>
+<p>There is a catch, though. A surface that was created without an alpha channel has no place to store per-pixel transparency, so the fourth value of a color tuple is simply ignored. To make use of per-pixel transparency, you create an additional surface in memory with the flag <code>pygame.SRCALPHA</code>. Such a surface stores an alpha value for every pixel. You paint on this surface, and only then <em>blit</em> it onto the screen. While blitting, Pygame combines the pixels of the upper surface with the pixels below: opaque pixels cover what is underneath, transparent pixels leave it untouched, and semi-transparent pixels let it shine through. In this role, the alpha channel is a <em>mask</em>: it marks the pixels that the panel keeps and the pixels through which the layers below remain visible.</p>
+<p>The following program puts this to work and picks up the paper traffic light motif from the interaction analysis. Three adjacent squares in red, yellow and green form a slider. A smaller black screen with a circular cutout sits in front of it. The selected square appears through the cutout, while the neighboring squares remain partly visible around the screen. The left and right arrow keys move the slider behind the cutout.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb34"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pygame</span>
+<span id="cb34-2"><a href="#cb34-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> sys</span>
+<span id="cb34-3"><a href="#cb34-3" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> pygame.<span class="bu">locals</span> <span class="im">import</span> <span class="op">*</span></span>
+<span id="cb34-4"><a href="#cb34-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-5"><a href="#cb34-5" aria-hidden="true" tabindex="-1"></a>WIDTH <span class="op">=</span> <span class="dv">800</span></span>
+<span id="cb34-6"><a href="#cb34-6" aria-hidden="true" tabindex="-1"></a>HEIGHT <span class="op">=</span> <span class="dv">600</span></span>
+<span id="cb34-7"><a href="#cb34-7" aria-hidden="true" tabindex="-1"></a>SKY <span class="op">=</span> (<span class="dv">170</span>, <span class="dv">210</span>, <span class="dv">240</span>)</span>
+<span id="cb34-8"><a href="#cb34-8" aria-hidden="true" tabindex="-1"></a>RED <span class="op">=</span> (<span class="dv">230</span>, <span class="dv">45</span>, <span class="dv">45</span>)</span>
+<span id="cb34-9"><a href="#cb34-9" aria-hidden="true" tabindex="-1"></a>YELLOW <span class="op">=</span> (<span class="dv">245</span>, <span class="dv">210</span>, <span class="dv">40</span>)</span>
+<span id="cb34-10"><a href="#cb34-10" aria-hidden="true" tabindex="-1"></a>GREEN <span class="op">=</span> (<span class="dv">40</span>, <span class="dv">200</span>, <span class="dv">90</span>)</span>
+<span id="cb34-11"><a href="#cb34-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-12"><a href="#cb34-12" aria-hidden="true" tabindex="-1"></a>PANEL_W <span class="op">=</span> <span class="bu">round</span>(WIDTH <span class="op">*</span> <span class="dv">5</span><span class="op">/</span><span class="dv">12</span>)</span>
+<span id="cb34-13"><a href="#cb34-13" aria-hidden="true" tabindex="-1"></a>PANEL_H <span class="op">=</span> <span class="bu">round</span>(HEIGHT <span class="op">*</span> <span class="dv">5</span><span class="op">/</span><span class="dv">12</span>)</span>
+<span id="cb34-14"><a href="#cb34-14" aria-hidden="true" tabindex="-1"></a>CUTOUT_R <span class="op">=</span> <span class="bu">round</span>(<span class="bu">min</span>(WIDTH, HEIGHT) <span class="op">*</span> <span class="dv">1</span><span class="op">/</span><span class="dv">12</span>)</span>
+<span id="cb34-15"><a href="#cb34-15" aria-hidden="true" tabindex="-1"></a>SQUARE <span class="op">=</span> <span class="bu">round</span>(WIDTH <span class="op">*</span> <span class="dv">2</span><span class="op">/</span><span class="dv">12</span>)</span>
+<span id="cb34-16"><a href="#cb34-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-17"><a href="#cb34-17" aria-hidden="true" tabindex="-1"></a>pygame.init()</span>
+<span id="cb34-18"><a href="#cb34-18" aria-hidden="true" tabindex="-1"></a>pygame.display.set_mode((WIDTH, HEIGHT))</span>
+<span id="cb34-19"><a href="#cb34-19" aria-hidden="true" tabindex="-1"></a>pygame.display.set_caption(<span class="st">"Alpha mask"</span>)</span>
+<span id="cb34-20"><a href="#cb34-20" aria-hidden="true" tabindex="-1"></a>screen <span class="op">=</span> pygame.display.get_surface()</span>
+<span id="cb34-21"><a href="#cb34-21" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-22"><a href="#cb34-22" aria-hidden="true" tabindex="-1"></a>STATE <span class="op">=</span> <span class="dv">2</span></span>
+<span id="cb34-23"><a href="#cb34-23" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-24"><a href="#cb34-24" aria-hidden="true" tabindex="-1"></a><span class="co"># The upper layer: an opaque black screen with a transparent hole.</span></span>
+<span id="cb34-25"><a href="#cb34-25" aria-hidden="true" tabindex="-1"></a>panel <span class="op">=</span> pygame.Surface((PANEL_W, PANEL_H), pygame.SRCALPHA)</span>
+<span id="cb34-26"><a href="#cb34-26" aria-hidden="true" tabindex="-1"></a>panel.fill((<span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">255</span>))</span>
+<span id="cb34-27"><a href="#cb34-27" aria-hidden="true" tabindex="-1"></a>pygame.draw.circle(panel, (<span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>),</span>
+<span id="cb34-28"><a href="#cb34-28" aria-hidden="true" tabindex="-1"></a>                   (PANEL_W <span class="op">//</span> <span class="dv">2</span>, PANEL_H <span class="op">//</span> <span class="dv">2</span>), CUTOUT_R)</span>
+<span id="cb34-29"><a href="#cb34-29" aria-hidden="true" tabindex="-1"></a>panel_box <span class="op">=</span> panel.get_rect(center<span class="op">=</span>(WIDTH <span class="op">//</span> <span class="dv">2</span>, HEIGHT <span class="op">//</span> <span class="dv">2</span>))</span>
+<span id="cb34-30"><a href="#cb34-30" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-31"><a href="#cb34-31" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> main():</span>
+<span id="cb34-32"><a href="#cb34-32" aria-hidden="true" tabindex="-1"></a>    <span class="kw">global</span> STATE</span>
+<span id="cb34-33"><a href="#cb34-33" aria-hidden="true" tabindex="-1"></a>    <span class="cf">while</span> <span class="va">True</span>:</span>
+<span id="cb34-34"><a href="#cb34-34" aria-hidden="true" tabindex="-1"></a>        <span class="co"># ITC</span></span>
+<span id="cb34-35"><a href="#cb34-35" aria-hidden="true" tabindex="-1"></a>        <span class="cf">for</span> event <span class="kw">in</span> pygame.event.get():</span>
+<span id="cb34-36"><a href="#cb34-36" aria-hidden="true" tabindex="-1"></a>            <span class="cf">if</span> event.<span class="bu">type</span> <span class="op">==</span> QUIT:</span>
+<span id="cb34-37"><a href="#cb34-37" aria-hidden="true" tabindex="-1"></a>                pygame.quit()</span>
+<span id="cb34-38"><a href="#cb34-38" aria-hidden="true" tabindex="-1"></a>                sys.exit()</span>
+<span id="cb34-39"><a href="#cb34-39" aria-hidden="true" tabindex="-1"></a>            <span class="cf">if</span> event.<span class="bu">type</span> <span class="op">==</span> KEYDOWN:</span>
+<span id="cb34-40"><a href="#cb34-40" aria-hidden="true" tabindex="-1"></a>                <span class="cf">if</span> event.key <span class="op">==</span> K_LEFT:</span>
+<span id="cb34-41"><a href="#cb34-41" aria-hidden="true" tabindex="-1"></a>                    STATE <span class="op">=</span> <span class="bu">max</span>(STATE <span class="op">-</span> <span class="dv">1</span>, <span class="dv">1</span>)</span>
+<span id="cb34-42"><a href="#cb34-42" aria-hidden="true" tabindex="-1"></a>                <span class="cf">if</span> event.key <span class="op">==</span> K_RIGHT:</span>
+<span id="cb34-43"><a href="#cb34-43" aria-hidden="true" tabindex="-1"></a>                    STATE <span class="op">=</span> <span class="bu">min</span>(STATE <span class="op">+</span> <span class="dv">1</span>, <span class="dv">3</span>)</span>
+<span id="cb34-44"><a href="#cb34-44" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-45"><a href="#cb34-45" aria-hidden="true" tabindex="-1"></a>        <span class="co"># Presentationals</span></span>
+<span id="cb34-46"><a href="#cb34-46" aria-hidden="true" tabindex="-1"></a>        screen.fill(SKY)</span>
+<span id="cb34-47"><a href="#cb34-47" aria-hidden="true" tabindex="-1"></a>        draw_slider(STATE)</span>
+<span id="cb34-48"><a href="#cb34-48" aria-hidden="true" tabindex="-1"></a>        screen.blit(panel, panel_box)</span>
+<span id="cb34-49"><a href="#cb34-49" aria-hidden="true" tabindex="-1"></a>        pygame.display.update()</span>
+<span id="cb34-50"><a href="#cb34-50" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-51"><a href="#cb34-51" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> draw_slider(state):</span>
+<span id="cb34-52"><a href="#cb34-52" aria-hidden="true" tabindex="-1"></a>    <span class="co"># The selected square is centered under the cutout. State 2 is neutral,</span></span>
+<span id="cb34-53"><a href="#cb34-53" aria-hidden="true" tabindex="-1"></a>    <span class="co"># state 1 shifts the slider right, state 3 shifts it left.</span></span>
+<span id="cb34-54"><a href="#cb34-54" aria-hidden="true" tabindex="-1"></a>    offset <span class="op">=</span> (<span class="dv">2</span> <span class="op">-</span> state) <span class="op">*</span> SQUARE</span>
+<span id="cb34-55"><a href="#cb34-55" aria-hidden="true" tabindex="-1"></a>    left <span class="op">=</span> panel_box.centerx <span class="op">-</span> SQUARE <span class="op">*</span> <span class="dv">3</span> <span class="op">//</span> <span class="dv">2</span> <span class="op">+</span> offset</span>
+<span id="cb34-56"><a href="#cb34-56" aria-hidden="true" tabindex="-1"></a>    top <span class="op">=</span> panel_box.centery <span class="op">-</span> SQUARE <span class="op">//</span> <span class="dv">2</span></span>
+<span id="cb34-57"><a href="#cb34-57" aria-hidden="true" tabindex="-1"></a>    pygame.draw.rect(screen, RED, (left, top, SQUARE, SQUARE))</span>
+<span id="cb34-58"><a href="#cb34-58" aria-hidden="true" tabindex="-1"></a>    pygame.draw.rect(screen, YELLOW,</span>
+<span id="cb34-59"><a href="#cb34-59" aria-hidden="true" tabindex="-1"></a>                     (left <span class="op">+</span> SQUARE, top, SQUARE, SQUARE))</span>
+<span id="cb34-60"><a href="#cb34-60" aria-hidden="true" tabindex="-1"></a>    pygame.draw.rect(screen, GREEN,</span>
+<span id="cb34-61"><a href="#cb34-61" aria-hidden="true" tabindex="-1"></a>                     (left <span class="op">+</span> <span class="dv">2</span> <span class="op">*</span> SQUARE, top, SQUARE, SQUARE))</span>
+<span id="cb34-62"><a href="#cb34-62" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-63"><a href="#cb34-63" aria-hidden="true" tabindex="-1"></a>main()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p>Notice that:</p>
+<ol type="1">
+<li>The panel is created as an off-screen surface with <code>pygame.Surface((PANEL_W, PANEL_H), pygame.SRCALPHA)</code>. The flag gives every pixel its own alpha value. Without it, the fourth value in <code>(0, 0, 0, 0)</code> would be ignored and the circle would remain black.</li>
+<li>The cutout is punched into the panel before the panel is blitted. Drawing a circle with the color <code>(0, 0, 0, 0)</code> <em>replaces</em> the pixel values rather than blending with them, so the circle does not paint a dark disc. It removes the panel at that spot.</li>
+<li>The drawing order is the layering order. The sky is painted first, then the slider, and the panel comes last, because it is the top layer. The cutout only works as a hole in the upper layer; it cannot be drawn as a separate figure on the lower layers.</li>
+<li>The panel is built once, before the main loop, because its shape and its hole never change. Only the sky and the slider are redrawn at every refresh.</li>
+<li>The cutout stays in the center of the screen. What moves is the slider, and the cutout acts like a window through which we look at it. State 2 is the neutral middle position. In state 1 the red square must appear in the cutout, so the whole slider shifts one square to the right. In state 3 it shifts one square to the left. This is what <code>offset = (2 - state) * SQUARE</code> computes.</li>
+<li><code>max()</code> and <code>min()</code> clamp the state to the valid range, so pressing left on the red square or right on the green one does nothing.</li>
+<li>Alpha values between 0 and 255 give partial transparency. Replace <code>(0, 0, 0, 0)</code> with <code>(0, 0, 0, 128)</code> and the cutout turns into tinted glass: the selected square is still visible, but dimmed. The same mechanism is used for shaded overlays, ghost images, or disabled controls.</li>
+</ol>
+<p>Alpha is a purely presentational matter. It changes how a state looks, not when the program moves from one state to another. The state model of the slider is simple: three states and two events, left and right, that move between them. The alpha mask only adds a window through which we see the current state.</p>
 <!--
 ### Playing animations
 
@@ -1271,37 +1351,37 @@ The Pacman figure would leave a trail of copies of itself, painting a trail with
 <h3 data-number="8.5.1" class="anchored" data-anchor-id="exercise-c.-transition-tables"><span class="header-section-number">8.5.1</span> Exercise C. Transition tables</h3>
 <p>For the following code snippet, make a transition table.</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb34"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a>STATE <span class="op">=</span> <span class="st">"A"</span></span>
-<span id="cb34-2"><a href="#cb34-2" aria-hidden="true" tabindex="-1"></a><span class="cf">while</span> <span class="va">True</span>:</span>
-<span id="cb34-3"><a href="#cb34-3" aria-hidden="true" tabindex="-1"></a>    <span class="co">#ITC</span></span>
-<span id="cb34-4"><a href="#cb34-4" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> event <span class="kw">in</span> pygame.event.get():                        </span>
-<span id="cb34-5"><a href="#cb34-5" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> STATE <span class="op">==</span> <span class="st">"A"</span>:</span>
-<span id="cb34-6"><a href="#cb34-6" aria-hidden="true" tabindex="-1"></a>            count <span class="op">=</span> <span class="dv">0</span></span>
-<span id="cb34-7"><a href="#cb34-7" aria-hidden="true" tabindex="-1"></a>            <span class="cf">if</span> event.<span class="bu">type</span> <span class="op">==</span> KEYDOWN <span class="kw">and</span> event.key <span class="op">==</span> K_w:</span>
-<span id="cb34-8"><a href="#cb34-8" aria-hidden="true" tabindex="-1"></a>                STATE <span class="op">=</span> <span class="st">"B"</span></span>
-<span id="cb34-9"><a href="#cb34-9" aria-hidden="true" tabindex="-1"></a>                <span class="bu">print</span>(STATE)</span>
-<span id="cb34-10"><a href="#cb34-10" aria-hidden="true" tabindex="-1"></a>        <span class="cf">elif</span> STATE <span class="op">==</span> <span class="st">"B"</span>:</span>
-<span id="cb34-11"><a href="#cb34-11" aria-hidden="true" tabindex="-1"></a>            count <span class="op">=</span> count <span class="op">+</span> <span class="dv">1</span></span>
-<span id="cb34-12"><a href="#cb34-12" aria-hidden="true" tabindex="-1"></a>            <span class="cf">if</span> event.<span class="bu">type</span> <span class="op">==</span> KEYDOWN <span class="kw">and</span> event.key <span class="op">==</span> K_a:</span>
-<span id="cb34-13"><a href="#cb34-13" aria-hidden="true" tabindex="-1"></a>                timer <span class="op">=</span> time()</span>
-<span id="cb34-14"><a href="#cb34-14" aria-hidden="true" tabindex="-1"></a>                STATE <span class="op">=</span> <span class="st">"C"</span></span>
-<span id="cb34-15"><a href="#cb34-15" aria-hidden="true" tabindex="-1"></a>                <span class="bu">print</span>(STATE)</span>
-<span id="cb34-16"><a href="#cb34-16" aria-hidden="true" tabindex="-1"></a>        <span class="cf">elif</span> STATE <span class="op">==</span> <span class="st">"D"</span>:</span>
-<span id="cb34-17"><a href="#cb34-17" aria-hidden="true" tabindex="-1"></a>            <span class="cf">if</span> event.<span class="bu">type</span> <span class="op">==</span> KEYDOWN <span class="kw">and</span> event.key <span class="op">==</span> K_SPACE:</span>
-<span id="cb34-18"><a href="#cb34-18" aria-hidden="true" tabindex="-1"></a>                <span class="cf">if</span> count <span class="op">&lt;</span> <span class="dv">10</span>:</span>
-<span id="cb34-19"><a href="#cb34-19" aria-hidden="true" tabindex="-1"></a>                    STATE <span class="op">=</span> <span class="st">"B"</span></span>
-<span id="cb34-20"><a href="#cb34-20" aria-hidden="true" tabindex="-1"></a>                <span class="cf">else</span>:</span>
-<span id="cb34-21"><a href="#cb34-21" aria-hidden="true" tabindex="-1"></a>                    STATE <span class="op">=</span> <span class="st">"quit"</span></span>
-<span id="cb34-22"><a href="#cb34-22" aria-hidden="true" tabindex="-1"></a>                <span class="bu">print</span>(STATE)</span>
-<span id="cb34-23"><a href="#cb34-23" aria-hidden="true" tabindex="-1"></a>    <span class="co">#ATC</span></span>
-<span id="cb34-24"><a href="#cb34-24" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> STATE <span class="op">==</span> <span class="st">"C"</span>:</span>
-<span id="cb34-25"><a href="#cb34-25" aria-hidden="true" tabindex="-1"></a>        present_picture()</span>
-<span id="cb34-26"><a href="#cb34-26" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> time() <span class="op">-</span> timer <span class="op">&gt;</span> <span class="dv">3</span>:</span>
-<span id="cb34-27"><a href="#cb34-27" aria-hidden="true" tabindex="-1"></a>            STATE <span class="op">=</span> <span class="st">"D"</span></span>
-<span id="cb34-28"><a href="#cb34-28" aria-hidden="true" tabindex="-1"></a>        <span class="bu">print</span>(STATE)</span>
-<span id="cb34-29"><a href="#cb34-29" aria-hidden="true" tabindex="-1"></a>    <span class="cf">elif</span> STATE <span class="op">==</span> <span class="st">"quit"</span>:</span>
-<span id="cb34-30"><a href="#cb34-30" aria-hidden="true" tabindex="-1"></a>        pygame.quit()</span>
-<span id="cb34-31"><a href="#cb34-31" aria-hidden="true" tabindex="-1"></a>        sys.exit()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb35"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a>STATE <span class="op">=</span> <span class="st">"A"</span></span>
+<span id="cb35-2"><a href="#cb35-2" aria-hidden="true" tabindex="-1"></a><span class="cf">while</span> <span class="va">True</span>:</span>
+<span id="cb35-3"><a href="#cb35-3" aria-hidden="true" tabindex="-1"></a>    <span class="co">#ITC</span></span>
+<span id="cb35-4"><a href="#cb35-4" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> event <span class="kw">in</span> pygame.event.get():                        </span>
+<span id="cb35-5"><a href="#cb35-5" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> STATE <span class="op">==</span> <span class="st">"A"</span>:</span>
+<span id="cb35-6"><a href="#cb35-6" aria-hidden="true" tabindex="-1"></a>            count <span class="op">=</span> <span class="dv">0</span></span>
+<span id="cb35-7"><a href="#cb35-7" aria-hidden="true" tabindex="-1"></a>            <span class="cf">if</span> event.<span class="bu">type</span> <span class="op">==</span> KEYDOWN <span class="kw">and</span> event.key <span class="op">==</span> K_w:</span>
+<span id="cb35-8"><a href="#cb35-8" aria-hidden="true" tabindex="-1"></a>                STATE <span class="op">=</span> <span class="st">"B"</span></span>
+<span id="cb35-9"><a href="#cb35-9" aria-hidden="true" tabindex="-1"></a>                <span class="bu">print</span>(STATE)</span>
+<span id="cb35-10"><a href="#cb35-10" aria-hidden="true" tabindex="-1"></a>        <span class="cf">elif</span> STATE <span class="op">==</span> <span class="st">"B"</span>:</span>
+<span id="cb35-11"><a href="#cb35-11" aria-hidden="true" tabindex="-1"></a>            count <span class="op">=</span> count <span class="op">+</span> <span class="dv">1</span></span>
+<span id="cb35-12"><a href="#cb35-12" aria-hidden="true" tabindex="-1"></a>            <span class="cf">if</span> event.<span class="bu">type</span> <span class="op">==</span> KEYDOWN <span class="kw">and</span> event.key <span class="op">==</span> K_a:</span>
+<span id="cb35-13"><a href="#cb35-13" aria-hidden="true" tabindex="-1"></a>                timer <span class="op">=</span> time()</span>
+<span id="cb35-14"><a href="#cb35-14" aria-hidden="true" tabindex="-1"></a>                STATE <span class="op">=</span> <span class="st">"C"</span></span>
+<span id="cb35-15"><a href="#cb35-15" aria-hidden="true" tabindex="-1"></a>                <span class="bu">print</span>(STATE)</span>
+<span id="cb35-16"><a href="#cb35-16" aria-hidden="true" tabindex="-1"></a>        <span class="cf">elif</span> STATE <span class="op">==</span> <span class="st">"D"</span>:</span>
+<span id="cb35-17"><a href="#cb35-17" aria-hidden="true" tabindex="-1"></a>            <span class="cf">if</span> event.<span class="bu">type</span> <span class="op">==</span> KEYDOWN <span class="kw">and</span> event.key <span class="op">==</span> K_SPACE:</span>
+<span id="cb35-18"><a href="#cb35-18" aria-hidden="true" tabindex="-1"></a>                <span class="cf">if</span> count <span class="op">&lt;</span> <span class="dv">10</span>:</span>
+<span id="cb35-19"><a href="#cb35-19" aria-hidden="true" tabindex="-1"></a>                    STATE <span class="op">=</span> <span class="st">"B"</span></span>
+<span id="cb35-20"><a href="#cb35-20" aria-hidden="true" tabindex="-1"></a>                <span class="cf">else</span>:</span>
+<span id="cb35-21"><a href="#cb35-21" aria-hidden="true" tabindex="-1"></a>                    STATE <span class="op">=</span> <span class="st">"quit"</span></span>
+<span id="cb35-22"><a href="#cb35-22" aria-hidden="true" tabindex="-1"></a>                <span class="bu">print</span>(STATE)</span>
+<span id="cb35-23"><a href="#cb35-23" aria-hidden="true" tabindex="-1"></a>    <span class="co">#ATC</span></span>
+<span id="cb35-24"><a href="#cb35-24" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> STATE <span class="op">==</span> <span class="st">"C"</span>:</span>
+<span id="cb35-25"><a href="#cb35-25" aria-hidden="true" tabindex="-1"></a>        present_picture()</span>
+<span id="cb35-26"><a href="#cb35-26" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> time() <span class="op">-</span> timer <span class="op">&gt;</span> <span class="dv">3</span>:</span>
+<span id="cb35-27"><a href="#cb35-27" aria-hidden="true" tabindex="-1"></a>            STATE <span class="op">=</span> <span class="st">"D"</span></span>
+<span id="cb35-28"><a href="#cb35-28" aria-hidden="true" tabindex="-1"></a>        <span class="bu">print</span>(STATE)</span>
+<span id="cb35-29"><a href="#cb35-29" aria-hidden="true" tabindex="-1"></a>    <span class="cf">elif</span> STATE <span class="op">==</span> <span class="st">"quit"</span>:</span>
+<span id="cb35-30"><a href="#cb35-30" aria-hidden="true" tabindex="-1"></a>        pygame.quit()</span>
+<span id="cb35-31"><a href="#cb35-31" aria-hidden="true" tabindex="-1"></a>        sys.exit()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </section>
 </section>
