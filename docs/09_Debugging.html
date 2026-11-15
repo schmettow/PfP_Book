@@ -290,7 +290,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="just-do-it" class="level3" data-number="9.2.2">
 <h3 data-number="9.2.2" class="anchored" data-anchor-id="just-do-it"><span class="header-section-number">9.2.2</span> Just do it!</h3>
-<p>When you read about something new, be it in this book, on the internet or in class, try it yourself and see what happens! This is an essential learning attitude when learning how to program. Definitely, you cannot learn how to program by just reading books. It is above all a “learning by doing” skill. Chapter 2 [Variables, values and data types] introduces <em>float division</em>. Float division is a peculiarity of all Python 2 versions. When an integer division does not result in another integer, the result is truncated instead of represented as a floating point. Your first reaction when reading about float division should be to open your Python interpreter and try out what happens when you divide two integers which do not share a common multiple.</p>
+<p>When you read about something new, be it in this book, on the internet or in class, try it yourself and see what happens! This is an essential learning attitude when learning how to program. Definitely, you cannot learn how to program by just reading books. It is above all a “learning by doing” skill. Chapter 2 [Variables, values and data types] introduces arithmetic expressions. In Python 3, dividing two integers with <code>/</code> always yields a floating-point number, even when one divides the other without a remainder. Your first reaction when reading about division should be to open your Python interpreter and try out what happens when you divide two integers which do not share a common multiple.</p>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> <span class="dv">7</span></span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>y <span class="op">=</span> <span class="dv">3</span></span>
@@ -299,7 +299,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <pre><code>2.3333333333333335</code></pre>
 </div>
 </div>
-<p>After having executed the above code snippet in your Python interpreter, does it not become more apparent what I meant by <em>truncated</em>? Being a psychologist you know that writing (by hand) facilitates structuring your thoughts and subsequently, memorizing. Trying out code snippets is no different in this respect.</p>
+<p>After having executed the above code snippet in your Python interpreter, does it not become more apparent what I meant by <em>true division</em>? If you need the integer part only, use the <code>//</code> operator instead. Being a psychologist you know that writing (by hand) facilitates structuring your thoughts and subsequently, memorizing. Trying out code snippets is no different in this respect.</p>
 
 
 </section>

@@ -465,7 +465,7 @@ The USB endoscope camera is a mass product from China, which you can get by the 
 
 A Yeti is a YET interface (or intelligence). It is a piece of software that analyses the incoming video footage and often interacts with the user. A Yeti is usually written in Python, using the library Pygame for interaction with the user and the library OpenCV for the video analysis.
 
-For using a Yeti with YET, you first have to download it from the [YET Github repository](https://github.com/schmettow/YET/tree/main/yeti)
+For using a Yeti with YET, you first have to download it from the [YET Zero Github repository](https://github.com/schmettow/zet_zero) [Module 6 Release](https://github.com/schmettow/yet_zero/releases/tag/mod6)
 
 ### The Eyeballing exercise
 
