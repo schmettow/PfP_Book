@@ -1,5 +1,11 @@
 # Project Instructions
 
+1. We are writing a book for programming beginners. 
+2. These are Psychology students in a Human Factors & Cognition course. 
+3. Most of them, never all, have previous training in using R for statistical analysis.
+4. Focus on Interactive Systems, state machines, event handling, designing graphic stimuli.
+5. All chapters should be a standalone experience as much as possible.
+
 ## Assistant workflow
 
 - After any edit to files in this project, always end the response with a suggested commit message.

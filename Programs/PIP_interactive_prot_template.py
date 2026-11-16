@@ -1,4 +1,3 @@
-# -*- coding: utf-8 -*-
 """
 Created on Wed Nov 21 11:47:42 2018
 
@@ -9,12 +8,12 @@ Created on Wed Nov 21 11:47:42 2018
 STATE = "Go"
 
 while True:
-  
+
   print(STATE)
   key = input("Press a key: ")
-  
+
   # interactive transitionals
-  
+
   if STATE == "Go" and key == " ":
     STATE = "Att"
     continue
@@ -29,5 +28,5 @@ while True:
 
   if STATE == "Prep" and key == " ":
     STATE = "Go"
-    continue 
+    continue
 exit()
